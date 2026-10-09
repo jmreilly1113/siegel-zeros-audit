@@ -1,0 +1,19 @@
+# Lean compile: OAI Corollary 4 (actual_biquadratic_rectangle_span) via Lemma3.rectangle
+# Source: lean-checks/Lemma3_Bridge.lean
+# Windows sha256: 2b4b36fba64c0dcb583bbf415fab3c9e46c9808460a9d9b9bbcceb11daed2109
+# Command (Git Bash): MSYS_NO_PATHCONV=1 wsl.exe -d Ubuntu-24.04 -u root -- bash /mnt/c/Users/Work/dev/siegel/wsl-comparator/34_lean_file.sh Lemma3_Bridge.lean
+# Date: 2026-10-08T16:52:32-04:00
+# Lean 4.34.1, Mathlib d13f23b723, OAI openai/math adc7f1241b42e322a6451854ab7e4b4c146bf78a
+# Note: the only sorry is the stub Lemma3.rectangle (line 7); sorryAx in #print axioms comes from it.
+
+
+real	0m10.264s
+user	0m7.958s
+sys	0m3.093s
+9d9b9bbcceb11daed2109  /home/checker/leanchecks/Lemma3_Bridge.lean
+/home/checker/leanchecks/Lemma3_Bridge.lean:7:8: warning: declaration uses `sorry`
+'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+LEAN EXIT CODE: 0

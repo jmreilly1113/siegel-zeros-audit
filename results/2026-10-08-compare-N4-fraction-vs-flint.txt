@@ -1,0 +1,9 @@
+(-7, 4, 2) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 0, 'crt_primes': 340}
+(-7, 4, 3) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 6, 'crt_primes': 377}
+(-1, 4, 2) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 7, 'crt_primes': 283}
+(-1, 4, 3) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 36, 'crt_primes': 321}
+(5, 4, 2) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 0, 'crt_primes': 329}
+(5, 4, 3) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 6, 'crt_primes': 365}
+(6, 4, 2) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 0, 'crt_primes': 335}
+(6, 4, 3) AGREE {'regdet_norm_agrees': True, 'rejected_mod_p': 6, 'crt_primes': 371}
+8 runs compared, 0 disagreements; only in first: 0, only in second: 34

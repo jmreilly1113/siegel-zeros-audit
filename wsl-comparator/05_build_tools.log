@@ -1,0 +1,25 @@
+== landrun (main) go.mod go version: go 1.24.0
+go: downloading go1.24.0 (linux/amd64)
+go: downloading github.com/urfave/cli/v3 v3.6.2
+go: downloading github.com/landlock-lsm/go-landlock v0.9.0
+go: downloading golang.org/x/sys v0.40.0
+go: downloading kernel.org/pub/linux/libs/security/libcap/psx v1.2.77
+landrun version 0.1.18
+== lean4export @ v4.34.0 with toolchain v4.34.1
+leanprover/lean4:v4.34.0
+✔ [5/6] Built Export:c.o (2.6s)
+✔ [6/6] Built lean4export:exe (1.8s)
+Build completed successfully (6 jobs).
+lean4export
+lean4export.hash
+lean4export.rsp
+lean4export.trace
+== comparator @ tag v4.34.0 with toolchain v4.34.1 (it links lean4export and reads .olean files, so it must match the project's Lean)
+comparator commit d03acab154d269c06e60e4de7e4cc85deebff94b, toolchain file was: leanprover/lean4:v4.34.0
+✔ [15/16] Built Export.Parse:c.o (3.8s)
+✔ [16/16] Built comparator:exe (1.5s)
+Build completed successfully (16 jobs).
+comparator
+comparator.hash
+comparator.rsp
+comparator.trace

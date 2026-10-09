@@ -1,0 +1,10 @@
+sources: results/2026-10-08-lemma7-N5-probe-flint.jsonl results/2026-10-08-lemma7-N5-H2345-flint.jsonl results/2026-10-08-lemma7-N5-H23-more-flint.jsonl
+N=5: runs=44 fields=14 H=[2, 3, 4, 5]
+  admissible (run,p) pairs with E_p>0: 204; v_p(N(Delta)) >= 4E_p: 204; Delta in p^E_p R: 204; equality v_p = 4E_p: 120; v_p(gcd Delta) > E_p: 84
+  rejections mod p (all certified exactly or the run would have stopped): 333; regular-representation det computed in 0 runs, agrees in 0
+  max weight by H: [(2, 22), (3, 29), (3, 30), (4, 35), (5, 41)]
+  class admissible            : pairs  204, v_p >= 4E_p in  204
+  class chi=+1,(2/p)=+1       : pairs   40, v_p >= 4E_p in   40
+  class chi=+1,(2/p)=-1       : pairs  104, v_p >= 4E_p in    6
+  class chi=-1, p<=H          : pairs   15, v_p >= 4E_p in   14
+  class excluded (p | 2q)     : pairs   80, v_p >= 4E_p in   80

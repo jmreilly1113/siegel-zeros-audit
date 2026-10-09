@@ -1,0 +1,8 @@
+d=  -1 N=4 H=2 maxw=16 S1=1072 S2=912 lemma7=ok 1915.6s
+d=  -7 N=4 H=2 maxw=16 S1=1088 S2=904 lemma7=ok 2208.7s
+d=   5 N=4 H=2 maxw=16 S1=1088 S2=904 lemma7=ok 2776.5s
+d=  -7 N=4 H=3 maxw=21 S1=1479 S2=755 lemma7=ok 3228.0s
+d=   5 N=4 H=3 maxw=21 S1=1479 S2=755 lemma7=ok 4288.7s
+d=  -1 N=4 H=3 maxw=22 S1=1546 S2=738 lemma7=ok 2653.0s
+d=   6 N=4 H=2 maxw=16 S1=1088 S2=904 lemma7=ok 4620.1s
+d=   6 N=4 H=3 maxw=21 S1=1479 S2=755 lemma7=ok 6432.6s

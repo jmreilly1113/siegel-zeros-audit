@@ -1,0 +1,15 @@
+Lemma 3, piece 2 (exists_heavy_vertex, closer_point): Lean compile
+Source file: lean-checks/Lemma3_P2.lean
+sha256 (Windows, sha256sum lean-checks/Lemma3_P2.lean): 90ec051827ecbd267cec7292ca55df0b0e78e93593fee3111aa0f0fff7756b7b
+Command (from C:\Users\Work\dev\siegel, Git Bash): wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3_P2.lean
+Date: 2026-10-08 16:35:30 EDT
+Mathlib d13f23b723, Lean 4.34.1
+----- verbatim output -----
+
+real	0m10.439s
+user	0m8.007s
+sys	0m3.811s
+ee3111aa0f0fff7756b7b  /home/checker/leanchecks/Lemma3_P2.lean
+'Lemma3.exists_heavy_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.closer_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN EXIT CODE: 0

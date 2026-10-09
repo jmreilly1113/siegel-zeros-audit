@@ -1,0 +1,51 @@
+Lean statement-match and axiom check, 2026-10-08
+Command (from lean-build/): LEAN_NUM_THREADS=3 lake env lean Check/SiegelCheck.lean   (exit 0)
+Toolchain: leanprover/lean4:v4.34.1 (elan 4.2.4); Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612
+Sources: openai/math adc7f1241b42e322a6451854ab7e4b4c146bf78a, 309 files verified against git blob hashes (docs/log.md)
+Check/SiegelCheck.lean restates both ComparatorChallenges/SiegelZeros.lean statements verbatim and proves them by citing the solution theorems.
+----- output -----
+'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.dirichlet_real_zero_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SiegelCheck.challenge_exists_absolute_real_zero_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+----- Check/SiegelCheck.lean -----
+import OAI.NumberTheory.SiegelZeros.Main
+
+/-!
+Stand-in for the comparator (which needs Linux/landrun).
+1. The two challenge statements from ComparatorChallenges/SiegelZeros.lean are restated
+   verbatim (only the theorem names changed) and proved by citing the solution's theorems.
+   If the solution's types differed from the challenge's, these would fail to elaborate.
+2. `#print axioms` lists every axiom the solution theorems depend on.
+-/
+
+namespace SiegelCheck
+
+theorem challenge_exists_absolute_real_zero_gap :
+    ∃ c : ℝ, 0 < c ∧
+      ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q,
+        χ.IsPrimitive → χ ≠ 1 → (∀ a : ZMod q, (χ a).im = 0) →
+        ∀ β : ℝ, 0 < β → β < 1 → χ.LFunction (β : ℂ) = 0 →
+          c ≤ (1 - β) * Real.log (q : ℝ) :=
+  OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap
+
+theorem challenge_dirichletRealZeroBound_proof :
+    ∃ c : ℝ, 0 < c ∧ ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q,
+        χ.IsPrimitive → χ ≠ 1 → (∀ a : ZMod q, (χ a).im = 0) →
+        ∀ β : ℝ,
+          (0 < β ∧ β < 1 ∧ DirichletCharacter.LFunction χ (β : ℂ) = 0) →
+            c ≤ (1 - β) * Real.log (q : ℝ) :=
+  OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof
+
+end SiegelCheck
+
+#print axioms OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap
+#print axioms OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof
+#print axioms OAI.SiegelZeros.WeightedTorusJets.dirichlet_real_zero_bound
+#print axioms SiegelCheck.challenge_exists_absolute_real_zero_gap

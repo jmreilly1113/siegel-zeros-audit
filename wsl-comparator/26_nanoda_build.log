@@ -1,0 +1,8 @@
+rustc 1.99.0 (b940084d7 2026-09-28)
+cargo 1.99.0 (5f94df478 2026-08-27)
+nanoda commit: 3a2407216ee84a75f9e1aead6803d0578be06ae7, Cargo version: version = "0.4.19"
+   Compiling num-bigint v0.5.1
+   Compiling nanoda_lib v0.4.19 (/root/tools/nanoda_lib)
+    Finished `release` profile [optimized] target(s) in 16.50s
+-rwxr-xr-x 1 root root 1351016 Oct  8 14:02 /usr/local/bin/nanoda_bin
+897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714  /usr/local/bin/nanoda_bin

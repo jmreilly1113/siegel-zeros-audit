@@ -1,0 +1,33 @@
+Lean check: Lemma 3, piece 5 (exists_annihilator, four_hull_subset_cube, exists_vanishing, exists_lattice_nonvanishing, exists_translate)
+Source file: lean-checks/Lemma3_P5.lean
+sha256 (Windows, sha256sum lean-checks/Lemma3_P5.lean): a9ef06abb811fc5aa7eb5c759f0836d5c52f12b0492f7019ce68326b9a9b44c4 *lean-checks/Lemma3_P5.lean
+Command (from C:\Users\Work\dev\siegel, Git Bash): wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3_P5.lean
+Toolchain: Lean 4.34.1, Mathlib d13f23b723
+Date: 2026-10-08T20:38:31Z
+----- verbatim output -----
+a9ef06abb811fc5aa7eb5c759f0836d5c52f12b0492f7019ce68326b9a9b44c4  /home/checker/leanchecks/Lemma3_P5.lean
+/home/checker/leanchecks/Lemma3_P5.lean:69:13: warning: This simp argument is unused:
+  coe_aeval_eq_eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/checker/leanchecks/Lemma3_P5.lean:151:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/home/checker/leanchecks/Lemma3_P5.lean:235:22: warning: This simp argument is unused:
+  degreeOf_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [degreeOf_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Lemma3.exists_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.four_hull_subset_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.exists_vanishing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.exists_lattice_nonvanishing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.exists_translate' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	1m14.111s
+user	0m13.258s
+sys	0m8.383s
+LEAN EXIT CODE: 0

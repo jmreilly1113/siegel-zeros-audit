@@ -1,0 +1,7 @@
+openai/math HEAD: adc7f1241b42e322a6451854ab7e4b4c146bf78a; autocrlf=unset; dirty files: 0
+challenge blob: 8bab3f83ef57af55c5826318b6c92df84117395f json: {"challenge_module":"ComparatorChallenges.SiegelZeros","solution_module":"OAI.NumberTheory.SiegelZeros.Main","theorem_names":["OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap","OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"],"definition_names":[],"permitted_axioms":["propext","Classical.choice","Quot.sound"],"enable_nanoda":false}
+uid=1000(checker) gid=1000(checker) groups=1000(checker)
+-rwxr-xr-x 1 root root 122488776 Oct  8 11:47 comparator
+-rwxr-xr-x 1 root root   6197280 Oct  8 11:46 landrun
+-rwxr-xr-x 1 root root 233952032 Oct  8 11:47 lean4export
+active

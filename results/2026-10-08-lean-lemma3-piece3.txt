@@ -1,0 +1,14 @@
+Source file: lean-checks/Lemma3_P3.lean
+sha256 (Windows, sha256sum): eb8a4a52e197ddccebb36c69cc03a02e0f81e7a124ac4ca97d88a2b31a003e08
+Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3_P3.lean (run from C:\Users\Work\dev\siegel)
+Date: 2026-10-08
+Mathlib d13f23b723, Lean 4.34.1
+----- verbatim output -----
+eb8a4a52e197ddccebb36c69cc03a02e0f81e7a124ac4ca97d88a2b31a003e08  /home/checker/leanchecks/Lemma3_P3.lean
+'Lemma3.exists_int_hyperplane' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.int_comb_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m10.275s
+user	0m6.997s
+sys	0m3.721s
+LEAN EXIT CODE: 0

@@ -1,0 +1,14 @@
+Source: lean-checks/Lemma3_Cor4.lean (Corollary 4, cor:rectangle; interpolation is a sorry stub, proved in lean-checks/Lemma3.lean)
+Windows sha256: 16beaab924d37020c9cf465a00d5460393ed93cafd8dee9eb815826a226cb952
+Command (Git Bash): MSYS_NO_PATHCONV=1 wsl.exe -d Ubuntu-24.04 -u root -- bash /mnt/c/Users/Work/dev/siegel/wsl-comparator/34_lean_file.sh Lemma3_Cor4.lean
+Date: 2026-10-08T16:52:57-04:00
+Lean 4.34.1, Mathlib d13f23b723
+----
+16beaab924d37020c9cf465a00d5460393ed93cafd8dee9eb815826a226cb952  /home/checker/leanchecks/Lemma3_Cor4.lean
+/home/checker/leanchecks/Lemma3_Cor4.lean:22:8: warning: declaration uses `sorry`
+'Lemma3.rectangle' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+LEAN EXIT CODE: 0
+
+real	0m14.154s
+user	0m12.229s
+sys	0m2.797s

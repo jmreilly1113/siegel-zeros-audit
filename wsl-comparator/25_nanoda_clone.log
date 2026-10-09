@@ -1,0 +1,43 @@
+HEAD: 3a2407216ee84a75f9e1aead6803d0578be06ae7 2026-09-22 Merge pull request #34 from scottdhughes/fix/pretty-printer-binder-prefix
+3a24072 2026-09-22 Merge pull request #34 from scottdhughes/fix/pretty-printer-binder-prefix
+587da14 2026-09-22 Merge remote-tracking branch 'origin/master' into fix/pretty-printer-binder-prefix
+f55114a 2026-09-22 chore: bump version to 0.4.19
+079049d 2026-09-21 Merge pull request #36 from lordwilsonDev/fast-decimal-parse
+c940207 2026-09-21 feat: faster nat lit parsing, bump num-bigint/rand
+b36e6f3 2026-09-19 Parse huge decimal nat literals in sub-quadratic time
+c8e5083 2026-09-10 Fix pretty-printer grouping across nonmatching binders
+4c544ed 2026-09-09 Merge pull request #31 from ammkrn/flt_perf
+0928383 2026-09-08 feat: perf improvements from flt project
+0505569 2026-08-24 Merge pull request #28 from ammkrn/empty_recursor_ck
+8a327a1 2026-08-24 fix: prohibit "orphan" recursors
+6ae1f0c 2026-08-18 Merge pull request #27 from ammkrn/more_fixes
+05024bd 2026-08-18 fix: is_sort guards, disable union find eq
+276ac38 2026-08-17 Merge pull request #26 from ammkrn/recursor_ck
+f04456a 2026-08-17 fix: add additional checks for underived recursors
+4183202 2026-08-02 Merge pull request #24 from ammkrn/always_nonzero
+78ded44 2026-08-02 chore: more conservative always/never zero checks
+50cbb3e 2026-08-01 Merge pull request #23 from ammkrn/proj_nested_ck
+404660c 2026-08-01 chore: implement upstream safety checks
+ddfac2b 2026-07-27 Merge pull request #22 from ammkrn/struct_ind_checks
+8e02a15 2026-07-26 fix: more struct and inductive checks
+f58f2f6 2026-06-02 Merge pull request #21 from ammkrn/backref_decline
+698c869 2026-06-02 feat: Change exit code for incorrect backrefs
+b109108 2026-06-01 chore: document `unsafe_permit_all_axioms` option
+8d68231 2026-04-24 Merge pull request #19 from ammkrn/proj_of_prop
+Cargo.lock
+Cargo.toml
+LICENSE
+README.md
+rustfmt.toml
+src
+test_resources
+9:Either run the binary directly through cargo `cargo run --release -- <path_to_config>`, or build the binary using `cargo build --release`, then run the built binary, passing a path to a [configuration](#configuration-file). Building with cargo should just work on all modern platforms without requiring additional build steps.
+11:The binary takes a single argument, which is a path to a json configuration file describing the resource locations and desired options needed to run the type checker. Export files can be streamed via stdin rather than by file path by setting the configuration option `use_stdin: true`, at which point the executable will expect to receive the contents of the export file via stdin.
+13:Export files can be created with [lean4export](https://github.com/leanprover/lean4export).
+19:# Configuration file
+21:The execution conditions of `nanoda_bin` are determined by a json configuration file, there is no old school CLI. This was a conscious design choice to accommodate modern development practices (checking in to version control, use with CI and automation) and what we envision to be the most likely use case for external type checkers (running a suite of external checkers). The UI for external checkers is somewhat TBD and is expected to evolve as the community starts to integrate these into what they're doing.
+23:Given that lean4export already uses json as its export format, adding a json parser as a dependency doesn't increase the overall complexity of the project.
+25:## Configuration options
+29:The `"permitted_axioms"` list is where users specify the axioms an export file is permitted to use. For axioms to be permitted, they must be identified in the config file. The average Lean user will want to permit the three semi-official axioms, which are `Quot.sound`, `Classical.choice`, and `propext`, and most export files will also rely on `Lean.trustCompiler`.
+45:`"declar_sep"` is a separator to print between each pretty printed declaration. A default of "\n\n" will end each declaration with a newline, then put a blank line between successive declarations. While this does allow for the injection of arbitrary strings into the pretty printer output, it's rejected if not valid UTF-8, and the configuration file is controlled entirely by the operator of the type checker, so I don't consider this any more of a vector for attack than specifying an incorrect export file path or knowingly whitelisting an unsound axiom.
+49:An example configuration file:

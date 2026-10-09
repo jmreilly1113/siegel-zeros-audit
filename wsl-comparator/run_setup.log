@@ -1,0 +1,31 @@
+######## 01_base 11:45:51
+01_base exit 0
+info: downloading installer
+n go1.22.2 linux/amd64
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+elan 4.2.4 (227caca13 2026-08-25)
+######## 02_clone_tools 11:46:41
+02_clone_tools exit 0
+leanprover/lean4:v4.35.0-rc4
+
+===== landrun invocation in comparator =====
+comparator/Main.lean:335:  let whichLandrun := (← IO.getEnv "COMPARATOR_LANDRUN").getD "landrun"
+######## 05_build_tools 11:46:43
+05_build_tools exit 0
+comparator
+comparator.hash
+comparator.rsp
+comparator.trace
+######## 06_user_clone 11:47:46
+06_user_clone exit 0
+-rwxr-xr-x 1 root root 122488776 Oct  8 11:47 comparator
+-rwxr-xr-x 1 root root   6197280 Oct  8 11:46 landrun
+-rwxr-xr-x 1 root root 233952032 Oct  8 11:47 lean4export
+active
+######## 07_lake_update 11:48:43
+07_lake_update exit 0
+cache exit: 0
+8.3G	.lake/packages
+42
+Thu Oct  8 11:56:34 EDT 2026
+######## done 11:56:34

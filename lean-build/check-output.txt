@@ -1,0 +1,8 @@
+'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.dirichlet_real_zero_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SiegelCheck.challenge_exists_absolute_real_zero_gap' depends on axioms: [propext, Classical.choice, Quot.sound]

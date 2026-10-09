@@ -1,0 +1,5 @@
+# python 3.14.6, cmd: python src/lemma3_construct.py --N 3 --d -7 5 --count 15 --seed 20261009 --json results/2026-10-08-lemma3-construct-N3.jsonl
+Thu Oct  8 14:25:04 EDT 2026
+N=3 d=[-7, 5] seed=20261009: 71 instances, 0 failures, 1325.1s
+exit 0
+Thu Oct  8 14:47:09 EDT 2026

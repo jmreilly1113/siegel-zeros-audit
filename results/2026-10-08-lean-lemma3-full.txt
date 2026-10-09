@@ -1,0 +1,41 @@
+# Lemma 3 (lem:interpolation) formalized in Lean: skeleton + five proved pieces, merged
+# Source: lean-checks/Lemma3.lean, sha256 77452a4a489981d91d6b4caa207c7c5647f39d2d8b13858ad63791e63672a128
+# Built from lean-checks/Lemma3Skeleton.lean and Lemma3_P1..P5.lean; all 12 sub-lemma statements and the main statement checked identical to the skeleton by script before merging
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3.lean  (as user checker; Lean 4.34.1, Mathlib d13f23b723)
+# Run: 2026-10-08 16:39
+
+77452a4a489981d91d6b4caa207c7c5647f39d2d8b13858ad63791e63672a128  /home/checker/leanchecks/Lemma3.lean
+/home/checker/leanchecks/Lemma3.lean:633:13: warning: This simp argument is unused:
+  coe_aeval_eq_eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/checker/leanchecks/Lemma3.lean:715:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/home/checker/leanchecks/Lemma3.lean:799:22: warning: This simp argument is unused:
+  degreeOf_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [degreeOf_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+def Lemma3.Pt : (Fin 3 → ℤ) → Set (MvPolynomial (Fin 3) ℂ) :=
+fun t => {B | ∀ (j : Fin 3), ↑(degreeOf j B) ≤ t j}
+Lemma3.interpolation : ∀ (A : (Fin 4 → ℂ) →ₗ[ℂ] Fin 3 → ℂ),
+  Function.Surjective ⇑A →
+    ∀ (c : Fin 4 → ℂ),
+      A.ker = ℂ ∙ c →
+        LinearIndependent ℚ c →
+          ∀ (N : ℕ),
+            1 ≤ N →
+              ∀ (t : Fin 3 → ℤ),
+                (∀ (j : Fin 3), 3 * (↑N - 1) ≤ t j) →
+                  (4 * ↑N - 3) ^ 4 < ∏ j, (t j - 3 * (↑N - 1) + 1) →
+                    Function.Surjective fun B n => (eval (A fun i => ↑↑(n i))) ↑B
+'Lemma3.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	1m16.016s
+user	0m30.622s
+sys	0m7.725s
+LEAN EXIT CODE: 0

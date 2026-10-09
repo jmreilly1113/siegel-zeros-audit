@@ -1,0 +1,50 @@
+# Lemma 3 -> Corollary 4 -> OAI's actual_biquadratic_rectangle_span, merged (plan step 3c extras)
+# Source: lean-checks/Lemma3Bridged.lean, sha256 04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686
+# Built by script from lean-checks/Lemma3.lean + Lemma3_Cor4.lean + Lemma3_Bridge.lean; statements of interpolation and rectangle asserted identical across files; no sorry
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3Bridged.lean  (as user checker; Lean 4.34.1, Mathlib d13f23b723, OAI adc7f12 build from the comparator run)
+# #find_deps: transitive closure over types and values of theorem/def/opaque constants; control = OAI's own proof
+# Run: 2026-10-08 16:56
+
+04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686  /home/checker/leanchecks/Lemma3Bridged.lean
+/home/checker/leanchecks/Lemma3Bridged.lean:634:13: warning: This simp argument is unused:
+  coe_aeval_eq_eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/checker/leanchecks/Lemma3Bridged.lean:716:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+/home/checker/leanchecks/Lemma3Bridged.lean:800:22: warning: This simp argument is unused:
+  degreeOf_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [degreeOf_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Lemma3.actual_biquadratic_rectangle_span_via_lemma3: 61074 constants in closure; matches: []
+OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span: 91758 constants in closure; matches: [OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+Lemma3.rectangle : ∀ (A : (Fin 4 → ℂ) →ₗ[ℂ] Fin 3 → ℂ),
+  Function.Surjective ⇑A →
+    ∀ (c : Fin 4 → ℂ),
+      A.ker = ℂ ∙ c →
+        LinearIndependent ℚ c →
+          ∀ (H N : ℕ),
+            1 ≤ H →
+              H ≤ N →
+                Submodule.span ℂ
+                    ((fun α n =>
+                        A (fun i => ↑↑(n i)) 0 ^ α 0 * A (fun i => ↑↑(n i)) 1 ^ α 1 * A (fun i => ↑↑(n i)) 2 ^ α 2) ''
+                      {α |
+                        ↑(α 0) ≤ 32 * ↑H ^ (2 / 3) * ↑N ^ (4 / 3) ∧
+                          ↑(α 1) ≤ 32 * ↑H ^ (-(1 / 3)) * ↑N ^ (4 / 3) ∧
+                            ↑(α 2) ≤ 32 * ↑H ^ (-(1 / 3)) * ↑N ^ (4 / 3)}) =
+                  ⊤
+'Lemma3.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m33.340s
+user	1m7.360s
+sys	0m5.273s
+LEAN EXIT CODE: 0

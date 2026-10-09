@@ -1,0 +1,5 @@
+# python 3.14.6, cmd: python src/lemma3_construct.py --N 2 --d -7 5 --count 25 --seed 20261010 --modes generic --max-lattice-generic 160 --json results/2026-10-08-lemma3-construct-N2-generic4d.jsonl
+Thu Oct  8 14:34:35 EDT 2026
+N=2 d=[-7, 5] seed=20261010: 46 instances, 0 failures, 4278.0s
+exit 0
+Thu Oct  8 15:45:53 EDT 2026

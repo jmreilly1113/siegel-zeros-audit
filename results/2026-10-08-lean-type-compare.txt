@@ -1,0 +1,11 @@
+Challenge-vs-solution elaborated type comparison, 2026-10-08 (comparator-style check without lean4export)
+Commands (from lean-build/): lake env lean Check/ChallengeTypes.lean (challenge file verbatim + type dump; imports only Mathlib); lake env lean Check/SolutionTypes.lean (imports OAI.NumberTheory.SiegelZeros.Main + same dump). Both exit 0.
+Expr.hash (ignores binder names):
+  challenge: TYPE OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap hash=4131808006
+  challenge: TYPE OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof hash=322873948
+  solution : TYPE OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap hash=4131808006
+  solution : TYPE OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof hash=322873948
+Raw printed Expr strings differ only in hygienic binder names of the two anonymous instance binders, which embed the module name (Check.ChallengeTypes vs the solution module). After replacing those names:
+  OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof | hygienic binder names replaced: 2 2 | identical after normalization: True | length 2944
+  OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap | hygienic binder names replaced: 2 2 | identical after normalization: True | length 2939
+Full dumps: lean-build/challenge-types.txt, lean-build/solution-types.txt

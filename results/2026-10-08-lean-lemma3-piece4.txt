@@ -1,0 +1,14 @@
+Lean check: Lemma 3 piece 4 (exists_lagrange, steps 13-14)
+Source file: lean-checks/Lemma3_P4.lean
+sha256 (Windows sha256sum): 2af7021f9c11a25f825d5723a1cc575a571a91880b0d3269f9bf0c4af413408a
+Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3_P4.lean   (run from C:\Users\Work\dev\siegel; stderr merged into stdout inside WSL)
+Mathlib d13f23b723, Lean 4.34.1
+Date: 2026-10-08
+---- verbatim output ----
+2af7021f9c11a25f825d5723a1cc575a571a91880b0d3269f9bf0c4af413408a  /home/checker/leanchecks/Lemma3_P4.lean
+'Lemma3.exists_lagrange' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m12.292s
+user	0m9.794s
+sys	0m3.080s
+LEAN EXIT CODE: 0

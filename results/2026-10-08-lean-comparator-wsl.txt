@@ -1,0 +1,47 @@
+# Official Lean FRO comparator run (docs/reproduce.md Option A, WSL2), attempt 2 rerun after the 12:05 bugcheck
+# Command (Windows side): wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/08_comparator.sh  (full log: wsl-comparator/08_comparator.log)
+# Inner command, as unprivileged user 'checker': systemd-run --property=RestrictAddressFamilies=~AF_UNIX --user --wait --pipe --collect ... -- lake env comparator ComparatorChallenges/SiegelZeros.json
+# Run: 12:15:20 - 12:41:30 EDT 2026-10-08
+
+## Versions and inputs (wsl-comparator/22_versions.sh)
+openai/math commit: adc7f1241b42e322a6451854ab7e4b4c146bf78a
+lean-toolchain: leanprover/lean4:v4.34.1
+lean: Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+comparator: see 05_build_tools.log: tag v4.34.0 d03acab
+landrun: landrun version 0.1.18
+lean4export: tag v4.34.0 built with v4.34.1 (05_build_tools.log)
+sha256 ComparatorChallenges/SiegelZeros.lean: bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce
+sha256 ComparatorChallenges/SiegelZeros.json: 620696740156c4503f27ac17760adf1b638f621ad81ab4cde7a0f8df32c4b643
+{
+  "challenge_module": "ComparatorChallenges.SiegelZeros",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": false
+}
+kernel: 5.15.167.4-microsoft-standard-WSL2
+sha256 refs/SiegelZeros.lean: bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce
+
+## Comparator output after the builds (verbatim)
+Running as unit: run-u0.service; invocation ID: f2e27683904742dca5e92e264275bbcd
+⚠ [8924/8924] Built ComparatorChallenges.SiegelZeros (57s)
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SiegelZeros
+...
+Build completed successfully (9242 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.SiegelZeros.Main
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+Thu Oct  8 12:41:30 EDT 2026

@@ -1,0 +1,40 @@
+# Lean skeleton of Lemma 3 (lem:interpolation), plan step 3c (skeleton stage)
+# Source: lean-checks/Lemma3Skeleton.lean
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3Skeleton.lean  (as user checker: lake env lean, in the comparator-checked clone; Lean 4.34.1, Mathlib d13f23b723)
+# Run: 2026-10-08 16:27
+# Expected: 12 'declaration uses sorry' warnings, one per sub-lemma; none for Lemma3.interpolation itself (its sorryAx comes only through the sub-lemmas).
+
+
+real	0m12.933s
+user	0m9.564s
+sys	0m3.124s
+a4b994224453a056dd6dd  /home/checker/leanchecks/Lemma3Skeleton.lean
+/home/checker/leanchecks/Lemma3Skeleton.lean:50:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:57:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:64:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:72:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:80:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:88:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:98:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:106:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:114:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:120:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:127:8: warning: declaration uses `sorry`
+/home/checker/leanchecks/Lemma3Skeleton.lean:136:8: warning: declaration uses `sorry`
+def Lemma3.Pt : (Fin 3 → ℤ) → Set (MvPolynomial (Fin 3) ℂ) :=
+fun t => {B | ∀ (j : Fin 3), ↑(degreeOf j B) ≤ t j}
+Lemma3.interpolation : ∀ (A : (Fin 4 → ℂ) →ₗ[ℂ] Fin 3 → ℂ),
+  Function.Surjective ⇑A →
+    ∀ (c : Fin 4 → ℂ),
+      A.ker = ℂ ∙ c →
+        LinearIndependent ℚ c →
+          ∀ (N : ℕ),
+            1 ≤ N →
+              ∀ (t : Fin 3 → ℤ),
+                (∀ (j : Fin 3), 3 * (↑N - 1) ≤ t j) →
+                  (4 * ↑N - 3) ^ 4 < ∏ j, (t j - 3 * (↑N - 1) + 1) →
+                    Function.Surjective fun B n => (eval (A fun i => ↑↑(n i))) ↑B
+'Lemma3.interpolation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+LEAN EXIT CODE: 0
+
+# Note: the sha256 line above was partly overwritten in capture (WSL output interleaving). Full sha256 of the compiled file, from Windows: 56cbe725bfcf3fa16c258e769653299bc00f530de53a4b994224453a056dd6dd

@@ -1,0 +1,16 @@
+Lemma 3, piece 1 (exists_nearest, quarter_mem_face): Lean compile output
+Source file: lean-checks/Lemma3_P1.lean
+sha256 (Windows sha256sum): 48a21637bea68b2b4e058a9bbcea531d4e6a45de59bf7878922750eed8387e21
+Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/34_lean_file.sh Lemma3_P1.lean   (run from C:\Users\Work\dev\siegel)
+Toolchain: Lean 4.34.1, Mathlib d13f23b723
+Date: 2026-10-08 16:35:41 -0400
+Statements checked character-for-character against lean-checks/Lemma3Skeleton.lean (substring match): exists_nearest True, quarter_mem_face True
+----- verbatim output -----
+
+real	0m9.941s
+user	0m8.449s
+sys	0m3.151s
+bf7878922750eed8387e21  /home/checker/leanchecks/Lemma3_P1.lean
+'Lemma3.exists_nearest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.quarter_mem_face' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN EXIT CODE: 0

@@ -1,0 +1,51 @@
+# Official comparator with nanoda as a second kernel, network sockets blocked (plan steps 1+2)
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/29_comparator_nanoda.sh  (log wsl-comparator/29_comparator_nanoda.log)
+# Wrapper: systemd-run --user --property="RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET" (block demonstrated in wsl-comparator/28_netblock_probe.log)
+# Run ended 14:18:02 EDT 2026-10-08, service runtime 14 min 3.7 s
+
+config diff, repo ComparatorChallenges/SiegelZeros.json vs our /home/checker/SiegelZeros-nanoda.json:
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+nanoda_bin: 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714, nanoda_lib commit 3a2407216ee84a75f9e1aead6803d0578be06ae7 (version = "0.4.19")
+rustc: rustc 1.99.0 (b940084d7 2026-09-28)
+Other versions as in results/2026-10-08-lean-comparator-wsl.txt (same clone, toolchain, comparator, lean4export, landrun).
+
+## Network-block probe (verbatim)
+== control: README wrapper (AF_UNIX only blocked)
+tcp 1.1.1.1:443: OPEN
+curl https://github.com: 200
+python udp socket: created
+unix socket: OSError: [Errno 97] Address family not supported by protocol
+== hardened wrapper: AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET blocked
+tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol
+curl https://github.com: 000
+python udp socket: OSError: [Errno 97] Address family not supported by protocol
+unix socket: OSError: [Errno 97] Address family not supported by protocol
+== hardened wrapper, child of a child (landrun as in comparator)
+tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol
+curl https://github.com: 000
+python udp socket: OSError: [Errno 97] Address family not supported by protocol
+unix socket: OSError: [Errno 97] Address family not supported by protocol
+
+## Comparator output (verbatim, 'has local changes' warnings omitted)
+Running as unit: run-u0.service; invocation ID: a4324fb9d37040f8b0840d981dd7f5a4
+warning: PrimeNumberTheoremAnd: repository '/home/checker/math/lean/.lake/packages/PBuilding ComparatorChallenges.SiegelZeros
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce
+Building OAI.NumberTheory.SiegelZeros.Main
+Build completed successfully (9242 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+Thu Oct  8 14:18:02 EDT 2026
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 14min 3.696s

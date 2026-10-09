@@ -1,0 +1,2 @@
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof | hygienic binder names replaced: 2 2 | identical after normalization: True | length 2944
+OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap | hygienic binder names replaced: 2 2 | identical after normalization: True | length 2939

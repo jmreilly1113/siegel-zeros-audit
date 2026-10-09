@@ -1,0 +1,26 @@
+sources: results/2026-10-08-lemma7-N2-H12-flint.jsonl results/2026-10-08-lemma7-N3-H1-flint.jsonl results/2026-10-08-lemma7-N3-H2346-flint.jsonl results/2026-10-08-lemma7-N4-H234-flint.jsonl
+N=2: runs=28 fields=14 H=[1, 2]
+  admissible (run,p) pairs with E_p>0: 15; v_p(N(Delta)) >= 4E_p: 15; Delta in p^E_p R: 15; equality v_p = 4E_p: 11; v_p(gcd Delta) > E_p: 4
+  rejections mod p (all certified exactly or the run would have stopped): 86; regular-representation det computed in 28 runs, agrees in 28
+  max weight by H: [(1, 4), (2, 5)]
+  class admissible            : pairs   15, v_p >= 4E_p in   15
+  class chi=+1,(2/p)=-1       : pairs   16, v_p >= 4E_p in    3
+  class excluded (p | 2q)     : pairs   39, v_p >= 4E_p in   39
+N=3: runs=70 fields=14 H=[1, 2, 3, 4, 6]
+  admissible (run,p) pairs with E_p>0: 147; v_p(N(Delta)) >= 4E_p: 147; Delta in p^E_p R: 147; equality v_p = 4E_p: 66; v_p(gcd Delta) > E_p: 81
+  rejections mod p (all certified exactly or the run would have stopped): 746; regular-representation det computed in 70 runs, agrees in 70
+  max weight by H: [(1, 8), (2, 10), (3, 14), (3, 15), (4, 16), (6, 20), (6, 21)]
+  class admissible            : pairs  147, v_p >= 4E_p in  147
+  class chi=+1,(2/p)=+1       : pairs   18, v_p >= 4E_p in   18
+  class chi=+1,(2/p)=-1       : pairs   86, v_p >= 4E_p in   11
+  class chi=-1, p<=H          : pairs   19, v_p >= 4E_p in    4
+  class excluded (p | 2q)     : pairs  122, v_p >= 4E_p in  118
+N=4: runs=42 fields=14 H=[2, 3, 4]
+  admissible (run,p) pairs with E_p>0: 144; v_p(N(Delta)) >= 4E_p: 144; Delta in p^E_p R: 144; equality v_p = 4E_p: 68; v_p(gcd Delta) > E_p: 76
+  rejections mod p (all certified exactly or the run would have stopped): 172; regular-representation det computed in 42 runs, agrees in 42
+  max weight by H: [(2, 16), (3, 21), (3, 22), (4, 25)]
+  class admissible            : pairs  144, v_p >= 4E_p in  144
+  class chi=+1,(2/p)=+1       : pairs   21, v_p >= 4E_p in   21
+  class chi=+1,(2/p)=-1       : pairs   72, v_p >= 4E_p in    6
+  class chi=-1, p<=H          : pairs    8, v_p >= 4E_p in    8
+  class excluded (p | 2q)     : pairs   77, v_p >= 4E_p in   77

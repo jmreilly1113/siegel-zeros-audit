@@ -1,0 +1,14 @@
+d=   5 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.3s
+d=  13 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.6s
+d=  -3 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 11.5s
+d=  17 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.1s
+d=  -7 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 11.9s
+d= -11 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.3s
+d=   3 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 11.5s
+d=   7 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 11.8s
+d=  -1 N=3 H=1 maxw=8 S1=154 S2=214 lemma7=ok 11.6s
+d=  -5 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 13.0s
+d=   6 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.7s
+d=  10 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.9s
+d=  -2 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.0s
+d=  -6 N=3 H=1 maxw=8 S1=157 S2=211 lemma7=ok 12.2s

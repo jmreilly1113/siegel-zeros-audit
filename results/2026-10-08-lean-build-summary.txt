@@ -1,0 +1,9 @@
+Lean build summary, 2026-10-08 (trimmed project lean-build/, see docs/log.md step 1)
+Final attempt: LEAN_NUM_THREADS=3 bash build_with_watchdog.sh (09:46 to 10:21)
+Build completed successfully (9242 jobs).
+lake exit code: 0
+Thu Oct  8 10:21:22 EDT 2026
+C:              930G  902G   29G  97% /c
+errors: 0, warnings: 0
+compiled .olean: OAI/NumberTheory/SiegelZeros 306/306, PrimeNumberTheoremAnd/SiegelZeros 12/12
+Earlier attempts (stopped by the disk watchdog, not by compile errors): build-attempt1.log (13 'failed to read file' resource errors), build-attempt2.log and build-attempt3.log (0 errors).

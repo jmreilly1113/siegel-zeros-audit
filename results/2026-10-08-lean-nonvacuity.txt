@@ -1,0 +1,28 @@
+# Lean non-vacuity checks for the challenge statement (plan step 4a)
+# Source: lean-checks/NonVacuity.lean, sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/32_nonvacuity.sh  (as user checker: lake env lean NonVacuity.lean in the comparator-checked clone; Lean 4.34.1, Mathlib d13f23b723)
+# Run: 2026-10-08 14:28
+
+## Output (verbatim, 'has local changes' warnings omitted)
+'NonVacuity.hypotheses_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NonVacuity.quadChar_LFunction_eq_LSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NonVacuity.quadChar_LFunction_one_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NonVacuity.specialization' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN EXIT CODE: 0
+
+real	0m8.292s
+user	0m5.643s
+sys	0m2.905s
+
+## Statements proved
+14:theorem is a statement about that (possibly empty) set of zeros.
+25:lemma quadChar_apply (p : ℕ) [Fact p.Prime] (a : ZMod p) :
+29:lemma quadChar_real (p : ℕ) [Fact p.Prime] (a : ZMod p) : (quadChar p a).im = 0 := by
+34:lemma quadChar_ne_one (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) : quadChar p ≠ 1 := by
+48:lemma quadChar_isPrimitive (p : ℕ) [hp : Fact p.Prime] (h2 : p ≠ 2) :
+58:theorem hypotheses_satisfiable (p : ℕ) [hp : Fact p.Prime] (h2 : p ≠ 2) :
+68:example : 3 ≤ 3 ∧ (quadChar 3).IsPrimitive ∧ quadChar 3 ≠ 1 ∧
+71:example : 3 ≤ 5 ∧ (quadChar 5).IsPrimitive ∧ quadChar 5 ≠ 1 ∧
+75:theorem quadChar_LFunction_eq_LSeries (p : ℕ) [Fact p.Prime] {s : ℂ} (hs : 1 < s.re) :
+80:theorem quadChar_LFunction_one_ne_zero (p : ℕ) [Fact p.Prime] (h2 : p ≠ 2) :
+85:theorem specialization : ∃ c : ℝ, 0 < c ∧ ∀ (p : ℕ) [Fact p.Prime], p ≠ 2 →

@@ -1,0 +1,71 @@
+# Main challenge theorem rerouted through the paper's Lemma 3 (lean-checks/MainRerouted.lean)
+# Source sha256: MainRerouted.lean 99d6b9ddac6c31619e3cc36226e1899f2853fafdc3f68ea8dd93838fbd7192b8, Lemma3Bridged.lean 04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/39_main_rerouted.sh (tamper: 40_nanoda_tamper_named.py)
+# Lean 4.34.1, Mathlib d13f23b723, OAI adc7f12; lean4export v4.34.0; nanoda_bin 0.4.19. Run 2026-10-08 ~19:40
+
+04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686  /home/checker/l3k/Lemma3Bridged.lean
+99d6b9ddac6c31619e3cc36226e1899f2853fafdc3f68ea8dd93838fbd7192b8  /home/checker/l3k/MainRerouted.lean
+nanoda_bin sha256: 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714
+== olean Lemma3Bridged
+Lemma3.actual_biquadratic_rectangle_span_via_lemma3: 61074 constants in closure; matches: []
+OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span: 91758 constants in closure; matches: [OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+Lemma3.rectangle : ∀ (A : (Fin 4 → ℂ) →ₗ[ℂ] Fin 3 → ℂ),
+'Lemma3.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+lean exit 0
+== compile MainRerouted
+closure of roots: 121521 constants; depending on OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span: 4 copied and kernel-checked under Rerouted: [OAI.SiegelZeros.WeightedTorusJets.source_character_global_greedy_determinant_master_bounds,
+ OAI.SiegelZeros.WeightedTorusJets.source_real_zero_uniform_master_bound,
+ OAI.SiegelZeros.WeightedTorusJets.dirichlet_real_zero_bound,
+ OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof] (kinds: [(theorem,
+  4)]); constants whose *type* changed: 0 []
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof ↦ Rerouted.OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof
+/home/checker/l3k/MainRerouted.lean:101:0: warning: OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap does not depend on OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span
+challenge_dirichletRealZeroBound_proof: 92660 constants in closure; matches: []
+challenge_exists_absolute_real_zero_gap: 92661 constants in closure; matches: []
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof: 116314 constants in closure; matches: [OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+'challenge_dirichletRealZeroBound_proof' depends on axioms: [propext, Classical.choice, Quot.sound]
+'challenge_exists_absolute_real_zero_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m51.037s
+user	0m47.733s
+sys	0m3.498s
+lean exit 0
+-rw-rw-r-- 1 checker checker 6311392 Oct  8 19:38 /home/checker/l3k/MainRerouted.olean
+== export
+lean4export exit 0
+850558312 bytes
+challenge_exists_absolute_real_zero_gap thm line 15723334 value 15024382 -> replaced by value of challenge_dirichletRealZeroBound_proof: 15024288
+== nanoda (main), config: {"use_stdin":false,"export_file_path":"/home/checker/l3k/export-main.ndjson","permitted_axioms":["propext","Classical.choice","Quot.sound"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true,"print_success_message":true,"print_axioms":false}
+Checked 93598 declarations with no errors
+
+real	0m59.950s
+user	2m35.064s
+sys	0m1.334s
+nanoda exit 0
+== nanoda (control), config: {"use_stdin":false,"export_file_path":"/home/checker/l3k/export-main.ndjson","permitted_axioms":["propext","Quot.sound"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true,"print_success_message":true,"print_axioms":false}
+Error: export file declares unpermitted axiom "Classical.choice"
+
+run with `-h` or `--help` for help
+
+real	0m0.023s
+user	0m0.017s
+sys	0m0.008s
+nanoda exit 1
+== nanoda (tampered), config: {"use_stdin":false,"export_file_path":"/home/checker/l3k/export-main-tampered.ndjson","permitted_axioms":["propext","Classical.choice","Quot.sound"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true,"print_success_message":true,"print_axioms":false}
+
+thread 'thread_2' (2240) panicked at src/tc.rs:955:71:
+assertion failed: self.def_eq(u, v)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (2237) panicked at src/tc.rs:173:26:
+A thread in `check_all_declars` panicked while being joined: Any { .. }
+
+real	0m46.984s
+user	2m30.527s
+sys	0m0.605s
+nanoda exit 101

@@ -1,0 +1,55 @@
+# nanoda (second, independent kernel) on Lemma 3 + Corollary 4 + bridge to OAI (plan step 3c extras)
+# Source: lean-checks/Lemma3Bridged.lean, sha256 04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/36_nanoda_lemma3.sh   (tamper helper: wsl-comparator/38_nanoda_tamper.py)
+# Steps: build .olean as user checker; lean4export v4.34.0 (format 3.1.0) of the closure of Lemma3.interpolation, Lemma3.rectangle, Lemma3.actual_biquadratic_rectangle_span_via_lemma3; nanoda_bin 0.4.19 with comparator's settings (+print_success_message).
+# Controls: (a) same export with Classical.choice not permitted -> must reject; (b) export with Lemma3.rectangle's proof replaced by Lemma3.interpolation's proof -> must reject.
+# Note: nanoda exits 0 on an empty export, so acceptance is judged by the 'Checked N declarations' line plus the controls, not by exit code alone. 'Unable to print axioms' is nanoda's pretty-printer (print_axioms option), not a type error.
+# Run: 2026-10-08 17:03
+
+04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686  /home/checker/l3k/Lemma3Bridged.lean
+nanoda_bin sha256: 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714; lean4export: /usr/local/bin/lean4export (v4.34.0 built with 4.34.1)
+== olean
+Lemma3.actual_biquadratic_rectangle_span_via_lemma3: 61074 constants in closure; matches: []
+OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span: 91758 constants in closure; matches: [OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+Lemma3.rectangle : ∀ (A : (Fin 4 → ℂ) →ₗ[ℂ] Fin 3 → ℂ),
+'Lemma3.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+lean exit 0
+-rw-rw-r-- 1 checker checker 4029960 Oct  8 17:01 /home/checker/l3k/Lemma3Bridged.olean
+== export
+lean4export exit 0
+459388200 bytes
+rectangle thm line 8010783 value 7578185 -> replaced by interpolation value 7557227
+== nanoda (main), config: {"use_stdin":false,"export_file_path":"/home/checker/l3k/export.ndjson","permitted_axioms":["propext","Classical.choice","Quot.sound"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true,"print_success_message":true,"print_axioms":true}
+Checked 61810 declarations with no typechecker errors, 1 pretty printer errors: [
+    "Unable to print axioms",
+]
+
+real	0m19.846s
+user	1m3.483s
+sys	0m0.331s
+nanoda exit 0
+== nanoda (control), config: {"use_stdin":false,"export_file_path":"/home/checker/l3k/export.ndjson","permitted_axioms":["propext","Quot.sound"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true,"print_success_message":true,"print_axioms":true}
+Error: export file declares unpermitted axiom "Classical.choice"
+
+run with `-h` or `--help` for help
+
+real	0m0.026s
+user	0m0.027s
+sys	0m0.000s
+nanoda exit 1
+== nanoda (tampered), config: {"use_stdin":false,"export_file_path":"/home/checker/l3k/export-tampered.ndjson","permitted_axioms":["propext","Classical.choice","Quot.sound"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true,"print_success_message":true,"print_axioms":true}
+
+thread 'thread_2' (804) panicked at src/tc.rs:955:71:
+assertion failed: self.def_eq(u, v)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (801) panicked at src/tc.rs:173:26:
+A thread in `check_all_declars` panicked while being joined: Any { .. }
+
+real	0m21.056s
+user	1m2.724s
+sys	0m0.398s
+nanoda exit 101

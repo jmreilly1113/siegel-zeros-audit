@@ -1,0 +1,6 @@
+Running as unit: run-u2.service; invocation ID: 4cfb94546e9e42d99e9e3f484a4b312f
+error: failed to read file '/home/checker/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean/Std/Data/Internal/List/Associative.olean.server', invalid header
+Finished with result: eCOMPARATOR EXIT CODE: 1
+Thu Oct  8 11:37:06 EDT 2026
+status=1
+Service runtime: 101ms

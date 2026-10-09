@@ -1,0 +1,13 @@
+# cmd: .venv/Scripts/python src/summarize_lemma3.py results/2026-10-08-lemma3-construct-N2-generic4d.jsonl
+files: results/2026-10-08-lemma3-construct-N2-generic4d.jsonl
+instances: 46, all checks passed: 46
+failed checks: none
+checks per instance: {28: 46}
+
+N=2 mode=generic: 46 instances, fields d=[-7, 5]
+  |S| range 1..8; #(K cap Z^4) range 1..125
+  dim P counts: {0: 10, 1: 5, 2: 11, 3: 11, 4: 9}
+  dim G counts: {0: 10, 1: 5, 2: 16, 3: 15}
+  dist^2(m, K) values: {'1/7': 1, '1/4': 5, '1/3': 5, '2/5': 6, '1/2': 5, '2/3': 3, '1': 21}
+  instances where R vanished at lattice points outside K closer than m: 3 (max 4 such points)
+  null-space dimension range: 4..100

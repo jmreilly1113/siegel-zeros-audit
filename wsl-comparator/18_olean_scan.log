@@ -1,0 +1,19 @@
+/mnt/c/Users/Work/dev/siegel/wsl-comparator/18_olean_scan.sh: line 8: warning: command substitution: ignored null byte in input
+ntial.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/LocalAlgebra/SelectedLengthContradiction.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/LocalAlgebra/RegularCutHistory.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/LocalAlgebra/SequenceParameters.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Determinants/NormalSelection.olean
+BADHDR /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Estimates/AffineAsymptotics.olean 2026-10-08 12:04:23.337193541 -0400
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Hilbert/HomogeneousListHistory.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Structure/MultiplicityCycles.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Structure/RectanglePresentation.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Structure/Augmentation.olean
+EMPTY /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Differentials/RectangleCotangentBasis.olean
+== /home/checker/math/lean/.lake: 9128 .olean files, 1 bad header, 10 empty
+== /home/checker/.elan/toolchains: 2520 .olean files, 0 bad header, 0 empty
+== solution build dir (math/lean/.lake/build), newest files:
+1451
+-rw-rw-r--  1 checker checker  4725 2026-10-08 12:03:50.257271521 -0400 Model.trace
+drwxrwxr-x  2 checker checker  4096 2026-10-08 12:04:00.876966491 -0400 Selection
+drwxrwxr-x  2 checker checker 12288 2026-10-08 12:04:40.221056067 -0400 Structure

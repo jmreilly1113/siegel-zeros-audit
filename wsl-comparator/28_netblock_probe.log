@@ -1,0 +1,15 @@
+== control: README wrapper (AF_UNIX only blocked)
+tcp 1.1.1.1:443: OPEN
+curl https://github.com: 200
+python udp socket: created
+unix socket: OSError: [Errno 97] Address family not supported by protocol
+== hardened wrapper: AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET blocked
+tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol
+curl https://github.com: 000
+python udp socket: OSError: [Errno 97] Address family not supported by protocol
+unix socket: OSError: [Errno 97] Address family not supported by protocol
+== hardened wrapper, child of a child (landrun as in comparator)
+tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol
+curl https://github.com: 000
+python udp socket: OSError: [Errno 97] Address family not supported by protocol
+unix socket: OSError: [Errno 97] Address family not supported by protocol

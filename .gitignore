@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Cloned upstream repos (recreated by scripts/setup.sh, pinned commit in CLAUDE.md)
+external/
+
+# Lean build outputs (Lake cache, Mathlib oleans; about 1.5 GB)
+lean-build/.lake/
+.lake/
+*.olean
+*.ilean

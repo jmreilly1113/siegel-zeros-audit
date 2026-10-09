@@ -1,0 +1,19 @@
+# cmd: python src/summarize_lemma3.py results/2026-10-08-lemma3-construct-N3.jsonl
+files: results/2026-10-08-lemma3-construct-N3.jsonl
+instances: 71, all checks passed: 71
+failed checks: none
+checks per instance: {28: 71}
+
+N=3 mode=generic: 25 instances, fields d=[-7, 5]
+  |S| range 1..4; #(K cap Z^4) range 1..55
+  dim P counts: {0: 8, 1: 8, 2: 7, 3: 2}
+  dim G counts: {0: 8, 1: 8, 2: 9}
+  dist^2(m, K) values: {'1/14': 1, '1/13': 1, '2/17': 1, '1/6': 1, '1/5': 1, '2/9': 2, '3/11': 1, '1/3': 1, '1/2': 2, '2/3': 1, '1': 13}
+  instances where R vanished at lattice points outside K closer than m: 3 (max 8 such points)
+  null-space dimension range: 4..96
+
+N=3 mode=product: 46 instances, fields d=[-7, 5]
+  |S| range 1..81; #(K cap Z^4) range 1..6561
+  dim P counts: {0: 8, 1: 8, 2: 9, 3: 6, 4: 15}
+  dim G counts: {0: 11, 1: 8, 2: 8, 3: 19}
+  dist^2(m, K) values: {'1/110': 1, '1/70': 1, '1/65': 2, '1/62': 1, '1/49': 1, '1/38': 1, '1/37': 1, '1/30': 1, '1/22': 1, '1/15': 1, '1/14': 1, '1/13': 1, '1/10': 1, '2/17': 1, '1/6': 1, '1/5': 1, '2/9': 3, '1/4': 2, '3/11': 1, '1/3': 1, '1/2': 3, '2/3': 1, '1': 18}

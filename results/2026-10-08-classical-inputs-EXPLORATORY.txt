@@ -1,0 +1,6 @@
+primes up to 10000000: 664579
+(I4) sum log p/p > log x + E - 1/(2 log x), at primes and just below primes: True True
+(I5) sum log p/p < log x at primes: True  max of (sum - log x): -0.34657359027997264
+(I6) theta(x) < 1.01624 x at primes: True  max theta(p)/p: 0.9998129810469996
+(I2) max over s = 1.001..2.000 of (s-1)(-zeta'/zeta(s)) = 0.99942297183 (< 1 required)
+(I3) psi(3/2) = 0.0364899739786 ; psi(1/2) = -1.96351002602

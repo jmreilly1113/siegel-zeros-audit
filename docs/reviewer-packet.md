@@ -1,6 +1,6 @@
 # Reviewer packet: independent checks of "Uniform exclusion of Landau–Siegel zeros"
 
-Prepared 2026-10-08 for Joe to send to reviewers. Paper: openai/math, family 003, preprint dated 1 Oct 2026, commit adc7f1241b42e322a6451854ab7e4b4c146bf78a (`refs/siegel-paper.tex`, `refs/siegel-paper.pdf`).
+Prepared 2026-10-08; released publicly 2026-10-09 (DOI 10.5281/zenodo.23269528). Paper: openai/math, family 003, preprint dated 1 Oct 2026, commit adc7f1241b42e322a6451854ab7e4b4c146bf78a (`refs/siegel-paper.tex`, `refs/siegel-paper.pdf`).
 
 ## What this is
 

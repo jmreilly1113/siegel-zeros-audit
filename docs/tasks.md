@@ -52,4 +52,7 @@ Work top to bottom. Mark each task done with the date and the results file it pr
 - [x] (2026-10-08; docs/reviewer-packet.md) 4b. Reviewer packet.
 - [x] (2026-10-08; lean-checks/MainRerouted.lean, results/2026-10-08-lean-main-rerouted.txt, -main-closure-cor4-usage.txt) 3d. Rebuild the main theorem on our Lemma 3: dirichletRealZeroBound_proof rerouted (4 theorems), both kernels accept; exists_absolute_real_zero_gap never used Corollary 4.
 - [x] (2026-10-09; results/2026-10-09-lean-comparator-rerouted-nanoda.txt) 3e (plan step 3d). Official comparator, both kernels, on the rerouted proof (source-level swap in a fresh clone): accepted.
-- [ ] 4c. Joe chooses reviewers and sends the packet.
+- [x] 4c. (2026-10-09) Packet made public at https://github.com/jmreilly1113/siegel-zeros-audit, DOI 10.5281/zenodo.23269528. Posted to grwtsk/openai-math issue #40 and the Lean Zulip. Two specialists contacted directly by email.
+- [ ] 8.5 Hexagon deposit by 2026-10-23, preliminary if no expert reply by then.
+- [ ] 8.6 arXiv only with an endorser, after checking every reference by hand.
+- [ ] 8.7 Declaration overlap for issue #40. Blocked 2026-10-09: no saved name list for the comparator-accepted rerouted route 2. It needs one lean4export run in the rerouted clone (Joe's approval).

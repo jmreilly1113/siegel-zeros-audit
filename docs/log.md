@@ -381,3 +381,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - DOI 10.5281/zenodo.23269528 (from Joe). Checked: doi.org redirects to Zenodo. The Zenodo API record is "published", with title = repo description, creator "Reilly, Joseph M.", version reviewer-packet-v1, publication date 2026-10-09, and a related identifier pointing at the reviewer-packet-v1 tree on GitHub. The GitHub repo is now public.
 - CITATION.cff: top-level `doi` and an `identifiers` entry of type doi. `cffconvert --validate` (2.0.0, fresh scratch venv): valid against schema 1.2.0. An earlier attempt exited 1 with no message because the old scratch venv had lost python.exe; that was not a validation failure.
 - README.md: DOI line and "Cite as" line under the title. The reviewer-packet-v1 tag is not moved; the archived release stays at 3a36016.
+
+## 2026-10-09: public release and outreach; declaration-overlap inputs
+- Public release: https://github.com/jmreilly1113/siegel-zeros-audit (public), tag reviewer-packet-v1 (commit 3a36016), Zenodo DOI 10.5281/zenodo.23269528 (concept DOI 10.5281/zenodo.23269527).
+- Comment on grwtsk/openai-math issue #40: [comment URL to be added].
+- Lean Zulip post: [post URL to be added].
+- Two direct emails to specialists (names kept off the repo).
+- Declaration overlap for issue #40 (task 8.7), step 1 only (read-only):
+  - Declared names in the existing lean4export dumps (wsl-comparator/54_export_name_counts.py, run on /home/checker/l3k): route 1 exists_absolute_real_zero_gap 108,906; original route 2 dirichletRealZeroBound_proof 117,482; our Lemma 3 code (three roots) 61,810; MainRerouted challenge_* export 93,598. The last two equal nanoda's "Checked N" counts. The dumps came from 41_main_closure_export.sh, 36_nanoda_lemma3.sh and 39_main_rerouted.sh (2026-10-08, openai/math adc7f12).
+  - Recorded #find_deps counts are lower: 107,760, 116,314, 61,074 (bridge root only) and 92,660. Inference, not yet checked: the gap of roughly 1,000 is that lean4export writes every constructor and recursor of each inductive block, while #find_deps counts only referenced ones.
+  - Missing: a name list for the comparator-accepted rerouted route 2 (/home/checker/math-rerouted); its scan saved only the count 92,658. The MainRerouted export is a renamed stand-in: its #find_deps count is 92,660 = 92,658 plus the two challenge_* wrappers, which suggests but does not show identical sets. Part A stopped here pending Joe's approval of one lean4export run in the rerouted clone.
+

@@ -16,4 +16,10 @@ Where to start:
 - `docs/issue40-facts.md`: every key value with its source file.
 - `docs/reproduce.md`: how to rerun everything, including the comparator runs.
 
-Licensing: copies of openai/math files (Apache-2.0) are listed in `MODIFICATIONS.md`, with the license in `LICENSE-openai-math`.
+## License
+
+- **Code, scripts, tests and Lean files original to this project:** Apache License 2.0 (`LICENSE`). Copyright 2026 Joseph M. Reilly.
+- **Prose documentation:** the `.md` files in `docs/` (including `writeup.md` and `reviewer-packet.md`) and this README are under CC BY 4.0 (`LICENSE-docs`).
+- **Files copied from openai/math:** Apache-2.0 under OpenAI's copyright, unchanged. See `MODIFICATIONS.md` and `LICENSE-openai-math`.
+- **Files under `lean-build/PrimeNumberTheoremAnd/`:** Apache-2.0, per their `NOTICE.md`.
+- **Outputs in `results/`:** CC BY 4.0, except where they quote openai/math text.

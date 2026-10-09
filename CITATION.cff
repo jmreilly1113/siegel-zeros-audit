@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this verification package, please cite it as below."
+type: software
+title: "Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks"
+authors:
+  - family-names: Reilly
+    given-names: Joseph M.
+    affiliation: Northeastern University
+version: reviewer-packet-v1
+license: Apache-2.0
+repository-code: "https://github.com/jmreilly1113/siegel-zeros-audit"
+date-released: "2026-10-09"

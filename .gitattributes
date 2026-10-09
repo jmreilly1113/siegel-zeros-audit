@@ -4,3 +4,7 @@
 *.sh text eol=lf
 # Verbatim copy of openai/math LICENSE; LF keeps its blob equal to upstream 261eeb9e.
 LICENSE-openai-math text eol=lf
+# License texts are verbatim copies; LF keeps their blobs equal to the published files.
+LICENSE text eol=lf
+LICENSE-docs text eol=lf
+CITATION.cff text eol=lf

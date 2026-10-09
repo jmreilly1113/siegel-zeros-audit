@@ -1,0 +1,46 @@
+# Task 1 (read-only): has openai/math changed under our pinned commit?
+# Scratch clone (not external/, not math-rerouted): git clone --filter=blob:none --no-checkout https://github.com/openai/math <scratchpad>/oai-scratch; git fetch origin main. git 2.55.0.windows.3. Run 2026-10-09 10:03 EDT.
+
+$ git rev-parse origin/main
+fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+$ git cat-file -t fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+commit
+$ git merge-base --is-ancestor adc7f1241b42e322a6451854ab7e4b4c146bf78a fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb  -> yes
+
+$ git log --oneline adc7f12..fd4aeeb
+fd4aeeb Merge pull request #1 from openai/codex/update-10-7
+3014888 Update manuscripts and Lean formalizations
+$ git log --oneline adc7f12..origin/main
+fd4aeeb Merge pull request #1 from openai/codex/update-10-7
+3014888 Update manuscripts and Lean formalizations
+
+$ git diff --stat adc7f1241b42e322a6451854ab7e4b4c146bf78a fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb -- lean/OAI/NumberTheory/SiegelZeros lean/ComparatorChallenges/SiegelZeros.lean lean/ComparatorChallenges/SiegelZeros.json lean/docs/003.md preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026 lean/lakefile* lean/lake-manifest.json lean/lean-toolchain
+(no output = no change; exit 0)
+
+$ git diff --stat adc7f1241b42e322a6451854ab7e4b4c146bf78a origin/main -- lean/OAI/NumberTheory/SiegelZeros lean/ComparatorChallenges/SiegelZeros.lean lean/ComparatorChallenges/SiegelZeros.json lean/docs/003.md preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026 lean/lakefile* lean/lake-manifest.json lean/lean-toolchain
+(no output = no change; exit 0)
+
+Patch files under lean/ whose content mentions PrimeNumberTheoremAnd (at adc7f12):
+  lean/patches/PrimeNumberTheoremAnd-lean4341.patch
+  lean/patches/StrongPNT-lean4341.patch
+  lean/patches/Zeta3Irrational-lean4341.patch
+$ git diff --stat adc7f1241b42e322a6451854ab7e4b4c146bf78a fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb -- lean/patches
+(no output = no change)
+$ git diff --stat adc7f1241b42e322a6451854ab7e4b4c146bf78a origin/main -- lean/patches
+(no output = no change)
+
+Git tree/blob hashes of each pinned path, at adc7f12 and fd4aeeb (identical hash = identical content):
+  lean/OAI/NumberTheory/SiegelZeros: a2ee00866bd67e9dc132992f13aeef2028f54b96 a2ee00866bd67e9dc132992f13aeef2028f54b96
+  lean/ComparatorChallenges/SiegelZeros.lean: 8bab3f83ef57af55c5826318b6c92df84117395f 8bab3f83ef57af55c5826318b6c92df84117395f
+  lean/ComparatorChallenges/SiegelZeros.json: 25989d64aa0ee538fed5921864ddfad283e61e27 25989d64aa0ee538fed5921864ddfad283e61e27
+  lean/docs/003.md: cf794e93da2e1a494434153f5b91f2990fe9fd60 cf794e93da2e1a494434153f5b91f2990fe9fd60
+  preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026: c074e8ce90584cf18844c216d660d9b74bdfd2ed c074e8ce90584cf18844c216d660d9b74bdfd2ed
+  lean/lakefile.lean: 66c3867331c7c607ffc0e60955cc86cccf046e12 66c3867331c7c607ffc0e60955cc86cccf046e12
+  lean/lake-manifest.json: 67d01d2717d0aaff59fb8814bb53581b961f42b4 67d01d2717d0aaff59fb8814bb53581b961f42b4
+  lean/lean-toolchain: ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5 ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5
+  lean/patches: ffc4b0d52885d606031fc64e25ca40c90a421647 ffc4b0d52885d606031fc64e25ca40c90a421647
+
+Control (the command does detect changes): $ git diff --stat adc7f12 fd4aeeb -- lean | tail -1
+ 762 files changed, 151254 insertions(+), 7 deletions(-)
+
+Result: no listed path changed (task 1c: nothing to print). SiegelZeros.lean, SiegelZeros.json, the whole OAI/NumberTheory/SiegelZeros tree, lakefile, manifest (so Mathlib and PrimeNumberTheoremAnd pins), toolchain and all patches are unchanged. The OAI modules in both challenge closures lie under OAI/NumberTheory/SiegelZeros (results/2026-10-09-pnt-hadamard-dependency.txt), so the stop condition is not met.

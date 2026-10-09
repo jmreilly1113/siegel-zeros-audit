@@ -14,7 +14,7 @@ We are not trying to prove anything new. We test every step of the paper that ca
 
 ## Layout
 
-- `refs/` source documents: the paper (PDF and .tex), Lean comparator statement, Lean scope page, the family-003 catalogue entry, Lu–Zaman–Zhao.
+- `refs/` source documents: the paper (PDF and .tex), Lean comparator statement, Lean scope page, the family-003 catalogue entry, and the Lu–Zaman–Zhao citation (refs/lu-zaman-zhao-2602.03626.md; the PDF is not redistributed).
 - `external/` cloned repos (created by `scripts/setup.sh`): openai/math pinned to the commit above, and asif-z/landau-siegel-zero-tester.
 - `src/` our code. `src/lemma7_check.py` is a working exact prototype for Sections 4–5.
 - `tests/` unit tests. Run `python -m pytest tests -q` before and after any change to `src/`.

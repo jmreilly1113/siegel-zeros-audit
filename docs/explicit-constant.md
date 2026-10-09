@@ -65,7 +65,7 @@ Combined with the numerical results for small q, this gives the conditional stat
 
 The small-q inputs are:
 - Platt (2016): no real zeros at all for q ≤ 4·10⁵, which also covers q = 8, i.e. d = 2, the case the paper excludes.
-- Lu–Zaman–Zhao (arXiv 2602.03626, Theorem 1.1; checked against `refs/lu-zaman-zhao-2602.03626.pdf`): for q ≤ 10¹⁰ and quadratic χ mod q, L(σ, χ) ≠ 0 for σ ≥ 1 − 1/(5 log q). So δ > 1/5 there.
+- Lu–Zaman–Zhao (arXiv 2602.03626, Theorem 1.1; checked against the arXiv v1 PDF; citation and sha256 in `refs/lu-zaman-zhao-2602.03626.md`): for q ≤ 10¹⁰ and quadratic χ mod q, L(σ, χ) ≠ 0 for σ ≥ 1 − 1/(5 log q). So δ > 1/5 there.
 
 Without those inputs, the argument alone gives 3.0 × 10⁻⁴ for all q ≥ 3 with q ≠ 8.
 

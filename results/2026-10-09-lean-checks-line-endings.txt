@@ -1,0 +1,14 @@
+# Line endings of lean-checks/*.lean vs the sha256 hashes recorded in results/ (2026-10-09)
+# Context: .gitattributes added (*.lean, *.sh text eol=lf) and 'git add --renormalize .' run; the index already held LF for every file (no change).
+# Command (Git Bash, project root): for each git-tracked lean-checks/*.lean: sha256 of the working-tree bytes, sha256 of the git blob (git show :path), and where each hash is cited in results/ and docs/.
+# Finding: three files were CRLF in the working tree when their hashes were recorded. Their recorded hashes are of the CRLF bytes (the bytes Lean compiled, copied byte-for-byte into WSL). A checkout gives the LF form, with a different hash. Every line ends in CRLF, and stripping the CRs gives exactly the git blob, so the files differ only in line endings. Lean parses both forms identically.
+# The comparator-copy modules (results/2026-10-09-rerouted-comparator-diff.txt, docs/reproduce.md) are LF and match in both forms, and comparator-copy/PaperLemma3/Lemma3.lean equals the LF Lemma3.lean through 'end Lemma3'. So the comparator evidence is unaffected.
+
+file                                   recorded (CRLF working tree)                                       LF (git checkout)                                                 
+lean-checks/Lemma3.lean                77452a4a489981d91d6b4caa207c7c5647f39d2d8b13858ad63791e63672a128   ecdbf400b24f9241cd03cf383bdcd97ed71e4812578e66d7159a846447f7b1a7  
+lean-checks/Lemma3Bridged.lean         04a49750f96b02ce2f191a8ab98c4d2e2e1f6f3e8881b4852aaa57f7697d0686   6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4  
+lean-checks/Lemma3Skeleton.lean        56cbe725bfcf3fa16c258e769653299bc00f530de53a4b994224453a056dd6dd   e92d4a50f636b708b3198181da4d8714a0674f5aa9b4183c60eebf7147ef6f2a  
+
+cited in: Lemma3.lean -> results/2026-10-08-lean-lemma3-full.txt; Lemma3Bridged.lean -> results/2026-10-08-lean-lemma3-bridge.txt, -lean-lemma3-nanoda.txt, -lean-main-rerouted.txt, 2026-10-09-rerouted-comparator-feasibility.txt; Lemma3Skeleton.lean -> results/2026-10-08-lean-lemma3-skeleton.txt
+
+All other git-tracked lean-checks/*.lean files (14): working-tree hash = git hash = the hash cited in results/ (Lemma3_Bridge, Lemma3_Cor4, Lemma3_P1..P5, MainDeps, MainRerouted, NonVacuity, ReroutedDeps, comparator-copy/PaperLemma3/Bridge and Lemma3).

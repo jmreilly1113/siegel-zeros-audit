@@ -1,0 +1,4 @@
+# Lean sources must keep LF endings: recorded sha256 hashes are of the LF files.
+*.lean text eol=lf
+# Bash scripts with CRLF endings fail under WSL.
+*.sh text eol=lf

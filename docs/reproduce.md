@@ -25,7 +25,7 @@ Written for an independent reviewer. All commands run from the project root. Exp
 
 Output files are opened in exclusive mode and never overwritten. Choose a new name for every rerun.
 
-## 2. Lean (done here on 2026-10-08: accepted by the Lean kernel and nanoda)
+## 2. Lean (done here on 2026-10-08: accepted by the Lean kernel and nanoda; rerouted proof accepted 2026-10-09, Option A2)
 
 ### Option A: the official comparator (Linux only; recommended)
 From `external/openai-math/lean/` on a Linux machine with about 30 GB free:
@@ -51,6 +51,71 @@ Lessons from this machine (docs/log.md, 2026-10-08):
 - Do not `wsl --shutdown` right after large writes. Run `sync` and wait first.
 - After any crash, scan for zero-filled .olean files (`18_olean_scan.sh`) and delete the build outputs the interrupted run wrote (`19_crash_dirty.sh`, `20_clean_crash_debris.sh`) before rerunning.
 - Do not redirect the outer script's output and the systemd service's output into the same file on /mnt/c. The two writers overwrite each other's lines. Record versions in a separate step.
+
+### Option A2: the rerouted proof under the official comparator (done here on 2026-10-09: accepted)
+This reruns the check that the challenge theorem `dirichletRealZeroBound_proof` passes the comparator when OAI's Corollary 4 is replaced by our proof of the paper's Lemma 3 (`docs/writeup.md` 2.10 (c)). It needs the same tools as Option A, including `nanoda_bin`. Results: `results/2026-10-09-lean-comparator-rerouted-nanoda.txt`, `-rerouted-comparator-diff.txt`, `-rerouted-comparator-feasibility.txt`, `-lean-rerouted-comparator-deps.txt`.
+
+1. **Fresh clone.** Same steps as Option A, in a separate directory so that an existing clone stays untouched. Our script is `wsl-comparator/45_rerouted_clone.sh`; it runs as `checker` and writes `/home/checker/math-rerouted`.
+   ```
+   git clone https://github.com/openai/math math-rerouted
+   cd math-rerouted && git checkout adc7f1241b42e322a6451854ab7e4b4c146bf78a
+   cd lean
+   lake update            # applies lean/patches/*.patch
+   lake exe cache get
+   git -C .. status --short   # expect no output
+   ```
+   On our run: 42 packages, Mathlib cache 8908 files, no modified files after the update.
+
+2. **The two added files.** Generate them from this project with `python -I wsl-comparator/46_make_comparator_copy.py <project root>`. That writes `lean-checks/comparator-copy/PaperLemma3/`:
+   - `Lemma3.lean`: `lean-checks/Lemma3.lean` through `end Lemma3`, without the trailing `#print`/`#check` lines. Imports only Mathlib. Sha256 `1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283`.
+   - `Bridge.lean`: lines 989-1265 of `lean-checks/Lemma3Bridged.lean` (Corollary 4 from Lemma 3, and the bridge), under a new header. Imports Mathlib, `OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3` and `OAI.NumberTheory.SiegelZeros.Structure.InvariantJetLinearMap`. No `#find_deps`, `#print`, `#check` or `#reroute`. Sha256 `af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250`.
+
+   The hashes are of the files with LF line endings, which is what the script writes. The repository's `.gitattributes` (`*.lean text eol=lf`, `*.sh text eol=lf`) makes every checkout give LF, whatever the local `core.autocrlf` setting, so a fresh clone of this project reproduces these hashes. Three older files, `lean-checks/Lemma3.lean`, `Lemma3Bridged.lean` and `Lemma3Skeleton.lean`, were CRLF on this machine when their hashes were recorded in the 2026-10-08 results. A checkout gives their LF form, which has a different hash. `results/2026-10-09-lean-checks-line-endings.txt` lists both hashes for each, and shows that the files differ only in line endings.
+
+   Copy both into the clone as `lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean` and `.../Bridge.lean`. The lakefile's `OAI.NumberTheory.+` glob picks them up; no lakefile change is needed.
+
+   Optional read-only check first: `wsl-comparator/44_feasibility.sh` (runs `43_bridge_import_closure.py`). It confirms that the import closure of these files (10,702 modules, 41 of them OAI) contains none of the four modules of the rerouted chain and not `OAI.NumberTheory.SiegelZeros.Main`. Expected last line: `CHECK PASSED`.
+
+3. **The one-term diff.** Edit `lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean`, the only file in the chain that uses Corollary 4. Change nothing else. `wsl-comparator/47_rerouted_install.sh` does steps 2 and 3, and checks both lines before editing. Expected `git diff`:
+   ```
+   @@ -4,6 +4,7 @@ import OAI.NumberTheory.SiegelZeros.Characters.CharacterGlobalGreedyDeterminantF
+    import OAI.NumberTheory.SiegelZeros.Determinants.NormalizedMasterBound
+    import OAI.NumberTheory.SiegelZeros.Selection.GlobalRectanglePivotBounds
+    import OAI.NumberTheory.SiegelZeros.Structure.InvariantJetLinearMap
+   +import OAI.NumberTheory.SiegelZeros.PaperLemma3.Bridge
+
+    namespace OAI
+
+   @@ -135,7 +136,7 @@ theorem source_character_global_greedy_determinant_master_bounds :
+        apply n.injective
+        funext i
+        exact Fin.ext (congrFun h i)
+   -  have hspan := actual_biquadratic_rectangle_span a' b' v hv σ τ
+   +  have hspan := Lemma3.actual_biquadratic_rectangle_span_via_lemma3 a' b' v hv σ τ
+        hσa hσb hτa hτb H N hH hHN (fun j i => (n j i : ℕ)) hninj
+        (fun j i => (n j i).isLt)
+   ```
+   This printed diff is for reading only. It is indented, and the blank context lines have lost their leading space, so `git apply` rejects a copy of it as a corrupt patch. The authoritative patch is in `results/2026-10-09-rerouted-comparator-diff.txt`, from the `diff --git` line up to, not including, the `== check` line. Extract it with `sed -n '/^diff --git/,/^== check/p' results/2026-10-09-rerouted-comparator-diff.txt | sed '$d' > rerouted.patch`. From the clone's root, `git apply rerouted.patch` then makes this exact change; we checked it with `git apply --check` against the file at adc7f12. Script 47 makes the same change without a patch file.
+
+   `git diff --numstat` must show exactly one file with 2 added lines and 1 removed. `git status --short` shows that file as modified and `lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/` as untracked, nothing else. The challenge file `ComparatorChallenges/SiegelZeros.lean` is not touched.
+
+4. **Run the comparator** with `wsl-comparator/48_comparator_rerouted_nanoda.sh`. It is `29_comparator_nanoda.sh` pointed at the new clone:
+   - the same sandbox (`systemd-run --user`, all network sockets blocked);
+   - the same config copy `wsl-comparator/SiegelZeros-nanoda.json`, which differs from the repo's `SiegelZeros.json` only in `"enable_nanoda": true`;
+   - the same solution module, `OAI.NumberTheory.SiegelZeros.Main`.
+
+   By hand, from the clone's `lean/` directory: `lake env comparator <path to SiegelZeros-nanoda.json>`. Expected output:
+   - `Build completed successfully (9244 jobs).` The job list includes `OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3`, `...PaperLemma3.Bridge` and `...Characters.CharacterGlobalGreedyDeterminantMasterBounds`. Lemma3 shows only linter warnings: unused simp arguments, and one deprecated `if_neg`.
+   - Then `nanoda kernel accepts the solution`, `Lean default kernel accepts the solution` and `Your solution is okay!`, with exit code 0.
+   - The only `sorry` warnings are the two in `ComparatorChallenges/SiegelZeros.lean` itself (lines 8 and 19), the challenge stubs.
+   - Our time: 24 min for the full build and both kernels.
+
+5. **Optional dependency scan:** `wsl-comparator/49_rerouted_deps.sh` (`lean-checks/ReroutedDeps.lean`, run with `lake env lean` in the rerouted clone and in an unmodified clone). Expected:
+   - **Rerouted clone:** `dirichletRealZeroBound_proof` matches only `Lemma3.actual_biquadratic_rectangle_span_via_lemma3` and `Lemma3.interpolation`.
+   - **Unmodified clone:** it matches OAI's `actual_biquadratic_rectangle_span`, `uniform_rectangular_multiplicity` and `source_rectangle_span_of_polynomial_zero_test`.
+   - **Both clones:** `exists_absolute_real_zero_gap` has no match. All theorems use only propext, Classical.choice and Quot.sound.
+
+Our scripts hard-code `/home/checker/...` and `/mnt/c/Users/Work/dev/siegel/...`. Adjust the paths on another machine. The Option A lessons apply here too, in particular `sync` before any `wsl --shutdown`.
 
 ### Option B: trimmed build (what we used; works on Windows)
 `lean-build/` holds byte-identical copies of the 306 files of `OAI/NumberTheory/SiegelZeros/`, the challenge file, and the 12 files the PNT patch creates. Its lakefile requires only Mathlib at d13f23b. Rebuild it from scratch as described in `docs/log.md` (2026-10-08, step 1 setup), then:

@@ -23,3 +23,5 @@ Where to start:
 - **Files copied from openai/math:** Apache-2.0 under OpenAI's copyright, unchanged. See `MODIFICATIONS.md` and `LICENSE-openai-math`.
 - **Files under `lean-build/PrimeNumberTheoremAnd/`:** Apache-2.0, per their `NOTICE.md`.
 - **Outputs in `results/`:** CC BY 4.0, except where they quote openai/math text.
+
+[![DOI](https://zenodo.org/badge/1411973467.svg)](https://doi.org/10.5281/zenodo.23269527)

@@ -1,0 +1,440 @@
+== config diff vs the clone's own ComparatorChallenges/SiegelZeros.json
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+== clone state
+HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a
+ M OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+?? OAI/NumberTheory/SiegelZeros/PaperLemma3/
+challenge file sha256: bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, blob at HEAD: 8bab3f83ef57af55c5826318b6c92df84117395f
+user: checker
+comparator: /usr/local/bin/comparator afa65e57a1770f59
+nanoda_bin: /usr/local/bin/nanoda_bin 897971d7e99f1ac2
+lean4export: /usr/local/bin/lean4export
+toolchain: leanprover/lean4:v4.34.1
+Fri Oct  9 09:07:51 EDT 2026
+Running as unit: run-u0.service; invocation ID: 47e10d668f024ea7b0531aedf552fd26
+warning: PrimeNumberTheoremAnd: repository '/home/checker/math-rerouted/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/home/checker/math-rerouted/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/home/checker/math-rerouted/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/home/checker/math-rerouted/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/home/checker/math-rerouted/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/home/checker/math-rerouted/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/home/checker/math-rerouted/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/home/checker/math-rerouted/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/home/checker/math-rerouted/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/home/checker/math-rerouted/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/home/checker/math-rerouted/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/home/checker/math-rerouted/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/home/checker/math-rerouted/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/home/checker/math-rerouted/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/home/checker/math-rerouted/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/home/checker/math-rerouted/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/home/checker/math-rerouted/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/home/checker/math-rerouted/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/home/checker/math-rerouted/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/home/checker/math-rerouted/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/home/checker/math-rerouted/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/home/checker/math-rerouted/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/home/checker/math-rerouted/lean/.lake/packages/fixed-point-theorems' has local changes
+Building ComparatorChallenges.SiegelZeros
+warning: PrimeNumberTheoremAnd: repository '/home/checker/math-rerouted/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/home/checker/math-rerouted/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/home/checker/math-rerouted/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/home/checker/math-rerouted/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/home/checker/math-rerouted/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/home/checker/math-rerouted/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/home/checker/math-rerouted/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/home/checker/math-rerouted/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/home/checker/math-rerouted/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/home/checker/math-rerouted/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/home/checker/math-rerouted/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/home/checker/math-rerouted/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/home/checker/math-rerouted/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/home/checker/math-rerouted/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/home/checker/math-rerouted/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/home/checker/math-rerouted/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/home/checker/math-rerouted/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/home/checker/math-rerouted/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/home/checker/math-rerouted/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/home/checker/math-rerouted/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/home/checker/math-rerouted/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/home/checker/math-rerouted/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/home/checker/math-rerouted/lean/.lake/packages/fixed-point-theorems' has local changes
+⚠ [8924/8924] Built ComparatorChallenges.SiegelZeros (56s)
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SiegelZeros
+Building OAI.NumberTheory.SiegelZeros.Main
+warning: PrimeNumberTheoremAnd: repository '/home/checker/math-rerouted/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/home/checker/math-rerouted/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/home/checker/math-rerouted/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/home/checker/math-rerouted/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/home/checker/math-rerouted/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/home/checker/math-rerouted/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/home/checker/math-rerouted/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/home/checker/math-rerouted/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/home/checker/math-rerouted/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/home/checker/math-rerouted/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/home/checker/math-rerouted/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/home/checker/math-rerouted/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/home/checker/math-rerouted/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/home/checker/math-rerouted/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/home/checker/math-rerouted/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/home/checker/math-rerouted/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/home/checker/math-rerouted/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/home/checker/math-rerouted/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/home/checker/math-rerouted/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/home/checker/math-rerouted/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/home/checker/math-rerouted/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/home/checker/math-rerouted/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/home/checker/math-rerouted/lean/.lake/packages/fixed-point-theorems' has local changes
+✔ [8924/9047] Built OAI.NumberTheory.SiegelZeros.Selection.RowSpan (4.8s)
+✔ [8925/9048] Built OAI.NumberTheory.SiegelZeros.Determinants.DeterminantBridge (4.9s)
+✔ [8926/9048] Built OAI.NumberTheory.SiegelZeros.Differentials.InvariantDerivation (5.6s)
+✔ [8927/9049] Built OAI.NumberTheory.SiegelZeros.Structure.ArchimedeanTheta (6.8s)
+✔ [8928/9050] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.GammaBound (7.1s)
+✔ [8929/9050] Built OAI.NumberTheory.SiegelZeros.Characters.Biquadratic (7.1s)
+✔ [8930/9054] Built OAI.NumberTheory.SiegelZeros.Differentials.LogDerivative (7.6s)
+✔ [8931/9056] Built OAI.NumberTheory.SiegelZeros.Differentials.ZetaLogDerivative (8.7s)
+✔ [8932/9056] Built OAI.NumberTheory.SiegelZeros.Characters.PrimePowerTail (9.1s)
+✔ [8933/9062] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.Hadamard (9.2s)
+✔ [8934/9068] Built OAI.NumberTheory.SiegelZeros.Characters.MangoldtMass (9.3s)
+✔ [8935/9069] Built OAI.NumberTheory.SiegelZeros.Structure.MasterContradiction (8.9s)
+✔ [8936/9071] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ResidueField (5.7s)
+✔ [8937/9077] Built OAI.NumberTheory.SiegelZeros.Estimates.FloorExponents (7.5s)
+✔ [8938/9079] Built OAI.NumberTheory.SiegelZeros.Structure.OrderedBasis (8.2s)
+✔ [8939/9079] Built OAI.NumberTheory.SiegelZeros.Selection.RowReplacement (8.5s)
+✔ [8940/9079] Built OAI.NumberTheory.SiegelZeros.Estimates.PrimeBounds (7.0s)
+✔ [8941/9079] Built OAI.NumberTheory.SiegelZeros.Characters.ExceptionalConductor (7.1s)
+✔ [8942/9079] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.ZeroContribution (8.7s)
+✔ [8943/9079] Built OAI.NumberTheory.SiegelZeros.Estimates.AsymptoticAssembly (8.7s)
+✔ [8944/9081] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalizedRadical (5.3s)
+✔ [8945/9081] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.BoxPolynomials (6.5s)
+✔ [8946/9081] Built OAI.NumberTheory.SiegelZeros.Differentials.DerivativeBound (9.8s)
+✔ [8947/9081] Built OAI.NumberTheory.SiegelZeros.Structure.FieldAutomorphisms (19s)
+✔ [8948/9084] Built OAI.NumberTheory.SiegelZeros.Structure.RectangleGenerators (12s)
+✔ [8949/9084] Built OAI.NumberTheory.SiegelZeros.Differentials.DerivativeMatrix (9.6s)
+✔ [8950/9089] Built OAI.NumberTheory.SiegelZeros.Structure.GenericCombination (7.5s)
+✔ [8951/9089] Built OAI.NumberTheory.SiegelZeros.Selection.SelectionBridge (15s)
+✔ [8952/9089] Built OAI.NumberTheory.SiegelZeros.Determinants.ThetaDivisibility (13s)
+✔ [8953/9089] Built OAI.NumberTheory.SiegelZeros.Selection.InvariantBox (5.1s)
+✔ [8954/9089] Built OAI.NumberTheory.SiegelZeros.Determinants.NormalizedCompletion (10s)
+✔ [8955/9089] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ConePrimeLocalization (17s)
+✔ [8956/9089] Built PrimeNumberTheoremAnd.SiegelZeros.Products (27s)
+✔ [8957/9089] Built OAI.NumberTheory.SiegelZeros.Characters.SquarefreeRadicands (7.7s)
+✔ [8958/9089] Built OAI.NumberTheory.SiegelZeros.Structure.CyclicPrimeFactor (5.9s)
+✔ [8959/9089] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ParameterKilledFiniteLength (5.9s)
+✔ [8960/9089] Built OAI.NumberTheory.SiegelZeros.Intersection.IsolatedIntersectionSteps (5.8s)
+✔ [8961/9089] Built OAI.NumberTheory.SiegelZeros.Structure.FiberCount (6.0s)
+✔ [8962/9089] Built OAI.NumberTheory.SiegelZeros.Structure.RealCutoff (6.3s)
+✔ [8963/9089] Built OAI.NumberTheory.SiegelZeros.Structure.SignedDiscriminant (6.6s)
+✔ [8964/9089] Built OAI.NumberTheory.SiegelZeros.Structure.EndomorphismEulerAdditivity (7.8s)
+✔ [8965/9089] Built OAI.NumberTheory.SiegelZeros.Structure.GaussLegendre (6.3s)
+✔ [8966/9089] Built OAI.NumberTheory.SiegelZeros.Structure.ThetaJetBridge (5.9s)
+✔ [8967/9092] Built OAI.NumberTheory.SiegelZeros.Hilbert.ConeHomogeneousEquations (6.5s)
+✔ [8968/9092] Built OAI.NumberTheory.SiegelZeros.Differentials.GammaFactorDerivative (7.5s)
+✔ [8969/9092] Built OAI.NumberTheory.SiegelZeros.Structure.FiniteLower (7.9s)
+✔ [8970/9092] Built PrimeNumberTheoremAnd.SiegelZeros.Counting (37s)
+✔ [8971/9092] Built OAI.NumberTheory.SiegelZeros.Selection.OrderedGreedyRows (7.1s)
+✔ [8972/9097] Built OAI.NumberTheory.SiegelZeros.Selection.PivotReindexing (7.7s)
+✔ [8973/9098] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalizedFiltrationLength (9.2s)
+✔ [8974/9105] Built OAI.NumberTheory.SiegelZeros.Determinants.RectangleDeterminant (8.5s)
+✔ [8975/9107] Built OAI.NumberTheory.SiegelZeros.Hilbert.PrimeHilbertDimension (5.8s)
+✔ [8976/9107] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.PolynomialGrowthRanks (7.1s)
+✔ [8977/9107] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterLegendre (8.3s)
+✔ [8978/9107] Built OAI.NumberTheory.SiegelZeros.Selection.EventuallyPivots (13s)
+✔ [8979/9107] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.TriangularLocalParametersTransport (16s)
+✔ [8980/9107] Built OAI.NumberTheory.SiegelZeros.Hilbert.HomogeneousSections (5.6s)
+✔ [8981/9109] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.StabilizedColonPowers (6.4s)
+⚠ [8982/9114] Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3 (48s)
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:633:13: This simp argument is unused:
+  coe_aeval_eq_eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:715:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:799:22: This simp argument is unused:
+  degreeOf_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [degreeOf_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8983/9114] Built OAI.NumberTheory.SiegelZeros.Hilbert.HomogeneousComponentLength (6.0s)
+✔ [8984/9117] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialCumulative (7.9s)
+✔ [8985/9119] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RegularParameterSelection (8.9s)
+✔ [8986/9119] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.FiniteNormalizationGrowth (11s)
+✔ [8987/9121] Built OAI.NumberTheory.SiegelZeros.Determinants.DeterminantComparison (11s)
+✔ [8988/9126] Built PrimeNumberTheoremAnd.SiegelZeros.DivisorBasics (27s)
+✔ [8989/9126] Built OAI.NumberTheory.SiegelZeros.Intersection.AffineTranscendenceDimension (10s)
+✔ [8990/9127] Built OAI.NumberTheory.SiegelZeros.Intersection.TorusProjectiveClosure (23s)
+✔ [8991/9127] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialCoefficientLocalization (10s)
+✔ [8992/9127] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PrimeResidueAlgebraEquiv (9.4s)
+✔ [8993/9128] Built OAI.NumberTheory.SiegelZeros.Structure.GaussFixedField (17s)
+✔ [8994/9128] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.CoefficientLocalizationMaximal (14s)
+✔ [8995/9131] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.QuotientPrimeResidueBasis (8.0s)
+✔ [8996/9131] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.CoordinateQuotientGrading (16s)
+✔ [8997/9132] Built OAI.NumberTheory.SiegelZeros.Intersection.LocalIntersectionFormula (19s)
+✔ [8998/9132] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.AffineResidueTranscendence (7.8s)
+✔ [8999/9132] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalLength (4.8s)
+✔ [9000/9132] Built OAI.NumberTheory.SiegelZeros.Structure.ComponentHeight (4.8s)
+✔ [9001/9132] Built OAI.NumberTheory.SiegelZeros.Structure.IdentityHeight (7.7s)
+✔ [9002/9132] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ParameterCombinations (4.0s)
+✔ [9003/9136] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ConeRegularSequence (9.5s)
+✔ [9004/9136] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.GaussMinimalPolynomial (6.7s)
+✔ [9005/9138] Built OAI.NumberTheory.SiegelZeros.Selection.SplitCoordinateClosedPoint (7.2s)
+✔ [9006/9142] Built PrimeNumberTheoremAnd.SiegelZeros.CartanBounds (31s)
+✔ [9007/9142] Built OAI.NumberTheory.SiegelZeros.Structure.FinsuppCandidates (4.3s)
+✔ [9008/9143] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.RegularSequenceHomZero (4.8s)
+✔ [9009/9144] Built OAI.NumberTheory.SiegelZeros.Structure.ConcreteArchimedean (17s)
+✔ [9010/9144] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalizedOneCutPropagation (8.4s)
+✔ [9011/9144] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ConeQuotientAugmentation (9.2s)
+✔ [9012/9148] Built OAI.NumberTheory.SiegelZeros.Characters.GaussSquarefreeBridge (8.8s)
+✔ [9013/9149] Built OAI.NumberTheory.SiegelZeros.Differentials.ConormalPairing (6.4s)
+✔ [9014/9149] Built OAI.NumberTheory.SiegelZeros.Intersection.TorusPolynomial (11s)
+✔ [9015/9149] Built OAI.NumberTheory.SiegelZeros.Determinants.IntegralGaussReduction (10s)
+✔ [9016/9149] Built OAI.NumberTheory.SiegelZeros.Hilbert.HilbertZeroVariables (15s)
+✔ [9017/9149] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ParameterIntegration (9.0s)
+✔ [9018/9149] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RegularPrefixLocalization (14s)
+✔ [9019/9149] Built OAI.NumberTheory.SiegelZeros.Determinants.NormalDirectionSelection (7.4s)
+✔ [9020/9154] Built OAI.NumberTheory.SiegelZeros.Structure.SplitClosedPointCompatibility (10s)
+✔ [9021/9154] Built OAI.NumberTheory.SiegelZeros.Differentials.SmoothConormalExtension (6.6s)
+✔ [9022/9154] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.JetCoefficients (8.0s)
+✔ [9023/9155] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ColonSeriesTelescope (6.4s)
+✔ [9024/9158] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RegularSequenceSeries (7.8s)
+✔ [9025/9158] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.DVRLocalCoordinates (9.8s)
+✔ [9026/9158] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterFrobenius (8.9s)
+✔ [9027/9158] Built OAI.NumberTheory.SiegelZeros.Intersection.LocalPrefixCutDimension (9.1s)
+✔ [9028/9158] Built OAI.NumberTheory.SiegelZeros.Differentials.DerivativeGeneratorBridge (10s)
+✔ [9029/9161] Built PrimeNumberTheoremAnd.SiegelZeros.DivisorProducts (33s)
+✔ [9030/9161] Built OAI.NumberTheory.SiegelZeros.Determinants.GeneratedGreedyDivisibility (18s)
+✔ [9031/9163] Built OAI.NumberTheory.SiegelZeros.Structure.KoszulDualStep (17s)
+✔ [9032/9165] Built OAI.NumberTheory.SiegelZeros.Structure.CodimensionOne (9.0s)
+✔ [9033/9165] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ResidueIndependence (5.5s)
+✔ [9034/9165] Built OAI.NumberTheory.SiegelZeros.Intersection.NormalIntersection (7.2s)
+✔ [9035/9168] Built OAI.NumberTheory.SiegelZeros.Estimates.GlobalConstants (9.2s)
+✔ [9036/9168] Built OAI.NumberTheory.SiegelZeros.Determinants.GenericNormalizationFinite (16s)
+✔ [9037/9168] Built OAI.NumberTheory.SiegelZeros.Differentials.ConormalNonvanishing (6.5s)
+✔ [9038/9168] Built OAI.NumberTheory.SiegelZeros.Structure.Radicand (8.9s)
+✔ [9039/9169] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RegularSequenceAugmentation (7.1s)
+✔ [9040/9177] Built OAI.NumberTheory.SiegelZeros.Structure.DvrFractions (5.9s)
+✔ [9041/9177] Built OAI.NumberTheory.SiegelZeros.Estimates.KoszulBounded (7.5s)
+✔ [9042/9177] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RingLength (7.1s)
+✔ [9043/9180] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.GenericRegularity (8.7s)
+✔ [9044/9180] Built OAI.NumberTheory.SiegelZeros.Hilbert.ProperHypersurfaceHilbert (18s)
+✔ [9045/9180] Built OAI.NumberTheory.SiegelZeros.Intersection.DivisorSmoothness (10s)
+✔ [9046/9180] Built OAI.NumberTheory.SiegelZeros.Estimates.RectangleNumerics (7.7s)
+✔ [9047/9183] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterDeterminant (10s)
+✔ [9048/9183] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RectangularLocalization (8.6s)
+✔ [9049/9185] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialBridge (5.9s)
+✔ [9050/9188] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ResidueMap (16s)
+✔ [9051/9188] Built OAI.NumberTheory.SiegelZeros.Structure.KoszulTopTerm (10s)
+✔ [9052/9188] Built OAI.NumberTheory.SiegelZeros.Structure.HeightFourIdentity (11s)
+✔ [9053/9192] Built OAI.NumberTheory.SiegelZeros.Structure.GradedGeneration (8.6s)
+✔ [9054/9192] Built PrimeNumberTheoremAnd.SiegelZeros.DivisorLimits (24s)
+✔ [9055/9193] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.AffineClosedPointLocalization (34s)
+✔ [9056/9197] Built OAI.NumberTheory.SiegelZeros.Structure.IteratedKoszulExactness (13s)
+✔ [9057/9197] Built OAI.NumberTheory.SiegelZeros.Selection.Directions (10s)
+✔ [9058/9197] Built OAI.NumberTheory.SiegelZeros.Structure.OmegaIndependence (7.7s)
+✔ [9059/9197] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ScalarExtension (7.0s)
+✔ [9060/9197] Built OAI.NumberTheory.SiegelZeros.Differentials.SelectedCotangent (35s)
+✔ [9061/9197] Built OAI.NumberTheory.SiegelZeros.Differentials.CotangentGeneration (7.3s)
+✔ [9062/9197] Built OAI.NumberTheory.SiegelZeros.Differentials.KoszulTopDifferential (11s)
+✔ [9063/9197] Built OAI.NumberTheory.SiegelZeros.Characters.PrimeTerms (9.1s)
+✔ [9064/9197] Built OAI.NumberTheory.SiegelZeros.Structure.CanonicalDivisorScalars (16s)
+✔ [9065/9197] Built OAI.NumberTheory.SiegelZeros.Structure.ConcreteArchimedeanBridge (12s)
+✔ [9066/9197] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.AnalyticBridge (9.2s)
+✔ [9067/9197] Built OAI.NumberTheory.SiegelZeros.Hilbert.PrimeHilbertComparison (22s)
+✔ [9068/9200] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.ZeroShellBounds (10s)
+✔ [9069/9200] Built OAI.NumberTheory.SiegelZeros.Selection.CoordinateBasisSplitting (11s)
+✔ [9070/9203] Built OAI.NumberTheory.SiegelZeros.Structure.Factorization (10s)
+✔ [9071/9210] Built OAI.NumberTheory.SiegelZeros.Selection.CoordinateConstancy (9.9s)
+✔ [9072/9210] Built OAI.NumberTheory.SiegelZeros.Structure.KoszulDualInitial (11s)
+✔ [9073/9213] Built OAI.NumberTheory.SiegelZeros.Determinants.NormalSurjectivity (11s)
+✔ [9074/9216] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.GlobalStalkExtension (10s)
+✔ [9075/9216] Built OAI.NumberTheory.SiegelZeros.Structure.PrimeDegreeExistence (7.3s)
+✔ [9076/9216] Built OAI.NumberTheory.SiegelZeros.Structure.RealBridge (8.4s)
+✔ [9077/9221] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalResidueTaylor (7.6s)
+✔ [9078/9222] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.GenericResidueFunctionField (12s)
+✔ [9079/9222] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialLocalRegularParameters (8.7s)
+✔ [9080/9223] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ParameterChoices (4.6s)
+✔ [9081/9224] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.EntireLogarithm (5.0s)
+✔ [9082/9226] Built PrimeNumberTheoremAnd.SiegelZeros.Factorization (24s)
+✔ [9083/9240] Built OAI.NumberTheory.SiegelZeros.Estimates.ContrarySequence (6.9s)
+✔ [9085/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalGap (7.5s)
+✔ [9086/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.IndexedProduct (26s)
+✔ [9087/9244] Built OAI.NumberTheory.SiegelZeros.Structure.EventuallyInputs (6.9s)
+✔ [9088/9244] Built OAI.NumberTheory.SiegelZeros.Hilbert.HilbertMultiplicityFiltration (8.5s)
+✔ [9089/9244] Built OAI.NumberTheory.SiegelZeros.Model (11s)
+✔ [9090/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BoundedConductor (7.3s)
+✔ [9091/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.PrimeHypersurfaceEquidimension (12s)
+✔ [9092/9244] Built OAI.NumberTheory.SiegelZeros.Selection.EventualSelection (7.5s)
+✔ [9093/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.UnconditionalGlobalLogform (14s)
+✔ [9094/9244] Built OAI.NumberTheory.SiegelZeros.Structure.AffineFactor (9.7s)
+✔ [9095/9244] Built OAI.NumberTheory.SiegelZeros.Estimates.ComponentMultiplicityBound (8.7s)
+✔ [9096/9244] Built OAI.NumberTheory.SiegelZeros.Structure.PrimeCutBudget (10s)
+✔ [9097/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RegularParameterSelectionLemmas (18s)
+✔ [9098/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.AffineCircles (6.1s)
+✔ [9099/9244] Built OAI.NumberTheory.SiegelZeros.Estimates.GenuineSequence (11s)
+✔ [9100/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.CompleteIntersectionComponentBound (7.6s)
+✔ [9101/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.RetainedIntersectionCycles (6.3s)
+✔ [9102/9244] Built PrimeNumberTheoremAnd.SiegelZeros.Summability (21s)
+✔ [9103/9244] Built PrimeNumberTheoremAnd.SiegelZeros.ProductBounds (45s)
+✔ [9104/9244] Built OAI.NumberTheory.SiegelZeros.Estimates.AffineAsymptotics (5.0s)
+✔ [9105/9244] Built OAI.NumberTheory.SiegelZeros.Structure.SelectedComponentTaylor (30s)
+✔ [9106/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.SequenceParameters (6.0s)
+✔ [9107/9244] Built OAI.NumberTheory.SiegelZeros.Structure.MultiplicityCycles (6.3s)
+✔ [9108/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.SelectedLengthContradiction (4.7s)
+✔ [9109/9244] Built OAI.NumberTheory.SiegelZeros.Structure.Augmentation (4.3s)
+✔ [9110/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.NormalSelection (25s)
+✔ [9111/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.RegularCutHistory (9.2s)
+✔ [9112/9244] Built PrimeNumberTheoremAnd.SiegelZeros.Exponential (17s)
+✔ [9113/9244] Built OAI.NumberTheory.SiegelZeros.Structure.RectanglePresentation (8.7s)
+✔ [9114/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.RectangleCotangentBasis (5.8s)
+✔ [9115/9244] Built OAI.NumberTheory.SiegelZeros.Hilbert.HomogeneousListHistory (6.2s)
+✔ [9116/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ResidueDirectionSelection (12s)
+✔ [9117/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.IsolatedBezoutFromRegularSelection (7.6s)
+✔ [9118/9244] Built PrimeNumberTheoremAnd.SiegelZeros.Growth (12s)
+✔ [9119/9244] Built PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport (4.0s)
+✔ [9120/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.HeightFourLength (16s)
+✔ [9121/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.IntegralDeterminantTransport (33s)
+✔ [9122/9244] Built OAI.NumberTheory.SiegelZeros.Selection.JetRowAutCongr (33s)
+✔ [9123/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.NormalizedMasterBound (33s)
+✔ [9124/9244] Built OAI.NumberTheory.SiegelZeros.Characters.IntegerCharacter (40s)
+✔ [9125/9244] Built OAI.NumberTheory.SiegelZeros.Selection.GreedyPivots (40s)
+✔ [9126/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.MonicSMulRegularQuotientMapC (41s)
+✔ [9127/9244] Built OAI.NumberTheory.SiegelZeros.Structure.CharacterEstimates (43s)
+✔ [9128/9244] Built OAI.NumberTheory.SiegelZeros.Structure.DominantFunctionFieldHom (44s)
+✔ [9129/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.MellinConvergentTopIndicator (46s)
+✔ [9130/9244] Built OAI.NumberTheory.SiegelZeros.Selection.GlobalWeightSortedJetEquiv (24s)
+✔ [9131/9244] Built OAI.NumberTheory.SiegelZeros.Structure.SumCardFilterSumMin (15s)
+✔ [9132/9244] Built OAI.NumberTheory.SiegelZeros.Structure.ArithFrobIntegerGlobalCongruence (25s)
+✔ [9133/9244] Built OAI.NumberTheory.SiegelZeros.Structure.ConeMap (60s)
+✔ [9134/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BiquadraticThetaMap (20s)
+✔ [9135/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BiquadraticBasis (61s)
+✔ [9136/9244] Built OAI.NumberTheory.SiegelZeros.Structure.ArithmeticCutoffTransport (29s)
+✔ [9137/9244] Built OAI.NumberTheory.SiegelZeros.Selection.WeightedJetIndices (25s)
+✔ [9138/9244] Built OAI.NumberTheory.SiegelZeros.Structure.NotEventuallyMaster (29s)
+✔ [9139/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.GenericNormalization (29s)
+✔ [9140/9244] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterMaster (16s)
+✔ [9141/9244] Built OAI.NumberTheory.SiegelZeros.Structure.LinearShearHom (81s)
+✔ [9142/9244] Built OAI.NumberTheory.SiegelZeros.Characters.ConductorCompletedL (25s)
+✔ [9143/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalQuotientEquiv (40s)
+✔ [9144/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.SqrtPairFrobeniusDirections (23s)
+✔ [9145/9244] Built OAI.NumberTheory.SiegelZeros.Structure.Homogenize (25s)
+✔ [9146/9244] Built OAI.NumberTheory.SiegelZeros.Structure.RamifiedMass (6.7s)
+✔ [9147/9244] Built OAI.NumberTheory.SiegelZeros.Structure.MapIInfPrimesOver (12s)
+✔ [9148/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ParameterIdeal (22s)
+✔ [9149/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.CoeffPolynomialEvalMul (13s)
+✔ [9150/9244] Built OAI.NumberTheory.SiegelZeros.Characters.ConditionalPrimeBias (13s)
+✔ [9151/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.AffineProjChartPolynomialEquiv (16s)
+✔ [9152/9244] Built OAI.NumberTheory.SiegelZeros.Characters.FrobeniusRetainedCharacterField (19s)
+✔ [9153/9244] Built OAI.NumberTheory.SiegelZeros.Characters.RealLogDerivConductorCompletedLDivisorTsum (21s)
+✔ [9154/9244] Built OAI.NumberTheory.SiegelZeros.Structure.QuadraticAdjoinBasis (21s)
+✔ [9155/9244] Built OAI.NumberTheory.SiegelZeros.Structure.ConeMapEval (12s)
+✔ [9156/9244] Built OAI.NumberTheory.SiegelZeros.Hilbert.HomogeneousDeformation (27s)
+✔ [9157/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.AvoidZeroRadii (12s)
+✔ [9158/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BiquadraticGoodPrimeUnramified (12s)
+✔ [9159/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.CanonicalQuotient (8.7s)
+✔ [9160/9244] Built OAI.NumberTheory.SiegelZeros.Structure.Convergence (8.9s)
+✔ [9161/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.CompletedLAnalyticOrderNeTop (17s)
+✔ [9162/9244] Built OAI.NumberTheory.SiegelZeros.Structure.CanonicalGoodMass (10s)
+✔ [9163/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.DegreeSliceQuotientEquiv (13s)
+✔ [9164/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BiquadraticGoodPrimeUnramifiedSameWitnessEquiv (12s)
+✔ [9165/9244] Built OAI.NumberTheory.SiegelZeros.Structure.SumLogPrimeFactors (26s)
+✔ [9166/9244] Built OAI.NumberTheory.SiegelZeros.Structure.SqrtTwoField (26s)
+✔ [9167/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.NormalizedHadamardTransfer (9.9s)
+✔ [9168/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.LocalFractionAlgebra (22s)
+✔ [9169/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.DeletedProduct (14s)
+✔ [9170/9244] Built OAI.NumberTheory.SiegelZeros.Structure.DegreeMap (27s)
+✔ [9171/9244] Built OAI.NumberTheory.SiegelZeros.Estimates.LowerBoundTransfer (8.2s)
+✔ [9172/9244] Built OAI.NumberTheory.SiegelZeros.Structure.SumLogDivFilterDvdTwoMul (14s)
+✔ [9173/9244] Built OAI.NumberTheory.SiegelZeros.Characters.NormLogDerivLFunctionNegLogDerivZeta (15s)
+✔ [9174/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.InvariantDerivationLemmas (13s)
+✔ [9175/9244] Built OAI.NumberTheory.SiegelZeros.Hilbert.HilbertSeries (15s)
+✔ [9176/9244] Built OAI.NumberTheory.SiegelZeros.Characters.AuxiliarySqrtPairCharacterField (9.7s)
+✔ [9177/9244] Built OAI.NumberTheory.SiegelZeros.Structure.QuadraticEigencharacter (28s)
+✔ [9178/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.ResidueTensorQuotientAlgEquiv (29s)
+✔ [9179/9244] Built OAI.NumberTheory.SiegelZeros.Structure.FinrankDegreePiecePosPrimeVariableNotMem (12s)
+✔ [9180/9244] Built OAI.NumberTheory.SiegelZeros.Structure.AffineAssembly (23s)
+✔ [9181/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialBox (21s)
+✔ [9182/9244] Built OAI.NumberTheory.SiegelZeros.Characters.QuadraticGroupCharacterFrobenius (9.0s)
+✔ [9183/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.CoefficientSubspaceEquiv (17s)
+✔ [9184/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BiquadraticArithmeticFull (15s)
+✔ [9185/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.ReflectionZeros (6.2s)
+✔ [9186/9244] Built OAI.NumberTheory.SiegelZeros.Estimates.ConstantCancellation (4.9s)
+✔ [9187/9244] Built OAI.NumberTheory.SiegelZeros.Structure.QuadraticEigencharacterAutCongr (8.4s)
+✔ [9188/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.GradedIdealQuotient (10s)
+✔ [9189/9244] Built OAI.NumberTheory.SiegelZeros.Characters.UnconditionalPrimeBias (5.3s)
+✔ [9190/9244] Built OAI.NumberTheory.SiegelZeros.Estimates.GeometricBoundary (6.6s)
+✔ [9191/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.CoordinateLocalizedPrime (23s)
+✔ [9192/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.BezoutBoundary (5.6s)
+✔ [9193/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.FinrankDerivationCardTranscendenceBasis (9.6s)
+✔ [9194/9244] Built OAI.NumberTheory.SiegelZeros.Conclusions.Theorem (7.1s)
+✔ [9195/9244] Built OAI.NumberTheory.SiegelZeros.Selection.RestrictWeightSortedEquiv (32s)
+✔ [9196/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.NormalizationPresentationLocalEquiv (16s)
+✔ [9197/9244] Built OAI.NumberTheory.SiegelZeros.Selection.GreedyPivotsWeightLowSpan (8.8s)
+✔ [9198/9244] Built OAI.NumberTheory.SiegelZeros.Selection.GlobalPivotValuationExponent (9.8s)
+✔ [9199/9244] Built OAI.NumberTheory.SiegelZeros.Selection.GlobalRectanglePivotBounds (10s)
+✔ [9200/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.LogarithmicForm (22s)
+✔ [9201/9244] Built OAI.NumberTheory.SiegelZeros.Structure.LinearVariableBasis (16s)
+✔ [9202/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.Divisibility (23s)
+✔ [9203/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialLaurent (21s)
+✔ [9204/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.TorusImmersionGenericPointFormallySmooth (9.4s)
+✔ [9205/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.LocalLengthMulProjectiveClosureDegree (10s)
+✔ [9206/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.LogarithmicFormLemma (11s)
+✔ [9207/9244] Built OAI.NumberTheory.SiegelZeros.Determinants.NormSqReal (35s)
+✔ [9208/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.ConeProjectivePoint (10s)
+✔ [9209/9244] Built OAI.NumberTheory.SiegelZeros.Structure.FiniteTypeFieldModelEquiv (21s)
+✔ [9210/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.TorusRectangleJetIdealParametersProjectiveDegreeBound (14s)
+✔ [9211/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.TorusIntoProj (8.9s)
+✔ [9212/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.ClosureSpecMapZeroLocus (9.4s)
+✔ [9213/9244] Built OAI.NumberTheory.SiegelZeros.Hilbert.ConeChartHomogeneousLocal (9.6s)
+✔ [9214/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.LocalizeInvariantDerivationLogCoordinate (7.3s)
+✔ [9215/9244] Built OAI.NumberTheory.SiegelZeros.Hilbert.NormalizedHomogeneousChartEquation (6.3s)
+✔ [9216/9244] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterGlobalGreedyDeterminantFullLocalBounds (23s)
+✔ [9217/9244] Built OAI.NumberTheory.SiegelZeros.Intersection.TorusEvalOne (25s)
+✔ [9218/9244] Built OAI.NumberTheory.SiegelZeros.Structure.LaurentEvalOne (10s)
+✔ [9219/9244] Built OAI.NumberTheory.SiegelZeros.Structure.RectangleThreshold (19s)
+✔ [9220/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.AffineZeroScheme (13s)
+✔ [9221/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.FractionEquivAlgebra (27s)
+✔ [9222/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.DerivationJet (9.4s)
+✔ [9223/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.TorusJetZeroSchemeInclusion (11s)
+✔ [9224/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.TorusDerivationOverRat (16s)
+✔ [9225/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.PolynomialLinearCoefficients (16s)
+✔ [9226/9244] Built OAI.NumberTheory.SiegelZeros.Structure.InvariantJetMonomial (9.3s)
+✔ [9227/9244] Built OAI.NumberTheory.SiegelZeros.Structure.EvalOneInvariantJetMonomial (5.2s)
+✔ [9228/9244] Built OAI.NumberTheory.SiegelZeros.Structure.IdealPowLayer (12s)
+✔ [9229/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.FinrankSpanAlgebraMapImage (7.2s)
+✔ [9230/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.AlgebraMapMemSpanImage (5.8s)
+✔ [9231/9244] Built OAI.NumberTheory.SiegelZeros.LocalAlgebra.GreedyPivotsRingEquiv (5.2s)
+✔ [9232/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.TorusQuotientDimensionPosCotangentFinrankThree (18s)
+✔ [9233/9244] Built OAI.NumberTheory.SiegelZeros.Structure.InvariantJetLinearMap (8.6s)
+✔ [9234/9244] Built OAI.NumberTheory.SiegelZeros.Structure.RectangularGradedPieceGeneratedByDegreeOne (8.8s)
+✔ [9235/9244] Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Bridge (11s)
+✔ [9236/9244] Built OAI.NumberTheory.SiegelZeros.Differentials.FractionEulerDerivation (15s)
+✔ [9237/9244] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterGlobalGreedyDeterminantMasterBounds (15s)
+✔ [9238/9244] Built OAI.NumberTheory.SiegelZeros.EntireFunctions.RealZeroUniformMasterBound (11s)
+✔ [9239/9244] Built OAI.NumberTheory.SiegelZeros.Selection.PivotBounds (13s)
+✔ [9240/9244] Built OAI.NumberTheory.SiegelZeros.Characters.DirichletRealZeroBound (5.2s)
+✔ [9241/9244] Built OAI.NumberTheory.SiegelZeros.Characters.DirichletRealZeroBoundProof (5.8s)
+✔ [9242/9244] Built OAI.NumberTheory.SiegelZeros.Characters.SumCharacterPeriodZero (14s)
+✔ [9243/9244] Built OAI.NumberTheory.SiegelZeros.Characters.BiquadraticBasisGroupTransport (51s)
+✔ [9244/9244] Built OAI.NumberTheory.SiegelZeros.Main (4.4s)
+Build completed successfully (9244 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.SiegelZeros.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 24min 3.987s
+COMPARATOR EXIT CODE: 0
+Fri Oct  9 09:31:55 EDT 2026

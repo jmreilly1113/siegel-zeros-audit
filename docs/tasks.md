@@ -51,4 +51,5 @@ Work top to bottom. Mark each task done with the date and the results file it pr
 - [x] (2026-10-08; lean-checks/NonVacuity.lean, results/2026-10-08-lean-nonvacuity.txt) 4a. Lean non-vacuity lemmas for the challenge statement.
 - [x] (2026-10-08; docs/reviewer-packet.md) 4b. Reviewer packet.
 - [x] (2026-10-08; lean-checks/MainRerouted.lean, results/2026-10-08-lean-main-rerouted.txt, -main-closure-cor4-usage.txt) 3d. Rebuild the main theorem on our Lemma 3: dirichletRealZeroBound_proof rerouted (4 theorems), both kernels accept; exists_absolute_real_zero_gap never used Corollary 4.
+- [x] (2026-10-09; results/2026-10-09-lean-comparator-rerouted-nanoda.txt) 3e (plan step 3d). Official comparator, both kernels, on the rerouted proof (source-level swap in a fresh clone): accepted.
 - [ ] 4c. Joe chooses reviewers and sends the packet.

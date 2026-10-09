@@ -1,0 +1,29 @@
+# Plan step 3d, check 4: dependency scan of the challenge-named theorems after the rerouted comparator run
+# Scan: lean-checks/ReroutedDeps.lean (same #find_deps elab as lean-checks/Lemma3Bridged.lean: transitive closure over types and values of theorem/def/opaque constants; matches on the last name component)
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/49_rerouted_deps.sh  (lake env lean, as user checker, in /home/checker/math-rerouted, then in the unmodified /home/checker/math as the control)
+# Lean 4.34.1, Mathlib d13f23b723, OAI adc7f12. Run 2026-10-09 after the comparator run in results/2026-10-09-lean-comparator-rerouted-nanoda.txt
+
+d646d9bd68c45598c6c68a1e1216f395e11107838f42f5254cf64eba942b9102  /home/checker/ReroutedDeps.lean
+== clone /home/checker/math-rerouted (HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a; modified tracked files: 1; untracked: 1)
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof: 92658 constants in closure; matches: [Lemma3.actual_biquadratic_rectangle_span_via_lemma3,
+ Lemma3.interpolation]
+OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap: 107760 constants in closure; matches: []
+'OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LEAN EXIT CODE: 0
+== clone /home/checker/math (HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a; modified tracked files: 0; untracked: 0)
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof: 116314 constants in closure; matches: [OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap: 107760 constants in closure; matches: []
+'OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LEAN EXIT CODE: 0

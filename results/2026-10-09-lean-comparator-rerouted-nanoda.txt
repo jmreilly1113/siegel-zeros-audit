@@ -1,0 +1,66 @@
+# Official Lean FRO comparator on the rerouted proof (plan step 3d), with nanoda as a second kernel
+# Clone: /home/checker/math-rerouted (openai/math adc7f12, fresh; changes in results/2026-10-09-rerouted-comparator-diff.txt: two new modules + one import line + one term)
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/48_comparator_rerouted_nanoda.sh (full log wsl-comparator/48_comparator_rerouted_nanoda.log)
+# Config: wsl-comparator/SiegelZeros-nanoda.json, the repo's ComparatorChallenges/SiegelZeros.json with enable_nanoda true (diff below); challenge file unmodified (git status shows only the two changes).
+# Sandbox: systemd-run --user with RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET, same as 29_comparator_nanoda.sh; user checker.
+# Lean 4.34.1, Mathlib d13f23b723; comparator, lean4export and nanoda_bin 0.4.19 as in the 2026-10-08 runs (sha256 prefixes below). Run 2026-10-09 09:07-09:32.
+# Peak memory pressure was not reached: MemAvailable stayed above the 1.5 GB alert threshold and no OOM messages appeared (watcher polled every 60 s).
+# Lines below: everything except per-module '✔ [n/N] Built' progress lines and Lake's 'has local changes' warnings; the lines for our modules and the edited module are kept.
+
+== config diff vs the clone's own ComparatorChallenges/SiegelZeros.json
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+== clone state
+HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a
+ M OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+?? OAI/NumberTheory/SiegelZeros/PaperLemma3/
+challenge file sha256: bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, blob at HEAD: 8bab3f83ef57af55c5826318b6c92df84117395f
+user: checker
+comparator: /usr/local/bin/comparator afa65e57a1770f59
+nanoda_bin: /usr/local/bin/nanoda_bin 897971d7e99f1ac2
+lean4export: /usr/local/bin/lean4export
+toolchain: leanprover/lean4:v4.34.1
+Fri Oct  9 09:07:51 EDT 2026
+Running as unit: run-u0.service; invocation ID: 47e10d668f024ea7b0531aedf552fd26
+Building ComparatorChallenges.SiegelZeros
+⚠ [8924/8924] Built ComparatorChallenges.SiegelZeros (56s)
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SiegelZeros
+Building OAI.NumberTheory.SiegelZeros.Main
+⚠ [8982/9114] Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3 (48s)
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:633:13: This simp argument is unused:
+  coe_aeval_eq_eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:715:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:799:22: This simp argument is unused:
+  degreeOf_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [degreeOf_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (9244 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.SiegelZeros.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 24min 3.987s
+COMPARATOR EXIT CODE: 0
+Fri Oct  9 09:31:55 EDT 2026
+
+== build lines for the new and edited modules
+⚠ [8982/9114] Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3 (48s)
+✔ [9235/9244] Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Bridge (11s)
+✔ [9237/9244] Built OAI.NumberTheory.SiegelZeros.Characters.CharacterGlobalGreedyDeterminantMasterBounds (15s)

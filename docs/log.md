@@ -376,3 +376,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - README.md: new License section. Our code is Apache-2.0, copyright 2026 Joseph M. Reilly. Prose docs, README and results/ are CC BY 4.0, except quoted openai/math text. openai/math copies are Apache-2.0 under OpenAI's copyright, unchanged. lean-build/PrimeNumberTheoremAnd/ is Apache-2.0 per its NOTICE.md. MODIFICATIONS.md points to both licenses.
 - CITATION.cff (CFF 1.2.0): title = repo description, author Joseph M. Reilly (Northeastern University), version reviewer-packet-v1, license Apache-2.0, repository URL, date-released 2026-10-09. `cffconvert --validate` (2.0.0, scratch venv): "Citation metadata are valid according to schema version 1.2.0."
 - No license headers were added to any .lean file, so recorded hashes are unchanged.
+
+## 2026-10-09: Zenodo DOI
+- DOI 10.5281/zenodo.23269528 (from Joe). Checked: doi.org redirects to Zenodo. The Zenodo API record is "published", with title = repo description, creator "Reilly, Joseph M.", version reviewer-packet-v1, publication date 2026-10-09, and a related identifier pointing at the reviewer-packet-v1 tree on GitHub. The GitHub repo is now public.
+- CITATION.cff: top-level `doi` and an `identifiers` entry of type doi. `cffconvert --validate` (2.0.0, fresh scratch venv): valid against schema 1.2.0. An earlier attempt exited 1 with no message because the old scratch venv had lost python.exe; that was not a validation failure.
+- README.md: DOI line and "Cite as" line under the title. The reviewer-packet-v1 tag is not moved; the archived release stays at 3a36016.

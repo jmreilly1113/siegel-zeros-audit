@@ -1,5 +1,9 @@
 # Verification package: "Uniform exclusion of Landau–Siegel zeros" (openai/math family 003)
 
+DOI: [10.5281/zenodo.23269528](https://doi.org/10.5281/zenodo.23269528)
+
+Cite as: Reilly, Joseph M. (2026). *Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks*. https://doi.org/10.5281/zenodo.23269528
+
 This repository checks the paper and its Lean formalization at openai/math commit `adc7f12`. The pinned files are unchanged at `fd4aeeb`. We test what can be tested by exact computation and by machine-checked proof, and we record what we could not check. It is not a proof of the theorem and does not replace expert reading. Throughout, we keep apart what the paper states, what we computed (each claim cites a file in `results/`) and what we infer.
 
 Three results that are not in openai/math itself:

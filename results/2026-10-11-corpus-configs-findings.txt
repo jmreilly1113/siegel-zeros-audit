@@ -1,0 +1,55 @@
+# Corpus checks, phase 2: config schema survey (computed from the JSON at adc7f12)
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/62_corpus_configs.sh results/2026-10-11-corpus-configs.tsv   Run 2026-10-11.
+# SiegelZeros.json printed in full first, to learn the key names:
+{
+  "challenge_module": "ComparatorChallenges.SiegelZeros",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": false
+}
+
+script sha256: 99e67fdb4708d6aa31dee0918e66c519432d73b41b81c973604a590c8d359f28
+config files: 405; parsed: 405; parse errors: []
+keys (number of configs containing each):
+  challenge_module       405
+  solution_module        405
+  theorem_names          405
+  permitted_axioms       405
+  enable_nanoda          403
+  definition_names       400
+  solution_imports       1
+enable_nanoda: {'false': 402, 'true': 1, 'absent': 2}
+permitted_axioms sets:
+   405  ['Classical.choice', 'Quot.sound', 'propext']
+configs permitting axioms beyond propext/Classical.choice/Quot.sound: 0
+keys in at most 5 configs: ['solution_imports']
+  solution_imports in ComparatorChallenges/SymmetricMahlerEquality.json: ["OAI.Analysis.Mahler.Classification"]
+configs whose challenge_module is not ComparatorChallenges.<file stem>: 0 []
+challenge module file missing: 0 []
+solution module file missing: 0 []
+theorem_names count: total 507; configs with 0 theorem names: ['ComparatorChallenges/ElementaryPositivity.json']
+definition_names nonempty: 9
+
+## Configs that differ from the common pattern (from the TSV)
+  ComparatorChallenges/ArtinParabolicIntersections.json | referenced=False | enable_nanoda=true | theorems=4 | definitions=0 | other_keys=
+  ComparatorChallenges/Brenier.json | referenced=False | enable_nanoda=false | theorems=2 | definitions=12 | other_keys=
+  ComparatorChallenges/DefocusingNLS.json | referenced=False | enable_nanoda=false | theorems=3 | definitions=3 | other_keys=
+  ComparatorChallenges/ElementaryPositivity.json | referenced=False | enable_nanoda=false | theorems=0 | definitions=1 | other_keys=
+  ComparatorChallenges/EuclideanFiveColor.json | referenced=True | enable_nanoda=false | theorems=1 | definitions=1 | other_keys=
+  ComparatorChallenges/KServer.json | referenced=False | enable_nanoda=false | theorems=1 | definitions=9 | other_keys=
+  ComparatorChallenges/KadisonRingrose.json | referenced=False | enable_nanoda=absent | theorems=1 | definitions=0 | other_keys=
+  ComparatorChallenges/Naimark.json | referenced=False | enable_nanoda=false | theorems=1 | definitions=7 | other_keys=
+  ComparatorChallenges/OccupiedOverlap.json | referenced=False | enable_nanoda=false | theorems=2 | definitions=5 | other_keys=
+  ComparatorChallenges/Rokhlin.json | referenced=False | enable_nanoda=false | theorems=1 | definitions=4 | other_keys=
+  ComparatorChallenges/SpinAngle.json | referenced=False | enable_nanoda=false | theorems=1 | definitions=3 | other_keys=
+  ComparatorChallenges/SymmetricMahlerEquality.json | referenced=True | enable_nanoda=false | theorems=1 | definitions=0 | other_keys={"solution_imports": ["OAI.Analysis.Mahler.Classification"]}
+  ComparatorChallenges/UniversalTensorSquares.json | referenced=False | enable_nanoda=absent | theorems=1 | definitions=0 | other_keys=

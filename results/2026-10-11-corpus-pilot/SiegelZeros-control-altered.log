@@ -1,0 +1,36 @@
+== run SiegelZeros-control-altered  2026-10-11 13:29:12
+config: /home/checker/corpus/configs/SiegelZeros-control-altered.json
+{
+  "challenge_module": "ComparatorChallenges.SiegelZerosAlteredControl",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}== no shipped config named SiegelZerosAlteredControl.json (copied challenge)
+== clone: HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a; status: ?? lean/ComparatorChallenges/SiegelZerosAlteredControl.lean 
+disk used before: 24G
+Running as unit: run-u3.service; invocation ID: 58f2b005adf147549ab517c239660593
+Building ComparatorChallenges.SiegelZerosAlteredControl
+⚠ [8924/8924] Built ComparatorChallenges.SiegelZerosAlteredControl (6.8s)
+warning: ComparatorChallenges/SiegelZerosAlteredControl.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZerosAlteredControl.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SiegelZerosAlteredControl
+Building OAI.NumberTheory.SiegelZeros.Main
+Build completed successfully (9242 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.SiegelZeros.Main
+uncaught exception: Challenge and solution theorem statement do not match: 'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap'
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 3min 50.998s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 214
+disk used after: 24G

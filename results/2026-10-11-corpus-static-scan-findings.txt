@@ -1,0 +1,64 @@
+# Corpus checks, phase 3: static scans (HEURISTIC text matches; comments stripped; string literals not stripped)
+# Commands: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/63_corpus_static_scan.sh results/2026-10-11-corpus-static-scan  (per-hit TSV: results/2026-10-11-corpus-static-scan.tsv; challenge table: results/2026-10-11-corpus-static-scan-challenges.tsv)
+#           wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/64_challenge_pattern_scan.sh  (same patterns over the 405 challenge files)
+# Run 2026-10-11 against /home/checker/math (adc7f12).
+
+## 3A solution sources and patched dependency files
+(1191.76 s, 340440 KB)
+f08a1c22953402ba672fe2eca2c41f0f7ee0a88cf99a2e11671af629
+A. files scanned: 121734 under lean/OAI + 678 .lean files created or changed by dependency patches
+pattern hit counts (comments stripped; HEURISTIC):
+  native_decide                          0 hits in 0 files
+  decide_native_or_kernel_option         0 hits in 0 files
+  Lean.ofReduceBool                      0 hits in 0 files
+  Lean.ofReduceNat                       0 hits in 0 files
+  implemented_by                         0 hits in 0 files
+  extern                                 0 hits in 0 files
+  unsafe                                 5 hits in 4 files
+  set_option debug.*                     0 hits in 0 files
+  skipKernelTC                           0 hits in 0 files
+  axiom declaration                      0 hits in 0 files
+  sorry                                  0 hits in 0 files
+  admit                                  0 hits in 0 files
+  addDecl / addAndCompile                0 hits in 0 files
+solution-module import closures computed for 405 configs; configs with unresolved imports: 2
+  ComparatorChallenges/DukePrimeDegree.json: ['ClassFieldTheory.AlgebraicNumberTheory.RayClass.PrimeGeneration', 'ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianConductorExactness', 'ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.MathlibFrobeniusHilbertComparison', 'ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.ArithmeticIdealArtin']
+  ComparatorChallenges/OstmannComplete.json: ['BernoulliRegular.GaussSum.QuadraticEndpoint']
+patterns by number of configs whose solution closure reaches a hit (HEURISTIC):
+  native_decide                    0 configs
+  decide_native_or_kernel_option   0 configs
+  Lean.ofReduceBool                0 configs
+  Lean.ofReduceNat                 0 configs
+  implemented_by                   0 configs
+  extern                           0 configs
+  unsafe                           0 configs
+  set_option debug.*               0 configs
+  skipKernelTC                     0 configs
+  axiom declaration                0 configs
+  sorry                            0 configs
+  admit                            0 configs
+  addDecl / addAndCompile          0 configs
+B. challenge files: 405; total lines 89816; largest: ('ComparatorChallenges/EditApproximation.json', 19170); smallest: ('ComparatorChallenges/QuasiRiemannHypothesis.json', 10)
+   sorry count == named theorems+definitions: 395; differs: [('Brenier.json', 2, 2, 12), ('DefocusingNLS.json', 4, 3, 3), ('EuclideanFiveColor.json', 1, 1, 1), ('HarmonicGrowth.json', 0, 1, 0), ('KServer.json', 1, 1, 9), ('Naimark.json', 1, 1, 7), ('NavierStokesVelocity.json', 2, 1, 0), ('OccupiedOverlap.json', 2, 2, 5), ('Rokhlin.json', 1, 1, 4), ('SpinAngle.json', 1, 1, 3)]
+   hazard pointers (number of challenge files with >=1 occurrence): sInf 96, sSup 71, inverse ⁻¹ 131, division / 251, Nat subtraction (heuristic: "- " near ℕ) 41, riemannZeta 1, Classical.choose / epsilon 25
+   five largest challenge files: EditApproximation.json (19170 lines), CoarseAssembly.json (6649 lines), CKSBondiPenrose.json (3597 lines), ThorpRouting.json (2580 lines), ThomasonModelStructures.json (2474 lines)
+
+Reading of the 5 'unsafe' hits (INFERRED from the quoted lines): all are Aesop rule attributes, e.g. '@[aesop (rule_sets := [finiteness]) unsafe apply]', which is a search-priority setting, not Lean's unsafe keyword. They lie in carleson's ToMathlib files, which no config's solution closure reaches. So: no hit of any pattern in any solution closure (heuristic).
+The 2 configs with unresolved imports (DukePrimeDegree: 4 ClassFieldTheory modules; OstmannComplete: BernoulliRegular.GaussSum.QuadraticEndpoint) have closures this scan could not complete, so their hit mapping is incomplete. INFERRED: these modules probably come from a package or a lake-update step this parser does not see. Not investigated further.
+
+## 3A over challenge files (supplement)
+script sha256: dd5e2d5b4e02bb0d11d9dec5f12183a172550968a6fae95c40cd205fce008124
+challenge files: 405
+  sorry outside theorem/lemma: DefocusingNLS.lean:107 (in def sobolevProduct): by sorry⟩
+  sorry outside theorem/lemma: ElementaryPositivity.lean:61 (in def elementaryPositivityWitness): sorry
+  axiom declaration: HarmonicGrowth.lean:97: 
+  sorry outside theorem/lemma: NavierStokesVelocity.lean:454 (in def half): w.liftOn word (by sorry)
+totals: {'sorry outside theorem/lemma': 3, 'axiom declaration': 1}
+
+Reading (INFERRED; review pointers, not findings):
+- HarmonicGrowth.lean (config HarmonicGrowth.json, theorem OAI.HarmonicCounterexample.main): the challenge file declares 'axiom mainStatement : MainClaim' and proves 'theorem main : MainClaim := mainStatement' (lines 100-102 of the raw file; the scan reports line 97 because comment stripping shifts the count). The challenge states its claim as an axiom where a sorry stub would normally be.
+- NavierStokesVelocity.lean:454: 'def half (w : ListBlank (Fin b)) : ℕ := w.liftOn word (by sorry)'. A definition used by the statement contains a sorry, and the config lists no definition_names.
+- DefocusingNLS.lean:107 (sobolevProduct) and ElementaryPositivity.lean:61 (elementaryPositivityWitness): sorry inside definitions that their configs list in definition_names, i.e. the intended stubs.
+
+## 3B challenge files (see the -challenges.tsv for per-file counts)
+Hazard columns (sInf, sSup, ⁻¹, division, ℕ subtraction, riemannZeta, Classical.choose/epsilon) are review pointers for junk-value conventions, not findings. The ℕ-subtraction and division regexes are coarse and overcount.

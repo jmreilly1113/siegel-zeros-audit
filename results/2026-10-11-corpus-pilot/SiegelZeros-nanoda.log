@@ -1,0 +1,45 @@
+== run SiegelZeros  2026-10-11 13:10:21
+config: /home/checker/corpus/configs/SiegelZeros-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.SiegelZeros",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/SiegelZeros.json vs this config
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a; status: 
+disk used before: 24G
+Running as unit: run-u0.service; invocation ID: 6d4fee16858540e1ab0aa8b5c4f3821d
+Building ComparatorChallenges.SiegelZeros
+⚠ [8924/8924] Replayed ComparatorChallenges.SiegelZeros
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SiegelZeros
+Building OAI.NumberTheory.SiegelZeros.Main
+Build completed successfully (9242 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.SiegelZeros.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 16min 32.860s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 920
+disk used after: 24G

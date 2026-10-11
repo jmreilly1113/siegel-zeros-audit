@@ -1,0 +1,43 @@
+== run EditApproximation  2026-10-11 16:26:11
+config: /home/checker/corpus/configs/EditApproximation-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.EditApproximation",
+  "solution_module": "OAI.Combinatorics.EditApproximation.Specification.RawBandMain",
+  "theorem_names": [
+    "OAI.EditApproximation.almostLinearEditDistanceRawBand"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/EditApproximation.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a; status: 
+disk used before: 39G
+Running as unit: run-u4.service; invocation ID: e6a902e6a91e4ff482d46ec8a9d23da7
+Building ComparatorChallenges.EditApproximation
+⚠ [8924/8924] Built ComparatorChallenges.EditApproximation (302s)
+warning: ComparatorChallenges/EditApproximation.lean:19146:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.EditApproximation.almostLinearEditDistanceRawBand, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.EditApproximation
+Building OAI.Combinatorics.EditApproximation.Specification.RawBandMain
+Build completed successfully (9947 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.EditApproximation.almostLinearEditDistanceRawBand, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.EditApproximation.Specification.RawBandMain
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 49.680s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 545
+disk used after: 39G

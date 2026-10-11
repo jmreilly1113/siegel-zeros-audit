@@ -1,0 +1,7 @@
+# Phase 3A static scan hits (HEURISTIC text match, comments stripped). configs = configs whose solution import closure contains the module.
+pattern	module	file	line	n_configs	configs	text
+unsafe	Carleson.ToMathlib.BoundedFiniteSupport	.lake/packages/carleson/Carleson/ToMathlib/BoundedFiniteSupport.lean	54	0		@[aesop (rule_sets := [finiteness]) unsafe 80% apply]
+unsafe	Carleson.ToMathlib.RealInterpolation.InterpolatedExponents	.lake/packages/carleson/Carleson/ToMathlib/RealInterpolation/InterpolatedExponents.lean	58	0		@[aesop (rule_sets := [finiteness]) unsafe apply]
+unsafe	Carleson.ToMathlib.RealInterpolation.InterpolatedExponents	.lake/packages/carleson/Carleson/ToMathlib/RealInterpolation/InterpolatedExponents.lean	63	0		@[aesop (rule_sets := [finiteness]) unsafe apply]
+unsafe	Carleson.ToMathlib.RealInterpolation.Misc	.lake/packages/carleson/Carleson/ToMathlib/RealInterpolation/Misc.lean	218	0		@[aesop (rule_sets := [finiteness]) unsafe apply]
+unsafe	Carleson.ToMathlib.WeakType	.lake/packages/carleson/Carleson/ToMathlib/WeakType.lean	570	0		@[aesop (rule_sets := [finiteness]) unsafe apply]

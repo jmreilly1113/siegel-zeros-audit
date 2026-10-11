@@ -1,0 +1,29 @@
+# Task 8.7, step 3: lean4export closure of dirichletRealZeroBound_proof in the comparator-accepted rerouted clone
+# Command: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/55_export_rerouted.sh  (same export command as wsl-comparator/41_main_closure_export.sh, run in /home/checker/math-rerouted/lean)
+# Clone: openai/math adc7f12 plus the two PaperLemma3 modules and the one-term change (results/2026-10-09-rerouted-comparator-diff.txt). Lean 4.34.1, lean4export v4.34.0 (format 3.1.0). Run 2026-10-09 15:44 EDT.
+# Pre-checks pass: git status shows only the edited chain file and PaperLemma3/, the PaperLemma3 hashes match, and the newest .olean (09:20:56) falls inside the comparator run window (09:07-09:32). Nothing under .lake/build changed during the export (0 files newer than a marker written just before it), so nothing was built.
+
+== pre-checks
+HEAD: adc7f1241b42e322a6451854ab7e4b4c146bf78a
+git status --short:
+ M lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+?? lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/
+1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283  /home/checker/math-rerouted/lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean
+af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250  /home/checker/math-rerouted/lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Bridge.lean
+olean mtime: 2026-10-09 09:20:21.876857652 -0400  (/home/checker/math-rerouted/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Characters/DirichletRealZeroBoundProof.olean)
+newest .olean under OAI/NumberTheory/SiegelZeros: 2026-10-09 09:20:56.2137084870 /home/checker/math-rerouted/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Main.olean
+comparator run window (results/2026-10-09-lean-comparator-rerouted-nanoda.txt): 2026-10-09 09:07-09:32 EDT; now: Fri Oct  9 15:44:51 EDT 2026
+
+== export (same command as 41_main_closure_export.sh, in the rerouted clone)
+command: LEAN_PATH="$(lake env printenv LEAN_PATH)" /usr/local/bin/lean4export OAI.NumberTheory.SiegelZeros.Main -- OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof > /home/checker/l3k/closure-rerouted-dirichletRealZeroBound_proof.ndjson  (cwd /home/checker/math-rerouted/lean)
+lean4export exit 0
+files under /home/checker/math-rerouted/lean/.lake/build changed during the export: 0
+output: /home/checker/l3k/closure-rerouted-dirichletRealZeroBound_proof.ndjson, 850551583 bytes, sha256 cc6d339c4d03f683b16c33ee81aaaf7758cf369bc1402b7de0dd4d400f6cf9d2
+== /home/checker/l3k/closure-rerouted-dirichletRealZeroBound_proof.ndjson
+  declared names: 93595 (unique 93595); by kind: {'axiom': 3, 'ctor': 1464, 'def': 16535, 'inductive': 1343, 'opaque': 53, 'quot': 4, 'rec': 1345, 'thm': 72848}
+  without ctors/recs: 90786
+  unresolved name ids: 0
+  names starting 'Rerouted.': 0
+  names starting 'challenge_': 0
+  names starting 'Lemma3.': 68
+  names starting 'OAI.': 575

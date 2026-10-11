@@ -55,4 +55,4 @@ Work top to bottom. Mark each task done with the date and the results file it pr
 - [x] 4c. (2026-10-09) Packet made public at https://github.com/jmreilly1113/siegel-zeros-audit, DOI 10.5281/zenodo.23269528. Posted to grwtsk/openai-math issue #40 and the Lean Zulip. Two specialists contacted directly by email.
 - [ ] 8.5 Hexagon deposit by 2026-10-23, preliminary if no expert reply by then.
 - [ ] 8.6 arXiv only with an endorser, after checking every reference by hand.
-- [ ] 8.7 Declaration overlap for issue #40. Blocked 2026-10-09: no saved name list for the comparator-accepted rerouted route 2. It needs one lean4export run in the rerouted clone (Joe's approval).
+- [x] 8.7 (2026-10-09; results/2026-10-09-route-declaration-overlap.txt, -rerouted-closure-export.txt, results/2026-10-09-closure-names/; src/route_overlap.py) Declaration overlap for issue #40. Follow-up comment drafted in docs/issue40-followup.md.

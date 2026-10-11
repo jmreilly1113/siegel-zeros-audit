@@ -392,3 +392,16 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Recorded #find_deps counts are lower: 107,760, 116,314, 61,074 (bridge root only) and 92,660. Inference, not yet checked: the gap of roughly 1,000 is that lean4export writes every constructor and recursor of each inductive block, while #find_deps counts only referenced ones.
   - Missing: a name list for the comparator-accepted rerouted route 2 (/home/checker/math-rerouted); its scan saved only the count 92,658. The MainRerouted export is a renamed stand-in: its #find_deps count is 92,660 = 92,658 plus the two challenge_* wrappers, which suggests but does not show identical sets. Part A stopped here pending Joe's approval of one lean4export run in the rerouted clone.
 
+## 2026-10-09: declaration overlap between routes (task 8.7)
+- Part B committed separately as 243da01 and pushed; no tag created or moved.
+- Pre-checks on /home/checker/math-rerouted (wsl-comparator/55_export_rerouted.sh): git status shows only the edited chain file and PaperLemma3/; the PaperLemma3 sha256 values match (1ce196f5..., af401514...); DirichletRealZeroBoundProof.olean dates from 09:20:21 and the newest .olean from 09:20:56, both inside the comparator run (09:07-09:32). All pass.
+- Export (approved by Joe): the 41_main_closure_export.sh command, run in the rerouted clone. lean4export exit 0. 0 files under .lake/build changed, so nothing was built. Output sha256 cc6d339c..., 93,595 declared names. File: results/2026-10-09-rerouted-closure-export.txt.
+- Step 4a (computed): 56_closure_names.py reproduces #find_deps over each dump. It gives 107,760, 116,314, 92,658, 92,660 and 61,074, equal to every recorded count. Dump minus referenced is only recursors and constructors, plus the second root of the MainRerouted export. The earlier inference about the gap is now computed.
+- Step 4b (computed): rerouted-clone dump vs the MainRerouted export, with Rerouted.X mapped to X and the challenge_* wrappers dropped. The only difference is the wrapper dirichletRealZeroBound_via_lemma3, which was not in Joe's list; without it the sets are equal in both conventions. This compares names only.
+- Overlap (src/route_overlap.py, tests/test_route_overlap.py, on the name lists in results/2026-10-09-closure-names/). Referenced-only convention:
+  - route 1 vs route 2 original: 107,760 / 116,314, shared 102,553, Jaccard 0.843912, 0 shared OAI declarations (public or private);
+  - route 1 vs rerouted: shared 82,701, Jaccard 0.702541;
+  - original vs rerouted: shared 92,253, Jaccard 0.790385; the reroute removes 24,061 names and adds 405.
+  - Full-dump convention: within 1.11% in the pairwise table. The interpretation, labeled inference, is in the results file. Private names are classified by the defining module encoded in their name; all other prefixes are approximate.
+- Draft follow-up comment: docs/issue40-followup.md (links at tag reviewer-packet-v1.1, not yet created). New scripts: wsl-comparator/55-59. Nothing committed yet.
+

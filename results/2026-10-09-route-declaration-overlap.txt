@@ -1,0 +1,181 @@
+# Declaration overlap between the proof routes (task 8.7; grwtsk/openai-math issue #40, item "external declaration overlap unresolved")
+# Command: .venv/Scripts/python src/route_overlap.py results/2026-10-09-closure-names results/2026-10-09-closure-names/pnt-patch-declared-names.txt.gz
+# Name lists: results/2026-10-09-closure-names/<label>.{full,referenced}.txt.gz. They were written by
+#   wsl-comparator/56_closure_names.py via 57_closure_names.sh, from lean4export dumps in /home/checker/l3k, and copied by 59_copy_names.sh.
+#   The PNT patch names (226) come from wsl-comparator/58_pnt_declared_names.py.
+# Python 3.14.6 (.venv). Run 2026-10-09. Exact set operations, no sampling.
+#
+# Inputs (openai/math adc7f12; Lean 4.34.1; lean4export v4.34.0, format 3.1.0)
+#   label                  dump (in /home/checker/l3k)                               produced by                                  dump sha256
+#   route1                 closure-exists_absolute_real_zero_gap.ndjson               41_main_closure_export.sh (2026-10-08)       07ebf236fdf51ad5b455a5de2d4374f6d862b11d4f0a0fd2366724393a4822a5
+#   route2-original        closure-dirichletRealZeroBound_proof.ndjson                41_main_closure_export.sh (2026-10-08)       e7e57424891179a3ec6a3b8c6e5e3e96867116b43d34f0b0abeebd845c564082
+#   route2-rerouted        closure-rerouted-dirichletRealZeroBound_proof.ndjson       55_export_rerouted.sh (2026-10-09; comparator-accepted clone)  cc6d339c4d03f683b16c33ee81aaaf7758cf369bc1402b7de0dd4d400f6cf9d2
+#   mainrerouted-challenge export-main.ndjson (root challenge_dirichletRealZeroBound_proof)  39_main_rerouted.sh (2026-10-08)   f506e1b0fc64d4bb5c03f492c21997cbbd5f8b8b963778848128780f3f7560b2
+#   lemma3-bridge          export.ndjson (root Lemma3.actual_biquadratic_rectangle_span_via_lemma3)  36_nanoda_lemma3.sh (2026-10-08)  76c1613fc1a629ec36b4b403b8a017973dc9d4c34e1131d235beb8434ae297c3
+#
+# Step 4a (computed): reproduction of #find_deps over the dumps (56_closure_names.py; references from types, and from values
+# of thm/def/opaque, starting at the root, root counted)
+#   label                  dump set   referenced   recorded #find_deps (results file)                               dump minus referenced, by kind
+#   route1                 108906     107760       107760 (2026-10-09-lean-rerouted-comparator-deps.txt)            1146: rec 1140, ctor 6
+#   route2-original        117482     116314       116314 (same file, unmodified-clone control)                     1168: rec 1162, ctor 6
+#   route2-rerouted        93595      92658        92658  (same file, rerouted clone)                                937: rec 931, ctor 6
+#   mainrerouted-challenge 93598      92660        92660  (2026-10-08-lean-main-rerouted.txt)                        938: rec 931, ctor 6, thm 1 (challenge_exists_absolute_real_zero_gap, the export's second root)
+#   lemma3-bridge          61810      61074        61074  (2026-10-08-lean-lemma3-bridge.txt)                        736: rec 729, ctor 7
+#   Every referenced name is declared in its dump (0 missing). All counts match, and the residue is only recursors and constructors
+#   that nothing references (plus the second root noted above). The earlier explanation of the gap is now a computed fact, not an inference.
+#
+# Step 4b (computed): rerouted-clone dump vs the MainRerouted.lean export. Map Rerouted.X -> X for the four copied theorems
+# and drop challenge_dirichletRealZeroBound_proof and challenge_exists_absolute_real_zero_gap. One difference remains in both
+# conventions: the wrapper theorem dirichletRealZeroBound_via_lemma3 (the type_of% theorem in MainRerouted.lean), present only in
+# the MainRerouted export. After also dropping it, the sets are equal (full: 93595 = 93595; referenced: 92658 = 92658).
+# Nothing is in the rerouted clone only. This compares names, not proof terms.
+#
+# Convention used in docs/issue40-followup.md: referenced-only (matches the earlier #find_deps counts). Both conventions are
+# reported below; in the pairwise table they differ by at most 1.11% (largest relative difference 1.1067%).
+#
+# INFERENCE (not computation):
+# - Shared declarations measure a shared trusted base. Every shared constant is checked once by the kernel and trusted by both
+#   proofs. They do not measure mathematical dependence, and they say nothing about whether the routes are independent proofs.
+# - No OAI declaration (public, or private from an OAI module) is shared between route 1 and either version of route 2, and the
+#   shared set is otherwise Mathlib, core and root-level names. That is what one would expect from two proofs of related statements
+#   built on the same library. It does not show that the routes are independent or dependent, and we do not call them either.
+# - Rerouting removes 24,061 referenced names from route 2 and adds 405. The removed names are mostly CategoryTheory (6,901),
+#   AlgebraicGeometry (3,035) and 1,420 OAI.* names. The added names are our 68 Lemma3.* declarations plus 337 Mathlib-style,
+#   core and root names. Reading this as the reroute dropping OAI's algebraic-geometric multiplicity estimate and what it pulls
+#   in from Mathlib is an inference from the prefixes. The prefix split is approximate.
+# - Name prefix is not defining package. "core" collects core type namespaces (Nat, List, ...) that Mathlib also extends, so
+#   "core" overcounts and "Mathlib-style" undercounts. Only private names record their defining module.
+#
+PNT patch names loaded: 226
+
+######## convention: referenced (#find_deps closure)
+set sizes: route1 107760, route2-original 116314, route2-rerouted 92658, mainrerouted-challenge 92660, lemma3-bridge 61074
+
+== pairwise, all names
+A                B                     |A|      |B|    |A&B|    |A|B|    |A-B|    |B-A|   Jaccard
+route1           route2-original    107760   116314   102553   121521     5207    13761  0.843912
+route1           route2-rerouted    107760    92658    82701   117717    25059     9957  0.702541
+route2-original  route2-rerouted    116314    92658    92253   116719    24061      405  0.790385
+
+== pairwise, without auto-generated names (component matching ^(_.*|match_\d+|proof_\d+|eq_\d+|eq_def|induct|induct_unfolding|rec|recOn|casesOn|below|brecOn|binductionOn|ibelow|noConfusion|noConfusionType|injEq|inj|sizeOf_spec|ctorIdx|toCtorIdx|mutual_induct|fun_cases|congr_simp)$)
+route1           route2-original     67032    71849    63691    75190     3341     8158  0.847067
+route1           route2-rerouted     67032    58514    52336    73210    14696     6178  0.714875
+route2-original  route2-rerouted     71849    58514    58258    72105    13591      256  0.807961
+auto-generated names per set: route1 40728, route2-original 44465, route2-rerouted 34144, mainrerouted-challenge 34144, lemma3-bridge 22113
+
+== split by name prefix (approximate; prefix is not defining package)
+set                                          core      Batteries other packages            OAI  Lemma3 (ours)      PNT patch  Mathlib-style root (no names
+route1                                      10914             56              3           3097              0              0          84386           9304
+route2-original                             11302             54              3           2017              0            234          92815           9889
+route2-rerouted                             10980             54              3            575             68            234          71268           9476
+route1 & route2-original                    10733             54              3              0              0              0          82597           9166
+route1 & route2-rerouted                    10425             54              3              0              0              0          63410           8809
+route2-original & route2-rerouted           10970             54              3            575              0            234          70965           9452
+
+== shared OAI names (OAI.* and private names from OAI modules), route1 & route2-original: 0
+shared OAI names, route1 & route2-rerouted: 0 (same list)
+
+== 30 largest shared Mathlib-style top-level namespaces, route1 & route2-original (private names grouped by the first two components of their defining module)
+  CategoryTheory                 9286
+  AlgebraicGeometry              3000
+  MeasureTheory                  2992
+  Set                            2277
+  Polynomial                     1679
+  _private Mathlib.Analysis      1560
+  _private Mathlib.Algebra       1534
+  Filter                         1477
+  _private Mathlib.Topology      1341
+  _private Mathlib.RingTheory    1324
+  Finset                         1307
+  _private Mathlib.Data          1297
+  Submodule                      1112
+  Algebra                        1111
+  Equiv                          1045
+  Ideal                           993
+  _private Mathlib.Order          980
+  _private Mathlib.MeasureTheory    950
+  Module                          950
+  Real                            944
+  Complex                         813
+  ENNReal                         765
+  Multiset                        763
+  LinearMap                       760
+  Matrix                          711
+  Finsupp                         704
+  HomologicalComplex              691
+  CochainComplex                  601
+  BoxIntegral                     546
+  ContinuousLinearMap             533
+
+== route2-rerouted minus route2-original: 405; by prefix: {'core': 10, 'Batteries': 0, 'other packages': 0, 'OAI': 0, 'Lemma3 (ours)': 68, 'PNT patch': 0, 'Mathlib-style': 303, 'root (no namespace)': 24}
+   OAI.*/Lemma3.* among them: Lemma3.Pt, Lemma3.actual_biquadratic_rectangle_span_via_lemma3, Lemma3.bridge_descent, Lemma3.bridge_main, Lemma3.bridge_main._proof_1_1, Lemma3.closer_point, Lemma3.closer_point._abel_1_1, Lemma3.closer_point._abel_1_2, Lemma3.cor4_budget, Lemma3.cor4_cube, Lemma3.cor4_real, Lemma3.cor4_rpow_nat, Lemma3.emb, Lemma3.exists_annihilator, Lemma3.exists_heavy_vertex, Lemma3.exists_heavy_vertex._proof_1_1, Lemma3.exists_heavy_vertex._simp_1_2, Lemma3.exists_heavy_vertex._simp_1_3, Lemma3.exists_int_hyperplane, Lemma3.exists_int_hyperplane._simp_1_2, Lemma3.exists_lagrange, Lemma3.exists_lagrange._abel_1_1, Lemma3.exists_lagrange._simp_1_4, Lemma3.exists_lagrange._simp_1_5, Lemma3.exists_lattice_nonvanishing, Lemma3.exists_lattice_nonvanishing._simp_1_1, Lemma3.exists_lattice_nonvanishing._simp_1_2, Lemma3.exists_lattice_nonvanishing._simp_1_3, Lemma3.exists_nearest, Lemma3.exists_translate, Lemma3.exists_vanishing, Lemma3.exists_vanishing._proof_1_1, Lemma3.four_hull_subset_cube, Lemma3.int_comb_ne_zero, Lemma3.interpolation, Lemma3.interpolation._proof_1_3, Lemma3.interpolation._simp_1_5, Lemma3.interpolation._simp_1_6, Lemma3.interpolation._simp_1_7, Lemma3.p1_coord_le_sqd, Lemma3.p1_dot_self_nonneg, Lemma3.p1_var_ineq, Lemma3.p2_dot_expand, Lemma3.p2_dot_self_nonneg, Lemma3.p3_clear, Lemma3.p3_g, Lemma3.p3_g._proof_1, Lemma3.p3_g._proof_2, Lemma3.p3_g._proof_3, Lemma3.p3_g_apply, Lemma3.p4_deg_linP, Lemma3.p4_eval_linP, Lemma3.p4_linP, Lemma3.p4_rL, Lemma3.p4_rL._proof_1, Lemma3.p4_rL_apply, Lemma3.p5_PtSub, Lemma3.p5_PtSub._proof_1, Lemma3.p5_PtSub._proof_2, Lemma3.p5_PtSub._proof_3, Lemma3.p5_eval_aeval, Lemma3.quarter_mem_face, Lemma3.quarter_mem_face._simp_1_1, Lemma3.rectangle, Lemma3.sqd, Lemma3.zC, Lemma3.zR, Lemma3.zR.eq_1
+== route2-original minus route2-rerouted: 24061; by prefix: {'core': 332, 'Batteries': 0, 'other packages': 0, 'OAI': 1442, 'Lemma3 (ours)': 0, 'PNT patch': 0, 'Mathlib-style': 21850, 'root (no namespace)': 437}
+   top-level namespaces of the removed names (20 largest): CategoryTheory 6901, AlgebraicGeometry 3035, _private 2508, OAI 1420, HomologicalComplex 704, CochainComplex 604, TopCat 432, MvPolynomial 310, Algebra 304, AdicCompletion 297, CommRingCat 279, Ideal 253, Matroid 236, Submodule 225, TopologicalSpace 187, Finsupp 174, Module 171, WithZero 171, Polynomial 168, SemiRingCat 164
+
+== our Lemma 3 code (61074): in route2-rerouted 61074, in route1 60035, in route2-original 60669
+
+######## convention: full (every declaration in the lean4export dump)
+set sizes: route1 108906, route2-original 117482, route2-rerouted 93595, mainrerouted-challenge 93598, lemma3-bridge 61810
+
+== pairwise, all names
+A                B                     |A|      |B|    |A&B|    |A|B|    |A-B|    |B-A|   Jaccard
+route1           route2-original    108906   117482   103688   122700     5218    13794  0.845053
+route1           route2-rerouted    108906    93595    83609   118892    25297     9986  0.703235
+route2-original  route2-rerouted    117482    93595    93187   117890    24295      408  0.790457
+
+== pairwise, without auto-generated names (component matching ^(_.*|match_\d+|proof_\d+|eq_\d+|eq_def|induct|induct_unfolding|rec|recOn|casesOn|below|brecOn|binductionOn|ibelow|noConfusion|noConfusionType|injEq|inj|sizeOf_spec|ctorIdx|toCtorIdx|mutual_induct|fun_cases|congr_simp)$)
+route1           route2-original     67040    71857    63699    75198     3341     8158  0.847084
+route1           route2-rerouted     67040    58522    52344    73218    14696     6178  0.714906
+route2-original  route2-rerouted     71857    58522    58266    72113    13591      256  0.807982
+auto-generated names per set: route1 41866, route2-original 45625, route2-rerouted 35073, mainrerouted-challenge 35073, lemma3-bridge 22840
+
+== split by name prefix (approximate; prefix is not defining package)
+set                                          core      Batteries other packages            OAI  Lemma3 (ours)      PNT patch  Mathlib-style root (no names
+route1                                      11014             56              3           3100              0              0          85429           9304
+route2-original                             11401             54              3           2017              0            234          93884           9889
+route2-rerouted                             11080             54              3            575             68            234          72105           9476
+route1 & route2-original                    10833             54              3              0              0              0          83632           9166
+route1 & route2-rerouted                    10526             54              3              0              0              0          64217           8809
+route2-original & route2-rerouted           11070             54              3            575              0            234          71799           9452
+
+== shared OAI names (OAI.* and private names from OAI modules), route1 & route2-original: 0
+shared OAI names, route1 & route2-rerouted: 0 (same list)
+
+== 30 largest shared Mathlib-style top-level namespaces, route1 & route2-original (private names grouped by the first two components of their defining module)
+  CategoryTheory                 9541
+  AlgebraicGeometry              3025
+  MeasureTheory                  3018
+  Set                            2278
+  Polynomial                     1681
+  _private Mathlib.Analysis      1560
+  _private Mathlib.Algebra       1534
+  Filter                         1481
+  _private Mathlib.Topology      1341
+  _private Mathlib.RingTheory    1324
+  Finset                         1308
+  _private Mathlib.Data          1297
+  Algebra                        1121
+  Submodule                      1114
+  Equiv                          1045
+  Ideal                           995
+  _private Mathlib.Order          980
+  Module                          953
+  _private Mathlib.MeasureTheory    950
+  Real                            944
+  Complex                         813
+  ENNReal                         766
+  Multiset                        763
+  LinearMap                       761
+  Matrix                          711
+  Finsupp                         704
+  HomologicalComplex              695
+  CochainComplex                  601
+  BoxIntegral                     548
+  TopologicalSpace                537
+
+== route2-rerouted minus route2-original: 408; by prefix: {'core': 10, 'Batteries': 0, 'other packages': 0, 'OAI': 0, 'Lemma3 (ours)': 68, 'PNT patch': 0, 'Mathlib-style': 306, 'root (no namespace)': 24}
+   OAI.*/Lemma3.* among them: Lemma3.Pt, Lemma3.actual_biquadratic_rectangle_span_via_lemma3, Lemma3.bridge_descent, Lemma3.bridge_main, Lemma3.bridge_main._proof_1_1, Lemma3.closer_point, Lemma3.closer_point._abel_1_1, Lemma3.closer_point._abel_1_2, Lemma3.cor4_budget, Lemma3.cor4_cube, Lemma3.cor4_real, Lemma3.cor4_rpow_nat, Lemma3.emb, Lemma3.exists_annihilator, Lemma3.exists_heavy_vertex, Lemma3.exists_heavy_vertex._proof_1_1, Lemma3.exists_heavy_vertex._simp_1_2, Lemma3.exists_heavy_vertex._simp_1_3, Lemma3.exists_int_hyperplane, Lemma3.exists_int_hyperplane._simp_1_2, Lemma3.exists_lagrange, Lemma3.exists_lagrange._abel_1_1, Lemma3.exists_lagrange._simp_1_4, Lemma3.exists_lagrange._simp_1_5, Lemma3.exists_lattice_nonvanishing, Lemma3.exists_lattice_nonvanishing._simp_1_1, Lemma3.exists_lattice_nonvanishing._simp_1_2, Lemma3.exists_lattice_nonvanishing._simp_1_3, Lemma3.exists_nearest, Lemma3.exists_translate, Lemma3.exists_vanishing, Lemma3.exists_vanishing._proof_1_1, Lemma3.four_hull_subset_cube, Lemma3.int_comb_ne_zero, Lemma3.interpolation, Lemma3.interpolation._proof_1_3, Lemma3.interpolation._simp_1_5, Lemma3.interpolation._simp_1_6, Lemma3.interpolation._simp_1_7, Lemma3.p1_coord_le_sqd, Lemma3.p1_dot_self_nonneg, Lemma3.p1_var_ineq, Lemma3.p2_dot_expand, Lemma3.p2_dot_self_nonneg, Lemma3.p3_clear, Lemma3.p3_g, Lemma3.p3_g._proof_1, Lemma3.p3_g._proof_2, Lemma3.p3_g._proof_3, Lemma3.p3_g_apply, Lemma3.p4_deg_linP, Lemma3.p4_eval_linP, Lemma3.p4_linP, Lemma3.p4_rL, Lemma3.p4_rL._proof_1, Lemma3.p4_rL_apply, Lemma3.p5_PtSub, Lemma3.p5_PtSub._proof_1, Lemma3.p5_PtSub._proof_2, Lemma3.p5_PtSub._proof_3, Lemma3.p5_eval_aeval, Lemma3.quarter_mem_face, Lemma3.quarter_mem_face._simp_1_1, Lemma3.rectangle, Lemma3.sqd, Lemma3.zC, Lemma3.zR, Lemma3.zR.eq_1
+== route2-original minus route2-rerouted: 24295; by prefix: {'core': 331, 'Batteries': 0, 'other packages': 0, 'OAI': 1442, 'Lemma3 (ours)': 0, 'PNT patch': 0, 'Mathlib-style': 22085, 'root (no namespace)': 437}
+   top-level namespaces of the removed names (20 largest): CategoryTheory 7048, AlgebraicGeometry 3059, _private 2509, OAI 1420, HomologicalComplex 708, CochainComplex 604, TopCat 434, Algebra 310, MvPolynomial 310, AdicCompletion 297, CommRingCat 279, Ideal 253, Matroid 239, Submodule 225, TopologicalSpace 187, Finsupp 174, Module 171, WithZero 171, Polynomial 168, SemiRingCat 165
+
+== our Lemma 3 code (61810): in route2-rerouted 61810, in route1 60762, in route2-original 61402

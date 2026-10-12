@@ -1,0 +1,89 @@
+# Part B planning (no builds): upstream main, referenced configs, headline batch, estimates, pruning, D: check
+# Commands: wsl.exe -d Ubuntu-24.04 -u root -- bash wsl-comparator/71_main_plan.sh (git fetch of origin/main into /home/checker/math's .git only; git archive of main's lean/ into /home/checker/mainsrc; 71_main_plan.py). Run 2026-10-11.
+
+## Upstream main (COMPUTED)
+origin/main = fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb (2 commits after adc7f12). Under lean/: 762 files changed, 753 added and 9 modified. lakefile, lake-manifest, lean-toolchain and patches are unchanged.
+The modified .lean modules are OAI.CategoryTheory.Thomason.Representation and OAI.CategoryTheory.Thomason.Simplicial.LoopDimensionShift (noncomputable added to defs) and the umbrella OAI.lean. The other modified files are docs, the yaml and the ComparatorChallenges README.
+Rebuild caused by the commit change: 0 already-built modules are stale (none of the 4,254 built OAI modules imports the two changed files). Moving to fd4aeeb only adds new modules for the configs that are new at main.
+
+## Analysis output (COMPUTED counts; estimates INFERRED from pilot rates)
+main formalization.yaml: version v0.4; main_results 200; distinct configs 189; sources 173
+referenced configs missing on disk: []
+
+== headline families (configs linked from lean/docs/NNN.md)
+  003: # The quasi-Riemann hypothesis
+      ComparatorChallenges/DirichletSevenEighths.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=1
+      ComparatorChallenges/HeckeSevenEighths.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=3
+      ComparatorChallenges/QuasiRiemannHypothesis.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=0
+      ComparatorChallenges/SiegelZeros.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=0
+  102: # The Unique Games Conjecture and optimal approximation thresholds
+      ComparatorChallenges/DirectedFeedback.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=225
+      ComparatorChallenges/MinUncut.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=376
+      ComparatorChallenges/OptimalMaxCut.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=373
+      ComparatorChallenges/UniqueGamesTheorem.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=479
+      ComparatorChallenges/VertexCover.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=352
+  107: # Matrix multiplication with exponent at most 9/4
+      ComparatorChallenges/MatrixFields.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=355
+      ComparatorChallenges/MatrixMultiplication.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=510
+  087: # The Mahler conjectures, functional inequalities and polar-product symplectic width
+      ComparatorChallenges/GeneralMahler.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=303
+      ComparatorChallenges/MahlerConjecture.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=230
+      ComparatorChallenges/SymmetricMahlerEquality.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=238
+      ComparatorChallenges/SymmetricPolar.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=47
+  130: # Exact Fourier transforms below $`n\log n`$
+      ComparatorChallenges/ExactFourier.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=52
+      ComparatorChallenges/UniformFourier.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=90
+  124: # Polynomial-time scheduling on three identical machines
+      ComparatorChallenges/ThreeMachine.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=54
+  158: # The Euclidean plane cannot be colored with five colors
+      ComparatorChallenges/EuclideanFiveColor.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=71
+      ComparatorChallenges/PlaneColoring.json  referenced_by_yaml=True  exists=True  modules_to_build_alone=10
+  159: # Erdős’s reciprocal-sum conjecture and quasipolynomial Szemerédi bounds
+      ComparatorChallenges/ErdosReciprocal.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=4775
+  180: # Barnette’s Hamiltonian-cycle conjecture
+      ComparatorChallenges/BarnetteHamiltonian.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=32
+  182: # Power savings for intersective polynomial differences and prime arguments
+      ComparatorChallenges/SquareDifference.json  referenced_by_yaml=False  exists=True  modules_to_build_alone=82
+  extra ComparatorChallenges/HarmonicGrowth.json: referenced_by_yaml=True exists=True
+  extra ComparatorChallenges/NavierStokesVelocity.json: referenced_by_yaml=False exists=True
+  pilot ComparatorChallenges/SiegelZeros.json: closure needs rebuild of 0 modules (stale or unbuilt) -> unchanged, excluded
+  pilot ComparatorChallenges/QuasiRiemannHypothesis.json: closure needs rebuild of 0 modules (stale or unbuilt) -> unchanged, excluded
+  pilot ComparatorChallenges/EditApproximation.json: closure needs rebuild of 0 modules (stale or unbuilt) -> unchanged, excluded
+
+linked from the headline families or named extra, but NOT referenced by formalization.yaml (outside scope; listed separately):
+  ComparatorChallenges/DirectedFeedback.json: modules to build alone 225
+  ComparatorChallenges/MinUncut.json: modules to build alone 376
+  ComparatorChallenges/GeneralMahler.json: modules to build alone 303
+  ComparatorChallenges/ThreeMachine.json: modules to build alone 54
+  ComparatorChallenges/ErdosReciprocal.json: modules to build alone 4775
+  ComparatorChallenges/BarnetteHamiltonian.json: modules to build alone 32
+  ComparatorChallenges/SquareDifference.json: modules to build alone 82
+  ComparatorChallenges/NavierStokesVelocity.json: modules to build alone 153
+
+changed modules (source differs adc7f12 -> main): ['OAI.CategoryTheory.Thomason.Representation', 'OAI.CategoryTheory.Thomason.Simplicial.LoopDimensionShift']
+
+== all referenced configs at main: 189 configs; union 40885 non-core modules; to build 30359 (OAI 30323, other packages 36; of these 0 are built but stale)
+   to build by package: openai-math 30323, PrimeNumberTheoremAnd 19, StrongPNT 7, fixed-point-theorems 5, AbsorptionCutoff 5
+   INFERRED estimate (pilot rates: 2.2 s/module at 4 threads, 3.8 MB/module, 9-17 min per comparator run): build ~18.6 h (9.3-37.1 h), disk ~115 GB; replay of 189 nanoda runs ~28-54 h
+
+== headline batch: 15 configs; union 12553 non-core modules; to build 2618 (OAI 2613, other packages 5; of these 0 are built but stale)
+   to build by package: openai-math 2613, fixed-point-theorems 5
+   INFERRED estimate (pilot rates: 2.2 s/module at 4 threads, 3.8 MB/module, 9-17 min per comparator run): build ~1.6 h (0.8-3.2 h), disk ~10 GB; replay of 15 nanoda runs ~2-4 h
+
+== remainder (referenced, minus headline and pilot): 172 configs; union 35168 non-core modules; to build 28028 (OAI 27992, other packages 36; of these 0 are built but stale)
+   to build by package: openai-math 27992, PrimeNumberTheoremAnd 19, StrongPNT 7, fixed-point-theorems 5, AbsorptionCutoff 5
+   INFERRED estimate (pilot rates: 2.2 s/module at 4 threads, 3.8 MB/module, 9-17 min per comparator run): build ~17.1 h (8.6-34.3 h), disk ~107 GB; replay of 172 nanoda runs ~26-49 h
+
+== pruning: of the 2618 modules the headline batch would build, 287 are also in the remainder's closures; 2331 are used only by headline configs
+built-but-stale modules among referenced closures: 0 []
+
+headline configs: DirichletSevenEighths.json, HeckeSevenEighths.json, OptimalMaxCut.json, UniqueGamesTheorem.json, VertexCover.json, MatrixFields.json, MatrixMultiplication.json, MahlerConjecture.json, SymmetricMahlerEquality.json, SymmetricPolar.json, ExactFourier.json, UniformFourier.json, EuclideanFiveColor.json, PlaneColoring.json, HarmonicGrowth.json
+
+## Pruning (INFERRED from the counts above)
+Yes, with conditions. Lake rebuilds a module only from its own imports, so .olean files of modules outside every later config's closure can be removed without forcing later rebuilds. Of the 2,618 modules the headline batch builds, 287 are also in the remainder's closures and must stay; 2,331 are used only by headline configs. Conditions: prune only after a batch's shipped-config reruns and Lean-level queries (Part D step 4) are finished, since those need the same files; never prune Mathlib or package builds; and the closure parser left 2 configs unresolved at adc7f12, so prune only modules outside the union of all referenced closures. Saving: about 9 GB per headline-size batch. Not needed if D: holds the full replay. Nothing pruned.
+
+## D: (COMPUTED)
+D: is NTFS, 298.1 GB, 230.7 GB free, label 'FreeAgent Drive', disk 2 'Seagate FreeAgentDesktop', bus USB (an external USB hard drive). Visible in WSL as /mnt/d.
+Current WSL disk image: C:\Users\Work\AppData\Local\wsl\{beda3264-2b75-4d2c-b8d2-931eeb830b69}\ext4.vhdx, 43.1 GB, not sparse. C: free 59.5 GB; G: 56.5 GB free but not a disk volume (INFERRED: a cloud-sync drive, so unsuitable for the backup).
+Space on D: for image (43) + backup export (~41) + replay at main (~115) = ~199 GB of 230.7: enough, with about 30 GB margin. With the backup export on C: instead (59.5 GB free, and the 43 GB image is freed after the move), D: needs ~158 GB and keeps ~70 GB margin.
+INFERRED caveat: an external USB hard drive is much slower than the internal SATA SSD for the build's many small reads and writes. Build and replay times above (measured on the SSD) could be several times longer, and an unplugged or sleeping drive would interrupt WSL.

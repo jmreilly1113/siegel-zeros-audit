@@ -1,0 +1,33 @@
+== run DirichletSevenEighths  2026-10-11 20:54:43
+config: /home/checker/corpus/configs/DirichletSevenEighths-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.DirichletSevenEighths",
+  "solution_module": "OAI.NumberTheory.DirichletL.Nonvanishing",
+  "theorem_names": [
+    "OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/DirichletSevenEighths.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 39G
+Running as unit: run-u2.service; invocation ID: faef3ea093a048e7acad8e6405be61b5
+Building ComparatorChallenges.DirichletSevenEighths
+⚠ [8924/8924] Replayed ComparatorChallenges.DirichletSevenEighths
+warning: ComparatorChallenges/DirichletSevenEighths.lean:8:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.DirichletSevenEighths
+Building OAI.NumberTheory.DirichletL.Nonvanishing
+Build completed successfully (7061 jobs).
+DURATION_SECONDS: 267
+disk used after: 39G

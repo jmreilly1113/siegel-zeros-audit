@@ -1,0 +1,43 @@
+your 131072x1 screen size is bogus. expect trouble
+your 131072x1 screen size is bogus. expect trouble
+your 131072x1 screen size is bogus. expect trouble
+error: process ID list syntax error
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+er;
+++ pwd
++ systemd-run '--property=RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET' --user --wait --pipe --collect -E PATH=/home/checker/.elan/bin:/usr/local/bin:/home/checker/.elan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin --working-directory /home/checker/math/lean -- timeout --signal=TERM --kill-after=60 600 bash -c 'lake env bash -c "echo id: \uid=0(root) gid=0(root) groups=0(root); grep -E \"^(Uid|Gid|Groups|CapInh|CapPrm|CapEff|CapBnd|CapAmb|NoNewPrivs):\" /proc/self/status; echo parent: \; echo unit: \15:name=systemd:/init.scope
+14:misc:/
+13:rdma:/
+12:pids:/init.scope
+11:hugetlb:/
+10:net_prio:/
+9:perf_event:/
+8:net_cls:/
+7:freezer:/
+6:devices:/init.scope
+5:memory:/init.scope
+4:blkio:/
+3:cpuacct:/
+2:cpu:/
+1:cpuset:/
+0::/init.scope; echo comparator: \/usr/local/bin/comparator"'
+Running as unit: run-u0.service; invocation ID: f0d89391edd74f41a62a1c89334c1aa6
+bash: -c: line 1: syntax error near unexpected token `('
+bash: -c: line 1: `echo id: \uid=0(root) gid=0(root) groups=0(root); grep -E "^(Uid|Gid|Groups|CapInh|CapPrm|CapEff|CapBnd|CapAmb|NoNewPrivs):" /proc/self/status; echo parent: \; echo unit: \15:name=systemd:/init.scope'
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=2
+Service runtime: 9.479s
++ set +x
+PROBE EXIT CODE: 0
+== owners of OAI .olean files written by the pilot builds (by user:group):
+   4257 checker:checker
+== owners of the whole build tree:
+ 207887 checker:checker

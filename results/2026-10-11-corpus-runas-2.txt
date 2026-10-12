@@ -1,0 +1,39 @@
+your 131072x1 screen size is bogus. expect trouble
+) groups=0(root)
+== checker account: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+== sudo rights of checker (sudo -l -U checker):
+User checker is not allowed to run sudo on DESKTOP-PKP0QDP.
+== systemd processes (user, pid, args):
+root          75 /usr/lib/systemd/systemd-udevd
+systemd+     139 /usr/lib/systemd/systemd-resolved
+systemd+     140 /usr/lib/systemd/systemd-timesyncd
+message+     148 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         155 /usr/lib/systemd/systemd-logind
+checker      198 /usr/lib/systemd/systemd --user
+root         256 /usr/lib/systemd/systemd-timedated
+++ pwd
++ systemd-run '--property=RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET' --user --wait --pipe --collect -E PATH=/home/checker/.elan/bin:/usr/local/bin:/home/checker/.elan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin --working-directory /home/checker/math/lean -- timeout --signal=TERM --kill-after=60 600 bash -c 'lake env bash /mnt/c/Users/Work/dev/siegel/wsl-comparator/73_runas_inner.sh'
+Running as unit: run-u0.service; invocation ID: d1fbfdd58fd34c058bcd4115fd5e749c
+inside id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+Groups:	1000 
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	1
+parent: checker      356 /home/checker/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake env bash /mnt/c/Users/Work/dev/siegel/wsl-comparator/73_runas_inner.sh
+cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u0.service
+comparator binary: /usr/local/bin/comparator owner root:root 755
+LEAN_PATH set by lake env: yes
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9.136s
++ set +x
+PROBE EXIT CODE: 0
+== owners of OAI .olean files written by the pilot builds (by user:group):
+   4257 checker:checker
+== owners of the whole build tree:
+ 207887 checker:checker

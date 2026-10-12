@@ -34,8 +34,10 @@ def run_class(path, nanoda):
     t = open(path, encoding='utf-8', errors='replace').read()
     c = code(t, 'COMPARATOR')
     ok = 'Your solution is okay!' in t and c == 0
-    if c is None and os.path.isfile(os.path.join(out, 'GUARD_STOPPED.txt')):
-        return 'GUARD_STOPPED', 'no COMPARATOR EXIT CODE line; ' + open(os.path.join(out, 'GUARD_STOPPED.txt')).read().strip()
+    if c is None:  # the run did not finish (killed): never a verdict
+        if os.path.isfile(os.path.join(out, 'GUARD_STOPPED.txt')) or os.path.isfile('/home/checker/corpus/GUARD_STOPPED'):
+            return 'GUARD_STOPPED', 'no COMPARATOR EXIT CODE line; guard stop'
+        return 'OTHER', 'no COMPARATOR EXIT CODE line (run did not finish)'
     if c in (124, 137): return 'TIMEOUT', f'COMPARATOR EXIT CODE: {c}'
     if 'Illegal axiom detected' in t: return 'AXIOM_VIOLATION', line(t, 'Illegal axiom detected')
     if nanoda and 'Running nanoda kernel' in t and 'nanoda kernel accepts the solution' not in t:

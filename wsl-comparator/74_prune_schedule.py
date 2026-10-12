@@ -1,6 +1,6 @@
 """Item 4 planning (read-only): batch-and-prune schedule for the 172 remainder configs, peak disk inside WSL on C:.
 
-Usage: python3 -I 74_prune_schedule.py <openai/math lean dir at fd4aeeb> <toolchain src/lean dir>
+Usage: python3 -I 74_prune_schedule.py <openai/math lean dir at fd4aeeb> <toolchain src/lean dir> [schedule json to write]
 Model (all module sets COMPUTED with the header-only import parser of 71_main_plan.py; sizes partly estimated):
 - Disk unit is GiB of allocated blocks (st_blocks), the same unit as `df -BG`.
 - A module's build output is every file under .lake/build/lib/lean and .lake/build/ir with its path stem.
@@ -222,3 +222,7 @@ for i, cs, nm, ng, p, a in rows:
     print(f'{i:>5} | {len(cs):>3} | {nm:>6} | {ng:>6.1f} | {p:>6.1f} | {a:>6.1f} | ' + ' '.join(c.split('/')[-1][:-5] for c in cs))
 big = sorted(((gb(N[r] - built - H), r) for r in rest), reverse=True)[:5]
 print('\nlargest single remainder configs (GiB of OAI outputs not already built): ' + ', '.join(f'{r.split("/")[-1][:-5]} {g:.1f}' for g, r in big))
+if len(sys.argv) > 3:
+    json.dump({'budget_gib': B, 'peak_gib': round(pk, 1), 'kept_configs': pilot,
+               'batches': [cs for cs, _ in bs]}, open(sys.argv[3], 'w'), indent=1)
+    print(f'schedule written to {sys.argv[3]}')

@@ -14,14 +14,14 @@ L=/home/checker/math/lean; C=/home/checker/corpus/configs
 DISK_CAP=${DISK_CAP:-60}
 mkdir -p $OUT
 rm -f /home/checker/corpus/GUARD_STOPPED
-nohup bash $W/69_corpus_guard.sh $DISK_CAP 1500 >/dev/null 2>&1 &
+nohup bash $W/69_corpus_guard.sh $DISK_CAP 1500 2 >/dev/null 2>&1 &
 GD=$!
 {
 echo "== headline batch start $(date '+%F %T')"
 echo "clone HEAD: $(sudo -u checker git -C /home/checker/math rev-parse HEAD); status: [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]"
-echo "guard: 69_corpus_guard.sh $DISK_CAP 1500 (WSL disk use cap ${DISK_CAP} GiB, MemAvailable floor 1500 MB)"
+echo "guard: 69_corpus_guard.sh $DISK_CAP 1500 2 (WSL disk use cap ${DISK_CAP} GiB, MemAvailable floor 1500 MB, drop_caches every 60 s)"
 echo "disk used: $(df -BG --output=used / | tail -1 | tr -d ' ')"
-} > $OUT/run.log
+} >> $OUT/run.log
 # configs (nanoda copies) and the seeded sample
 python3 -I - "$L" "$C" "$OUT" <<'EOF' >> $OUT/run.log
 import json, os, random, sys, yaml
@@ -56,13 +56,17 @@ prebuild() { # prebuild <name> <targets> <timeout>
     echo "PREBUILD_SECONDS: $(( $(date +%s) - T0 ))"; echo "disk used: $(df -BG --output=used / | tail -1 | tr -d ' ')"
   } 2>&1 | cat > $OUT/$1.prebuild.log
 }
-tail -n +2 $OUT/plan.tsv | while IFS=$'\t' read -r N TG INS; do
+while IFS=$'\t' read -r N TG INS <&3; do
   stopped && break
+  [ -f $OUT/$N.done ] && continue
+  for f in $OUT/$N.prebuild.log $OUT/$N-nanoda.log $OUT/$N-shipped.log; do  # partial logs of a stopped run are kept, not overwritten
+    [ -f $f ] && mv $f ${f%.log}.stopped-$(date +%Y%m%d%H%M%S).log
+  done
   echo "$(date '+%F %T') $N: prebuild" >> $OUT/run.log
   prebuild $N "$TG" 14400
   stopped && break
   if grep -q 'SANDBOX EXIT CODE: 12[4-9]\|SANDBOX EXIT CODE: 137' $OUT/$N.prebuild.log; then
-    echo "$(date '+%F %T') $N: prebuild timed out; comparator runs skipped" >> $OUT/run.log; continue
+    echo "$(date '+%F %T') $N: prebuild timed out; comparator runs skipped" >> $OUT/run.log; touch $OUT/$N.done; continue
   fi
   echo "$(date '+%F %T') $N: nanoda run" >> $OUT/run.log
   bash $W/67_corpus_run.sh $N $C/$N-nanoda.json 7200 $OUT/$N-nanoda.log </dev/null
@@ -72,7 +76,9 @@ tail -n +2 $OUT/plan.tsv | while IFS=$'\t' read -r N TG INS; do
   if [ $ok = no ] || [ "$INS" = True ]; then
     echo "$(date '+%F %T') $N: shipped-config run (nanoda ACCEPT_BOTH: $ok; in sample: $INS)" >> $OUT/run.log
     bash $W/67_corpus_run.sh $N $L/ComparatorChallenges/$N.json 7200 $OUT/$N-shipped.log </dev/null
+    stopped && break
   fi
+  touch $OUT/$N.done
 done 3< <(tail -n +2 $OUT/plan.tsv)
 # sampled configs outside the headline batch whose closure is already built (pilot): shipped run now
 if ! stopped; then
@@ -84,15 +90,17 @@ fi
 # Lean-level queries (query only; NavierStokesVelocity is not yaml-referenced and gets no comparator run)
 if ! stopped; then
   echo "$(date '+%F %T') queries: build NavierStokesVelocity solution and challenge (no replay)" >> $OUT/run.log
-  prebuild NavierStokesVelocity-query "OAI.MathematicalPhysics.NavierStokes.VelocityDetection.Main ComparatorChallenges.NavierStokesVelocity" 14400
+  grep -q "SANDBOX EXIT CODE: 0" $OUT/NavierStokesVelocity-query.prebuild.log 2>/dev/null || prebuild NavierStokesVelocity-query "OAI.MathematicalPhysics.NavierStokes.VelocityDetection.Main ComparatorChallenges.NavierStokesVelocity" 14400
   for q in HarmonicGrowthChallenge HarmonicGrowthSolution NavierStokesChallenge NavierStokesSolution; do
     stopped && break
+    grep -q 'SANDBOX EXIT CODE: 0' $OUT/query-$q.log 2>/dev/null && continue
+    [ -f $OUT/query-$q.log ] && mv $OUT/query-$q.log $OUT/query-$q.stopped-$(date +%Y%m%d%H%M%S).log
     { echo "== query $q  $(date '+%F %T')"; echo "file: lean-checks/corpus-queries/$q.lean sha256 $(sha256sum $Q/$q.lean | cut -c1-64)"
       bash $W/75_sbx.sh 3600 4 "lake env lean $Q/$q.lean" </dev/null; } 2>&1 | cat > $OUT/query-$q.log
   done
 fi
 kill $GD 2>/dev/null
-python3 -I $W/75_classify.py $OUT > $OUT/outcomes.tsv 2>> $OUT/run.log
 echo "disk used at end: $(df -BG --output=used / | tail -1 | tr -d ' '); clone status: [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]" >> $OUT/run.log
-if stopped; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt; else echo "HEADLINE DONE $(date '+%F %T')" > $OUT/DONE.txt; fi
+if stopped; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt
+else python3 -I $W/75_classify.py $OUT > $OUT/outcomes.tsv 2>> $OUT/run.log; echo "HEADLINE DONE $(date '+%F %T')" > $OUT/DONE.txt; fi
 sync

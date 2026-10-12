@@ -1,0 +1,16 @@
+config	in_sample	prebuild	nanoda_run	shipped_run	config_outcome	evidence
+DirichletSevenEighths	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+HeckeSevenEighths	False	OK	NANODA_REJECT	OTHER	NANODA_REJECT	Running nanoda kernel on solution | shipped: OTHER: COMPARATOR EXIT CODE: None
+OptimalMaxCut	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+UniqueGamesTheorem	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+VertexCover	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+MatrixFields	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+MatrixMultiplication	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+MahlerConjecture	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+SymmetricMahlerEquality	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+SymmetricPolar	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+ExactFourier	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+UniformFourier	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+EuclideanFiveColor	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+PlaneColoring	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	
+HarmonicGrowth	False	NOT_RUN	NOT_RUN	NOT_RUN	NOT_RUN	

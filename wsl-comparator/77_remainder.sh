@@ -12,12 +12,12 @@ L=/home/checker/math/lean; C=/home/checker/corpus/configs
 CORE=/home/checker/.elan/toolchains/leanprover--lean4---v4.34.1/src/lean
 mkdir -p $OUT
 rm -f /home/checker/corpus/GUARD_STOPPED
-nohup bash $W/69_corpus_guard.sh 60 1500 2 >/dev/null 2>&1 &
+nohup bash $W/69_corpus_guard.sh 65 1500 2 >/dev/null 2>&1 &
 GD=$!
 stopped() { [ -f /home/checker/corpus/GUARD_STOPPED ]; }
 log() { echo "$(date '+%F %T') $*" >> $OUT/run.log; }
 log "start; clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD); status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; disk used $(df -BG --output=used / | tail -1 | tr -d ' ')"
-log "guard: 69_corpus_guard.sh 60 1500 2"
+log "guard: 69_corpus_guard.sh 65 1500 2"
 # keep list: pilot configs plus every headline config whose outcome is not ACCEPT_BOTH
 if [ ! -f $OUT/keep-configs.txt ]; then
   { echo "# configs whose builds are never pruned"

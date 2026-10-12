@@ -455,4 +455,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - Headline batch done 2026-10-12 04:11:05 (results/2026-10-12-corpus-headline-findings.txt; logs in results/2026-10-11-corpus-headline/):
   - Outcomes: 12 ACCEPT_BOTH. 3 ACCEPT_LEAN_ONLY (family 102: OptimalMaxCut, UniqueGamesTheorem, VertexCover), where nanoda crashed on a stack overflow and Lean accepted.
   - Queries: the HarmonicGrowth axiom is not in the solution's axiom set, and `half` is not in either statement closure.
-  - WSL disk 54 GiB at the end, above the ~51 GiB estimate (INFERRED cause: NavierStokesVelocity's extra build for the query, which the item 4 model did not include). C: 37 GB free.
+  - WSL disk 54 GiB at the end, above the ~51 GiB estimate. COMPUTED afterwards: 7,023 OAI modules built, using 31.4 GiB (4.58 MiB per module, against 3.99 before the batch). The size fit underestimated the headline modules. C: 37 GB free.
+- Non-official nanoda diagnostic (results/2026-10-12-nanoda-bigstack-diag/findings.txt):
+  - A copy of nanoda with a 512 MiB stack still overflowed on OptimalMaxCut. The run was then guard-stopped (WSL MemAvailable 27 MB).
+  - The other two configs were not run. INFERRED: nanoda's recursion on these proofs is very deep or does not terminate. No more nanoda diagnostics.
+- Remainder schedule recomputed (results/2026-10-12-corpus-remainder-schedule.txt/.json): 16 batches, batch peaks 45-52 GiB (INFERRED). Guard cap raised to 65 GiB (C: stays above ~27 GB free). Remainder started with 77_remainder.sh.

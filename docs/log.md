@@ -460,3 +460,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - A copy of nanoda with a 512 MiB stack still overflowed on OptimalMaxCut. The run was then guard-stopped (WSL MemAvailable 27 MB).
   - The other two configs were not run. INFERRED: nanoda's recursion on these proofs is very deep or does not terminate. No more nanoda diagnostics.
 - Remainder schedule recomputed (results/2026-10-12-corpus-remainder-schedule.txt/.json): 16 batches, batch peaks 45-52 GiB (INFERRED). Guard cap raised to 65 GiB (C: stays above ~27 GB free). Remainder started with 77_remainder.sh.
+- C: space check 2026-10-12 ~05:30 (COMPUTED):
+  - C: free fell from 57.3 GB (2026-10-11 20:5x) to 25.1 GB.
+  - WSL disk image: 43.1 GB -> 55.28 GB, steady from 04:59 to 05:32. It matches the peak use inside WSL (55 GiB) and has not shrunk after pruning (WSL use now 48-49 GiB).
+  - No file over 300 MB written in the last 12 h under C:\Users or C:\ProgramData. C:\pagefile.sys is 19.74 GB.
+  - INFERRED: the rest of the drop is Windows page-file growth, probably during the 04:18 memory spike of the nanoda diagnostic.
+  - The remainder batch peaks (estimated <= ~52 GiB) stay under the image's current size, so little further growth is expected. The 15 GB C: floor in 78_windows_monitor.sh remains the backstop.
+- Remainder batch 1 done 2026-10-12 14:37:01 (results/2026-10-12-corpus-remainder/batch-01/, outcomes.tsv; driver log results/2026-10-12-corpus-remainder/run.log; command `77_remainder.sh results/2026-10-12-corpus-remainder-schedule.json results/2026-10-12-corpus-remainder results/2026-10-11-corpus-headline/sample.txt`, run detached as root, comparator runs as checker in the sandbox):
+  - COMPUTED: 76 of 76 configs ACCEPT_BOTH (nanoda and Lean kernels accept, "Your solution is okay!", exit 0). No build failures, timeouts, illegal axioms or nanoda crashes. Shipped-config runs for the 3 sampled configs in this batch (ProjectionVolume, BoundedRecovery, LiebThirring): ACCEPT_LEAN.
+  - COMPUTED: prebuild time 20,250 s in total; batch wall time 04:29-14:37. WSL disk use peaked at 59 GiB (prebuild logs), above the scheduled 45-52 GiB (INFERRED: the size fit still underestimates). The WSL disk image grew to 64.4 GB and C: free fell to 19 GB.
+  - Prune after batch 1: 3,136 modules, 11.41 GiB; WSL use 48 GiB. Batch 2 (34 configs) started 14:38:35.
+  - Replan (INFERRED): later batches are smaller than batch 1, and the image now holds about 60 GiB, so growth past it should be small. The 15 GB C: floor (78_windows_monitor.sh) and the 65 GiB WSL cap stay as backstops. The schedule is not recomputed during runs (no analysis inside WSL alongside comparator runs).

@@ -1,0 +1,7 @@
+# configs whose builds are never pruned
+ComparatorChallenges/SiegelZeros.json
+ComparatorChallenges/QuasiRiemannHypothesis.json
+ComparatorChallenges/EditApproximation.json
+ComparatorChallenges/OptimalMaxCut.json
+ComparatorChallenges/UniqueGamesTheorem.json
+ComparatorChallenges/VertexCover.json

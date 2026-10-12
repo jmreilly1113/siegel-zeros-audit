@@ -1,0 +1,11 @@
+== prebuild ChoicelessPolynomialTime: lake build OAI.ModelTheory.Choiceless.Separation ComparatorChallenges.ChoicelessPolynomialTime with LEAN_NUM_THREADS=4  2026-10-12 09:04:55
+Running as unit: run-u142.service; invocation ID: fd219c3a5e034802b96dadb576c128f0
+⚠ [8924/8950] Built ComparatorChallenges.ChoicelessPolynomialTime (48s)
+warning: ComparatorChallenges/ChoicelessPolynomialTime.lean:549:8: declaration uses `sorry`
+Build completed successfully (8950 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6min 1.847s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 385
+disk used: 53G

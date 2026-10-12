@@ -1,0 +1,11 @@
+== prebuild Saxl: lake build OAI.RepresentationTheory.Saxl.Main ComparatorChallenges.Saxl with LEAN_NUM_THREADS=4  2026-10-12 13:27:18
+Running as unit: run-u186.service; invocation ID: 289381ba599b46b698cf7fa9f53ba256
+⚠ [8925/8962] Built ComparatorChallenges.Saxl (46s)
+warning: ComparatorChallenges/Saxl.lean:112:8: declaration uses `sorry`
+Build completed successfully (8962 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 7min 9.470s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 461
+disk used: 58G

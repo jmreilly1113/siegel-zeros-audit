@@ -1,0 +1,43 @@
+== run TingleySphereIsometry  2026-10-12 04:49:17
+config: /home/checker/corpus/configs/TingleySphereIsometry-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.TingleySphereIsometry",
+  "solution_module": "OAI.Analysis.SphereIsometry.Main",
+  "theorem_names": [
+    "OAI.Tingley.tingley_sphere_isometry_full"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/TingleySphereIsometry.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 48G
+Running as unit: run-u65.service; invocation ID: 1265d4dac9954bd38097d4fb6b9ea8fb
+Building ComparatorChallenges.TingleySphereIsometry
+⚠ [1975/1975] Replayed ComparatorChallenges.TingleySphereIsometry
+warning: ComparatorChallenges/TingleySphereIsometry.lean:22:8: declaration uses `sorry`
+Build completed successfully (1975 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Tingley.tingley_sphere_isometry_full, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.TingleySphereIsometry
+Building OAI.Analysis.SphereIsometry.Main
+Build completed successfully (2432 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Tingley.tingley_sphere_isometry_full, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.SphereIsometry.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 57.019s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 60
+disk used after: 48G

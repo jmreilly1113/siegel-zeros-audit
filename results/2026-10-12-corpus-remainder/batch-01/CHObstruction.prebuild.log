@@ -1,0 +1,11 @@
+== prebuild CHObstruction: lake build OAI.ModelTheory.Categoricity.Main ComparatorChallenges.CHObstruction with LEAN_NUM_THREADS=4  2026-10-12 06:00:20
+Running as unit: run-u90.service; invocation ID: d62d7dc87a384613812a4b5610c26a4c
+⚠ [8925/8939] Built ComparatorChallenges.CHObstruction (52s)
+warning: ComparatorChallenges/CHObstruction.lean:96:8: declaration uses `sorry`
+Build completed successfully (8939 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 33.588s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 224
+disk used: 49G

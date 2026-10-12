@@ -1,0 +1,11 @@
+== prebuild SubsphereCurrent: lake build OAI.Probability.Subsphere.Main ComparatorChallenges.SubsphereCurrent with LEAN_NUM_THREADS=4  2026-10-12 07:50:07
+Running as unit: run-u127.service; invocation ID: f15f1bcb9cd24fa2b4ed6bea83bcb27d
+⚠ [8927/8949] Built ComparatorChallenges.SubsphereCurrent (206s)
+warning: ComparatorChallenges/SubsphereCurrent.lean:442:8: declaration uses `sorry`
+Build completed successfully (8949 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 58.197s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 381
+disk used: 51G

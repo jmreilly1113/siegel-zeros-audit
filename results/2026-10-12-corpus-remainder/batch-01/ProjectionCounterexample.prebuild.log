@@ -1,0 +1,11 @@
+== prebuild ProjectionCounterexample: lake build OAI.Geometry.ProjectionBody.Counterexample ComparatorChallenges.ProjectionCounterexample with LEAN_NUM_THREADS=4  2026-10-12 04:50:18
+Running as unit: run-u66.service; invocation ID: 6bb6a3d290604f4eb8654868e0f3a8b4
+⚠ [3076/3090] Built ComparatorChallenges.ProjectionCounterexample (2.8s)
+warning: ComparatorChallenges/ProjectionCounterexample.lean:37:8: declaration uses `sorry`
+Build completed successfully (3090 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 48.655s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 50
+disk used: 48G

@@ -1,0 +1,11 @@
+== prebuild ForestSpace: lake build OAI.Analysis.ForestSpace.Main ComparatorChallenges.ForestSpace with LEAN_NUM_THREADS=4  2026-10-12 06:25:40
+Running as unit: run-u102.service; invocation ID: 9847936e1ebb4177a9ee7241ad3444d3
+⚠ [8926/8944] Built ComparatorChallenges.ForestSpace (9.8s)
+warning: ComparatorChallenges/ForestSpace.lean:453:8: declaration uses `sorry`
+Build completed successfully (8944 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 11.296s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 201
+disk used: 50G

@@ -1,0 +1,11 @@
+== prebuild CartierChartCompactnessSupport: lake build OAI.AlgebraicGeometry.CartierSections.ChartCompactness ComparatorChallenges.CartierChartCompactnessSupport with LEAN_NUM_THREADS=4  2026-10-12 04:41:22
+Running as unit: run-u58.service; invocation ID: 298db79e57484115904a9d7e191071bb
+⚠ [3287/3288] Built ComparatorChallenges.CartierChartCompactnessSupport (2.7s)
+warning: ComparatorChallenges/CartierChartCompactnessSupport.lean:25:6: declaration uses `sorry`
+Build completed successfully (3288 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 47.595s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 49
+disk used: 48G

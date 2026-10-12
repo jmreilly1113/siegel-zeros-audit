@@ -1,0 +1,11 @@
+== prebuild MarkovType: lake build OAI.Analysis.MarkovType.Main ComparatorChallenges.MarkovType with LEAN_NUM_THREADS=4  2026-10-12 08:58:32
+Running as unit: run-u140.service; invocation ID: d587621df71a4fb8bd37c40dbbd11e77
+⚠ [9131/9131] Built ComparatorChallenges.MarkovType (31s)
+warning: ComparatorChallenges/MarkovType.lean:71:8: declaration uses `sorry`
+Build completed successfully (9131 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 8.943s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 200
+disk used: 53G

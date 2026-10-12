@@ -1,0 +1,11 @@
+== prebuild RyserOddExtensions: lake build OAI.Combinatorics.Ryser.OddExtensions ComparatorChallenges.RyserOddExtensions with LEAN_NUM_THREADS=4  2026-10-12 05:10:45
+Running as unit: run-u72.service; invocation ID: 2a8b561f74184c1fb1fe5239d3669cd0
+⚠ [9143/9143] Built ComparatorChallenges.RyserOddExtensions (40s)
+warning: ComparatorChallenges/RyserOddExtensions.lean:61:8: declaration uses `sorry`
+Build completed successfully (9143 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 58.637s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 62
+disk used: 48G

@@ -1,0 +1,14 @@
+== prebuild IndependentProducts: lake build OAI.Analysis.ProductSpaces.Main ComparatorChallenges.IndependentProducts with LEAN_NUM_THREADS=4  2026-10-12 06:54:35
+Running as unit: run-u112.service; invocation ID: ad4e54b2a2d044beb0a20f8e58fa43e4
+⚠ [8925/8946] Built ComparatorChallenges.IndependentProducts (49s)
+warning: ComparatorChallenges/IndependentProducts.lean:89:8: declaration uses `sorry`
+warning: ComparatorChallenges/IndependentProducts.lean:95:8: declaration uses `sorry`
+warning: ComparatorChallenges/IndependentProducts.lean:102:8: declaration uses `sorry`
+warning: ComparatorChallenges/IndependentProducts.lean:109:8: declaration uses `sorry`
+Build completed successfully (8946 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 37.901s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 228
+disk used: 50G

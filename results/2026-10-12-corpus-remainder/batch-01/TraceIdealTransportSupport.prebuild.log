@@ -1,0 +1,27 @@
+== prebuild TraceIdealTransportSupport: lake build OAI.Analysis.TraceCone.IdealTransport ComparatorChallenges.TraceIdealTransportSupport with LEAN_NUM_THREADS=4  2026-10-12 04:35:23
+Running as unit: run-u54.service; invocation ID: 78ea27d9fbb44785808538676df479ab
+⚠ [8927/8927] Built ComparatorChallenges.TraceIdealTransportSupport (34s)
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:61:8: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:71:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:72:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:74:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:76:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:79:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:91:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:92:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:94:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:134:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:157:8: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:158:8: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:159:8: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:164:8: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:193:6: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:225:8: declaration uses `sorry`
+warning: ComparatorChallenges/TraceIdealTransportSupport.lean:229:8: declaration uses `sorry`
+Build completed successfully (8927 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 45.840s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 49
+disk used: 48G

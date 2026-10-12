@@ -1,0 +1,12 @@
+== prebuild CoordinateSweeps: lake build OAI.Probability.CoordinateSweeps.Main ComparatorChallenges.CoordinateSweeps with LEAN_NUM_THREADS=4  2026-10-12 13:49:35
+Running as unit: run-u190.service; invocation ID: d4db747408344f508d8aa8910c9219d7
+⚠ [8924/8958] Built ComparatorChallenges.CoordinateSweeps (63s)
+warning: ComparatorChallenges/CoordinateSweeps.lean:300:8: declaration uses `sorry`
+warning: ComparatorChallenges/CoordinateSweeps.lean:307:8: declaration uses `sorry`
+Build completed successfully (8958 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 29.591s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 289
+disk used: 58G

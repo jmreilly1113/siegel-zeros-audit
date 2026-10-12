@@ -1,0 +1,43 @@
+== run GrahamSpherical  2026-10-12 04:39:53
+config: /home/checker/corpus/configs/GrahamSpherical-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.GrahamSpherical",
+  "solution_module": "OAI.Combinatorics.SphericalRamsey.Main",
+  "theorem_names": [
+    "OAI.GrahamSpherical.full_main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/GrahamSpherical.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 48G
+Running as unit: run-u57.service; invocation ID: 4bba4a07ea074969bdd1e6ff987f4cf4
+Building ComparatorChallenges.GrahamSpherical
+⚠ [2422/2422] Replayed ComparatorChallenges.GrahamSpherical
+warning: ComparatorChallenges/GrahamSpherical.lean:58:8: declaration uses `sorry`
+Build completed successfully (2422 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.GrahamSpherical.full_main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.GrahamSpherical
+Building OAI.Combinatorics.SphericalRamsey.Main
+Build completed successfully (2675 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.GrahamSpherical.full_main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.SphericalRamsey.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 22.418s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 87
+disk used after: 48G

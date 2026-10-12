@@ -1,0 +1,45 @@
+== run CoordinateSweeps  2026-10-12 13:54:24
+config: /home/checker/corpus/configs/CoordinateSweeps-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.CoordinateSweeps",
+  "solution_module": "OAI.Probability.CoordinateSweeps.Main",
+  "theorem_names": [
+    "OAI.CoordinateSweeps.conditional_main",
+    "OAI.CoordinateSweeps.all_grid_moment"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/CoordinateSweeps.json vs this config
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 58G
+Running as unit: run-u191.service; invocation ID: 50c59f1b09944d72ab17741803096d68
+Building ComparatorChallenges.CoordinateSweeps
+⚠ [8924/8924] Replayed ComparatorChallenges.CoordinateSweeps
+warning: ComparatorChallenges/CoordinateSweeps.lean:300:8: declaration uses `sorry`
+warning: ComparatorChallenges/CoordinateSweeps.lean:307:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.CoordinateSweeps.conditional_main, OAI.CoordinateSweeps.all_grid_moment, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.CoordinateSweeps
+Building OAI.Probability.CoordinateSweeps.Main
+Build completed successfully (8957 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.CoordinateSweeps.conditional_main, OAI.CoordinateSweeps.all_grid_moment, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Probability.CoordinateSweeps.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 8.424s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 332
+disk used after: 58G

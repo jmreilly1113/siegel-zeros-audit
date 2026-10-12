@@ -1,0 +1,43 @@
+== run CliqueFreeLog  2026-10-12 09:33:56
+config: /home/checker/corpus/configs/CliqueFreeLog-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.CliqueFreeLog",
+  "solution_module": "OAI.Combinatorics.CliqueFree.Main",
+  "theorem_names": [
+    "OAI.CliqueFreeLog.logarithmic_independence_bound"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/CliqueFreeLog.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 54G
+Running as unit: run-u149.service; invocation ID: e8806b5377aa4bf792ae7d114c745a21
+Building ComparatorChallenges.CliqueFreeLog
+⚠ [8924/8924] Replayed ComparatorChallenges.CliqueFreeLog
+warning: ComparatorChallenges/CliqueFreeLog.lean:11:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.CliqueFreeLog.logarithmic_independence_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.CliqueFreeLog
+Building OAI.Combinatorics.CliqueFree.Main
+Build completed successfully (8954 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.CliqueFreeLog.logarithmic_independence_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.CliqueFree.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 29.029s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 160
+disk used after: 54G

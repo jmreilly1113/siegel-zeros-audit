@@ -1,0 +1,43 @@
+== run C0Absorption  2026-10-12 11:01:49
+config: /home/checker/corpus/configs/C0Absorption-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.C0Absorption",
+  "solution_module": "OAI.Analysis.C0Absorption.Main",
+  "theorem_names": [
+    "OAI.C0Absorption.main_result"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/C0Absorption.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 55G
+Running as unit: run-u165.service; invocation ID: 1f58d0d30b8c4a46962df9cdb5cf2716
+Building ComparatorChallenges.C0Absorption
+⚠ [8924/8924] Replayed ComparatorChallenges.C0Absorption
+warning: ComparatorChallenges/C0Absorption.lean:29:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.C0Absorption.main_result, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.C0Absorption
+Building OAI.Analysis.C0Absorption.Main
+Build completed successfully (8957 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.C0Absorption.main_result, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.C0Absorption.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 2.678s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 195
+disk used after: 55G

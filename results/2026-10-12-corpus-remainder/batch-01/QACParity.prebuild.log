@@ -1,0 +1,11 @@
+== prebuild QACParity: lake build OAI.InformationTheory.QuantumCircuit.Parity ComparatorChallenges.QACParity with LEAN_NUM_THREADS=4  2026-10-12 06:31:08
+Running as unit: run-u104.service; invocation ID: 0f66d8abda00473a93d0dbe398963683
+⚠ [8925/8945] Built ComparatorChallenges.QACParity (52s)
+warning: ComparatorChallenges/QACParity.lean:71:8: declaration uses `sorry`
+Build completed successfully (8945 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 9.338s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 136
+disk used: 50G

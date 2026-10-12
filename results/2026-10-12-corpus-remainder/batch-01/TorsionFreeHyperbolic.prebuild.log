@@ -1,0 +1,11 @@
+== prebuild TorsionFreeHyperbolic: lake build OAI.GroupTheory.Hyperbolic.Main ComparatorChallenges.TorsionFreeHyperbolic with LEAN_NUM_THREADS=4  2026-10-12 09:15:15
+Running as unit: run-u144.service; invocation ID: 4776f15cfa004b9bb24a15cb10b5b25a
+⚠ [8925/8953] Built ComparatorChallenges.TorsionFreeHyperbolic (54s)
+warning: ComparatorChallenges/TorsionFreeHyperbolic.lean:37:8: declaration uses `sorry`
+Build completed successfully (8953 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 17.722s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 276
+disk used: 53G

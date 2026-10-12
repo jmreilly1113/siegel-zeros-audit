@@ -1,0 +1,63 @@
+== run GaussianReplacement  2026-10-12 13:12:07
+config: /home/checker/corpus/configs/GaussianReplacement-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.GaussianReplacement",
+  "solution_module": "OAI.Probability.GaussianReplacement.FiberEquality",
+  "theorem_names": [
+    "OAI.CurrentProjection.mixedMomentMain",
+    "OAI.CurrentProjection.actualRowMain",
+    "OAI.CurrentProjection.actualRowRefinement",
+    "OAI.CurrentProjection.actualRowSourceMain",
+    "OAI.CurrentProjection.actualRowSourceRefinement",
+    "OAI.CurrentProjection.criticalComparisonMain",
+    "OAI.CurrentProjection.oneLevelComparisonMain",
+    "OAI.CurrentProjection.twoLabelComparisonMain",
+    "OAI.CurrentProjection.hybridBlockMain",
+    "OAI.CurrentProjection.fiberTwoPointMain",
+    "OAI.CurrentProjection.fiberBlockMain"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/GaussianReplacement.json vs this config
+23c23
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 57G
+Running as unit: run-u183.service; invocation ID: d0d3a9a5176242e8a44fa52a558bb77f
+Building ComparatorChallenges.GaussianReplacement
+⚠ [8924/8924] Replayed ComparatorChallenges.GaussianReplacement
+warning: ComparatorChallenges/GaussianReplacement.lean:433:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:436:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:457:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:468:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:489:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:502:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:505:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:508:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:511:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:514:8: declaration uses `sorry`
+warning: ComparatorChallenges/GaussianReplacement.lean:517:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.CurrentProjection.mixedMomentMain, OAI.CurrentProjection.actualRowMain, OAI.CurrentProjection.actualRowRefinement, OAI.CurrentProjection.actualRowSourceMain, OAI.CurrentProjection.actualRowSourceRefinement, OAI.CurrentProjection.criticalComparisonMain, OAI.CurrentProjection.oneLevelComparisonMain, OAI.CurrentProjection.twoLabelComparisonMain, OAI.CurrentProjection.hybridBlockMain, OAI.CurrentProjection.fiberTwoPointMain, OAI.CurrentProjection.fiberBlockMain, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.GaussianReplacement
+Building OAI.Probability.GaussianReplacement.FiberEquality
+Build completed successfully (8958 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.CurrentProjection.mixedMomentMain, OAI.CurrentProjection.actualRowMain, OAI.CurrentProjection.actualRowRefinement, OAI.CurrentProjection.actualRowSourceMain, OAI.CurrentProjection.actualRowSourceRefinement, OAI.CurrentProjection.criticalComparisonMain, OAI.CurrentProjection.oneLevelComparisonMain, OAI.CurrentProjection.twoLabelComparisonMain, OAI.CurrentProjection.hybridBlockMain, OAI.CurrentProjection.fiberTwoPointMain, OAI.CurrentProjection.fiberBlockMain, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Probability.GaussianReplacement.FiberEquality
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 53.607s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 312
+disk used after: 57G

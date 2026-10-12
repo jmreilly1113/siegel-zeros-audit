@@ -1,0 +1,11 @@
+== prebuild SeymourSecondNeighborhood: lake build OAI.Combinatorics.SecondNeighborhood.Main ComparatorChallenges.SeymourSecondNeighborhood with LEAN_NUM_THREADS=4  2026-10-12 04:33:42
+Running as unit: run-u52.service; invocation ID: 416748512fab4f0d9f81a05917a3cb13
+⚠ [1859/1872] Built ComparatorChallenges.SeymourSecondNeighborhood (1.5s)
+warning: ComparatorChallenges/SeymourSecondNeighborhood.lean:34:8: declaration uses `sorry`
+Build completed successfully (1872 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 40.209s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 41
+disk used: 48G

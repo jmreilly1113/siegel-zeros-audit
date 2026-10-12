@@ -1,0 +1,11 @@
+== prebuild TingleySphereIsometry: lake build OAI.Analysis.SphereIsometry.Main ComparatorChallenges.TingleySphereIsometry with LEAN_NUM_THREADS=4  2026-10-12 04:48:14
+Running as unit: run-u64.service; invocation ID: 03e17cca1c31426397b78a7656827b36
+⚠ [2425/2433] Built ComparatorChallenges.TingleySphereIsometry (2.4s)
+warning: ComparatorChallenges/TingleySphereIsometry.lean:22:8: declaration uses `sorry`
+Build completed successfully (2433 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 59.687s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 63
+disk used: 48G

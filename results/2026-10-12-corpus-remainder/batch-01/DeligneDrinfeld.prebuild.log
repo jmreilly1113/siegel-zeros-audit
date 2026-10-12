@@ -1,0 +1,11 @@
+== prebuild DeligneDrinfeld: lake build OAI.Algebra.Drinfeld.Completion ComparatorChallenges.DeligneDrinfeld with LEAN_NUM_THREADS=4  2026-10-12 08:01:01
+Running as unit: run-u129.service; invocation ID: 8acba1af767e4d1da05628b30f018bb0
+⚠ [8924/8945] Built ComparatorChallenges.DeligneDrinfeld (51s)
+warning: ComparatorChallenges/DeligneDrinfeld.lean:189:8: declaration uses `sorry`
+Build completed successfully (8945 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 10min 22.655s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 665
+disk used: 52G

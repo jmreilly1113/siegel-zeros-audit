@@ -1,0 +1,11 @@
+== prebuild QuantitativeVanDerWaerden: lake build OAI.Combinatorics.ProgressionColoring.Main ComparatorChallenges.QuantitativeVanDerWaerden with LEAN_NUM_THREADS=4  2026-10-12 06:49:13
+Running as unit: run-u110.service; invocation ID: 8cd9eaf693254a6c94d053520dfb9d4d
+⚠ [9030/9039] Built ComparatorChallenges.QuantitativeVanDerWaerden (33s)
+warning: ComparatorChallenges/QuantitativeVanDerWaerden.lean:26:8: declaration uses `sorry`
+Build completed successfully (9039 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 21.693s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 151
+disk used: 50G

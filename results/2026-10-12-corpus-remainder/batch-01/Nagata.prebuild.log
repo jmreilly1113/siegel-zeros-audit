@@ -1,0 +1,13 @@
+== prebuild Nagata: lake build OAI.AlgebraicGeometry.PlaneCurves.Nagata ComparatorChallenges.Nagata with LEAN_NUM_THREADS=4  2026-10-12 11:05:09
+Running as unit: run-u166.service; invocation ID: 7d465cfe9b1f437099800a182da9ba45
+⚠ [3288/3333] Built ComparatorChallenges.Nagata (3.1s)
+warning: ComparatorChallenges/Nagata.lean:174:8: declaration uses `sorry`
+warning: ComparatorChallenges/Nagata.lean:352:8: declaration uses `sorry`
+warning: ComparatorChallenges/Nagata.lean:365:8: declaration uses `sorry`
+Build completed successfully (3333 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 48.502s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 182
+disk used: 56G

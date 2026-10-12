@@ -1,0 +1,11 @@
+== prebuild GotsmanLinial: lake build OAI.Combinatorics.GotsmanLinial.Main ComparatorChallenges.GotsmanLinial with LEAN_NUM_THREADS=4  2026-10-12 04:46:10
+Running as unit: run-u62.service; invocation ID: a9a5d9eebe0a48d0a352cfd9e4942afe
+⚠ [3193/3206] Built ComparatorChallenges.GotsmanLinial (1.0s)
+warning: ComparatorChallenges/GotsmanLinial.lean:49:8: declaration uses `sorry`
+Build completed successfully (3206 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 35.754s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 38
+disk used: 48G

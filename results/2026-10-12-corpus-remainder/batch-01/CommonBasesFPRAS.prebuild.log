@@ -1,0 +1,11 @@
+== prebuild CommonBasesFPRAS: lake build OAI.Combinatorics.MatroidCounting.CommonBases ComparatorChallenges.CommonBasesFPRAS with LEAN_NUM_THREADS=4  2026-10-12 05:13:15
+Running as unit: run-u74.service; invocation ID: d65818fd46724c5aa1692bc6b6847c80
+⚠ [8924/8925] Built ComparatorChallenges.CommonBasesFPRAS (46s)
+warning: ComparatorChallenges/CommonBasesFPRAS.lean:128:8: declaration uses `sorry`
+Build completed successfully (8925 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 28.298s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 280
+disk used: 48G

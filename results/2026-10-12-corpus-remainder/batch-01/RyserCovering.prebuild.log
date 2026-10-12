@@ -1,0 +1,11 @@
+== prebuild RyserCovering: lake build OAI.Combinatorics.Ryser.Construction.Main ComparatorChallenges.RyserCovering with LEAN_NUM_THREADS=4  2026-10-12 05:05:58
+Running as unit: run-u70.service; invocation ID: 68826696cb534237b776bbb1ba0d7ae6
+⚠ [9141/9141] Built ComparatorChallenges.RyserCovering (38s)
+warning: ComparatorChallenges/RyserCovering.lean:49:8: declaration uses `sorry`
+Build completed successfully (9141 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 12.205s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 201
+disk used: 48G

@@ -1,0 +1,11 @@
+== prebuild CycleDecomposition: lake build OAI.Combinatorics.CycleDecomposition.Main ComparatorChallenges.CycleDecomposition with LEAN_NUM_THREADS=4  2026-10-12 13:17:21
+Running as unit: run-u184.service; invocation ID: e411dbee7f5f40529eb5ee46bb200a97
+⚠ [8924/8958] Built ComparatorChallenges.CycleDecomposition (48s)
+warning: ComparatorChallenges/CycleDecomposition.lean:31:8: declaration uses `sorry`
+Build completed successfully (8958 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6min 15.692s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 400
+disk used: 58G

@@ -1,0 +1,11 @@
+== prebuild SingleFold: lake build OAI.NumberTheory.SingleFold.Main ComparatorChallenges.SingleFold with LEAN_NUM_THREADS=4  2026-10-12 08:48:58
+Running as unit: run-u138.service; invocation ID: ace17ad8d62d4d008cb7541fa599cf68
+⚠ [8925/8952] Built ComparatorChallenges.SingleFold (48s)
+warning: ComparatorChallenges/SingleFold.lean:24:8: declaration uses `sorry`
+Build completed successfully (8952 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 10.019s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 331
+disk used: 52G

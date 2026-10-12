@@ -1,0 +1,43 @@
+== run CharacterVarietiesAllSeamsSupport  2026-10-12 10:18:08
+config: /home/checker/corpus/configs/CharacterVarietiesAllSeamsSupport-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.CharacterVarietiesAllSeamsSupport",
+  "solution_module": "OAI.AlgebraicGeometry.CharacterVarieties.Seams.ProducedSolution",
+  "theorem_names": [
+    "OAI.IntegralCharacterVarieties.SurfacePresentation.Diagram.producedMarkedValues_allSeams"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/CharacterVarietiesAllSeamsSupport.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 54G
+Running as unit: run-u151.service; invocation ID: 27d329a5c49a4866bbff58603dc369de
+Building ComparatorChallenges.CharacterVarietiesAllSeamsSupport
+⚠ [3151/3151] Replayed ComparatorChallenges.CharacterVarietiesAllSeamsSupport
+warning: ComparatorChallenges/CharacterVarietiesAllSeamsSupport.lean:17:8: declaration uses `sorry`
+Build completed successfully (3151 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.IntegralCharacterVarieties.SurfacePresentation.Diagram.producedMarkedValues_allSeams, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.CharacterVarietiesAllSeamsSupport
+Building OAI.AlgebraicGeometry.CharacterVarieties.Seams.ProducedSolution
+Build completed successfully (3172 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.IntegralCharacterVarieties.SurfacePresentation.Diagram.producedMarkedValues_allSeams, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.AlgebraicGeometry.CharacterVarieties.Seams.ProducedSolution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 8.145s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 74
+disk used after: 54G

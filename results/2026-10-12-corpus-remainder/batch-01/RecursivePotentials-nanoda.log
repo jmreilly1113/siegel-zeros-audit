@@ -1,0 +1,43 @@
+== run RecursivePotentials  2026-10-12 05:57:00
+config: /home/checker/corpus/configs/RecursivePotentials-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.RecursivePotentials",
+  "solution_module": "OAI.Analysis.RecursivePotentials.Challenge",
+  "theorem_names": [
+    "OAI.ComparatorModel.RecursivePotentials.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/RecursivePotentials.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 49G
+Running as unit: run-u89.service; invocation ID: 3abea29443bc4c3d98c0ea2c3a9a5fd5
+Building ComparatorChallenges.RecursivePotentials
+⚠ [8924/8924] Replayed ComparatorChallenges.RecursivePotentials
+warning: ComparatorChallenges/RecursivePotentials.lean:955:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ComparatorModel.RecursivePotentials.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.RecursivePotentials
+Building OAI.Analysis.RecursivePotentials.Challenge
+Build completed successfully (8935 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ComparatorModel.RecursivePotentials.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.RecursivePotentials.Challenge
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 8.648s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 199
+disk used after: 49G

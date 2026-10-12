@@ -1,0 +1,11 @@
+== prebuild MetricEntropyDuality: lake build OAI.Analysis.MetricEntropy.Main ComparatorChallenges.MetricEntropyDuality with LEAN_NUM_THREADS=4  2026-10-12 04:44:34
+Running as unit: run-u60.service; invocation ID: 19d31da4003c442bbec182cffe1f386d
+⚠ [2241/2245] Built ComparatorChallenges.MetricEntropyDuality (2.4s)
+warning: ComparatorChallenges/MetricEntropyDuality.lean:45:8: declaration uses `sorry`
+Build completed successfully (2245 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 44.446s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 46
+disk used: 48G

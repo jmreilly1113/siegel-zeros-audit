@@ -1,0 +1,43 @@
+== run CycleDecomposition  2026-10-12 13:24:01
+config: /home/checker/corpus/configs/CycleDecomposition-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.CycleDecomposition",
+  "solution_module": "OAI.Combinatorics.CycleDecomposition.Main",
+  "theorem_names": [
+    "OAI.ErdosGallai.erdos_gallai"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/CycleDecomposition.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 58G
+Running as unit: run-u185.service; invocation ID: b3defa0441dc4e83a57b5a87c96d3b3b
+Building ComparatorChallenges.CycleDecomposition
+⚠ [8924/8924] Replayed ComparatorChallenges.CycleDecomposition
+warning: ComparatorChallenges/CycleDecomposition.lean:31:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ErdosGallai.erdos_gallai, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.CycleDecomposition
+Building OAI.Combinatorics.CycleDecomposition.Main
+Build completed successfully (8957 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ErdosGallai.erdos_gallai, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.CycleDecomposition.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 1.743s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 195
+disk used after: 58G

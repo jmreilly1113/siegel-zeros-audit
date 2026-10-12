@@ -1,0 +1,47 @@
+== run Nagata  2026-10-12 11:08:11
+config: /home/checker/corpus/configs/Nagata-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.Nagata",
+  "solution_module": "OAI.AlgebraicGeometry.PlaneCurves.Nagata",
+  "theorem_names": [
+    "OAI.Nagata.Workers.W30.exists_positive_degree_equation_of_homogeneous_cycle",
+    "OAI.Nagata.nagata_conjecture",
+    "OAI.Nagata.nagata_conjecture_coordinates"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/Nagata.json vs this config
+15c15
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 56G
+Running as unit: run-u167.service; invocation ID: edac95bcc8694359941db414304f969e
+Building ComparatorChallenges.Nagata
+⚠ [2186/2186] Replayed ComparatorChallenges.Nagata
+warning: ComparatorChallenges/Nagata.lean:174:8: declaration uses `sorry`
+warning: ComparatorChallenges/Nagata.lean:352:8: declaration uses `sorry`
+warning: ComparatorChallenges/Nagata.lean:365:8: declaration uses `sorry`
+Build completed successfully (2186 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Nagata.Workers.W30.exists_positive_degree_equation_of_homogeneous_cycle, OAI.Nagata.nagata_conjecture, OAI.Nagata.nagata_conjecture_coordinates, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.Nagata
+Building OAI.AlgebraicGeometry.PlaneCurves.Nagata
+Build completed successfully (3332 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Nagata.Workers.W30.exists_positive_degree_equation_of_homogeneous_cycle, OAI.Nagata.nagata_conjecture, OAI.Nagata.nagata_conjecture_coordinates, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.AlgebraicGeometry.PlaneCurves.Nagata
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 4.724s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 199
+disk used after: 56G

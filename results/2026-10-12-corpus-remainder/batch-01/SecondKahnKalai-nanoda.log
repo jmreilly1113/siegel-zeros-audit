@@ -1,0 +1,43 @@
+== run SecondKahnKalai  2026-10-12 05:21:13
+config: /home/checker/corpus/configs/SecondKahnKalai-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.SecondKahnKalai",
+  "solution_module": "OAI.Combinatorics.GraphThreshold.Main",
+  "theorem_names": [
+    "OAI.LeanBlast.SecondKahnKalai.secondKahnKalaiBounds"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/SecondKahnKalai.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 48G
+Running as unit: run-u77.service; invocation ID: f94443e1e3ce4033ac3f0fac067a49f6
+Building ComparatorChallenges.SecondKahnKalai
+⚠ [1974/1974] Replayed ComparatorChallenges.SecondKahnKalai
+warning: ComparatorChallenges/SecondKahnKalai.lean:65:8: declaration uses `sorry`
+Build completed successfully (1974 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LeanBlast.SecondKahnKalai.secondKahnKalaiBounds, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SecondKahnKalai
+Building OAI.Combinatorics.GraphThreshold.Main
+Build completed successfully (3251 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LeanBlast.SecondKahnKalai.secondKahnKalaiBounds, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.GraphThreshold.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 47.400s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 49
+disk used after: 48G

@@ -1,0 +1,11 @@
+== prebuild AsymptoticallyMinimalLittlewood: lake build OAI.Analysis.Littlewood.Main ComparatorChallenges.AsymptoticallyMinimalLittlewood with LEAN_NUM_THREADS=4  2026-10-12 07:14:24
+Running as unit: run-u118.service; invocation ID: 3de9a546cf0b44919072441a91785dfb
+⚠ [8925/8948] Built ComparatorChallenges.AsymptoticallyMinimalLittlewood (49s)
+warning: ComparatorChallenges/AsymptoticallyMinimalLittlewood.lean:18:8: declaration uses `sorry`
+Build completed successfully (8948 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 52.606s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 246
+disk used: 51G

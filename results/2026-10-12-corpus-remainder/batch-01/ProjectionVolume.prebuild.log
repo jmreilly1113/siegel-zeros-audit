@@ -1,0 +1,11 @@
+== prebuild ProjectionVolume: lake build OAI.Geometry.ProjectionVolume.ProductCounterexample ComparatorChallenges.ProjectionVolume with LEAN_NUM_THREADS=4  2026-10-12 07:41:17
+Running as unit: run-u124.service; invocation ID: f3c23eed688846d0a5f02be658136ad5
+⚠ [8928/8953] Built ComparatorChallenges.ProjectionVolume (48s)
+warning: ComparatorChallenges/ProjectionVolume.lean:45:8: declaration uses `sorry`
+Build completed successfully (8953 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 7.427s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 135
+disk used: 51G

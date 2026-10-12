@@ -1,0 +1,13 @@
+== prebuild DaugavetModuli: lake build OAI.Analysis.Daugavet.Main ComparatorChallenges.DaugavetModuli with LEAN_NUM_THREADS=4  2026-10-12 08:32:58
+Running as unit: run-u134.service; invocation ID: 0af929529a5f42468628c178d11f0704
+⚠ [8925/8952] Built ComparatorChallenges.DaugavetModuli (48s)
+warning: ComparatorChallenges/DaugavetModuli.lean:72:8: declaration uses `sorry`
+warning: ComparatorChallenges/DaugavetModuli.lean:85:8: declaration uses `sorry`
+warning: ComparatorChallenges/DaugavetModuli.lean:91:8: declaration uses `sorry`
+Build completed successfully (8952 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 19.680s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 275
+disk used: 52G

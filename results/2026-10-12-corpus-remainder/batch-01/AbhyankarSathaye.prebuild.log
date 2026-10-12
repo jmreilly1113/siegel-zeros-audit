@@ -1,0 +1,11 @@
+== prebuild AbhyankarSathaye: lake build OAI.AlgebraicGeometry.AbhyankarSathaye.Counterexample ComparatorChallenges.AbhyankarSathaye with LEAN_NUM_THREADS=4  2026-10-12 04:31:35
+Running as unit: run-u48.service; invocation ID: e1bf783152cf4a90ac496a92586bf188
+⚠ [1604/1619] Built ComparatorChallenges.AbhyankarSathaye (2.0s)
+warning: ComparatorChallenges/AbhyankarSathaye.lean:11:8: declaration uses `sorry`
+Build completed successfully (1619 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 23.001s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 25
+disk used: 48G

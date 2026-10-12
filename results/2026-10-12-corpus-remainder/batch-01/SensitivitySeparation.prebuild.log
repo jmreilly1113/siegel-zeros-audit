@@ -1,0 +1,11 @@
+== prebuild SensitivitySeparation: lake build OAI.Combinatorics.Sensitivity.Separation ComparatorChallenges.SensitivitySeparation with LEAN_NUM_THREADS=4  2026-10-12 10:39:10
+Running as unit: run-u158.service; invocation ID: b74e41ac5eed4f409783ad1876645159
+⚠ [8938/8966] Built ComparatorChallenges.SensitivitySeparation (5.3s)
+warning: ComparatorChallenges/SensitivitySeparation.lean:30:8: declaration uses `sorry`
+Build completed successfully (8966 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 11.584s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 141
+disk used: 55G

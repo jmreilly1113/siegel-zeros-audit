@@ -1,0 +1,43 @@
+== run ArtinCAT0  2026-10-12 06:47:04
+config: /home/checker/corpus/configs/ArtinCAT0-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.ArtinCAT0",
+  "solution_module": "OAI.GroupTheory.ArtinCAT0.Main",
+  "theorem_names": [
+    "OAI.ArtinCAT0.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/ArtinCAT0.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 50G
+Running as unit: run-u109.service; invocation ID: c82496cf06514547996f3056ca847cfb
+Building ComparatorChallenges.ArtinCAT0
+⚠ [8924/8924] Replayed ComparatorChallenges.ArtinCAT0
+warning: ComparatorChallenges/ArtinCAT0.lean:65:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ArtinCAT0.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.ArtinCAT0
+Building OAI.GroupTheory.ArtinCAT0.Main
+Build completed successfully (8943 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ArtinCAT0.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.GroupTheory.ArtinCAT0.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 211ms
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 128
+disk used after: 50G

@@ -1,0 +1,11 @@
+== prebuild ConjugatePoints: lake build OAI.Geometry.ConjugatePoints.ThreeManifold ComparatorChallenges.ConjugatePoints with LEAN_NUM_THREADS=4  2026-10-12 07:28:19
+Running as unit: run-u122.service; invocation ID: fea4b74b82c64c6fb9c9745fdc6f92f1
+⚠ [8925/8943] Built ComparatorChallenges.ConjugatePoints (54s)
+warning: ComparatorChallenges/ConjugatePoints.lean:109:8: declaration uses `sorry`
+Build completed successfully (8943 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6min 8.948s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 390
+disk used: 51G

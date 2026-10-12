@@ -1,0 +1,11 @@
+== prebuild PettyProjectionVolume: lake build OAI.Geometry.ProjectionBodies.Main ComparatorChallenges.PettyProjectionVolume with LEAN_NUM_THREADS=4  2026-10-12 11:28:34
+Running as unit: run-u172.service; invocation ID: c0a4d18cf3974feca70c59dbbd9f5f08
+⚠ [8925/8957] Built ComparatorChallenges.PettyProjectionVolume (50s)
+warning: ComparatorChallenges/PettyProjectionVolume.lean:45:8: declaration uses `sorry`
+Build completed successfully (8957 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 7min 19.856s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 471
+disk used: 56G

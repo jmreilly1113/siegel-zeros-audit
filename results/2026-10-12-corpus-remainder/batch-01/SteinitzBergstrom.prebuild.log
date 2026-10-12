@@ -1,0 +1,11 @@
+== prebuild SteinitzBergstrom: lake build OAI.Analysis.Steinitz.Main ComparatorChallenges.SteinitzBergstrom with LEAN_NUM_THREADS=4  2026-10-12 10:19:23
+Running as unit: run-u152.service; invocation ID: 9794a08dfb244ab3b40513f18111f0c7
+⚠ [8925/8953] Built ComparatorChallenges.SteinitzBergstrom (42s)
+warning: ComparatorChallenges/SteinitzBergstrom.lean:24:8: declaration uses `sorry`
+Build completed successfully (8953 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 45.380s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 308
+disk used: 54G

@@ -1,0 +1,11 @@
+== prebuild HeckeSevenEighths: lake build OAI.NumberTheory.DirichletL.Hecke.Nonvanishing ComparatorChallenges.HeckeSevenEighths with LEAN_NUM_THREADS=4  2026-10-11 23:25:15
+Running as unit: run-u6.service; invocation ID: 6a60c05b095a4500a2bf957aa2bd6060
+⚠ [11870/11870] Replayed ComparatorChallenges.HeckeSevenEighths
+warning: ComparatorChallenges/HeckeSevenEighths.lean:237:8: declaration uses `sorry`
+Build completed successfully (11870 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 14.915s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 15
+disk used: 39G

@@ -1,0 +1,11 @@
+== prebuild UniqueGamesTheorem: lake build OAI.Computability.UniqueGames.Main ComparatorChallenges.UniqueGamesTheorem with LEAN_NUM_THREADS=4  2026-10-12 00:17:46
+Running as unit: run-u11.service; invocation ID: 0da55fd473cf4b7aa1013f115e9dbc37
+⚠ [9381/9402] Built ComparatorChallenges.UniqueGamesTheorem (7.6s)
+warning: ComparatorChallenges/UniqueGamesTheorem.lean:231:8: declaration uses `sorry`
+Build completed successfully (9402 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 16min 46.999s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1012
+disk used: 45G

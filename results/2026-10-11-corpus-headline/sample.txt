@@ -1,0 +1,12 @@
+# Shipped-config sample: random.Random(20261011).sample(sorted(yaml-referenced configs), 10), Python 3.12.3
+# population: 189 configs referenced by formalization.yaml at fd4aeeb
+ComparatorChallenges/BinPackingGap.json	remainder
+ComparatorChallenges/BinaryMatching.json	remainder
+ComparatorChallenges/BoundedRecovery.json	remainder
+ComparatorChallenges/GrothendieckElementaryExpansion.json	remainder
+ComparatorChallenges/KMedianRecovery.json	remainder
+ComparatorChallenges/KaplanskyFinitelyPresented.json	remainder
+ComparatorChallenges/LiebThirring.json	remainder
+ComparatorChallenges/PosteriorReplicas.json	remainder
+ComparatorChallenges/ProjectionMoments.json	remainder
+ComparatorChallenges/ProjectionVolume.json	remainder

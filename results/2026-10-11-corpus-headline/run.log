@@ -1,0 +1,49 @@
+== headline batch start 2026-10-11 22:49:21
+clone HEAD: fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: []
+guard: 69_corpus_guard.sh 60 1500 2 (WSL disk use cap 60 GiB, MemAvailable floor 1500 MB, drop_caches every 60 s)
+disk used: 39G
+sample (seed 20261011): BinPackingGap, BinaryMatching, BoundedRecovery, GrothendieckElementaryExpansion, KMedianRecovery, KaplanskyFinitelyPresented, LiebThirring, PosteriorReplicas, ProjectionMoments, ProjectionVolume
+2026-10-11 22:49:22 DirichletSevenEighths: prebuild
+2026-10-11 22:49:43 DirichletSevenEighths: nanoda run
+2026-10-11 23:05:46 HeckeSevenEighths: prebuild
+2026-10-11 23:06:36 HeckeSevenEighths: nanoda run
+2026-10-11 23:20:32 HeckeSevenEighths: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+disk used at end: 39G; clone status: []
+== headline batch start 2026-10-11 23:25:15
+clone HEAD: fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: []
+guard: 69_corpus_guard.sh 60 1500 2 (WSL disk use cap 60 GiB, MemAvailable floor 1500 MB, drop_caches every 60 s)
+disk used: 39G
+sample (seed 20261011): BinPackingGap, BinaryMatching, BoundedRecovery, GrothendieckElementaryExpansion, KMedianRecovery, KaplanskyFinitelyPresented, LiebThirring, PosteriorReplicas, ProjectionMoments, ProjectionVolume
+2026-10-11 23:25:15 HeckeSevenEighths: prebuild
+2026-10-11 23:25:30 HeckeSevenEighths: nanoda run
+2026-10-11 23:41:16 OptimalMaxCut: prebuild
+2026-10-12 00:03:03 OptimalMaxCut: nanoda run
+2026-10-12 00:10:26 OptimalMaxCut: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-12 00:17:46 UniqueGamesTheorem: prebuild
+2026-10-12 00:34:38 UniqueGamesTheorem: nanoda run
+2026-10-12 00:39:42 UniqueGamesTheorem: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-12 00:44:57 VertexCover: prebuild
+2026-10-12 00:57:02 VertexCover: nanoda run
+2026-10-12 01:01:12 VertexCover: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-12 01:04:17 MatrixFields: prebuild
+2026-10-12 01:32:24 MatrixFields: nanoda run
+2026-10-12 02:20:40 MatrixMultiplication: prebuild
+2026-10-12 02:33:21 MatrixMultiplication: nanoda run
+2026-10-12 02:36:45 MahlerConjecture: prebuild
+2026-10-12 02:41:41 MahlerConjecture: nanoda run
+2026-10-12 02:46:06 SymmetricMahlerEquality: prebuild
+2026-10-12 02:47:59 SymmetricMahlerEquality: nanoda run
+2026-10-12 02:53:08 SymmetricPolar: prebuild
+2026-10-12 02:59:56 SymmetricPolar: nanoda run
+2026-10-12 03:04:56 ExactFourier: prebuild
+2026-10-12 03:13:34 ExactFourier: nanoda run
+2026-10-12 03:17:40 UniformFourier: prebuild
+2026-10-12 03:22:11 UniformFourier: nanoda run
+2026-10-12 03:23:40 EuclideanFiveColor: prebuild
+2026-10-12 03:29:40 EuclideanFiveColor: nanoda run
+2026-10-12 03:35:26 PlaneColoring: prebuild
+2026-10-12 03:37:55 PlaneColoring: nanoda run
+2026-10-12 03:38:55 HarmonicGrowth: prebuild
+2026-10-12 03:48:54 HarmonicGrowth: nanoda run
+2026-10-12 03:59:36 queries: build NavierStokesVelocity solution and challenge (no replay)
+disk used at end: 54G; clone status: []

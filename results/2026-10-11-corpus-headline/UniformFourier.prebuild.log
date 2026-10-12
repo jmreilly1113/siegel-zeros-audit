@@ -1,0 +1,12 @@
+== prebuild UniformFourier: lake build OAI.Computability.FourierTransform.Main ComparatorChallenges.UniformFourier with LEAN_NUM_THREADS=4  2026-10-12 03:17:40
+Running as unit: run-u29.service; invocation ID: 6a61f4cb54af47849a8678c5bae5acfc
+⚠ [8927/9013] Built ComparatorChallenges.UniformFourier (70s)
+warning: ComparatorChallenges/UniformFourier.lean:326:8: declaration uses `sorry`
+warning: ComparatorChallenges/UniformFourier.lean:330:8: declaration uses `sorry`
+Build completed successfully (9013 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 21.985s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 271
+disk used: 52G

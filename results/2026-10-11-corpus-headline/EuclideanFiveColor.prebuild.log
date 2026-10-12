@@ -1,0 +1,11 @@
+== prebuild EuclideanFiveColor: lake build OAI.Geometry.PlaneColoring.Five ComparatorChallenges.EuclideanFiveColor with LEAN_NUM_THREADS=4  2026-10-12 03:23:40
+Running as unit: run-u31.service; invocation ID: 59b409012c444ed2b90a83a3b71f28bc
+⚠ [8924/8994] Built ComparatorChallenges.EuclideanFiveColor (54s)
+warning: ComparatorChallenges/EuclideanFiveColor.lean:10:8: declaration uses `sorry`
+Build completed successfully (8994 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 48.260s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 360
+disk used: 53G

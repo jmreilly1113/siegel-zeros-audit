@@ -9,7 +9,7 @@ Per run (raw class, from fixed log lines; the decisive line is printed as eviden
   ACCEPT_BOTH      nanoda run: both kernels accept, "Your solution is okay!", exit 0
   ACCEPT_LEAN      shipped run (nanoda disabled): Lean kernel accepts, "Your solution is okay!", exit 0
   GUARD_STOPPED    no exit code in the log and the batch was stopped by a guard (not a proof outcome)
-  OTHER            anything else
+  OTHER            anything else, including a nanoda crash (stack overflow, abort) that is not a verdict on the proof
 Per config: the nanoda run's class, except ACCEPT_LEAN_ONLY when the nanoda run is not ACCEPT_BOTH but the shipped
 run is ACCEPT_LEAN; a prebuild TIMEOUT/BUILD_FAIL is reported when there is no comparator run.
 """
@@ -40,6 +40,8 @@ def run_class(path, nanoda):
         return 'OTHER', 'no COMPARATOR EXIT CODE line (run did not finish)'
     if c in (124, 137): return 'TIMEOUT', f'COMPARATOR EXIT CODE: {c}'
     if 'Illegal axiom detected' in t: return 'AXIOM_VIOLATION', line(t, 'Illegal axiom detected')
+    if nanoda and 'Running nanoda kernel' in t and 'nanoda kernel accepts the solution' not in t             and re.search(r'overflowed its stack|fatal runtime error|nanoda exited with 13[4-9]', t):
+        return 'OTHER', 'nanoda crashed (' + (line(t, r'overflowed its stack|fatal runtime error') or line(t, 'nanoda exited')) +             ('); Lean kernel accepted in the same run' if 'Lean default kernel accepts the solution' in t else ')')
     if nanoda and 'Running nanoda kernel' in t and 'nanoda kernel accepts the solution' not in t:
         e = line(t, r'(?i)unsupported|not supported|unimplemented')
         if e: return 'NANODA_UNSUPPORTED', e

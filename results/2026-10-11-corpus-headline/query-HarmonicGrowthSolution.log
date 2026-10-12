@@ -1,0 +1,16 @@
+== query HarmonicGrowthSolution  2026-10-12 04:10:24
+file: lean-checks/corpus-queries/HarmonicGrowthSolution.lean sha256 350c68dbae5af84c441d40a260e73cb1b3422dfcf02ac5ad16e88ec09010ac2d
+Running as unit: run-u39.service; invocation ID: 77f03395489e4e9ea1fea173bd69d38a
+AUDIT module OAI.Geometry.HarmonicGrowth.Main
+AUDIT theorem OAI.HarmonicCounterexample.main kind theorem
+AUDIT axioms (3): [Classical.choice, Quot.sound, propext]
+AUDIT target OAI.HarmonicCounterexample.mainStatement in environment: false
+AUDIT statement closure: 5323 constants; contains target: false; axioms in it: [Classical.choice,
+ Quot.sound]; names ending in mainStatement: []
+AUDIT statement+proof closure: 75668 constants; contains target: false; axioms in it: [Classical.choice,
+ Quot.sound,
+ propext]; names ending in mainStatement: []
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 16.736s
+SANDBOX EXIT CODE: 0

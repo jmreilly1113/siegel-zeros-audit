@@ -1,0 +1,11 @@
+== prebuild ExactFourier: lake build OAI.Computability.FourierCircuit.Main ComparatorChallenges.ExactFourier with LEAN_NUM_THREADS=4  2026-10-12 03:04:56
+Running as unit: run-u27.service; invocation ID: 3eafd945c6c0454393e6ce0c8b0785ed
+⚠ [8925/8975] Built ComparatorChallenges.ExactFourier (51s)
+warning: ComparatorChallenges/ExactFourier.lean:57:8: declaration uses `sorry`
+Build completed successfully (8975 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 8min 22.503s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 518
+disk used: 52G

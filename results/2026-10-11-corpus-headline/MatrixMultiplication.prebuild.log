@@ -1,0 +1,13 @@
+== prebuild MatrixMultiplication: lake build OAI.LinearAlgebra.MatrixMultiplication.Main ComparatorChallenges.MatrixMultiplication with LEAN_NUM_THREADS=4  2026-10-12 02:20:40
+Running as unit: run-u19.service; invocation ID: 60a841f032f54b808ef4822ad8850be6
+⚠ [9425/9434] Built ComparatorChallenges.MatrixMultiplication (6.1s)
+warning: ComparatorChallenges/MatrixMultiplication.lean:118:8: declaration uses `sorry`
+warning: ComparatorChallenges/MatrixMultiplication.lean:122:8: declaration uses `sorry`
+warning: ComparatorChallenges/MatrixMultiplication.lean:126:8: declaration uses `sorry`
+Build completed successfully (9434 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 12min 18.869s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 761
+disk used: 51G

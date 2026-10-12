@@ -1,0 +1,9 @@
+== prebuild HarmonicGrowth: lake build OAI.Geometry.HarmonicGrowth.Main ComparatorChallenges.HarmonicGrowth with LEAN_NUM_THREADS=4  2026-10-12 03:38:55
+Running as unit: run-u35.service; invocation ID: c908ced44621488a861941127aa3b292
+Build completed successfully (8960 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 37.028s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 599
+disk used: 53G

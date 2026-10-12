@@ -1,0 +1,38 @@
+== run OptimalMaxCut  2026-10-12 00:10:26
+config: /home/checker/math/lean/ComparatorChallenges/OptimalMaxCut.json
+{
+  "challenge_module": "ComparatorChallenges.OptimalMaxCut",
+  "solution_module": "OAI.Computability.MaxCut.Main",
+  "theorem_names": [
+    "OAI.OptimalMaxCut.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/OptimalMaxCut.json vs this config
+(diff exit 0)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 42G
+Running as unit: run-u10.service; invocation ID: 35592add39624044a51e5aad00378466
+Building ComparatorChallenges.OptimalMaxCut
+⚠ [8924/8924] Replayed ComparatorChallenges.OptimalMaxCut
+warning: ComparatorChallenges/OptimalMaxCut.lean:153:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.OptimalMaxCut.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.OptimalMaxCut
+Building OAI.Computability.MaxCut.Main
+Build completed successfully (9295 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.OptimalMaxCut.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.MaxCut.Main
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 7min 17.631s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 438
+disk used after: 42G

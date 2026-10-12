@@ -446,3 +446,13 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - The driver's outcomes.tsv labeled the killed run NANODA_REJECT. That label is wrong: the classifier ran before the stop marker was written. Fixes: 75_classify.py now never assigns a verdict to a run without a COMPARATOR EXIT CODE line, and the drivers classify only after a normal finish.
   - Files kept in attempt2-guard-stopped/. The headline driver is now resumable (<name>.done markers; partial logs moved aside, never overwritten).
 - Joe (2026-10-11, before bed): execute the plan as results come in, replan and continue without waiting for approval. Remainder scripts: 76_prune.py (deletes OAI build outputs that neither a later batch nor a kept config needs), 77_remainder.sh (resumable batch driver), and an optional schedule-JSON output for 74_prune_schedule.py. Dry run (no deletion, at 4,262 present modules): 5 modules / 0.03 GiB prunable after the headline batch, with only the pilot configs kept.
+- 2026-10-12, headline batch (attempt 3, resumed 23:25):
+  - HeckeSevenEighths: ACCEPT_BOTH, exit 0, 946 s. The attempt-2 label was a guard stop, not a result.
+  - OptimalMaxCut: prebuild OK (1,307 s). In the nanoda run, nanoda aborted with "thread 'thread_2' has overflowed its stack / fatal runtime error: stack overflow" (exit 134); the comparator printed "nanoda kernel rejected the solution". In the same run, "Lean default kernel accepts the solution"; comparator exit 1, 441 s.
+  - Classified OTHER (nanoda crash, not a verdict on the proof); 75_classify.py has a rule for this. The shipped-config run followed per the policy.
+  - nanoda_lib 3a24072 fixes its checker thread's stack at 16 MiB (src/lib.rs:23 STACK_SIZE = 16_777_216, used in src/tc.rs:160 .stack_size), so RUST_MIN_STACK cannot change it.
+  - Replan: after the headline batch, a non-official diagnostic. Build a copy of nanoda_lib with a larger STACK_SIZE, offline, in a separate directory (the original is untouched), and rerun nanoda on the crashed configs. This tells a stack limit apart from a real rejection; it does not change the official classification.
+- Headline batch done 2026-10-12 04:11:05 (results/2026-10-12-corpus-headline-findings.txt; logs in results/2026-10-11-corpus-headline/):
+  - Outcomes: 12 ACCEPT_BOTH. 3 ACCEPT_LEAN_ONLY (family 102: OptimalMaxCut, UniqueGamesTheorem, VertexCover), where nanoda crashed on a stack overflow and Lean accepted.
+  - Queries: the HarmonicGrowth axiom is not in the solution's axiom set, and `half` is not in either statement closure.
+  - WSL disk 54 GiB at the end, above the ~51 GiB estimate (INFERRED cause: NavierStokesVelocity's extra build for the query, which the item 4 model did not include). C: 37 GB free.

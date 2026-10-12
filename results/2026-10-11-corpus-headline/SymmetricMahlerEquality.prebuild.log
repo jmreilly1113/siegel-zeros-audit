@@ -1,0 +1,11 @@
+== prebuild SymmetricMahlerEquality: lake build OAI.Analysis.Mahler.Classification ComparatorChallenges.SymmetricMahlerEquality OAI.Analysis.Mahler.Classification with LEAN_NUM_THREADS=4  2026-10-12 02:46:06
+Running as unit: run-u23.service; invocation ID: a864bf071db741258fc0a28b309325ce
+⚠ [9154/9161] Built ComparatorChallenges.SymmetricMahlerEquality (33s)
+warning: ComparatorChallenges/SymmetricMahlerEquality.lean:43:8: declaration uses `sorry`
+Build completed successfully (9161 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 49.266s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 113
+disk used: 51G

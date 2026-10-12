@@ -1,0 +1,45 @@
+== run UniformFourier  2026-10-12 03:22:11
+config: /home/checker/corpus/configs/UniformFourier-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.UniformFourier",
+  "solution_module": "OAI.Computability.FourierTransform.Main",
+  "theorem_names": [
+    "OAI.PowerSaving.transform_main",
+    "OAI.PowerSaving.convolution_main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/UniformFourier.json vs this config
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 52G
+Running as unit: run-u30.service; invocation ID: 540848a0c3544b0cbbf286e4e025fa23
+Building ComparatorChallenges.UniformFourier
+⚠ [8924/8924] Replayed ComparatorChallenges.UniformFourier
+warning: ComparatorChallenges/UniformFourier.lean:326:8: declaration uses `sorry`
+warning: ComparatorChallenges/UniformFourier.lean:330:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.PowerSaving.transform_main, OAI.PowerSaving.convolution_main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.UniformFourier
+Building OAI.Computability.FourierTransform.Main
+Build completed successfully (9012 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.PowerSaving.transform_main, OAI.PowerSaving.convolution_main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.FourierTransform.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 23.211s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 87
+disk used after: 52G

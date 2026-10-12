@@ -1,0 +1,17 @@
+== query NavierStokesChallenge  2026-10-12 04:10:40
+file: lean-checks/corpus-queries/NavierStokesChallenge.lean sha256 1a9973c6beab117580b364d1fb4e216133e74154d8790b6619a4163979a1dcc2
+Running as unit: run-u40.service; invocation ID: 9be0236a1a7c436090b6b2f5e780c5f3
+AUDIT module ComparatorChallenges.NavierStokesVelocity
+AUDIT theorem OAI.VelocityDetection.main_result kind theorem
+AUDIT axioms (4): [Classical.choice, Quot.sound, propext, sorryAx]
+AUDIT target OAI.VelocityDetection.TapeCodes.half in environment: true
+AUDIT statement closure: 6057 constants; contains target: false; axioms in it: [Classical.choice,
+ Quot.sound]; names ending in half: []
+AUDIT statement+proof closure: 34119 constants; contains target: false; axioms in it: [Classical.choice,
+ Quot.sound,
+ propext,
+ sorryAx]; names ending in half: []
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9.119s
+SANDBOX EXIT CODE: 0

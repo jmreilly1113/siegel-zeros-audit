@@ -1,0 +1,48 @@
+== run VertexCover  2026-10-12 00:57:02
+config: /home/checker/corpus/configs/VertexCover-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.VertexCover",
+  "solution_module": "OAI.Computability.VertexCover.Main",
+  "theorem_names": [
+    "OAI.VertexCover.explicit_cover_gap",
+    "OAI.VertexCover.every_fixed_factor_below_two"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/VertexCover.json vs this config
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 47G
+Running as unit: run-u15.service; invocation ID: e953e507ad254eb594a83577b7ba4702
+Building ComparatorChallenges.VertexCover
+⚠ [8924/8924] Replayed ComparatorChallenges.VertexCover
+warning: ComparatorChallenges/VertexCover.lean:145:8: declaration uses `sorry`
+warning: ComparatorChallenges/VertexCover.lean:148:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.VertexCover.explicit_cover_gap, OAI.VertexCover.every_fixed_factor_below_two, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.VertexCover
+Building OAI.Computability.VertexCover.Main
+Build completed successfully (9274 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.VertexCover.explicit_cover_gap, OAI.VertexCover.every_fixed_factor_below_two, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.VertexCover.Main
+Running nanoda kernel on solution
+
+thread 'thread_2' (29872) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 4min 3.694s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 248
+disk used after: 47G

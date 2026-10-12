@@ -161,3 +161,38 @@
 2026-10-12 14:38:35 batch 1 pruned: batches done 1 of 16; kept configs 6 + later configs 96; kept OAI modules 30035; present 8650; to prune 3136 modules, 11.41 GiB; apply=True; disk used 48G
 2026-10-12 14:38:35 batch 2 of 16: 34 configs
 2026-10-12 14:38:35 Brennan: prebuild
+2026-10-12 14:45:13 Brennan: nanoda run
+2026-10-12 14:50:16 BrennanSharp: prebuild
+2026-10-12 14:52:11 BrennanSharp: nanoda run
+2026-10-12 14:55:36 DirectCrouzeix: prebuild
+2026-10-12 15:02:57 DirectCrouzeix: nanoda run
+2026-10-12 15:09:21 SignedFiniteBand: prebuild
+2026-10-12 15:16:17 SignedFiniteBand: nanoda run
+2026-10-12 15:20:56 GaussianMoat: prebuild
+2026-10-12 15:26:38 GaussianMoat: nanoda run
+2026-10-12 15:31:04 StableCoordinateFour: prebuild
+2026-10-12 15:34:55 StableCoordinateFour: nanoda run
+2026-10-12 15:38:30 SubpolynomialLp: prebuild
+2026-10-12 15:45:48 SubpolynomialLp: nanoda run
+2026-10-12 15:51:49 SingleLatticeCovering: prebuild
+2026-10-12 16:01:00 SingleLatticeCovering: nanoda run
+2026-10-12 16:07:20 ProjectionMoments: prebuild
+2026-10-12 16:13:19 ProjectionMoments: nanoda run
+2026-10-12 16:18:38 ProjectionMoments: shipped-config run (nanoda ACCEPT_BOTH: yes; in sample: True)
+2026-10-12 16:24:17 BoundedTreePotentials: prebuild
+2026-10-12 16:32:26 BoundedTreePotentials: nanoda run
+2026-10-12 16:34:21 ReflexiveFixedPoints: prebuild
+2026-10-12 16:37:46 ReflexiveFixedPoints: nanoda run
+2026-10-12 16:40:31 LogspaceEquality: prebuild
+2026-10-12 16:48:11 LogspaceEquality: nanoda run
+2026-10-12 16:52:11 KahlerSplitting: prebuild
+2026-10-12 17:00:39 KahlerSplitting: nanoda run
+2026-10-12 17:05:14 GaussianPropeller: prebuild
+2026-10-12 17:12:28 GaussianPropeller: nanoda run
+2026-10-12 17:17:25 OneTapeSpace: prebuild
+2026-10-12 17:19:30 end; clone status []; disk used 52G
+2026-10-12 17:47:15 resume after guard stop (Windows C: floor; 13.4 GB of nanoda crash dumps moved from C: Temp to D:)
+2026-10-12 17:47:17 start; clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 52G
+2026-10-12 17:47:17 guard: 69_corpus_guard.sh 65 1500 2
+2026-10-12 17:47:17 batch 2 of 16: 34 configs
+2026-10-12 17:47:17 OneTapeSpace: prebuild

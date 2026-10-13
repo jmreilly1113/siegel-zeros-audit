@@ -325,3 +325,9 @@
 2026-10-13 08:21:38 VlasovMaxwell: prebuild
 2026-10-13 08:21:49 Laughlin: prebuild (overlaps VlasovMaxwell comparator run)
 2026-10-13 08:21:49 VlasovMaxwell: nanoda run
+2026-10-13 08:49:42 BorsukNine: prebuild (overlaps Laughlin comparator run)
+2026-10-13 08:49:42 Laughlin: nanoda run
+2026-10-13 10:02:58 Laughlin: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-13 10:50:59 planned switch to 85_remainder_queue.sh armed: stop marker will be set when batch 5 outcomes are written
+2026-10-13 10:50:59 planned switch: stop marker set during the batch 5 prune
+2026-10-13 10:52:59 planned switch to 85_remainder_queue.sh armed (re-armed): marker to be set at the end of batch 5

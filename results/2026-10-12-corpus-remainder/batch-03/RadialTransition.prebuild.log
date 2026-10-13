@@ -1,0 +1,11 @@
+== prebuild RadialTransition: lake build OAI.Probability.RadialTransition.Main ComparatorChallenges.RadialTransition with LEAN_NUM_THREADS=4  2026-10-13 02:11:25
+Running as unit: run-u299.service; invocation ID: 461efcc096274e0e87c607cce38f8168
+⚠ [8925/9027] Built ComparatorChallenges.RadialTransition (49s)
+warning: ComparatorChallenges/RadialTransition.lean:57:8: declaration uses `sorry`
+Build completed successfully (9027 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 12min 31.307s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 834
+disk used: 56G

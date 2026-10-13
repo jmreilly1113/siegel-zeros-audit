@@ -1,0 +1,11 @@
+== prebuild PlanarL1: lake build OAI.Combinatorics.PlanarL1.Embedding ComparatorChallenges.PlanarL1 with LEAN_NUM_THREADS=4  2026-10-12 22:25:18
+Running as unit: run-u274.service; invocation ID: 8c36afc7e13a48aa8b14785fc426a41c
+⚠ [8928/8987] Built ComparatorChallenges.PlanarL1 (5.3s)
+warning: ComparatorChallenges/PlanarL1.lean:46:8: declaration uses `sorry`
+Build completed successfully (8987 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 7.919s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 332
+disk used: 49G

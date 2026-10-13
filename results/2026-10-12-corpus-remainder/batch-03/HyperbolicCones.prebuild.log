@@ -1,0 +1,11 @@
+== prebuild HyperbolicCones: lake build OAI.Analysis.HyperbolicCones.Main ComparatorChallenges.HyperbolicCones with LEAN_NUM_THREADS=4  2026-10-12 23:03:38
+Running as unit: run-u280.service; invocation ID: 6d770c5b364241edaf5ec1ff71636a27
+⚠ [8924/9010] Built ComparatorChallenges.HyperbolicCones (49s)
+warning: ComparatorChallenges/HyperbolicCones.lean:67:8: declaration uses `sorry`
+Build completed successfully (9010 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 33.891s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 230
+disk used: 51G

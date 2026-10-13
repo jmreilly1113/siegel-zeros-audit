@@ -1,0 +1,11 @@
+== prebuild CharacterCriterion: lake build OAI.Analysis.CharacterCriterion.Main ComparatorChallenges.CharacterCriterion with LEAN_NUM_THREADS=4  2026-10-12 21:42:16
+Running as unit: run-u270.service; invocation ID: f719b8f1db554ae9876c5323eee7915d
+⚠ [8925/8986] Built ComparatorChallenges.CharacterCriterion (114s)
+warning: ComparatorChallenges/CharacterCriterion.lean:2128:8: declaration uses `sorry`
+Build completed successfully (8986 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 17min 40.689s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1155
+disk used: 48G

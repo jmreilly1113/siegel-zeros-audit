@@ -240,3 +240,45 @@
 2026-10-12 21:42:15 batch 2 pruned: batches done 2 of 16; kept configs 6 + later configs 62; kept OAI modules 27437; present 8112; to prune 2598 modules, 11.12 GiB; apply=True; disk used 48G
 2026-10-12 21:42:16 batch 3 of 16: 19 configs
 2026-10-12 21:42:16 CharacterCriterion: prebuild
+2026-10-12 22:01:31 CharacterCriterion: nanoda run
+2026-10-12 22:08:22 PowerFreeValues: prebuild
+2026-10-12 22:20:08 PowerFreeValues: nanoda run
+2026-10-12 22:25:18 PlanarL1: prebuild
+2026-10-12 22:30:50 PlanarL1: nanoda run
+2026-10-12 22:34:59 BassTrace: prebuild
+2026-10-12 22:45:43 BassTrace: nanoda run
+2026-10-12 22:48:54 StrongThinTree: prebuild
+2026-10-12 22:58:54 StrongThinTree: nanoda run
+2026-10-12 23:03:38 HyperbolicCones: prebuild
+2026-10-12 23:07:28 HyperbolicCones: nanoda run
+2026-10-12 23:12:02 FactorGeneration: prebuild
+2026-10-12 23:46:46 FactorGeneration: nanoda run
+2026-10-13 00:09:41 PeriodicTilingThree: prebuild
+2026-10-13 00:13:43 PeriodicTilingThree: nanoda run
+2026-10-13 00:17:36 RandomizedMeanPayoff: prebuild
+2026-10-13 00:30:33 RandomizedMeanPayoff: nanoda run
+2026-10-13 00:33:32 BinaryMatching: prebuild
+2026-10-13 00:44:16 BinaryMatching: nanoda run
+2026-10-13 00:46:34 BinaryMatching: shipped-config run (nanoda ACCEPT_BOTH: yes; in sample: True)
+2026-10-13 00:49:30 SingletonLoopMatching: prebuild
+2026-10-13 00:51:30 SingletonLoopMatching: nanoda run
+2026-10-13 00:54:39 StrictMeans: prebuild
+2026-10-13 01:06:40 StrictMeans: nanoda run
+2026-10-13 01:10:39 HenonEmden: prebuild
+2026-10-13 01:24:36 HenonEmden: nanoda run
+2026-10-13 01:28:40 AuslanderReiten: prebuild
+2026-10-13 01:48:59 AuslanderReiten: nanoda run
+2026-10-13 02:11:25 RadialTransition: prebuild
+2026-10-13 02:25:19 RadialTransition: nanoda run
+2026-10-13 02:29:49 TriangularHilbert: prebuild
+2026-10-13 02:45:27 TriangularHilbert: nanoda run
+2026-10-13 02:50:26 Cotype: prebuild
+2026-10-13 02:56:50 Cotype: nanoda run
+2026-10-13 03:00:13 ClassicalON: prebuild
+2026-10-13 03:14:31 ClassicalON: nanoda run
+2026-10-13 03:18:25 PinchedKahler: prebuild
+2026-10-13 03:36:26 PinchedKahler: nanoda run
+2026-10-13 03:42:18 batch 3 outcomes:      19 ACCEPT_BOTH 
+2026-10-13 03:43:43 batch 3 pruned: batches done 3 of 16; kept configs 6 + later configs 43; kept OAI modules 25072; present 7861; to prune 2365 modules, 10.99 GiB; apply=True; disk used 48G
+2026-10-13 03:43:43 batch 4 of 16: 12 configs
+2026-10-13 03:43:43 HoneycombBridgeMassSupport: prebuild

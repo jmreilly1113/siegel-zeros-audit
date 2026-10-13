@@ -1,0 +1,11 @@
+== prebuild ClassicalON: lake build OAI.Probability.ClassicalON.Main ComparatorChallenges.ClassicalON with LEAN_NUM_THREADS=4  2026-10-13 03:00:13
+Running as unit: run-u305.service; invocation ID: 423470fd9ba14783ad2f834cc5e122ed
+⚠ [8925/9041] Built ComparatorChallenges.ClassicalON (50s)
+warning: ComparatorChallenges/ClassicalON.lean:53:8: declaration uses `sorry`
+Build completed successfully (9041 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 12min 53.168s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 858
+disk used: 58G

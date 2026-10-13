@@ -1,0 +1,11 @@
+== prebuild AuslanderReiten: lake build OAI.Algebra.AuslanderReiten.All ComparatorChallenges.AuslanderReiten with LEAN_NUM_THREADS=4  2026-10-13 01:28:40
+Running as unit: run-u297.service; invocation ID: c395642e2cc74e18910aa18585f21b78
+⚠ [9650/9656] Built ComparatorChallenges.AuslanderReiten (33s)
+warning: ComparatorChallenges/AuslanderReiten.lean:70:8: declaration uses `sorry`
+Build completed successfully (9656 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 18min 17.993s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1219
+disk used: 55G

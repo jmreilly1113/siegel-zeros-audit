@@ -1,0 +1,11 @@
+== prebuild FactorGeneration: lake build OAI.Analysis.FactorGeneration.Main ComparatorChallenges.FactorGeneration with LEAN_NUM_THREADS=4  2026-10-12 23:12:02
+Running as unit: run-u282.service; invocation ID: 7bf87675c8724a6396911199ea18fa06
+⚠ [8938/9017] Built ComparatorChallenges.FactorGeneration (3.0s)
+warning: ComparatorChallenges/FactorGeneration.lean:41:8: declaration uses `sorry`
+Build completed successfully (9017 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 31min 59.084s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 2084
+disk used: 51G

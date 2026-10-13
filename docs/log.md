@@ -481,3 +481,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - COMPUTED: prebuild 13,712 s in total; WSL use peaked at 59 GiB; the WSL disk image stayed at 64,423,460,864 bytes; no new crash dumps on C:. Joe freed space on C: (54 GB free at the end of the batch).
   - Prune after batch 2: 2,598 modules, 11.12 GiB; WSL use 48 GiB. Batch 3 (19 configs) started 21:42:16.
   - Joe (2026-10-12): bulky logs and crash dumps may go to D:\siegel-audit-offload\ as needed; prune what is no longer needed when the run is done (added to docs/next-steps.md).
+- Remainder batch 3 done 2026-10-13 03:42:18 (results/2026-10-12-corpus-remainder/batch-03/outcomes.tsv):
+  - COMPUTED: 19 of 19 configs ACCEPT_BOTH. No build failures, timeouts, illegal axioms or nanoda crashes. Sampled config BinaryMatching: shipped run ACCEPT_LEAN (6 of the 10 sampled configs done, all ACCEPT_LEAN).
+  - COMPUTED: prebuild 14,406 s in total (batch wall time 21:42-03:42, about 19 min per config); WSL use peaked at 59 GiB; the WSL disk image is unchanged; no crash dumps on C:; C: free 60 GB.
+  - Prune after batch 3: 2,365 modules, 10.99 GiB; WSL use 48 GiB. Batch 4 (12 configs) started 03:43:43.
+  - Keepalive (wsl.exe sleep) ended after 24 h at about 00:20 and was restarted for 48 h; the driver was unaffected (still running at 00:22).

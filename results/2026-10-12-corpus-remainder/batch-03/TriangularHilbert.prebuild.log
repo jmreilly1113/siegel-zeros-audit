@@ -1,0 +1,11 @@
+== prebuild TriangularHilbert: lake build OAI.Analysis.TriangularHilbert.Main ComparatorChallenges.TriangularHilbert with LEAN_NUM_THREADS=4  2026-10-13 02:29:49
+Running as unit: run-u301.service; invocation ID: 27fef9db2f6e4832bb156a99c448a77f
+⚠ [8925/9029] Built ComparatorChallenges.TriangularHilbert (48s)
+warning: ComparatorChallenges/TriangularHilbert.lean:50:8: declaration uses `sorry`
+Build completed successfully (9029 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 14min 1.624s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 938
+disk used: 57G

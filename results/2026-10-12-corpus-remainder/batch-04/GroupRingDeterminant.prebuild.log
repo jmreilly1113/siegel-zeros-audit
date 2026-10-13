@@ -1,0 +1,11 @@
+== prebuild GroupRingDeterminant: lake build OAI.Analysis.GroupDeterminants.Main ComparatorChallenges.GroupRingDeterminant with LEAN_NUM_THREADS=4  2026-10-13 04:41:53
+Running as unit: run-u314.service; invocation ID: 2e592e4ca2694f0e86de78c994fa9696
+⚠ [9046/9079] Built ComparatorChallenges.GroupRingDeterminant (58s)
+warning: ComparatorChallenges/GroupRingDeterminant.lean:52:8: declaration uses `sorry`
+Build completed successfully (9079 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 50.907s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 351
+disk used: 50G

@@ -282,3 +282,33 @@
 2026-10-13 03:43:43 batch 3 pruned: batches done 3 of 16; kept configs 6 + later configs 43; kept OAI modules 25072; present 7861; to prune 2365 modules, 10.99 GiB; apply=True; disk used 48G
 2026-10-13 03:43:43 batch 4 of 16: 12 configs
 2026-10-13 03:43:43 HoneycombBridgeMassSupport: prebuild
+2026-10-13 04:03:58 HoneycombBridgeMassSupport: nanoda run
+2026-10-13 04:15:35 KaplanskyFinitelyPresented: prebuild
+2026-10-13 04:30:30 KaplanskyFinitelyPresented: nanoda run
+2026-10-13 04:36:13 KaplanskyFinitelyPresented: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: True)
+2026-10-13 04:41:53 GroupRingDeterminant: prebuild
+2026-10-13 04:47:44 GroupRingDeterminant: nanoda run
+2026-10-13 04:53:37 GroupRingDeterminant: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-13 04:59:43 OddKaplansky: prebuild
+2026-10-13 05:12:09 OddKaplansky: nanoda run
+2026-10-13 05:14:36 DepthThree: prebuild
+2026-10-13 05:19:33 DepthThree: nanoda run
+2026-10-13 05:21:46 TorsionFreeZeroDivisors: prebuild
+2026-10-13 05:31:23 TorsionFreeZeroDivisors: nanoda run
+2026-10-13 05:35:10 IsometricImmersion: prebuild
+2026-10-13 05:43:03 IsometricImmersion: nanoda run
+2026-10-13 05:47:20 PosteriorReplicas: prebuild
+2026-10-13 05:55:40 PosteriorReplicas: nanoda run
+2026-10-13 05:59:57 PosteriorReplicas: shipped-config run (nanoda ACCEPT_BOTH: yes; in sample: True)
+2026-10-13 06:04:32 QuinticLienard: prebuild
+2026-10-13 06:21:30 QuinticLienard: nanoda run
+2026-10-13 06:26:50 FourierLLogL: prebuild
+2026-10-13 06:40:10 FourierLLogL: nanoda run
+2026-10-13 06:44:52 ContinuumTransition: prebuild
+2026-10-13 07:04:20 ContinuumTransition: nanoda run
+2026-10-13 07:09:04 BinarySweep: prebuild
+2026-10-13 07:17:44 BinarySweep: nanoda run
+2026-10-13 07:22:48 batch 4 outcomes:      10 ACCEPT_BOTH       2 ACCEPT_LEAN_ONLY 
+2026-10-13 07:24:09 batch 4 pruned: batches done 4 of 16; kept configs 8 + later configs 31; kept OAI modules 23343; present 7387; to prune 1729 modules, 8.96 GiB; apply=True; disk used 49G
+2026-10-13 07:24:09 batch 5 of 16: 6 configs
+2026-10-13 07:24:09 ThorpRouting: prebuild

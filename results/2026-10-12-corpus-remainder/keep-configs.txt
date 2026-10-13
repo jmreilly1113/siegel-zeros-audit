@@ -5,3 +5,5 @@ ComparatorChallenges/EditApproximation.json
 ComparatorChallenges/OptimalMaxCut.json
 ComparatorChallenges/UniqueGamesTheorem.json
 ComparatorChallenges/VertexCover.json
+ComparatorChallenges/KaplanskyFinitelyPresented.json
+ComparatorChallenges/GroupRingDeterminant.json

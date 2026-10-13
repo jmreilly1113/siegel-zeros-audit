@@ -1,0 +1,11 @@
+== prebuild ContinuumTransition: lake build OAI.Probability.ContinuumTransition.Main ComparatorChallenges.ContinuumTransition with LEAN_NUM_THREADS=4  2026-10-13 06:44:52
+Running as unit: run-u332.service; invocation ID: fea57bd2317f4badbe78da3eefb9fabc
+⚠ [8925/9085] Built ComparatorChallenges.ContinuumTransition (52s)
+warning: ComparatorChallenges/ContinuumTransition.lean:59:8: declaration uses `sorry`
+Build completed successfully (9085 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 19min 4.146s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1168
+disk used: 56G

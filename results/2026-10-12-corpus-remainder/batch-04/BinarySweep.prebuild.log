@@ -1,0 +1,11 @@
+== prebuild BinarySweep: lake build OAI.Probability.BinarySweep.Main ComparatorChallenges.BinarySweep with LEAN_NUM_THREADS=4  2026-10-13 07:09:04
+Running as unit: run-u334.service; invocation ID: 2a4367e86d9a401396e173cb8ab8e057
+⚠ [8927/9116] Built ComparatorChallenges.BinarySweep (54s)
+warning: ComparatorChallenges/BinarySweep.lean:95:8: declaration uses `sorry`
+Build completed successfully (9116 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 8min 28.040s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 520
+disk used: 58G

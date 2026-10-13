@@ -1,0 +1,5 @@
+# nanoda stack-overflow aborts with Lean accepting in the same run (known tool crash), noted by 80_wait_event.sh
+2026-10-13 04:33 batch-04/KaplanskyFinitelyPresented-nanoda.log: nanoda stack overflow, Lean accepts (noted by hand)
+moved wsl-crash-1791880428-355456-_usr_local_bin_nanoda_bin-6.dmp to D:\siegel-audit-offload\wsl-crashes-2026-10-13 (robocopy)
+2026-10-13 04:53 batch-04/GroupRingDeterminant-nanoda.log: nanoda stack overflow, Lean accepts (noted by hand)
+moved wsl-crash-1791881449-357837-_usr_local_bin_nanoda_bin-6.dmp 1207951360 bytes to /d/siegel-audit-offload/wsl-crashes-2026-10-13

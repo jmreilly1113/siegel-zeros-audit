@@ -1,0 +1,43 @@
+== run ContinuumTransition  2026-10-13 07:04:20
+config: /home/checker/corpus/configs/ContinuumTransition-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.ContinuumTransition",
+  "solution_module": "OAI.Probability.ContinuumTransition.Main",
+  "theorem_names": [
+    "OAI.ContinuumTemperature.main_theorem"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/ContinuumTransition.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 56G
+Running as unit: run-u333.service; invocation ID: 7ce33daa4942446a88275c74f02a5375
+Building ComparatorChallenges.ContinuumTransition
+⚠ [8924/8924] Replayed ComparatorChallenges.ContinuumTransition
+warning: ComparatorChallenges/ContinuumTransition.lean:59:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ContinuumTemperature.main_theorem, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.ContinuumTransition
+Building OAI.Probability.ContinuumTransition.Main
+Build completed successfully (9084 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ContinuumTemperature.main_theorem, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Probability.ContinuumTransition.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 36.080s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 282
+disk used after: 56G

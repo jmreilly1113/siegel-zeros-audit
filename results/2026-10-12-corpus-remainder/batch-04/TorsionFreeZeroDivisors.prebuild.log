@@ -1,0 +1,11 @@
+== prebuild TorsionFreeZeroDivisors: lake build OAI.Algebra.GroupRing.Main ComparatorChallenges.TorsionFreeZeroDivisors with LEAN_NUM_THREADS=4  2026-10-13 05:21:46
+Running as unit: run-u321.service; invocation ID: ef7c26cb7a4c4f7b91f4fac02d3599a3
+⚠ [8924/9047] Built ComparatorChallenges.TorsionFreeZeroDivisors (53s)
+warning: ComparatorChallenges/TorsionFreeZeroDivisors.lean:35:8: declaration uses `sorry`
+Build completed successfully (9047 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 36.228s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 577
+disk used: 52G

@@ -1,0 +1,38 @@
+== run GroupRingDeterminant  2026-10-13 04:53:37
+config: /home/checker/math/lean/ComparatorChallenges/GroupRingDeterminant.json
+{
+  "challenge_module": "ComparatorChallenges.GroupRingDeterminant",
+  "solution_module": "OAI.Analysis.GroupDeterminants.Main",
+  "theorem_names": [
+    "OAI.GroupRingDeterminant.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/GroupRingDeterminant.json vs this config
+(diff exit 0)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 50G
+Running as unit: run-u316.service; invocation ID: 7e749cb7a2544699ba25d4d40f5058e1
+Building ComparatorChallenges.GroupRingDeterminant
+⚠ [8924/8924] Replayed ComparatorChallenges.GroupRingDeterminant
+warning: ComparatorChallenges/GroupRingDeterminant.lean:52:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.GroupRingDeterminant.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.GroupRingDeterminant
+Building OAI.Analysis.GroupDeterminants.Main
+Build completed successfully (9078 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.GroupRingDeterminant.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.GroupDeterminants.Main
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6min 3.670s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 364
+disk used after: 50G

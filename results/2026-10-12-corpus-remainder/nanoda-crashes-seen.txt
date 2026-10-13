@@ -5,3 +5,5 @@ moved wsl-crash-1791880428-355456-_usr_local_bin_nanoda_bin-6.dmp to D:\siegel-a
 moved wsl-crash-1791881449-357837-_usr_local_bin_nanoda_bin-6.dmp 1207951360 bytes to /d/siegel-audit-offload/wsl-crashes-2026-10-13
 2026-10-13 10:03:31 batch-05/Laughlin-nanoda.log: nanoda stack overflow, Lean accepts
 moved wsl-crash-1791896455-434353-_usr_local_bin_nanoda_bin-6.dmp 3369766912 bytes to /d/siegel-audit-offload/wsl-crashes-2026-10-13
+2026-10-13 11:33:14 batch-05/BinPackingGap-nanoda.log: nanoda stack overflow, Lean accepts
+moved wsl-crash-1791905482-447676-_usr_local_bin_nanoda_bin-6.dmp 1468477440 bytes to /d/siegel-audit-offload/wsl-crashes-2026-10-13

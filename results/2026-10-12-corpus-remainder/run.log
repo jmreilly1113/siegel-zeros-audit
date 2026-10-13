@@ -331,3 +331,17 @@
 2026-10-13 10:50:59 planned switch to 85_remainder_queue.sh armed: stop marker will be set when batch 5 outcomes are written
 2026-10-13 10:50:59 planned switch: stop marker set during the batch 5 prune
 2026-10-13 10:52:59 planned switch to 85_remainder_queue.sh armed (re-armed): marker to be set at the end of batch 5
+2026-10-13 11:13:02 BinPackingGap: prebuild (overlaps BorsukNine comparator run)
+2026-10-13 11:13:02 BorsukNine: nanoda run
+2026-10-13 11:29:24 BinPackingGap: nanoda run
+2026-10-13 11:32:39 BinPackingGap: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: True)
+2026-10-13 11:36:01 batch 5 outcomes:       4 ACCEPT_BOTH       2 ACCEPT_LEAN_ONLY 
+2026-10-13 11:36:02 planned switch: stop marker set during the batch 5 prune
+2026-10-13 11:37:19 batch 5 pruned: batches done 5 of 7; kept configs 10 + later configs 25; kept OAI modules 22483; present 8062; to prune 860 modules, 5.53 GiB; apply=True; disk used 53G
+2026-10-13 11:37:20 end; clone status []; disk used 53G
+2026-10-13 11:37:23 83_remainder_pipelined.sh exited (stop file kept as SWITCH_STOPPED-83.txt); starting 85_remainder_queue.sh
+2026-10-13 11:39:55 85 was not running after the switch (its detached launch from 86 did not survive the WSL session ending); starting it directly
+2026-10-13 11:39:56 start (85_remainder_queue.sh, schedule 2026-10-13-corpus-remainder-schedule-merged.json, prebuild queue with LEAN_NUM_THREADS=10); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 53G
+2026-10-13 11:39:56 guard: 69_corpus_guard.sh 65 1500 2
+2026-10-13 11:39:56 batch 6 of 7: 13 configs
+2026-10-13 11:39:56 EgyptianFractions: prebuild (queue)

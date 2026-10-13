@@ -1,0 +1,46 @@
+== run BinPackingGap  2026-10-13 11:29:24
+config: /home/checker/corpus/configs/BinPackingGap-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.BinPackingGap",
+  "definition_names": [],
+  "enable_nanoda": true,
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "solution_module": "OAI.Computability.BinPacking.Main",
+  "theorem_names": [
+    "OAI.BinPackingGap.main_results"
+  ]
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/BinPackingGap.json vs this config
+4c4
+<     "enable_nanoda": false,
+---
+>     "enable_nanoda": true,
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 58G
+Running as unit: run-u349.service; invocation ID: d3c436b68abf4e6cb23252461282be58
+Building ComparatorChallenges.BinPackingGap
+⚠ [8924/8924] Replayed ComparatorChallenges.BinPackingGap
+warning: ComparatorChallenges/BinPackingGap.lean:356:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.BinPackingGap.main_results, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.BinPackingGap
+Building OAI.Computability.BinPacking.Main
+Build completed successfully (9207 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.BinPackingGap.main_results, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.BinPacking.Main
+Running nanoda kernel on solution
+
+thread 'thread_2' (447715) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 3min 4.006s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 194
+disk used after: 58G

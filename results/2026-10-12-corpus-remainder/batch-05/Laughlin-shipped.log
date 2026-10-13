@@ -1,0 +1,38 @@
+== run Laughlin  2026-10-13 10:02:58
+config: /home/checker/math/lean/ComparatorChallenges/Laughlin.json
+{
+  "challenge_module": "ComparatorChallenges.Laughlin",
+  "solution_module": "OAI.Analysis.Laughlin.Main",
+  "theorem_names": [
+    "OAI.Laughlin.mainTarget_proved"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/Laughlin.json vs this config
+(diff exit 0)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 56G
+Running as unit: run-u346.service; invocation ID: 365b9421c7d8436990f2a34d4bd7ff42
+Building ComparatorChallenges.Laughlin
+⚠ [8924/8924] Replayed ComparatorChallenges.Laughlin
+warning: ComparatorChallenges/Laughlin.lean:61:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Laughlin.mainTarget_proved, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.Laughlin
+Building OAI.Analysis.Laughlin.Main
+Build completed successfully (10181 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Laughlin.mainTarget_proved, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.Laughlin.Main
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1h 7min 9.676s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 4203
+disk used after: 56G

@@ -19,7 +19,7 @@ The run is still going (driver 93_remainder_serial_v4.sh). This is a snapshot, n
 ## Reading (INFERRED)
 
 - The nanoda crashes are a limit of the tool (a fixed 16 MiB stack), not a verdict on the proofs: Lean's kernel accepts each of those proofs in the same run.
-- These results say that the shipped Lean proofs check under the comparator for the finished configs. They do not, by themselves, check that the Lean statements match the paper; that is a separate part of the audit.
+- These results say that the shipped Lean proofs check under the comparator for the finished configs. They do not, by themselves, check that each Lean statement says what its paper claims; that is a separate question.
 
 ## Run notes (COMPUTED, run.log and docs/log.md)
 

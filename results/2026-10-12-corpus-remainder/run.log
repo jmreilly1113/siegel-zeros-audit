@@ -384,3 +384,8 @@
 2026-10-13 13:53:49 SmoothYau: prebuild (queue)
 2026-10-13 14:09:34 SmoothYau: nanoda run
 2026-10-13 14:22:38 IndependentSets: prebuild (queue)
+2026-10-13 14:26:39 IndependentSets: prebuild log has no exit code (stopped); not run
+2026-10-13 14:26:40 end; clone status []; disk used 69G
+2026-10-13 14:32:22 pause requested by Joe (needs the PC); stopping checker build processes (resumable)
+2026-10-13 14:32:42 paused (stop file kept as PAUSED-1.txt)
+2026-10-13 14:33:05 correction: the run had already been stopped at ~14:26 by the Windows guard (78: free RAM 2845 MB < 3000 MB); the stop file renamed PAUSED-1.txt at 14:32:42 is that stop's file and is now GUARD_STOPPED-5.txt. The 14:32 pause found no build running. Run kept paused at Joe's request; WSL shut down to free its memory.

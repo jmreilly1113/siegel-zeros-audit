@@ -1,0 +1,23 @@
+== run VlasovMaxwell  2026-10-13 08:21:49
+config: /home/checker/corpus/configs/VlasovMaxwell-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.VlasovMaxwell",
+  "solution_module": "OAI.Analysis.VlasovMaxwell.Main",
+  "theorem_names": [
+    "OAI.RVM.global_classical_solution"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/VlasovMaxwell.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 53G

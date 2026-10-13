@@ -1,0 +1,11 @@
+== prebuild WeakMTWGlobalSupport: lake build OAI.Geometry.WeakMTW.Main ComparatorChallenges.WeakMTWGlobalSupport with LEAN_NUM_THREADS=4  2026-10-13 07:42:17
+Running as unit: run-u338.service; invocation ID: 0709732ce82d4649abf7f47faa282ea7
+⚠ [8927/9134] Built ComparatorChallenges.WeakMTWGlobalSupport (59s)
+warning: ComparatorChallenges/WeakMTWGlobalSupport.lean:63:8: declaration uses `sorry`
+Build completed successfully (9134 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 12min 47.127s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 785
+disk used: 51G

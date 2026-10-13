@@ -1,0 +1,11 @@
+== prebuild ThorpRouting: lake build OAI.Probability.ThorpRouting.Main ComparatorChallenges.ThorpRouting with LEAN_NUM_THREADS=4  2026-10-13 07:24:09
+Running as unit: run-u336.service; invocation ID: 4a6898347f7a4264aae4190c65f9d747
+⚠ [8933/9094] Built ComparatorChallenges.ThorpRouting (78s)
+warning: ComparatorChallenges/ThorpRouting.lean:2567:8: declaration uses `sorry`
+Build completed successfully (9094 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 12min 11.079s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 746
+disk used: 50G

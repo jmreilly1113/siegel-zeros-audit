@@ -1,0 +1,11 @@
+== prebuild VlasovMaxwell: lake build OAI.Analysis.VlasovMaxwell.Main ComparatorChallenges.VlasovMaxwell with LEAN_NUM_THREADS=6 (pipelined driver)  2026-10-13 08:21:38
+Running as unit: run-u341.service; invocation ID: 21b902a2218c4480969371b288a7d150
+⚠ [8998/9131] Replayed ComparatorChallenges.VlasovMaxwell
+warning: ComparatorChallenges/VlasovMaxwell.lean:103:8: declaration uses `sorry`
+Build completed successfully (9131 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 10.954s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 11
+disk used: 53G

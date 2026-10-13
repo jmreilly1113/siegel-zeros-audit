@@ -312,3 +312,16 @@
 2026-10-13 07:24:09 batch 4 pruned: batches done 4 of 16; kept configs 8 + later configs 31; kept OAI modules 23343; present 7387; to prune 1729 modules, 8.96 GiB; apply=True; disk used 49G
 2026-10-13 07:24:09 batch 5 of 16: 6 configs
 2026-10-13 07:24:09 ThorpRouting: prebuild
+2026-10-13 07:36:35 ThorpRouting: nanoda run
+2026-10-13 07:42:17 WeakMTWGlobalSupport: prebuild
+2026-10-13 07:55:22 WeakMTWGlobalSupport: nanoda run
+2026-10-13 08:01:39 VlasovMaxwell: prebuild
+2026-10-13 08:10:13 planned switch: stop marker set so 77_remainder.sh halts after its current step (Joe 2026-10-13, finish by 15:00)
+2026-10-13 08:21:22 end; clone status []; disk used 53G
+2026-10-13 08:21:37 77_remainder.sh exited (stop file kept as SWITCH_STOPPED-77.txt); starting 83_remainder_pipelined.sh
+2026-10-13 08:21:38 start (83_remainder_pipelined.sh, schedule 2026-10-13-corpus-remainder-schedule-merged.json, prebuild LEAN_NUM_THREADS=6, next prebuild overlaps current comparator run); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 53G
+2026-10-13 08:21:38 guard: 69_corpus_guard.sh 65 1500 2
+2026-10-13 08:21:38 batch 5 of 7: 6 configs
+2026-10-13 08:21:38 VlasovMaxwell: prebuild
+2026-10-13 08:21:49 Laughlin: prebuild (overlaps VlasovMaxwell comparator run)
+2026-10-13 08:21:49 VlasovMaxwell: nanoda run

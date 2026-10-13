@@ -1,0 +1,45 @@
+== run DirectCrouzeix  2026-10-12 15:02:57
+config: /home/checker/corpus/configs/DirectCrouzeix-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.DirectCrouzeix",
+  "solution_module": "OAI.Analysis.DirectCrouzeix.Main",
+  "theorem_names": [
+    "OAI.DirectCrouzeix.complete_crouzeix",
+    "OAI.DirectCrouzeix.uniform_sharpness"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/DirectCrouzeix.json vs this config
+14c14
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 48G
+Running as unit: run-u204.service; invocation ID: 719a84d522dd438db66ed0940280df31
+Building ComparatorChallenges.DirectCrouzeix
+⚠ [8924/8924] Replayed ComparatorChallenges.DirectCrouzeix
+warning: ComparatorChallenges/DirectCrouzeix.lean:34:8: declaration uses `sorry`
+warning: ComparatorChallenges/DirectCrouzeix.lean:37:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.DirectCrouzeix.complete_crouzeix, OAI.DirectCrouzeix.uniform_sharpness, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.DirectCrouzeix
+Building OAI.Analysis.DirectCrouzeix.Main
+Build completed successfully (8965 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.DirectCrouzeix.complete_crouzeix, OAI.DirectCrouzeix.uniform_sharpness, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.DirectCrouzeix.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 52.935s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 382
+disk used after: 48G

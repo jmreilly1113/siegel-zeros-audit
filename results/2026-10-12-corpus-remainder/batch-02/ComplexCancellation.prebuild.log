@@ -1,0 +1,11 @@
+== prebuild ComplexCancellation: lake build OAI.Algebra.AffineCancellation.Main ComparatorChallenges.ComplexCancellation with LEAN_NUM_THREADS=4  2026-10-12 18:58:50
+Running as unit: run-u243.service; invocation ID: f93a7cd0d9d648d7a9610d5b3eb380f1
+⚠ [8925/8979] Built ComparatorChallenges.ComplexCancellation (46s)
+warning: ComparatorChallenges/ComplexCancellation.lean:25:8: declaration uses `sorry`
+Build completed successfully (8979 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 30.922s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 232
+disk used: 54G

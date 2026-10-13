@@ -1,0 +1,11 @@
+== prebuild LipschitzEquivalence: lake build OAI.Analysis.LipschitzEquivalence.Main ComparatorChallenges.LipschitzEquivalence with LEAN_NUM_THREADS=4  2026-10-12 20:13:53
+Running as unit: run-u258.service; invocation ID: 01c14cd4d9c14874809d4379c10d66c4
+⚠ [8925/8984] Built ComparatorChallenges.LipschitzEquivalence (47s)
+warning: ComparatorChallenges/LipschitzEquivalence.lean:38:8: declaration uses `sorry`
+Build completed successfully (8984 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 8min 18.328s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 550
+disk used: 57G

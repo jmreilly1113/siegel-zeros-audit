@@ -1,0 +1,42 @@
+== run PinnedDistances  2026-10-12 17:59:28
+config: /home/checker/corpus/configs/PinnedDistances-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.PinnedDistances",
+  "solution_module": "OAI.Geometry.PinnedDistances.Main",
+  "theorem_names": [
+    "OAI.WeakPinned.main"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/PinnedDistances.json vs this config
+12c12
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 52G
+Running as unit: run-u232.service; invocation ID: b530bd63a8fe417abcfcdb2489958521
+Building ComparatorChallenges.PinnedDistances
+⚠ [8924/8924] Replayed ComparatorChallenges.PinnedDistances
+warning: ComparatorChallenges/PinnedDistances.lean:29:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.WeakPinned.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.PinnedDistances
+Building OAI.Geometry.PinnedDistances.Main
+Build completed successfully (8970 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.WeakPinned.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Geometry.PinnedDistances.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 42.993s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 246
+disk used after: 52G

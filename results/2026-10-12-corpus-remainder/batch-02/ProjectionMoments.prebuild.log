@@ -1,0 +1,11 @@
+== prebuild ProjectionMoments: lake build OAI.Probability.ProjectionMoments.Main ComparatorChallenges.ProjectionMoments with LEAN_NUM_THREADS=4  2026-10-12 16:07:20
+Running as unit: run-u215.service; invocation ID: cf4b36a2b0bd45818e5d528d5d640fdf
+⚠ [8924/8970] Built ComparatorChallenges.ProjectionMoments (61s)
+warning: ComparatorChallenges/ProjectionMoments.lean:707:8: declaration uses `sorry`
+Build completed successfully (8970 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 30.183s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 359
+disk used: 50G

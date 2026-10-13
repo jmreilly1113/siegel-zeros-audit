@@ -1,0 +1,43 @@
+== run ReflexiveFixedPoints  2026-10-12 16:37:46
+config: /home/checker/corpus/configs/ReflexiveFixedPoints-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.ReflexiveFixedPoints",
+  "solution_module": "OAI.Analysis.Nonexpansive.Main",
+  "theorem_names": [
+    "OAI.ReflexiveFixedPoints.exists_fixedPoint_of_canonicallyReflexive"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/ReflexiveFixedPoints.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 51G
+Running as unit: run-u221.service; invocation ID: 964c56f3a90946609d2f9fc5eaf34e3d
+Building ComparatorChallenges.ReflexiveFixedPoints
+⚠ [8924/8924] Replayed ComparatorChallenges.ReflexiveFixedPoints
+warning: ComparatorChallenges/ReflexiveFixedPoints.lean:21:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ReflexiveFixedPoints.exists_fixedPoint_of_canonicallyReflexive, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.ReflexiveFixedPoints
+Building OAI.Analysis.Nonexpansive.Main
+Build completed successfully (9009 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ReflexiveFixedPoints.exists_fixedPoint_of_canonicallyReflexive, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.Nonexpansive.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 28.026s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 164
+disk used after: 51G

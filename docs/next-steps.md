@@ -42,3 +42,4 @@ This plan is conditional: which branch applies depends on `results/2026-10-11-co
 - Delete the scratchpad bundle `siegel-before-filter-repo.bundle` (contains the arXiv PDF).
 - Fill the placeholders in `docs/log.md` for the issue #40 comment URL and the Zulip URL.
 - Phase 6 summary (`results/<date>-corpus-summary.md`) after the remainder.
+- Cleanup after the remainder (Joe, 2026-10-12): bulky logs and crash dumps go to `D:\siegel-audit-offload\` as needed; when the run is done, prune what is no longer needed (WSL build outputs, nanoda crash dumps, temp files), after checking each target and recording it in `docs/log.md`. Nothing under `results/` or `external/` is deleted.

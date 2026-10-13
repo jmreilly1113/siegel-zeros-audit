@@ -1,0 +1,43 @@
+== run SignedFiniteBand  2026-10-12 15:16:17
+config: /home/checker/corpus/configs/SignedFiniteBand-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.SignedFiniteBand",
+  "solution_module": "OAI.Analysis.SignedDisk.Main",
+  "theorem_names": [
+    "OAI.SignedDisk.CenteredDiskEndpoint.main_signed_finite_band"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/SignedFiniteBand.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 49G
+Running as unit: run-u206.service; invocation ID: 97a5d84e55284358b7e536f9bb9e4c0d
+Building ComparatorChallenges.SignedFiniteBand
+⚠ [8924/8924] Replayed ComparatorChallenges.SignedFiniteBand
+warning: ComparatorChallenges/SignedFiniteBand.lean:45:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SignedDisk.CenteredDiskEndpoint.main_signed_finite_band, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SignedFiniteBand
+Building OAI.Analysis.SignedDisk.Main
+Build completed successfully (8962 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SignedDisk.CenteredDiskEndpoint.main_signed_finite_band, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.SignedDisk.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 13.434s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 277
+disk used after: 49G

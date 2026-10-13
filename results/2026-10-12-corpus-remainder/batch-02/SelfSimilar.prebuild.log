@@ -1,0 +1,11 @@
+== prebuild SelfSimilar: lake build OAI.MeasureTheory.SelfSimilar.Main ComparatorChallenges.SelfSimilar with LEAN_NUM_THREADS=4  2026-10-12 19:43:05
+Running as unit: run-u251.service; invocation ID: c06f6460c8e942f29ea361da811a4449
+⚠ [8925/8981] Built ComparatorChallenges.SelfSimilar (51s)
+warning: ComparatorChallenges/SelfSimilar.lean:65:8: declaration uses `sorry`
+Build completed successfully (8981 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6min 56.529s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 462
+disk used: 55G

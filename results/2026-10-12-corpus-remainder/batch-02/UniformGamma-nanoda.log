@@ -1,0 +1,43 @@
+== run UniformGamma  2026-10-12 18:54:11
+config: /home/checker/corpus/configs/UniformGamma-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.UniformGamma",
+  "solution_module": "OAI.Analysis.TracialSplitting.Challenge",
+  "theorem_names": [
+    "OAI.ComparatorModel.CurrentMain.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/UniformGamma.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 54G
+Running as unit: run-u242.service; invocation ID: ff6dd90a22714e59b4060a28cf335d0c
+Building ComparatorChallenges.UniformGamma
+⚠ [8924/8924] Replayed ComparatorChallenges.UniformGamma
+warning: ComparatorChallenges/UniformGamma.lean:600:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ComparatorModel.CurrentMain.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.UniformGamma
+Building OAI.Analysis.TracialSplitting.Challenge
+Build completed successfully (8974 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.ComparatorModel.CurrentMain.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.TracialSplitting.Challenge
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 9.873s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 277
+disk used after: 54G

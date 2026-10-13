@@ -1,0 +1,42 @@
+== run RationalHitting  2026-10-12 19:26:33
+config: /home/checker/corpus/configs/RationalHitting-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.RationalHitting",
+  "solution_module": "OAI.Computability.RationalHitting.Main",
+  "theorem_names": [
+    "OAI.RationalHitting.main"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/RationalHitting.json vs this config
+12c12
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 55G
+Running as unit: run-u248.service; invocation ID: 28378b4e666e4edb9aef55f1e005b231
+Building ComparatorChallenges.RationalHitting
+⚠ [8924/8924] Replayed ComparatorChallenges.RationalHitting
+warning: ComparatorChallenges/RationalHitting.lean:108:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.RationalHitting.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.RationalHitting
+Building OAI.Computability.RationalHitting.Main
+Build completed successfully (8976 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.RationalHitting.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.RationalHitting.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 46.082s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 250
+disk used after: 55G

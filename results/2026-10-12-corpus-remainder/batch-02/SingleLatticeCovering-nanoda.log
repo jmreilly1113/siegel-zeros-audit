@@ -1,0 +1,43 @@
+== run SingleLatticeCovering  2026-10-12 16:01:00
+config: /home/checker/corpus/configs/SingleLatticeCovering-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.SingleLatticeCovering",
+  "solution_module": "OAI.Geometry.LatticeCovering.Main",
+  "theorem_names": [
+    "OAI.SingleLatticeCovering.single_lattice_covering"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/SingleLatticeCovering.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 50G
+Running as unit: run-u214.service; invocation ID: 6c669d0eedc5469eb54e5b8e9878b964
+Building ComparatorChallenges.SingleLatticeCovering
+⚠ [8924/8924] Replayed ComparatorChallenges.SingleLatticeCovering
+warning: ComparatorChallenges/SingleLatticeCovering.lean:20:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SingleLatticeCovering.single_lattice_covering, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SingleLatticeCovering
+Building OAI.Geometry.LatticeCovering.Main
+Build completed successfully (8964 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SingleLatticeCovering.single_lattice_covering, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Geometry.LatticeCovering.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 45.910s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 378
+disk used after: 50G

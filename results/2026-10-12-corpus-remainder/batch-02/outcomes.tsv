@@ -1,0 +1,35 @@
+config	in_sample	prebuild	nanoda_run	shipped_run	config_outcome	evidence
+Brennan	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+BrennanSharp	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+DirectCrouzeix	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SignedFiniteBand	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+GaussianMoat	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+StableCoordinateFour	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SubpolynomialLp	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SingleLatticeCovering	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+ProjectionMoments	True	OK	ACCEPT_BOTH	ACCEPT_LEAN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0 | shipped: ACCEPT_LEAN: Lean default kernel accepts; Your solution is okay!; exit 0
+BoundedTreePotentials	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+ReflexiveFixedPoints	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+LogspaceEquality	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+KahlerSplitting	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+GaussianPropeller	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+OneTapeSpace	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+PinnedDistances	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+CompleteCrouzeix	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+StructuralCrouzeix	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+MemoryPrecision	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+UniversalFInfinity	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+UniformGamma	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+ComplexCancellation	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+Superstring	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+RationalHitting	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+UniformSparsestCut	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SelfSimilar	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+GrothendieckElementaryExpansion	True	OK	ACCEPT_BOTH	ACCEPT_LEAN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0 | shipped: ACCEPT_LEAN: Lean default kernel accepts; Your solution is okay!; exit 0
+MatrixRemoval	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+LipschitzEquivalence	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+FoulkesHowe	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+PlanarFirstPassage	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+LittleFinitistic	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+FinitisticAsymmetry	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+HadwigerCounterexample	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0

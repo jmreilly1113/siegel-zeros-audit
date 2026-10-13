@@ -1,0 +1,43 @@
+== run LittleFinitistic  2026-10-12 20:57:16
+config: /home/checker/corpus/configs/LittleFinitistic-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.LittleFinitistic",
+  "solution_module": "OAI.Algebra.Finitistic.Main",
+  "theorem_names": [
+    "OAI.LittleFinitistic.Main.exists_counterexample"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/LittleFinitistic.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 58G
+Running as unit: run-u265.service; invocation ID: 62a26e79ab9a4795a983a871d95f137c
+Building ComparatorChallenges.LittleFinitistic
+⚠ [1970/1970] Replayed ComparatorChallenges.LittleFinitistic
+warning: ComparatorChallenges/LittleFinitistic.lean:23:8: declaration uses `sorry`
+Build completed successfully (1970 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LittleFinitistic.Main.exists_counterexample, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.LittleFinitistic
+Building OAI.Algebra.Finitistic.Main
+Build completed successfully (3010 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LittleFinitistic.Main.exists_counterexample, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Algebra.Finitistic.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 11min 53.885s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 775
+disk used after: 58G

@@ -1,0 +1,11 @@
+== prebuild PinnedDistances: lake build OAI.Geometry.PinnedDistances.Main ComparatorChallenges.PinnedDistances with LEAN_NUM_THREADS=4  2026-10-12 17:53:20
+Running as unit: run-u231.service; invocation ID: d127c34601e545f389318546515d756a
+⚠ [8925/8971] Built ComparatorChallenges.PinnedDistances (46s)
+warning: ComparatorChallenges/PinnedDistances.lean:29:8: declaration uses `sorry`
+Build completed successfully (8971 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 31.760s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 368
+disk used: 52G

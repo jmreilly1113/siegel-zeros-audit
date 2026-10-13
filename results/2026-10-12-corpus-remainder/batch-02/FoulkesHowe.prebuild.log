@@ -1,0 +1,11 @@
+== prebuild FoulkesHowe: lake build OAI.RepresentationTheory.FoulkesHowe.Stabilization ComparatorChallenges.FoulkesHowe with LEAN_NUM_THREADS=4  2026-10-12 20:26:43
+Running as unit: run-u260.service; invocation ID: 5771b4e753de43fcb7f043248bd6fb1b
+⚠ [8927/8987] Built ComparatorChallenges.FoulkesHowe (54s)
+warning: ComparatorChallenges/FoulkesHowe.lean:42:8: declaration uses `sorry`
+Build completed successfully (8987 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 3min 14.466s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 216
+disk used: 57G

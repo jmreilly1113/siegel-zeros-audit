@@ -196,3 +196,47 @@
 2026-10-12 17:47:17 guard: 69_corpus_guard.sh 65 1500 2
 2026-10-12 17:47:17 batch 2 of 16: 34 configs
 2026-10-12 17:47:17 OneTapeSpace: prebuild
+2026-10-12 17:49:58 OneTapeSpace: nanoda run
+2026-10-12 17:53:20 PinnedDistances: prebuild
+2026-10-12 17:59:28 PinnedDistances: nanoda run
+2026-10-12 18:03:36 CompleteCrouzeix: prebuild
+2026-10-12 18:13:00 CompleteCrouzeix: nanoda run
+2026-10-12 18:18:16 StructuralCrouzeix: prebuild
+2026-10-12 18:19:50 StructuralCrouzeix: nanoda run
+2026-10-12 18:26:10 MemoryPrecision: prebuild
+2026-10-12 18:29:48 MemoryPrecision: nanoda run
+2026-10-12 18:33:39 UniversalFInfinity: prebuild
+2026-10-12 18:41:38 UniversalFInfinity: nanoda run
+2026-10-12 18:44:44 UniformGamma: prebuild
+2026-10-12 18:54:11 UniformGamma: nanoda run
+2026-10-12 18:58:50 ComplexCancellation: prebuild
+2026-10-12 19:02:42 ComplexCancellation: nanoda run
+2026-10-12 19:06:45 Superstring: prebuild
+2026-10-12 19:15:07 Superstring: nanoda run
+2026-10-12 19:16:15 RationalHitting: prebuild
+2026-10-12 19:26:33 RationalHitting: nanoda run
+2026-10-12 19:30:45 UniformSparsestCut: prebuild
+2026-10-12 19:38:02 UniformSparsestCut: nanoda run
+2026-10-12 19:43:05 SelfSimilar: prebuild
+2026-10-12 19:50:47 SelfSimilar: nanoda run
+2026-10-12 19:54:03 GrothendieckElementaryExpansion: prebuild
+2026-10-12 20:04:55 GrothendieckElementaryExpansion: nanoda run
+2026-10-12 20:07:36 GrothendieckElementaryExpansion: shipped-config run (nanoda ACCEPT_BOTH: yes; in sample: True)
+2026-10-12 20:08:36 MatrixRemoval: prebuild
+2026-10-12 20:11:38 MatrixRemoval: nanoda run
+2026-10-12 20:13:52 LipschitzEquivalence: prebuild
+2026-10-12 20:23:03 LipschitzEquivalence: nanoda run
+2026-10-12 20:26:43 FoulkesHowe: prebuild
+2026-10-12 20:30:19 FoulkesHowe: nanoda run
+2026-10-12 20:33:58 PlanarFirstPassage: prebuild
+2026-10-12 20:39:07 PlanarFirstPassage: nanoda run
+2026-10-12 20:42:08 LittleFinitistic: prebuild
+2026-10-12 20:57:16 LittleFinitistic: nanoda run
+2026-10-12 21:10:13 FinitisticAsymmetry: prebuild
+2026-10-12 21:13:21 FinitisticAsymmetry: nanoda run
+2026-10-12 21:27:23 HadwigerCounterexample: prebuild
+2026-10-12 21:37:42 HadwigerCounterexample: nanoda run
+2026-10-12 21:40:43 batch 2 outcomes:      34 ACCEPT_BOTH 
+2026-10-12 21:42:15 batch 2 pruned: batches done 2 of 16; kept configs 6 + later configs 62; kept OAI modules 27437; present 8112; to prune 2598 modules, 11.12 GiB; apply=True; disk used 48G
+2026-10-12 21:42:16 batch 3 of 16: 19 configs
+2026-10-12 21:42:16 CharacterCriterion: prebuild

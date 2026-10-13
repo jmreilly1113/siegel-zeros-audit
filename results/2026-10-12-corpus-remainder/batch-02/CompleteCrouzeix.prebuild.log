@@ -1,0 +1,11 @@
+== prebuild CompleteCrouzeix: lake build OAI.Analysis.NumericalRange.Main ComparatorChallenges.CompleteCrouzeix with LEAN_NUM_THREADS=4  2026-10-12 18:03:36
+Running as unit: run-u233.service; invocation ID: 07c5513b8e834547866d9e4125198950
+⚠ [8925/8972] Built ComparatorChallenges.CompleteCrouzeix (49s)
+warning: ComparatorChallenges/CompleteCrouzeix.lean:33:8: declaration uses `sorry`
+Build completed successfully (8972 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 8min 32.797s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 564
+disk used: 53G

@@ -1,0 +1,11 @@
+== prebuild BrennanSharp: lake build OAI.Analysis.IntegralMeans.SharpEndpoints ComparatorChallenges.BrennanSharp with LEAN_NUM_THREADS=4  2026-10-12 14:50:16
+Running as unit: run-u201.service; invocation ID: 92d079babd924b5181839e2f111419af
+⚠ [8964/8971] Built ComparatorChallenges.BrennanSharp (35s)
+warning: ComparatorChallenges/BrennanSharp.lean:36:8: declaration uses `sorry`
+Build completed successfully (8971 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 43.898s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 115
+disk used: 48G

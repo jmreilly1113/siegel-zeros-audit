@@ -1,0 +1,11 @@
+== prebuild UniversalFInfinity: lake build OAI.GroupTheory.UniversalGroup.Main ComparatorChallenges.UniversalFInfinity with LEAN_NUM_THREADS=4  2026-10-12 18:33:39
+Running as unit: run-u239.service; invocation ID: 054d051af011406c953ddeade2cead71
+⚠ [8925/8974] Built ComparatorChallenges.UniversalFInfinity (50s)
+warning: ComparatorChallenges/UniversalFInfinity.lean:16:8: declaration uses `sorry`
+Build completed successfully (8974 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 7min 9.798s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 479
+disk used: 53G

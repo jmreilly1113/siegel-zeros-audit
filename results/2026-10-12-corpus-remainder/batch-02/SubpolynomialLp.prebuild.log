@@ -1,0 +1,11 @@
+== prebuild SubpolynomialLp: lake build OAI.Analysis.LpDimension.Main ComparatorChallenges.SubpolynomialLp with LEAN_NUM_THREADS=4  2026-10-12 15:38:30
+Running as unit: run-u211.service; invocation ID: c628933ee93b4414bf38825a4a39fc61
+⚠ [8925/8968] Built ComparatorChallenges.SubpolynomialLp (49s)
+warning: ComparatorChallenges/SubpolynomialLp.lean:32:8: declaration uses `sorry`
+Build completed successfully (8968 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6min 43.639s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 438
+disk used: 50G

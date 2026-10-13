@@ -1,0 +1,12 @@
+== prebuild HadwigerCounterexample: lake build OAI.Combinatorics.HadwigerCounterexample.Main ComparatorChallenges.HadwigerCounterexample with LEAN_NUM_THREADS=4  2026-10-12 21:27:23
+Running as unit: run-u268.service; invocation ID: 05e32dcebfe0491bb017a773189623fc
+⚠ [9010/9212] Built ComparatorChallenges.HadwigerCounterexample (64s)
+warning: ComparatorChallenges/HadwigerCounterexample.lean:38:8: declaration uses `sorry`
+warning: ComparatorChallenges/HadwigerCounterexample.lean:49:8: declaration uses `sorry`
+Build completed successfully (9212 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 30.834s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 619
+disk used: 59G

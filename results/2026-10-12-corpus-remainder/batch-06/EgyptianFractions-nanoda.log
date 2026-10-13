@@ -1,0 +1,59 @@
+== run EgyptianFractions  2026-10-13 11:47:33
+config: /home/checker/corpus/configs/EgyptianFractions-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.EgyptianFractions",
+  "solution_module": "OAI.NumberTheory.EgyptianFractions.Main",
+  "theorem_names": [
+    "OAI.Problem337.egyptian_length_is_minimum",
+    "OAI.Problem337.main_double_log_order",
+    "OAI.Problem337.one_expansions_finite_and_bounded",
+    "OAI.Problem337.counting_double_log_order",
+    "OAI.Problem337.exact_marker_padding",
+    "OAI.Problem337.every_exact_marker_occurs",
+    "OAI.Problem337.quantitative_marked_length",
+    "OAI.Problem337.missing_denominator_semantics",
+    "OAI.Problem337.prescribed_denominator_corollary"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/EgyptianFractions.json vs this config
+21c21
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 54G
+Running as unit: run-u353.service; invocation ID: 51af8e42e65242f3b16be38a61599b55
+Building ComparatorChallenges.EgyptianFractions
+⚠ [8924/8924] Replayed ComparatorChallenges.EgyptianFractions
+warning: ComparatorChallenges/EgyptianFractions.lean:48:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:57:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:64:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:71:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:78:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:85:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:89:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:98:8: declaration uses `sorry`
+warning: ComparatorChallenges/EgyptianFractions.lean:107:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Problem337.egyptian_length_is_minimum, OAI.Problem337.main_double_log_order, OAI.Problem337.one_expansions_finite_and_bounded, OAI.Problem337.counting_double_log_order, OAI.Problem337.exact_marker_padding, OAI.Problem337.every_exact_marker_occurs, OAI.Problem337.quantitative_marked_length, OAI.Problem337.missing_denominator_semantics, OAI.Problem337.prescribed_denominator_corollary, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.EgyptianFractions
+Building OAI.NumberTheory.EgyptianFractions.Main
+Build completed successfully (9213 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Problem337.egyptian_length_is_minimum, OAI.Problem337.main_double_log_order, OAI.Problem337.one_expansions_finite_and_bounded, OAI.Problem337.counting_double_log_order, OAI.Problem337.exact_marker_padding, OAI.Problem337.every_exact_marker_occurs, OAI.Problem337.quantitative_marked_length, OAI.Problem337.missing_denominator_semantics, OAI.Problem337.prescribed_denominator_corollary, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.EgyptianFractions.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 20.135s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 273
+disk used after: 55G

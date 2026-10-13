@@ -1,0 +1,11 @@
+== prebuild SymmetricDomains: lake build OAI.Analysis.SymmetricDomains.Main ComparatorChallenges.SymmetricDomains with LEAN_NUM_THREADS=10 (prebuild queue, 85)  2026-10-13 12:05:11
+Running as unit: run-u354.service; invocation ID: 275c0f90f54b41a184fb7ffab8189db5
+⚠ [8924/9259] Built ComparatorChallenges.SymmetricDomains (7.5s)
+warning: ComparatorChallenges/SymmetricDomains.lean:47:8: declaration uses `sorry`
+Build completed successfully (9259 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 18min 5.186s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1144
+disk used: 58G

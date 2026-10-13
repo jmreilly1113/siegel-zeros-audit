@@ -1,0 +1,11 @@
+== prebuild LogConcaveQuery: lake build OAI.Probability.LogConcave.Main ComparatorChallenges.LogConcaveQuery with LEAN_NUM_THREADS=10 (prebuild queue, 85)  2026-10-13 11:47:32
+Running as unit: run-u352.service; invocation ID: 4e4570be84b04e15a339ed86af0ae659
+⚠ [8927/9250] Built ComparatorChallenges.LogConcaveQuery (13s)
+warning: ComparatorChallenges/LogConcaveQuery.lean:81:8: declaration uses `sorry`
+Build completed successfully (9250 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 16min 46.507s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1059
+disk used: 56G

@@ -345,3 +345,24 @@
 2026-10-13 11:39:56 guard: 69_corpus_guard.sh 65 1500 2
 2026-10-13 11:39:56 batch 6 of 7: 13 configs
 2026-10-13 11:39:56 EgyptianFractions: prebuild (queue)
+2026-10-13 11:47:32 LogConcaveQuery: prebuild (queue)
+2026-10-13 11:47:33 EgyptianFractions: nanoda run
+2026-10-13 12:05:11 SymmetricDomains: prebuild (queue)
+2026-10-13 12:05:13 LogConcaveQuery: nanoda run
+2026-10-13 12:24:15 HyperbolicObstruction: prebuild (queue)
+2026-10-13 12:24:17 SymmetricDomains: nanoda run
+2026-10-13 12:38:45 MaximalSeshadriConstants: prebuild (queue)
+2026-10-13 12:38:48 HyperbolicObstruction: nanoda run
+2026-10-13 12:52:44 SmoothYau: prebuild (queue)
+2026-10-13 12:52:46 MaximalSeshadriConstants: nanoda run
+2026-10-13 13:02:39 IndependentSets: prebuild (queue)
+2026-10-13 13:02:39 MaximalSeshadriConstants: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-13 13:02:59 KMedianRecovery: prebuild (queue)
+2026-10-13 13:23:39 end; clone status []; disk used 69G
+2026-10-13 13:26:14 resume after disk-guard stop at 13:02:38 (disk 66G > 65G limit; stop file kept as GUARD_STOPPED-2.txt); MaximalSeshadriConstants.done set aside as .done.invalid-killed-by-guard (both its logs lack COMPARATOR EXIT CODE); starting 89_remainder_queue_v2.sh
+2026-10-13 13:26:15 start (89_remainder_queue_v2.sh, schedule 2026-10-13-corpus-remainder-schedule-merged.json, prebuild queue with LEAN_NUM_THREADS=10); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 67G
+2026-10-13 13:26:15 guard: 69_corpus_guard.sh 85 1500 2
+2026-10-13 13:26:15 batch 6 of 7: 13 configs
+2026-10-13 13:26:15 MaximalSeshadriConstants: prebuild (queue)
+2026-10-13 13:26:32 SmoothYau: prebuild (queue)
+2026-10-13 13:26:35 MaximalSeshadriConstants: nanoda run

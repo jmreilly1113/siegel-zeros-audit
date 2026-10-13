@@ -1,0 +1,27 @@
+== run MaximalSeshadriConstants  2026-10-13 13:02:39
+config: /home/checker/math/lean/ComparatorChallenges/MaximalSeshadriConstants.json
+{
+  "challenge_module": "ComparatorChallenges.MaximalSeshadriConstants",
+  "solution_module": "OAI.AlgebraicGeometry.Seshadri.Main",
+  "theorem_names": [
+    "OAI.MaximalSeshadri.Geometry.maximalSeshadriConstants"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/MaximalSeshadriConstants.json vs this config
+(diff exit 0)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 66G
+Running as unit: run-u363.service; invocation ID: 291595bd35194cb38ceaf400a772a086
+Building ComparatorChallenges.MaximalSeshadriConstants
+⚠ [8924/8924] Replayed ComparatorChallenges.MaximalSeshadriConstants
+warning: ComparatorChallenges/MaximalSeshadriConstants.lean:408:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+DURATION_SECONDS: 18
+disk used after: 66G

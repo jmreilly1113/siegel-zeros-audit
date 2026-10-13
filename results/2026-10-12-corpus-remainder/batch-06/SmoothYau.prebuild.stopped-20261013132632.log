@@ -1,0 +1,7 @@
+== prebuild SmoothYau: lake build OAI.Geometry.SmoothYau.Main ComparatorChallenges.SmoothYau with LEAN_NUM_THREADS=10 (prebuild queue, 85)  2026-10-13 12:52:44
+Running as unit: run-u360.service; invocation ID: fdaf8442f6304edd851aafe6dc8918ac
+⚠ [8931/9360] Built ComparatorChallenges.SmoothYau (22s)
+warning: ComparatorChallenges/SmoothYau.lean:132:8: declaration uses `sorry`
+warning: ComparatorChallenges/SmoothYau.lean:139:8: declaration uses `sorry`
+PREBUILD_SECONDS: 595
+disk used: 66G

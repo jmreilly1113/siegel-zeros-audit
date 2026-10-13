@@ -1,0 +1,33 @@
+== run MaximalSeshadriConstants  2026-10-13 13:29:26
+config: /home/checker/corpus/configs/MaximalSeshadriConstants-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.MaximalSeshadriConstants",
+  "solution_module": "OAI.AlgebraicGeometry.Seshadri.Main",
+  "theorem_names": [
+    "OAI.MaximalSeshadri.Geometry.maximalSeshadriConstants"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/MaximalSeshadriConstants.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 67G
+Running as unit: run-u3.service; invocation ID: 6031a74bc1c84ea1a21bb250a05ee110
+Building ComparatorChallenges.MaximalSeshadriConstants
+⚠ [8924/8924] Replayed ComparatorChallenges.MaximalSeshadriConstants
+warning: ComparatorChallenges/MaximalSeshadriConstants.lean:408:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.MaximalSeshadri.Geometry.maximalSeshadriConstants, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.MaximalSeshadriConstants
+Building OAI.AlgebraicGeometry.Seshadri.Main
+Build completed successfully (9344 jobs).
+DURATION_SECONDS: 256
+disk used after: 68G

@@ -374,3 +374,10 @@
 2026-10-13 13:29:06 MaximalSeshadriConstants: prebuild (queue)
 2026-10-13 13:29:23 SmoothYau: prebuild (queue)
 2026-10-13 13:29:26 MaximalSeshadriConstants: nanoda run
+2026-10-13 13:33:45 end; clone status []; disk used 68G
+2026-10-13 13:35:28 resume after Windows-guard stop at 13:33:45 (Windows free RAM 2635 MB < 3000 MB; stop file kept as GUARD_STOPPED-4.txt); starting 93_remainder_serial_v4.sh (serial, LEAN_NUM_THREADS=4)
+2026-10-13 13:35:29 start (93_remainder_serial_v4.sh, serial, schedule 2026-10-13-corpus-remainder-schedule-merged.json, prebuild queue with LEAN_NUM_THREADS=4); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 68G
+2026-10-13 13:35:29 guard: 69_corpus_guard.sh 85 1500 2
+2026-10-13 13:35:29 batch 6 of 7: 13 configs
+2026-10-13 13:35:29 MaximalSeshadriConstants: prebuild (queue)
+2026-10-13 13:35:49 MaximalSeshadriConstants: nanoda run

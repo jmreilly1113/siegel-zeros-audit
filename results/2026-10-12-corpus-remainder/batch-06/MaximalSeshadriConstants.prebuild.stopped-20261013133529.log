@@ -1,0 +1,11 @@
+== prebuild MaximalSeshadriConstants: lake build OAI.AlgebraicGeometry.Seshadri.Main ComparatorChallenges.MaximalSeshadriConstants with LEAN_NUM_THREADS=6 (prebuild queue, 85)  2026-10-13 13:29:06
+Running as unit: run-u0.service; invocation ID: d4a4678bf69540bd93b07f17ad1bb6ae
+⚠ [9030/9345] Replayed ComparatorChallenges.MaximalSeshadriConstants
+warning: ComparatorChallenges/MaximalSeshadriConstants.lean:408:8: declaration uses `sorry`
+Build completed successfully (9345 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 17.558s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 17
+disk used: 67G

@@ -1,0 +1,64 @@
+External checks compared with our corpus replay (2026-10-19)
+Read-only. Nothing here was run on our machine; every item is what an outside source states, with its location.
+Commands: gh repo view / gh api on the repositories below; gh issue view N -R ammkrn/nanoda_lib;
+WebFetch https://lean-lang.org/doc/reference/stable/releases/v4.33.1/ ; downloaded files kept in the session scratchpad.
+
+A. github.com/davegoldblatt/openai-zeta-proof-check (created 2026-10-07, last push 2026-10-07T02:04Z)
+STATED (README.md, REPORT.md, reproduce/scripts/phase4_nanoda.sh, reproduce/docker/Dockerfile.nanoda,
+reproduce/verifier/verifier-qrh-nanoda.json, evidence/tool-versions.txt):
+- Scope: one theorem, OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re (QuasiRiemannHypothesis, the 7/8 zeta result),
+  solution module OAI.NumberTheory.DirichletL.Nonvanishing. No other config.
+- openai/math adc7f1241b42e322a6451854ab7e4b4c146bf78a; Lean v4.34.1 (5045d005), Mathlib d13f23b.
+- Kernels: Lean default kernel (run A, OpenAI's config) and nanoda + Lean (run B, a checker-written challenge and
+  config with enable_nanoda true). Both accepted, exit 0.
+- Tools: comparator d03acab (v4.34.0), lean4export 076e8e5 (v4.34.0), both rebuilt with 4.34.1; landrun 811cfff;
+  nanoda_lib 3a24072 (v0.4.19), cargo build --release --locked, stock binary.
+- nanoda run: comparator with COMPARATOR_NANODA=/usr/local/bin/nanoda_bin. No stack setting, no ulimit, no
+  modified nanoda. Docker on Apple Silicon (Linux 6.12.76, aarch64), 16 GiB cap, network none, seccomp rule
+  blocking AF_UNIX socket(2) in place of the systemd wrapper.
+COMPARED with ours (docs/log.md 2026-10-08, 2026-10-11; results/2026-10-11-corpus-provenance.txt):
+- Same openai/math commit as our Siegel work (adc7f12); our corpus replay is at fd4aeeb.
+- Same comparator, lean4export, landrun and nanoda commits as ours. Different platform (aarch64 Docker vs x86_64 WSL2).
+- Overlap with our corpus: only QuasiRiemannHypothesis (our pilot, 2026-10-11, ACCEPT_BOTH at adc7f12).
+- Does not cover SiegelZeros or any of our 7 ACCEPT_LEAN_ONLY configs.
+
+B. nanoda stack size (nanoda_lib)
+STATED:
+- README at 3a24072: configuration is a JSON file only; its documented options are export path / use_stdin,
+  permitted_axioms, unpermitted_axiom_hard_error, unsafe_permit_all_axioms, nat_extension, string_extension,
+  pp_* options, declar_sep, print_success_message. No stack option.
+- src/lib.rs:23 (3a24072 and current master): STACK_SIZE = 16_777_216, used by src/tc.rs .stack_size for every
+  checker thread. ulimit -s affects only the main thread (issue #55: "The main thread has a separate stack limit").
+- Issue #55 (open, nealmcb, 2026-10-15), openai/math fd4aeeb, same nanoda/lean4export commits as ours: 15 of 416
+  configs fail. The RoundTables group (DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover,
+  IndependentSets, MinUncut, PerfectCompleteness, OptimalMaxCut), Laughlin, LaughlinPlanar, LaughlinFock,
+  Problem355, KMedianThreshold, SquareDifference, ContinuumCoulombHardness. Larger stacks (1 GiB, 16 GiB) did not
+  help: the backtrace is whnf/try_reduce_nat alternating ~10^5-10^6 times (a reduction that does not make
+  progress), and at 16 GiB UniqueGamesTheorem ran to 285 GiB and panicked.
+- Issue #49 (closed 2026-10-14): do_nat_bin reduced its second argument before checking the first; "nanoda cannot
+  check that proof [Unique Games] with any stack size". Fixed by 0e520fd / e8a9606.
+- #55 comment (nealmcb, 2026-10-16): on master f67473b, 14 of the 15 now pass (under 10 min, under 25 GiB);
+  SquareDifference still overflows (def_eq / lazy_delta_step recursion).
+- #57 (open) and PR #58 (merged 2026-10-19, master 9d6964f) remove a has_fvars check; a #57 comment reports this
+  brings the #55 overflow back on ContinuumCoulombHardness.
+- nanoda master is 16 commits ahead of 3a24072 (compare 3a24072...master).
+COMPARED with ours:
+- Of our 7 nanoda crashes, 5 are named in #55 (OptimalMaxCut, UniqueGamesTheorem, VertexCover, BinPackingGap,
+  Laughlin). KaplanskyFinitelyPresented and GroupRingDeterminant are not named there.
+- Two configs still to run tonight are in the #55 RoundTables group: IndependentSets (batch 6) and
+  PerfectCompleteness (batch 7). INFERRED: expect nanoda stack overflows there too (ACCEPT_LEAN_ONLY if Lean accepts).
+- Our own 512 MiB-stack nanoda copy still overflowed on OptimalMaxCut (results/2026-10-12-nanoda-bigstack-diag/).
+INFERRED: a retry with stock 3a24072 under ulimit -s cannot change the checker-thread stack, and a larger
+STACK_SIZE is reported not to help these proofs. The upstream fix is in later nanoda commits (f67473b).
+
+C. Lean v4.33.1 release notes (lean-lang.org/doc/reference/stable/releases/v4.33.1/)
+STATED: #14807 (is_prop soundness bug: a non-proof field projected out of a Prop value, False derived): "The bogus
+proof was also accepted by nanoda, an independent implementation of the Lean kernel." #14838 (refcount overflow,
+use-after-free in the official kernel): nanoda not affected. #14806 (is_def_eq union-find cache): both exploits
+"also caught by nanoda" and by lean-inductive-models. Our toolchain is 4.34.1, later than 4.33.1.
+
+D. lean-inductive-models (github.com/nomeata/lean-inductive-models, last push 2026-10-01)
+STATED (README): translation validation of user-defined inductive declarations from a lean4export NDJSON export
+into a model with a small hard-coded inductive basis; "not a general soundness proof for inductive types and not
+yet a verified translation". INFERRED: it checks inductive declarations, not whole proofs, so it would be a
+partial third check, not a third full kernel. Not run.

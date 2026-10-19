@@ -389,3 +389,32 @@
 2026-10-13 14:32:22 pause requested by Joe (needs the PC); stopping checker build processes (resumable)
 2026-10-13 14:32:42 paused (stop file kept as PAUSED-1.txt)
 2026-10-13 14:33:05 correction: the run had already been stopped at ~14:26 by the Windows guard (78: free RAM 2845 MB < 3000 MB); the stop file renamed PAUSED-1.txt at 14:32:42 is that stop's file and is now GUARD_STOPPED-5.txt. The 14:32 pause found no build running. Run kept paused at Joe's request; WSL shut down to free its memory.
+2026-10-19 16:23:23 resume after the 2026-10-13 pause (last stop GUARD_STOPPED-5.txt, Windows guard 14:26); pre-flight passed (HEAD fd4aeeb, clean, disk 69G); starting 93_remainder_serial_v4.sh (serial, LEAN_NUM_THREADS=4)
+2026-10-19 16:23:10 start (93_remainder_serial_v4.sh, serial, schedule 2026-10-13-corpus-remainder-schedule-merged.json, prebuild queue with LEAN_NUM_THREADS=4); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 69G
+2026-10-19 16:23:10 guard: 69_corpus_guard.sh 85 1500 2
+2026-10-19 16:23:10 batch 6 of 7: 13 configs
+2026-10-19 16:23:10 IndependentSets: prebuild (queue)
+2026-10-19 16:37:56 IndependentSets: nanoda run
+2026-10-19 16:42:07 IndependentSets: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-19 16:46:22 KMedianRecovery: prebuild (queue)
+2026-10-19 16:46:37 KMedianRecovery: nanoda run
+2026-10-19 16:51:58 KMedianRecovery: shipped-config run (nanoda ACCEPT_BOTH: yes; in sample: True)
+2026-10-19 16:56:46 DirectionalBallisticity: prebuild (queue)
+2026-10-19 17:21:31 DirectionalBallisticity: nanoda run
+2026-10-19 17:28:41 WeakHessian: prebuild (queue)
+2026-10-19 17:52:17 WeakHessian: nanoda run
+2026-10-19 17:59:17 SimpleAmenable: prebuild (queue)
+2026-10-19 18:30:30 SimpleAmenable: nanoda run
+2026-10-19 18:40:44 CriticalSKMixing: prebuild (queue)
+2026-10-19 19:03:21 CriticalSKMixing: nanoda run
+2026-10-19 19:13:45 YauCounterexample: prebuild (queue)
+2026-10-19 19:25:24 YauCounterexample: prebuild log has no exit code (stopped); not run
+2026-10-19 19:25:24 YauCounterexample: not done at batch end (not classified as a result)
+2026-10-19 19:25:24 batch 6 outcomes:      11 ACCEPT_BOTH       1 ACCEPT_LEAN_ONLY       1 BUILD_FAIL 
+2026-10-19 19:26:36 batch 6 pruned: batches done 6 of 7; kept configs 12 + later configs 12; kept OAI modules 17543; present 13081; to prune 4940 modules, 29.80 GiB; apply=True; disk used 56G
+2026-10-19 19:26:37 end; clone status []; disk used 56G
+2026-10-19 19:27:37 resume after the 2026-10-19 19:25 WSL disk-guard stop (GUARD_STOPPED-6.txt; batch-6 BATCH_DONE and outcomes.tsv set aside as .invalid-guard-stop-20261019); pre-flight passed (HEAD fd4aeeb, clean, disk 56G); starting 100_remainder_serial_v5.sh (serial, LEAN_NUM_THREADS=4, schedule 2026-10-19-corpus-remainder-schedule-split.json)
+2026-10-19 19:27:37 start (100_remainder_serial_v5.sh, serial, schedule 2026-10-19-corpus-remainder-schedule-split.json, prebuild queue with LEAN_NUM_THREADS=4); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 56G
+2026-10-19 19:27:37 guard: 69_corpus_guard.sh 85 1500 2
+2026-10-19 19:27:37 batch 6 of 8: 13 configs
+2026-10-19 19:27:38 YauCounterexample: prebuild (queue)

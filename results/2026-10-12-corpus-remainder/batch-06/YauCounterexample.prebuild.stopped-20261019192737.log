@@ -1,0 +1,4 @@
+== prebuild YauCounterexample: lake build OAI.Geometry.NodalSets.Main ComparatorChallenges.YauCounterexample with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 19:13:45
+Running as unit: run-u15.service; invocation ID: 3bc252d6372c4265bbb641cf7fa26689
+PREBUILD_SECONDS: 699
+disk used: 86G

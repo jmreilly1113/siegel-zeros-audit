@@ -1,0 +1,11 @@
+== prebuild KMedianRecovery: lake build OAI.Combinatorics.KMedianRecovery.Main ComparatorChallenges.KMedianRecovery with LEAN_NUM_THREADS=10 (prebuild queue, 85)  2026-10-13 13:02:59
+Running as unit: run-u364.service; invocation ID: 8ddcf8dbb9764ccbbee9d8bf82cd3eb2
+⚠ [8927/9430] Built ComparatorChallenges.KMedianRecovery (13s)
+warning: ComparatorChallenges/KMedianRecovery.lean:102:8: declaration uses `sorry`
+Build completed successfully (9430 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 19min 29.484s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1239
+disk used: 69G

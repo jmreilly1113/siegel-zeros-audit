@@ -1,0 +1,11 @@
+== prebuild DirectionalBallisticity: lake build OAI.Probability.Ballisticity.Main ComparatorChallenges.DirectionalBallisticity with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 16:56:46
+Running as unit: run-u7.service; invocation ID: 3cceb7cfcf13452b91f40ac73ad1458f
+⚠ [8924/9437] Built ComparatorChallenges.DirectionalBallisticity (64s)
+warning: ComparatorChallenges/DirectionalBallisticity.lean:95:8: declaration uses `sorry`
+Build completed successfully (9437 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 25min 52.768s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1482
+disk used: 74G

@@ -1,6 +1,11 @@
-== prebuild IndependentSets: lake build OAI.Combinatorics.IndependentSets.Main ComparatorChallenges.IndependentSets with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-13 14:22:38
-Running as unit: run-u5.service; invocation ID: 40c453fc7558440e8e4b28d62f642584
-⚠ [8927/9378] Built ComparatorChallenges.IndependentSets (57s)
+== prebuild IndependentSets: lake build OAI.Combinatorics.IndependentSets.Main ComparatorChallenges.IndependentSets with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 16:23:10
+Running as unit: run-u0.service; invocation ID: bae26c19b69c4bf3971e60619fcf6629
+⚠ [9312/9378] Replayed ComparatorChallenges.IndependentSets
 warning: ComparatorChallenges/IndependentSets.lean:77:8: declaration uses `sorry`
-PREBUILD_SECONDS: 240
-disk used: 69G
+Build completed successfully (9378 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 15min 25.101s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 885
+disk used: 71G

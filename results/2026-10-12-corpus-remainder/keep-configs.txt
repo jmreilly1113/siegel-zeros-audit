@@ -9,3 +9,5 @@ ComparatorChallenges/KaplanskyFinitelyPresented.json
 ComparatorChallenges/GroupRingDeterminant.json
 ComparatorChallenges/Laughlin.json
 ComparatorChallenges/BinPackingGap.json
+ComparatorChallenges/IndependentSets.json
+ComparatorChallenges/YauCounterexample.json

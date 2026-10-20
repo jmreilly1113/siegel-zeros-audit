@@ -1,0 +1,91 @@
+Final prune, 2026-10-20 05:57:23 (Joe's rule 2026-10-12: prune build outputs, crash dumps and temp files when the run is done; each target looked at first).
+
+== D:\siegel-audit-offload crash dumps (nanoda 3a24072 stack-overflow aborts + 512 MiB diagnostic; cause now known, docs/log.md 2026-10-19/20). sha256 lists kept below; .dmp files deleted:
+-- /d/siegel-audit-offload/wsl-crashes-2026-10-12
+﻿wsl-crash-1791777969-12100-_usr_local_bin_nanoda_bin-6.dmp E6F402FAFE46F5C0E95D6AAEFD48092351F4E234C5157A4E000E7F61A70DC8BB
+wsl-crash-1791779820-22075-_usr_local_bin_nanoda_bin-6.dmp FAC6D8DB8730EB1792FEA05CD7261A5DBA86675B49DAB102A96A55F40939491B
+wsl-crash-1791781207-29864-_usr_local_bin_nanoda_bin-6.dmp E1CD0F476D7BBB170A690CE27360F7FF05A5800B36673B2335CEC1B40A31BEF6
+wsl-crash-1791793119-82392-_opt_nanoda-diag_nanoda_bin_bigstack-6.dmp 72132B4B72CAEE0FB5582142B5D20FF99182BD2DAA2DED61EB6D98DCE4729114
+2240856064 /d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791777969-12100-_usr_local_bin_nanoda_bin-6.dmp
+1502404608 /d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791779820-22075-_usr_local_bin_nanoda_bin-6.dmp
+991047680 /d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791781207-29864-_usr_local_bin_nanoda_bin-6.dmp
+9655496704 /d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791793119-82392-_opt_nanoda-diag_nanoda_bin_bigstack-6.dmp
+-- /d/siegel-audit-offload/wsl-crashes-2026-10-13
+﻿wsl-crash-1791880428-355456-_usr_local_bin_nanoda_bin-6.dmp 76DB0FDADC26C4607522345F507CB7235C7E7AB9B466424E35AE3BAD77C2F1E8
+d540db8b2d09e6ce9af73ddf661cd1bd14e349c1fc7c99cc51206de8aececb95 *wsl-crash-1791881449-357837-_usr_local_bin_nanoda_bin-6.dmp
+978ac3225cc72fdc22fbfdebcee87deb27986c1b92cea903ac92afb3a79b7cfb *wsl-crash-1791896455-434353-_usr_local_bin_nanoda_bin-6.dmp
+fa464c8f9bf6696f1b5b6875b29713a90057e8d1b617c8122aebc1cb42fd3937 *wsl-crash-1791905482-447676-_usr_local_bin_nanoda_bin-6.dmp
+1188487168 /d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791880428-355456-_usr_local_bin_nanoda_bin-6.dmp
+1207951360 /d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791881449-357837-_usr_local_bin_nanoda_bin-6.dmp
+3369766912 /d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791896455-434353-_usr_local_bin_nanoda_bin-6.dmp
+1468477440 /d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791905482-447676-_usr_local_bin_nanoda_bin-6.dmp
+-- /d/siegel-audit-offload/wsl-crashes-2026-10-19
+c11a5d7213b8db537ced162d132a2a2331986e56a57eb98825281a41907c3a2c *wsl-crash-1792442403-9024-_usr_local_bin_nanoda_bin-6.dmp
+3effbc1816bddb0af782021bdf38308147e853af539a4382289e244dedafd29d *wsl-crash-1792459539-98246-_usr_local_bin_nanoda_bin-6.dmp
+1478893568 /d/siegel-audit-offload/wsl-crashes-2026-10-19/wsl-crash-1792442403-9024-_usr_local_bin_nanoda_bin-6.dmp
+1478836224 /d/siegel-audit-offload/wsl-crashes-2026-10-19/wsl-crash-1792459539-98246-_usr_local_bin_nanoda_bin-6.dmp
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791777969-12100-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791779820-22075-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791781207-29864-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-12/wsl-crash-1791793119-82392-_opt_nanoda-diag_nanoda_bin_bigstack-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791880428-355456-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791881449-357837-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791896455-434353-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-13/wsl-crash-1791905482-447676-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-19/wsl-crash-1792442403-9024-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-19/wsl-crash-1792459539-98246-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-12/sha256-before-move.txt'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-13/sha256-before-move.txt'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-19/sha256-before-move.txt'
+rmdir: removing directory, '/d/siegel-audit-offload/wsl-crashes-2026-10-12'
+rmdir: removing directory, '/d/siegel-audit-offload/wsl-crashes-2026-10-13'
+rmdir: removing directory, '/d/siegel-audit-offload/wsl-crashes-2026-10-19'
+== WSL temp items (looked at: sizes in the survey above)
+-rw-r--r-- 1 root root 212993 Oct 20 03:04 /tmp/prune-midbatch.log
+
+/home/checker/corpus/pb-done:
+total 20
+drwxr-xr-x 5 root    root    4096 Oct 20 03:04 .
+drwxr-xr-x 4 checker checker 4096 Oct 20 03:49 ..
+drwxr-xr-x 2 root    root    4096 Oct 19 19:53 batch-06
+drwxr-xr-x 2 root    root    4096 Oct 19 23:51 batch-07
+drwxr-xr-x 2 root    root    4096 Oct 20 03:47 batch-08
+removed '/home/checker/corpus/pb-done/batch-07/CoulombIonization'
+removed '/home/checker/corpus/pb-done/batch-07/HarmonicArtin'
+removed '/home/checker/corpus/pb-done/batch-07/TamingCompatibility'
+removed '/home/checker/corpus/pb-done/batch-07/ran-Conductivity'
+removed '/home/checker/corpus/pb-done/batch-07/PerfectCompleteness'
+removed '/home/checker/corpus/pb-done/batch-07/ran-PerfectCompleteness'
+removed '/home/checker/corpus/pb-done/batch-07/BiholderTransport'
+removed '/home/checker/corpus/pb-done/batch-07/ran-HarmonicArtin'
+removed '/home/checker/corpus/pb-done/batch-07/ran-BiholderTransport'
+removed '/home/checker/corpus/pb-done/batch-07/ran-TamingCompatibility'
+removed '/home/checker/corpus/pb-done/batch-07/ran-CoulombIonization'
+removed '/home/checker/corpus/pb-done/batch-07/Conductivity'
+removed directory '/home/checker/corpus/pb-done/batch-07'
+removed '/home/checker/corpus/pb-done/batch-08/PartitionPrinciple'
+removed '/home/checker/corpus/pb-done/batch-08/DegreeRigidity'
+removed '/home/checker/corpus/pb-done/batch-08/ran-PartitionPrinciple'
+removed '/home/checker/corpus/pb-done/batch-08/ran-DegreeRigidity'
+removed directory '/home/checker/corpus/pb-done/batch-08'
+removed '/home/checker/corpus/pb-done/batch-06/ran-YauCounterexample'
+removed '/home/checker/corpus/pb-done/batch-06/YauCounterexample'
+removed directory '/home/checker/corpus/pb-done/batch-06'
+removed directory '/home/checker/corpus/pb-done'
+removed '/tmp/prune-midbatch.log'
+-- nanoda 512 MiB diagnostic copy (results/2026-10-12-nanoda-bigstack-diag/ keeps its findings; the binary in /opt/nanoda-diag is kept, 1.3M)
+7.5M	/root/tools/nanoda_lib-bigstack-diag
+removed /root/tools/nanoda_lib-bigstack-diag
+-- empty driver .out files
+-rw-r--r-- 1 root root 0 Oct 12 04:13 /home/checker/corpus/diag.out
+-rw-r--r-- 1 root root 0 Oct 11 23:25 /home/checker/corpus/headline.out
+-rw-r--r-- 1 root root 0 Oct 11 15:14 /home/checker/corpus/pilot-resume.out
+-rw-r--r-- 1 root root 0 Oct 20 03:49 /home/checker/corpus/postfix.out
+-rw-r--r-- 1 root root 0 Oct 12 04:27 /home/checker/corpus/remainder.out
+/home/checker/corpus/pilot-resume.out
+/home/checker/corpus/remainder.out
+/home/checker/corpus/headline.out
+/home/checker/corpus/diag.out
+/home/checker/corpus/postfix.out
+== kept: /home/checker/math/lean/.lake/build (39G, closures of the 14 keep-configs), packages, toolchains, /root/tools/{comparator,lean4export,landrun,nanoda_lib,nanoda_lib-postfix-f67473b}, /opt/nanoda-postfix, configs, guard.log
+  62G

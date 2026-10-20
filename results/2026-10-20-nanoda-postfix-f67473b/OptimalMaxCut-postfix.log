@@ -1,0 +1,42 @@
+== UNOFFICIAL post-fix run OptimalMaxCut (nanoda_lib f67473b, not the corpus-pinned 3a24072)  2026-10-20 03:49:17
+nanoda_bin: /opt/nanoda-postfix/nanoda_bin sha256 be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5
+config: /home/checker/corpus/configs/OptimalMaxCut-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.OptimalMaxCut",
+  "solution_module": "OAI.Computability.MaxCut.Main",
+  "theorem_names": [
+    "OAI.OptimalMaxCut.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/OptimalMaxCut.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+Running as unit: run-u45.service; invocation ID: 85646ffb52774916b54590ba23c749c8
+Building ComparatorChallenges.OptimalMaxCut
+⚠ [8924/8924] Replayed ComparatorChallenges.OptimalMaxCut
+warning: ComparatorChallenges/OptimalMaxCut.lean:153:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.OptimalMaxCut.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.OptimalMaxCut
+Building OAI.Computability.MaxCut.Main
+Build completed successfully (9295 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.OptimalMaxCut.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.MaxCut.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 8min 31.187s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 527

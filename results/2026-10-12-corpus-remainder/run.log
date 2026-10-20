@@ -457,3 +457,9 @@
 2026-10-20 03:04:54 guard: 69_corpus_guard.sh 85 1500 2
 2026-10-20 03:04:54 batch 8 of 8: 6 configs
 2026-10-20 03:04:54 PartitionPrinciple: prebuild (queue)
+2026-10-20 03:08:26 PartitionPrinciple: nanoda run
+2026-10-20 03:15:54 DegreeRigidity: prebuild (queue)
+2026-10-20 03:45:10 DegreeRigidity: nanoda run
+2026-10-20 03:47:40 batch 8 outcomes:       6 ACCEPT_BOTH 
+2026-10-20 03:48:31 batch 8 pruned: batches done 8 of 8; kept configs 14 + later configs 0; kept OAI modules 9273; present 11192; to prune 1919 modules, 11.64 GiB; apply=True; disk used 61G
+2026-10-20 03:48:33 end; clone status []; disk used 61G

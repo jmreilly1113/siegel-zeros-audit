@@ -1,0 +1,42 @@
+== UNOFFICIAL post-fix run IndependentSets (nanoda_lib f67473b, not the corpus-pinned 3a24072)  2026-10-20 05:44:51
+nanoda_bin: /opt/nanoda-postfix/nanoda_bin sha256 be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5
+config: /home/checker/corpus/configs/IndependentSets-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.IndependentSets",
+  "solution_module": "OAI.Combinatorics.IndependentSets.Main",
+  "theorem_names": [
+    "OAI.LargeIndependentSets.mainTheoremReal"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/IndependentSets.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+Running as unit: run-u52.service; invocation ID: 29f5d127e55b4131adb81a265a67746f
+Building ComparatorChallenges.IndependentSets
+⚠ [8924/8924] Replayed ComparatorChallenges.IndependentSets
+warning: ComparatorChallenges/IndependentSets.lean:77:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LargeIndependentSets.mainTheoremReal, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.IndependentSets
+Building OAI.Combinatorics.IndependentSets.Main
+Build completed successfully (9377 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LargeIndependentSets.mainTheoremReal, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.IndependentSets.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4min 25.704s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 276

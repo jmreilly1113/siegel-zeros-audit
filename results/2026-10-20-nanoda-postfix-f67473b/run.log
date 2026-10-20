@@ -1,0 +1,20 @@
+2026-10-20 03:49:17 start 99_postfix_batch.sh (UNOFFICIAL, nanoda f67473b); configs: OptimalMaxCut UniqueGamesTheorem VertexCover KaplanskyFinitelyPresented GroupRingDeterminant Laughlin BinPackingGap IndependentSets PerfectCompleteness 
+2026-10-20 03:49:17 OptimalMaxCut: post-fix nanoda run
+2026-10-20 03:58:04 OptimalMaxCut: POSTFIX_ACCEPT_BOTH
+2026-10-20 03:58:04 UniqueGamesTheorem: post-fix nanoda run
+2026-10-20 04:04:08 UniqueGamesTheorem: POSTFIX_ACCEPT_BOTH
+2026-10-20 04:04:08 VertexCover: post-fix nanoda run
+2026-10-20 04:08:13 VertexCover: POSTFIX_ACCEPT_BOTH
+2026-10-20 04:08:13 KaplanskyFinitelyPresented: post-fix nanoda run
+2026-10-20 04:14:41 KaplanskyFinitelyPresented: POSTFIX_ACCEPT_BOTH
+2026-10-20 04:14:41 GroupRingDeterminant: post-fix nanoda run
+2026-10-20 04:21:25 GroupRingDeterminant: POSTFIX_ACCEPT_BOTH
+2026-10-20 04:21:25 Laughlin: post-fix nanoda run
+2026-10-20 05:40:24 Laughlin: POSTFIX_ACCEPT_BOTH
+2026-10-20 05:40:24 BinPackingGap: post-fix nanoda run
+2026-10-20 05:44:51 BinPackingGap: POSTFIX_ACCEPT_BOTH
+2026-10-20 05:44:51 IndependentSets: post-fix nanoda run
+2026-10-20 05:49:28 IndependentSets: POSTFIX_ACCEPT_BOTH
+2026-10-20 05:49:28 PerfectCompleteness: post-fix nanoda run
+2026-10-20 05:55:21 PerfectCompleteness: POSTFIX_ACCEPT_BOTH
+2026-10-20 05:55:21 end

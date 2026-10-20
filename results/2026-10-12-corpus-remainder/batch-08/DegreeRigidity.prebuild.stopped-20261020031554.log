@@ -1,0 +1,4 @@
+== prebuild DegreeRigidity: lake build OAI.Computability.DegreeRigidity.Main ComparatorChallenges.DegreeRigidity with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-20 02:59:45
+Running as unit: run-u40.service; invocation ID: f9a5eafa31d044d6b361f5217d12eb37
+PREBUILD_SECONDS: 16
+disk used: 86G

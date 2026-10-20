@@ -1,4 +1,11 @@
-== prebuild DegreeRigidity: lake build OAI.Computability.DegreeRigidity.Main ComparatorChallenges.DegreeRigidity with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-20 02:59:45
-Running as unit: run-u40.service; invocation ID: f9a5eafa31d044d6b361f5217d12eb37
-PREBUILD_SECONDS: 16
-disk used: 86G
+== prebuild DegreeRigidity: lake build OAI.Computability.DegreeRigidity.Main ComparatorChallenges.DegreeRigidity with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-20 03:15:54
+Running as unit: run-u43.service; invocation ID: 75f1062c7f744ebe82fda7f82b1fd8c3
+⚠ [8930/9898] Built ComparatorChallenges.DegreeRigidity (40s)
+warning: ComparatorChallenges/DegreeRigidity.lean:38:8: declaration uses `sorry`
+Build completed successfully (9898 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 28min 13.817s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1752
+disk used: 73G

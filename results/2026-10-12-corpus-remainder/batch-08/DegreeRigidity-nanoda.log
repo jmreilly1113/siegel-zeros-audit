@@ -1,0 +1,43 @@
+== run DegreeRigidity  2026-10-20 03:45:10
+config: /home/checker/corpus/configs/DegreeRigidity-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.DegreeRigidity",
+  "solution_module": "OAI.Computability.DegreeRigidity.Main",
+  "theorem_names": [
+    "OAI.TuringRigidity.ManuscriptMain.rigidity"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/DegreeRigidity.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 73G
+Running as unit: run-u44.service; invocation ID: f5d8f7f53b174197a5dfcc4765fd2f89
+Building ComparatorChallenges.DegreeRigidity
+⚠ [8924/8924] Replayed ComparatorChallenges.DegreeRigidity
+warning: ComparatorChallenges/DegreeRigidity.lean:38:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.TuringRigidity.ManuscriptMain.rigidity, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.DegreeRigidity
+Building OAI.Computability.DegreeRigidity.Main
+Build completed successfully (9897 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.TuringRigidity.ManuscriptMain.rigidity, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.DegreeRigidity.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 22.975s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 148
+disk used after: 73G

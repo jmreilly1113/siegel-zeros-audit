@@ -1,8 +1,12 @@
-# Verification package: "Uniform exclusion of Landau–Siegel zeros" (openai/math family 003)
+# Verification package (PRELIMINARY): "Uniform exclusion of Landau–Siegel zeros" (openai/math family 003)
 
-DOI: [10.5281/zenodo.23269528](https://doi.org/10.5281/zenodo.23269528)
+> **Preliminary version (reviewer-packet-v2-preliminary).** No specialist review of this packet has been received. Nothing here has been revised in response to expert input. Read it as a record of machine checks and exact computations, not as a reviewed assessment of the paper.
 
-Cite as: Reilly, Joseph M. (2026). *Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks*. https://doi.org/10.5281/zenodo.23269528
+DOI (all versions): [10.5281/zenodo.23269527](https://doi.org/10.5281/zenodo.23269527). First version (reviewer-packet-v1): [10.5281/zenodo.23269528](https://doi.org/10.5281/zenodo.23269528).
+
+Cite as: Reilly, Joseph M. (2026). *Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks (preliminary)*. https://doi.org/10.5281/zenodo.23269527
+
+Changes since reviewer-packet-v1: declaration-level overlap between the two Lean routes (`results/2026-10-09-route-declaration-overlap.txt`, `src/route_overlap.py`), the issue #40 follow-up (`docs/issue40-followup.md`), the DOI in `CITATION.cff`, and the log up to 2026-10-11. A separate corpus-wide comparator replay of openai/math is not part of this package.
 
 This repository checks the paper and its Lean formalization at openai/math commit `adc7f12`. The pinned files are unchanged at `fd4aeeb`. We test what can be tested by exact computation and by machine-checked proof, and we record what we could not check. It is not a proof of the theorem and does not replace expert reading. Throughout, we keep apart what the paper states, what we computed (each claim cites a file in `results/`) and what we infer.
 

@@ -1,9 +1,0 @@
-== prebuild QuasiRiemannHypothesis: lake build OAI.NumberTheory.DirichletL.Nonvanishing with LEAN_NUM_THREADS=4  2026-10-11 15:14:13
-Running as unit: run-u0.service; invocation ID: 01ed92fcd39e4c989b35a687138260e2
-Build completed successfully (7061 jobs).
-Finished with result: success
-Main processes terminated with: code=exited/status=0
-Service runtime: 15min 37.899s
-PREBUILD EXIT CODE: 0
-PREBUILD_SECONDS: 885
-disk used: 33G

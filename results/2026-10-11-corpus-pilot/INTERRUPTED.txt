@@ -1,6 +1,0 @@
-Pilot interrupted 2026-10-11 at about 14:41 EDT (computed from the QuasiRiemannHypothesis log's last write).
-Cause (from Claude Code's notice): Claude Code stopped its background commands, the pilot driver (wsl-comparator/68_corpus_pilot.sh, launched via wsl.exe) and a waiter, because Windows was critically low on memory. This was not an error in the build.
-State afterwards (computed): no checker comparator/lake/lean processes, no pilot driver, no disk watchdog in WSL. WSL disk use 32 GB (24 GB before the pilot).
-Completed before the interruption: SiegelZeros (nanoda on) ACCEPT_BOTH, exit 0, 920 s. Control (a) without Classical.choice: rejected, "Illegal axiom detected: 'Classical.choice'", exit 1, 210 s. Control (b) with 3 ≤ q changed to 2 ≤ q in a copied challenge: rejected, "Challenge and solution theorem statement do not match", exit 1, 214 s; the copy was removed and the clone status is clean.
-Not completed: QuasiRiemannHypothesis stopped during the solution build at job 6589/7061, with no verdict; its log ends mid-line. EditApproximation was not started.
-Lake keeps finished .olean files, so a rerun of the same command would resume the build rather than restart it (inferred from Lake's incremental behaviour; not yet tested here).

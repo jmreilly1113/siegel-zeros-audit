@@ -1,7 +1,0 @@
-config	prebuild_targets	in_sample
-PlanarFalconer	OAI.MeasureTheory.Falconer.Main ComparatorChallenges.PlanarFalconer	False
-Jacobsthal	OAI.NumberTheory.Jacobsthal.Main ComparatorChallenges.Jacobsthal	False
-RieszQuantitative	OAI.Analysis.RieszRectifiability.Main ComparatorChallenges.RieszQuantitative	False
-FreeIsing	OAI.Probability.FreeIsing.Main ComparatorChallenges.FreeIsing	False
-PartitionPrinciple	OAI.SetTheory.PartitionPrinciple.Main ComparatorChallenges.PartitionPrinciple	False
-DegreeRigidity	OAI.Computability.DegreeRigidity.Main ComparatorChallenges.DegreeRigidity	False

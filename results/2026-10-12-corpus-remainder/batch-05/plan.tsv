@@ -1,7 +1,0 @@
-config	prebuild_targets	in_sample
-ThorpRouting	OAI.Probability.ThorpRouting.Main ComparatorChallenges.ThorpRouting	False
-WeakMTWGlobalSupport	OAI.Geometry.WeakMTW.Main ComparatorChallenges.WeakMTWGlobalSupport	False
-VlasovMaxwell	OAI.Analysis.VlasovMaxwell.Main ComparatorChallenges.VlasovMaxwell	False
-Laughlin	OAI.Analysis.Laughlin.Main ComparatorChallenges.Laughlin	False
-BorsukNine	OAI.Geometry.Borsuk.Main ComparatorChallenges.BorsukNine	False
-BinPackingGap	OAI.Computability.BinPacking.Main ComparatorChallenges.BinPackingGap	True

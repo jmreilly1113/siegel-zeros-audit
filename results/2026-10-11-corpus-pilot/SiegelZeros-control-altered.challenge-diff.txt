@@ -1,6 +1,0 @@
-== control (b) challenge copy: diff SiegelZeros.lean SiegelZerosAlteredControl.lean
-10c10
-<       ∀ (q : ℕ) [NeZero q], 3 ≤ q →
----
->       ∀ (q : ℕ) [NeZero q], 2 ≤ q →
-clone status after removing the control file: ''

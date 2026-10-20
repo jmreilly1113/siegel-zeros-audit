@@ -1,17 +1,20 @@
 cff-version: 1.2.0
 message: "If you use this verification package, please cite it as below."
 type: software
-title: "Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks"
+title: "Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks (preliminary)"
 authors:
   - family-names: Reilly
     given-names: Joseph M.
     affiliation: Northeastern University
-version: reviewer-packet-v1
-doi: 10.5281/zenodo.23269528
+version: reviewer-packet-v2-preliminary
+doi: 10.5281/zenodo.23269527
 identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23269527
+    description: "Zenodo concept DOI (all versions)"
   - type: doi
     value: 10.5281/zenodo.23269528
     description: "Zenodo archive of the reviewer-packet-v1 release"
 license: Apache-2.0
 repository-code: "https://github.com/jmreilly1113/siegel-zeros-audit"
-date-released: "2026-10-09"
+date-released: "2026-10-20"

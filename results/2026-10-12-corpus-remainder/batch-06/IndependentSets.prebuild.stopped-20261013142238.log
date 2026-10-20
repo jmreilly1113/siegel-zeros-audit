@@ -1,4 +1,0 @@
-== prebuild IndependentSets: lake build OAI.Combinatorics.IndependentSets.Main ComparatorChallenges.IndependentSets with LEAN_NUM_THREADS=10 (prebuild queue, 85)  2026-10-13 13:02:39
-Running as unit: run-u362.service; invocation ID: b8bd941660124c769be6757ce32cb787
-PREBUILD_SECONDS: 20
-disk used: 66G

@@ -1,0 +1,36 @@
+{
+  "title": "Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: comparator + nanoda replay, Lean formalization of the paper's Lemma 3, rerouted proof, exact small-N checks (preliminary)",
+  "upload_type": "software",
+  "version": "reviewer-packet-v2-preliminary",
+  "publication_date": "2026-10-20",
+  "description": "<p><strong>PRELIMINARY VERSION.</strong> No specialist review of this packet has been received, and nothing in it has been revised in response to expert input.</p><p>Independent checks of the paper \"Uniform exclusion of Landau–Siegel zeros\" (openai/math, family 003, preprint of 1 Oct 2026) and its Lean formalization at openai/math commit adc7f1241b42e322a6451854ab7e4b4c146bf78a. It contains: the official Lean FRO comparator rerun with nanoda as a second kernel and the network blocked; a Lean formalization of the paper's own proof of Lemma 3; the main theorem rerouted through that Lemma 3 and accepted by the comparator with both kernels; exact small-N checks of Sections 3–5 (these confirm the lemmas at those N only); and a declaration-level overlap between the two Lean routes. It is not a proof of the theorem and does not replace expert reading. Claims are separated into what the paper states, what was computed (each with a results file) and what is inferred.</p><p>A separate corpus-wide comparator replay of openai/math is not part of this version.</p>",
+  "creators": [
+    {
+      "name": "Reilly, Joseph M.",
+      "affiliation": "Northeastern University"
+    }
+  ],
+  "license": "Apache-2.0",
+  "notes": "Preliminary: no specialist review received as of 2026-10-20. Prose documentation (docs/*.md, README) and results/ outputs are CC BY 4.0; code and Lean files original to the project are Apache-2.0; files copied from openai/math are Apache-2.0 under OpenAI's copyright (see LICENSE-openai-math, MODIFICATIONS.md).",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/reviewer-packet-v2-preliminary",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+      "relation": "references",
+      "scheme": "url"
+    }
+  ],
+  "keywords": [
+    "Landau-Siegel zeros",
+    "Dirichlet L-functions",
+    "Lean 4",
+    "formal verification",
+    "comparator",
+    "nanoda"
+  ]
+}

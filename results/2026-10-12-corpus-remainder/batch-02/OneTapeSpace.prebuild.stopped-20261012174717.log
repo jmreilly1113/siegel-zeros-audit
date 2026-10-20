@@ -1,7 +1,0 @@
-== prebuild OneTapeSpace: lake build OAI.Computability.SpaceSimulation.Main ComparatorChallenges.OneTapeSpace with LEAN_NUM_THREADS=4  2026-10-12 17:17:25
-Running as unit: run-u228.service; invocation ID: dad94a5e6b894a809e7d443fba7e2399
-⚠ [8926/8973] Built ComparatorChallenges.OneTapeSpace (48s)
-warning: ComparatorChallenges/OneTapeSpace.lean:258:8: declaration uses `sorry`
-warning: ComparatorChallenges/OneTapeSpace.lean:265:8: declaration uses `sorry`
-PREBUILD_SECONDS: 124
-disk used: 52G

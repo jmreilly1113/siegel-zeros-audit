@@ -1,9 +1,0 @@
-== prebuild EditApproximation: lake build OAI.Combinatorics.EditApproximation.Specification.RawBandMain with LEAN_NUM_THREADS=4  2026-10-11 15:45:54
-Running as unit: run-u3.service; invocation ID: e12ee322318b4957a3ee6c2d4f9a0d3e
-Build completed successfully (9947 jobs).
-Finished with result: success
-Main processes terminated with: code=exited/status=0
-Service runtime: 43min 40.711s
-PREBUILD EXIT CODE: 0
-PREBUILD_SECONDS: 2417
-disk used: 39G

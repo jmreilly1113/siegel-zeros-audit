@@ -1,8 +1,0 @@
-== headline batch start 2026-10-11 20:53:25
-clone HEAD: fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: []
-guard: 69_corpus_guard.sh 60 1500 (WSL disk use cap 60 GiB, MemAvailable floor 1500 MB)
-disk used: 39G
-sample (seed 20261011): BinPackingGap, BinaryMatching, BoundedRecovery, GrothendieckElementaryExpansion, KMedianRecovery, KaplanskyFinitelyPresented, LiebThirring, PosteriorReplicas, ProjectionMoments, ProjectionVolume
-2026-10-11 20:53:27 DirichletSevenEighths: prebuild
-2026-10-11 20:54:43 DirichletSevenEighths: nanoda run
-disk used at end: 39G; clone status: []

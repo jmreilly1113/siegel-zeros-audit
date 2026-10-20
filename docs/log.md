@@ -683,3 +683,53 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Record: status published, DOI 10.5281/zenodo.23505836, concept DOI 10.5281/zenodo.23505835 (a new concept, separate from the Siegel packet's 10.5281/zenodo.23269527).
   - Software, cc-by-4.0, version corpus-replay-2026-10-20; one file, siegel-zeros-audit-corpus-replay.zip, 1,055,523 bytes, md5 f39dcc4127b739d63b5d32a278b8238d. Related: 23269527 isSupplementTo, the repo at 60552ee isSupplementTo, openai/math fd4aeeb references.
   - DOI added to README-corpus-replay.md. The token was used for nothing after the publish call; Joe will revoke it.
+- 2026-10-20, new task: explicit-constant analysis of the Siegel paper (Joe's brief). Step 1 (no code):
+  - Sources downloaded into separate scratch directories and read locally (text via pdftotext/pypdf). Quotes, ranges and hashes are in docs/effectivity/sources.md.
+    - Read: LZZ arXiv:2602.03626v1 (same sha256 as the October 9 record; Theorem 1.1 and its Platt summary); arXiv:1703.08032 §5.2 (quoting Rosser–Schoenfeld Theorem 6 with its ranges x > 1 and x ≥ 319); Platt–Trudgian arXiv:1407.1914 (Theorem 1, Corollary 2: θ(x) < (1 + 7.5e-7)x for x > 0); arXiv:2511.13898 Appendix Lemma 12.
+    - Not accessed: Rosser–Schoenfeld 1962 (Project Euclid returned HTML), Platt 2016, Davenport.
+    - The LibKey connector needs Joe's authorization (/mcp); not used yet.
+  - Derivation: docs/effectivity/derivation.md. Explicit (2.1), (2.2), (5.1), (5.6)/(5.7), Lemma 6 and (6.2), with every side condition (SC1-SC14).
+    - Your master inequality checks out term by term.
+    - Corrections: the (2.1) justification drops +½ψ(3/2) (the formula is still true because κ = ½ψ(3/2) − ½ log π < 0); C_ℓ can be ½ + e/4; H is a free parameter; Lemma 4.1/(5.4) are Lemma 6/(5.6)-(5.7); the fifth term's remainder is kept exactly.
+    - EXPLORATORY float check of λ = 35.5, q = 1.2e4: δ ≈ 1.30e-3, consistent with Joe's 1.29e-3.
+  - Waiting for approval (step 2).
+- 2026-10-20, explicit constant, step 3 (Joe approved step 1 with the corrections):
+  - src/effectivity.py; output results/2026-10-20-effectivity/effectivity-output.txt (Python 3.14.6, python-flint 0.9.0, Arb 256 bits). Float search for parameters only; every reported value is certified in Arb at exact rational γ and integer H.
+  - Lemma 12's final inequality is proved for all σ > 1: an exact chain on (1, 1.01], Arb on [1.01, 5] in 4,000 pieces (minimum lower bound 0.0388), algebra for σ ≥ 5.
+  - COMPUTED, certified, best valid inputs:
+    - q > 4e5: δ₀ > 3.3992904027e-3 (γ = 201/10, H = 1,995,262,314);
+    - q > 1e10: δ₀ > 4.4673780338e-3 (γ = 153/10, H = 2,818,382,931);
+    - argument alone, q ≥ 3, q ≠ 8: δ₀ > 5.0425352962e-4 (c_q = ½, γ = 671/5, H = 1,122,018,454).
+    - At the paper's H = 86,713,344: 2.065e-3, 2.652e-3, 3.245e-4. All side conditions certified.
+  - Reconciliation with docs/explicit-constant.md: its inputs reproduced in this code give 3.041e-4, 2.0001e-3, 2.5919e-3 (it reported values below the maximum, with margin F ≈ 9.4e-5). Its "all q ≥ 3" figure came from large λ alone, as here, with q = 8 excepted.
+  - Tests: tests/test_effectivity.py (8 new); `.venv/Scripts/python -m pytest tests -q` gives 23 passed.
+  - LibKey: still exposes only its authentication tools in this session, so nothing was retrieved. Rosser–Schoenfeld, Platt 2016 and Davenport stay secondary-only, as recorded in sources.md and the note's assumptions.
+- Step 4: docs/effectivity/note.md written. Stopped at step 5 for Joe's approval before commit and push.
+- 2026-10-20, after the session restart: the LibKey retrieval tools (get_doi) are now available.
+  - Rosser–Schoenfeld 1962 (doi:10.1215/ijm/1255631807) and Platt 2016 (doi:10.1090/mcom/3077) both resolve to Northeastern full-text links. Davenport's book DOI is not in LibKey (it covers articles, not books).
+  - The libkey.io links need JavaScript and Joe's library login. A scripted download gets only a stub page. Unpaywall lists Project Euclid's open-access PDF of Rosser–Schoenfeld, but that site blocks the scripted download.
+  - Nothing new has been read yet. S3, Platt 2016 and S7 stay "not accessed" until Joe saves the PDFs locally.
+- 2026-10-20, originals read (Joe saved the LibKey PDFs to D:\siegel-sources\; sha256 in docs/effectivity/sources.md):
+  - Rosser–Schoenfeld Thm 6, (3.21)–(3.22), p. 70: matches the S4 quote exactly. E from (2.11) lies inside the enclosure in src/effectivity.py.
+  - Platt 2016 Thms 10.1 (GRH, q ≤ 400 000) and 10.2 (L(1/2) ≠ 0, q ≤ 2·10⁶). Together (inference) they rule out real zeros in (0,1) for q ≤ 4·10⁵, matching the LZZ summary.
+  - Davenport 2nd ed. Ch. 12 (17)–(18), p. 83, with a = ε (pp. 69–70): taking real parts gives (2.3) exactly.
+  - No numbers change. note.md, derivation.md and sources.md are updated; the assumptions now cite the originals.
+  - Unpaywall was queried with Joe's email as the contact parameter. That should not have been done without asking.
+- 2026-10-20, rounding correction (found while preparing note.tex):
+  - effectivity-output.txt printed each "certified: delta0 >" value with `:.10e`, which rounds to nearest. For several rows that is above the Arb lower endpoint. Example: [0.00339929040265590 ± 2.9e-18] printed as "> 3.3992904027e-03". The Lemma 12 minimum, 0.03879 (printed with :.4g), was rounded up too.
+  - Fix: src/effectivity.py `floor_sci` floors the exact Arb lower endpoint (man_exp, Fraction). New test test_floor_sci_rounds_down; 24 passed.
+  - Rerun: results/2026-10-20-effectivity/effectivity-output-v2.txt. The old file is kept, unmodified.
+  - Only printed digits changed; no ball changed. Corrected certified values:
+    - 3.3992904026e-3 (Platt);
+    - 4.4673780338e-3 (LZZ, unchanged);
+    - 5.0425352961e-4 (argument alone);
+    - paper's H: 2.064e-3, 2.652e-3, 3.245e-4;
+    - Lemma 12 minimum > 3.878e-2.
+  - The headline constants 3.399e-3, 4.467e-3 and 5.04e-4 are unaffected. The figures in the step-3 entry above are superseded by these.
+- 2026-10-20, note.tex and PDF:
+  - note.tex had not been written before. It is now docs/effectivity/note.tex, translated from note.md with the corrected figures.
+  - Built to docs/effectivity/note.pdf: 5 pages, sha256 5ec6bcd028b8e89e30eb92ea334d1f915acf0856c1a278c93ca36d3050ec970e. One cosmetic underfull box; no errors or undefined references.
+  - Toolchain: WSL Ubuntu-24.04, TeX Live 2023/Debian (pdfTeX 3.141592653-2.6-1.40.25), latexmk 4.83, installed today via apt. Command: `latexmk -pdf note.tex` in docs/effectivity.
+  - Reference initials checked against refs/ and the PDFs. The LZZ authors are R. F. Lu, A. Zaman, H. Zhao. Initials that could not be verified are omitted.
+  - sources.md trimmed to the statements the note relies on: unused quotes (Dusart, Axler Prop. 5.2, Platt–Trudgian Thm 1 and the ψ−θ half of Cor. 2, RS (3.23)/(3.24)) and the superseded access-status text are removed.
+  - Standing rule from Joe: no name, email or contact details to external services without asking.

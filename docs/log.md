@@ -673,3 +673,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - a. New deposition 23505836, a new concept (conceptrecid 23505835, not 23269527). b. Upload: Zenodo md5 = ours (6f1fc8bc75b3458d7355b502f9c1529a). c. Metadata set; reserved DOI 10.5281/zenodo.23505836. State: unsubmitted.
   - d. Stopped, not published. Draft https://zenodo.org/deposit/23505836 is waiting for Joe's review. Output: create-output.txt, deposit-state.json.
 - 2026-10-20, Joe's review of the draft (not approved yet): relation to the Siegel packet changed to isSupplementTo; a corpus README added (README-corpus-replay.md on main, README.md at the zip root, with main's README renamed to README-siegel-packet.md in the zip); docs/drafts/ excluded; license kept CC BY 4.0. Also excluded: results/2026-10-20-corpus-zenodo/ (the deposit's own records). The commit/GitHub URL in the metadata is updated to the new commit after it exists.
+- 2026-10-20, Zenodo draft 23505836 updated (still unsubmitted; not published; results/2026-10-20-corpus-zenodo/replace-output.txt):
+  - Zip v2 built from 60552ee (zip-manifest-v2.txt): 847 files, 1,055,523 bytes, sha256 62baa3a30c73b79130a14c0b4a9b2ff4c813509c509517335b4983b2b7fd24bf, md5 f39dcc4127b739d63b5d32a278b8238d. README-corpus-replay.md becomes README.md in the zip, main's README becomes README-siegel-packet.md, and docs/drafts/ is excluded.
+  - The old file was deleted (HTTP 204), the new one uploaded; Zenodo md5 = ours; the draft holds exactly that one file.
+  - Metadata: relation to 10.5281/zenodo.23269527 is now isSupplementTo; the GitHub tree and the notes point to 60552ee. Reserved DOI unchanged: 10.5281/zenodo.23505836. Token scan of all outputs is clean.
+  - Waiting for Joe's approval before publishing.

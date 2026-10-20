@@ -1,0 +1,6 @@
+deleted old file siegel-zeros-audit-corpus-replay.zip (md5 6f1fc8bc75b3458d7355b502f9c1529a): status=204
+uploaded siegel-zeros-audit-corpus-replay.zip: status=201 size=1055523 zenodo md5=f39dcc4127b739d63b5d32a278b8238d ours=f39dcc4127b739d63b5d32a278b8238d match=True
+files now in draft: [('siegel-zeros-audit-corpus-replay.zip', 1055523.0, 'f39dcc4127b739d63b5d32a278b8238d')]
+metadata set: status=200 DOI=10.5281/zenodo.23505836 state=unsubmitted submitted=False
+   related_identifiers=[{'identifier': '10.5281/zenodo.23269527', 'relation': 'isSupplementTo', 'scheme': 'doi'}, {'identifier': 'https://github.com/jmreilly1113/siegel-zeros-audit/tree/60552ee34358aa226d8d525ece9eda2033e38e46', 'relation': 'isSupplementTo', 'resource_type': 'software', 'scheme': 'url'}, {'identifier': 'https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb', 'relation': 'references', 'scheme': 'url'}]
+STOP (not published). Draft: https://zenodo.org/deposit/23505836

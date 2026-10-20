@@ -2,10 +2,10 @@
  "id": 23505836,
  "bucket": "https://zenodo.org/api/files/a77d2fd8-fea3-41cc-b6bb-0dd84e043b60",
  "html": "https://zenodo.org/deposit/23505836",
- "zip_sha256": "f2c82528be1748deb0fd95498cde4f6dc8021d7ab388223a4ba161c16325586a",
- "zip_md5": "6f1fc8bc75b3458d7355b502f9c1529a",
+ "zip_sha256": "62baa3a30c73b79130a14c0b4a9b2ff4c813509c509517335b4983b2b7fd24bf",
+ "zip_md5": "f39dcc4127b739d63b5d32a278b8238d",
  "doi": "10.5281/zenodo.23505836",
  "conceptrecid": "23505835",
- "zenodo_md5": "6f1fc8bc75b3458d7355b502f9c1529a",
+ "zenodo_md5": "f39dcc4127b739d63b5d32a278b8238d",
  "file": "siegel-zeros-audit-corpus-replay.zip"
 }

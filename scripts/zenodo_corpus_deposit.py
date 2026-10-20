@@ -87,6 +87,46 @@ def create(zip_path, meta_path, state_path):
     print(redact(f"d. STOP (not published). Draft: {state['html']}"))
 
 
+def replace(zip_path, meta_path, state_path):
+    """Delete the draft's files, upload the new zip, compare md5, set the metadata. Does NOT publish."""
+    state = json.load(open(state_path, encoding="utf-8"))
+    did = state["id"]
+    data = open(zip_path, "rb").read()
+    md5 = hashlib.md5(data).hexdigest()
+    sha = hashlib.sha256(data).hexdigest()
+    st, files = call("GET", f"{API}/deposit/depositions/{did}/files")
+    for f in files:
+        st2, _ = call_noresp("DELETE", f"{API}/deposit/depositions/{did}/files/{f['id']}")
+        print(redact(f"deleted old file {f.get('filename')} (md5 {f.get('checksum')}): status={st2}"))
+    name = os.path.basename(zip_path)
+    st, f = call("PUT", f"{state['bucket']}/{name}", data=data)
+    zmd5 = str(f.get("checksum", "")).replace("md5:", "")
+    print(redact(f"uploaded {name}: status={st} size={f.get('size')} zenodo md5={zmd5} ours={md5} match={zmd5 == md5}"))
+    if zmd5 != md5:
+        print("STOP: checksum mismatch")
+        sys.exit(1)
+    st, files = call("GET", f"{API}/deposit/depositions/{did}/files")
+    print(redact(f"files now in draft: {[(x.get('filename'), x.get('filesize'), x.get('checksum')) for x in files]}"))
+    meta = json.load(open(meta_path, encoding="utf-8"))
+    st, dep2 = call("PUT", f"{API}/deposit/depositions/{did}", body={"metadata": meta})
+    m = dep2.get("metadata", {})
+    print(redact(f"metadata set: status={st} DOI={(m.get('prereserve_doi') or {}).get('doi')} state={dep2.get('state')} submitted={dep2.get('submitted')}"))
+    print(redact(f"   related_identifiers={m.get('related_identifiers')}"))
+    state.update({"zip_sha256": sha, "zip_md5": md5, "zenodo_md5": zmd5, "file": name})
+    json.dump(state, open(state_path, "w", encoding="utf-8"), indent=1)
+    print(redact(f"STOP (not published). Draft: {state['html']}"))
+
+
+def call_noresp(method, url):
+    req = urllib.request.Request(url, method=method, headers={"Authorization": "Bearer " + os.environ["ZENODO_TOKEN"]})
+    try:
+        with urllib.request.urlopen(req, timeout=300) as r:
+            return r.status, None
+    except urllib.error.HTTPError as e:
+        print(redact(f"FAILED {method} {url}: HTTP {e.code} {e.read().decode('utf-8', 'replace')[:2000]}"))
+        sys.exit(1)
+
+
 def publish(state_path):
     state = json.load(open(state_path, encoding="utf-8"))
     st, dep = call("POST", f"{API}/deposit/depositions/{state['id']}/actions/publish", body={})
@@ -99,5 +139,7 @@ if __name__ == "__main__":
     load_token()
     if sys.argv[1] == "create":
         create(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1] == "replace":
+        replace(sys.argv[2], sys.argv[3], sys.argv[4])
     elif sys.argv[1] == "publish":
         publish(sys.argv[2])

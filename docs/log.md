@@ -663,3 +663,4 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Re-setup copied the packages again. Windows free RAM fell to 1,719 MB after the copy, so I waited until it was back above 8 GB (11.5 GB) before building.
   - Final clean build: results/2026-10-20-statement-checks/lean-build-final-v2.log, 34 axiom outputs, all standard. Sources: lean-sources-v2.sha256.
   - Pruned again (prune-v2.txt: 12 .olean files, packages removed; WSL 31G -> 23G). statement-checks/prune.sh added.
+- 2026-10-20: committed and pushed the statement checks as 1a11952 (remote = local). Draft comment for grwtsk/openai-math#29 ("[AUDIT.26] ... bind paper statements to exact Lean declarations", open; its example is the September 30 QRH manuscript; #10 is related) saved as docs/drafts/2026-10-20-issue29-statement-check.md. Not posted; waiting for Joe's approval.

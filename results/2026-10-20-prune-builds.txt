@@ -1,0 +1,56 @@
+Builds prune, 2026-10-20 08:33:06 (Joe 2026-10-20 step 7: delete the 39G kept builds and the disc exports; keep all tool binaries; delete the 4 new dumps on D:; then compact the WSL image).
+== WSL before: 63G used
+-- /home/checker/math/lean/.lake/build: 39G; top level:
+total 16
+drwxrwxr-x 4 checker checker 4096 Oct  8 12:15 .
+drwxrwxr-x 5 checker checker 4096 Oct  8 12:15 ..
+drwxrwxr-x 4 checker checker 4096 Oct  8 12:17 ir
+drwxrwxr-x 3 checker checker 4096 Oct  8 12:15 lib
+-- OAI/ComparatorChallenges modules present (.olean): 9273
+-- /home/checker/corpus/disc:
+total 1323840
+drwxr-xr-x 2 checker checker      4096 Oct 20 08:12 .
+drwxr-xr-x 4 checker checker      4096 Oct 20 08:19 ..
+-rw-r--r-- 1 checker checker       255 Oct 20 08:11 GroupRingDeterminant.R1.json
+-rw-r--r-- 1 checker checker       255 Oct 20 08:12 GroupRingDeterminant.R2.json
+-rw-rw-r-- 1 checker checker 698227515 Oct 20 08:11 GroupRingDeterminant.export
+-rw-r--r-- 1 checker checker       261 Oct 20 08:05 KaplanskyFinitelyPresented.R1.json
+-rw-r--r-- 1 checker checker       261 Oct 20 08:06 KaplanskyFinitelyPresented.R2.json
+-rw-rw-r-- 1 checker checker 657348158 Oct 20 08:05 KaplanskyFinitelyPresented.export
+bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5  /home/checker/corpus/disc/GroupRingDeterminant.export
+7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c  /home/checker/corpus/disc/KaplanskyFinitelyPresented.export
+removed /home/checker/math/lean/.lake/build
+removed /home/checker/corpus/disc
+-- kept: tool binaries
+-rwxr-xr-x 1 root root   1351016 Oct 20 08:19 /opt/nanoda-1gib-diag/nanoda_bin
+-rwxr-xr-x 1 root root   1351016 Oct 12 04:12 /opt/nanoda-diag/nanoda_bin_bigstack
+-rwxr-xr-x 1 root root   1353168 Oct 20 03:49 /opt/nanoda-postfix/nanoda_bin
+-rwxr-xr-x 1 root root 233952032 Oct  8 11:47 /usr/local/bin/lean4export
+-rwxr-xr-x 1 root root   1351016 Oct  8 14:02 /usr/local/bin/nanoda_bin
+-- clone status: []
+/: 943.3 GiB (1012890644480 bytes) trimmed
+== WSL after: 23G used
+
+== D:\siegel-audit-offload\wsl-crashes-2026-10-20 (R1/R2 aborts; hashes recorded in results/2026-10-20-nanoda-discrepancy/dumps-moved.txt and below)
+f72f6f6e64eaa3aecc4f586f811d6ba18e5ace1005da6a774fec731a48398526 *wsl-crash-1792497988-661-_usr_local_bin_nanoda_bin-6.dmp
+4cdd4c69e776a1db4cc569d4d494a642fe1d0ac56043df6557d5d4e6e28f2beb *wsl-crash-1792498084-711-_usr_local_bin_nanoda_bin-6.dmp
+f9b29ee07c4ee5419cd03ee44a1e178637339168c47aa9128ab442affdbb9cb2 *wsl-crash-1792498327-1433-_usr_local_bin_nanoda_bin-6.dmp
+89a904520d16dc3acbba4f2e55079296ffceff49a7e691decd10dc12dbcbdbbd *wsl-crash-1792498448-2050-_usr_local_bin_nanoda_bin-6.dmp
+1206956032 /d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792497988-661-_usr_local_bin_nanoda_bin-6.dmp
+1002999808 /d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792498084-711-_usr_local_bin_nanoda_bin-6.dmp
+1207431168 /d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792498327-1433-_usr_local_bin_nanoda_bin-6.dmp
+1002999808 /d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792498448-2050-_usr_local_bin_nanoda_bin-6.dmp
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792497988-661-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792498084-711-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792498327-1433-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-20/wsl-crash-1792498448-2050-_usr_local_bin_nanoda_bin-6.dmp'
+removed '/d/siegel-audit-offload/wsl-crashes-2026-10-20/sha256-before-move.txt'
+rmdir: removing directory, '/d/siegel-audit-offload/wsl-crashes-2026-10-20'
+
+== WSL image compaction (prepared, not yet run: needs an elevated shell; this session is not admin, and
+   Optimize-VHD is not available on Windows 11 Home)
+WSL shut down. fstrim inside WSL reported 943.3 GiB trimmed (free space marked unused before compaction).
+Image: C:\Users\Work\AppData\Local\wsl\{beda3264-2b75-4d2c-b8d2-931eeb830b69}\ext4.vhdx (Ubuntu-24.04, per HKCU Lxss BasePath)
+Size before compaction: 93,405,052,928 bytes (93.41 GB). (Measured at 86.99 GB on 2026-10-20 ~08:25; it grew during the
+test exports and the deletions.)
+Command (admin PowerShell, WSL shut down): diskpart /s C:\Users\Work\dev\siegel\scripts\compact-wsl-vhdx.txt

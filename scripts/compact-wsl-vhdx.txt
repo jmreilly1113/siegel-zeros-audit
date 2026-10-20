@@ -1,0 +1,5 @@
+select vdisk file="C:\Users\Work\AppData\Local\wsl\{beda3264-2b75-4d2c-b8d2-931eeb830b69}\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit

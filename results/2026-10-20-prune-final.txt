@@ -89,3 +89,19 @@ removed /root/tools/nanoda_lib-bigstack-diag
 /home/checker/corpus/postfix.out
 == kept: /home/checker/math/lean/.lake/build (39G, closures of the 14 keep-configs), packages, toolchains, /root/tools/{comparator,lean4export,landrun,nanoda_lib,nanoda_lib-postfix-f67473b}, /opt/nanoda-postfix, configs, guard.log
   62G
+
+== CORRECTION NOTE, appended 2026-10-20 (Joe's review); nothing above is rewritten
+1. Dump total. COMPUTED by summing the 10 .dmp sizes listed above
+   (awk '$2 ~ /\.dmp$/ {s+=$1} END {print s}' on this file): 24,582,217,728 bytes = 24.58 GB = 22.89 GiB.
+   docs/log.md (2026-10-20 final-prune entry) said "23.6 GB"; that figure was wrong.
+2. "14 keep-configs". The 14 is the line count of results/2026-10-12-corpus-remainder/keep-configs.txt, which
+   76_prune.py reports as "kept configs 14". The schedule JSONs' kept_configs field lists only the 3 pilot configs;
+   the drivers append every config whose batch outcome was not ACCEPT_BOTH. COMPUTED (sort | uniq -c on that file):
+   14 lines, 13 distinct configs, because IndependentSets appears twice (batch 6 was classified twice: once in the
+   2026-10-19 19:25 race, once after the rerun). The 13:
+     pilot (schedule kept_configs):    SiegelZeros, QuasiRiemannHypothesis, EditApproximation
+     ACCEPT_LEAN_ONLY (9):             OptimalMaxCut, UniqueGamesTheorem, VertexCover, KaplanskyFinitelyPresented,
+                                       GroupRingDeterminant, Laughlin, BinPackingGap, IndependentSets,
+                                       PerfectCompleteness
+     appended by the batch-6 race:     YauCounterexample (labeled BUILD_FAIL then; official outcome ACCEPT_BOTH)
+   So the 39G kept builds are the closures of these 13 configs.

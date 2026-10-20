@@ -37,8 +37,12 @@ Outcomes (COMPUTED, outcomes.tsv and <name>-postfix.log). Each log has "nanoda k
   9 of 9 POSTFIX_ACCEPT_BOTH. No guard stops; no STOPPED runs.
 
 INFERRED:
-- The 9 official failures were caused by nanoda 3a24072 (the #49/#55 reduction issues fixed between 3a24072 and
-  f67473b), not by a larger-stack need: f67473b has the same 16 MiB stack and passes all 9.
+- For the 7 configs in nanoda_lib #55 (OptimalMaxCut, UniqueGamesTheorem, VertexCover, Laughlin, BinPackingGap,
+  IndependentSets, PerfectCompleteness), the failures are a nanoda 3a24072 bug (#49/#55) that f67473b fixes. A
+  larger stack does not help.
+- For KaplanskyFinitelyPresented and GroupRingDeterminant, stock 3a24072 needs more than 16 MiB of stack. Either a
+  1 GiB stack or f67473b is enough (results/2026-10-20-nanoda-discrepancy/SUMMARY.txt).
+  [Bullet revised 2026-10-20 at Joe's review; the first version said none of the 9 needed a larger stack.]
 - With this unofficial tool version, all 187 fd4aeeb configs have been accepted by both nanoda and Lean's kernel:
   178 with the pinned nanoda, 9 with f67473b. That is a statement about two tool versions, not one; the official
   table stays 178 ACCEPT_BOTH + 9 ACCEPT_LEAN_ONLY.

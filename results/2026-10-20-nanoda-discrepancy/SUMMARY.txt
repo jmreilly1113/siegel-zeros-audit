@@ -1,0 +1,77 @@
+DIAGNOSTIC: nanoda discrepancy on KaplanskyFinitelyPresented and GroupRingDeterminant (2026-10-20 08:04-08:21 EDT)
+Does not change the official table (results/2026-10-20-corpus-summary-final.tsv: both configs stay ACCEPT_LEAN_ONLY).
+Time box 2 h; used about 17 min of runs. No guard stops.
+
+Question. Through comparator here, nanoda 3a24072 overflowed its stack on both configs (exit 134; batch-04 logs). In
+nealmcb/openai-math-lean-tooling, nanoda accepted both. Why?
+
+Commands (run as root in WSL Ubuntu-24.04; exports and nanoda runs as the user checker in the corpus systemd-run
+sandbox, network blocked):
+  wsl-comparator/104_discrepancy.sh results/2026-10-20-nanoda-discrepancy       (exports, R1, R2)
+  wsl-comparator/105_discrepancy_1gib.sh results/2026-10-20-nanoda-discrepancy/R3   (1 GiB build, R3)
+Per-run logs in this folder: <config>.export.log, <config>.R1/R2.log and .json; R3/<config>.R3.log, R3/R3-build.log.
+
+STATED by nealmcb's repository (github.com/nealmcb/openai-math-lean-tooling, HEAD 4eb4ca4, read 2026-10-20)
+- Source of his accepts: results/kernel-pair-sweep.jsonl, produced by tools/kernel_pair_sweep.py.
+    KaplanskyFinitelyPresented: export_bytes 657348158, nanoda_rc 0, nanoda_wall_s 25.0, nanoda_decls 82363
+    GroupRingDeterminant:       export_bytes 698227515, nanoda_rc 0, nanoda_wall_s 27.5, nanoda_decls 86205
+  (Same byte counts in results/export-probe.csv.) No export hashes are published.
+- Export command (kernel_pair_sweep.py): lake env lean4export <solution_module> -- QUOT + theorem_names +
+  permitted_axioms + PRIM + definition_names, with QUOT = Quot, Quot.mk, Quot.lift, Quot.ind and PRIM the 26
+  kernel primitives Nat.add ... outParam.
+- nanoda config (kernel_pair_sweep.py): use_stdin false, export_file_path, permitted_axioms from the config,
+  unpermitted_axiom_hard_error true, num_threads 4, nat_extension true, string_extension true.
+- nanoda binary and stack: NANODA = ext/bin/nanoda_bin.timing, "the timing build, 4 threads like Comparator, 1 GiB
+  checker stack". It runs with NANODA_STACK_MB=1024. The build is nanoda_lib 3a24072 plus
+  tools/patches/nanoda-stack-and-decl-times.patch: stack size read from NANODA_STACK_MB (default 1024 MiB) instead
+  of the constant 16 MiB, plus per-declaration timing. tools/build_nanoda_big_stack.sh describes the same change
+  as a 1 GiB constant.
+- results/nanoda-repro/README.md: nanoda-config.json there is "config as Comparator writes it, with num_threads 4".
+
+COMPUTED (ours)
+- Comparator d03acab (Main.lean, compareIt/safeExport/runExternalKernel; read in /root/tools/comparator):
+  - Export targets: builtinTargets (Quot, Quot.mk, Quot.lift, Quot.ind when Quot.sound is permitted) ++
+    theorem_names ++ permitted_axioms ++ primitiveTargets (the same 26) ++ definition_names, run with
+    LEAN_ABORT_ON_PANIC=1.
+  - nanoda config: use_stdin false, permitted_axioms, unpermitted_axiom_hard_error true, num_threads 4,
+    nat_extension true, string_extension true.
+  So his export command and nanoda config match comparator's; the one stated difference is the stack.
+- Exports (comparator's command; openai/math fd4aeeb, clean; lean4export /usr/local/bin/lean4export sha256 8c5d64ba...;
+  kept builds, no rebuild; both exit 0):
+    KaplanskyFinitelyPresented  657,348,158 bytes  sha256 7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c
+    GroupRingDeterminant        698,227,515 bytes  sha256 bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5
+  The byte counts equal his exactly. He published no hashes, so the contents cannot be compared further.
+- nanoda runs on those exports. Change one variable at a time.
+  Official binary /usr/local/bin/nanoda_bin, 3a24072, sha256 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714.
+
+  run  binary / stack               num_threads  nat_ext  config                 Kaplansky                          GroupRing
+  R1   official 3a24072, 16 MiB     4            true     comparator's = his      overflow thread_1, exit 255*, 40 s  overflow thread_2, exit 255*, 48 s
+  R2   official 3a24072, 16 MiB     1            true     R1 with num_threads 1   overflow 'main', exit 255*, 93 s    overflow 'main', exit 255*, 118 s
+  R3   3a24072, STACK_SIZE 1 GiB    4            true     R1                      exit 0, 38 s                       exit 0, 46 s
+
+  * "fatal runtime error: stack overflow, aborting"; systemd reports status=ABRT. 255 is the exit status after
+    the systemd-run/timeout wrapper; comparator saw the same abort as 134.
+  - No nat_extension run: his setting (true) equals comparator's.
+  - R3 binary: a copy of /root/tools/nanoda_lib at 3a2407216ee84a75f9e1aead6803d0578be06ae7. The only source diff is
+    src/lib.rs line 23, STACK_SIZE 16_777_216 -> 1_073_741_824. Built offline (cargo build --release --offline,
+    rustc 1.99.0), installed as /opt/nanoda-1gib-diag/nanoda_bin, sha256
+    1522b91653432c1eb6e1d2d8fb915f8c9a278d1a554c37dd1371522742d7b7e9. The official binary is unchanged.
+    R3 is beyond "the official binary" in the step-2 instruction; it reproduces the one remaining setting of his
+    run and was done within the time box. The config does not set print_success_message, so success shows only as
+    exit 0.
+  - The R1/R2 aborts wrote 4 WSL core dumps (4,420,386,816 bytes); moved to D:\siegel-audit-offload\
+    wsl-crashes-2026-10-20\ with sha256 first (dumps-moved.txt).
+- Also COMPUTED earlier (results/2026-10-20-nanoda-postfix-f67473b/): nanoda f67473b with the default 16 MiB stack
+  accepts both configs through comparator.
+
+INFERRED (cause)
+- The discrepancy comes from the checker-thread stack size, not from the export, the target list, the thread count,
+  nat_extension or calling nanoda through comparator. The same export (same byte count as his) overflows 16 MiB with
+  stock 3a24072 and passes with 1 GiB. That matches his 1 GiB timing build.
+- Unlike the RoundTables configs in #55 (which fail even at 1 GiB and 16 GiB), these two need a deep but finite
+  recursion: more than 16 MiB, at most 1 GiB.
+- f67473b's reduction changes bring the depth for these two under 16 MiB.
+- His accepts for these two configs (kernel-pair-sweep.jsonl) were with a 1 GiB stack, although #55 describes the
+  checks as "nanoda_lib 3a24072". Not checked: whether his "nanoda accepts 401 of 416" count is built from these
+  records.
+- Not checked: whether his exports are identical to ours (no hashes published), and the exact minimum stack.

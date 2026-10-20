@@ -99,3 +99,11 @@ INFERRED / OPEN: the difference on those two may come from how nanoda was called
 comparator runs: thread count, config, or export target list). Not investigated; no claim is made about which is right.
 What their work does not give us: a nanoda-through-comparator result for any config. Our ACCEPT_BOTH outcomes are the
 only ones of that kind for this scope that we know of.
+
+F. Update 2026-10-20: the Kaplansky/GroupRingDeterminant difference in section E is explained. See
+   results/2026-10-20-nanoda-discrepancy/SUMMARY.txt.
+   - STATED: his accepts for these two (results/kernel-pair-sweep.jsonl, tools/kernel_pair_sweep.py) were made with a
+     nanoda 3a24072 build patched to a 1 GiB checker stack.
+   - COMPUTED: our comparator-identical exports have his byte counts. Official 3a24072 (16 MiB) overflows on both;
+     the same source with a 1 GiB stack accepts both.
+   - INFERRED: the cause is the stack size. The OPEN item in section E is closed.

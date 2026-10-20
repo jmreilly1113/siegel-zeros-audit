@@ -35,6 +35,7 @@ Replaces the interim snapshot `results/2026-10-13-corpus-summary-interim.md`; th
 - **ACCEPT_LEAN_ONLY (9):** OptimalMaxCut, UniqueGamesTheorem, VertexCover, KaplanskyFinitelyPresented, GroupRingDeterminant, Laughlin, BinPackingGap, IndependentSets, PerfectCompleteness.
   - In each, nanoda aborted with a stack overflow (exit 134), and Lean's kernel accepted the proof in the same run. comparator reports such an abort as "nanoda kernel rejected the solution".
   - The run of the shipped config was ACCEPT_LEAN for all 9.
+  - In the tsv, these runs have nanoda_run = NANODA_CRASH. That label was added 2026-10-20; the earlier version said OTHER. config_outcome is unchanged.
 - **Nothing else went wrong in any config:** no build failures, timeouts or illegal axioms, no rejections by Lean's kernel, and no statement mismatches.
 - **Shipped-config runs:** 17 in all (10 sampled, 9 Lean-only, with 2 in both groups), all ACCEPT_LEAN.
 
@@ -45,6 +46,7 @@ Replaces the interim snapshot `results/2026-10-13-corpus-summary-interim.md`; th
   - nanoda's checker threads have a fixed 16 MiB stack (src/lib.rs STACK_SIZE), and ulimit -s does not change it.
   - nanoda issue #55 reports the same failure on 7 of the 9 configs, at this corpus commit with the same tool commits. It found that 1 GiB and 16 GiB stacks did not help: the backtraces show a recursion that does not progress.
   - Our own 512 MiB-stack copy also overflowed on OptimalMaxCut (results/2026-10-12-nanoda-bigstack-diag/findings.txt).
+  - The other 2 of the 9, KaplanskyFinitelyPresented and GroupRingDeterminant, are not in #55. For them a larger stack does help: 3a24072 with a 1 GiB stack accepts both (see "Discrepancy test").
   - A post-fix nanoda (f67473b) was tried on these 9 as a separate, unofficial batch; see below.
 - **What two kernels agreeing does and does not mean.** Agreement between two independent kernels lowers the risk that a kernel bug lets a false proof through, but it does not remove that risk.
   - The Lean v4.33.1 release notes (#14807) describe an `is_prop` soundness bug that gave a proof of False. They say the bogus proof "was also accepted by nanoda, an independent implementation of the Lean kernel."
@@ -55,12 +57,23 @@ Replaces the interim snapshot `results/2026-10-13-corpus-summary-interim.md`; th
 
 ## Outside checks (STATED by the sources; details in results/2026-10-19-external-checks-comparison.txt)
 
-- **nealmcb/openai-math-lean-tooling:**
-  - Ran comparator, as shipped (nanoda off in 414 of 416 configs), on all 416 configs at fd4aeeb, and all were accepted.
-  - COMPUTED: that covers all 190 of our configs, so it is an independent Lean-kernel replay of our scope.
-  - Its nanoda runs were on exported proof files, not through comparator.
-  - OPEN: there, nanoda 3a24072 accepted KaplanskyFinitelyPresented and GroupRingDeterminant; through comparator here, it overflowed on both. Not investigated.
+- **nealmcb/openai-math-lean-tooling already replicates our Lean-kernel results for all 190 of our configs.**
+  - STATED: he ran comparator, as shipped (nanoda off in 414 of 416), on all 416 configs at fd4aeeb, and all were accepted.
+  - COMPUTED: his 416 include all 190 of ours, and every one of them is accepted there. For our 3 pilot configs, his run is at fd4aeeb and ours at adc7f12.
+  - So the Lean-kernel half of our replay is not new.
+- **Our distinct contribution:**
+  - nanoda run through comparator, for the whole scope, on a second platform (x86_64 WSL2 on Windows 11, systemd-run sandbox). His nanoda runs were on exported proof files, not through comparator.
+  - Two apparent differences from his nanoda results, both resolved: KaplanskyFinitelyPresented and GroupRingDeterminant. Stock 3a24072 (16 MiB stack) overflowed on both here; his accepts came from a 3a24072 build patched to a 1 GiB stack. Export, nanoda config and thread count matched. Calling nanoda through comparator or directly on exports made no difference. See "Discrepancy test" below.
 - **davegoldblatt/openai-zeta-proof-check:** QuasiRiemannHypothesis only, at adc7f12, with the Lean kernel and nanoda. Both accepted, the same result as our pilot.
+
+## Discrepancy test, resolved (DIAGNOSTIC; does not change the table; results/2026-10-20-nanoda-discrepancy/SUMMARY.txt)
+
+- **STATED:** his accepts for these two came from tools/kernel_pair_sweep.py, using a nanoda 3a24072 build patched to a 1 GiB checker stack (NANODA_STACK_MB=1024). Its export command and nanoda config match comparator's.
+- **COMPUTED:**
+  - Our exports, made with comparator's command, have exactly his byte counts: 657,348,158 and 698,227,515. He published no hashes, so the contents can't be compared further.
+  - Official nanoda 3a24072 (16 MiB stack) on these exports: stack overflow on both, with 4 threads and with 1 thread.
+  - The same source with only STACK_SIZE set to 1 GiB: exit 0 on both, in 38 s and 46 s.
+- **INFERRED:** the cause is the stack size. These two proofs need a deep but finite recursion: more than 16 MiB, at most 1 GiB. That is unlike the RoundTables configs in #55, which fail even at 16 GiB. f67473b lowers the depth enough to pass at 16 MiB.
 
 ## Run notes (COMPUTED, run.log and docs/log.md)
 
@@ -81,5 +94,6 @@ Details: `results/2026-10-20-nanoda-postfix-f67473b/SUMMARY.txt`.
 - **Same setup as the corpus runs:** same comparator, sandbox and clone (fd4aeeb), and the same nanoda-enabled configs, which differ from the shipped ones only in `enable_nanoda`.
 - **COMPUTED:** all 9 ACCEPT_LEAN_ONLY configs got "nanoda kernel accepts", "Lean default kernel accepts", "Your solution is okay!" and exit 0. Runs took 243-527 s each, except Laughlin at 4,737 s. There were no guard stops.
 - **INFERRED:**
-  - The 9 official nanoda failures were bugs in nanoda 3a24072, fixed upstream by f67473b. They were not a need for a larger stack, since f67473b passes with the same 16 MiB.
+  - For the 7 configs in #55 (OptimalMaxCut, UniqueGamesTheorem, VertexCover, Laughlin, BinPackingGap, IndependentSets, PerfectCompleteness), the failures are a nanoda 3a24072 bug that f67473b fixes. A larger stack does not help.
+  - For KaplanskyFinitelyPresented and GroupRingDeterminant, stock 3a24072 needs more than 16 MiB of stack. Either a 1 GiB stack or f67473b is enough.
   - Across the two nanoda versions, all 187 configs have now been accepted by both nanoda and Lean's kernel. The official table above, which uses one pinned tool set, stays 178 + 9.

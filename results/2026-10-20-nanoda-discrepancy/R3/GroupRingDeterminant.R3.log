@@ -1,0 +1,11 @@
+== R3 GroupRingDeterminant: nanoda 3a24072 with STACK_SIZE 1 GiB (DIAGNOSTIC), num_threads 4, R1 config  2026-10-20 08:19:58
+export sha256 bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5
+binary: /opt/nanoda-1gib-diag/nanoda_bin sha256 1522b91653432c1eb6e1d2d8fb915f8c9a278d1a554c37dd1371522742d7b7e9
+config: {"use_stdin":false,"export_file_path":"/home/checker/corpus/disc/GroupRingDeterminant.export","permitted_axioms":["propext","Quot.sound","Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true}
+command: /opt/nanoda-1gib-diag/nanoda_bin /home/checker/corpus/disc/GroupRingDeterminant.R1.json
+Running as unit: run-u2.service; invocation ID: 1a91a0a3f61c44459828f97cc465210c
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 44.310s
+EXIT CODE: 0
+WALL_SECONDS: 46

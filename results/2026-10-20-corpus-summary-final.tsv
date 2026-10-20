@@ -1,9 +1,9 @@
 stage	batch	config	in_sample	nanoda_run	shipped_run	config_outcome	evidence
 headline	-	DirichletSevenEighths	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 headline	-	HeckeSevenEighths	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
-headline	-	OptimalMaxCut	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_2' (12114) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
-headline	-	UniqueGamesTheorem	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (22090) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
-headline	-	VertexCover	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_2' (29872) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+headline	-	OptimalMaxCut	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_2' (12114) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+headline	-	UniqueGamesTheorem	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (22090) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+headline	-	VertexCover	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_2' (29872) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
 headline	-	MatrixFields	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 headline	-	MatrixMultiplication	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 headline	-	MahlerConjecture	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
@@ -144,8 +144,8 @@ remainder	batch-03	Cotype	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel ac
 remainder	batch-03	ClassicalON	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-03	PinchedKahler	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-04	HoneycombBridgeMassSupport	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
-remainder	batch-04	KaplanskyFinitelyPresented	True	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_0' (355462) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
-remainder	batch-04	GroupRingDeterminant	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (357844) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+remainder	batch-04	KaplanskyFinitelyPresented	True	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_0' (355462) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+remainder	batch-04	GroupRingDeterminant	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (357844) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-04	OddKaplansky	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-04	DepthThree	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-04	TorsionFreeZeroDivisors	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
@@ -158,16 +158,16 @@ remainder	batch-04	BinarySweep	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kern
 remainder	batch-05	ThorpRouting	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-05	WeakMTWGlobalSupport	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-05	VlasovMaxwell	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
-remainder	batch-05	Laughlin	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (434420) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+remainder	batch-05	Laughlin	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (434420) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-05	BorsukNine	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
-remainder	batch-05	BinPackingGap	True	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_2' (447715) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+remainder	batch-05	BinPackingGap	True	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_2' (447715) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	EgyptianFractions	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	LogConcaveQuery	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	SymmetricDomains	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	HyperbolicObstruction	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	MaximalSeshadriConstants	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	SmoothYau	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
-remainder	batch-06	IndependentSets	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (9037) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+remainder	batch-06	IndependentSets	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (9037) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	KMedianRecovery	True	ACCEPT_BOTH	ACCEPT_LEAN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0 | shipped: ACCEPT_LEAN: Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	DirectionalBallisticity	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	WeakHessian	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
@@ -175,7 +175,7 @@ remainder	batch-06	SimpleAmenable	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda k
 remainder	batch-06	CriticalSKMixing	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-06	YauCounterexample	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-07	TamingCompatibility	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
-remainder	batch-07	PerfectCompleteness	False	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_3' (98263) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+remainder	batch-07	PerfectCompleteness	False	NANODA_CRASH	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_3' (98263) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-07	Conductivity	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-07	CoulombIonization	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
 remainder	batch-07	BiholderTransport	False	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0

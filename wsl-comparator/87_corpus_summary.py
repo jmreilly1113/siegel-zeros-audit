@@ -6,7 +6,7 @@ Finished batches use their outcomes.tsv. A batch without outcomes.tsv (still run
 75_classify.py's rules for configs that have a <name>.done marker only; other configs are listed as PENDING.
 Batches of the merged schedule (results/2026-10-13-corpus-remainder-schedule-merged.json) not yet started: NOT_STARTED.
 """
-import importlib.util, io, json, os, sys, contextlib
+import importlib.util, io, json, os, re, sys, contextlib
 
 root = sys.argv[1]
 res = os.path.join(root, 'results')
@@ -53,6 +53,12 @@ for k, b in enumerate(sched['batches'], 1):
     if not os.path.isfile(os.path.join(rem, 'batch-%02d' % k, 'plan.tsv')):
         for r in b:
             out.append(['remainder', 'batch-%02d (not started)' % k, r.split('/')[-1][:-5], '', '', '', 'NOT_STARTED', ''])
+# 2026-10-20 (Joe): a nanoda run that ended in a nanoda stack overflow / abort is NANODA_CRASH, not OTHER. Display only:
+# config_outcome is unchanged, and the outcomes.tsv files are not rewritten.
+for r in out:
+    if r[4] == 'OTHER' and re.search(r'nanoda crashed|overflowed its stack|fatal runtime error', r[7]):
+        r[4] = 'NANODA_CRASH'
+sys.stdout.reconfigure(newline='\n')
 print('stage\tbatch\tconfig\tin_sample\tnanoda_run\tshipped_run\tconfig_outcome\tevidence')
 for r in out:
     print('\t'.join(r))

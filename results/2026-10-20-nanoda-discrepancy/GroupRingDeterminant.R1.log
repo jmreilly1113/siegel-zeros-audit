@@ -1,0 +1,14 @@
+== R1 GroupRingDeterminant: official nanoda 3a24072, num_threads 4  2026-10-20 08:11:26
+binary: /usr/local/bin/nanoda_bin sha256 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714
+config: {"use_stdin":false,"export_file_path":"/home/checker/corpus/disc/GroupRingDeterminant.export","permitted_axioms":["propext","Quot.sound","Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true}
+command: /usr/local/bin/nanoda_bin /home/checker/corpus/disc/GroupRingDeterminant.R1.json
+Running as unit: run-u5.service; invocation ID: fda36f969ed54b0e98bfb5ad3026d6e2
+
+thread 'thread_2' (1436) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+/usr/bin/timeout: the monitored command dumped core
+Finished with result: signal
+Main processes terminated with: code=killed/status=ABRT
+Service runtime: 46.001s
+EXIT CODE: 255
+WALL_SECONDS: 48

@@ -1,0 +1,8 @@
+2026-10-20 08:04:00 start 104_discrepancy.sh (DIAGNOSTIC); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []; nanoda_bin sha256 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714; lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1; disk 62G
+2026-10-20 08:05:57 KaplanskyFinitelyPresented: export EXIT CODE: 0 bytes 657348158 sha256 7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c
+2026-10-20 08:06:37 KaplanskyFinitelyPresented R1 (threads 4): thread 'thread_1' (669) has overflowed its stack;EXIT CODE: 255; WALL_SECONDS: 40
+2026-10-20 08:08:10 KaplanskyFinitelyPresented R2 (threads 1): thread 'main' (711) has overflowed its stack;EXIT CODE: 255; WALL_SECONDS: 93
+2026-10-20 08:11:26 GroupRingDeterminant: export EXIT CODE: 0 bytes 698227515 sha256 bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5
+2026-10-20 08:12:15 GroupRingDeterminant R1 (threads 4): thread 'thread_2' (1436) has overflowed its stack;EXIT CODE: 255; WALL_SECONDS: 48
+2026-10-20 08:14:14 GroupRingDeterminant R2 (threads 1): thread 'main' (2050) has overflowed its stack;EXIT CODE: 255; WALL_SECONDS: 118
+2026-10-20 08:14:14 end; disk 63G

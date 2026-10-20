@@ -678,3 +678,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - The old file was deleted (HTTP 204), the new one uploaded; Zenodo md5 = ours; the draft holds exactly that one file.
   - Metadata: relation to 10.5281/zenodo.23269527 is now isSupplementTo; the GitHub tree and the notes point to 60552ee. Reserved DOI unchanged: 10.5281/zenodo.23505836. Token scan of all outputs is clean.
   - Waiting for Joe's approval before publishing.
+- 2026-10-20, Joe approved: published Zenodo deposition 23505836 (results/2026-10-20-corpus-zenodo/publish-output.txt: HTTP 202).
+  - COMPUTED (public API and doi.org, unauthenticated): https://doi.org/10.5281/zenodo.23505836 -> 302 -> https://zenodo.org/records/23505836 (200).
+  - Record: status published, DOI 10.5281/zenodo.23505836, concept DOI 10.5281/zenodo.23505835 (a new concept, separate from the Siegel packet's 10.5281/zenodo.23269527).
+  - Software, cc-by-4.0, version corpus-replay-2026-10-20; one file, siegel-zeros-audit-corpus-replay.zip, 1,055,523 bytes, md5 f39dcc4127b739d63b5d32a278b8238d. Related: 23269527 isSupplementTo, the repo at 60552ee isSupplementTo, openai/math fd4aeeb references.
+  - DOI added to README-corpus-replay.md. The token was used for nothing after the publish call; Joe will revoke it.

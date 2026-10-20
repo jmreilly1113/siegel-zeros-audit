@@ -1,5 +1,7 @@
 # Corpus replay of openai/math, and family-003 statement checks
 
+DOI: [10.5281/zenodo.23505836](https://doi.org/10.5281/zenodo.23505836) (concept DOI 10.5281/zenodo.23505835). Published 2026-10-20 from commit 60552ee.
+
 This record is an independent replay of the Lean proofs in [openai/math](https://github.com/openai/math) through the Lean FRO comparator, with a second kernel (nanoda), plus a check that the four family-003 Lean statements say what their paper says. It is a replay and statement check, not a mathematical review, and it has not been reviewed by a specialist.
 
 In this archive this file is `README.md`. In the repository it is `README-corpus-replay.md`, and the repository's own README (about the Siegel-zero packet) is included here as `README-siegel-packet.md`. The archive was built from [jmreilly1113/siegel-zeros-audit](https://github.com/jmreilly1113/siegel-zeros-audit) at the commit named in the Zenodo record's notes.

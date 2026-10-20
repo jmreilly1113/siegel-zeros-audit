@@ -54,3 +54,8 @@ Image: C:\Users\Work\AppData\Local\wsl\{beda3264-2b75-4d2c-b8d2-931eeb830b69}\ex
 Size before compaction: 93,405,052,928 bytes (93.41 GB). (Measured at 86.99 GB on 2026-10-20 ~08:25; it grew during the
 test exports and the deletions.)
 Command (admin PowerShell, WSL shut down): diskpart /s C:\Users\Work\dev\siegel\scripts\compact-wsl-vhdx.txt
+
+== Compaction run by Joe (elevated diskpart /s scripts/compact-wsl-vhdx.txt), 2026-10-20 ~08:56 EDT
+Size after: 28,123,856,896 bytes (28.12 GB); before: 93,405,052,928 bytes. Reclaimed 65,281,196,032 bytes (65.28 GB).
+C: free afterwards: 140.3 GB. Check afterwards (WSL started once, then shut down): WSL use 23G, clone at fd4aeeb and
+clean, tool binaries present, official nanoda_bin sha256 897971d7... unchanged.

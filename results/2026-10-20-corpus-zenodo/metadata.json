@@ -1,0 +1,44 @@
+{
+ "title": "Comparator and nanoda replay of the openai/math Lean corpus at fd4aeeb, with statement checks for family 003",
+ "upload_type": "software",
+ "version": "corpus-replay-2026-10-20",
+ "publication_date": "2026-10-20",
+ "creators": [
+  {
+   "name": "Reilly, Joseph M.",
+   "affiliation": "Northeastern University"
+  }
+ ],
+ "license": "cc-by-4.0",
+ "description": "<p><strong>What this is.</strong> A replay and statement check, not a mathematical review. It has not been reviewed by a specialist.</p><p><strong>Corpus replay.</strong> The 189 Comparator configurations referenced by formalization.yaml in openai/math were replayed with the Lean FRO comparator (d03acab), with the nanoda kernel enabled in addition to Lean's kernel. 187 were replayed at commit fd4aeeb; SiegelZeros and QuasiRiemannHypothesis ran at adc7f12, where their import closures are unchanged. Toolchain: Lean 4.34.1, Mathlib d13f23b, lean4export 076e8e5, landrun 811cfff, nanoda_lib 3a24072, on x86_64 WSL2 in a network-blocked systemd-run sandbox. Result: 178 configurations accepted by both kernels; 9 accepted by Lean's kernel while nanoda 3a24072 aborted with a stack overflow; no other failures. A separate, unofficial batch with nanoda f67473b (same 16 MiB stack) accepted all 9. A diagnostic showed that two of the 9 need more than 16 MiB but at most 1 GiB of stack with stock 3a24072.</p><p><strong>Statement checks, family 003.</strong> The challenge statements QuasiRiemannHypothesis, DirichletSevenEighths and HeckeSevenEighths were compared with Theorem 1.1 of the September 30, 2026 quasi-Riemann manuscript. All three match. The zeta statement also covers s = 1, through Mathlib's nonzero assigned value riemannZeta 1. For the locally defined Hecke L-function, Lean lemmas (importing only the challenge file) prove: the lattice Dirichlet series for Re s &gt; 1; holomorphy on C minus {0, 1}; independence of the auxiliary period; an explicit nontrivial character mod (7); and N(x + yw) = x^2 - xy + y^2. That each nonzero ideal has 6 generators is standard and not formalized. The Dedekind factorization was checked numerically for 5 characters, not proved. All 34 #print axioms outputs are exactly propext, Classical.choice, Quot.sound.</p><p><strong>Not checked.</strong> Whether the statements of the other configurations match their papers; the papers' mathematics. Agreement of two kernels reduces but does not remove kernel-bug risk: the Lean v4.33.1 release notes (#14807) describe a proof of False that nanoda also accepted.</p><p><strong>Relation to other replays.</strong> nealmcb/openai-math-lean-tooling ran comparator, as shipped, on all 416 configurations at fd4aeeb and accepted all of them; this covers all 190 configurations here, so the Lean-kernel half of this replay replicates his. His nanoda runs were on exports with a 1 GiB checker stack (his clarification on nanoda_lib #55). davegoldblatt/openai-zeta-proof-check replayed QuasiRiemannHypothesis at adc7f12 with both kernels, with the same result. The contribution here is nanoda run through comparator for the whole scope on a second platform, the stack-size diagnosis, and the statement checks.</p><p>Companion record: the Siegel-zero verification packet, concept DOI 10.5281/zenodo.23269527.</p>",
+ "notes": "Archive of jmreilly1113/siegel-zeros-audit at commit ccf74c33d53e9c718fcd3ac2fd190681c2459f16, trimmed to the corpus replay and the family-003 statement checks (849 files; zip sha256 f2c82528be1748deb0fd95498cde4f6dc8021d7ab388223a4ba161c16325586a). Licensing: prose documentation and results/ outputs are CC BY 4.0 (LICENSE-docs); scripts and Lean files original to the project are Apache-2.0 (LICENSE).",
+ "keywords": [
+  "Lean 4",
+  "formal verification",
+  "comparator",
+  "nanoda",
+  "openai/math",
+  "reproducibility",
+  "statement faithfulness",
+  "Hecke L-functions"
+ ],
+ "related_identifiers": [
+  {
+   "identifier": "10.5281/zenodo.23269527",
+   "relation": "isSupplementTo",
+   "scheme": "doi"
+  },
+  {
+   "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/ccf74c33d53e9c718fcd3ac2fd190681c2459f16",
+   "relation": "isSupplementTo",
+   "resource_type": "software",
+   "scheme": "url"
+  },
+  {
+   "identifier": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+   "relation": "references",
+   "scheme": "url"
+  }
+ ],
+ "prereserve_doi": true
+}

@@ -1,0 +1,11 @@
+{
+ "id": 23505836,
+ "bucket": "https://zenodo.org/api/files/a77d2fd8-fea3-41cc-b6bb-0dd84e043b60",
+ "html": "https://zenodo.org/deposit/23505836",
+ "zip_sha256": "f2c82528be1748deb0fd95498cde4f6dc8021d7ab388223a4ba161c16325586a",
+ "zip_md5": "6f1fc8bc75b3458d7355b502f9c1529a",
+ "doi": "10.5281/zenodo.23505836",
+ "conceptrecid": "23505835",
+ "zenodo_md5": "6f1fc8bc75b3458d7355b502f9c1529a",
+ "file": "siegel-zeros-audit-corpus-replay.zip"
+}

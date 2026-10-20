@@ -1,0 +1,6 @@
+a. created deposition id=23505836 status=201 state=unsubmitted submitted=False
+b. uploaded siegel-zeros-audit-corpus-replay.zip: status=201 size=1058319 zenodo md5=6f1fc8bc75b3458d7355b502f9c1529a ours=6f1fc8bc75b3458d7355b502f9c1529a match=True
+c. metadata set: status=200 title='Comparator and nanoda replay of the openai/math Lean corpus at fd4aeeb, with statement checks for family 003' upload_type=software license=cc-by-4.0
+   reserved DOI=10.5281/zenodo.23505836 conceptrecid=23505835 state=unsubmitted submitted=False
+   related_identifiers=[{'identifier': '10.5281/zenodo.23269527', 'relation': 'isSupplementedBy', 'scheme': 'doi'}, {'identifier': 'https://github.com/jmreilly1113/siegel-zeros-audit/tree/ccf74c33d53e9c718fcd3ac2fd190681c2459f16', 'relation': 'isSupplementTo', 'resource_type': 'software', 'scheme': 'url'}, {'identifier': 'https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb', 'relation': 'references', 'scheme': 'url'}]
+d. STOP (not published). Draft: https://zenodo.org/deposit/23505836

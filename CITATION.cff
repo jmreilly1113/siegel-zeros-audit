@@ -12,6 +12,12 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.23269528
     description: "Zenodo archive of the reviewer-packet-v1 release"
+  - type: doi
+    value: 10.5281/zenodo.23499651
+    description: "Zenodo archive of the reviewer-packet-v2-preliminary release (preliminary; no specialist review received)"
+  - type: doi
+    value: 10.5281/zenodo.23269527
+    description: "Zenodo concept DOI (all versions)"
 license: Apache-2.0
 repository-code: "https://github.com/jmreilly1113/siegel-zeros-audit"
 date-released: "2026-10-09"

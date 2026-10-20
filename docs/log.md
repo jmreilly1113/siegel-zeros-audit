@@ -606,3 +606,11 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Posted the #40 comment (Joe approved, with my wording change kept), body = docs/drafts/2026-10-20-issue40-corpus-comment.md without its hidden note blocks: https://github.com/grwtsk/openai-math/issues/40#issuecomment-6291050955
   - #55 draft edited as Joe asked: opening, point-2 heading, `definition_names` (empty in both configs, checked in /home/checker/corpus/configs/*-nanoda.json), and point 3 quoting the issue body exactly (lines 14 and 16). Not posted; final text shown to Joe first.
   - Deposit not approved yet.
+- 2026-10-20, step 6, deposit submitted (Joe approved after confirming the Zenodo GitHub webhook is active for Releases and the repo is on in Zenodo):
+  - Posted the #55 comment (approved): https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6291244827
+  - Pushed branch packet-v2-preliminary (9b61615) and the annotated tag reviewer-packet-v2-preliminary (tag object 9bf7d0ba, the same locally and on GitHub).
+  - Published GitHub release 418394991 "Reviewer packet v2 (preliminary)" at 2026-10-20T12:50:58Z with make_latest "false", prerelease false, draft false. GitHub's Latest release is still reviewer-packet-v1.
+  - Zenodo webhook Recent Deliveries (COMPUTED, GitHub hooks API): release/created -> 202 {"message":"Accepted."}; release/published -> 409 and release/released -> 409, both {"message":"The release has already been received."}. INFERRED: the 409s are duplicate notices for the same release, not failures.
+  - Zenodo (COMPUTED, API at 08:51 EDT): new version 10.5281/zenodo.23499651 under concept DOI 10.5281/zenodo.23269527, status published. Version reviewer-packet-v2-preliminary; title ends "(preliminary)"; the description opens "PRELIMINARY VERSION. No specialist review ..."; license apache2.0; one file, jmreilly1113/siegel-zeros-audit-reviewer-packet-v2-preliminary.zip (11,707,330 bytes); related identifiers: the GitHub tag tree and openai/math at adc7f12.
+  - Main: CITATION.cff identifiers gain the v2 version DOI and the concept DOI (main's title and version stay as v1's, since main also holds the corpus replay). docs/tasks.md 8.5 is marked done.
+  - The webhook listing printed Zenodo's access token in Claude's session output only; it is not written to any file in the repo.

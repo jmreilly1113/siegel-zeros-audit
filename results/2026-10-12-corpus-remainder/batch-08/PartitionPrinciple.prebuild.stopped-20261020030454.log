@@ -1,0 +1,6 @@
+== prebuild PartitionPrinciple: lake build OAI.SetTheory.PartitionPrinciple.Main ComparatorChallenges.PartitionPrinciple with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-20 02:12:09
+Running as unit: run-u39.service; invocation ID: 5424c055f34049218a068e93c0826432
+⚠ [8969/9867] Built ComparatorChallenges.PartitionPrinciple (42s)
+warning: ComparatorChallenges/PartitionPrinciple.lean:262:8: declaration uses `sorry`
+PREBUILD_SECONDS: 2851
+disk used: 86G

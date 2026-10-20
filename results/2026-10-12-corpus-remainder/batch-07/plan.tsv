@@ -1,0 +1,7 @@
+config	prebuild_targets	in_sample
+TamingCompatibility	OAI.Geometry.TamingCompatibility.Main ComparatorChallenges.TamingCompatibility	False
+PerfectCompleteness	OAI.Computability.PerfectCompleteness.Main ComparatorChallenges.PerfectCompleteness	False
+Conductivity	OAI.Analysis.Conductivity.Main ComparatorChallenges.Conductivity	False
+CoulombIonization	OAI.Analysis.CoulombIonization.Main ComparatorChallenges.CoulombIonization	False
+BiholderTransport	OAI.Analysis.BiholderTransport.Main ComparatorChallenges.BiholderTransport	False
+HarmonicArtin	OAI.Topology.ArtinGroups.Main ComparatorChallenges.HarmonicArtin	False

@@ -1,0 +1,11 @@
+== prebuild TamingCompatibility: lake build OAI.Geometry.TamingCompatibility.Main ComparatorChallenges.TamingCompatibility with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 19:54:38
+Running as unit: run-u18.service; invocation ID: 0d2f96c02a074b3cb8901e016860fa57
+⚠ [8927/9506] Built ComparatorChallenges.TamingCompatibility (62s)
+warning: ComparatorChallenges/TamingCompatibility.lean:58:8: declaration uses `sorry`
+Build completed successfully (9506 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 37min 42.446s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 2204
+disk used: 61G

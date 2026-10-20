@@ -1,1 +1,11 @@
 == prebuild YauCounterexample: lake build OAI.Geometry.NodalSets.Main ComparatorChallenges.YauCounterexample with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 19:27:38
+Running as unit: run-u16.service; invocation ID: 25a7483933624326b04ba7ba52a13cdd
+⚠ [9972/9992] Built ComparatorChallenges.YauCounterexample (9.3s)
+warning: ComparatorChallenges/YauCounterexample.lean:65:8: declaration uses `sorry`
+Build completed successfully (9992 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 16min 48.340s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 998
+disk used: 58G

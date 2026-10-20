@@ -1,0 +1,7 @@
+config	in_sample	prebuild	nanoda_run	shipped_run	config_outcome	evidence
+TamingCompatibility	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+PerfectCompleteness	False	OK	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_3' (98263) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+Conductivity	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+CoulombIonization	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+BiholderTransport	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+HarmonicArtin	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0

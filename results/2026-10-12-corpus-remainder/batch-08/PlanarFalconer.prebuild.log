@@ -1,0 +1,11 @@
+== prebuild PlanarFalconer: lake build OAI.MeasureTheory.Falconer.Main ComparatorChallenges.PlanarFalconer with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 23:52:49
+Running as unit: run-u31.service; invocation ID: 7f4f34a6a5b7405aa830a41e004efeff
+⚠ [9044/9643] Built ComparatorChallenges.PlanarFalconer (5.6s)
+warning: ComparatorChallenges/PlanarFalconer.lean:20:8: declaration uses `sorry`
+Build completed successfully (9643 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 21min 38.367s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1324
+disk used: 65G

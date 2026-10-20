@@ -1,0 +1,11 @@
+== prebuild CoulombIonization: lake build OAI.Analysis.CoulombIonization.Main ComparatorChallenges.CoulombIonization with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 22:08:40
+Running as unit: run-u25.service; invocation ID: 5a925e557f7c4204b49bdb2fdd168260
+⚠ [8956/9531] Built ComparatorChallenges.CoulombIonization (6.5s)
+warning: ComparatorChallenges/CoulombIonization.lean:92:8: declaration uses `sorry`
+Build completed successfully (9531 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 29min 9.413s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1750
+disk used: 72G

@@ -1,0 +1,43 @@
+== run YauCounterexample  2026-10-19 19:44:18
+config: /home/checker/corpus/configs/YauCounterexample-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.YauCounterexample",
+  "solution_module": "OAI.Geometry.NodalSets.Main",
+  "theorem_names": [
+    "OAI.Yau.Target.yau_nodal_set_upper_bound_counterexample"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/YauCounterexample.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 58G
+Running as unit: run-u17.service; invocation ID: 566819ad859c417a8fa5e04a4cf538b0
+Building ComparatorChallenges.YauCounterexample
+⚠ [8924/8924] Replayed ComparatorChallenges.YauCounterexample
+warning: ComparatorChallenges/YauCounterexample.lean:65:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Yau.Target.yau_nodal_set_upper_bound_counterexample, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.YauCounterexample
+Building OAI.Geometry.NodalSets.Main
+Build completed successfully (9991 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Yau.Target.yau_nodal_set_upper_bound_counterexample, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Geometry.NodalSets.Main
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 33.430s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 548
+disk used after: 58G

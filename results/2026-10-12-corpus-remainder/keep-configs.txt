@@ -11,3 +11,5 @@ ComparatorChallenges/Laughlin.json
 ComparatorChallenges/BinPackingGap.json
 ComparatorChallenges/IndependentSets.json
 ComparatorChallenges/YauCounterexample.json
+ComparatorChallenges/IndependentSets.json
+ComparatorChallenges/PerfectCompleteness.json

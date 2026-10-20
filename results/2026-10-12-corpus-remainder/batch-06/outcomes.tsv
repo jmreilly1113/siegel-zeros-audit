@@ -1,0 +1,14 @@
+config	in_sample	prebuild	nanoda_run	shipped_run	config_outcome	evidence
+EgyptianFractions	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+LogConcaveQuery	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SymmetricDomains	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+HyperbolicObstruction	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+MaximalSeshadriConstants	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SmoothYau	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+IndependentSets	False	OK	OTHER	ACCEPT_LEAN	ACCEPT_LEAN_ONLY	nanoda: nanoda crashed (thread 'thread_1' (9037) has overflowed its stack); Lean kernel accepted in the same run | shipped: Lean default kernel accepts; Your solution is okay!; exit 0
+KMedianRecovery	True	OK	ACCEPT_BOTH	ACCEPT_LEAN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0 | shipped: ACCEPT_LEAN: Lean default kernel accepts; Your solution is okay!; exit 0
+DirectionalBallisticity	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+WeakHessian	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+SimpleAmenable	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+CriticalSKMixing	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0
+YauCounterexample	False	OK	ACCEPT_BOTH	NOT_RUN	ACCEPT_BOTH	nanoda kernel accepts; Lean default kernel accepts; Your solution is okay!; exit 0

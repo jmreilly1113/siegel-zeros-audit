@@ -1,0 +1,11 @@
+== prebuild BiholderTransport: lake build OAI.Analysis.BiholderTransport.Main ComparatorChallenges.BiholderTransport with LEAN_NUM_THREADS=4 (prebuild queue, 85)  2026-10-19 22:45:55
+Running as unit: run-u27.service; invocation ID: 783b994e21f643a2a7105e9554d10417
+⚠ [9162/9569] Built ComparatorChallenges.BiholderTransport (7.3s)
+warning: ComparatorChallenges/BiholderTransport.lean:100:8: declaration uses `sorry`
+Build completed successfully (9569 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 30min 23.148s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1824
+disk used: 76G

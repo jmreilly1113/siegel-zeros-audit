@@ -418,3 +418,42 @@
 2026-10-19 19:27:37 guard: 69_corpus_guard.sh 85 1500 2
 2026-10-19 19:27:37 batch 6 of 8: 13 configs
 2026-10-19 19:27:38 YauCounterexample: prebuild (queue)
+2026-10-19 19:44:18 YauCounterexample: nanoda run
+2026-10-19 19:53:29 batch 6 outcomes:      12 ACCEPT_BOTH       1 ACCEPT_LEAN_ONLY 
+2026-10-19 19:54:38 batch 6 pruned: batches done 6 of 8; kept configs 13 + later configs 12; kept OAI modules 17543; present 8691; to prune 0 modules, 0.00 GiB; apply=True; disk used 58G
+2026-10-19 19:54:38 batch 7 of 8: 6 configs
+2026-10-19 19:54:38 TamingCompatibility: prebuild (queue)
+2026-10-19 20:31:22 TamingCompatibility: nanoda run
+2026-10-19 21:03:05 PerfectCompleteness: prebuild (queue)
+2026-10-19 21:23:37 PerfectCompleteness: nanoda run
+2026-10-19 21:28:26 PerfectCompleteness: shipped-config run (nanoda ACCEPT_BOTH: no; in sample: False)
+2026-10-19 21:33:43 Conductivity: prebuild (queue)
+2026-10-19 21:59:00 Conductivity: nanoda run
+2026-10-19 22:08:40 CoulombIonization: prebuild (queue)
+2026-10-19 22:37:53 CoulombIonization: nanoda run
+2026-10-19 22:45:55 BiholderTransport: prebuild (queue)
+2026-10-19 23:16:21 BiholderTransport: nanoda run
+2026-10-19 23:24:15 HarmonicArtin: prebuild (queue)
+2026-10-19 23:46:42 HarmonicArtin: nanoda run
+2026-10-19 23:51:46 batch 7 outcomes:       5 ACCEPT_BOTH       1 ACCEPT_LEAN_ONLY 
+2026-10-19 23:52:49 batch 7 pruned: batches done 7 of 8; kept configs 14 + later configs 6; kept OAI modules 14449; present 12367; to prune 3094 modules, 18.71 GiB; apply=True; disk used 61G
+2026-10-19 23:52:49 batch 8 of 8: 6 configs
+2026-10-19 23:52:49 PlanarFalconer: prebuild (queue)
+2026-10-20 00:14:55 PlanarFalconer: nanoda run
+2026-10-20 00:20:30 Jacobsthal: prebuild (queue)
+2026-10-20 00:53:40 Jacobsthal: nanoda run
+2026-10-20 01:07:34 RieszQuantitative: prebuild (queue)
+2026-10-20 01:34:03 RieszQuantitative: nanoda run
+2026-10-20 01:40:11 FreeIsing: prebuild (queue)
+2026-10-20 02:05:54 FreeIsing: nanoda run
+2026-10-20 02:12:09 PartitionPrinciple: prebuild (queue)
+2026-10-20 02:59:43 PartitionPrinciple: prebuild log has no exit code (stopped); not run
+2026-10-20 02:59:45 DegreeRigidity: prebuild (queue)
+2026-10-20 03:00:04 DegreeRigidity: prebuild log has no exit code (stopped); not run
+2026-10-20 03:01:07 end; clone status []; disk used 86G
+2026-10-20 03:04:40 mid-batch prune (102_prune_midbatch.sh, prune-only schedule, after GUARD_STOPPED 02:59): batches done 8 of 9; kept configs 14 + later configs 2; kept OAI modules 11192; present 13462; to prune 3257 modules, 18.20 GiB; apply=True; disk used 67G
+2026-10-20 03:04:53 resume after the 2026-10-20 02:59 WSL disk-guard stop in batch 8 (GUARD_STOPPED-7.txt) and the 03:04 mid-batch prune; pre-flight passed (HEAD fd4aeeb, clean, disk 67G); starting 100_remainder_serial_v5.sh (serial, LEAN_NUM_THREADS=4, schedule 2026-10-19-corpus-remainder-schedule-split.json)
+2026-10-20 03:04:53 start (100_remainder_serial_v5.sh, serial, schedule 2026-10-19-corpus-remainder-schedule-split.json, prebuild queue with LEAN_NUM_THREADS=4); clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status []; disk used 67G
+2026-10-20 03:04:54 guard: 69_corpus_guard.sh 85 1500 2
+2026-10-20 03:04:54 batch 8 of 8: 6 configs
+2026-10-20 03:04:54 PartitionPrinciple: prebuild (queue)

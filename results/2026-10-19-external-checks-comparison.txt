@@ -107,3 +107,15 @@ F. Update 2026-10-20: the Kaplansky/GroupRingDeterminant difference in section E
    - COMPUTED: our comparator-identical exports have his byte counts. Official 3a24072 (16 MiB) overflows on both;
      the same source with a 1 GiB stack accepts both.
    - INFERRED: the cause is the stack size. The OPEN item in section E is closed.
+
+G. Update 2026-10-20: the question in section F to nealmcb is RESOLVED by his reply on nanoda_lib #55
+   (https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6293743601, 2026-10-20T14:51:48Z).
+   STATED there:
+   - his "nanoda accepts 401 of 416" came from nanoda_lib 3a24072 built with a 1 GiB checker stack
+     (NANODA_STACK_MB=1024, tools/patches/nanoda-stack-and-decl-times.patch, run by tools/kernel_pair_sweep.py), not stock
+     3a24072, and so KaplanskyFinitelyPresented and GroupRingDeterminant were recorded as accepted there;
+   - his 15 failures also failed at 1 GiB;
+   - our 16 MiB results with stock 3a24072 on those two, and f67473b passing all nine at 16 MiB, are consistent with his
+     retest on master;
+   - he has updated the READMEs of nealmcb/openai-math-lean-tooling to say this.
+   This agrees with our discrepancy test (results/2026-10-20-nanoda-discrepancy/SUMMARY.txt). Nothing above is changed.

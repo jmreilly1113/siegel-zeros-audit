@@ -65,6 +65,7 @@ Replaces the interim snapshot `results/2026-10-13-corpus-summary-interim.md`; th
   - nanoda run through comparator, for the whole scope, on a second platform (x86_64 WSL2 on Windows 11, systemd-run sandbox). His nanoda runs were on exported proof files, not through comparator.
   - Two apparent differences from his nanoda results, both resolved: KaplanskyFinitelyPresented and GroupRingDeterminant. Stock 3a24072 (16 MiB stack) overflowed on both here; his accepts came from a 3a24072 build patched to a 1 GiB stack. Export, nanoda config and thread count matched. Calling nanoda through comparator or directly on exports made no difference. See "Discrepancy test" below.
 - **davegoldblatt/openai-zeta-proof-check:** QuasiRiemannHypothesis only, at adc7f12, with the Lean kernel and nanoda. Both accepted, the same result as our pilot.
+- **Update 2026-10-20 (appended), resolved:** nealmcb confirmed on nanoda_lib #55 (https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6293743601) that his 401/416 nanoda count used 3a24072 with a 1 GiB checker stack, not stock 3a24072. His 15 failures also failed at 1 GiB, and he states our 16 MiB and f67473b results are consistent with his master retest. His READMEs now say this.
 
 ## Discrepancy test, resolved (DIAGNOSTIC; does not change the table; results/2026-10-20-nanoda-discrepancy/SUMMARY.txt)
 
@@ -74,6 +75,7 @@ Replaces the interim snapshot `results/2026-10-13-corpus-summary-interim.md`; th
   - Official nanoda 3a24072 (16 MiB stack) on these exports: stack overflow on both, with 4 threads and with 1 thread.
   - The same source with only STACK_SIZE set to 1 GiB: exit 0 on both, in 38 s and 46 s.
 - **INFERRED:** the cause is the stack size. These two proofs need a deep but finite recursion: more than 16 MiB, at most 1 GiB. That is unlike the RoundTables configs in #55, which fail even at 16 GiB. f67473b lowers the depth enough to pass at 16 MiB.
+- **Update 2026-10-20 (appended):** RESOLVED. nealmcb's reply (https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6293743601) STATES that the accepts for these two came from the 1 GiB build, that his 15 failures failed at 1 GiB too, and that our results are consistent with his.
 
 ## Run notes (COMPUTED, run.log and docs/log.md)
 

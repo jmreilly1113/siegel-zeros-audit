@@ -1,0 +1,11 @@
+NOTE on hecke-numeric.txt (v1), added 2026-10-20 after reading it. v1 is kept unchanged; cite hecke-numeric-v2.txt.
+Two defects in src/hecke_numeric.py v1:
+1. The exact g0 test printed "sum nonzero" whenever the six exponent counts were not all equal. That is the wrong
+   criterion: [12,0,12,0,12,0] (psi^2) and [18,0,0,18,0,0] (psi^3) both sum to 0. The numerical g0 in the same lines
+   (about 1e-16) agrees with 0.
+2. f/g values were cached in a global dict keyed by id(component list). Python reuses ids of freed lists, so the
+   h_feq spot checks, which used temporary lists, could read another list's cached values. The period-14 spot checks
+   showing 1.75145790952 (the trivial character's value) are such reads and are meaningless. The DEF values used lists
+   kept alive in _COMPS. They agree with the independent DIR values to <= 1.1e-16 for all 5 characters x 2 periods x 3
+   points, but they shared the same cache, so they are rerun in v2.
+Fix (v2): each component list carries its own cache; the exact test checks Re and Im of sum c_k exp(2 pi i k/6).

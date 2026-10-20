@@ -1,0 +1,8 @@
+import StatementChecks.Smoke
+import StatementChecks.QRH
+import StatementChecks.Dirichlet
+import StatementChecks.Hecke
+import StatementChecks.HeckeSeries
+import StatementChecks.HeckeHolo
+import StatementChecks.HeckeNontrivial
+import StatementChecks.HeckeNorm

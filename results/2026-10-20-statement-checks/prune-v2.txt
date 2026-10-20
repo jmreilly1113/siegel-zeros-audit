@@ -1,0 +1,58 @@
+== 2026-10-20 12:51:21 statement-checks prune (Joe step 5: delete build outputs when done, after recording)
+WSL disk used before: 31G
+548K	/home/checker/statement-checks/.lake/packages/Cli
+5.4M	/home/checker/statement-checks/.lake/packages/LeanSearchClient
+22M	/home/checker/statement-checks/.lake/packages/Qq
+140M	/home/checker/statement-checks/.lake/packages/aesop
+172M	/home/checker/statement-checks/.lake/packages/batteries
+7.2M	/home/checker/statement-checks/.lake/packages/importGraph
+7.3G	/home/checker/statement-checks/.lake/packages/mathlib
+14M	/home/checker/statement-checks/.lake/packages/plausible
+34M	/home/checker/statement-checks/.lake/packages/proofwidgets
+76M	/home/checker/statement-checks/.lake/build
+-- .lake/build modules: 12 .olean files
+.lake/build/lib/lean/StatementChecks.olean
+.lake/build/lib/lean/StatementChecks/Challenges/DirichletSevenEighths.olean
+.lake/build/lib/lean/StatementChecks/Challenges/HeckeSevenEighths.olean
+.lake/build/lib/lean/StatementChecks/Challenges/QuasiRiemannHypothesis.olean
+.lake/build/lib/lean/StatementChecks/Dirichlet.olean
+.lake/build/lib/lean/StatementChecks/Hecke.olean
+.lake/build/lib/lean/StatementChecks/HeckeHolo.olean
+.lake/build/lib/lean/StatementChecks/HeckeNontrivial.olean
+.lake/build/lib/lean/StatementChecks/HeckeNorm.olean
+.lake/build/lib/lean/StatementChecks/HeckeSeries.olean
+.lake/build/lib/lean/StatementChecks/QRH.olean
+.lake/build/lib/lean/StatementChecks/Smoke.olean
+removed /home/checker/statement-checks/.lake (copied packages with their builds, and this project's build)
+kept: /home/checker/statement-checks sources, logs (*.log), lakefile.toml, lake-manifest.json, lean-toolchain
+StatementChecks
+StatementChecks.lean
+b1.log
+b2.log
+final.log
+final2.log
+ho1.log
+ho2.log
+ho3.log
+ho4.log
+ho5.log
+hs1.log
+hs2.log
+hs3.log
+hs4.log
+hs5.log
+hs6.log
+hs7.log
+hs8.log
+hs9.log
+lake-manifest.json
+lakefile.toml
+lean-toolchain
+nm1.log
+nm2.log
+nm3.log
+nt1.log
+nt2.log
+nt3.log
+smoke.log
+WSL disk used after: 23G

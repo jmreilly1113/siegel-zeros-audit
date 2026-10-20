@@ -1,0 +1,114 @@
+Hecke L-function numerical check (COMPUTED, numerical; not a proof)
+python 3.14.6, python-flint 0.9.0, mpmath 1.3.0, mp.dps 30, arb prec 200
+(O/7)^x has 36 elements (expected 36); the 6 units of O map to 6 distinct classes
+quotient (O/7)^x / image(units) has order 6; characters trivial on units = psi^i(N mod 7), i = 0..5 (checked below)
+checked by enumeration: each psi^i o N is trivial on the 6 units, multiplicative on O/7, constant on classes mod 7
+
+NORM truncation: x^2 - xy + y^2 <= 40000; |tail| <= trivial tail = zeta(s)L(s,chi_-3) - partial sum (Arb)
+
+== modulus O (trivial)
+   period 1: 2 components; f0 = (1.0 + 0.0j); g0 = (1.1547 + 0.0j); exponent counts of sum_(a,b) chi(a+bw) = [1, 0, 0, 0, 0, 0] (sum nonzero)
+   h_feq spot check at x = 3/2: f(1/x) = (1.75145790952 + 0.0j), x g(x) = (1.75145790952 + 0.0j), diff 0.0
+   period 2: 8 components; f0 = (1.0 + 0.0j); g0 = (1.1547 + 0.0j); exponent counts of sum_(a,b) chi(a+bw) = [4, 0, 0, 0, 0, 0] (sum nonzero)
+   h_feq spot check at x = 3/2: f(1/x) = (1.75145790952 + 0.0j), x g(x) = (1.75145790952 + 0.0j), diff 1.97e-31
+   s = 2:
+     DIR  1.28519095548414940  (Arb radius [1.4e-59 +/- 4.17e-61])
+     NORM 1.28517583496951675  (+ tail, |tail| <= 1.51e-5)
+     DEF  period  1: (1.2851909554841494 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.51e-05
+     DEF  period  2: (1.2851909554841494 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.51e-05
+   s = 3:
+     DIR  1.06264692547164115  (Arb radius [1.0e-59 +/- 1.22e-61])
+     NORM 1.06264692528256566  (+ tail, |tail| <= 1.89e-10)
+     DEF  period  1: (1.06264692547164115 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.89e-10
+     DEF  period  2: (1.06264692547164115 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.89e-10
+   s = 5/2:
+     DIR  1.12698308739978360  (Arb radius [9.5e-60 +/- 1.97e-62])
+     NORM 1.12698303698886281  (+ tail, |tail| <= 5.04e-8)
+     DEF  period  1: (1.1269830873997836 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 5.04e-08
+     DEF  period  2: (1.1269830873997836 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 5.04e-08
+
+== modulus (7), psi^0 o N
+   period 7: 72 components; f0 = (0.0 + 0.0j); g0 = (0.848351 + 0.0j); exponent counts of sum_(a,b) chi(a+bw) = [36, 0, 0, 0, 0, 0] (sum nonzero)
+   h_feq spot check at x = 3/2: f(1/x) = (0.75145275615 + 0.0j), x g(x) = (0.75145275615 + 0.0j), diff 1.97e-31
+   period 14: 288 components; f0 = (0.0 + 0.0j); g0 = (0.848351 + 0.0j); exponent counts of sum_(a,b) chi(a+bw) = [144, 0, 0, 0, 0, 0] (sum nonzero)
+   h_feq spot check at x = 3/2: f(1/x) = (0.75145275615 + 0.0j), x g(x) = (0.75145275615 + 0.0j), diff 3.94e-31
+   s = 2:
+     DIR  1.23326945499187015  (Arb radius [3.7e-59 +/- 3.09e-61])
+     NORM 1.23325834331549153  (+ tail, |tail| <= 1.51e-5)
+     DEF  period  7: (1.23326945499187015 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.11e-05
+     DEF  period 14: (1.23326945499187015 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.11e-05
+   s = 3:
+     DIR  1.05645976583621651  (Arb radius [2.5e-59 +/- 3.71e-61])
+     NORM 1.05645976569723561  (+ tail, |tail| <= 1.89e-10)
+     DEF  period  7: (1.05645976583621651 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.39e-10
+     DEF  period 14: (1.05645976583621651 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.39e-10
+   s = 5/2:
+     DIR  1.10966403694139788  (Arb radius [2.8e-59 +/- 4.01e-61])
+     NORM 1.10966399989115695  (+ tail, |tail| <= 5.04e-8)
+     DEF  period  7: (1.10966403694139788 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 3.71e-08
+     DEF  period 14: (1.10966403694139788 + 0.0j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 3.71e-08
+
+== modulus (7), psi^1 o N
+   period 7: 72 components; f0 = (0.0 + 0.0j); g0 = (-1.84889e-32 + 4.87108e-17j); exponent counts of sum_(a,b) chi(a+bw) = [6, 6, 6, 6, 6, 6] (sum exactly 0 => g0 = 0)
+   h_feq spot check at x = 3/2: f(1/x) = (0.74378067801 + 0.00850861404442j), x g(x) = (0.74378067801 + 0.00850861404442j), diff 6.96e-31
+   period 14: 288 components; f0 = (0.0 + 0.0j); g0 = (3.54371e-32 + 4.87108e-17j); exponent counts of sum_(a,b) chi(a+bw) = [24, 24, 24, 24, 24, 24] (sum exactly 0 => g0 = 0)
+   h_feq spot check at x = 3/2: f(1/x) = (0.74378067801 + 0.00850861404442j), x g(x) = (0.74378067801 + 0.00850861404442j), diff 1.83e-30
+   s = 2:
+     DIR  1.01023301133449963 + 0.0460289450423698161j  (Arb radius [3.0e-59 +/- 2.80e-62])
+     NORM 1.01023300905485397 + 0.0460289444977433134j  (+ tail, |tail| <= 1.51e-5)
+     DEF  period  7: (1.01023301133449962 + 0.0460289450423698247j)   |DEF-DIR| = 6.94e-18   |DEF-NORM| = 2.34e-09
+     DEF  period 14: (1.01023301133449962 + 0.0460289450423698247j)   |DEF-DIR| = 6.94e-18   |DEF-NORM| = 2.34e-09
+   s = 3:
+     DIR  1.00939087236110859 + 0.0192003590087946067j  (Arb radius [3.1e-59 +/- 1.30e-61])
+     NORM 1.00939087236105048 + 0.0192003590087809600j  (+ tail, |tail| <= 1.89e-10)
+     DEF  period  7: (1.00939087236110859 + 0.0192003590087946077j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 5.98e-14
+     DEF  period 14: (1.00939087236110859 + 0.0192003590087946077j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 5.98e-14
+   s = 5/2:
+     DIR  1.01213957679218206 + 0.0301589148477312989j  (Arb radius [3.1e-59 +/- 3.77e-61])
+     NORM 1.01213957678067135 + 0.0301589148450048781j  (+ tail, |tail| <= 5.04e-8)
+     DEF  period  7: (1.01213957679218205 + 0.0301589148477313017j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.18e-11
+     DEF  period 14: (1.01213957679218205 + 0.0301589148477313017j)   |DEF-DIR| = 0.00e+00   |DEF-NORM| = 1.18e-11
+
+== modulus (7), psi^2 o N
+   period 7: 72 components; f0 = (0.0 + 0.0j); g0 = (1.02035e-16 + 5.95549e-17j); exponent counts of sum_(a,b) chi(a+bw) = [12, 0, 12, 0, 12, 0] (sum exactly 0 => g0 = 0)
+   h_feq spot check at x = 3/2: f(1/x) = (0.732576021583 + 0.0108984199785j), x g(x) = (0.732576021583 + 0.0108984199785j), diff 8.47e-31
+   period 14: 288 components; f0 = (0.0 + 0.0j); g0 = (1.02035e-16 + 5.95549e-17j); exponent counts of sum_(a,b) chi(a+bw) = [48, 0, 48, 0, 48, 0] (sum exactly 0 => g0 = 0)
+   h_feq spot check at x = 3/2: f(1/x) = (0.732576021583 + 0.0108984199785j), x g(x) = (0.732576021583 + 0.0108984199785j), diff 1.15e-30
+   s = 2:
+     DIR  0.910890028692234767 + 0.128828758658958329j  (Arb radius [3.0e-59 +/- 1.84e-61])
+     NORM 0.910890027694693859 + 0.128828756990888048j  (+ tail, |tail| <= 1.51e-5)
+     DEF  period  7: (0.910890028692234838 + 0.128828758658958368j)   |DEF-DIR| = 5.55e-17   |DEF-NORM| = 1.94e-09
+     DEF  period 14: (0.910890028692234838 + 0.128828758658958368j)   |DEF-DIR| = 5.55e-17   |DEF-NORM| = 1.94e-09
+   s = 3:
+     DIR  0.973337651162817828 + 0.0435698243018874595j  (Arb radius [3.0e-59 +/- 1.26e-62])
+     NORM 0.973337651162792154 + 0.0435698243018452371j  (+ tail, |tail| <= 1.89e-10)
+     DEF  period  7: (0.973337651162817848 + 0.0435698243018874697j)   |DEF-DIR| = 1.11e-16   |DEF-NORM| = 4.95e-14
+     DEF  period 14: (0.973337651162817848 + 0.0435698243018874697j)   |DEF-DIR| = 1.11e-16   |DEF-NORM| = 4.95e-14
+   s = 5/2:
+     DIR  0.951422655689356664 + 0.0759969350788269162j  (Arb radius [3.0e-59 +/- 2.21e-63])
+     NORM 0.951422655684295209 + 0.0759969350704339438j  (+ tail, |tail| <= 5.04e-8)
+     DEF  period  7: (0.951422655689356701 + 0.075996935078826936j)   |DEF-DIR| = 1.39e-17   |DEF-NORM| = 9.80e-12
+     DEF  period 14: (0.951422655689356701 + 0.075996935078826936j)   |DEF-DIR| = 1.39e-17   |DEF-NORM| = 9.80e-12
+
+== modulus (7), psi^3 o N
+   period 7: 72 components; f0 = (0.0 + 0.0j); g0 = (-1.54074e-32 + 3.03109e-16j); exponent counts of sum_(a,b) chi(a+bw) = [18, 0, 0, 18, 0, 0] (sum exactly 0 => g0 = 0)
+   h_feq spot check at x = 3/2: f(1/x) = (0.729043443188 + 6.96261061421e-19j), x g(x) = (0.729043443188 + 6.96261061421e-19j), diff 1.18e-30
+   period 14: 288 components; f0 = (0.0 + 0.0j); g0 = (-1.00148e-32 + 3.03109e-16j); exponent counts of sum_(a,b) chi(a+bw) = [72, 0, 0, 72, 0, 0] (sum exactly 0 => g0 = 0)
+   h_feq spot check at x = 3/2: f(1/x) = (0.729043443188 + 6.96261061421e-19j), x g(x) = (0.729043443188 + 6.96261061421e-19j), diff 9.86e-31
+   s = 2:
+     DIR  0.945116121887277217  (Arb radius [2.7e-59 +/- 2.80e-61])
+     NORM 0.945116118674927913  (+ tail, |tail| <= 1.51e-5)
+     DEF  period  7: (0.945116121887277217 + 1.59030032902578451e-17j)   |DEF-DIR| = 1.59e-17   |DEF-NORM| = 3.21e-09
+     DEF  period 14: (0.945116121887277217 + 1.59030032902578451e-17j)   |DEF-DIR| = 1.59e-17   |DEF-NORM| = 3.21e-09
+   s = 3:
+     DIR  0.978470576029169110  (Arb radius [2.9e-59 +/- 5.81e-62])
+     NORM 0.978470576029087751  (+ tail, |tail| <= 1.89e-10)
+     DEF  period  7: (0.97847057602916911 - 1.09046356688693422e-18j)   |DEF-DIR| = 1.09e-18   |DEF-NORM| = 8.14e-14
+     DEF  period 14: (0.97847057602916911 - 1.09046356688693422e-18j)   |DEF-DIR| = 1.09e-18   |DEF-NORM| = 8.14e-14
+   s = 5/2:
+     DIR  0.965926179028481950  (Arb radius [2.6e-59 +/- 4.53e-61])
+     NORM 0.965926179012314507  (+ tail, |tail| <= 5.04e-8)
+     DEF  period  7: (0.96592617902848195 + 5.27375550422605891e-19j)   |DEF-DIR| = 5.27e-19   |DEF-NORM| = 1.62e-11
+     DEF  period 14: (0.96592617902848195 + 5.27375550422605891e-19j)   |DEF-DIR| = 5.27e-19   |DEF-NORM| = 1.62e-11
+
+total time 4273 s

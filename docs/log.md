@@ -615,3 +615,51 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Main: CITATION.cff identifiers gain the v2 version DOI and the concept DOI (main's title and version stay as v1's, since main also holds the corpus replay). docs/tasks.md 8.5 is marked done.
   - The webhook listing printed Zenodo's access token in Claude's session output only; it is not written to any file in the repo.
 - 2026-10-20, step 7 done: Joe ran the compaction (elevated diskpart with scripts/compact-wsl-vhdx.txt). WSL image 93,405,052,928 -> 28,123,856,896 bytes (65.28 GB reclaimed); C: free 140.3 GB. WSL check afterwards: 23G used, clone fd4aeeb clean, tool binaries present, official nanoda_bin unchanged. Record: results/2026-10-20-prune-builds.txt.
+- 2026-10-20, new task: statement-faithfulness check of the other three family-003 challenges (QuasiRiemannHypothesis, DirichletSevenEighths, HeckeSevenEighths), steps 1-3, reading only, no builds. Sources: the clean clone at fd4aeeb, paper.tex of The-Quasi-Riemann-Hypothesis-September-30-2026 (an October 5 version, paper2.tex, also exists; not read), lean/docs/003.md, and Mathlib d13f23b in .lake/packages. Draft: docs/statement-check-003-steps1-3-DRAFT.md. Key points: QRH covers s = 1 by the nonzero junk value riemannZeta 1 (ZetaAsymp.lean:421/444). Dirichlet and Hecke exclude the principal pole by hpole, as 003.md says. The Hecke L-function is a local theta/Mellin construction (HeckeSevenEighths.lean:9-235); my hand derivation says it equals Σ χ(𝔞)/N𝔞^s, but that is INFERRED, so it is marked UNCLEAR pending step 5. Waiting for Joe's approval (step 4).
+- 2026-10-20, statement check step 4: Joe approved steps 1-3 (the QRH and Dirichlet findings stand; note the ζ s = 1 junk-value point in the final report). His additions: a holomorphy lemma; cite the MulChar line; include a nontrivial character mod (7), verified first; settle `period`; correct the paper2 description. Done in the draft: paper2.tex (October 5) is the companion 11/12 paper (its README and lines 47, 74), not a later version. MulChar is cited at MulChar/Basic.lean:72-73, with the field at HeckeSevenEighths.lean:220.
+- 2026-10-20, statement check step 5 (COMPUTED unless marked):
+  - Project statement-checks/ (lakefile.toml, setup.sh, build.sh, sync.sh). Built in WSL at /home/checker/statement-checks, outside the openai/math clone.
+    - Lean v4.34.1, Mathlib d13f23b and its 8 dependencies, copied with their build outputs from the clone's .lake/packages after checking each is clean and at its manifest commit. No download and no Mathlib rebuild.
+    - The three challenge files are verbatim copies; their sha256 equals the clone's. No solution module is imported.
+  - A first smoke build was stopped by the Windows guard: free RAM 1,493 MB, because the 8 GB package copy filled WSL's page cache. After drop_caches (Windows free RAM back to 9.7 GB) it ran normally. No result was affected.
+  - Lean results. Final clean build: results/2026-10-20-statement-checks/lean-build-final.log, 38 s, lake exit 0. All 32 `#print axioms` lines are exactly [propext, Classical.choice, Quot.sound]; the only `sorry`s are the three challenge theorems, which nothing uses. Source hashes: lean-sources.sha256.
+    - QRH.lean: s = 2 satisfies the hypothesis; ζ(−2) = 0; the Dirichlet series for Re s > 1; the junk value ζ(1) = (γ − log 4π)/2 ≠ 0.
+    - Dirichlet.lean: ZMod.χ₄ cast to ℂ is ≠ 1; the hypotheses hold for it and for the principal character; LFunction = LSeries for Re s > 1; the mod-1 L-function vanishes at −2.
+    - Hecke.lean: trivialTop (modulus O) meets the hypotheses; LFunction χ is differentiable at every s ≠ 0, 1 for every χ, and at s = 1 whenever g₀ = 0.
+    - HeckeSeries.lean, `LFunction_hasSum`, the lattice identity: for every Character and Re s > 1, LFunction χ s = Σ over (x, y) ≠ 0 of χ(x + yω) / (x² − xy + y²)^s / 6. The steps:
+      - pair.f(t) = Σ_ℤ² χ(x + yω) e^(−πtQ), via the explicit bijection (a, b, e, m, n) ↔ (x, y);
+      - pair.f₀ = χ(0);
+      - summability, via EisensteinSeries.summable_one_div_norm_rpow;
+      - Mathlib's hasSum_mellin and WeakFEPair.hasMellin.
+    - HeckeHolo.lean:
+      - f₀ = 0 for a proper modulus; holomorphy at s = 0 for a proper modulus;
+      - LFunction trivialTop 0 = 0 (Mathlib's Γ(0) = 0). The Dedekind zeta value there is −1/6, so this is a junk value, outside the half-plane;
+      - coord_surj: O = ℤ + ℤω, via integralPowerBasis;
+      - orthogonality: Σ over the box of χ = 0 for residue ≠ 1, by translation averaging, so g₀ = 0. Hence every nontrivial character's LFunction is entire;
+      - period_indep: changing `period` leaves LFunction unchanged on Re s > 1, and on ℂ minus {0, 1} by the identity theorem.
+    - HeckeNontrivial.lean: chi7, modulus (7), residue = quadratic character mod 7 of ρ₁(z)ρ₂(z), where ρ₁ and ρ₂ send ω to 2 and to 4.
+      - Built from PowerBasis.lift and minpoly ℤ ω = X² + X + 1; trivial on the 6 units (Mathlib Units.mem); ≠ 1, because its value at 2 + ω, a unit mod 7, is −1.
+      - It satisfies every hypothesis, including s = 1; its L-function is entire and equals the lattice series.
+  - 5c, Dedekind factorization: not attempted in Lean, after half 1 (the lattice identity) was done.
+    - Reason: it needs #{(x, y) : x² − xy + y² = n} = 6 Σ_{d|n} χ₋₃(d), i.e. prime factorization in ℤ[ω] by p mod 3, which I did not find in Mathlib. My estimate is days, not hours.
+    - Time box: 09:52-10:18 used, for all the Lean above. The numerical fallback ran: src/hecke_numeric.py, results/2026-10-20-statement-checks/hecke-numeric.txt.
+  - Tests: `.venv/Scripts/python -m pytest tests -q` gives 15 passed (src/hecke_numeric.py is new; no existing src/ file changed).
+- 2026-10-20 ~10:20, numerical check v1 (results/2026-10-20-statement-checks/hecke-numeric.txt; 4,091 s): |DEF − DIR| ≤ 1.1e-16 for 5 characters × 2 periods × 3 points, and NORM within its rigorous tail bound in every case. Two defects found on reading, recorded in hecke-numeric-NOTE.txt; v1 kept unchanged:
+  - the exact g₀ test labelled the ψ² and ψ³ sums "nonzero" (wrong criterion); their counts [12,0,12,0,12,0] and [18,0,0,18,0,0] sum to 0;
+  - a global f/g cache keyed by id() made the h_feq spot checks read stale lists (the period-14 spot checks show the trivial value 1.75145790952).
+  Fixed in src/hecke_numeric.py (per-list caches; an exact test on Re and Im of Σ c_k ζ₆^k). v2 is rerunning in full into hecke-numeric-v2.txt.
+- 2026-10-20 10:58, statement-checks prune (results/2026-10-20-statement-checks/prune.txt): deleted /home/checker/statement-checks/.lake, i.e. the copied Mathlib and its 8 dependencies (7.7 GB) and the project build (70 MB, 11 .olean files listed). Sources and build logs kept. The openai/math clone and its packages are untouched.
+- 2026-10-20, step 6 drafts: docs/statement-check-{QuasiRiemannHypothesis,DirichletSevenEighths,HeckeSevenEighths}.md and docs/statement-check-summary.md. The Hecke numerical numbers are checked against v2 before step 7.
+- 2026-10-20, numerical check v2 (results/2026-10-20-statement-checks/hecke-numeric-v2.txt; command `.venv/Scripts/python -I src/hecke_numeric.py`; 4,273 s). COMPUTED (numerical):
+  - The 30 DEF values are identical to v1; max |DEF − DIR| = 1.11e-16; every |DEF − NORM| is within its rigorous Arb tail bound.
+  - The h_feq spot checks now use each character's own lists: diff ≤ 2e-30.
+  - The exact g₀ test gives 0 for ψ¹, ψ², ψ³ and nonzero for the two trivial characters.
+  - Hecke report updated. Step 7: waiting for Joe's approval before commit and push.
+- 2026-10-20, Joe's ruling on the Hecke LFunction row: MATCHES, resting on (a) the Lean lattice identity for Re s > 1 plus holomorphy on ℂ minus {0, 1} (the identity theorem then fixes the function in the strip) and (b) two INFERRED identifications. The Dedekind factorization was checked numerically for 5 characters, not proved. The report, summary and verdict are updated, and the row is removed from the UNCLEAR list.
+- 2026-10-20 12:43-12:50, optional norm identity (1-hour box): proved in Lean, statement-checks/StatementChecks/HeckeNorm.lean.
+  - `norm_coordinateElement`: Algebra.norm ℤ (x + yω) = x² − xy + y², from the determinant of multiplication by x + yω in the integral power basis {1, ω}.
+  - `absNorm_span_coordinateElement`: Ideal.absNorm (span {x + yω}) = |x² − xy + y²|, the paper's N𝔞 = |O/𝔞|.
+  - So (b1) is now COMPUTED. Only (b2), 6 generators per ideal, remains INFERRED.
+  - Re-setup copied the packages again. Windows free RAM fell to 1,719 MB after the copy, so I waited until it was back above 8 GB (11.5 GB) before building.
+  - Final clean build: results/2026-10-20-statement-checks/lean-build-final-v2.log, 34 axiom outputs, all standard. Sources: lean-sources-v2.sha256.
+  - Pruned again (prune-v2.txt: 12 .olean files, packages removed; WSL 31G -> 23G). statement-checks/prune.sh added.

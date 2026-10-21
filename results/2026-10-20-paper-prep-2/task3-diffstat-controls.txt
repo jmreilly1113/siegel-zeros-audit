@@ -1,0 +1,6 @@
+paths in union: 3239
+adc7f12: union paths present in tree: 3239
+fd4aeeb: union paths present in tree: 3239
+== positive control: same command with lean/OAI.lean (changed between the commits per the 2026-10-11 main plan) added
+ lean/OAI.lean | 11 +++++++++++
+ 1 file changed, 11 insertions(+)

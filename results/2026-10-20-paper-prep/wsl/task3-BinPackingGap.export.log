@@ -1,0 +1,9 @@
+== export BinPackingGap  2026-10-20 19:37:31
+command: lake env lean4export OAI.Computability.BinPacking.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.BinPackingGap.main_results propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/BinPackingGap.export
+Running as unit: run-u41.service; invocation ID: f4320c4c8e9d49e2afc459f2658cecd9
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 19.594s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 413835644 Oct 20 19:39 /home/checker/corpus/pp/BinPackingGap.export
+63e2a6623591cd088005fdabdf599ea53df51ea1124b218cdf24cad065b323fe  /home/checker/corpus/pp/BinPackingGap.export

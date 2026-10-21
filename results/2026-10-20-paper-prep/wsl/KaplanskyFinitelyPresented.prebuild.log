@@ -1,0 +1,11 @@
+== prebuild KaplanskyFinitelyPresented: lake build OAI.RingTheory.DirectFiniteness.FinitelyPresented ComparatorChallenges.KaplanskyFinitelyPresented  2026-10-20 16:47:47
+Running as unit: run-u27.service; invocation ID: 2246e6e7a0ea40e3b0875e7153c43130
+⚠ [8925/9050] Built ComparatorChallenges.KaplanskyFinitelyPresented (8.7s)
+warning: ComparatorChallenges/KaplanskyFinitelyPresented.lean:7:8: declaration uses `sorry`
+Build completed successfully (9050 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 12min 23.558s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 808
+disk used: 35G

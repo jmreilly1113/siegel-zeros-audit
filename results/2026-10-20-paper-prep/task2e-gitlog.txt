@@ -1,0 +1,20 @@
+# Task 2e: git log on the two flagged configs' paths (COMPUTED).
+# Clone: anonymous 'git clone --filter=blob:none --no-checkout https://github.com/openai/math.git' on 2026-10-20 14:28:26, into the session scratchpad (not external/).
+# origin/main = 1581d4cbdd69a0faf34b2089614fe2a814316a6a (Mon Oct 12 14:55:24 2026 -0700)
+# Pinned paper commit adc7f1241b42e322a6451854ab7e4b4c146bf78a; corpus replay commit fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+
+== git log --format='%H %cd %s' adc7f12..origin/main -- lean/ComparatorChallenges/HarmonicGrowth.lean lean/ComparatorChallenges/HarmonicGrowth.json lean/OAI/Geometry/HarmonicGrowth
+-- git diff --stat adc7f12 origin/main -- lean/ComparatorChallenges/HarmonicGrowth.lean lean/ComparatorChallenges/HarmonicGrowth.json lean/OAI/Geometry/HarmonicGrowth
+
+== git log --format='%H %cd %s' fd4aeeb..origin/main -- lean/ComparatorChallenges/HarmonicGrowth.lean lean/ComparatorChallenges/HarmonicGrowth.json lean/OAI/Geometry/HarmonicGrowth
+-- git diff --stat fd4aeeb origin/main -- lean/ComparatorChallenges/HarmonicGrowth.lean lean/ComparatorChallenges/HarmonicGrowth.json lean/OAI/Geometry/HarmonicGrowth
+-- full history (all commits touching these paths, origin/main):
+adc7f1241b42e322a6451854ab7e4b4c146bf78a Tue Oct 6 14:58:50 2026 -0700 Initial commit
+
+== git log --format='%H %cd %s' adc7f12..origin/main -- lean/ComparatorChallenges/NavierStokesVelocity.lean lean/ComparatorChallenges/NavierStokesVelocity.json lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection
+-- git diff --stat adc7f12 origin/main -- lean/ComparatorChallenges/NavierStokesVelocity.lean lean/ComparatorChallenges/NavierStokesVelocity.json lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection
+
+== git log --format='%H %cd %s' fd4aeeb..origin/main -- lean/ComparatorChallenges/NavierStokesVelocity.lean lean/ComparatorChallenges/NavierStokesVelocity.json lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection
+-- git diff --stat fd4aeeb origin/main -- lean/ComparatorChallenges/NavierStokesVelocity.lean lean/ComparatorChallenges/NavierStokesVelocity.json lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection
+-- full history (all commits touching these paths, origin/main):
+adc7f1241b42e322a6451854ab7e4b4c146bf78a Tue Oct 6 14:58:50 2026 -0700 Initial commit

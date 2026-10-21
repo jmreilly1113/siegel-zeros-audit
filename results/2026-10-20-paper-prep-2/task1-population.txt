@@ -1,0 +1,28 @@
+formalization.yaml fd4aeeb sha256 5a8a164259591208886cd018416e61552665265ec9e20cff636f9d51117c2278: 189 distinct referenced configs
+formalization.yaml adc7f12 sha256 2dcbd0d6e6a22475f53d49bfdfcac9b6d2b470653c332a9f56522f5be166edb9: 178 distinct referenced configs
+
+== stage totals (configs with a final nanoda or shipped run in that stage)
+pilot (adc7f12): 3
+headline (fd4aeeb): 15
+remainder (fd4aeeb): 172
+sum of stage totals: 190
+headline dir also holds shipped-only runs of pilot configs: []
+
+== configs in more than one stage: 0
+
+distinct configs over all stages: 190
+distinct configs with an fd4aeeb run: 187; excluding shipped-only runs of pilot configs: 187
+
+== replay vs referenced (fd4aeeb yaml)
+replayed (any stage) and referenced: 189
+replayed but NOT referenced at fd4aeeb: ['EditApproximation']
+referenced at fd4aeeb but NOT replayed in any stage: []
+referenced but with no fd4aeeb nanoda run (covered by the pilot at adc7f12 only): ['QuasiRiemannHypothesis', 'SiegelZeros']
+pilot configs referenced at adc7f12: ['QuasiRiemannHypothesis', 'SiegelZeros']; not referenced at adc7f12: ['EditApproximation']
+
+== the two referenced sets (where "178" comes from)
+referenced at adc7f12: 178; at fd4aeeb: 189; in both: 178
+referenced at adc7f12 but not at fd4aeeb: []
+referenced at fd4aeeb but not at adc7f12 (11): ['CartierChartCompactnessSupport', 'CharacterVarietiesAllSeamsSupport', 'FourierLLogL', 'HadwigerCounterexample', 'HoneycombBridgeMassSupport', 'LogspaceEquality', 'OneTapeSpace', 'StableCoordinateFour', 'SurfaceConeCandidateSupport', 'TraceIdealTransportSupport', 'UniformFourier']
+adc7f12-referenced configs missing from the replay: []
+fd4aeeb-replayed configs (187) that adc7f12 references: 176; that only fd4aeeb references: 11

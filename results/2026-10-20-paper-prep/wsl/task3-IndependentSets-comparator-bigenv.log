@@ -1,0 +1,58 @@
+== run IndependentSets-bigenv  mode bigenv  2026-10-20 19:55:46
+config: /home/checker/corpus/configs/IndependentSets-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.IndependentSets",
+  "solution_module": "OAI.Combinatorics.IndependentSets.Main",
+  "theorem_names": [
+    "OAI.LargeIndependentSets.mainTheoremReal"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/IndependentSets.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 41G
+Running as unit: run-u44.service; invocation ID: 4b8ed70947a44e02b0fec7b4ac9dd161
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u44.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER ulimit -s: unlimited; ulimit -Hs: unlimited; RUST_MIN_STACK=1073741824
+Building ComparatorChallenges.IndependentSets
+⚠ [8924/8924] Replayed ComparatorChallenges.IndependentSets
+warning: ComparatorChallenges/IndependentSets.lean:77:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LargeIndependentSets.mainTheoremReal, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.IndependentSets
+Building OAI.Combinatorics.IndependentSets.Main
+Build completed successfully (9377 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.LargeIndependentSets.mainTheoremReal, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.IndependentSets.Main
+Running nanoda kernel on solution
+
+thread 'thread_0' (81416) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 3min 44.395s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 249
+disk used after: 41G

@@ -1,0 +1,9 @@
+== export VertexCover  2026-10-20 16:46:03
+command: lake env lean4export OAI.Computability.VertexCover.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.VertexCover.explicit_cover_gap OAI.VertexCover.every_fixed_factor_below_two propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/VertexCover.export
+Running as unit: run-u25.service; invocation ID: cf21ccd5607249778a93123945f15eeb
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 16.281s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 347222712 Oct 20 16:47 /home/checker/corpus/pp/VertexCover.export
+70e2ad9738df6567df0beed713415820f09da565462c616cb7010e3abe56c2d4  /home/checker/corpus/pp/VertexCover.export

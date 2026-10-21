@@ -1,0 +1,9 @@
+== export UniqueGamesTheorem  2026-10-20 16:26:54
+command: lake env lean4export OAI.Computability.UniqueGames.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.UniqueGamesTheorem.theorem11 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/UniqueGamesTheorem.export
+Running as unit: run-u21.service; invocation ID: 5d3ba0c7abe24e62a825dc4b18def9a2
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 41.536s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 682243332 Oct 20 16:28 /home/checker/corpus/pp/UniqueGamesTheorem.export
+6ef1973478892ac37854e8840628dc172462f9d218c8d64a7624e2cc1063b4d9  /home/checker/corpus/pp/UniqueGamesTheorem.export

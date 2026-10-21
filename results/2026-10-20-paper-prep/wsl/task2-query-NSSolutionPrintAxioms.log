@@ -1,0 +1,9 @@
+== query NSSolutionPrintAxioms  2026-10-20 14:55:05
+file: /mnt/c/Users/Work/dev/siegel/lean-checks/paper-prep/NSSolutionPrintAxioms.lean sha256 e41f7ca05c68c0ca1f534c2704e71c4b9685fe2607e3760a58dc90c5779aa2c8
+Running as unit: run-u6.service; invocation ID: c340db5d23164156b1142a1ce7535e01
+'OAI.VelocityDetection.main_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.VelocityDetection.TapeCodes.half' depends on axioms: [propext, Classical.choice, Quot.sound]
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 8.736s
+SANDBOX EXIT CODE: 0

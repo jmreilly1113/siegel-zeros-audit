@@ -1,0 +1,12 @@
+== prebuild VertexCover: lake build OAI.Computability.VertexCover.Main ComparatorChallenges.VertexCover  2026-10-20 16:29:35
+Running as unit: run-u23.service; invocation ID: 68bb80db9b344a668ebd65f739f3caa9
+⚠ [9241/9275] Built ComparatorChallenges.VertexCover (6.6s)
+warning: ComparatorChallenges/VertexCover.lean:145:8: declaration uses `sorry`
+warning: ComparatorChallenges/VertexCover.lean:148:8: declaration uses `sorry`
+Build completed successfully (9275 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 11min 12.566s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 732
+disk used: 34G

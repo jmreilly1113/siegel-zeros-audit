@@ -1,0 +1,11 @@
+== query HGChallengePrintAxioms  2026-10-20 14:54:07
+file: /mnt/c/Users/Work/dev/siegel/lean-checks/paper-prep/HGChallengePrintAxioms.lean sha256 293395454e2322a1ab6cfd422747c72b87d4e1d79c2cb1f5caf60d1d12eeaab7
+Running as unit: run-u3.service; invocation ID: 260bbf4625314090b7de45b7a83063c2
+'OAI.HarmonicCounterexample.main' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ OAI.HarmonicCounterexample.mainStatement]
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 37.286s
+SANDBOX EXIT CODE: 0

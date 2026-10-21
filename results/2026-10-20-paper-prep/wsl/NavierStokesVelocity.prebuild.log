@@ -1,0 +1,12 @@
+== prebuild NavierStokesVelocity: lake build OAI.MathematicalPhysics.NavierStokes.VelocityDetection.Main ComparatorChallenges.NavierStokesVelocity  2026-10-20 14:41:34
+Running as unit: run-u2.service; invocation ID: 4d36f5d5ceb44352b8666b96a5a77ded
+⚠ [8932/9076] Built ComparatorChallenges.NavierStokesVelocity (27s)
+warning: ComparatorChallenges/NavierStokesVelocity.lean:453:4: declaration uses `sorry`
+warning: ComparatorChallenges/NavierStokesVelocity.lean:1232:8: declaration uses `sorry`
+Build completed successfully (9076 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 11min 36.379s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 753
+disk used: 25G

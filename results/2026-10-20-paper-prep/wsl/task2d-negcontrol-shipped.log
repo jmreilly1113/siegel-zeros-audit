@@ -1,0 +1,50 @@
+== run HarmonicGrowth-negcontrol-shipped  mode plain  2026-10-20 14:57:49
+config: /home/checker/corpus/pp/HarmonicGrowth-negcontrol-shipped.json
+{
+  "challenge_module": "ComparatorChallenges.HarmonicGrowth",
+  "solution_module": "ComparatorChallenges.HarmonicGrowthNegControl",
+  "theorem_names": [
+    "OAI.HarmonicCounterexample.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/HarmonicGrowth.json vs this config
+3c3
+<     "solution_module": "OAI.Geometry.HarmonicGrowth.Main",
+---
+>     "solution_module": "ComparatorChallenges.HarmonicGrowthNegControl",
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: ?? lean/ComparatorChallenges/HarmonicGrowthNegControl.lean 
+disk used before: 25G
+Running as unit: run-u11.service; invocation ID: 92fe2251571a4533bd9edf04aeaf989e
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u11.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER ulimit -s: 8192; ulimit -Hs: unlimited; RUST_MIN_STACK=unset
+Building ComparatorChallenges.HarmonicGrowth
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.HarmonicCounterexample.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.HarmonicGrowth
+Building ComparatorChallenges.HarmonicGrowthNegControl
+✔ [8924/8924] Built ComparatorChallenges.HarmonicGrowthNegControl (6.8s)
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.HarmonicCounterexample.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.HarmonicGrowthNegControl
+uncaught exception: Illegal axiom detected: 'OAI.HarmonicCounterexample.mainStatement'
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 1min 18.056s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 86
+disk used after: 25G

@@ -1,0 +1,16 @@
+Task 1 addendum (COMPUTED unless marked), 2026-10-20. Command: grep -c 'comparator_config:' on formalization.yaml extracted with
+git show <commit>:lean/formalization.yaml from an anonymous scratch clone of github.com/openai/math (sha256 in task1-population.txt).
+adc7f12: main_results entries (comparator_config lines) 185; distinct configs 178
+fd4aeeb: main_results entries (comparator_config lines) 200; distinct configs 189
+
+Where each headline number comes from:
+- 185: main_results entries at adc7f12 (several entries share a config). Matches results/2026-10-11-corpus-catalog-findings.txt ('main_results 185').
+  INFERRED: press coverage citing 185 counts yaml entries at the pinned commit, not configs.
+- 178: distinct configs those 185 entries reference at adc7f12 (the 2026-10-11 phase-1 scope).
+- 189: distinct configs referenced at fd4aeeb (200 entries); the corpus replay scope (results/2026-10-11-corpus-mainplan.txt).
+- 190: configs replayed in any stage = 189 referenced + EditApproximation (pilot only, never referenced).
+- 187: configs replayed at fd4aeeb (headline 15 + remainder 172). Not a dedup of 190: no config is in two stages.
+  SiegelZeros and QuasiRiemannHypothesis are referenced at fd4aeeb but were replayed only in the pilot at adc7f12.
+- 178 (again): ACCEPT_BOTH among the 187. Numerically equal to the adc7f12 config count by coincidence (INFERRED: the two sets differ;
+  the 178 ACCEPT_BOTH include fd4aeeb-only configs such as UniformFourier).
+No count was changed.

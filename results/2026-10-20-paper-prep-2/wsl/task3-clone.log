@@ -1,0 +1,6 @@
+== git clone /home/checker/math /home/checker/math-v1 (local, no network)  2026-10-20 21:03:23
+HEAD: adc7f1241b42e322a6451854ab7e4b4c146bf78a; status: []
+lake-manifest.json sha256: v1 cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794  fd4aeeb clone cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794
+== copy lake packages: cp -a /home/checker/math/lean/.lake/packages /home/checker/math-v1/lean/.lake/
+copy exit 0
+8.6G	/home/checker/math-v1/lean/.lake/packages

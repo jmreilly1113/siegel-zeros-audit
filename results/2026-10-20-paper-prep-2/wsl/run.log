@@ -1,0 +1,6 @@
+2026-10-20 21:03:23 start 108_paperprep2.sh; fd4aeeb clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []; disk 45G
+2026-10-20 21:06:23 v1 clone: HEAD: adc7f1241b42e322a6451854ab7e4b4c146bf78a; status: []
+2026-10-20 21:19:22 prebuild: SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 779
+2026-10-20 21:31:54 shipped run: INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker);INNER netblock tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol;INNER netblock python AF_INET udp socket: OSError: [Errno 97] Address family not supported by protocol;INNER netblock python AF_INET6 socket: OSError: [Errno 97] Address family not supported by protocol;INNER netblock python AF_UNIX socket: OSError: [Errno 97] Address family not supported by protocol;Lean default kernel ac
+2026-10-20 21:33:05 closure diff: == git diff --stat adc7f1241b42e322a6451854ab7e4b4c146bf78a fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb -- <union paths> lean/patches;(diff --stat exit 0; empty output = no changes);== git diff --name-status, same paths;
+2026-10-20 21:33:08 end; v1 clone status []; fd4aeeb clone status []; disk 57G

@@ -1,0 +1,9 @@
+== export PerfectCompleteness  2026-10-20 20:29:16
+command: lake env lean4export OAI.Computability.PerfectCompleteness.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.PerfectCompleteness.Theorem11.exists_reduction propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/PerfectCompleteness.export
+Running as unit: run-u49.service; invocation ID: f264569ac1a344faaa235bda543b2a6a
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 36.763s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 631118332 Oct 20 20:31 /home/checker/corpus/pp/PerfectCompleteness.export
+47acc153490d610d228f454e3133f719532ab593257cb3998dff6083ad03a84c  /home/checker/corpus/pp/PerfectCompleteness.export

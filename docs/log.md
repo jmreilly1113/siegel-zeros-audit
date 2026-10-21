@@ -733,3 +733,44 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Reference initials checked against refs/ and the PDFs. The LZZ authors are R. F. Lu, A. Zaman, H. Zhao. Initials that could not be verified are omitted.
   - sources.md trimmed to the statements the note relies on: unused quotes (Dusart, Axler Prop. 5.2, Platt–Trudgian Thm 1 and the ψ−θ half of Cor. 2, RS (3.23)/(3.24)) and the superseded access-status text are removed.
   - Standing rule from Joe: no name, email or contact details to external services without asking.
+- 2026-10-20, paper prep (Joe's brief, Tasks 1-4). Results: results/2026-10-20-paper-prep/ (SUMMARY.txt is the one-page record).
+  - Scripts: scripts/recount.py, scripts/paperprep_task3.py, scripts/paperprep_manifest.py; wsl-comparator/106_paperprep_task2a.sh, 107_paperprep.sh, 107_run.sh, 107_inner.sh; lean-checks/paper-prep/*.lean.
+  - Versions: Python 3.14.6; Lean 4.34.1; comparator d03acab; nanoda 3a24072; WSL 2.4.11.0, kernel 5.15.167.4.
+  - COMPUTED:
+    - Recount 178 + 9 = 187, matching the table.
+    - The HarmonicGrowth negative control (`exact mainStatement`) is rejected as an illegal axiom.
+    - The 2026-10-12 closure queries reproduce exactly.
+    - All 9 nanoda aborts persist under ulimit -s unlimited + RUST_MIN_STACK=1 GiB, through comparator and directly. No genuine rejection.
+    - The post-hoc SiegelZeros run shows uid 1000, no capabilities, network blocked, ACCEPT_BOTH.
+    - 5 mismatches with the v1 methods text (SUMMARY.txt, Task 4).
+  - No contradiction with earlier results.
+  - Open: the source of "49" in "149 + 49".
+  - Rebuilt closures left in WSL (45G).
+  - openai/math was cloned anonymously into the scratchpad for git log (no credentials or identity sent).
+- 2026-10-20, paper prep 2 (Joe's brief, Tasks 1-6). Results: results/2026-10-20-paper-prep-2/.
+  - Task 1, COMPUTED (scripts/population.py → task1-population.txt; task1-addendum.txt):
+    - Stage totals 3 + 15 + 172 = 190; no config is in two stages. 187 = the fd4aeeb stages, not a dedup.
+    - The yaml references 189 configs at fd4aeeb (200 entries) and 178 at adc7f12 (185 entries). All 189 were replayed. Not referenced: EditApproximation only.
+    - INFERRED: the press figure 185 = yaml entries at adc7f12. The 178 adc7f12 configs and the 178 ACCEPT_BOTH are different sets.
+  - Task 2 (no rerun; task2-nanoda-reclassification.txt):
+    - All 9 pass at f67473b with the default 16 MiB stack (COMPUTED from the 2026-10-20 postfix logs).
+    - Label: crash at 3a24072, pass at f67473b.
+    - The ulimit/RUST_MIN_STACK reruns could not reach the fixed checker stack.
+    - results/2026-10-20-paper-prep/ is left unchanged (read-only rule).
+  - Task 3 (wsl-comparator/108_paperprep2.sh, 108_run.sh, 108_inner.sh, 108_closure.py; wsl/):
+    - Separate clone at adc7f12, packages copied.
+    - Shipped SiegelZeros.json under the full block: uid 1000(checker), caps 0, all four socket probes blocked; Lean kernel accepts, exit 0, 750 s.
+    - git diff --stat adc7f12..fd4aeeb over the 3,239 repo files of the four family-003 closures plus lean/patches: empty. Controls: all paths present at both commits; lean/OAI.lean is detected.
+  - Task 4 (src/banks_compare.py, tests/test_banks_compare.py → banks-compare-output.txt; docs/effectivity/banks-comparison.md):
+    - Banks arXiv:2610.15483v1 saved to refs/ (PDF and TeX gitignored, nonexclusive license; refs/banks-2610.15483.md). LibKey had no record. Fetched with plain HTTP, no contact details.
+    - COMPUTED: Banks's 3.0695555319e-3 = 81/(5888 e^{3/2}) recomputed; his 12 numeric claims hold.
+    - COMPUTED: our generalized function reproduces our certified values. No inequality of ours fails under his accounting.
+    - COMPUTED: free H is the main factor (×1.68). Banks is sharper on primes dividing q and on the shift (3/2).
+    - Not in note.md (COMPUTED, unreviewed): ours + Banks's ½S₀ device + optimized shift gives 4.580e-3 (q > 4e5) and 5.944e-3 (q > 1e10).
+    - Kerr (arXiv:2610.21099) and Green (Hexagon 2610.00311 v2) located; only their abstract pages were read.
+  - Task 5 drafts: docs/v2-release-notes.md; docs/packet-related-work-draft.md (Lemma 3 = Banks Prop. 3.4, hypotheses identical to his (3.1)). note.md not edited.
+  - Task 6 (prune.txt):
+    - Removed the rebuilt .lake/build (21G) and the adc7f12 clone (13G); WSL 57G → 24G. Tool binaries kept.
+    - fstrim ran, as in the morning prune. The vhdx is non-sparse and mounted with discard. Afterwards: no ext4 errors in dmesg, git fsck and status clean.
+  - Versions: Python 3.14.6, python-flint 0.9.0, Lean 4.34.1, comparator d03acab, WSL 2.4.11.0, kernel 5.15.167.4.
+  - Tests: 28 passed.

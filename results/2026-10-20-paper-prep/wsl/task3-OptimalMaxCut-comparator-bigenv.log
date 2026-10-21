@@ -1,0 +1,58 @@
+== run OptimalMaxCut-bigenv  mode bigenv  2026-10-20 15:51:31
+config: /home/checker/corpus/configs/OptimalMaxCut-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.OptimalMaxCut",
+  "solution_module": "OAI.Computability.MaxCut.Main",
+  "theorem_names": [
+    "OAI.OptimalMaxCut.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/OptimalMaxCut.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 29G
+Running as unit: run-u16.service; invocation ID: 03c54b33ca344892ac672c900f020138
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u16.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER ulimit -s: unlimited; ulimit -Hs: unlimited; RUST_MIN_STACK=1073741824
+Building ComparatorChallenges.OptimalMaxCut
+⚠ [8924/8924] Replayed ComparatorChallenges.OptimalMaxCut
+warning: ComparatorChallenges/OptimalMaxCut.lean:153:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.OptimalMaxCut.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.OptimalMaxCut
+Building OAI.Computability.MaxCut.Main
+Build completed successfully (9295 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.OptimalMaxCut.main, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.MaxCut.Main
+Running nanoda kernel on solution
+
+thread 'thread_3' (21059) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 7min 42.328s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 506
+disk used after: 29G

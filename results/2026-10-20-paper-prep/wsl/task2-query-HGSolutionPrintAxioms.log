@@ -1,0 +1,8 @@
+== query HGSolutionPrintAxioms  2026-10-20 14:54:48
+file: /mnt/c/Users/Work/dev/siegel/lean-checks/paper-prep/HGSolutionPrintAxioms.lean sha256 cfc8409cfb978aa164c916dfee7f245102666e5bfe30700f8d7b0786b123e139
+Running as unit: run-u4.service; invocation ID: c5b8c032ffaf45df8682420764d327f0
+'OAI.HarmonicCounterexample.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9.155s
+SANDBOX EXIT CODE: 0

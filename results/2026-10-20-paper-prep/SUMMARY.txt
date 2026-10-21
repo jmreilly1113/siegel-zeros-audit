@@ -1,0 +1,55 @@
+Paper prep, 2026-10-20 (Joe's brief, Tasks 1-4). Read-only on openai/math and on existing results/; all new files are here.
+WSL driver: wsl-comparator/107_paperprep.sh (with 107_run.sh, 107_inner.sh), 14:27-20:31 EDT, ended DONE, no STOP, no guard stop.
+openai/math clone fd4aeeb, git status empty before and after. Closures rebuilt first (builds had been pruned that morning).
+
+TASK 1 (counts): scripts/recount.py -> recount.txt, task1-notes.txt
+- COMPUTED: 215 raw logs; deduped 187 configs at fd4aeeb = 178 ACCEPT_BOTH + 9 ACCEPT_LEAN_ONLY (assertion holds);
+  headline 12+3, remainder 166+6; pilot 3 ACCEPT_BOTH (adc7f12). 0 differences from the outcomes.tsv files.
+- COMPUTED: in more than one batch dir: DirichletSevenEighths, HeckeSevenEighths (guard-stopped headline attempts, rerun).
+- COMPUTED: 149 = interim 2026-10-13 remainder ACCEPT_BOTH (149+4+7+12 = 172). No count in the data is 49.
+  INFERRED: "149 + 49" mixes the interim figure with a number from outside these files (possibly a pasted table that
+  lost a column, docs/log.md 2026-10-13). Open: where was 49 read?
+
+TASK 2 (HarmonicGrowth, NavierStokesVelocity): task2a-files.txt, task2e-gitlog.txt, wsl/task2-*, wsl/task2d-*
+- a COMPUTED: both configs permit exactly propext, Quot.sound, Classical.choice; nanoda off; no definition_names.
+  HarmonicGrowth challenge declares `axiom mainStatement : MainClaim` and `theorem main := mainStatement`.
+  NavierStokesVelocity challenge has `def half ... := w.liftOn word (by sorry)` (line 453-454); NavierStokesVelocity
+  is not referenced by formalization.yaml (no comparator run in the corpus).
+- b COMPUTED (#print axioms): HG challenge main: propext, Classical.choice, Quot.sound, mainStatement; HG solution main:
+  the 3 standard only. NS challenge main_result and half: + sorryAx; NS solution main_result and half: 3 standard only.
+- c COMPUTED: closure queries identical, line for line, to the 2026-10-12 run. Statement closures contain neither
+  mainStatement nor half. mainStatement is in the challenge's proof closure only (not the solution's). The solution's
+  own half (sorry-free) is in the NS solution's proof closure; the challenge's sorry'd half is in no statement closure.
+- d COMPUTED: negative control (solution = challenge copy with `by exact mainStatement`), usual sandbox: REJECTED,
+  "Illegal axiom detected: 'OAI.HarmonicCounterexample.mainStatement'", exit 1, both with nanoda off (shipped
+  settings) and on. INFERRED: an axiom declared in a challenge file is not thereby permitted; comparator's
+  permitted_axioms check catches a solution that uses it.
+- e COMPUTED: no commit touches either config's paths after adc7f12 (initial commit) up to main 1581d4c.
+
+TASK 3 (the 9 non-ACCEPT_BOTH configs): scripts/paperprep_task3.py -> task3-classification.tsv
+- COMPUTED: all 9 rebuilt; comparator with ulimit -s unlimited + RUST_MIN_STACK=1073741824 (both shown in effect
+  inside the unit), timeout 28,800 s; and nanoda 3a24072 directly on the comparator-identical export with the same
+  settings, timeout 14,400 s. All 18 runs: a checker thread overflowed its stack and nanoda aborted; Lean's kernel
+  accepted in every comparator run. No timeout, no "unsupported", no run that finished with a rejection.
+- Class for all 9: none of RESOURCE / UNSUPPORTED / GENUINE_REJECT. Reported as NOT_RESOLVED_CRASH (unchanged from
+  the corpus). No GENUINE_REJECT, so no failing declaration to name; overflow aborts print no declaration name.
+- Cross-reference #55: 7 of 9 are named there (OptimalMaxCut, UniqueGamesTheorem, VertexCover, Laughlin, BinPackingGap,
+  IndependentSets, PerfectCompleteness); KaplanskyFinitelyPresented and GroupRingDeterminant are not. #55 names configs,
+  not declarations.
+- COMPUTED (source, task4-provenance-commands.txt): checker threads use .stack_size(STACK_SIZE = 16 MiB) (tc.rs:160);
+  comparator spawns nanoda through landrun with envPass := #[]. INFERRED: neither requested setting can reach the
+  overflowing stack, which is why nothing changed. Kaplansky's rebuilt export is byte-identical (sha256 7b923557...) to
+  the one a 1 GiB-STACK_SIZE build accepted this morning (results/2026-10-20-nanoda-discrepancy).
+
+TASK 4 (provenance): manifest.json, task4-manifest-vs-v1.txt, task4-provenance-commands.txt, wsl/task4-SiegelZeros-posthoc.log
+- COMPUTED: replay logs never print id. POST-HOC SiegelZeros run (fd4aeeb) in the same wrapper: uid=1000(checker),
+  CapEff 0, NoNewPrivs 1, cgroup user@1000.service; AF_INET/AF_INET6/AF_UNIX sockets all EAFNOSUPPORT; ACCEPT_BOTH,
+  exit 0, 797 s. (A separate probe recorded the same uid on 2026-10-11.)
+- COMPUTED: lean-toolchain v4.34.1, lake-manifest sha256 cf6105a2... and lakefile identical at adc7f12/fd4aeeb/main.
+- Mismatches with the v1 packet's methods text (5): commit scope (v1 adc7f12, replay fd4aeeb); landrun "0.1.18"
+  vs commit 811cfff = v0.1.17-4 (binary self-reports 0.1.18); no lake-manifest hash in v1; reproduce.md:45 reads as if
+  every run had the full network block, but the first comparator run (2026-10-08, script 08) blocked AF_UNIX only;
+  v1 names the user but no v1 log records id. Everything else matches.
+
+Contradictions with earlier results: none.
+Left in place: rebuilt closures in WSL (disk 45G used); exports were deleted by the driver.

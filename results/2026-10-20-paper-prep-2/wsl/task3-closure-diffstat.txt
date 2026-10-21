@@ -1,0 +1,16 @@
+== closure at adc7f12
+CONFIG DirichletSevenEighths.json: roots ['OAI.NumberTheory.DirichletL.Nonvanishing', 'ComparatorChallenges.DirichletSevenEighths']; repo modules 2925; external leaf modules 252
+CONFIG HeckeSevenEighths.json: roots ['OAI.NumberTheory.DirichletL.Hecke.Nonvanishing', 'ComparatorChallenges.HeckeSevenEighths']; repo modules 2926; external leaf modules 252
+CONFIG QuasiRiemannHypothesis.json: roots ['OAI.NumberTheory.DirichletL.Nonvanishing', 'ComparatorChallenges.QuasiRiemannHypothesis']; repo modules 2925; external leaf modules 252
+CONFIG SiegelZeros.json: roots ['OAI.NumberTheory.SiegelZeros.Main', 'ComparatorChallenges.SiegelZeros']; repo modules 307; external leaf modules 324
+repo paths: 3239
+== closure at fd4aeeb
+CONFIG DirichletSevenEighths.json: roots ['OAI.NumberTheory.DirichletL.Nonvanishing', 'ComparatorChallenges.DirichletSevenEighths']; repo modules 2925; external leaf modules 252
+CONFIG HeckeSevenEighths.json: roots ['OAI.NumberTheory.DirichletL.Hecke.Nonvanishing', 'ComparatorChallenges.HeckeSevenEighths']; repo modules 2926; external leaf modules 252
+CONFIG QuasiRiemannHypothesis.json: roots ['OAI.NumberTheory.DirichletL.Nonvanishing', 'ComparatorChallenges.QuasiRiemannHypothesis']; repo modules 2925; external leaf modules 252
+CONFIG SiegelZeros.json: roots ['OAI.NumberTheory.SiegelZeros.Main', 'ComparatorChallenges.SiegelZeros']; repo modules 307; external leaf modules 324
+repo paths: 3239
+union of repo paths: 3239
+== git diff --stat adc7f1241b42e322a6451854ab7e4b4c146bf78a fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb -- <union paths> lean/patches
+(diff --stat exit 0; empty output = no changes)
+== git diff --name-status, same paths

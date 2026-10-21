@@ -1,0 +1,38 @@
+Paper prep 2, Task 2 (nanoda), 2026-10-20. Nothing rerun. Read-only on existing results/.
+
+Supersedes the Task 3 class label in results/2026-10-20-paper-prep/SUMMARY.txt and task3-classification.tsv
+(those files are left unchanged, by the read-only rule; this file is the correction).
+
+Old label: NOT_RESOLVED_CRASH.
+New label, all 9 configs: CRASH at nanoda 3a24072 (corpus-pinned); PASS at nanoda f67473b (default stack).
+
+Evidence, COMPUTED from results/2026-10-20-nanoda-postfix-f67473b/ (run 2026-10-20 03:49-05:55 EDT, UNOFFICIAL batch):
+- Each <config>-postfix.log has "nanoda kernel accepts the solution", "Lean default kernel accepts the solution",
+  "Your solution is okay!" and "COMPARATOR EXIT CODE: 0":
+    config                       f67473b   seconds   3a24072 (corpus, and 2026-10-20 reruns)
+    OptimalMaxCut                PASS      527       CRASH (stack overflow)
+    UniqueGamesTheorem           PASS      363       CRASH
+    VertexCover                  PASS      243       CRASH
+    KaplanskyFinitelyPresented   PASS      386       CRASH
+    GroupRingDeterminant         PASS      403       CRASH
+    Laughlin                     PASS      4737      CRASH
+    BinPackingGap                PASS      264       CRASH
+    IndependentSets              PASS      276       CRASH
+    PerfectCompleteness          PASS      350       CRASH
+- All 9 logs record the same binary, /opt/nanoda-postfix/nanoda_bin sha256 be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5
+  (grep count 9).
+- Default stack: build.log shows src/lib.rs:23 STACK_SIZE = 16_777_216 (16 MiB), unchanged; no ulimit change.
+- The comparator received this binary through COMPARATOR_NANODA; config = the corpus nanoda copy of each shipped config.
+
+The 2026-10-20 ulimit / RUST_MIN_STACK reruns (results/2026-10-20-paper-prep/wsl/task3-*):
+- COMPUTED (nanoda 3a24072 source): checker threads are spawned with an explicit .stack_size(crate::STACK_SIZE),
+  STACK_SIZE = 16 MiB (src/tc.rs:160, src/lib.rs:23); comparator d03acab spawns nanoda through landrun with
+  envPass := #[] (Main.lean:182).
+- INFERRED: `ulimit -s` governs only the main thread and RUST_MIN_STACK only threads spawned without an explicit
+  size, and through comparator RUST_MIN_STACK is not even passed to nanoda. So those reruns could not affect the
+  fixed 16 MiB checker stack, and their unchanged result (all 18 runs crashed) is what that predicts. They are a
+  null test, not evidence about stack needs.
+
+What this does and does not change (INFERRED):
+- The official table is unchanged: 178 ACCEPT_BOTH + 9 ACCEPT_LEAN_ONLY with the pinned nanoda 3a24072.
+- "All 187 accepted by both kernels" holds only across two nanoda versions (178 with 3a24072, 9 with f67473b).

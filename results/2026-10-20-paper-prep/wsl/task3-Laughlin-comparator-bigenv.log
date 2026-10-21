@@ -1,0 +1,58 @@
+== run Laughlin-bigenv  mode bigenv  2026-10-20 17:58:18
+config: /home/checker/corpus/configs/Laughlin-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.Laughlin",
+  "solution_module": "OAI.Analysis.Laughlin.Main",
+  "theorem_names": [
+    "OAI.Laughlin.mainTarget_proved"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/Laughlin.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 37G
+Running as unit: run-u36.service; invocation ID: 0e9af32be2544743bc812801dbe79b62
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u36.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER ulimit -s: unlimited; ulimit -Hs: unlimited; RUST_MIN_STACK=1073741824
+Building ComparatorChallenges.Laughlin
+⚠ [8924/8924] Replayed ComparatorChallenges.Laughlin
+warning: ComparatorChallenges/Laughlin.lean:61:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Laughlin.mainTarget_proved, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.Laughlin
+Building OAI.Analysis.Laughlin.Main
+Build completed successfully (10181 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.Laughlin.mainTarget_proved, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Analysis.Laughlin.Main
+Running nanoda kernel on solution
+
+thread 'thread_2' (65496) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 1h 2min 9.695s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 4105
+disk used after: 37G

@@ -1,0 +1,57 @@
+== run SiegelZeros-adc7f12-shipped  mode probe  2026-10-20 21:19:22
+config: /home/checker/math-v1/lean/ComparatorChallenges/SiegelZeros.json
+{
+  "challenge_module": "ComparatorChallenges.SiegelZeros",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": false
+}
+
+== diff shipped /home/checker/math-v1/lean/ComparatorChallenges/SiegelZeros.json vs this config
+(diff exit 0)
+== clone: HEAD adc7f1241b42e322a6451854ab7e4b4c146bf78a; status: 
+disk used before: 57G
+Running as unit: run-u2.service; invocation ID: acf1162736d445bd8c22f04b6d874fd4
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u2.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER cwd: /home/checker/math-v1/lean; git HEAD: adc7f1241b42e322a6451854ab7e4b4c146bf78a
+INNER netblock tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol
+INNER netblock python AF_INET udp socket: OSError: [Errno 97] Address family not supported by protocol
+INNER netblock python AF_INET6 socket: OSError: [Errno 97] Address family not supported by protocol
+INNER netblock python AF_UNIX socket: OSError: [Errno 97] Address family not supported by protocol
+INNER ulimit -s: 8192; RUST_MIN_STACK=unset
+Building ComparatorChallenges.SiegelZeros
+⚠ [8924/8924] Replayed ComparatorChallenges.SiegelZeros
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.SiegelZeros
+Building OAI.NumberTheory.SiegelZeros.Main
+Build completed successfully (9242 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap, OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.NumberTheory.SiegelZeros.Main
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 11min 29.729s
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 750
+disk used after: 57G

@@ -1,0 +1,16 @@
+== query NavierStokesSolution  2026-10-20 14:57:34
+file: /mnt/c/Users/Work/dev/siegel/lean-checks/corpus-queries/NavierStokesSolution.lean sha256 fbd63e4dd6bcbc8f0729636c13667038fbdab857e9fa426aff93bf14ad2cc0ab
+Running as unit: run-u10.service; invocation ID: 9efff4761b8948e6a9e6e6ad209aa9f0
+AUDIT module OAI.MathematicalPhysics.NavierStokes.VelocityDetection.Main
+AUDIT theorem OAI.VelocityDetection.main_result kind theorem
+AUDIT axioms (3): [Classical.choice, Quot.sound, propext]
+AUDIT target OAI.VelocityDetection.TapeCodes.half in environment: true
+AUDIT statement closure: 6057 constants; contains target: false; axioms in it: [Classical.choice,
+ Quot.sound]; names ending in half: []
+AUDIT statement+proof closure: 57214 constants; contains target: true; axioms in it: [Classical.choice,
+ Quot.sound,
+ propext]; names ending in half: [OAI.VelocityDetection.TapeCodes.half]
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 15.408s
+SANDBOX EXIT CODE: 0

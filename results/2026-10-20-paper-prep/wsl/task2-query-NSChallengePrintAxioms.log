@@ -1,0 +1,9 @@
+== query NSChallengePrintAxioms  2026-10-20 14:54:57
+file: /mnt/c/Users/Work/dev/siegel/lean-checks/paper-prep/NSChallengePrintAxioms.lean sha256 e5190ccf3d82b264cb482749741b4d1cc455e8046dab5175bad5288c3851d0f1
+Running as unit: run-u5.service; invocation ID: 33493cbde3834058b96d8f10955f6560
+'OAI.VelocityDetection.main_result' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OAI.VelocityDetection.TapeCodes.half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 7.846s
+SANDBOX EXIT CODE: 0

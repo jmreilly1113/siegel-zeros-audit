@@ -1,0 +1,11 @@
+== prebuild IndependentSets: lake build OAI.Combinatorics.IndependentSets.Main ComparatorChallenges.IndependentSets  2026-10-20 19:39:25
+Running as unit: run-u43.service; invocation ID: bd580081fe1c4fd6b8e36c76c7423970
+⚠ [8927/9378] Built ComparatorChallenges.IndependentSets (9.7s)
+warning: ComparatorChallenges/IndependentSets.lean:77:8: declaration uses `sorry`
+Build completed successfully (9378 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 14min 52.435s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 981
+disk used: 41G

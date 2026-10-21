@@ -1,0 +1,58 @@
+== run BinPackingGap-bigenv  mode bigenv  2026-10-20 19:32:49
+config: /home/checker/corpus/configs/BinPackingGap-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.BinPackingGap",
+  "definition_names": [],
+  "enable_nanoda": true,
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "solution_module": "OAI.Computability.BinPacking.Main",
+  "theorem_names": [
+    "OAI.BinPackingGap.main_results"
+  ]
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/BinPackingGap.json vs this config
+4c4
+<     "enable_nanoda": false,
+---
+>     "enable_nanoda": true,
+(diff exit 1)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 39G
+Running as unit: run-u40.service; invocation ID: 536d7bf1ceee47f7baa282d8217fadde
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u40.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER ulimit -s: unlimited; ulimit -Hs: unlimited; RUST_MIN_STACK=1073741824
+Building ComparatorChallenges.BinPackingGap
+⚠ [8924/8924] Replayed ComparatorChallenges.BinPackingGap
+warning: ComparatorChallenges/BinPackingGap.lean:356:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.BinPackingGap.main_results, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.BinPackingGap
+Building OAI.Computability.BinPacking.Main
+Build completed successfully (9207 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.BinPackingGap.main_results, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Computability.BinPacking.Main
+Running nanoda kernel on solution
+
+thread 'thread_3' (72831) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 4min 15.433s
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 280
+disk used after: 39G

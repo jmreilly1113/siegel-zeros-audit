@@ -1,0 +1,9 @@
+== export GroupRingDeterminant  2026-10-20 17:23:03
+command: lake env lean4export OAI.Analysis.GroupDeterminants.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.GroupRingDeterminant.main propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/GroupRingDeterminant.export
+Running as unit: run-u33.service; invocation ID: f2af30bda799473badd7cb4d049a55c4
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 38.164s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 698227515 Oct 20 17:24 /home/checker/corpus/pp/GroupRingDeterminant.export
+bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5  /home/checker/corpus/pp/GroupRingDeterminant.export

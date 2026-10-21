@@ -1,0 +1,9 @@
+== export OptimalMaxCut  2026-10-20 16:00:00
+command: lake env lean4export OAI.Computability.MaxCut.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.OptimalMaxCut.main propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/OptimalMaxCut.export
+Running as unit: run-u17.service; invocation ID: fe6ad1d59abd4af0895faa683b58eb0e
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 2min 4.552s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 902246535 Oct 20 16:02 /home/checker/corpus/pp/OptimalMaxCut.export
+54e817e873876a5e7f87e9fcb6aa469b6e3974d91ceffc43479556d1f7c7907b  /home/checker/corpus/pp/OptimalMaxCut.export

@@ -1,0 +1,8 @@
+== negative-control solution: diff ComparatorChallenges/HarmonicGrowth.lean /home/checker/math/lean/ComparatorChallenges/HarmonicGrowthNegControl.lean
+102c102,103
+< theorem main : MainClaim := mainStatement
+---
+> theorem main : MainClaim := by
+>   exact mainStatement
+sha256 b93f8a04e1ccfe742d43aeb45be4b87d9c014c758596b931a7f25436d3159ad1
+clone status after removing the control file: ''

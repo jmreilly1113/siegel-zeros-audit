@@ -1,0 +1,89 @@
+{
+  "openai_math": {
+    "corpus_replay_commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "siegel_packet_v1_and_pilot_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+    "main_at_check": "1581d4cbdd69a0faf34b2089614fe2a814316a6a (2026-10-12; anonymous clone 2026-10-20)",
+    "flagged_paths_changed_since_adc7f12": false,
+    "source": "results/2026-10-20-paper-prep/task2e-gitlog.txt; wsl/run.log line 1"
+  },
+  "lean_toolchain": {
+    "file": "leanprover/lean4:v4.34.1 (identical at adc7f12, fd4aeeb, main)",
+    "lean": "Lean 4.34.1, commit 5045d0056413266e57c625dcd7c365b10e377c52, x86_64-unknown-linux-gnu, Release",
+    "elan": "4.2.4 (227caca13 2026-08-25)",
+    "source": "task4-provenance-commands.txt; results/2026-10-11-corpus-provenance.txt"
+  },
+  "lake_manifest": {
+    "sha256": "cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794",
+    "identical_at": [
+      "adc7f12",
+      "fd4aeeb",
+      "main 1581d4c"
+    ],
+    "lakefile_lean_sha256": "4cca977ebece444b6c999d99755c1ad3c93119bafc127ea761f7f703c7279e74",
+    "packages": 42,
+    "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "per_package_revs": "results/2026-10-11-corpus-provenance.txt (42 rows)",
+    "note": "lake update applies lean/patches/*-lean4341.patch to several packages (counts in the provenance file)"
+  },
+  "tools": {
+    "comparator": {
+      "commit": "d03acab154d269c06e60e4de7e4cc85deebff94b",
+      "tag": "v4.34.0",
+      "binary_sha256": "afa65e57a1770f5961efe7681626a9a1cd99705262421658abd30b705f66e4a2"
+    },
+    "lean4export": {
+      "commit": "076e8e57707e813375e8f9da8bf989799ace9680",
+      "tag": "v4.34.0",
+      "binary_sha256": "8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1"
+    },
+    "landrun": {
+      "commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+      "git_describe": "v0.1.17-4-g811cfff",
+      "self_reported_version": "0.1.18",
+      "binary_sha256": "5f6fd588dbdf5116969c3dee3fee52ba7f46aa80df2bb58277326a9186e736de"
+    },
+    "nanoda_lib": {
+      "commit": "3a2407216ee84a75f9e1aead6803d0578be06ae7",
+      "cargo_version": "0.4.19",
+      "checker_thread_stack": "16 MiB, explicit (src/lib.rs STACK_SIZE; src/tc.rs:160 .stack_size)",
+      "binary_sha256": "897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714"
+    },
+    "nanoda_postfix_unofficial": {
+      "commit": "f67473ba5f9397266f89c7852082c9c914b5d219",
+      "binary_sha256": "be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5",
+      "used_for": "results/2026-10-20-nanoda-postfix-f67473b only (not the table)"
+    },
+    "rustc_for_nanoda": "rustc 1.99.0 (b940084d7 2026-09-28) (results/2026-10-08-lean-comparator-nanoda-netblock.txt)"
+  },
+  "platform": {
+    "windows": "10.0.26200.9457 (Windows 11 Home)",
+    "wsl": "2.4.11.0",
+    "wsl_kernel": "5.15.167.4-microsoft-standard-WSL2",
+    "wsl_kernel_recorded_2026_10_08": "5.15.167.4-microsoft-standard-WSL2 (results/2026-10-08-lean-comparator-wsl.txt)",
+    "distro": "Ubuntu 24.04.5 LTS",
+    "systemd": "255 (255.4-1ubuntu8.18)",
+    "landlock": "kernel < 6.7: Landlock cannot restrict network (v1 reproduce.md); network blocked by seccomp instead"
+  },
+  "sandbox": {
+    "wrapper": "sudo -u checker; systemd-run --user --wait --pipe --collect --property=\"RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET\"; timeout",
+    "scripts": "wsl-comparator/67_corpus_run.sh (replay), 107_run.sh + 107_inner.sh (post-hoc)"
+  },
+  "replay_identity": {
+    "recorded_in_replay_logs": false,
+    "note": "No corpus replay log prints id. A separate probe with the same wrapper recorded uid=1000(checker) on 2026-10-11 (results/2026-10-11-corpus-runas-2.txt).",
+    "post_hoc": true,
+    "post_hoc_run": "SiegelZeros at fd4aeeb, 2026-10-20, results/2026-10-20-paper-prep/wsl/task4-SiegelZeros-posthoc.log",
+    "id": "uid=1000(checker) gid=1000(checker) groups=1000(checker)",
+    "Uid": "1000\t1000\t1000\t1000",
+    "CapEff": "0000000000000000",
+    "NoNewPrivs": "1",
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u14.service",
+    "netblock_self_test": {
+      "tcp 1.1.1.1:443": "bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol",
+      "python AF_INET udp socket": "OSError: [Errno 97] Address family not supported by protocol",
+      "python AF_INET6 socket": "OSError: [Errno 97] Address family not supported by protocol",
+      "python AF_UNIX socket": "OSError: [Errno 97] Address family not supported by protocol"
+    },
+    "post_hoc_verdict": "ACCEPT_BOTH"
+  }
+}

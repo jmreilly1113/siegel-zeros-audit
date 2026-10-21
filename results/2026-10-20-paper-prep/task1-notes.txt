@@ -1,0 +1,32 @@
+Task 1 (counts), 2026-10-20. Command: python -I scripts/recount.py . > results/2026-10-20-paper-prep/recount.txt
+(Python 3.14.6; reads only results/; classifies every raw log with the run rules of wsl-comparator/75_classify.py)
+
+COMPUTED (recount.txt):
+- Raw per-config log files read: 215 (pilot 4, headline 18 + 3 in the two guard-stopped attempt dirs, remainder 190).
+- Deduped by config name: 187 configs at fd4aeeb = 178 ACCEPT_BOTH + 9 ACCEPT_LEAN_ONLY; the assertion holds (178 + 9 = 187).
+  By stage: headline 15 = 12 + 3; remainder 172 = 166 + 6. Pilot (adc7f12): 3 = 3 ACCEPT_BOTH. No config is in both the pilot and fd4aeeb.
+- Per-run (every log file): nanoda final runs 181 ACCEPT_BOTH, 9 OTHER (the 9 nanoda aborts), 2 GUARD_STOPPED;
+  shipped runs 17 ACCEPT_LEAN, 1 GUARD_STOPPED; stopped/interrupted reruns: 4 nanoda OTHER, 1 shipped OTHER.
+  181 nanoda ACCEPT_BOTH = 178 fd4aeeb configs + 3 pilot configs.
+- Configs with raw logs in more than one batch directory: 2, both guard-stopped headline attempts that were rerun:
+  DirichletSevenEighths (headline, attempt1-guard-stopped), HeckeSevenEighths (headline, attempt2-guard-stopped).
+  Within one directory, MaximalSeshadriConstants (batch-06) has 3 stopped nanoda logs and 1 stopped shipped log
+  before its final run; QuasiRiemannHypothesis (pilot) has 1 interrupted log. None of these stopped runs has an exit line,
+  so none is a verdict, and the dedup keeps only the final run.
+- Cross-check: the recount agrees with the config_outcome column of every outcomes.tsv for all 187 configs (0 differences).
+
+The 149 + 49 vs 172 discrepancy:
+- COMPUTED: the only "149" in the corpus data is the interim snapshot of 2026-10-13 14:27
+  (results/2026-10-13-corpus-summary-interim.tsv / .md): remainder = 149 ACCEPT_BOTH + 4 ACCEPT_LEAN_ONLY + 7 PENDING
+  (batch 6 still running) + 12 NOT_STARTED = 172. 149 = batch-01 76 + batch-02 34 + batch-03 19 + batch-04 10
+  + batch-05 4 + batch-06 6 (finished at snapshot time).
+- COMPUTED: no grouping of the raw files or of either summary gives 49: not a batch size (76, 34, 19, 12, 6, 13, 6, 6),
+  not a per-run class count, not the configs remaining at the snapshot (23 = 4 + 7 + 12), not the shipped runs (17).
+  149 + 49 = 198 matches no count either (configs 187/190, raw logs 215, remainder logs 190).
+- COMPUTED: the final remainder is 166 + 6 = 172; the 17 configs that moved to ACCEPT_BOTH after the snapshot are the
+  7 pending + 12 not started, minus the 2 of them that ended ACCEPT_LEAN_ONLY (IndependentSets, PerfectCompleteness):
+  149 + 17 = 166, and 4 + 2 = 6.
+- INFERRED: "149 + 49" mixes the interim ACCEPT_BOTH count with a number that is not in these files.
+  docs/log.md (2026-10-13 interim recount) records that a pasted copy of the interim table "had lost a column",
+  which would shift numbers between columns; that is the most likely source, but the data cannot confirm it.
+  Open question for Joe: where was the 49 read?

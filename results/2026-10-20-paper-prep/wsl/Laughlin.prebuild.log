@@ -1,0 +1,11 @@
+== prebuild Laughlin: lake build OAI.Analysis.Laughlin.Main ComparatorChallenges.Laughlin  2026-10-20 17:25:39
+Running as unit: run-u35.service; invocation ID: a338060898054fd6992533fc3948775c
+⚠ [10153/10182] Built ComparatorChallenges.Laughlin (5.4s)
+warning: ComparatorChallenges/Laughlin.lean:61:8: declaration uses `sorry`
+Build completed successfully (10182 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 29min 41.327s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1959
+disk used: 37G

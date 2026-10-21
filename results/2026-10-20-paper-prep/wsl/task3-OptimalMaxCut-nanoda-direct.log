@@ -1,0 +1,29 @@
+== run OptimalMaxCut-nanoda-direct  mode nanoda  2026-10-20 16:02:17
+config: /home/checker/corpus/pp/OptimalMaxCut.nanoda.json
+{"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/OptimalMaxCut.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true}
+
+binary: /usr/local/bin/nanoda_bin sha256 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 30G
+Running as unit: run-u18.service; invocation ID: adb70e0d2d6244448e0c6c889113b711
+INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker)
+INNER Uid:	1000	1000	1000	1000
+INNER Gid:	1000	1000	1000	1000
+INNER Groups:	1000 
+INNER CapPrm:	0000000000000000
+INNER CapEff:	0000000000000000
+INNER CapAmb:	0000000000000000
+INNER NoNewPrivs:	1
+INNER cgroup: 0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-u18.service
+INNER kernel: 5.15.167.4-microsoft-standard-WSL2
+INNER ulimit -s: unlimited; ulimit -Hs: unlimited; RUST_MIN_STACK=1073741824
+
+thread 'thread_1' (21455) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+/usr/bin/timeout: the monitored command dumped core
+Finished with result: signal
+Main processes terminated with: code=killed/status=ABRT
+Service runtime: 57.833s
+COMPARATOR EXIT CODE: 255
+DURATION_SECONDS: 63
+disk used after: 30G

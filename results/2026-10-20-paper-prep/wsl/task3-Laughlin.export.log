@@ -1,0 +1,9 @@
+== export Laughlin  2026-10-20 19:06:44
+command: lake env lean4export OAI.Analysis.Laughlin.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.Laughlin.mainTarget_proved propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/Laughlin.export
+Running as unit: run-u37.service; invocation ID: a2ee4da6279549638155ca4c9fb0eeee
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 9.845s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 433770627 Oct 20 19:12 /home/checker/corpus/pp/Laughlin.export
+842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523  /home/checker/corpus/pp/Laughlin.export

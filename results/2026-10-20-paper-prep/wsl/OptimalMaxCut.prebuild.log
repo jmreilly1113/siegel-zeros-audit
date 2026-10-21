@@ -1,0 +1,11 @@
+== prebuild OptimalMaxCut: lake build OAI.Computability.MaxCut.Main ComparatorChallenges.OptimalMaxCut  2026-10-20 15:24:48
+Running as unit: run-u15.service; invocation ID: df5db2bedb1e448eab6070e612ed5924
+⚠ [8924/9296] Built ComparatorChallenges.OptimalMaxCut (52s)
+warning: ComparatorChallenges/OptimalMaxCut.lean:153:8: declaration uses `sorry`
+Build completed successfully (9296 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 24min 32.953s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1603
+disk used: 29G

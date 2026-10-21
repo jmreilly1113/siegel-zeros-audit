@@ -1,0 +1,12 @@
+== prebuild SiegelZeros: lake build OAI.NumberTheory.SiegelZeros.Main ComparatorChallenges.SiegelZeros  2026-10-20 15:00:40
+Running as unit: run-u13.service; invocation ID: 327f46f67cb847a3905186a120a51b61
+⚠ [9234/9243] Built ComparatorChallenges.SiegelZeros (5.2s)
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (9243 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9min 55.196s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 649
+disk used: 27G

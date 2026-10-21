@@ -1,0 +1,9 @@
+== export IndependentSets  2026-10-20 19:59:56
+command: lake env lean4export OAI.Combinatorics.IndependentSets.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.LargeIndependentSets.mainTheoremReal propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/IndependentSets.export
+Running as unit: run-u45.service; invocation ID: 7dbcf1c7016a42e3b21533fe8d6645ee
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 29.986s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 565123232 Oct 20 20:01 /home/checker/corpus/pp/IndependentSets.export
+3df1b4c0e8864ee78ce0297244c98275cfd449b82ec9e316e7fd45b064e72c59  /home/checker/corpus/pp/IndependentSets.export

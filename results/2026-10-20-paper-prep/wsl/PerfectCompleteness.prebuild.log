@@ -1,0 +1,11 @@
+== prebuild PerfectCompleteness: lake build OAI.Computability.PerfectCompleteness.Main ComparatorChallenges.PerfectCompleteness  2026-10-20 20:02:18
+Running as unit: run-u47.service; invocation ID: 53c30f696f8d40a6aa9d9e2890159394
+⚠ [9772/9787] Built ComparatorChallenges.PerfectCompleteness (5.9s)
+warning: ComparatorChallenges/PerfectCompleteness.lean:179:8: declaration uses `sorry`
+Build completed successfully (9787 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 19min 25.467s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1286
+disk used: 45G

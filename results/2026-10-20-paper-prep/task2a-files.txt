@@ -1,0 +1,1450 @@
+openai/math commit: fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb  (git status --short lines: 0)
+
+################ HarmonicGrowth
+=== lean/ComparatorChallenges/HarmonicGrowth.json  sha256 5f390cbc0c9f2fe3dd7fc51bd86d3add956b8435140fe3a6b1b6d4d46887ffa9
+{
+  "challenge_module": "ComparatorChallenges.HarmonicGrowth",
+  "solution_module": "OAI.Geometry.HarmonicGrowth.Main",
+  "theorem_names": [
+    "OAI.HarmonicCounterexample.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+
+=== lean/ComparatorChallenges/HarmonicGrowth.lean  sha256 02c9e5d8654bbbd6cc4de899fcaaf1fa550252cb0b3f3418921ffb8711f263fb  lines 108
+     1	import Mathlib
+     2	
+     3	namespace OAI
+     4	
+     5	noncomputable section
+     6	open Filter MeasureTheory
+     7	open scoped BigOperators Topology ENNReal ContDiff
+     8	
+     9	namespace HarmonicCounterexample
+    10	
+    11	abbrev Space (n : ℕ) := Fin n → ℝ
+    12	abbrev Mat (n : ℕ) := Matrix (Fin n) (Fin n) ℝ
+    13	
+    14	/-- A genuine smooth positive definite covariant metric tensor on R^n. -/
+    15	structure SmoothMetric (n : ℕ) where
+    16	  coeff : Space n → Mat n
+    17	  smooth : ∀ i j, ContDiff ℝ ∞ (fun x => coeff x i j)
+    18	  positive : ∀ x, (coeff x).PosDef
+    19	
+    20	/-- The coordinate directional derivative. -/
+    21	def coordDeriv {n : ℕ} (i : Fin n) (f : Space n → ℝ) (x : Space n) : ℝ :=
+    22	  fderiv ℝ f x (Pi.single i 1)
+    23	
+    24	/-- Levi-Civita connection in the single global Cartesian chart. -/
+    25	def christoffel {n : ℕ} (g : SmoothMetric n) (x : Space n)
+    26	    (k i j : Fin n) : ℝ :=
+    27	  (1 / 2 : ℝ) * ∑ l, (g.coeff x)⁻¹ k l *
+    28	    (coordDeriv i (fun y => g.coeff y j l) x +
+    29	     coordDeriv j (fun y => g.coeff y i l) x -
+    30	     coordDeriv l (fun y => g.coeff y i j) x)
+    31	
+    32	/-- Ricci tensor, with the convention in which the round sphere has positive Ricci. -/
+    33	def ricci {n : ℕ} (g : SmoothMetric n) (x : Space n) (i j : Fin n) : ℝ :=
+    34	  (∑ k, (coordDeriv k (fun y => christoffel g y k i j) x -
+    35	    coordDeriv j (fun y => christoffel g y k i k) x)) +
+    36	  ∑ k, ∑ l, (christoffel g x k i j * christoffel g x l k l -
+    37	    christoffel g x l i k * christoffel g x k j l)
+    38	
+    39	def RicciNonnegative {n : ℕ} (g : SmoothMetric n) : Prop :=
+    40	  ∀ (x v : Space n), 0 ≤ ∑ i, ∑ j, ricci g x i j * v i * v j
+    41	
+    42	/-- Trace of the covariant Hessian, i.e. the Laplace-Beltrami operator. -/
+    43	def laplaceBeltrami {n : ℕ} (g : SmoothMetric n) (u : Space n → ℝ)
+    44	    (x : Space n) : ℝ :=
+    45	  ∑ i, ∑ j, (g.coeff x)⁻¹ i j *
+    46	    (coordDeriv i (coordDeriv j u) x - ∑ k, christoffel g x k i j * coordDeriv k u x)
+    47	
+    48	/-- Riemannian length of a path on the unit parameter interval. -/
+    49	def pathLength {n : ℕ} (g : SmoothMetric n) (γ : ℝ → Space n) : ℝ :=
+    50	  ∫ t in (0 : ℝ)..1, Real.sqrt
+    51	    (∑ i, ∑ j, g.coeff (γ t) i j * deriv γ t i * deriv γ t j)
+    52	
+    53	/-- Infimum of smooth path lengths, the intrinsic Riemannian distance. -/
+    54	def distance {n : ℕ} (g : SmoothMetric n) (x y : Space n) : ℝ :=
+    55	  sInf {L : ℝ | ∃ γ : ℝ → Space n,
+    56	    ContDiff ℝ 1 γ ∧ γ 0 = x ∧ γ 1 = y ∧ L = pathLength g γ}
+    57	
+    58	/-- Sequential metric completeness, for the intrinsic distance, not the background one. -/
+    59	def Complete {n : ℕ} (g : SmoothMetric n) : Prop :=
+    60	  ∀ z : ℕ → Space n,
+    61	    (∀ ε : ℝ, 0 < ε → ∃ N : ℕ, ∀ p ≥ N, ∀ q ≥ N, distance g (z p) (z q) < ε) →
+    62	    ∃ x : Space n, ∀ ε : ℝ, 0 < ε → ∃ N : ℕ, ∀ p ≥ N, distance g (z p) x < ε
+    63	
+    64	def EuclideanNearOrigin {n : ℕ} (g : SmoothMetric n) : Prop :=
+    65	  ∃ ε : ℝ, 0 < ε ∧ ∀ x : Space n, (∑ i, x i ^ 2) < ε ^ 2 → g.coeff x = 1
+    66	
+    67	/-- Riemannian measure of the intrinsic open ball, retaining infinite values. -/
+    68	def ballVolume {n : ℕ} (g : SmoothMetric n) (R : ℝ) : ℝ≥0∞ :=
+    69	  ∫⁻ x in {x : Space n | distance g 0 x < R},
+    70	    ENNReal.ofReal (Real.sqrt (g.coeff x).det) ∂volume
+    71	
+    72	/-- The ordinary Euclidean unit ball volume, in Cartesian Lebesgue measure. -/
+    73	def omega (n : ℕ) : ℝ≥0∞ :=
+    74	  volume {x : Space n | (∑ i, x i ^ 2) < 1}
+    75	
+    76	/-- The volume-ratio limit is finite, positive, and strictly below one. -/
+    77	def PositiveSubunitAVR {n : ℕ} (g : SmoothMetric n) : Prop :=
+    78	  ∃ a : ℝ, 0 < a ∧ a < 1 ∧
+    79	    Tendsto (fun R : ℝ => ballVolume g R / (omega n * ENNReal.ofReal (R ^ n)))
+    80	      atTop (𝓝 (ENNReal.ofReal a))
+    81	
+    82	/-- Membership in the actual space H_k, with the bound required at every point. -/
+    83	def HarmonicGrowth {n : ℕ} (g : SmoothMetric n) (k : ℕ) (u : Space n → ℝ) : Prop :=
+    84	  ContDiff ℝ ∞ u ∧ (∀ x, laplaceBeltrami g u x = 0) ∧
+    85	    ∃ C : ℝ, 0 ≤ C ∧ ∀ x, |u x| ≤ C * (1 + distance g 0 x) ^ k
+    86	
+    87	
+    88	def euclideanDimension (n k : ℕ) : ℕ :=
+    89	  (n + k - 1).choose k + (n + k - 2).choose (k - 1)
+    90	
+    91	/-- The manuscript's unconditional main existence claim. -/
+    92	def MainClaim : Prop :=
+    93	  ∃ (n k : ℕ) (g : SmoothMetric n), Even n ∧ 8 ≤ n ∧ 2 ≤ k ∧
+    94	    Complete g ∧ RicciNonnegative g ∧ EuclideanNearOrigin g ∧ PositiveSubunitAVR g ∧
+    95	    ∃ u : Fin (euclideanDimension n k + 1) → (Space n → ℝ),
+    96	      LinearIndependent ℝ u ∧ ∀ i, HarmonicGrowth g k (u i)
+    97	
+    98	
+    99	
+   100	axiom mainStatement : MainClaim
+   101	
+   102	theorem main : MainClaim := mainStatement
+   103	
+   104	end HarmonicCounterexample
+   105	
+   106	end
+   107	
+   108	end OAI
+=== solution lean/OAI/Geometry/HarmonicGrowth/Main.lean  sha256 526696848b9e89ca2fbc57b9e66d8b93a5c920ecd84134d868cbd3d48b45613f: declaration of main (grep -rn in the solution module directory, 12 lines after)
+lean/OAI/Geometry/HarmonicGrowth/Main.lean:475:theorem main : MainClaim := by
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-476-  let F := constructedStream
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-477-  refine ⟨16,50000,F.metric,by norm_num,by norm_num,by norm_num,
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-478-    F.geometry_main.1,F.ricci,F.geometry_main.2.1,F.geometry_main.2.2.1,?_,?_,?_⟩
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-479-  · exact fun i=>F.harmonic (familyEmbedding i).1 (familyEmbedding i).2
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-480-  · exact F.harmonic_independent.comp familyEmbedding familyEmbedding.injective
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-481-  · intro i
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-482-    exact F.harmonic_member (familyEmbedding i).1 (familyEmbedding i).2
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-483-
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-484-end HarmonicCounterexample
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-485-
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-486-end
+lean/OAI/Geometry/HarmonicGrowth/Main.lean-487-
+
+################ NavierStokesVelocity
+=== lean/ComparatorChallenges/NavierStokesVelocity.json  sha256 419d5e95df6e712cf565daf8b95519b277f5515b94ab0c46c612cc1a23dc6d81
+{
+  "challenge_module": "ComparatorChallenges.NavierStokesVelocity",
+  "solution_module": "OAI.MathematicalPhysics.NavierStokes.VelocityDetection.Main",
+  "theorem_names": [
+    "OAI.VelocityDetection.main_result"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+
+=== lean/ComparatorChallenges/NavierStokesVelocity.lean  sha256 3aa18943939cf881ca3377b9637f25341d0aa324314ef6b9556f16beb7db76f9  lines 1275
+     1	import Mathlib
+     2	
+     3	namespace OAI
+     4	
+     5	noncomputable section
+     6	namespace VelocityDetection
+     7	open scoped BigOperators Topology ContDiff
+     8	open Set Function Filter
+     9	
+    10	abbrev Coord (n : ℕ) := Fin n → ℝ
+    11	
+    12	abbrev ScalarField (n : ℕ) := ℝ → Coord n → ℝ
+    13	
+    14	abbrev VectorField (n : ℕ) := ℝ → Coord n → Coord n
+    15	
+    16	theorem neZeroTwo : NeZero 2 := ⟨Nat.succ_ne_zero 1⟩
+    17	
+    18	theorem neZeroThree : NeZero 3 := ⟨Nat.succ_ne_zero 2⟩
+    19	
+    20	theorem neZeroFive : NeZero 5 := ⟨Nat.succ_ne_zero 4⟩
+    21	
+    22	def spatialD {n : ℕ} (i : Fin n) (q : ScalarField n) : ScalarField n :=
+    23	  fun t x => deriv (fun s => q t (Function.update x i s)) (x i)
+    24	
+    25	def timeD {n : ℕ} (q : ScalarField n) : ScalarField n :=
+    26	  fun t x => derivWithin (fun s => q s x) (Ici 0) t
+    27	
+    28	def laplacian {n : ℕ} (q : ScalarField n) : ScalarField n :=
+    29	  fun t x => ∑ i : Fin n, spatialD i (spatialD i q) t x
+    30	
+    31	def advection {n : ℕ} (a : VectorField n) (q : ScalarField n) : ScalarField n :=
+    32	  fun t x => ∑ i : Fin n, a t x i * spatialD i q t x
+    33	
+    34	def divergence {n : ℕ} (a : VectorField n) : ScalarField n :=
+    35	  fun t x => ∑ i : Fin n, spatialD i (fun s y => a s y i) t x
+    36	
+    37	def NavierStokes (ν : ℝ) (u : VectorField 3) (p : ScalarField 3)
+    38	    (f : VectorField 3) : Prop :=
+    39	  (∀ (t : ℝ), 0 ≤ t → ∀ x : Coord 3, ∀ i : Fin 3,
+    40	    timeD (fun s y => u s y i) t x + advection u (fun s y => u s y i) t x =
+    41	      -spatialD i p t x + ν * laplacian (fun s y => u s y i) t x + f t x i) ∧
+    42	  (∀ (t : ℝ), 0 ≤ t → ∀ x, divergence u t x = 0) ∧
+    43	  (∀ x, u 0 x = 0)
+    44	
+    45	def horizontal (x : Coord 3) : Coord 2 := ![x 0, x 1]
+    46	
+    47	end VelocityDetection
+    48	end
+    49	
+    50	noncomputable section
+    51	namespace VelocityDetection.Stacks
+    52	open scoped BigOperators Topology ContDiff
+    53	open Set Function Filter
+    54	
+    55	inductive Move
+    56	  | right
+    57	  | stay
+    58	  | left
+    59	  deriving DecidableEq, Repr
+    60	
+    61	def update (b : ℕ) (m : Move) (β x y : ℕ) : ℕ × ℕ :=
+    62	  match m with
+    63	  | .right => (b * x + β, y / b)
+    64	  | .stay => (x, y - y % b + β)
+    65	  | .left => (x / b, x % b + b * β + b ^ 2 * (y / b))
+    66	
+    67	structure Rule (σ : Type*) (b : ℕ) where
+    68	  target : σ
+    69	  written : Fin b
+    70	  move : Move
+    71	
+    72	structure Configuration (σ : Type*) where
+    73	  state : σ
+    74	  leftStack : ℕ
+    75	  rightStack : ℕ
+    76	  deriving DecidableEq
+    77	
+    78	def applyRule {σ : Type*} {b : ℕ} (r : Rule σ b) (c : Configuration σ) : Configuration σ :=
+    79	  let st := update b r.move r.written c.leftStack c.rightStack
+    80	  ⟨r.target, st.1, st.2⟩
+    81	
+    82	def address (B i x y : ℕ) : ℕ := 1 + x + B * y + B ^ 2 * i
+    83	
+    84	def capacity (b m n : ℕ) : ℕ := b ^ (m + n)
+    85	
+    86	end VelocityDetection.Stacks
+    87	end
+    88	
+    89	noncomputable section
+    90	namespace VelocityDetection.Expanding
+    91	open scoped BigOperators Topology ContDiff
+    92	open Set Function Filter
+    93	
+    94	def lambda (D : ℝ) : ℝ := 4 * D
+    95	
+    96	def initialRadius (ν K D : ℝ) : ℝ :=
+    97	  1024 * 3000 * (1 + ν) * lambda D * (K * D + 2)
+    98	
+    99	def radius (ν K D : ℝ) (n : ℕ) : ℝ := initialRadius ν K D * lambda D ^ n
+   100	
+   101	end VelocityDetection.Expanding
+   102	end
+   103	
+   104	noncomputable section
+   105	namespace VelocityDetection.Observation
+   106	open scoped BigOperators Topology ContDiff
+   107	open Set Function Filter
+   108	open MeasureTheory
+   109	
+   110	def join (X : Coord 2) (z : ℝ) : Coord 3 := ![X 0, X 1, z]
+   111	
+   112	def torusEvent (u : VectorField 3) : Prop :=
+   113	  letI := neZeroThree
+   114	  ∃ t : ℝ, 0 ≤ t ∧ ∃ x : Coord 3,
+   115	    1 / ((32 : ℕ) : ℝ) < x 1 ∧ x 1 < 1 / ((8 : ℕ) : ℝ) ∧ (1 / ((2 : ℕ) : ℝ) : ℝ) < u t x 2
+   116	
+   117	def upperHalfPlane : Set (Coord 2) := {X | 0 < X 1}
+   118	
+   119	def planeMass (u : VectorField 3) (t : ℝ) : ℝ :=
+   120	  letI := neZeroThree
+   121	  ∫ q in upperHalfPlane ×ˢ Ioc (0 : ℝ) 1,
+   122	    u t (join q.1 q.2) 2 ∂(volume.prod volume)
+   123	
+   124	def planeEvent (u : VectorField 3) : Prop :=
+   125	  ∃ t : ℝ, 0 ≤ t ∧ (1 / ((2 : ℕ) : ℝ) : ℝ) < planeMass u t
+   126	
+   127	end VelocityDetection.Observation
+   128	end
+   129	
+   130	noncomputable section
+   131	namespace VelocityDetection.SmoothProfiles
+   132	open scoped BigOperators Topology ContDiff
+   133	open Set Function Filter
+   134	open Set Function Filter MeasureTheory
+   135	open scoped Topology BigOperators ContDiff
+   136	
+   137	abbrev step := Real.smoothTransition
+   138	
+   139	end VelocityDetection.SmoothProfiles
+   140	end
+   141	
+   142	noncomputable section
+   143	namespace VelocityDetection.TranslationGates
+   144	open scoped BigOperators Topology ContDiff
+   145	open Set Function Filter
+   146	open Set Function Filter MeasureTheory
+   147	open scoped Topology BigOperators ContDiff
+   148	open SmoothProfiles
+   149	
+   150	def window (s : ℝ) : ℝ := step (s + 3) * step (3 - s)
+   151	
+   152	end VelocityDetection.TranslationGates
+   153	end
+   154	
+   155	noncomputable section
+   156	namespace VelocityDetection.CenterPaths
+   157	open scoped BigOperators Topology ContDiff
+   158	open Set Function Filter
+   159	open Set Function Filter MeasureTheory
+   160	open scoped Topology BigOperators ContDiff
+   161	open scoped Topology ContDiff BigOperators
+   162	open SmoothProfiles
+   163	
+   164	def ramp (r : ℝ) : ℝ := step (2 * r - 1 / 2)
+   165	
+   166	def theta (a T : ℝ) (j : ℕ) (t : ℝ) : ℝ := ramp (3 * (t - a) / T - j)
+   167	
+   168	def privateRow (S : ℝ) (k : ℕ) : ℝ := -((k : ℝ) + 2) * S
+   169	
+   170	def center (a T S S' σ : ℝ) (k l : ℕ) (t : ℝ) : Coord 2 :=
+   171	  ![(1 - theta a T 1 t) * S * k + theta a T 1 t * S' * l,
+   172	    -(1 - theta a T 0 t) * S +
+   173	      (theta a T 0 t - theta a T 2 t) * privateRow S k + theta a T 2 t * σ * S']
+   174	
+   175	end VelocityDetection.CenterPaths
+   176	end
+   177	
+   178	noncomputable section
+   179	namespace VelocityDetection.UniformDerivatives
+   180	open scoped BigOperators Topology ContDiff
+   181	open Set Function Filter
+   182	open Set Function Filter MeasureTheory
+   183	open scoped Topology BigOperators ContDiff
+   184	open scoped Topology ContDiff BigOperators
+   185	variable {I E F G : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+   186	    [NormedAddCommGroup F] [NormedSpace ℝ F] [NormedAddCommGroup G] [NormedSpace ℝ G]
+   187	
+   188	def Bounded (f : I → E → F) : Prop :=
+   189	  ∀ n : ℕ, ∃ C : ℝ, 0 ≤ C ∧ ∀ a x, ‖iteratedFDeriv ℝ n (f a) x‖ ≤ C
+   190	
+   191	end VelocityDetection.UniformDerivatives
+   192	end
+   193	
+   194	noncomputable section
+   195	namespace VelocityDetection.Stacks
+   196	open scoped BigOperators Topology ContDiff
+   197	open Set Function Filter
+   198	open Set Function Filter MeasureTheory
+   199	open scoped Topology BigOperators ContDiff
+   200	open scoped Topology ContDiff BigOperators
+   201	variable {N b : ℕ} (hb : 0 < b) (table : Fin N → Fin b → Option (Rule (Fin N) b))
+   202	
+   203	def lookup (c : Configuration (Fin N)) : Option (Rule (Fin N) b) :=
+   204	  table c.state ⟨c.rightStack % b, Nat.mod_lt _ hb⟩
+   205	
+   206	end VelocityDetection.Stacks
+   207	end
+   208	
+   209	noncomputable section
+   210	namespace VelocityDetection.TailSpace
+   211	open scoped BigOperators Topology ContDiff
+   212	open Set Function Filter
+   213	open Set Function Filter MeasureTheory
+   214	open scoped Topology BigOperators ContDiff
+   215	open scoped Topology ContDiff BigOperators
+   216	open scoped Topology ContDiff ZeroAtInfty
+   217	
+   218	def compatible (n : ℕ) : Submodule ℝ
+   219	    (C₀(Coord n, ℝ) × Lp ℝ 1 (volume : Measure (Coord n))) where
+   220	  carrier := {v | (fun X => v.2 X) =ᵐ[volume] (fun X => v.1 X)}
+   221	  zero_mem' := by exact Lp.coeFn_zero ..
+   222	  add_mem' := by
+   223	    intro v w hv hw
+   224	    change (fun X => (v.2 + w.2) X) =ᵐ[volume] (fun X => v.1 X + w.1 X)
+   225	    change (fun X => v.2 X) =ᵐ[volume] (fun X => v.1 X) at hv
+   226	    change (fun X => w.2 X) =ᵐ[volume] (fun X => w.1 X) at hw
+   227	    filter_upwards [Lp.coeFn_add v.2 w.2, hv, hw] with X hadd hvx hwx
+   228	    simpa [hvx, hwx] using hadd
+   229	  smul_mem' := by
+   230	    intro c v hv
+   231	    change (fun X => (c • v.2) X) =ᵐ[volume] (fun X => c * v.1 X)
+   232	    change (fun X => v.2 X) =ᵐ[volume] (fun X => v.1 X) at hv
+   233	    filter_upwards [Lp.coeFn_smul c v.2, hv] with X hsmul hvx
+   234	    simpa [hvx] using hsmul
+   235	
+   236	end VelocityDetection.TailSpace
+   237	end
+   238	
+   239	noncomputable section
+   240	namespace VelocityDetection.Cylinder
+   241	open scoped BigOperators Topology ContDiff
+   242	open Set Function Filter
+   243	open Set Function Filter MeasureTheory
+   244	open scoped Topology BigOperators ContDiff
+   245	open scoped Topology ContDiff BigOperators
+   246	open scoped Topology ContDiff ZeroAtInfty
+   247	
+   248	abbrev Space := Coord 2 × ℝ
+   249	
+   250	abbrev Vect := Fin 3 → ℝ
+   251	
+   252	def measure : Measure Space := volume.prod (volume.restrict (Ioc (0 : ℝ) 1))
+   253	
+   254	def periodic (f : Space → ℝ) : Prop := ∀ X z, f (X, z + 1) = f (X, z)
+   255	
+   256	def frame (i : Fin 3) : Space := ![(![1, 0], 0), (![0, 1], 0), (0, 1)] i
+   257	
+   258	def D (i : Fin 3) (f : Space → ℝ) (x : Space) : ℝ := fderiv ℝ f x (frame i)
+   259	
+   260	structure SliceH2 (v : Space → Vect) : Prop where
+   261	  smooth : ∀ i, ContDiff ℝ 2 (fun x => v x i)
+   262	  per : ∀ i, periodic (fun x => v x i)
+   263	  square_integrable : ∀ i, MemLp (fun x => v x i) 2 measure
+   264	  derivative_square_integrable : ∀ i k, MemLp (D k (fun x => v x i)) 2 measure
+   265	  second_square_integrable : ∀ i k l, MemLp (D l (D k (fun x => v x i))) 2 measure
+   266	
+   267	structure PressureH1 (q : Space → ℝ) : Prop where
+   268	  smooth : ContDiff ℝ 1 q
+   269	  per : periodic q
+   270	  square_integrable : MemLp q 2 measure
+   271	  derivative_square_integrable : ∀ k, MemLp (D k q) 2 measure
+   272	
+   273	theorem twoAtLeastTwo : Nat.AtLeastTwo 2 := ⟨Nat.le_refl 2⟩
+   274	
+   275	abbrev LpSpace {α : Type*} [MeasurableSpace α] (E : Type*) [NormedAddCommGroup E]
+   276	    (p : ENNReal) (μ : Measure α) : Type _ := Lp E p μ
+   277	
+   278	abbrev L2Space : Type :=
+   279	  letI := twoAtLeastTwo
+   280	  LpSpace ℝ 2 measure
+   281	
+   282	def dt (u : ℝ → Space → Vect) (t : ℝ) (x : Space) (i : Fin 3) : ℝ :=
+   283	  derivWithin (fun s => u s x i) (Ici 0) t
+   284	
+   285	theorem spaceOuterMeasureClass : OuterMeasureClass (Measure Space) Space :=
+   286	  Measure.instOuterMeasureClass
+   287	
+   288	def continuousL2On (g : ℝ → Space → ℝ) (T : ℝ) : Prop :=
+   289	  letI : IsTopologicalAddGroup ℝ := instIsTopologicalAddGroupReal
+   290	  letI := spaceOuterMeasureClass
+   291	  ∃ G : ℝ → L2Space, ContinuousOn G (Icc 0 T) ∧
+   292	    ∀ t ∈ Icc 0 T, (fun x => G t x) =ᵐ[measure] g t
+   293	
+   294	def continuousH2On (u : ℝ → Space → Vect) (T : ℝ) : Prop :=
+   295	  (∀ t ∈ Icc 0 T, SliceH2 (u t)) ∧
+   296	  (∀ i, continuousL2On (fun t x => u t x i) T) ∧
+   297	  (∀ i k, continuousL2On (fun t => D k (fun x => u t x i)) T) ∧
+   298	  (∀ i k l, continuousL2On (fun t => D l (D k (fun x => u t x i))) T)
+   299	
+   300	def continuousH1On (p : ℝ → Space → ℝ) (T : ℝ) : Prop :=
+   301	  (∀ t ∈ Icc 0 T, PressureH1 (p t)) ∧ continuousL2On p T ∧
+   302	  (∀ i, continuousL2On (fun t => D i (p t)) T)
+   303	
+   304	def C1L2On (u : ℝ → Space → Vect) (T : ℝ) : Prop :=
+   305	  letI : IsTopologicalAddGroup ℝ := instIsTopologicalAddGroupReal
+   306	  letI := spaceOuterMeasureClass
+   307	  ∃ U dU : ℝ → Fin 3 → L2Space,
+   308	    (∀ i, ContinuousOn (fun t => U t i) (Icc 0 T)) ∧
+   309	    (∀ i, ContinuousOn (fun t => dU t i) (Icc 0 T)) ∧
+   310	    (∀ t ∈ Icc 0 T, ∀ i, (fun x => U t i x) =ᵐ[measure] (fun x => u t x i)) ∧
+   311	    (∀ t ∈ Icc 0 T, ∀ i, (fun x => dU t i x) =ᵐ[measure] (fun x => dt u t x i)) ∧
+   312	    (∀ t ∈ Icc 0 T, ∀ i,
+   313	      HasDerivWithinAt (fun s => U s i) (dU t i) (Icc 0 T) t)
+   314	
+   315	structure ComparisonClass (u : ℝ → Space → Vect) (p : ℝ → Space → ℝ) : Prop where
+   316	  velocity_H2 : ∀ T > 0, continuousH2On u T
+   317	  velocity_C1L2 : ∀ T > 0, C1L2On u T
+   318	  pressure_H1 : ∀ T > 0, continuousH1On p T
+   319	  time_derivative : ∀ t ≥ 0, ∀ x i,
+   320	    HasDerivWithinAt (fun s => u s x i) (dt u t x i) (Ici 0) t
+   321	  velocity_continuous : ∀ T > 0, ∀ i,
+   322	    ContinuousOn (fun y : ℝ × Space => u y.1 y.2 i) (Icc 0 T ×ˢ univ)
+   323	  time_continuous : ∀ T > 0, ∀ i,
+   324	    ContinuousOn (fun y : ℝ × Space => dt u y.1 y.2 i) (Icc 0 T ×ˢ univ)
+   325	  gradient_continuous : ∀ T > 0, ∀ i k,
+   326	    ContinuousOn (fun y : ℝ × Space => D k (fun x => u y.1 x i) y.2) (Icc 0 T ×ˢ univ)
+   327	  second_continuous : ∀ T > 0, ∀ i k l,
+   328	    ContinuousOn (fun y : ℝ × Space => D l (D k (fun x => u y.1 x i)) y.2) (Icc 0 T ×ˢ univ)
+   329	  pressure_continuous : ∀ T > 0,
+   330	    ContinuousOn (fun y : ℝ × Space => p y.1 y.2) (Icc 0 T ×ˢ univ)
+   331	  pressure_gradient_continuous : ∀ T > 0, ∀ i,
+   332	    ContinuousOn (fun y : ℝ × Space => D i (p y.1) y.2) (Icc 0 T ×ˢ univ)
+   333	  bounds : ∀ T > 0, ∃ B : ℝ, 0 ≤ B ∧
+   334	    (∀ t ∈ Icc 0 T, ∀ x i, |u t x i| ≤ B) ∧
+   335	    (∀ t ∈ Icc 0 T, ∀ x i k, |D k (fun y => u t y i) x| ≤ B)
+   336	
+   337	def join (x : Space) : Coord 3 :=
+   338	  letI := neZeroTwo
+   339	  ![x.1 0, x.1 1, x.2]
+   340	
+   341	end VelocityDetection.Cylinder
+   342	end
+   343	
+   344	noncomputable section
+   345	namespace VelocityDetection.TailSpace
+   346	open scoped BigOperators Topology ContDiff
+   347	open Set Function Filter
+   348	open Set Function Filter MeasureTheory
+   349	open scoped Topology BigOperators ContDiff
+   350	open scoped Topology ContDiff BigOperators
+   351	open scoped Topology ContDiff ZeroAtInfty
+   352	
+   353	def evalLinear (X : Coord 2) : compatible 2 →ₗ[ℝ] ℝ where
+   354	  toFun f := f.val.1 X
+   355	  map_add' _ _ := rfl
+   356	  map_smul' _ _ := rfl
+   357	
+   358	def eval (X : Coord 2) : compatible 2 →L[ℝ] ℝ where
+   359	  toLinearMap := evalLinear X
+   360	  cont := AddMonoidHomClass.continuous_of_bound (evalLinear X) 1 (fun f => by
+   361	    change ‖f.val.1 X‖ ≤ 1 * ‖f.val‖
+   362	    rw [one_mul]
+   363	    exact (BoundedContinuousFunction.norm_coe_le_norm f.val.1.toBCF X).trans (norm_fst_le f.val))
+   364	
+   365	end VelocityDetection.TailSpace
+   366	end
+   367	
+   368	noncomputable section
+   369	namespace VelocityDetection.History
+   370	open scoped BigOperators Topology ContDiff
+   371	open Set Function Filter
+   372	open Set Function Filter MeasureTheory
+   373	open scoped Topology BigOperators ContDiff
+   374	open scoped Topology ContDiff BigOperators
+   375	open scoped Topology ContDiff ZeroAtInfty
+   376	open scoped Topology ContDiff ZeroAtInfty BigOperators
+   377	open scoped Topology
+   378	open Stacks
+   379	
+   380	structure Configuration (N : ℕ) where
+   381	  tape : Stacks.Configuration (Fin N)
+   382	  history : ℕ
+   383	  deriving DecidableEq
+   384	
+   385	end VelocityDetection.History
+   386	end
+   387	
+   388	noncomputable section
+   389	namespace VelocityDetection.History
+   390	open scoped BigOperators Topology ContDiff
+   391	open Set Function Filter
+   392	open Set Function Filter MeasureTheory
+   393	open scoped Topology BigOperators ContDiff
+   394	open scoped Topology ContDiff BigOperators
+   395	open scoped Topology ContDiff ZeroAtInfty
+   396	open scoped Topology ContDiff ZeroAtInfty BigOperators
+   397	open scoped Topology
+   398	open Stacks
+   399	variable {N b : ℕ} (hb : 0 < b)
+   400	  (table : Fin N → Fin b → Option (Rule (Fin N) b))
+   401	
+   402	def radix (N b : ℕ) : ℕ := N * b
+   403	
+   404	def tag (c : Stacks.Configuration (Fin N)) : ℕ := b * c.state.val + c.rightStack % b
+   405	
+   406	include hb in
+   407	
+   408	def applyRule (r : Rule (Fin N) b) (c : Configuration N) : Configuration N :=
+   409	  ⟨Stacks.applyRule r c.tape, radix N b * c.history + tag (b := b) c.tape⟩
+   410	
+   411	include hb in
+   412	
+   413	def packedState (c : Configuration N) : ℕ := N * c.history + c.tape.state.val
+   414	
+   415	def address (B : ℕ) (c : Configuration N) : ℕ :=
+   416	  Stacks.address B (packedState c) c.tape.leftStack c.tape.rightStack
+   417	
+   418	abbrev Box (N B H : ℕ) := Fin N × Fin B × Fin B × Fin H
+   419	
+   420	def config {B H : ℕ} (c : Box N B H) : Configuration N :=
+   421	  ⟨⟨c.1, c.2.1, c.2.2.1⟩, c.2.2.2⟩
+   422	
+   423	def Active (B H : ℕ) := {c : Box N B H // (Stacks.lookup hb table (config c).tape).isSome}
+   424	
+   425	def rule {B H : ℕ} (c : Active hb table B H) : Rule (Fin N) b :=
+   426	  (Stacks.lookup hb table (config c.val).tape).get c.property
+   427	
+   428	def target {B H : ℕ} (c : Active hb table B H) : Configuration N :=
+   429	  applyRule (rule hb table c) (config c.val)
+   430	
+   431	def sourceAddress {B H : ℕ} (c : Active hb table B H) : ℕ := address B (config c.val)
+   432	
+   433	def targetAddress {B H : ℕ} (c : Active hb table B H) : ℕ := address (b * B) (target hb table c)
+   434	
+   435	end VelocityDetection.History
+   436	end
+   437	
+   438	noncomputable section
+   439	namespace VelocityDetection.TapeCodes
+   440	open scoped BigOperators Topology ContDiff
+   441	open Set Function Filter
+   442	open Set Function Filter MeasureTheory
+   443	open scoped Topology BigOperators ContDiff
+   444	open scoped Topology ContDiff BigOperators
+   445	open scoped Topology ContDiff ZeroAtInfty
+   446	open scoped Topology ContDiff ZeroAtInfty BigOperators
+   447	open scoped Topology
+   448	open Turing Stacks
+   449	variable {b N : ℕ} [NeZero b] [NeZero N]
+   450	
+   451	def word (w : List (Fin b)) : ℕ := Nat.ofDigits b (w.map Fin.val)
+   452	
+   453	def half (w : ListBlank (Fin b)) : ℕ :=
+   454	  w.liftOn word (by sorry)
+   455	
+   456	def tape (q : Fin N) (T : Tape (Fin b)) : Stacks.Configuration (Fin N) :=
+   457	  ⟨q, half T.left, half T.right₀⟩
+   458	
+   459	def rule (a : Fin b) (q : Fin N) : TM0.Stmt (Fin b) → Rule (Fin N) b
+   460	  | .move .left => ⟨q, a, .left⟩
+   461	  | .move .right => ⟨q, a, .right⟩
+   462	  | .write β => ⟨q, β, .stay⟩
+   463	
+   464	def table (M : TM0.Machine (Fin b) (Fin N)) : Fin N → Fin b → Option (Rule (Fin N) b) :=
+   465	  fun q a => (M q a).map (fun p => rule a p.1 p.2)
+   466	
+   467	end VelocityDetection.TapeCodes
+   468	end
+   469	
+   470	noncomputable section
+   471	namespace VelocityDetection.Prelude
+   472	open scoped BigOperators Topology ContDiff
+   473	open Set Function Filter
+   474	open Set Function Filter MeasureTheory
+   475	open scoped Topology BigOperators ContDiff
+   476	open scoped Topology ContDiff BigOperators
+   477	open scoped Topology ContDiff ZeroAtInfty
+   478	open scoped Topology ContDiff ZeroAtInfty BigOperators
+   479	open scoped Topology
+   480	open Stacks
+   481	variable {N b : ℕ} (hb : 0 < b)
+   482	  (table : Fin N → Fin b → Option (Rule (Fin N) b)) (q₀ : Fin N)
+   483	
+   484	def rule (r : Rule (Fin N) b) : Rule (Fin (N + 1)) b :=
+   485	  ⟨r.target.castSucc, r.written, r.move⟩
+   486	
+   487	def table' : Fin (N + 1) → Fin b → Option (Rule (Fin (N + 1)) b) :=
+   488	  Fin.lastCases (fun a => some ⟨q₀.castSucc, a, .stay⟩)
+   489	    (fun q a => (table q a).map rule)
+   490	
+   491	def initial (x y : ℕ) : Configuration (Fin (N + 1)) := ⟨Fin.last N, x, y⟩
+   492	
+   493	end VelocityDetection.Prelude
+   494	end
+   495	
+   496	noncomputable section
+   497	namespace VelocityDetection.MachineHistory
+   498	open scoped BigOperators Topology ContDiff
+   499	open Set Function Filter
+   500	open Set Function Filter MeasureTheory
+   501	open scoped Topology BigOperators ContDiff
+   502	open scoped Topology ContDiff BigOperators
+   503	open scoped Topology ContDiff ZeroAtInfty
+   504	open scoped Topology ContDiff ZeroAtInfty BigOperators
+   505	open scoped Topology
+   506	open Turing Stacks
+   507	variable {b N : ℕ} [NeZero b] [NeZero N]
+   508	
+   509	def table (M : TM0.Machine (Fin b) (Fin N)) :
+   510	    Fin (N + 1) → Fin b → Option (Rule (Fin (N + 1)) b) :=
+   511	  Prelude.table' (TapeCodes.table M) 0
+   512	
+   513	def initial (w : List (Fin b)) : Stacks.Configuration (Fin (N + 1)) :=
+   514	  Prelude.initial 0 (TapeCodes.word w)
+   515	
+   516	end VelocityDetection.MachineHistory
+   517	end
+   518	
+   519	noncomputable section
+   520	namespace VelocityDetection.Effective
+   521	open Polynomial Set Function Filter
+   522	open scoped BigOperators Topology ContDiff
+   523	
+   524	abbrev Poly := List (ℕ × ℚ)
+   525	
+   526	noncomputable def poly : Poly → Polynomial ℝ
+   527	  | [] => 0
+   528	  | (k,q)::ps => Polynomial.C (q:ℝ)*Polynomial.X^k + poly ps
+   529	
+   530	def nextPoly : Poly → Poly
+   531	  | [] => []
+   532	  | (k,q)::ps => (k+2,q)::(k+1,-q*k)::nextPoly ps
+   533	
+   534	noncomputable def flat (p : Poly) (x : ℝ) : ℝ :=
+   535	  (poly p).eval x⁻¹ * expNegInvGlue x
+   536	
+   537	def polyBound : Poly → ℚ
+   538	  | [] => 0
+   539	  | (k,q)::ps => |q| *k.factorial + polyBound ps
+   540	
+   541	inductive Expr (n : ℕ) where
+   542	  | rat : ℚ → Expr n
+   543	  | var : Fin n → Expr n
+   544	  | add : Expr n → Expr n → Expr n
+   545	  | neg : Expr n → Expr n
+   546	  | mul : Expr n → Expr n → Expr n
+   547	  | inv : Expr n → Expr n
+   548	  | flat : Poly → Expr n → Expr n
+   549	  deriving Inhabited
+   550	
+   551	end VelocityDetection.Effective
+   552	end
+   553	
+   554	noncomputable section
+   555	namespace VelocityDetection.Effective.Expr
+   556	open Polynomial Set Function Filter
+   557	open scoped BigOperators Topology ContDiff
+   558	variable {n : ℕ}
+   559	
+   560	noncomputable def eval (x : Fin n → ℝ) : Expr n → ℝ
+   561	  | .rat q => q
+   562	  | .var i => x i
+   563	  | .add a b => a.eval x + b.eval x
+   564	  | .neg a => -a.eval x
+   565	  | .mul a b => a.eval x * b.eval x
+   566	  | .inv a => (a.eval x)⁻¹
+   567	  | .flat p a => Effective.flat p (a.eval x)
+   568	
+   569	def diff (i : Fin n) : Expr n → Expr n
+   570	  | .rat _ => .rat 0
+   571	  | .var j => .rat (if i=j then 1 else 0)
+   572	  | .add a b => .add (a.diff i) (b.diff i)
+   573	  | .neg a => .neg (a.diff i)
+   574	  | .mul a b => .add (.mul (a.diff i) b) (.mul a (b.diff i))
+   575	  | .inv a => .neg (.mul (a.diff i) (.mul (.inv a) (.inv a)))
+   576	  | .flat p a => .mul (.flat (nextPoly p) a) (a.diff i)
+   577	
+   578	def jet : List (Fin n) → Expr n → Expr n
+   579	  | [], e => e
+   580	  | i::is, e => jet is (e.diff i)
+   581	
+   582	end VelocityDetection.Effective.Expr
+   583	end
+   584	
+   585	noncomputable section
+   586	namespace VelocityDetection.Effective
+   587	open Set Filter Function
+   588	open scoped BigOperators Topology
+   589	
+   590	structure Ball where
+   591	  center : ℚ
+   592	  radius : ℚ
+   593	  deriving Inhabited
+   594	
+   595	def polyEval : Poly → ℚ → ℚ
+   596	  | [], _ => 0
+   597	  | (k,q)::ps, x => q*x^k+polyEval ps x
+   598	
+   599	def expSum (q : ℚ) (n : ℕ) : ℚ := ∑ k ∈ Finset.range n, q^k / k.factorial
+   600	
+   601	def expError (q : ℚ) (n : ℕ) : ℚ := |q|^n / n.factorial * 2
+   602	
+   603	def flatRound (p : Poly) (q : ℚ) (n : ℕ) : Ball :=
+   604	  if q ≤ 0 then ⟨0,0⟩ else
+   605	  if |q⁻¹|/(n+1) ≤ (1/2:ℚ) ∧
+   606	      |polyEval p q⁻¹| *expError (-q⁻¹) n ≤ polyBound (nextPoly p)*|q| then
+   607	    ⟨polyEval p q⁻¹*expSum (-q⁻¹) n,|polyEval p q⁻¹| *expError (-q⁻¹) n⟩
+   608	  else ⟨0,polyBound (nextPoly p)*|q|⟩
+   609	
+   610	end VelocityDetection.Effective
+   611	end
+   612	
+   613	noncomputable section
+   614	namespace VelocityDetection.Effective.Ball
+   615	open Set Filter Function
+   616	open scoped Topology
+   617	
+   618	def atom (q : ℚ) : Ball := ⟨q,0⟩
+   619	
+   620	def add (a b : Ball) : Ball := ⟨a.center+b.center,a.radius+b.radius⟩
+   621	
+   622	def neg (a : Ball) : Ball := ⟨-a.center,a.radius⟩
+   623	
+   624	def mul (a b : Ball) : Ball :=
+   625	  ⟨a.center*b.center,|a.center| *b.radius+|b.center| *a.radius+a.radius*b.radius⟩
+   626	
+   627	def inv (a : Ball) : Ball :=
+   628	  ⟨a.center⁻¹,a.radius/(|a.center| *(|a.center|-a.radius))⟩
+   629	
+   630	def invSafe (a : Ball) : Bool := decide (a.radius < |a.center|)
+   631	
+   632	def flat (p : Poly) (a : Ball) (k : ℕ) : Ball :=
+   633	  let b := flatRound p a.center k
+   634	  ⟨b.center,b.radius+polyBound (nextPoly p)*a.radius⟩
+   635	
+   636	end VelocityDetection.Effective.Ball
+   637	end
+   638	
+   639	noncomputable section
+   640	namespace VelocityDetection.Effective.Expr
+   641	open Set Filter Function
+   642	open scoped Topology
+   643	variable {n : ℕ}
+   644	
+   645	def round (a : Fin n → Ball) (k : ℕ) : Expr n → Ball :=
+   646	  Expr.rec (motive := fun _ => Ball)
+   647	    Ball.atom a
+   648	    (fun _ _ e f => e.add f)
+   649	    (fun _ e => e.neg)
+   650	    (fun _ _ e f => e.mul f)
+   651	    (fun _ e => e.inv)
+   652	    (fun p _ e => e.flat p k)
+   653	
+   654	def safe (a : Fin n → Ball) (k : ℕ) : Expr n → Bool :=
+   655	  Expr.rec (motive := fun _ => Bool)
+   656	    (fun _ => true) (fun _ => true)
+   657	    (fun _ _ e f => e && f)
+   658	    (fun _ e => e)
+   659	    (fun _ _ e f => e && f)
+   660	    (fun e safe_e => safe_e && (e.round a k).invSafe)
+   661	    (fun _ _ e => e)
+   662	
+   663	end VelocityDetection.Effective.Expr
+   664	end
+   665	
+   666	noncomputable section
+   667	namespace VelocityDetection.Effective
+   668	open Set Filter Function
+   669	open scoped Topology
+   670	
+   671	noncomputable def coordinateD {n : ℕ} (i : Fin n) (f : (Fin n → ℝ) → ℝ) (x : Fin n → ℝ) : ℝ :=
+   672	  deriv (fun s => f (update x i s)) (x i)
+   673	
+   674	noncomputable def mixedD {n : ℕ} : List (Fin n) → ((Fin n → ℝ) → ℝ) → (Fin n → ℝ) → ℝ
+   675	  | [], f => f
+   676	  | i::is, f => mixedD is (coordinateD i f)
+   677	
+   678	def accuracy (k : ℕ) : ℚ := (1/2)^k
+   679	
+   680	def Names {n : ℕ} (q : Fin n → ℕ → ℚ) (x : Fin n → ℝ) : Prop :=
+   681	  ∀ i k, |x i-(q i k:ℝ)| ≤ (accuracy k:ℝ)
+   682	
+   683	def inputBall {n : ℕ} (q : Fin n → ℕ → ℚ) (k : ℕ) (i : Fin n) : Ball :=
+   684	  ⟨q i k,accuracy k⟩
+   685	
+   686	def trial {n : ℕ} (e : Expr n) (is : List (Fin n)) (q : Fin n → ℕ → ℚ)
+   687	    (ε : ℚ) (k : ℕ) : Option ℚ :=
+   688	  let d := e.jet is
+   689	  let a := inputBall q k
+   690	  if d.safe a k && decide ((d.round a k).radius ≤ ε) then some (d.round a k).center else none
+   691	
+   692	end VelocityDetection.Effective
+   693	end
+   694	
+   695	noncomputable section
+   696	namespace VelocityDetection.PeriodicSpace
+   697	open Set Function Filter MeasureTheory
+   698	open scoped Topology ContDiff BigOperators BoundedContinuousFunction
+   699	
+   700	abbrev Torus (n : ℕ) := Fin n → AddCircle (1 : ℝ)
+   701	
+   702	def cover {n : ℕ} (X : Coord n) : Torus n := fun i => (X i : AddCircle (1 : ℝ))
+   703	
+   704	end VelocityDetection.PeriodicSpace
+   705	end
+   706	
+   707	noncomputable section
+   708	namespace VelocityDetection.SmoothBump
+   709	open Set Function Filter MeasureTheory
+   710	open scoped Topology ContDiff BigOperators
+   711	open TranslationGates
+   712	
+   713	def profile (s : ℝ) : ℝ := window (((3 : ℕ) : ℝ)*s)
+   714	
+   715	end VelocityDetection.SmoothBump
+   716	end
+   717	
+   718	noncomputable section
+   719	namespace VelocityDetection.TorusClass
+   720	open Set Function Filter MeasureTheory
+   721	open scoped Topology ContDiff BigOperators
+   722	
+   723	abbrev Space := Coord 3
+   724	
+   725	def measure : Measure Space := volume.restrict (Icc (0 : Space) 1)
+   726	
+   727	def periodic (f : Space → ℝ) : Prop := FactorsThrough f PeriodicSpace.cover
+   728	
+   729	def frame (i : Fin 3) : Space := Pi.single i 1
+   730	
+   731	def D (i : Fin 3) (f : Space → ℝ) (x : Space) : ℝ := fderiv ℝ f x (frame i)
+   732	
+   733	def dt (u : VectorField 3) (t : ℝ) (x : Space) (i : Fin 3) : ℝ :=
+   734	  derivWithin (fun s => u s x i) (Ici 0) t
+   735	
+   736	structure ComparisonClass (u : VectorField 3) (p : ScalarField 3) : Prop where
+   737	  velocity_slices : ∀ t ≥ 0, ∀ i, ContDiff ℝ 2 (fun x => u t x i)
+   738	  pressure_slices : ∀ t ≥ 0, ContDiff ℝ 1 (p t)
+   739	  velocity_periodic : ∀ t ≥ 0, FactorsThrough (u t) PeriodicSpace.cover
+   740	  pressure_periodic : ∀ t ≥ 0, periodic (p t)
+   741	  pressure_mean : ∀ t ≥ 0, (∫ x, p t x ∂measure) = 0
+   742	  time_derivative : ∀ t ≥ 0, ∀ x i,
+   743	    HasDerivWithinAt (fun s => u s x i) (dt u t x i) (Ici 0) t
+   744	  velocity_continuous : ∀ T > 0, ∀ i,
+   745	    ContinuousOn (fun y : ℝ × Space => u y.1 y.2 i) (Icc 0 T ×ˢ univ)
+   746	  time_continuous : ∀ T > 0, ∀ i,
+   747	    ContinuousOn (fun y : ℝ × Space => dt u y.1 y.2 i) (Icc 0 T ×ˢ univ)
+   748	  gradient_continuous : ∀ T > 0, ∀ i k,
+   749	    ContinuousOn (fun y : ℝ × Space => D k (fun x => u y.1 x i) y.2) (Icc 0 T ×ˢ univ)
+   750	  second_continuous : ∀ T > 0, ∀ i k l,
+   751	    ContinuousOn (fun y : ℝ × Space => D l (D k (fun x => u y.1 x i)) y.2) (Icc 0 T ×ˢ univ)
+   752	  pressure_continuous : ∀ T > 0,
+   753	    ContinuousOn (fun y : ℝ × Space => p y.1 y.2) (Icc 0 T ×ˢ univ)
+   754	  pressure_gradient_continuous : ∀ T > 0, ∀ i,
+   755	    ContinuousOn (fun y : ℝ × Space => D i (p y.1) y.2) (Icc 0 T ×ˢ univ)
+   756	
+   757	end VelocityDetection.TorusClass
+   758	end
+   759	
+   760	noncomputable section
+   761	namespace VelocityDetection.MachineTorus
+   762	open Set Function MeasureTheory
+   763	open scoped Topology ContDiff BigOperators
+   764	open Turing Stacks
+   765	variable {b N : ℕ} [NeZero b] [NeZero N]
+   766	
+   767	def initialAddress (w : List (Fin b)) : ℕ :=
+   768	  History.address (capacity b (w.length+1) 0) ⟨MachineHistory.initial (N := N) w,0⟩
+   769	
+   770	end VelocityDetection.MachineTorus
+   771	end
+   772	
+   773	noncomputable section
+   774	namespace VelocityDetection.Effective.Expr
+   775	open Set Function Filter
+   776	open scoped Topology BigOperators
+   777	variable {n m : ℕ}
+   778	
+   779	instance : Add (Expr n) := ⟨Expr.add⟩
+   780	
+   781	instance : Neg (Expr n) := ⟨Expr.neg⟩
+   782	
+   783	instance : Sub (Expr n) := ⟨fun a b => .add a (.neg b)⟩
+   784	
+   785	instance : Mul (Expr n) := ⟨Expr.mul⟩
+   786	
+   787	instance : Inv (Expr n) := ⟨Expr.inv⟩
+   788	
+   789	instance : Div (Expr n) := ⟨fun a b => .mul a (.inv b)⟩
+   790	
+   791	instance (k : ℕ) : OfNat (Expr n) k := ⟨.rat k⟩
+   792	
+   793	def subst (v : Fin m → Expr n) : Expr m → Expr n :=
+   794	  Expr.rec (motive := fun _ => Expr n)
+   795	    Expr.rat v
+   796	    (fun _ _ a b => .add a b)
+   797	    (fun _ a => .neg a)
+   798	    (fun _ _ a b => .mul a b)
+   799	    (fun _ a => .inv a)
+   800	    (fun p _ a => .flat p a)
+   801	
+   802	def sumList : List (Expr n) → Expr n
+   803	  | [] => 0
+   804	  | e::es => e + sumList es
+   805	
+   806	def sumFin (k : ℕ) (f : Fin k → Expr n) : Expr n := sumList (List.ofFn f)
+   807	
+   808	def unaryD (e : Expr 1) (a : Expr n) : Expr n := (e.diff 0).subst (fun _ => a)
+   809	
+   810	end VelocityDetection.Effective.Expr
+   811	end
+   812	
+   813	noncomputable section
+   814	namespace VelocityDetection.Effective.Recipe
+   815	open Set Function Filter
+   816	open scoped Topology BigOperators
+   817	open _root_.OAI.VelocityDetection.Effective.Expr
+   818	variable {n : ℕ}
+   819	
+   820	def glue (a : Expr n) : Expr n := .flat [(0,1)] a
+   821	
+   822	def step (a : Expr n) : Expr n := glue a/(glue a+glue (1-a))
+   823	
+   824	def pulse (a : Expr n) : Expr n := (step (.var 0 : Expr 1)).unaryD a
+   825	
+   826	def window (a : Expr n) : Expr n := step (a+3)*step (3-a)
+   827	
+   828	def windowD (a : Expr n) : Expr n := pulse (a+3)*step (3-a)-step (a+3)*pulse (3-a)
+   829	
+   830	def theta (a T : Expr n) (j : ℕ) (t : Expr n) : Expr n :=
+   831	  step (2*(3*(t-a)/T-.rat j)-.rat (1/2))
+   832	
+   833	def center (a T S S' σ : Expr n) (k l : ℕ) (t : Expr n) : Fin 2 → Expr n :=
+   834	  ![(1-theta a T 1 t)*S*.rat k+theta a T 1 t*S'*.rat l,
+   835	    -(1-theta a T 0 t)*S+(theta a T 0 t-theta a T 2 t)*(-(.rat k+2)*S)+
+   836	      theta a T 2 t*σ*S']
+   837	
+   838	def gate (R : Expr n) (c G X : Fin 2 → Expr n) : Fin 2 → Expr n :=
+   839	  letI := neZeroTwo
+   840	  ![window ((X 0-c 0)/R)*(windowD ((X 1-c 1)/R)/R)*
+   841	      (G 0*(X 1-c 1)-G 1*(X 0-c 0))+
+   842	      window ((X 0-c 0)/R)*window ((X 1-c 1)/R)*G 0,
+   843	    window ((X 0-c 0)/R)*window ((X 1-c 1)/R)*G 1-
+   844	      (windowD ((X 0-c 0)/R)/R*window ((X 1-c 1)/R))*
+   845	        (G 0*(X 1-c 1)-G 1*(X 0-c 0))]
+   846	
+   847	def impulse (t : Expr n) (p X : Fin 2 → Expr n) : Expr n :=
+   848	  letI := neZeroTwo
+   849	  pulse t*pulse (X 0-p 0+.rat (1/2))*pulse (X 1-p 1+.rat (1/2))
+   850	
+   851	def packet (R : Expr n) (X : Fin 2 → Expr n) : Expr n :=
+   852	  letI := neZeroTwo
+   853	  window (3*(X 0/R))*window (3*(X 1/R))
+   854	
+   855	end VelocityDetection.Effective.Recipe
+   856	end
+   857	
+   858	noncomputable section
+   859	namespace VelocityDetection.Effective.Expr
+   860	open Set Function
+   861	open scoped BigOperators Topology
+   862	variable {n : ℕ}
+   863	
+   864	def activeSum {N b B H : ℕ} (hb : 0 < b)
+   865	    (table : Fin N → Fin b → Option (Stacks.Rule (Fin N) b))
+   866	    (f : History.Active hb table B H → Expr n) : Expr n :=
+   867	  sumFin N (fun s => sumFin B (fun l => sumFin B (fun r => sumFin H (fun h =>
+   868	    if hp : (Stacks.lookup hb table (History.config (s,l,r,h)).tape).isSome then
+   869	      f ⟨(s,l,r,h),hp⟩ else 0))))
+   870	
+   871	end VelocityDetection.Effective.Expr
+   872	end
+   873	
+   874	noncomputable section
+   875	namespace VelocityDetection.Effective.ArrayRecipe
+   876	open Set Function
+   877	open scoped BigOperators Topology
+   878	open _root_.OAI.VelocityDetection.Effective.Expr Stacks
+   879	variable {N b : ℕ} (hN : 0 < N) (hb : 0 < b)
+   880	  (table : Fin N → Fin b → Option (Rule (Fin N) b)) (m : ℕ)
+   881	
+   882	abbrev Code := Expr 5
+   883	
+   884	def K (N b m : ℕ) : ℕ := N * capacity b (m+1) 0 ^ 2
+   885	
+   886	def D (N b : ℕ) : ℕ := b^2 * History.radix N b
+   887	
+   888	def radius (N b m n : ℕ) : Code :=
+   889	  .rat (1024*3000*(4*(D N b))*(K N b m*D N b+2)*(4*D N b)^n) * (1+.var 0)
+   890	
+   891	def spacing (N b m n : ℕ) : Code := 16*radius N b m n
+   892	
+   893	def duration (N b m n : ℕ) : Code :=
+   894	  spacing N b m (n+1) * .rat (K N b m*D N b^(n+1)+2)
+   895	
+   896	def start (N b m : ℕ) : ℕ → Code
+   897	  | 0 => 1
+   898	  | n+1 => start N b m n+duration N b m n
+   899	
+   900	def sign (c : History.Configuration N) : ℚ :=
+   901	  if (lookup hb table c.tape).isNone then 1 else -1
+   902	
+   903	abbrev Instruction (n : ℕ) := History.Active hb table (capacity b (m+1) n) (History.radix N b^n)
+   904	
+   905	def path (n : ℕ) (c : Instruction hb table m n) : Fin 2 → Code :=
+   906	  Recipe.center (start N b m n) (duration N b m n) (spacing N b m n)
+   907	    (spacing N b m (n+1)) (.rat (sign hb table (History.target hb table c)))
+   908	    (History.sourceAddress hb table c) (History.targetAddress hb table c) (.var 1)
+   909	
+   910	def gate (n : ℕ) (c : Instruction hb table m n) : Fin 2 → Code :=
+   911	  Recipe.gate (radius N b m n) (path hb table m n c)
+   912	    (fun i => (path hb table m n c i).diff 1) ![.var 2,.var 3]
+   913	
+   914	def stage (n : ℕ) (i : Fin 2) : Code :=
+   915	  activeSum hb table (fun c : Instruction hb table m n => gate hb table m n c i)
+   916	
+   917	def field (L : ℕ) (i : Fin 2) : Code := sumFin L (fun n => stage hb table m n i)
+   918	
+   919	end VelocityDetection.Effective.ArrayRecipe
+   920	end
+   921	
+   922	noncomputable section
+   923	namespace VelocityDetection.Effective.ChartRecipe
+   924	open Set Function ArrayRecipe
+   925	open scoped BigOperators Topology
+   926	open VelocityDetection.Effective.Expr
+   927	variable {N b : ℕ} (hN : 0 < N) (hb : 0 < b)
+   928	  (table : Fin N → Fin b → Option (Stacks.Rule (Fin N) b)) (m : ℕ)
+   929	
+   930	def scale (N b m P : ℕ) : ℚ := (1024*((K N b m:ℚ)*(D N b:ℚ)^(P+1)+4))⁻¹
+   931	
+   932	def radius (N b m P : ℕ) : ℚ := scale N b m P/16
+   933	
+   934	def targetHeight (P n : ℕ) (c : Instruction hb table m n) : ℚ :=
+   935	  if ArrayRecipe.sign hb table (History.target hb table c) = 1 then -(7/16) else -scale N b m P
+   936	
+   937	def path (P n : ℕ) (c : Instruction hb table m n) : Fin 2 → Code :=
+   938	  letI := neZeroFive
+   939	  fun i =>
+   940	    .rat (![1/4,1/2] i) + Recipe.center (.rat n) 1 (.rat (scale N b m P)) (.rat (scale N b m P))
+   941	      (.rat (targetHeight hb table m P n c/scale N b m P))
+   942	      (History.sourceAddress hb table c) (History.targetAddress hb table c) (.var 1) i
+   943	
+   944	def gate (P n : ℕ) (c : Instruction hb table m n) : Fin 2 → Code :=
+   945	  letI := neZeroFive
+   946	  Recipe.gate (.rat (radius N b m P)) (path hb table m P n c)
+   947	    (fun i => (path hb table m P n c i).diff 1) ![.var 2,.var 3]
+   948	
+   949	def stage (P n : ℕ) (i : Fin 2) : Code :=
+   950	  activeSum hb table (fun c : Instruction hb table m n => gate hb table m P n c i)
+   951	
+   952	def prefixCode (P : ℕ) (i : Fin 2) : Code := sumFin P (fun n => stage hb table m P n i)
+   953	
+   954	def duration (N b m B k : ℕ) : Code :=
+   955	  letI := neZeroFive
+   956	  .rat ((1/16)*(1/2:ℚ)^k) /
+   957	    (3*(1+.var 0*.rat (2*(B:ℚ)/(radius N b m (k+1))^2)))
+   958	
+   959	def localTime (N b m B k : ℕ) : Code :=
+   960	  letI := neZeroFive
+   961	  (.var 1-.rat (k+1))/duration N b m B k
+   962	
+   963	def weight (N b m B k : ℕ) : Code :=
+   964	  Recipe.step (8*localTime N b m B k)-Recipe.step (8*localTime N b m B k-.rat 7)
+   965	
+   966	def clock (N b m B k : ℕ) : Code := .rat (k+1)*
+   967	  (Recipe.step (8*localTime N b m B k-1)-Recipe.step (8*localTime N b m B k-.rat 5))
+   968	
+   969	def rawField (B k : ℕ) (i : Fin 2) : Code :=
+   970	  letI := neZeroFive
+   971	  (clock N b m B k).diff 1 * (prefixCode hb table m (k+1) i).subst
+   972	    ![.var 0,clock N b m B k,.var 2,.var 3,.var 4]
+   973	
+   974	def initial (N b m P q : ℕ) : Fin 2 → Code :=
+   975	  ![.rat (1/4+scale N b m P*q),.rat (1/2-scale N b m P)]
+   976	
+   977	def rawSource (B q k : ℕ) : Code :=
+   978	  letI := neZeroFive
+   979	  (weight N b m B k).diff 1 *
+   980	    Recipe.packet (.rat (radius N b m (k+1)))
+   981	      (fun i => (![.var 2,.var 3] i)-initial N b m (k+1) q i)
+   982	
+   983	end VelocityDetection.Effective.ChartRecipe
+   984	end
+   985	
+   986	noncomputable section
+   987	namespace VelocityDetection.Effective
+   988	open Set Function
+   989	open scoped Topology BigOperators
+   990	open _root_.OAI.VelocityDetection.Effective.Expr ArrayRecipe
+   991	
+   992	def periodize (R : ℕ) (e : Code) : Code :=
+   993	  letI := neZeroFive
+   994	  sumFin (2*R+1) (fun i => sumFin (2*R+1) (fun j =>
+   995	    e.subst ![.var 0,.var 1,.var 2-.rat ((i:ℚ)-R),.var 3-.rat ((j:ℚ)-R),.var 4]))
+   996	
+   997	end VelocityDetection.Effective
+   998	end
+   999	
+  1000	noncomputable section
+  1001	namespace VelocityDetection.Effective.ChartRecipe
+  1002	open Set Function
+  1003	open scoped Topology BigOperators
+  1004	open _root_.OAI.VelocityDetection.Effective.Expr ArrayRecipe
+  1005	variable {N b : ℕ} (hN : 0 < N) (hb : 0 < b)
+  1006	  (table : Fin N → Fin b → Option (Stacks.Rule (Fin N) b)) (m : ℕ)
+  1007	
+  1008	def fieldBlock (B R k : ℕ) (i : Fin 2) : Code := periodize R (rawField hb table m B k i)
+  1009	
+  1010	def sourceBlock (N b m B q R k : ℕ) : Code := periodize R (rawSource (N:=N) (b:=b) m B q k)
+  1011	
+  1012	def field (B R L : ℕ) (i : Fin 2) : Code := sumFin L (fun k => fieldBlock hb table m B R k i)
+  1013	
+  1014	def source (N b m B q R L : ℕ) : Code := sumFin L (fun k => sourceBlock N b m B q R k)
+  1015	
+  1016	end VelocityDetection.Effective.ChartRecipe
+  1017	end
+  1018	
+  1019	noncomputable section
+  1020	namespace VelocityDetection.Effective
+  1021	open Set Filter Function
+  1022	open scoped Topology BigOperators ContDiff
+  1023	open VelocityDetection.Effective.Expr ArrayRecipe
+  1024	
+  1025	def residualCode (a : Fin 2 → Code) (i : Fin 2) : Code :=
+  1026	  letI := neZeroTwo
+  1027	  letI := neZeroFive
+  1028	  (a i).diff 1 + a 0*(a i).diff 2 + a 1*(a i).diff 3 -
+  1029	    .var 0*((((a i).diff 2).diff 2)+(((a i).diff 3).diff 3))
+  1030	
+  1031	end VelocityDetection.Effective
+  1032	end
+  1033	
+  1034	noncomputable section
+  1035	namespace VelocityDetection.Effective.ArrayRecipe
+  1036	open Set Filter Function Turing
+  1037	open scoped Topology BigOperators ContDiff
+  1038	open VelocityDetection.Effective.Expr ArrayRecipe
+  1039	
+  1040	def initialCode (N b m q : ℕ) : Fin 2 → Code :=
+  1041	  ![spacing N b m 0 * .rat q,-spacing N b m 0]
+  1042	
+  1043	def source (N b m q : ℕ) : Code :=
+  1044	  letI := neZeroFive
+  1045	  Recipe.impulse (.var 1) (initialCode N b m q) ![.var 2,.var 3]
+  1046	
+  1047	end VelocityDetection.Effective.ArrayRecipe
+  1048	end
+  1049	
+  1050	noncomputable section
+  1051	namespace VelocityDetection.Effective
+  1052	open Set Filter Function Turing
+  1053	open scoped Topology BigOperators ContDiff
+  1054	open VelocityDetection.Effective.Expr ArrayRecipe
+  1055	
+  1056	noncomputable def forceFunction (f : ℝ → VectorField 3) (i : Fin 3) (x : Fin 5 → ℝ) : ℝ :=
+  1057	  letI := neZeroFive
+  1058	  f (x 0) (x 1) ![x 2,x 3,x 4] i
+  1059	
+  1060	end VelocityDetection.Effective
+  1061	end
+  1062	
+  1063	noncomputable section
+  1064	namespace VelocityDetection.Effective.MachineRecipe
+  1065	open Set Filter Function Turing
+  1066	open scoped Topology BigOperators ContDiff
+  1067	open VelocityDetection.Effective.Expr ArrayRecipe
+  1068	variable {b N : ℕ} [NeZero b] [NeZero N]
+  1069	
+  1070	inductive Domain where | torus | cylinder
+  1071	  deriving DecidableEq, Repr
+  1072	
+  1073	def field (d : Domain) (B R L : ℕ) (M : TM0.Machine (Fin b) (Fin N))
+  1074	    (w : List (Fin b)) (i : Fin 2) : Code := match d with
+  1075	  | .torus => ChartRecipe.field (NeZero.pos b) (MachineHistory.table M) w.length B R L i
+  1076	  | .cylinder => ArrayRecipe.field (NeZero.pos b) (MachineHistory.table M) w.length L i
+  1077	
+  1078	def source (d : Domain) (B R L : ℕ) (w : List (Fin b)) : Code := match d with
+  1079	  | .torus => ChartRecipe.source (N+1) b w.length B (MachineTorus.initialAddress (N:=N) w) R L
+  1080	  | .cylinder => ArrayRecipe.source (N+1) b w.length (MachineTorus.initialAddress (N:=N) w)
+  1081	
+  1082	def force (d : Domain) (B R L : ℕ) (M : TM0.Machine (Fin b) (Fin N))
+  1083	    (w : List (Fin b)) (i : Fin 3) : Code :=
+  1084	  letI := neZeroTwo
+  1085	  ![residualCode (field d B R L M w) 0,residualCode (field d B R L M w) 1,
+  1086	    source (N:=N) d B R L w] i
+  1087	
+  1088	end VelocityDetection.Effective.MachineRecipe
+  1089	end
+  1090	
+  1091	noncomputable section
+  1092	namespace VelocityDetection.Effective.MachineRecipe
+  1093	open Set Filter Function Turing
+  1094	open scoped Topology ContDiff BigOperators
+  1095	variable {b N : ℕ} [NeZero b] [NeZero N]
+  1096	
+  1097	def timeCutoff (q : Fin 5 → ℕ → ℚ) : ℕ :=
+  1098	  letI := neZeroFive
+  1099	  ⌈q 1 0+2⌉₊
+  1100	
+  1101	def spaceCutoff (q : Fin 5 → ℕ → ℚ) : ℕ :=
+  1102	  letI := neZeroFive
+  1103	  ⌈|q 2 0|+|q 3 0|+3⌉₊
+  1104	
+  1105	def runTrial (d : Domain) (B : ℕ) (M : TM0.Machine (Fin b) (Fin N))
+  1106	    (w : List (Fin b)) (i : Fin 3) (is : List (Fin 5)) (q : Fin 5 → ℕ → ℚ)
+  1107	    (ε : ℚ) (k : ℕ) : Option ℚ :=
+  1108	  trial (force d B (spaceCutoff q) (timeCutoff q) M w i) is q ε k
+  1109	
+  1110	end VelocityDetection.Effective.MachineRecipe
+  1111	end
+  1112	
+  1113	noncomputable section
+  1114	namespace VelocityDetection.Effective
+  1115	open Set Filter Function
+  1116	open scoped Topology BigOperators
+  1117	
+  1118	structure RationalBox (n : ℕ) where
+  1119	  lower : Fin n → ℚ
+  1120	  upper : Fin n → ℚ
+  1121	  ordered : ∀ i, lower i ≤ upper i
+  1122	
+  1123	end VelocityDetection.Effective
+  1124	end
+  1125	
+  1126	noncomputable section
+  1127	namespace VelocityDetection.Effective.RationalBox
+  1128	open Set Filter Function
+  1129	open scoped Topology BigOperators
+  1130	variable {n : ℕ} (Q : RationalBox n)
+  1131	
+  1132	def carrier : Set (Fin n → ℝ) := Icc (fun i => (Q.lower i:ℝ)) (fun i => (Q.upper i:ℝ))
+  1133	
+  1134	def cell (k : ℕ) (j : Fin n → Fin (k+2)) (i : Fin n) : Ball :=
+  1135	  ⟨Q.lower i+(Q.upper i-Q.lower i)*((j i:ℕ):ℚ)/(k+1),
+  1136	    (Q.upper i-Q.lower i)/(k+1)⟩
+  1137	
+  1138	def boundTrial (e : Expr n) (is : List (Fin n)) (k : ℕ) : Option ℚ :=
+  1139	  if ∀ j : Fin n → Fin (k+2), (e.jet is).safe (Q.cell k j) k = true then
+  1140	    some (∑ j : Fin n → Fin (k+2),
+  1141	      (|((e.jet is).round (Q.cell k j) k).center| + |((e.jet is).round (Q.cell k j) k).radius|))
+  1142	  else none
+  1143	
+  1144	end VelocityDetection.Effective.RationalBox
+  1145	end
+  1146	
+  1147	noncomputable section
+  1148	namespace VelocityDetection.Effective.MachineRecipe
+  1149	open Set Function Turing
+  1150	variable {b N : ℕ} [NeZero b] [NeZero N]
+  1151	
+  1152	def boxTimeCutoff (Q : RationalBox 5) : ℕ :=
+  1153	  letI := neZeroFive
+  1154	  ⌈Q.upper 1+1⌉₊
+  1155	
+  1156	def boxSpaceCutoff (Q : RationalBox 5) : ℕ :=
+  1157	  letI := neZeroFive
+  1158	  ⌈|Q.lower 2|+|Q.upper 2|+|Q.lower 3|+|Q.upper 3|+2⌉₊
+  1159	
+  1160	def runBoundTrial (d : Domain) (B : ℕ) (M : TM0.Machine (Fin b) (Fin N))
+  1161	    (w : List (Fin b)) (i : Fin 3) (is : List (Fin 5)) (Q : RationalBox 5) (k : ℕ) : Option ℚ :=
+  1162	  Q.boundTrial (force d B (boxSpaceCutoff Q) (boxTimeCutoff Q) M w i) is k
+  1163	
+  1164	end VelocityDetection.Effective.MachineRecipe
+  1165	end
+  1166	
+  1167	noncomputable section
+  1168	namespace VelocityDetection.Effective.MachineRecipe
+  1169	open Turing
+  1170	
+  1171	structure Program (b N : ℕ) [NeZero b] [NeZero N] where
+  1172	  derivativeBound : ℕ
+  1173	  table : TM0.Machine (Fin b) (Fin N)
+  1174	  input : List (Fin b)
+  1175	
+  1176	def compile {b N : ℕ} [NeZero b] [NeZero N] (B : ℕ) (M : TM0.Machine (Fin b) (Fin N)) (w : List (Fin b)) :
+  1177	    Program b N := ⟨B,M,w⟩
+  1178	
+  1179	end VelocityDetection.Effective.MachineRecipe
+  1180	end
+  1181	
+  1182	noncomputable section
+  1183	namespace VelocityDetection.Effective.MachineRecipe.Program
+  1184	open Turing
+  1185	variable {b N : ℕ} [NeZero b] [NeZero N]
+  1186	
+  1187	def valueTrial (P : Program b N) (d : Domain) (i : Fin 3) (is : List (Fin 5))
+  1188	    (q : Fin 5 → ℕ → ℚ) (ε : ℚ) (k : ℕ) : Option ℚ :=
+  1189	  runTrial d P.derivativeBound P.table P.input i is q ε k
+  1190	
+  1191	def boundTrial (P : Program b N) (d : Domain) (i : Fin 3) (is : List (Fin 5))
+  1192	    (Q : RationalBox 5) (k : ℕ) : Option ℚ :=
+  1193	  runBoundTrial d P.derivativeBound P.table P.input i is Q k
+  1194	
+  1195	noncomputable def evaluate (P : Program b N) (d : Domain) (i : Fin 3) (is : List (Fin 5))
+  1196	    (q : Fin 5 → ℕ → ℚ) (ε : ℚ) : Part ℚ := Nat.rfindOpt (P.valueTrial d i is q ε)
+  1197	
+  1198	noncomputable def derivativeBounds (P : Program b N) (d : Domain) (i : Fin 3)
+  1199	    (is : List (Fin 5)) (Q : RationalBox 5) : Part ℚ := Nat.rfindOpt (P.boundTrial d i is Q)
+  1200	
+  1201	def Represents (P : Program b N) (d : Domain) (F : ℝ → VectorField 3) : Prop :=
+  1202	  letI := neZeroFive
+  1203	  (∀ (i : Fin 3) (is : List (Fin 5)) (q : Fin 5 → ℕ → ℚ) (x : Fin 5 → ℝ),
+  1204	    Names q x → 0 < x 0 → ∀ ε : ℚ, 0 < ε →
+  1205	      (P.evaluate d i is q ε).Dom ∧
+  1206	      ∀ r ∈ P.evaluate d i is q ε,
+  1207	        |mixedD is (forceFunction F i) x-(r:ℝ)| ≤ (ε:ℝ)) ∧
+  1208	  (∀ (i : Fin 3) (is : List (Fin 5)) (Q : RationalBox 5), 0 < Q.lower 0 →
+  1209	    (P.derivativeBounds d i is Q).Dom ∧
+  1210	    ∀ C ∈ P.derivativeBounds d i is Q, 0 ≤ C ∧
+  1211	      ∀ x ∈ Q.carrier, |mixedD is (forceFunction F i) x| ≤ (C:ℝ))
+  1212	
+  1213	end VelocityDetection.Effective.MachineRecipe.Program
+  1214	end
+  1215	
+  1216	noncomputable section
+  1217	namespace VelocityDetection.Effective
+  1218	open Turing
+  1219	
+  1220	def ComputableReal (x : ℝ) : Prop :=
+  1221	  ∃ q : ℕ → ℚ, Computable q ∧ ∀ k, |x-(q k:ℝ)| ≤ (accuracy k:ℝ)
+  1222	
+  1223	end VelocityDetection.Effective
+  1224	end
+  1225	
+  1226	noncomputable section
+  1227	namespace VelocityDetection
+  1228	open Set Function MeasureTheory Turing
+  1229	open scoped ContDiff
+  1230	open Effective Effective.MachineRecipe
+  1231	
+  1232	theorem main_result :
+  1233	    ∃ B : ℕ, 0 < B ∧
+  1234	      (∀ s : ℝ, |deriv (deriv SmoothBump.profile) s| ≤ (B:ℝ)) ∧
+  1235	    ∀ (ν : ℝ), 0 < ν → ComputableReal ν →
+  1236	    ∀ (b N : ℕ) [NeZero b] [NeZero N]
+  1237	      (M : TM0.Machine (Fin b) (Fin N)) (w : List (Fin b)),
+  1238	    ∃ (Ftor Fcyl : ℝ → VectorField 3),
+  1239	      (compile B M w).Represents .torus Ftor ∧
+  1240	      (compile B M w).Represents .cylinder Fcyl ∧
+  1241	      (ContDiff ℝ ∞ (uncurry (Ftor ν)) ∧
+  1242	        (∀ t, FactorsThrough (Ftor ν t) PeriodicSpace.cover) ∧
+  1243	        (∃ K : Set (Coord 2), IsCompact K ∧ (∀ X ∈ K, ∀ i, X i ∈ Ioo (0:ℝ) 1) ∧
+  1244	          ∀ t X, PeriodicSpace.cover (horizontal X) ∉ PeriodicSpace.cover '' K → Ftor ν t X = 0) ∧
+  1245	        (∀ T d, ∃ C : ℝ, 0 ≤ C ∧ ∀ t ∈ Icc (0:ℝ) T, ∀ X,
+  1246	          ‖iteratedFDeriv ℝ d (uncurry (Ftor ν)) (t,X)‖ ≤ C) ∧
+  1247	        ∃ u : VectorField 3,
+  1248	          ContDiff ℝ ∞ (uncurry u) ∧ TorusClass.ComparisonClass u (fun _ _ => 0) ∧
+  1249	          NavierStokes ν u (fun _ _ => 0) (Ftor ν) ∧
+  1250	          (Observation.torusEvent u ↔ (TM0.eval M w).Dom) ∧
+  1251	          ∀ (v : VectorField 3) (p : ScalarField 3), TorusClass.ComparisonClass v p →
+  1252	            NavierStokes ν v p (Ftor ν) →
+  1253	            ∀ t ≥ 0, (∀ X, v t X = u t X) ∧ (∀ X, p t X = 0)) ∧
+  1254	      (ContDiff ℝ ∞ (uncurry (Fcyl ν)) ∧
+  1255	        UniformDerivatives.Bounded (fun _ : Unit => uncurry (Fcyl ν)) ∧
+  1256	        (∀ t X z, Fcyl ν t (update X 2 z) = Fcyl ν t X) ∧
+  1257	        (∀ T : ℝ, ∃ K : Set (Coord 2), IsCompact K ∧ ∀ t ∈ Icc (0:ℝ) T,
+  1258	          ∀ X : Coord 3, horizontal X ∉ K → Fcyl ν t X = 0) ∧
+  1259	        ∃ u : VectorField 3,
+  1260	          ContDiff ℝ ∞ (uncurry u) ∧
+  1261	          Cylinder.ComparisonClass (fun t x => u t (Cylinder.join x)) (fun _ _ => 0) ∧
+  1262	          NavierStokes ν u (fun _ _ => 0) (Fcyl ν) ∧
+  1263	          (∀ t ≥ 0, (∀ x, 0 ≤ u t (Cylinder.join x) 2) ∧
+  1264	            Integrable (fun x => u t (Cylinder.join x) 2) Cylinder.measure) ∧
+  1265	          (Observation.planeEvent u ↔ (TM0.eval M w).Dom) ∧
+  1266	          ∀ (v : VectorField 3) (p : ScalarField 3),
+  1267	            Cylinder.ComparisonClass (fun t x => v t (Cylinder.join x))
+  1268	              (fun t x => p t (Cylinder.join x)) →
+  1269	            NavierStokes ν v p (Fcyl ν) →
+  1270	            ∀ t ≥ 0, (∀ X, v t X = u t X) ∧ (∀ X, p t X = 0)) := by sorry
+  1271	
+  1272	end VelocityDetection
+  1273	end
+  1274	
+  1275	end OAI
+=== solution lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/Main.lean  sha256 5c3f3ba0c5cacbcd815b97b449228cfb5bd5846f89f0b7a8bc00e1b647fa90a8: declaration of main_result (grep -rn in the solution module directory, 12 lines after)
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean:11:theorem main_result :
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-12-    ∃ B : ℕ, 0 < B ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-13-      (∀ s : ℝ, |deriv (deriv SmoothBump.profile) s| ≤ (B:ℝ)) ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-14-    ∀ (ν : ℝ), 0 < ν → ComputableReal ν →
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-15-    ∀ (b N : ℕ) [NeZero b] [NeZero N]
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-16-      (M : TM0.Machine (Fin b) (Fin N)) (w : List (Fin b)),
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-17-    ∃ (Ftor Fcyl : ℝ → VectorField 3),
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-18-      (compile B M w).Represents .torus Ftor ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-19-      (compile B M w).Represents .cylinder Fcyl ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-20-      (ContDiff ℝ ∞ (uncurry (Ftor ν)) ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-21-        (∀ t, FactorsThrough (Ftor ν t) PeriodicSpace.cover) ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-22-        (∃ K : Set (Coord 2), IsCompact K ∧ (∀ X ∈ K, ∀ i, X i ∈ Ioo (0:ℝ) 1) ∧
+lean/OAI/MathematicalPhysics/NavierStokes/VelocityDetection/MainResult.lean-23-          ∀ t X, PeriodicSpace.cover (horizontal X) ∉ PeriodicSpace.cover '' K → Ftor ν t X = 0) ∧

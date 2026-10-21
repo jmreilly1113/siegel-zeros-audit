@@ -1,0 +1,51 @@
+Manifest vs methods text of the v1 Siegel packet (tag reviewer-packet-v1: docs/reproduce.md, docs/writeup.md)
+Quoted v1 lines are verbatim from the tag.
+
+- openai/math commit
+    v1: - `bash scripts/setup.sh` creates `.venv`, clones openai/math at commit adc7f1241b42e322a6451854ab7e4b4c146bf78a into `external/op
+    manifest: v1 runs: adc7f12. Corpus replay: fd4aeeb. Post-hoc SiegelZeros: fd4aeeb.
+    -> MISMATCH (scope): the replay is at a later commit. Pinned paths and lake-manifest are identical across the two.
+- comparator / lean4export
+    v1: - Tools: landrun 0.1.18; lean4export tag v4.34.0 and comparator tag v4.34.0 (d03acab), both built with toolchain v4.34.1. The comparator links lean4export and r
+    manifest: d03acab (v4.34.0) / 076e8e5 (v4.34.0), built with 4.34.1
+    -> MATCH
+- landrun
+    v1: landrun 0.1.18 (reproduce.md:43)
+    manifest: commit 811cfff = git describe v0.1.17-4-g811cfff; binary reports 0.1.18
+    -> MISMATCH (labelling): v1 gives a version number that has no tag at this commit; the commit is not stated in v1.
+- nanoda
+    v1: - Second kernel: nanoda_lib at 3a24072 (v0.4.19), `cargo build --release --locked`, `nanoda_bin` on PATH. Then use a cop
+    manifest: 3a24072, Cargo 0.4.19, binary sha256 897971d7...
+    -> MATCH
+- Lean toolchain
+    v1: toolchain v4.34.1 (reproduce.md:43)
+    manifest: v4.34.1, Lean commit 5045d005
+    -> MATCH
+- Mathlib / lake-manifest
+    v1: Mathlib at d13f23b (reproduce.md:121, Windows lean-build); no lake-manifest hash in v1
+    manifest: d13f23b; lake-manifest sha256 cf6105a2...; 42 packages
+    -> MISMATCH (omission): v1 states no lake-manifest hash and no package list for the WSL runs.
+- platform
+    v1: What we actually ran (WSL2 Ubuntu-24.04 on Windows; scripts in `wsl-comparator/`, numbered in run or
+    manifest: WSL 2.4.11.0, Ubuntu 24.04.5, kernel 5.15.167.4
+    -> MATCH (v1 gives no WSL version or kernel build; it says "5.15")
+- WSL kernel
+    v1: cannot restrict network access; WSL's 5.15 kernel has Landlock ABI 1. `28_netblock_probe.sh` shows that the block works.
+    manifest: 5.15.167.4-microsoft-standard-WSL2 (2026-10-08 and now)
+    -> MATCH
+- network block
+    v1: RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET (reproduce.md:45)
+    manifest: same property; post-hoc self-test: AF_INET, AF_INET6, AF_UNIX all EAFNOSUPPORT
+    -> MATCH
+- network block, first v1 run
+    v1: reproduce.md:45 lists the full block under "What we actually ran" (lines 42-47)
+    manifest: results/2026-10-08-lean-comparator-wsl.txt header: the first comparator run (08_comparator.sh) used RestrictAddressFamilies=~AF_UNIX only; the full block applies from the nanoda run (29_comparator_nanoda.sh)
+    -> MISMATCH (wording): reproduce.md:45 reads as if every run had the full block. writeup.md 2.8 (4)/(5) and README item 1 tie the block to the nanoda run, which is correct. The accepted-by-both-kernels claim rests on the nanoda run, which had the full block.
+- user / uid
+    v1: - An unprivileged user `checker` with lingering enabled, and a fresh clone (`06_user_clone.sh`, `07_lake_update.sh`).
+    manifest: post-hoc: uid=1000(checker), CapEff 0, NoNewPrivs 1
+    -> MISMATCH (evidence): v1 states the user name; no v1 run log records id. Evidence is the 2026-10-11 probe and the 2026-10-20 post-hoc run (POST-HOC).
+- run times
+    v1: !". Our times: about 26 min for the first run, including the solution build; 14 min for the rerun with nanoda.
+    manifest: post-hoc SiegelZeros (fd4aeeb, prebuilt): 797 s comparator after a 649 s prebuild
+    -> NOT COMPARABLE (different build state); no claim depends on it.

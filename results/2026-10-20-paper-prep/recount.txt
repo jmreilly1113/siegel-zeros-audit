@@ -1,0 +1,59 @@
+== (b) per-run counts (every raw log file)
+pilot	nanoda	final	ACCEPT_BOTH	3
+pilot	nanoda	stopped/interrupted	OTHER	1
+headline/attempt1-guard-stopped	nanoda	final	GUARD_STOPPED	1
+headline/attempt2-guard-stopped	nanoda	final	GUARD_STOPPED	1
+headline/attempt2-guard-stopped	shipped	final	GUARD_STOPPED	1
+headline	nanoda	final	ACCEPT_BOTH	12
+headline	nanoda	final	OTHER	3
+headline	shipped	final	ACCEPT_LEAN	3
+remainder/batch-01	nanoda	final	ACCEPT_BOTH	76
+remainder/batch-01	shipped	final	ACCEPT_LEAN	3
+remainder/batch-02	nanoda	final	ACCEPT_BOTH	34
+remainder/batch-02	shipped	final	ACCEPT_LEAN	2
+remainder/batch-03	nanoda	final	ACCEPT_BOTH	19
+remainder/batch-03	shipped	final	ACCEPT_LEAN	1
+remainder/batch-04	nanoda	final	ACCEPT_BOTH	10
+remainder/batch-04	nanoda	final	OTHER	2
+remainder/batch-04	shipped	final	ACCEPT_LEAN	3
+remainder/batch-05	nanoda	final	ACCEPT_BOTH	4
+remainder/batch-05	nanoda	final	OTHER	2
+remainder/batch-05	shipped	final	ACCEPT_LEAN	2
+remainder/batch-06	nanoda	final	ACCEPT_BOTH	12
+remainder/batch-06	nanoda	final	OTHER	1
+remainder/batch-06	nanoda	stopped/interrupted	OTHER	3
+remainder/batch-06	shipped	final	ACCEPT_LEAN	2
+remainder/batch-06	shipped	stopped/interrupted	OTHER	1
+remainder/batch-07	nanoda	final	ACCEPT_BOTH	5
+remainder/batch-07	nanoda	final	OTHER	1
+remainder/batch-07	shipped	final	ACCEPT_LEAN	1
+remainder/batch-08	nanoda	final	ACCEPT_BOTH	6
+-- all batches
+ALL	nanoda	final	ACCEPT_BOTH	181
+ALL	nanoda	final	GUARD_STOPPED	2
+ALL	nanoda	final	OTHER	9
+ALL	nanoda	stopped/interrupted	OTHER	4
+ALL	shipped	final	ACCEPT_LEAN	17
+ALL	shipped	final	GUARD_STOPPED	1
+ALL	shipped	stopped/interrupted	OTHER	1
+total raw log files: 215
+
+== configs with raw logs in more than one batch directory: 2
+DirichletSevenEighths	headline, headline/attempt1-guard-stopped
+HeckeSevenEighths	headline, headline/attempt2-guard-stopped
+
+== (a) per-config outcomes, deduped by config name
+-- fd4aeeb (headline + remainder): 187 configs
+   ACCEPT_BOTH	178
+   ACCEPT_LEAN_ONLY	9
+   (c) assertion OK: sum of categories 187 == config total 187
+-- pilot (adc7f12): 3 configs
+   ACCEPT_BOTH	3
+   (c) assertion OK: sum of categories 3 == config total 3
+-- configs in both the pilot and fd4aeeb stages: []
+-- by stage headline: 15 configs: ACCEPT_BOTH 12, ACCEPT_LEAN_ONLY 3
+-- by stage remainder: 172 configs: ACCEPT_BOTH 166, ACCEPT_LEAN_ONLY 6
+-- fd4aeeb configs not ACCEPT_BOTH: ['BinPackingGap', 'GroupRingDeterminant', 'IndependentSets', 'KaplanskyFinitelyPresented', 'Laughlin', 'OptimalMaxCut', 'PerfectCompleteness', 'UniqueGamesTheorem', 'VertexCover']
+
+== cross-check against outcomes.tsv (config_outcome column)
+outcomes.tsv rows: 187; recount configs: 187; differences: 0

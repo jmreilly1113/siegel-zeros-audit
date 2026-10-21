@@ -1,0 +1,31 @@
+Prune, 2026-10-20 21:34:20 (Joe 2026-10-20, paper prep 2 Task 6: prune builds as before; each target looked at first)
+== WSL before: 57G used
+-- /home/checker/math/lean/.lake/build (closures rebuilt by 107_paperprep.sh):
+21G	/home/checker/math/lean/.lake/build
+total 16
+drwxrwxr-x 4 checker checker 4096 Oct 20 14:28 .
+drwxrwxr-x 5 checker checker 4096 Oct 20 14:28 ..
+drwxrwxr-x 4 checker checker 4096 Oct 20 14:28 ir
+drwxrwxr-x 3 checker checker 4096 Oct 20 14:28 lib
+   OAI/ComparatorChallenges .olean files: 4444
+-- /home/checker/math-v1 (temporary adc7f12 clone of 108_paperprep2.sh, with copied packages):
+13G	/home/checker/math-v1
+adc7f1241b42e322a6451854ab7e4b4c146bf78a
+-- /home/checker/corpus/pp (small configs; kept):
+52K	/home/checker/corpus/pp
+   export files: 0
+removed /home/checker/math/lean/.lake/build
+removed /home/checker/math-v1
+removed empty driver .out files
+-- kept: tool binaries
+-rwxr-xr-x 1 root root   1351016 Oct 20 08:19 /opt/nanoda-1gib-diag/nanoda_bin
+-rwxr-xr-x 1 root root   1353168 Oct 20 03:49 /opt/nanoda-postfix/nanoda_bin
+-rwxr-xr-x 1 root root 122488776 Oct  8 11:47 /usr/local/bin/comparator
+-rwxr-xr-x 1 root root   6197280 Oct  8 11:46 /usr/local/bin/landrun
+-rwxr-xr-x 1 root root 233952032 Oct  8 11:47 /usr/local/bin/lean4export
+-rwxr-xr-x 1 root root   1351016 Oct  8 14:02 /usr/local/bin/nanoda_bin
+-- fd4aeeb clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: []
+   packages kept: 8.6G
+/: 970.8 GiB (1042378579968 bytes) trimmed
+== WSL after: 24G used
+Note: the Windows-side vhdx does not shrink without an elevated compaction (scripts/compact-wsl-vhdx.txt).

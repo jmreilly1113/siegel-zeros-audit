@@ -1,0 +1,9 @@
+== export KaplanskyFinitelyPresented  2026-10-20 17:07:01
+command: lake env lean4export OAI.RingTheory.DirectFiniteness.FinitelyPresented -- Quot Quot.mk Quot.lift Quot.ind OAI.KaplanskyCounterexample.finitelyPresented_counterexample propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/pp/KaplanskyFinitelyPresented.export
+Running as unit: run-u29.service; invocation ID: a9ebf95e6a02436aa8161bff7e55f8d3
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 33.406s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 657348158 Oct 20 17:08 /home/checker/corpus/pp/KaplanskyFinitelyPresented.export
+7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c  /home/checker/corpus/pp/KaplanskyFinitelyPresented.export

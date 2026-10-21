@@ -1,0 +1,11 @@
+== prebuild BinPackingGap: lake build OAI.Computability.BinPacking.Main ComparatorChallenges.BinPackingGap  2026-10-20 19:15:16
+Running as unit: run-u39.service; invocation ID: 923e0e91eb464f979d826bb3decdd488
+⚠ [8958/9208] Built ComparatorChallenges.BinPackingGap (6.0s)
+warning: ComparatorChallenges/BinPackingGap.lean:356:8: declaration uses `sorry`
+Build completed successfully (9208 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 15min 56.573s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 1053
+disk used: 39G

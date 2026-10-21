@@ -1,0 +1,44 @@
+2026-10-20 14:27:45 start 107_paperprep.sh; clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []; kernel 5.15.167.4-microsoft-standard-WSL2; nanoda_bin sha256 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714; comparator d03acab154d269c06e60e4de7e4cc85deebff94b; disk 24G
+2026-10-20 14:41:34 HarmonicGrowth: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 829
+2026-10-20 14:54:07 NavierStokesVelocity: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 753
+2026-10-20 14:54:48 task2 query HGChallengePrintAxioms: SANDBOX EXIT CODE: 0
+2026-10-20 14:54:57 task2 query HGSolutionPrintAxioms: SANDBOX EXIT CODE: 0
+2026-10-20 14:55:05 task2 query NSChallengePrintAxioms: SANDBOX EXIT CODE: 0
+2026-10-20 14:55:17 task2 query NSSolutionPrintAxioms: SANDBOX EXIT CODE: 0
+2026-10-20 14:56:21 task2 query HarmonicGrowthChallenge: SANDBOX EXIT CODE: 0
+2026-10-20 14:57:19 task2 query HarmonicGrowthSolution: SANDBOX EXIT CODE: 0
+2026-10-20 14:57:34 task2 query NavierStokesChallenge: SANDBOX EXIT CODE: 0
+2026-10-20 14:57:49 task2 query NavierStokesSolution: SANDBOX EXIT CODE: 0
+2026-10-20 14:59:17 task2d negcontrol shipped: uncaught exception: Illegal axiom detected: 'OAI.HarmonicCounterexample.mainStatement';COMPARATOR EXIT CODE: 1;
+2026-10-20 15:00:38 task2d negcontrol nanoda: uncaught exception: Illegal axiom detected: 'OAI.HarmonicCounterexample.mainStatement';COMPARATOR EXIT CODE: 1;
+2026-10-20 15:00:39 task2d: control file removed; clone status []
+2026-10-20 15:11:29 SiegelZeros: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 649
+2026-10-20 15:24:48 task4 SiegelZeros: INNER id: uid=1000(checker) gid=1000(checker) groups=1000(checker);INNER netblock tcp 1.1.1.1:443: bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol;INNER netblock python AF_INET udp socket: OSError: [Errno 97] Address family not supported by protocol;INNER netblock python AF_INET6 socket: OSError: [Errno 97] Address family not supported by protocol;INNER netblock python
+2026-10-20 15:51:31 OptimalMaxCut: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 1603
+2026-10-20 15:59:59 task3 OptimalMaxCut comparator bigenv: thread 'thread_3' (21059) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 506;
+2026-10-20 16:03:23 task3 OptimalMaxCut nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/OptimalMaxCut.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_1' (21455) has overflowed its stack;f
+2026-10-20 16:20:51 UniqueGamesTheorem: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 1048
+2026-10-20 16:26:54 task3 UniqueGamesTheorem comparator bigenv: thread 'thread_0' (30578) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 361;
+2026-10-20 16:29:35 task3 UniqueGamesTheorem nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/UniqueGamesTheorem.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_2' (30934) has overflowed its st
+2026-10-20 16:41:47 VertexCover: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 732
+2026-10-20 16:46:03 task3 VertexCover comparator bigenv: thread 'thread_0' (37935) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 254;
+2026-10-20 16:47:47 task3 VertexCover nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/VertexCover.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_3' (38264) has overflowed its stack;fat
+2026-10-20 17:01:15 KaplanskyFinitelyPresented: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 808
+2026-10-20 17:07:01 task3 KaplanskyFinitelyPresented comparator bigenv: thread 'thread_2' (41337) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 344;
+2026-10-20 17:09:24 task3 KaplanskyFinitelyPresented nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/KaplanskyFinitelyPresented.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_3' (41689) has overflowe
+2026-10-20 17:15:37 GroupRingDeterminant: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 373
+2026-10-20 17:23:03 task3 GroupRingDeterminant comparator bigenv: thread 'thread_3' (43298) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 444;
+2026-10-20 17:25:39 task3 GroupRingDeterminant nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/GroupRingDeterminant.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_3' (43652) has overflowed its 
+2026-10-20 17:58:18 Laughlin: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 1959
+2026-10-20 19:06:44 task3 Laughlin comparator bigenv: thread 'thread_2' (65496) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 4105;
+2026-10-20 19:15:16 task3 Laughlin nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/Laughlin.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_0' (66850) has overflowed its stack;fatal 
+2026-10-20 19:32:49 BinPackingGap: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 1053
+2026-10-20 19:37:31 task3 BinPackingGap comparator bigenv: thread 'thread_3' (72831) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 280;
+2026-10-20 19:39:25 task3 BinPackingGap nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/BinPackingGap.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_1' (73155) has overflowed its stack;f
+2026-10-20 19:55:46 IndependentSets: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 981
+2026-10-20 19:59:56 task3 IndependentSets comparator bigenv: thread 'thread_0' (81416) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 249;
+2026-10-20 20:02:17 task3 IndependentSets nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/IndependentSets.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_0' (81754) has overflowed its stack
+2026-10-20 20:23:44 PerfectCompleteness: prebuild SANDBOX EXIT CODE: 0 PREBUILD_SECONDS: 1286
+2026-10-20 20:29:15 task3 PerfectCompleteness comparator bigenv: thread 'thread_3' (92444) has overflowed its stack;nanoda kernel rejected the solution;Lean default kernel accepts the solution;uncaught exception: nanoda exited with 134;COMPARATOR EXIT CODE: 1;DURATION_SECONDS: 329;
+2026-10-20 20:31:35 task3 PerfectCompleteness nanoda direct: {"use_stdin":false,"export_file_path":"/home/checker/corpus/pp/PerfectCompleteness.export","permitted_axioms":["propext", "Quot.sound", "Classical.choice"],"unpermitted_axiom_hard_error":true,"num_threads":4,"nat_extension":true,"string_extension":true};thread 'thread_0' (92793) has overflowed its s
+2026-10-20 20:31:35 end; clone status []; disk 45G

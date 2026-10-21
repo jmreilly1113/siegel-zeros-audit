@@ -1,0 +1,30 @@
+UNREVIEWED: note-v2 master inequality with Banks's two devices (src/effectivity_banks_devices.py; Arb prec 256 bits)
+python 3.14.6, python-flint 0.9.0, numpy 2.5.3
+input: refs/improved-constants-from-banks-devices.txt (UNREVIEWED third-party; sha256 a680b88ef21046ac9fe0c812bc0f23b8209aa0330cdc01bea1fe2a7683627cd7; read, not executed)
+
+== Check: s = 1, no device reproduces note-v2's three certified values
+   q0 10000000001: 4.4673780338e-03 vs note-v2 4.4673780338e-03: MATCH
+   q0 400001: 3.3992904026e-03 vs note-v2 3.3992904026e-03: MATCH
+   q0 3: 5.0425352961e-04 vs note-v2 5.0425352961e-04: MATCH
+
+== (a) s = 3/2 fixed, both devices (UNREVIEWED)
+   q0 = 10000000001: gamma = 63/4, H = 2754228703, s = 3/2: delta0 = [0.00592990719048625 +/- 4.26e-18]  certified > 5.9299071904e-03  (UNREVIEWED)
+      float search value 5.9299071905e-03; C1 = [0.99593090 +/- 4.52e-9], C_ell = [1.120422268 +/- 2.34e-10], T = [0.8759786655 +/- 2.94e-11], lambda in [21.000000, [21.000000 +/- 1e-11]]
+      side conditions (at q0, implied for all q >= q0): H >= 319: OK; N >= H (g log q0 > log H): OK; H^(2/3) N^(4/3) >= 2*97^2 (via N >= H: H^2 >= 2*97^2): OK; U >= 3 (L >= log 3): OK; L >= s: OK; sigma = 1 + s/L in (1, 2] (s > 0 and L >= s): OK; 0 < s <= 2 (Banks Lemma 2.1): OK; kappa < 0: OK
+   q0 = 400001: gamma = 2033/100, H = 1995262314, s = 3/2: delta0 = [0.00457979768194713 +/- 1.35e-18]  certified > 4.5797976819e-03  (UNREVIEWED)
+      float search value 4.5797976819e-03; C1 = [0.99593090 +/- 4.52e-9], C_ell = [1.120422268 +/- 1.65e-10], T = [0.8763621008 +/- 4.51e-11], lambda in [[27.106667 +/- 3.34e-7], [27.106667 +/- 3.34e-7]]
+      side conditions (at q0, implied for all q >= q0): H >= 319: OK; N >= H (g log q0 > log H): OK; H^(2/3) N^(4/3) >= 2*97^2 (via N >= H: H^2 >= 2*97^2): OK; U >= 3 (L >= log 3): OK; L >= s: OK; sigma = 1 + s/L in (1, 2] (s > 0 and L >= s): OK; 0 < s <= 2 (Banks Lemma 2.1): OK; kappa < 0: OK
+   q0 = 3: gamma = 131, H = 1083926914, s = 3/2: delta0 = [0.000704351161039227 +/- 5.46e-20]  certified > 7.0435116103e-04  (UNREVIEWED)
+      float search value 7.0435116104e-04; C1 = [0.99593090 +/- 4.52e-9], C_ell = [1.120422268 +/- 4.59e-11], T = [0.8774739378 +/- 3.17e-12], lambda in [[174.66667 +/- 3.34e-6], [174.66667 +/- 3.34e-6]]
+      side conditions (at q0, implied for all q >= q0): H >= 319: OK; N >= H (g log q0 > log H): OK; H^(2/3) N^(4/3) >= 2*97^2 (via N >= H: H^2 >= 2*97^2): OK; U >= 3 (L >= log 3): OK; L >= s: OK; sigma = 1 + s/L in (1, 2] (s > 0 and L >= s): OK; 0 < s <= 2 (Banks Lemma 2.1): OK; kappa < 0: OK
+
+== (b) s optimized (grid 1/20, refined to 1/200), both devices (UNREVIEWED)
+   q0 = 10000000001: gamma = 767/50, H = 2691534804, s = 287/200: delta0 = [0.00594483522356188 +/- 2.75e-18]  certified > 5.9448352235e-03  (UNREVIEWED)
+      float search value 5.9448352236e-03; C1 = [1.0197149 +/- 4.35e-8], C_ell = [1.049911252 +/- 3.83e-10], T = [0.8760111301 +/- 4.34e-11], lambda in [[20.453333 +/- 3.34e-7], [20.453333 +/- 3.34e-7]]
+      side conditions (at q0, implied for all q >= q0): H >= 319: OK; N >= H (g log q0 > log H): OK; H^(2/3) N^(4/3) >= 2*97^2 (via N >= H: H^2 >= 2*97^2): OK; U >= 3 (L >= log 3): OK; L >= s: OK; sigma = 1 + s/L in (1, 2] (s > 0 and L >= s): OK; 0 < s <= 2 (Banks Lemma 2.1): OK; kappa < 0: OK
+   q0 = 400001: gamma = 41/2, H = 1995262314, s = 61/40: delta0 = [0.00458141337003952 +/- 1.97e-18]  certified > 4.5814133700e-03  (UNREVIEWED)
+      float search value 4.5814133700e-03; C1 = [0.98793734 +/- 3.58e-9], C_ell = [1.148785893 +/- 4.23e-10], T = [0.8762852510 +/- 2.63e-11], lambda in [[27.333333 +/- 3.34e-7], [27.333333 +/- 3.34e-7]]
+      side conditions (at q0, implied for all q >= q0): H >= 319: OK; N >= H (g log q0 > log H): OK; H^(2/3) N^(4/3) >= 2*97^2 (via N >= H: H^2 >= 2*97^2): OK; U >= 3 (L >= log 3): OK; L >= s: OK; sigma = 1 + s/L in (1, 2] (s > 0 and L >= s): OK; 0 < s <= 2 (Banks Lemma 2.1): OK; kappa < 0: OK
+   q0 = 3: gamma = 6547/50, H = 1083926914, s = 2: delta0 = [0.000759711667963557 +/- 1.92e-19]  certified > 7.5971166796e-04  (UNREVIEWED)
+      float search value 7.5971166796e-04; C1 = [0.92363201 +/- 2.37e-9], C_ell = [1.847264025 +/- 1.94e-10], T = [0.8774935806 +/- 4.52e-12], lambda in [[174.58667 +/- 3.34e-6], [174.58667 +/- 3.34e-6]]
+      side conditions (at q0, implied for all q >= q0): H >= 319: OK; N >= H (g log q0 > log H): OK; H^(2/3) N^(4/3) >= 2*97^2 (via N >= H: H^2 >= 2*97^2): OK; U >= 3 (L >= log 3): OK; L >= s: OK; sigma = 1 + s/L in (1, 2] (s > 0 and L >= s): OK; 0 < s <= 2 (Banks Lemma 2.1): OK; kappa < 0: OK

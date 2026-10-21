@@ -1,0 +1,14 @@
+Waterfall for note-v3 (COMPUTED; UNREVIEWED): Banks -> ours with both of Banks's devices kept (no "cost" rows).
+Steps B1-B5 at q0 = 10^10, H = 86,713,344, gamma re-optimized (src/banks_compare.py configurations, as in
+results/2026-10-20-paper-prep-2/banks-compare-output.txt); last steps at q0 = 10^10 (gamma, H free), then s free.
+  B0 Banks as published                        [0.00306955553193 +/- 3.23e-15]    > 3.0695555319e-03    
+  B1 exact solve instead of the 3/32 split     [0.00314320184120 +/- 2.30e-15]    > 3.1432018412e-03  factor [1.023992 +/- 5.00e-7]  gamma 22, H 86713344
+  B2 tight upper end of lambda                 [0.00328796182675 +/- 2.80e-15]    > 3.2879618267e-03  factor [1.046055 +/- 5.58e-8]  gamma 43/2, H 86713344
+  B3 our S1, S2 bounds                         [0.00343327122818 +/- 4.19e-15]    > 3.4332712281e-03  factor [1.044194 +/- 3.70e-7]  gamma 103/5, H 86713344
+  B4 Platt-Trudgian theta                      [0.00344446215424 +/- 4.06e-15]    > 3.4444621542e-03  factor [1.003260 +/- 4.49e-7]  gamma 41/2, H 86713344
+  B5 kappa (with the Mertens terms) kept       [0.00351679898095 +/- 1.66e-15]    > 3.5167989809e-03  factor [1.021001 +/- 9.38e-8]  gamma 201/10, H 86713344
+  B6 H free (s = 3/2, both devices)            [0.00592990719048 +/- 3.47e-15]    > 5.9299071904e-03  factor [1.686166 +/- 9.10e-8]  gamma 63/4, H 2754228703; cross-check effectivity_banks_devices: 5.9299071904e-03
+  B7 s optimized (grid 1/20, refined 1/200)    [0.00594483522355 +/- 1.86e-15]    > 5.9448352235e-03  factor [1.002517 +/- 4.15e-7]  gamma 767/50, H 2691534804, s 287/200
+  ratio B6/B0 = [1.9318455 +/- 4.86e-8]; B7/B0 = [1.9367088 +/- 4.17e-9]
+  q0 10^10 vs 10^10+1 at (gamma 63/4, H 2754228703, s 3/2): [0.00592990719048 +/- 3.47e-15] vs [0.00592990719049 +/- 3.76e-15]
+  q0 10^10 vs 10^10+1 at (gamma 767/50, H 2691534804, s 287/200): [0.00594483522355 +/- 1.86e-15] vs [0.00594483522356 +/- 1.89e-15]

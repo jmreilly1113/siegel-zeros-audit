@@ -1,0 +1,209 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,tabularx,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\setlist{nosep,leftmargin=*}
+\newcommand{\Rea}{\operatorname{Re}}
+
+\title{An explicit constant for [OpenAI, \emph{Uniform exclusion of Landau--Siegel zeros}] with $H$ free and Banks's two devices: $c \ge 5.9299\times 10^{-3}$ (with Lu--Zaman--Zhao)}
+\author{Joseph M. Reilly}
+\date{Draft v3 of 2026-10-21, not reviewed by a specialist; constants UNREVIEWED}
+
+\begin{document}
+\maketitle
+
+\noindent Versions 2 (\url{note-v2.md}, \url{note-v2.tex}, \url{note-v2.pdf}) and 1 (\url{note.md}, \url{note.tex}, \url{note.pdf}) are kept unchanged. This PDF is built from \url{docs/effectivity/note-v3.tex}, which follows \url{note-v3.md}.
+Computation: \url{src/effectivity_banks_devices.py}; output: \url{results/2026-10-21-banks-devices/devices-output.txt}; agreement with [S11]: \url{results/2026-10-21-banks-devices/file-float-agreement.txt}; waterfall: \url{results/2026-10-21-banks-devices/waterfall-v3.txt}. note-v2's pipeline: \url{src/effectivity.py}.
+Comparison with Banks: \url{src/banks_compare.py}; output: \url{results/2026-10-20-paper-prep-2/banks-compare-output.txt}; table: \url{docs/effectivity/banks-comparison-v2.md}.
+Derivation: \url{docs/effectivity/derivation.md}, with the changes for the two devices in \url{docs/effectivity/derivation-banks-device.md}. Sources: [S1]--[S11], listed at the end; [S1]--[S8] are as in \url{docs/effectivity/sources.md}, where the quotations are; [S10] is described in \url{refs/banks-2610.15483.md}.
+
+\section*{Author's note}
+I am not a number theorist. This note was produced with AI assistance. Claude (Anthropic), working through Claude Code, wrote the derivation (\url{docs/effectivity/derivation.md}), the interval-arithmetic code in \url{src/}, and the comparison with Banks (\url{docs/effectivity/banks-comparison-v2.md}). A separate Claude session reviewed each stage and recomputed Banks's constants and the certified values by hand from the master inequality; that check is not independent of the model that produced the work. My role was to direct the project, decide what to check and what to claim, and review each stage before approving the next. Every inequality claimed here is certified in Arb ball arithmetic from exact rational parameters, and the scripts, tests and outputs that produce the numbers are in the repository. No specialist has reviewed the accounting. Until one does, the constants should be treated as unreviewed.
+
+\section{Background: Banks's explicit constant}
+
+[S1] proves that some absolute $c>0$ exists. Its proof argues by contradiction along a sequence with $q\to\infty$ and $\delta := (1-\beta)\log q\to 0$, and leaves every analytic constant implicit.
+
+W.~D.~Banks [S10] (arXiv:2610.15483, dated October 11, 2026) rearranges the argument as a direct proof with explicit constants:
+\begin{itemize}
+\item $\delta_0 = 81/(5888\,e^{3/2}) = 3.0696\cdot 10^{-3}$ for $q\ge 10^{10}$ (his Theorem~1.1 and Remark~7.1);
+\item with Lu--Zaman--Zhao's computation, $(1-\beta)\log q\ge 3.0696\cdot10^{-3}$ for every $q\ge 3$. He states this rounded, as $3.0\cdot10^{-3}$.
+\end{itemize}
+Kerr (arXiv:2610.21099) and Green (hexagon:2610.00311v2, 2026-10-17) give no explicit constant.
+
+This note uses the same master inequality as Banks's \S7, with $H$ left free, and with both of Banks's devices that note-v2 had replaced by weaker choices: the shift $s$ in $\sigma=1+s/\log X$ (Banks's $\lambda$; note-v2 used $s=1$), and the $\frac12S_0$ device for the primes dividing $q$ (note-v2 used $c_q\log q$). Both devices are Banks's: his Lemma~2.1 and its proof, (2.3)--(2.8), as used in his \S7 [S10]. Their restoration in this note's accounting follows a personal communication dated 2026-10-21 [S11]: an AI-produced text file that its author did not check. It is treated here as UNREVIEWED third-party input; every number in this note was recomputed from the inequality in Arb.
+
+\section{Statement}
+
+\textbf{Assuming the proof in [S1] is correct} (see \S\ref{sec:assumptions}), every real zero $\beta\in(0,1)$ of every primitive nonprincipal real Dirichlet $L$-function of conductor $q\ge 3$ satisfies
+\[
+(1-\beta)\log q > 5.9299\times 10^{-3}\quad\text{using Lu--Zaman--Zhao's computation for } q\le 10^{10}\text{ (the LZZ range)},
+\]
+\[
+(1-\beta)\log q > 4.5797\times 10^{-3}\quad\text{using only Platt's computation for } q\le 4\cdot 10^5\text{ (the Platt range).}
+\]
+The argument of [S1] alone, without any computation for small $q$, gives $(1-\beta)\log q > 7.04\times 10^{-4}$ for every $q\ge 3$ except $q=8$.
+These bounds are certified in Arb ball arithmetic from exact rational parameters.
+
+\section{Explicit inputs}
+
+\noindent\textbf{Definitions.} Here $M=N^4$ and $U=N^{4/3}$, with $L=\log U$. Banks writes $N^4$ for our $M$ and uses $M$ for our $U=N^{4/3}$. The real variable of the $L$-function is $\sigma$ throughout. derivation.md writes $s$ for it; $s$ is kept for the shift in \url{docs/effectivity/derivation-banks-device.md}.
+
+\noindent{\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright}p{2.6cm}>{\raggedright}X>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+Input & Statement used & Source and range\\
+\midrule
+Hadamard identity (2.3) & $\Rea(-L'/L)(\sigma,\chi) =$ $\tfrac12\log(q/\pi) + \tfrac12\psi((\sigma+\varepsilon)/2)$ $- \sum_\rho \Rea\frac{1}{\sigma-\rho}$, terms $\ge 0$, real $\sigma>1$ & as stated in [S1] \S2; checked against Davenport, 2nd ed., Ch.~12 (17)--(18), p.~83\\
+$\zeta$ log-derivative & $-\zeta'/\zeta(\sigma) < 1/(\sigma-1)$, $\sigma>1$ & [S6] Lemma 12; final elementary inequality proved here for all $\sigma>1$ (\S\ref{sec:direct})\\
+Digamma & $\psi((\sigma+\varepsilon)/2)\le\psi(3/2) = 2-\gamma-2\log 2$ for $1<\sigma\le 2$ & $\psi$ increasing\\
+Mertens & $\log x + E - \frac{1}{2\log x} < \sum_{p\le x}\frac{\log p}{p}$ ($x>1$); $\sum_{p\le x}\frac{\log p}{p} < \log x + E + \frac{1}{2\log x}$ ($x\ge 319$) & Rosser--Schoenfeld Thm 6, (3.21)--(3.22), p.~70, read in the original\\
+Chebyshev & $\theta(x) < (1+7.5\cdot 10^{-7})x$, $x>0$ & [S5] Platt--Trudgian Cor.~2 (arXiv numbering)\\
+Primes dividing $q$ & primes $p\mid q$ enter $\sum_n\Lambda(n)(1+\chi(n))n^{-\sigma}$ with weight 1, so the analytic bound controls $S_++\frac12S_0$; only $\sum_{p>H,\,p\mid q}\frac{\log p}{p}\le\frac{\log q}{H}$ remains, with half weight, i.e.\ $\ell/(2H)$ & [S10] Lemma 2.1, (2.4)--(2.8); [S11]\\
+Lemma 6 & $S_2\le 192\,M H^{-1/3}U$, $S_1\ge M H^{2/3}U/(4\cdot 97^2)$, given $N\ge H$ and $H^{2/3}N^{4/3}\ge 2\cdot 97^2$ & [S1] lines 517--550 (= Banks Lemma 4.2)\\
+Small $q$ & no real zero with $\sigma>0$ for $q\le 4\cdot10^5$ ([S9]); $\delta>1/5$ for $q\le 10^{10}$ & [S9] Thms 10.1--10.2, read in the original; [S2] Theorem 1.1\\
+\bottomrule
+\end{tabularx}
+}
+
+\section{The master inequality, the parameters, and the comparison with Banks}\label{sec:direct}
+
+Combining the explicit Lemma 2, (5.1), (5.6) with the $\theta$ bound, and Lemma 6 (derivation.md \S\S1--5): if a real zero with $\delta=(1-\beta)\log q$ exists and $N\ge H$, then
+\[
+1 \le \tfrac34(1+\rho_H) + \frac{C_\ell+\frac12(1+\rho_H)}{\lambda} + \frac{e^s}{2s^2}\,\delta\lambda + \frac{C_H+(1+\rho_H)\log 8}{L} + \frac{(1+7.5\cdot10^{-7})\cdot 4\cdot 97^2}{H^{2/3}L} + \frac{6\cdot 97^2}{H^{2/3}U},
+\]
+where $\rho_H = 7{,}226{,}112/H$, $\mathbf{C_\ell = e^s/4 + 1/(2H)}$, $\mathbf{C_H = \log H + \frac{1}{2\log H} + \frac{1}{2L} + \frac{e^s}{2}\kappa}$, the coefficient of $\delta\lambda$ is $e^s/(2s^2)$ (Banks's $C_1$; $e/2$ at $s=1$), $0<s\le2$ (Banks Lemma 2.1), side condition $L\ge s$, $\kappa = \tfrac12\psi(3/2) - \tfrac12\log\pi = -0.55412\ldots < 0$, $L = \log U = \tfrac43\log N$ and $\lambda = L/\log q$.
+This is Banks's Step~3 inequality (\S7), term for term, in a different accounting (\url{banks-comparison-v2.md}, rows 1--21).
+
+Take $N=\lceil q^\gamma\rceil$. For all $q\ge q_0$:
+\begin{itemize}
+\item $\lambda\in[4\gamma/3,\ 4\gamma/3 + \tfrac43\log(1+q_0^{-\gamma})/\log q_0]$;
+\item every term except the $\delta$ term is largest at $q=q_0$;
+\item so every real zero with $q\ge q_0$ has $\delta>\delta_0(q_0,\gamma,H)$, with $\delta_0$ given in closed form (function \texttt{delta0} in \url{src/effectivity_banks_devices.py}).
+\end{itemize}
+For fixed $(\gamma,H)$, $\delta_0$ is determined exactly; no fixed split of the margin is used. The parameters were found by a floating-point search, then certified in Arb at the exact values below (every printed bound is the Arb lower endpoint rounded down).
+
+\begin{center}
+\begin{tabular}{@{}lrrrlr@{}}
+\toprule
+Range ($s=3/2$) & $q_0$ & $\gamma$ & $H$ & & certified $\delta_0 >$\\
+\midrule
+Platt & 400{,}001 & 2033/100 & 1{,}995{,}262{,}314 & & $\mathbf{4.5797976819\times10^{-3}}$\\
+Lu--Zaman--Zhao & $10^{10}+1$ & 63/4 & 2{,}754{,}228{,}703 & & $\mathbf{5.9299071904\times10^{-3}}$\\
+argument alone & 3 & 131 & 1{,}083{,}926{,}914 & & $\mathbf{7.0435116103\times10^{-4}}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These values are COMPUTED and UNREVIEWED. With $s=1$ and $c_q$ in place of $1/(2H)$, the same code reproduces note-v2's three certified values exactly ($3.3992904026\cdot10^{-3}$, $4.4673780338\cdot10^{-3}$, $5.0425352961\cdot10^{-4}$).
+
+\paragraph{Remark (s optimized; COMPUTED, UNREVIEWED; not used in the headline).} With $s$ also optimized (grid step $1/20$, refined to $1/200$, $0<s\le2$), the same inequality certifies $\delta_0>5.9448352235\cdot10^{-3}$ for $q_0=10^{10}+1$ ($s=287/200$, $\gamma=767/50$, $H=2{,}691{,}534{,}804$); $\delta_0>4.5814133700\cdot10^{-3}$ for $q_0=400{,}001$ ($s=61/40$, $\gamma=41/2$, $H=1{,}995{,}262{,}314$); and $\delta_0>7.5971166796\cdot10^{-4}$ for $q_0=3$ ($s=2$, $\gamma=6547/50$, $H=1{,}083{,}926{,}914$). The last value uses $s=2$, the endpoint of the range $s\in(0,2]$ in Banks's Lemma~2.1, and is pending Joe's check of the lemma's range. Source: \url{results/2026-10-21-banks-devices/devices-output.txt}, section (b).
+
+Unlike Banks's \S7, our rows do not need $H\le q$: the Platt row has $H>q_0$. Banks uses $H\le q$ only to get $N\ge H$, which $\gamma$ secures here (side condition $N\ge H$ below).
+
+\paragraph{From Banks's $3.0696\cdot10^{-3}$ to ours} (COMPUTED; \url{results/2026-10-21-banks-devices/waterfall-v3.txt}). The waterfall below starts from Banks's published value at $q_0=10^{10}$, keeps both of his devices, and switches his choices to ours one at a time. $\gamma$ is re-optimized at each step; $H$ is the paper's until the last step. The factors depend on the order.
+
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Change from Banks's choice to ours & Factor\\
+\midrule
+exact solve instead of the $3/32$ split and the $\log q>23$ absorption & $\times1.024$\\
+tight upper end of $\lambda$ ($N\le q^\gamma+1$, not $q^{\omega+1}$) & $\times1.046$\\
+our $S_1,S_2$ bounds ($S_1\ge N^4H^{2/3}U/(4\cdot97^2)$, not $N^4U$) & $\times1.044$\\
+Platt--Trudgian $\theta$ bound instead of $\theta(M)\le 2M$ & $\times1.003$\\
+$\kappa<0$ kept (with the Mertens terms) & $\times1.021$\\
+$H$ free ($\gamma=63/4$, $H=2{,}754{,}228{,}703$), instead of $H=86{,}713{,}344$; $s=3/2$ & $\times1.686$\\
+$s$ optimized ($s=287/200$, $\gamma=767/50$, $H=2{,}691{,}534{,}804$) & $\times1.0025$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Check (COMPUTED, \url{results/2026-10-21-banks-devices/waterfall-v3.txt}): the exact factors multiply to the ratio $5.9299071904/3.0695555319 = 1.93185$ through ``$H$ free'' ($s=3/2$), and $5.9448352235/3.0695555319 = 1.93671$ with $s$ optimized. The six rounded factors through ``$H$ free'' multiply to $1.93071$ ($-0.06\%$), within the rounding of the stated factors.
+At the paper's own $H=86{,}713{,}344$ (LZZ range, $q_0=10^{10}$, $s=3/2$, both devices), the value is $3.5167989809\cdot10^{-3}$ (the step before ``$H$ free'').
+
+\paragraph{Side conditions} (derivation.md \S7), certified at $q_0$ and implied for all $q\ge q_0$:
+$H\ge 319$; $N\ge H$ ($\gamma\log q_0>\log H$); $H^{2/3}N^{4/3}\ge 2\cdot97^2$ (from $N\ge H\ge 319$); $U\ge 3$; $0<s\le2$ and $L\ge s$, so $\sigma=1+s/L\in(1,2]$; $\kappa<0$.
+
+\paragraph{Lemma 12's last step.}
+$\varphi(\sigma) = \frac{1}{2\sigma-1} - \Bigl[\frac{1}{\sigma-1} - \frac{1-2^{-\sigma}}{\sigma} - \frac{3^{1-\sigma}}{\sigma-1}\Bigr] > 0$ for all $\sigma>1$:
+on $(1,1.01]$ by the exact chain $(1-3^{-t})/t\le\log 3$, $(1-2^{-\sigma})/\sigma\ge 1/(2\sigma)$, reducing it to $\log 3 - 1/2.02 < 1/1.02$;
+on $[1.01,5]$ by Arb on 4{,}000 intervals (minimum certified lower bound of $\varphi$: $0.03878$);
+for $\sigma\ge 5$ by $\varphi>0 \Leftarrow \sigma^2-5\sigma+2>0$.
+
+\section{Remarks}
+
+\begin{itemize}
+\item \textbf{Banks's numbers recomputed.} Each of the 12 numeric claims in Banks's Lemma 2.1 and \S7 was recomputed independently in Arb, and all 12 hold. His $\delta_0 = 81/(5888e^{3/2})$ recomputes as $[0.00306955553193322 \pm 2.9\cdot10^{-18}]$ (\url{src/banks_compare.py}, Part A).
+\item \textbf{Lemma 3.} Our Lean proof of [S1]'s Lemma 3 (\url{lean-checks/Lemma3.lean}, theorem \url{Lemma3.interpolation}) has hypotheses identical to Banks's condition (3.1), the hypothesis of his Proposition~3.4 (clause-by-clause comparison: \url{docs/packet-related-work-draft-v2.md}, which points to the table in \url{docs/packet-related-work-draft.md}).
+\end{itemize}
+
+\section{Small conductors}
+
+\begin{itemize}
+\item \textbf{Platt range:} for $q\le 4\cdot10^5$ there is no real zero with $\sigma>0$ at all, so the bound holds vacuously. This range includes $q=8$, the conductor the paper's field construction excludes ($d=2$). $q>4\cdot10^5$ is covered by the first row.
+\item \textbf{Lu--Zaman--Zhao range:} for $q\le10^{10}$, $\delta>1/5$, which also covers $q=8$; $q>10^{10}$ is covered by the second row; so $c=\min(5.9299\cdot10^{-3},1/5)=5.9299\cdot10^{-3}$.
+\item \textbf{Argument alone:} covers $q\ge3$ with $q\ne8$ by taking $\gamma$ large ($\gamma=131$, $\lambda\approx174.7$), i.e.\ $N\approx q^{131}$. $q=8$ needs a separate input.
+\end{itemize}
+
+\section{The final constant}
+
+\[
+c = 5.9299\times10^{-3}\ \text{(with Lu--Zaman--Zhao)},\qquad c = 4.5797\times10^{-3}\ \text{(with Platt only)},
+\]
+both rounded down from the certified values ($s=3/2$).
+
+\paragraph{Context.}
+\begin{itemize}
+\item The companion paper on the zero-free half-plane $\Rea s>7/8$ would, if correct, give $1-\beta\ge 1/8$ for every such $\beta$, a far stronger statement.
+\item A real zero with $\delta\approx0.003$ is far outside anything ever observed. These numbers are for checking the argument, not a claim about zeros.
+\end{itemize}
+
+\paragraph{Comparison with an earlier version} (docs/explicit-constant.md, written 2026-10-08, public in reviewer packet v1 on 2026-10-09: tag reviewer-packet-v1, commit 3a36016, Zenodo 10.5281/zenodo.23269528). Its figures were $3.0379\cdot10^{-4}$ (row ``all $q\ge3$''), $1.99806\cdot10^{-3}$ ($q>4\cdot10^5$) and $2.58930\cdot10^{-3}$ ($q>10^{10}$):
+\begin{itemize}
+\item \textbf{Same inputs reproduce it.} With its inputs switched back on, this code gives slightly larger maxima ($3.040\cdot10^{-4}$, $2.0000\cdot10^{-3}$, $2.5918\cdot10^{-3}$, rounded down). The earlier note reported a $\delta$ with a positive safety margin ($F\approx9.4\cdot10^{-5}$) rather than the maximum.
+\item \textbf{``All $q\ge3$'' is used there twice:} its table row ``all $q\ge3$'' ($3.0379\cdot10^{-4}$) covers small $q$ the same way as row 3 here: by taking $\lambda$ large, not by any computation ($q=8$ again excepted). Its bold conditional statement ``$(1-\beta)\log q\ge0.00258$ \dots{} with $q\ge3$'' combines the $q>10^{10}$ row with the small-$q$ computations of Lu--Zaman--Zhao (and Platt). Source: \url{results/2026-10-20-paper-prep-4/task2-earlier-constant.txt}.
+\item \textbf{It used three inputs replaced here:} an unsourced ``$\sum_{p\le x}\log p/p<\log x$'' for the primes up to $H$, which costs $|E|=1.33$ in $C_H$ against the sourced Rosser--Schoenfeld upper bound; Rosser--Schoenfeld Thm 9 for $\theta$; a fixed $H$.
+\item \textbf{The gain comes mainly from freeing $H$} ($\times1.6$). Of the other changes, $c_q=\frac12$ is worse than its $c_q$ at large $q$ but better at $q=3$, and the sourced Mertens bound and the $\theta$ bound are improvements.
+\end{itemize}
+
+\section{Assumptions (everything the constant depends on)}\label{sec:assumptions}
+
+\begin{enumerate}
+\item \textbf{The paper's proof is correct:} in particular Lemma 3, Corollary 4, Lemma 6, Lemma 7 and the bounds (5.1) and (5.6).
+  \begin{itemize}
+  \item This note does not re-verify them mathematically.
+  \item Independent evidence: the Lean formalization of Theorem 1 is accepted by the official comparator with two kernels (Lean and nanoda), including a version rerouted through the paper's own Lemma 3. See the replay packet (DOI 10.5281/zenodo.23269527; \url{grwtsk/openai-math} \#40) and the statement audit on \url{grwtsk/openai-math} \#29 (\url{https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378}).
+  \item The Lean proof has existential constants only and does not contain these numbers.
+  \end{itemize}
+\item \textbf{The Hadamard identity (2.3).} Checked against Davenport, \emph{Multiplicative Number Theory}, 2nd ed., Ch.~12, (17) and (18) on p.~83, with $a=\varepsilon$ (p.~70). Taking real parts of (17) and using (18), $\Rea B(\chi) = -\sum\Rea 1/\rho$, gives (2.3).
+\item \textbf{Rosser--Schoenfeld Theorem 6,} read in the original: (3.21) for $1<x$ and (3.22) for $319\le x$, p.~70. $E\approx-1.33258\,22757\,33221$, (2.11). This agrees with the quotation in arXiv:1703.08032 and with the enclosure in \url{src/effectivity.py}.
+\item \textbf{Platt (2016) [S9],} read in the original. Theorem 10.1 states GRH for primitive characters of modulus $q\le 400\,000$, up to a positive height. Theorem 10.2 states $L(1/2,\chi)\ne0$ for $q\le 2\,000\,000$. Together (our inference) they rule out a real zero in $(0,1)$ for $q\le4\cdot10^5$, matching the Lu--Zaman--Zhao summary. Needed only for the Platt-range statement.
+\item \textbf{Lu--Zaman--Zhao Theorem 1.1} (arXiv:2602.03626v1, a preprint), read in the original. Needed only for the Lu--Zaman--Zhao-range statement.
+\item \textbf{Platt--Trudgian Corollary 2,} read in the arXiv version (arXiv:1407.1914, v1, the only version; sha256 in \url{docs/effectivity/sources.md}). The published version [S5] was not available to check whether the corollary has the same number there.
+\item \textbf{Lemma 12 of arXiv:2511.13898} (a preprint), read in the original. Its reduction steps are taken from that proof; its final inequality is proved here.
+\item \textbf{$\chi(p)=(d/p)$ for odd $p\nmid q$, and $|d|\le q$,} as stated in the paper.
+\item \textbf{Banks's Lemma 2.1} [S10], read in the original: the shift $s\in(0,2]$ ((2.3), (2.5)--(2.6)) and the $\frac12S_0$ device for the primes dividing $q$ ((2.6)--(2.8) and the bound after (2.8)). Their use in this accounting follows [S11], an AI-produced personal communication not checked by its author (UNREVIEWED). Every number here was recomputed from the inequality in Arb; the file's floating values agree to within $10^{-15}$ relative (\url{results/2026-10-21-banks-devices/file-float-agreement.txt}).
+\end{enumerate}
+Not used: any unproved hypothesis (GRH or similar), or any floating-point value in a claimed inequality.
+
+\section*{References}
+\begin{enumerate}[label={[S\arabic*]}]
+\item OpenAI, \emph{Uniform exclusion of Landau--Siegel zeros}, October 1, 2026, \url{github.com/openai/math}, commit adc7f12, family 003.
+\item R.~F.~Lu, A.~Zaman, H.~Zhao, \emph{Numerical computations concerning Landau--Siegel zeros}, arXiv:2602.03626v1 (2026).
+\item J.~B.~Rosser, L.~Schoenfeld, \emph{Approximate formulas for some functions of prime numbers}, Illinois J.\ Math.\ 6 (1962), 64--94, \url{doi:10.1215/ijm/1255631807}.
+\item C.~Axler, \emph{New estimates for some functions defined over primes}, arXiv:1703.08032.
+\item D.~J.~Platt, T.~S.~Trudgian, \emph{On the first sign change of $\theta(x)-x$}, Math.\ Comp.\ 85 (2016), 1539--1547, \url{doi:10.1090/mcom/3021}; arXiv:1407.1914. Corollary~2 is cited from the arXiv version (v1), the version read. Its numbering in the published version was not confirmed.
+\item T.~Zhao, \emph{Upper bounds on gaps between zeros of $L$-functions}, arXiv:2511.13898, Appendix, Lemma 12.
+\item H.~Davenport, \emph{Multiplicative Number Theory}, 2nd ed., rev.\ H.~L.~Montgomery, Springer GTM 74.
+\item Elementary facts (no citation): $\psi$ increasing on $(0,\infty)$, $\psi(3/2)=2-\gamma-2\log2$, and $\log p/p\le(\log p)/2$ for $p\ge2$ (\url{docs/effectivity/sources.md}, S8).
+\item D.~J.~Platt, \emph{Numerical computations concerning the GRH}, Math.\ Comp.\ 85 (2016), 3009--3027, \url{doi:10.1090/mcom/3077}.
+\item W.~D.~Banks, \emph{On the OpenAI proof that Landau--Siegel zeros do not exist}, arXiv:2610.15483v1 (2026).
+\item {}[TODO: author name pending consent], personal communication, 2026-10-21: a text file, AI-produced, not checked by its author (kept locally as \url{refs/improved-constants-from-banks-devices.txt}, not in the repository; sha256 \url{a680b88ef21046ac9fe0c812bc0f23b8209aa0330cdc01bea1fe2a7683627cd7}). UNREVIEWED.
+\end{enumerate}
+
+\end{document}

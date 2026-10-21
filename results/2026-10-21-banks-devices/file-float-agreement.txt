@@ -1,0 +1,6 @@
+Agreement with refs/improved-constants-from-banks-devices.txt (COMPUTED). Float = transcription of the file's
+reference function (lines 115-130; file not executed); printed = the file's table (lines 97-101). q0 = 10^10 + 1.
+  gamma 153/10, H 2818382931, s 1, device False: Arb [0.00446737803384 +/- 1.83e-15]; file float 4.467378033842e-03; rel diff -5.55e-16; printed 0.0044674
+  gamma 179/10, H 3162277660, s 3/2, device False: Arb [0.00523080204996 +/- 1.60e-15]; file float 5.230802049962e-03; rel diff +2.22e-16; printed 0.0052308
+  gamma 66/5, H 2238721139, s 1, device True: Arb [0.00518114051679 +/- 1.77e-15]; file float 5.181140516792e-03; rel diff +0.00e+00; printed 0.0051811
+  gamma 79/5, H 2818382931, s 3/2, device True: Arb [0.00592982977460 +/- 2.02e-15]; file float 5.929829774598e-03; rel diff -4.44e-16; printed 0.0059298

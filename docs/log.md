@@ -896,3 +896,33 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - title, creators, license, version, resource type, access right, keywords and all 6 related identifiers are the same as .zenodo.json at the tag. Nothing was added or dropped.
     - description differs only by HTML escaping (two ">" stored as "&gt;"); html.unescape(record) equals .zenodo.json.
     - Zenodo-only fields: doi, publication_date, relations, custom (code:codeRepository = the GitHub repository).
+- 2026-10-21, Banks devices round, Task 1 only. results/2026-10-21-banks-devices/task1-which-devices.txt (COMPUTED by reading b231660; nothing rerun):
+  - The 2026-10-20 UNREVIEWED run used both devices: (D1) primes dividing q via ½S₀ and ℓ/(2H); (D2) the shift s.
+  - s was chosen by search on the grid 1/5, 1/4, …, 2 (step 1/20): s = 31/20 for q₀ = 400,001 (4.5799298821e-3) and s = 29/20 for q₀ = 10¹⁰ + 1 (5.9439667682e-3).
+  - Tasks 2–4 are not started: the input refs/banks-2026-10-21-improved-constants.txt is not present.
+- 2026-10-21, Banks devices round, Tasks 2–4. Input: refs/improved-constants-from-banks-devices.txt (sha256 a680b88e…; 153 lines; `file` calls it Python source). It was read and NOT executed, and is treated as UNREVIEWED third-party input. It does not name its author ("Written 2026-10-21 for the author's AI assistant"); its authorship is as stated by Joe, and the name is withheld pending consent.
+  - Its master inequality (lines 73–80) is the one in src/effectivity_banks_device.py.
+  - New src/effectivity_banks_devices.py (s and the device as parameters; downward rounding; vectorized float search, then refinement).
+    - Ran `.venv/Scripts/python -I src/effectivity_banks_devices.py` → results/2026-10-21-banks-devices/devices-output.txt. Python 3.14.6, python-flint 0.9.0, numpy 2.5.3.
+  - COMPUTED: s = 1 with no device reproduces note-v2's three certified values exactly. No contradiction.
+  - COMPUTED, UNREVIEWED. All side conditions hold at q₀ and for all q ≥ q₀ (H ≥ 319, N ≥ H, H^{2/3}N^{4/3} ≥ 2·97², U ≥ 3, L ≥ s, σ ∈ (1,2], 0 < s ≤ 2):
+    - (a) s = 3/2: q₀ = 10¹⁰+1 → 5.9299071904e-3 (γ 63/4, H 2,754,228,703); 400,001 → 4.5797976819e-3 (γ 2033/100, H 1,995,262,314); 3 → 7.0435116103e-4 (γ 131, H 1,083,926,914).
+    - (b) s optimized: 10¹⁰+1 → 5.9448352235e-3 (s 287/200, γ 767/50, H 2,691,534,804); 400,001 → 4.5814133700e-3 (s 61/40, γ 41/2); 3 → 7.5971166796e-4 (s = 2, the upper limit; γ 6547/50).
+  - COMPUTED, results/2026-10-21-banks-devices/file-float-agreement.txt: our Arb values agree with the file's reference function (transcribed in the test) to ≤ 6e-16 relative, and with its printed table to the printed digits.
+  - tests/test_effectivity_banks_devices.py: 4 tests; full suite 38 passed.
+  - Waterfall without the two cost rows (results/2026-10-21-banks-devices/waterfall-v3.txt): ×1.024, 1.046, 1.044, 1.003, 1.021, then H free ×1.686 (s = 3/2) and s optimized ×1.0025. B6/B0 = 1.93185.
+  - docs/effectivity/note-v3.md drafted from note-v2.md (note-v2 unchanged, sha256 c1ff3cba…). The headline constants in the title, §2, §6 and §7 are placeholders pending Joe's approval.
+  - Not committed.
+- 2026-10-21, note-v3 (Joe approved the s = 3/2 headline).
+  - Input file received 2026-10-21 (file time 06:27 local): refs/improved-constants-from-banks-devices.txt, 7,455 bytes, 153 lines, sha256 a680b88ef21046ac9fe0c812bc0f23b8209aa0330cdc01bea1fe2a7683627cd7.
+    - It is cited in note-v3 as [S11]: personal communication, 2026-10-21, AI-produced, not checked by its author, with the author's name a TODO pending consent.
+    - It is NOT added to git.
+  - docs/effectivity/note-v3.md and note-v3.tex: headline and §2/§6/§7 constants filled for s = 3/2.
+    - LZZ δ₀ > 5.9299e-3 (certified 5.9299071904e-3, q₀ = 10¹⁰+1); c = min(5.9299e-3, 1/5).
+    - Platt δ₀ > 4.5797e-3. Joe's brief gave 4.5798e-3, but the certified lower endpoint is 4.5797976819e-3 < 4.5798e-3, so 4.5798e-3 would be a false lower bound; the note rounds down. Flagged to Joe.
+    - Argument alone: 7.04e-4 (certified 7.0435116103e-4).
+  - The §4 remark gives the s-optimized values for all three q₀; the q₀ = 3 value (7.5971166796e-4) uses s = 2, the endpoint of Banks's Lemma 2.1, pending Joe's check of the lemma's range.
+  - The waterfall check now cites results/2026-10-21-banks-devices/waterfall-v3.txt; the δ₀ pointer goes to src/effectivity_banks_devices.py.
+  - note-v3.pdf: 7 pages, no warnings. TeX fixes: the [S11] item label (a bracket after \item read as the label) and the sha256 wrapped for line breaking.
+  - note-v2.md/.tex/.pdf unchanged (sha256 c1ff3cba…, 26368a30…, 07a3404a…). release-notes-v3.md left untouched.
+- 2026-10-21: Joe confirmed 4.5797e-3 for the Platt row (rounded down from the certified 4.5797976819e-3) and the other edits. Committed locally, not pushed. The refs/ input file and release-notes-v3.md are excluded.

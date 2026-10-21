@@ -1,0 +1,21 @@
+Task 1 (COMPUTED by reading the committed files; nothing rerun): which devices the 2026-10-20 UNREVIEWED run used
+Files: src/effectivity_banks_device.py and docs/effectivity/derivation-banks-device.md (commit b231660); output results/2026-10-20-effectivity-device/device-output.txt.
+
+Answer: BOTH devices, with s chosen by search, not fixed.
+- Primes-dividing-q device (D1): src/effectivity_banks_device.py:5,7,33,38
+      (D1) primes dividing q: instead of (I6) sum_{p|q} log p/p <= c_q ell, the primes p | q stay in the
+           (1/2) sum_{p>H, p|q} log p/p <= ell/(2H) ((2.8) and the bound after it). C_ell = e^s/4 + c_dev, c_dev = 1/(2H).
+        c_dev = Fr(1, 2 * H) if c_dev is None else c_dev
+        C_ell = es / 4 + A(c_dev)                       # Banks (2.4): C2 + 1/(2H), C2 >= e^s/4
+- Shift device (D2): src/effectivity_banks_device.py:8,37,46
+      (D2) shift: sigma = 1 + s/log X with s in (0, 2] (Banks's lambda), so C_delta = e^s/(2 s^2), the ell/2 term carries
+        C_delta = es / (2 * sA * sA)                    # Banks (2.3): C1 >= e^s/(2 s^2)
+        CH = logH + 1 / (2 * logH) + 1 / (2 * L_lo) + es / 2 * KAPPA   # (I4)-(I5) with E cancelling; kappa < 0 kept
+- s used: searched over Fr(i, 20) for i in 4..40, i.e. s in {1/5, 1/4, ..., 2} in steps of 1/20 (src/effectivity_banks_device.py:73):
+        for ss in ([s] if s is not None else [Fr(i, 20) for i in range(4, 41)]):
+  Certified rows (device-output.txt lines 7 and 17):
+       q0 = 400001, gamma = 103/5, H = 1995262314, shift s = 31/20, c_dev = 1/(2H)
+       q0 = 10000000001, gamma = 77/5, H = 2660725059, shift s = 29/20, c_dev = 1/(2H)
+  i.e. s = 31/20 (q0 = 400,001 -> 4.5799298821e-3) and s = 29/20 (q0 = 10^10 + 1 -> 5.9439667682e-3).
+- (D1) alone, s = 1, at note.md's (gamma, H): 3.7682773365e-3 (q0 = 400,001) and 5.0833123747e-3 (q0 = 10^10 + 1) (device-output.txt, 'device alone').
+- The derivation states the same: docs/effectivity/derivation-banks-device.md:10 '## (D2) The shift ...', :21 '## (D1) Primes dividing q', table rows :41-42 with s = 31/20 and 29/20.

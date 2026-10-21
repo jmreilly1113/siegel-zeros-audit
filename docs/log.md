@@ -996,3 +996,13 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - The file is still on disk and untracked: sha256 c0087685…bdc159, ignored through .git/info/exclude.
     - Tests: 42 passed.
   - The old commits stay in the local reflog only, until it expires; they are not reachable from any ref. Not pushed.
+- 2026-10-21, disk pruning on C: (Joe approved the safe set; the Lean packages and toolchains in WSL are kept). Nothing under results/ or external/ was touched.
+  - Moved to D:\siegel-audit-offload\2026-10-21-scratch\ (copy, hash check, then delete on C:):
+    - the Zenodo-archived zip, as zenodo-23523697-reviewer-packet-v3.zip (md5 048a6d061b5ddfac7f39d6ba14b56569, the same as zenodo-archive-check.txt);
+    - the scratch folders of three earlier sessions (b99f674d, fa1a50ac, fa691316; 0 + 97 + 213 files, sha256 of every file matched), under old-sessions\.
+    - Nothing in docs/, results/ or scripts/ cited these folders.
+  - Deleted: this session's scratchpad contents (29 entries, 957 MB). These were temporary clones (openai/math, nanoda_lib), downloads, a test venv and helper scripts. Their results are in results/; compare_v3_archive.py had already been copied to scripts/.
+  - WSL: systemd journal rotated and vacuumed to 100M (736 MB → 96 MB); `fstrim /`.
+  - WSL disk image (ext4.vhdx) compacted with diskpart (`attach vdisk readonly`, `compact vdisk`, `detach`), after `wsl --shutdown`, elevated through a UAC prompt: 59.99 GB → 26.87 GB.
+  - C: free space went from 70 GB to 104.2 GB.
+  - Checked afterwards: WSL starts; /home/checker/math is at fd4aeeb and clean; lean/.lake/packages is 8.6G; toolchain v4.34.1 present.

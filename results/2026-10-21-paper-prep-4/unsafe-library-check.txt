@@ -1,0 +1,15 @@
+# clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status lines 0
+# carleson in lakefile:
+#   16:require carleson from git
+#   17:  "https://github.com/fpvandoorn/carleson.git" @ "306ae5b29300771aece1aa39f0a939183cc59486"
+#   296:      `«rellich-kondrachov», `carleson, `StrongPNT, `AbsorptionCutoff, `AINTLIB,
+# carleson in lake-manifest.json:
+#   264:  {"url": "https://github.com/fpvandoorn/carleson.git",
+#   268-   "rev": "306ae5b29300771aece1aa39f0a939183cc59486",
+#   269-   "name": "carleson",
+files scanned: OAI 122458; ComparatorChallenges 416; .lake/packages outside carleson 27594; carleson 108
+import lines naming a Carleson module, outside .lake/packages/carleson (regex: ^[[:space:]]*((public|private|meta)[[:space:]]+)*import([[:space:]]+[^[:space:]]+)*[[:space:]]+Carleson(\.[^[:space:]]+)?([[:space:]]|$)):
+count: 0
+import lines naming a Carleson module inside the carleson package (sanity check that the regex matches): 278
+for information: the gromov package vendors files under Gromov/Vendor/Carleson (a separate module namespace, Gromov.Vendor.Carleson.*):
+  files: 6; lines with an aesop 'unsafe' rule attribute: 0

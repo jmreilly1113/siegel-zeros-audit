@@ -1,0 +1,198 @@
+{
+ "NRefConfigs": {
+  "value": 189,
+  "source": "results/2026-10-20-paper-prep-3/corpus-189.tsv"
+ },
+ "NLeanAccept": {
+  "value": 189,
+  "source": "results/2026-10-20-paper-prep-3/corpus-189.tsv"
+ },
+ "NNanodaPinnedAccept": {
+  "value": 180,
+  "source": "results/2026-10-20-paper-prep-3/corpus-189.tsv"
+ },
+ "NCrashNine": {
+  "value": 9,
+  "source": "results/2026-10-20-paper-prep-3/corpus-189.tsv"
+ },
+ "NRunAtAdc": {
+  "value": 2,
+  "source": "results/2026-10-20-paper-prep-3/corpus-189.tsv"
+ },
+ "NRunAtFd": {
+  "value": 187,
+  "source": "results/2026-10-20-paper-prep-3/corpus-189.tsv"
+ },
+ "NInIssueFiftyFive": {
+  "value": 7,
+  "source": "results/2026-10-21-paper-prep-4/nanoda55-crosscheck.txt"
+ },
+ "NNanodaCommitsBetween": {
+  "value": 14,
+  "source": "results/2026-10-21-paper-prep-4/nanoda55-crosscheck.txt"
+ },
+ "NConfigsOnDiskAdc": {
+  "value": 405,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaFalseAdc": {
+  "value": 402,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaTrueAdc": {
+  "value": 1,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaAbsentAdc": {
+  "value": 2,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NRefConfigsAdc": {
+  "value": 178,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NConfigsOnDiskFd": {
+  "value": 416,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaFalseFd": {
+  "value": 412,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaTrueFd": {
+  "value": 2,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaAbsentFd": {
+  "value": 2,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NRefConfigsFd": {
+  "value": 189,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaTrueRefFd": {
+  "value": 1,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaFalseRefFd": {
+  "value": 188,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NNanodaAbsentRefFd": {
+  "value": 0,
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NanodaTrueRefFdNames": {
+  "value": "TraceIdealTransportSupport",
+  "source": "results/2026-10-21-paper-prep-4/nanoda-settings.tsv"
+ },
+ "NUnrefConfigs": {
+  "value": 227,
+  "source": "results/2026-10-21-paper-prep-4/unreferenced-configs.tsv"
+ },
+ "NUnrefPlaceholder": {
+  "value": 3,
+  "source": "results/2026-10-21-paper-prep-4/unreferenced-configs.tsv"
+ },
+ "NUnrefCompanion": {
+  "value": 21,
+  "source": "results/2026-10-21-paper-prep-4/unreferenced-configs.tsv"
+ },
+ "NUnrefUncatalogued": {
+  "value": 120,
+  "source": "results/2026-10-21-paper-prep-4/unreferenced-configs.tsv"
+ },
+ "NUnrefCataloguedOnly": {
+  "value": 7,
+  "source": "results/2026-10-21-paper-prep-4/unreferenced-configs.tsv"
+ },
+ "NUnrefNoMatch": {
+  "value": 76,
+  "source": "results/2026-10-21-paper-prep-4/unreferenced-configs.tsv"
+ },
+ "UnsafeLibrary": {
+  "value": "carleson",
+  "source": "results/2026-10-21-paper-prep-4/corpus-static-scan-fd4aeeb.tsv"
+ },
+ "NCarlesonImportLinesOutside": {
+  "value": 0,
+  "source": "results/2026-10-21-paper-prep-4/unsafe-library-check.txt"
+ },
+ "NZenodoArchiveFiles": {
+  "value": 1582,
+  "source": "results/2026-10-21-paper-prep-4/zenodo-archive-check.txt"
+ },
+ "NSources": {
+  "value": 173,
+  "source": "results/2026-10-21-paper-prep-4/corpus-catalog-fd4aeeb-findings.txt"
+ },
+ "NMainResults": {
+  "value": 200,
+  "source": "results/2026-10-21-paper-prep-4/corpus-catalog-fd4aeeb-findings.txt"
+ },
+ "NDistinctConfigsYaml": {
+  "value": 189,
+  "source": "results/2026-10-21-paper-prep-4/corpus-catalog-fd4aeeb-findings.txt"
+ },
+ "NMultiEntryConfigs": {
+  "value": 8,
+  "source": "results/2026-10-21-paper-prep-4/corpus-catalog-fd4aeeb-findings.txt"
+ },
+ "NScanFiles": {
+  "value": 122458,
+  "source": "results/2026-10-21-paper-prep-4/corpus-static-scan-fd4aeeb-findings.txt"
+ },
+ "NUnsafeHits": {
+  "value": 5,
+  "source": "results/2026-10-21-paper-prep-4/corpus-static-scan-fd4aeeb-findings.txt"
+ },
+ "NConfigsReachingHit": {
+  "value": 0,
+  "source": "results/2026-10-21-paper-prep-4/corpus-static-scan-fd4aeeb-findings.txt"
+ },
+ "NSorryEqNamed": {
+  "value": 405,
+  "source": "results/2026-10-21-paper-prep-4/corpus-static-scan-fd4aeeb-findings.txt"
+ },
+ "NPrebuilds": {
+  "value": 190,
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "PrebuildMedianS": {
+  "value": "384.5",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "PrebuildMaxS": {
+  "value": "2490",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "PrebuildTotalH": {
+  "value": "29.12",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "NReplaysFd": {
+  "value": 187,
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "ReplayMedianS": {
+  "value": "250",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "ReplayPNinetyS": {
+  "value": "610",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "ReplayMaxS": {
+  "value": "4394",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "ReplayTotalH": {
+  "value": "17.68",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ },
+ "PostfixTotalH": {
+  "value": "2.10",
+  "source": "results/2026-10-21-paper-prep-4/cost-summary.txt"
+ }
+}

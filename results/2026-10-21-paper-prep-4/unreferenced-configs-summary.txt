@@ -1,0 +1,33 @@
+Paper prep 4 follow-up, item 3: the 227 config files not referenced by formalization.yaml at fd4aeeb
+Command: python -I scripts/unreferenced_configs.py <clone> results/2026-10-21-paper-prep-4; clone at fd4aeeb, clean; formalization.yaml sha256 5a8a164259591208886cd018416e61552665265ec9e20cff636f9d51117c2278; preprints/ folders 749 (listed in preprints-fd4aeeb.txt), yaml sources 173.
+Counts COMPUTED; roles INFERRED; manuscript matching HEURISTIC (see the script docstring). Groups are exclusive, assigned in the order shown.
+
+P    3  criterion (COMPUTED): placeholder challenge statement (sorried definition or declared axiom in the challenge file)
+          role (INFERRED): unfinished or stub statement; not a completed formalization
+          e.g. lean/ComparatorChallenges/DefocusingNLS.json -> lean/OAI/MathematicalPhysics/DefocusingNLS/MainTheorems.lean
+          e.g. lean/ComparatorChallenges/ElementaryPositivity.json -> lean/OAI/Combinatorics/Chromatic/Main.lean
+C   21  criterion (COMPUTED): shares its solution project directory (OAI.<Area>.<Project>) with a referenced config
+          role (INFERRED): companion result, variant or corollary of a catalogued formalization
+          e.g. lean/ComparatorChallenges/AlgorithmicThinTrees.json -> lean/OAI/Combinatorics/ThinTrees/AlgorithmicMain.lean; same project as referenced StrongThinTree
+          e.g. lean/ComparatorChallenges/ArtinParabolicIntersections.json -> lean/OAI/Topology/ArtinGroups/ParabolicIntersections/Main.lean; same project as referenced HarmonicArtin
+U  120  criterion (COMPUTED): name matches the title of a manuscript that is not a formalization.yaml source
+          role (INFERRED): formalization of a manuscript not (yet) entered in the catalog
+          e.g. lean/ComparatorChallenges/AffineBernstein.json -> lean/OAI/Analysis/AffineBernstein/Main.lean; matched manuscript The-affine-Bernstein-theorem-in-dimensions-three-through-nine-September-24-2026
+          e.g. lean/ComparatorChallenges/BalancedRyser.json -> lean/OAI/Combinatorics/BalancedRyser/Main.lean; matched manuscript Balanced-Counterexamples-to-Rysers-Conjecture-at-Prime-Orders-September-27-2026
+S    7  criterion (COMPUTED): name matches only titles of manuscripts that are formalization.yaml sources
+          role (INFERRED): further result of an already catalogued manuscript
+          e.g. lean/ComparatorChallenges/DiskMaximal.json -> lean/OAI/Analysis/DiskMaximal/Main.lean; matched manuscript An-Endpoint-Gradient-Bound-for-the-Centered-Disk-Maximal-Operator-September-26-2026
+          e.g. lean/ComparatorChallenges/LaughlinFock.json -> lean/OAI/Analysis/LaughlinFock/Main.lean; matched manuscript A-Fock-space-inequality-and-the-Laughlin-spectral-gap-September-24-2026
+N   76  criterion (COMPUTED): no name match to any manuscript title
+          role (INFERRED): role not determinable from names
+          e.g. lean/ComparatorChallenges/AtomicGaussian.json -> lean/OAI/Analysis/Triangular/Main.lean
+          e.g. lean/ComparatorChallenges/BalancedBoxRouting.json -> lean/OAI/Analysis/BoxTransport/Routing.lean
+   227  total
+
+Checks for the other roles named in the brief (COMPUTED):
+  superseded versions: configs referenced at adc7f12 but not at fd4aeeb: 0 (see nanoda-settings.tsv); unreferenced configs sharing a theorem name with a referenced config: 0; sharing the exact solution module with a referenced config: [('JacobsthalImproved', 'Jacobsthal')].
+  tests or examples: config names containing Test/Example/Sanity/Smoke/Demo/Toy/Stub/Draft: [].
+  supporting-result comparisons listed in ComparatorChallenges/README.md: 5; referenced by the yaml: 5; among the 227: [].
+  placeholders found by the challenge scan but referenced (not in the 227): ['HarmonicGrowth'].
+  heuristic calibration: the same name match finds some manuscript title for 152 of the 189 referenced configs (150 of them a yaml source), and for 134 of the 227.
+  INFERRED context: history.md (fd4aeeb) says 300 of 719 top-line results are formalized; the yaml catalogs 189 configs for 173 sources, which fits many on-disk configs belonging to manuscripts the catalog does not yet list (groups U and N).

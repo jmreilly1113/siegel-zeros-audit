@@ -1,6 +1,7 @@
 """Paper prep 4, Task 9: every number the corpus paper cites, recomputed from result files, with cross-checks.
 
-Usage: python -I scripts/paper_numbers.py <repo root> <out dir>   -> <out dir>/paper-numbers.json and numbers.tex
+Usage: python -I scripts/paper_numbers.py <repo root> <out dir> [suffix]   -> <out dir>/paper-numbers<suffix>.json and numbers<suffix>.tex
+(0ec9399 wrote the files with no suffix; they are committed and never overwritten. The follow-up run uses suffix -v2.)
 Each number carries its source file. The asserts encode the counts in results/2026-10-20-paper-prep-3/summary.txt;
 a failing assert means a source disagrees with an earlier result (STOP and re-derive).
 """
@@ -44,7 +45,26 @@ def compute(root):
         put(f'NNanodaTrue{tag}', sum(r['setting'] == 'true' for r in rows), src)
         put(f'NNanodaAbsent{tag}', sum(r['setting'] in ('', 'absent') for r in rows), src)
         put(f'NRefConfigs{tag}', sum(r['referenced_by_yaml_at_commit'] == 'True' for r in rows), src)
-    put('NNanodaTrueRefFd', sum(r['commit'] == 'fd4aeeb' and r['referenced_by_yaml_at_commit'] == 'True' and r['setting'] == 'true' for r in ns), src)
+    rf = [r for r in ns if r['commit'] == 'fd4aeeb' and r['referenced_by_yaml_at_commit'] == 'True']
+    put('NNanodaTrueRefFd', sum(r['setting'] == 'true' for r in rf), src)
+    put('NNanodaFalseRefFd', sum(r['setting'] == 'false' for r in rf), src)
+    put('NNanodaAbsentRefFd', sum(r['setting'] in ('', 'absent') for r in rf), src)
+    put('NanodaTrueRefFdNames', ', '.join(sorted(r['config'] for r in rf if r['setting'] == 'true')), src)
+
+    uc = tsv(f'{P4}/unreferenced-configs.tsv')
+    src = f'{P4}/unreferenced-configs.tsv'
+    put('NUnrefConfigs', len(uc), src)
+    for g, name in (('P', 'Placeholder'), ('C', 'Companion'), ('U', 'Uncatalogued'), ('S', 'CataloguedOnly'), ('N', 'NoMatch')):
+        put(f'NUnref{name}', sum(r['group'] == g for r in uc), src)
+
+    ul = rd(f'{P4}/unsafe-library-check.txt')
+    src = f'{P4}/unsafe-library-check.txt'
+    put('UnsafeLibrary', 'carleson', f'{P4}/corpus-static-scan-fd4aeeb.tsv')
+    put('NCarlesonImportLinesOutside', int(re.search(r'^count: (\d+)$', ul, re.M).group(1)), src)
+
+    zc = rd(f'{P4}/zenodo-archive-check.txt')
+    src = f'{P4}/zenodo-archive-check.txt'
+    put('NZenodoArchiveFiles', int(re.search(r'files: zip (\d+), git archive (\d+)', zc).group(1)), src)
 
     cat = rd(f'{P4}/corpus-catalog-fd4aeeb-findings.txt')
     src = f'{P4}/corpus-catalog-fd4aeeb-findings.txt'
@@ -80,6 +100,15 @@ def compute(root):
     assert v['NConfigsOnDiskAdc'] == 405 and v['NNanodaFalseAdc'] == 402
     assert v['NConfigsOnDiskFd'] == 416 and v['NNanodaTrueRefFd'] == 1
     assert v['NConfigsReachingHit'] == 0
+    # Follow-up items 2-4 (2026-10-21).
+    assert v['NNanodaTrueRefFd'] + v['NNanodaFalseRefFd'] + v['NNanodaAbsentRefFd'] == 189
+    assert v['NanodaTrueRefFdNames'] == 'TraceIdealTransportSupport'
+    assert v['NUnrefConfigs'] == v['NConfigsOnDiskFd'] - v['NRefConfigs'] == 227
+    assert sum(v[f'NUnref{g}'] for g in ('Placeholder', 'Companion', 'Uncatalogued', 'CataloguedOnly', 'NoMatch')) == 227
+    hits = [r for r in tsv(f'{P4}/corpus-static-scan-fd4aeeb.tsv') if r['pattern'] == 'unsafe']
+    assert len(hits) == v['NUnsafeHits'] and all(r['file'].startswith('.lake/packages/carleson/') and r['n_configs'] == '0' for r in hits)
+    assert v['NCarlesonImportLinesOutside'] == 0
+    assert 'md5 048a6d061b5ddfac7f39d6ba14b56569 (record checksum md5:048a6d061b5ddfac7f39d6ba14b56569: MATCH)' in zc and 'RESULT: IDENTICAL' in zc
     return N
 
 
@@ -93,10 +122,15 @@ def tex(N):
 
 if __name__ == '__main__':
     root, out = sys.argv[1:3]
+    suffix = sys.argv[3] if len(sys.argv) > 3 else ''
     N = compute(root)
     os.makedirs(out, exist_ok=True)
-    json.dump(N, open(os.path.join(out, 'paper-numbers.json'), 'w', encoding='utf-8', newline='\n'), indent=1)
-    open(os.path.join(out, 'numbers.tex'), 'w', encoding='utf-8', newline='\n').write(tex(N))
+    targets = [os.path.join(out, f'paper-numbers{suffix}.json'), os.path.join(out, f'numbers{suffix}.tex')]
+    for t in targets:
+        if os.path.exists(t):
+            sys.exit(f'refusing to overwrite {t}; pass a new suffix')
+    json.dump(N, open(targets[0], 'w', encoding='utf-8', newline='\n'), indent=1)
+    open(targets[1], 'w', encoding='utf-8', newline='\n').write(tex(N))
     print(f'{len(N)} numbers; all asserts passed')
     for k, d in N.items():
         print(f'  {k} = {d["value"]}')

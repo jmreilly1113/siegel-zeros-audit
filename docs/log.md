@@ -945,3 +945,40 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - T8 `python -I scripts/appendix_material.py . results/2026-10-21-paper-prep-4` → appendix/ (A longtable from corpus-189.tsv, C1–C4, D-<config> ×9).
   - T9 `python -I scripts/paper_numbers.py . results/2026-10-21-paper-prep-4` → paper-numbers.json, numbers.tex (37 numbers, each with its source file). All asserts pass: 189 referenced, 189 Lean accepts, 180 + 9 = 189, 7 of 9 in #55, 405/402, 0 configs reaching a hit. tests/test_paper_numbers.py (3 tests). `.venv/Scripts/python -m pytest tests -q`: 41 passed.
   - T10: committed locally, not pushed. Excluded: refs/improved-constants-from-banks-devices.txt and docs/packet-v3/release-notes-v3.md. refs/nanoda-issue-55-2026-10-21.md is committed (public issue text; names GitHub handles already in this log); drop it before any push if Joe prefers.
+- 2026-10-21, paper prep 4 follow-up (Joe's five items). New commit; 0ec9399 not amended. Nothing pushed.
+  - Item 1: refs/nanoda-issue-55-2026-10-21.md removed from git (`git rm --cached`) and kept untracked locally; it is listed in .git/info/exclude, which is local and not committed. Record of the file:
+    - issue https://github.com/ammkrn/nanoda_lib/issues/55, fetched 2026-10-21T12:33:27Z (gh api GET of the issue and its comments, read-only);
+    - sha256 c00876850a31f64c1015f5ca98d1dd9a4b6e105b742ccba89f57252800bdc159.
+    - results/2026-10-21-paper-prep-4/nanoda55-crosscheck.txt (committed) still cites it as its source.
+  - Item 1, Zenodo archive check, COMPUTED → results/2026-10-21-paper-prep-4/zenodo-archive-check.txt.
+    - Command: `python -I scripts/compare_v3_archive.py <zip> <git archive reviewer-packet-v3, core.autocrlf=false> 048a6d061b5ddfac7f39d6ba14b56569`. The script was copied unchanged from the session scratchpad.
+    - Input: the Zenodo-archived zip (record 23523697), downloaded anonymously and finished 2026-10-20 23:01 local, after Joe had said to skip it.
+    - 13,841,657 bytes; md5 048a6d061b5ddfac7f39d6ba14b56569, which MATCHES the record checksum; sha256 9506ccd8….
+    - Identical file tree and contents to `git archive reviewer-packet-v3` (1,582 files; top-level directory name ignored). It contains no local/ path and no Banks PDF/TeX.
+    - This replaces the earlier INFERRED "the archived zip has the same contents. Not verified" with a COMPUTED result.
+  - Item 2, COMPUTED (nanoda-settings.tsv): of the 189 referenced configs at fd4aeeb, nanoda is on in 1 (TraceIdealTransportSupport, one of the 5 "supporting-result comparisons" in ComparatorChallenges/README.md), off in 188 and absent in 0.
+  - Item 3 → unreferenced-configs.tsv, unreferenced-configs-summary.txt, preprints-fd4aeeb.txt.
+    - Command: `python -I scripts/unreferenced_configs.py //wsl.localhost/Ubuntu-24.04/home/checker/math results/2026-10-21-paper-prep-4` (clone at fd4aeeb, clean).
+    - COMPUTED counts, in exclusive groups (each config takes the first group that fits):
+      - P 3: placeholder challenge (sorried definition);
+      - C 21: shares the solution project directory with a referenced config;
+      - U 120: name matches a manuscript that is not a yaml source;
+      - S 7: name matches only yaml-source manuscripts;
+      - N 76: no name match.
+    - Roles are INFERRED; the manuscript match is a HEURISTIC on names. Calibration: on the 189 referenced configs, the match finds a title for 152, and 150 of those are yaml sources.
+    - COMPUTED, no evidence for "superseded" or "test" roles:
+      - 0 configs were referenced at adc7f12 and dropped by fd4aeeb;
+      - 0 share a theorem name with a referenced config;
+      - 1 shares the exact solution module (JacobsthalImproved, with Jacobsthal);
+      - 0 have test-like names.
+    - All 227 were already on disk at adc7f12; the upstream history is one squashed commit, so add dates carry no information.
+  - Item 4: the 5 `unsafe` hits are all in the carleson package (github.com/fpvandoorn/carleson @ 306ae5b, a lakefile `require`), files under Carleson/ToMathlib. Two methods:
+    - (1) COMPUTED: the Phase 3 scan's header-import closures give n_configs = 0 for each hit module (corpus-static-scan-fd4aeeb.tsv).
+    - (2) COMPUTED, independent check: `bash scripts/carleson_import_check.sh /home/checker/math` → unsafe-library-check.txt.
+      - No import line in lean/OAI, ComparatorChallenges or any other package names a module rooted at Carleson (0 lines in 122,458 + 416 + 27,594 files). The regex matches 278 lines inside carleson itself.
+      - So no referenced config's closure can reach the package.
+      - A first regex also caught Gromov.Vendor.Carleson.* (a separate namespace; 6 files, 0 aesop-unsafe lines) and was tightened before the recorded run.
+  - Item 5: scripts/paper_numbers.py now takes an output suffix and refuses to overwrite.
+    - Mistake: one rerun overwrote the committed paper-numbers.json and numbers.tex. Both were restored with `git checkout` before anything else happened.
+    - `python -I scripts/paper_numbers.py . results/2026-10-21-paper-prep-4 -v2` → paper-numbers-v2.json, numbers-v2.tex: 49 numbers. The 37 earlier ones are unchanged; 12 are new. New asserts: 1 + 188 + 0 = 189; the groups sum to 227; the unsafe hits are all in carleson with 0 configs; 0 outside import lines; Zenodo md5 MATCH.
+    - Tests: `.venv/Scripts/python -m pytest tests -q`: 42 passed (Python 3.14.6, python-flint 0.9.0).

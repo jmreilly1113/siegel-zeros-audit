@@ -13,6 +13,12 @@ def test_counts_and_cross_checks():
     assert v['NInIssueFiftyFive'] == 7
 
 
+def test_followup_figures():
+    v = {k: d['value'] for k, d in paper_numbers.compute(ROOT).items()}
+    assert (v['NNanodaTrueRefFd'], v['NNanodaFalseRefFd'], v['NNanodaAbsentRefFd']) == (1, 188, 0)
+    assert v['NUnrefConfigs'] == 227 and v['NCarlesonImportLinesOutside'] == 0
+
+
 def test_every_number_has_an_existing_source():
     for k, d in paper_numbers.compute(ROOT).items():
         assert os.path.isfile(os.path.join(ROOT, d['source'])), k

@@ -1,0 +1,19 @@
+# Zenodo-archived zip of reviewer-packet-v3 (record 23523697), downloaded 2026-10-20 23:01 local (anonymous GET https://zenodo.org/api/records/23523697/files/jmreilly1113/siegel-zeros-audit-reviewer-packet-v3.zip/content) vs git -c core.autocrlf=false -c core.eol=lf archive reviewer-packet-v3
+# command: python -I scripts/compare_v3_archive.py <zip> <extracted git archive> 048a6d061b5ddfac7f39d6ba14b56569   (run 2026-10-21)
+zip: 13841657 bytes, md5 048a6d061b5ddfac7f39d6ba14b56569 (record checksum md5:048a6d061b5ddfac7f39d6ba14b56569: MATCH)
+zip sha256 9506ccd8dcd98c087644ab8bf8deb1dfd0fd2cfbf26e27d4fa09fdeba847cefe
+zip top-level directories: ['jmreilly1113-siegel-zeros-audit-d1aff7a']
+files: zip 1582, git archive 1582
+only in zip: none
+only in git archive: none
+same path, different content: none
+RESULT: IDENTICAL file tree and contents (top-level directory name ignored)
+  contains README.md: True
+  contains CITATION.cff: True
+  contains .zenodo.json: True
+  contains docs/effectivity/note-v2.pdf: True
+  contains docs/effectivity/derivation-banks-device.md: True
+  contains src/effectivity_banks_device.py: True
+  contains results/2026-10-20-effectivity-device/device-output.txt: True
+  contains local/outreach-facts.md: False; any path under local/: False
+  contains refs/banks-2610.15483v1.pdf or .tex: False

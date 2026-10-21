@@ -846,3 +846,11 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - The Lemma 3 wording is Joe's ("Both points were recorded in this audit (commit 447ad02, 2026-10-09). Banks writes both out (Lemma 3.2; Step 5 of the proof of Proposition 3.4).").
   - release-notes-v3.md lists every file still labeled UNREVIEWED.
   - Task 5: 34 tests passed.
+- 2026-10-20, paper prep 5, note-v2 edited in place (never published).
+  - Assumption 1: the statement audit is now cited to grwtsk/openai-math #29 (https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378); the replay packet to #40 alongside 10.5281/zenodo.23269527. No packet draft cited #40 for the statement audit (grep of docs/packet-v3, the related-work drafts, the Zenodo metadata and v2-release-notes.md).
+  - [S5] is now D. J. Platt, T. S. Trudgian, Math. Comp. 85 (2016), 1539–1547, doi:10.1090/mcom/3021; arXiv:1407.1914.
+    - COMPUTED: the arXiv abstract page lists one version (v1, 2014-07-08); the copy read is that one (sha256 cb4ee24a… in sources.md).
+    - LibKey confirms the journal metadata (vol. 85, no. 299, pp. 1539–1547), but the full text needs a browser login and was not read. So the Corollary 2 numbering in the published version is not confirmed; note-v2 says so and cites the arXiv numbering.
+  - The Author's note is replaced by Joe's text, verbatim, under the heading "Author's note" (typographic apostrophes).
+  - PDF rebuilt: 6 pages, no warnings, sha256 07a3404a…. note.pdf unchanged.
+  - Tests: 34 passed.

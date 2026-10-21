@@ -6,7 +6,9 @@ Joseph M. Reilly. Draft v2 of 2026-10-20, not reviewed by a specialist. Version 
 - Comparison with Banks: `src/banks_compare.py`; output: `results/2026-10-20-paper-prep-2/banks-compare-output.txt`; term-by-term table: `docs/effectivity/banks-comparison-v2.md`.
 - Derivation: `docs/effectivity/derivation.md`. Sources: [S1]–[S10], listed at the end; [S1]–[S8] are as in `docs/effectivity/sources.md`, where the quotations are; [S10] is described in `refs/banks-2610.15483.md`.
 
-**Author's note.** The derivation and the Arb code were produced with Claude (Anthropic) via Claude Code. [JOE: what you checked and how]
+### Author’s note
+
+I am not a number theorist. This note was produced with AI assistance. Claude (Anthropic), working through Claude Code, wrote the derivation (docs/effectivity/derivation.md), the interval-arithmetic code in src/, and the comparison with Banks (docs/effectivity/banks-comparison-v2.md). A separate Claude session reviewed each stage and recomputed Banks’s constants and the certified values by hand from the master inequality; that check is not independent of the model that produced the work. My role was to direct the project, decide what to check and what to claim, and review each stage before approving the next. Every inequality claimed here is certified in Arb ball arithmetic from exact rational parameters, and the scripts, tests and outputs that produce the numbers are in the repository. No specialist has reviewed the accounting. Until one does, the constants should be treated as unreviewed.
 
 ## 1. Background: Banks's explicit constant
 
@@ -42,7 +44,7 @@ These bounds are certified in Arb ball arithmetic from exact rational parameters
 | ζ log-derivative | −ζ′/ζ(σ) < 1/(σ−1), σ > 1 | [S6] Lemma 12; its final elementary inequality proved here for all σ > 1 (§5) |
 | Digamma | ψ((σ+ε)/2) ≤ ψ(3/2) = 2 − γ − 2 log 2 for 1 < σ ≤ 2 | ψ increasing |
 | Mertens | log x + E − 1/(2 log x) < Σ_{p≤x} log p/p (x > 1); Σ_{p≤x} log p/p < log x + E + 1/(2 log x) (x ≥ 319) | Rosser–Schoenfeld Thm 6, (3.21)–(3.22), p. 70, read in the original |
-| Chebyshev | θ(x) < (1 + 7.5·10⁻⁷)x, x > 0 | [S5] Platt–Trudgian Cor. 2 |
+| Chebyshev | θ(x) < (1 + 7.5·10⁻⁷)x, x > 0 | [S5] Platt–Trudgian Cor. 2 (arXiv numbering) |
 | Primes dividing q | Σ_{p\|q} log p/p ≤ min(½, (log 2)/(2 log q) + ⅓)·log q | elementary |
 | Lemma 6 | S₂ ≤ 192 M H^(−1/3) U, S₁ ≥ M H^(2/3) U/(4·97²), given N ≥ H and H^(2/3)N^(4/3) ≥ 2·97² | [S1] lines 517–550 (= Banks Lemma 4.2) |
 | Small q | no real zero with σ > 0 for q ≤ 4·10⁵ ([S9]); δ > 1/5 for q ≤ 10¹⁰ | [S9] Thms 10.1–10.2, read in the original; [S2] Theorem 1.1 |
@@ -151,13 +153,13 @@ A further refinement of the accounting is under review and is not used here.
 
 1. **The paper's proof is correct:** in particular Lemma 3, Corollary 4, Lemma 6, Lemma 7 and the bounds (5.1) and (5.6).
    - This note does not re-verify them mathematically.
-   - Independent evidence: the Lean formalization of Theorem 1 is accepted by the official comparator with two kernels (Lean and nanoda), including a version rerouted through the paper's own Lemma 3. See the replay packet (DOI 10.5281/zenodo.23269527) and the statement audit on grwtsk/openai-math #40.
+   - Independent evidence: the Lean formalization of Theorem 1 is accepted by the official comparator with two kernels (Lean and nanoda), including a version rerouted through the paper's own Lemma 3. See the replay packet (DOI 10.5281/zenodo.23269527; grwtsk/openai-math #40) and the statement audit on grwtsk/openai-math #29 (https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378).
    - The Lean proof has existential constants only and does not contain these numbers.
 2. **The Hadamard identity (2.3).** Checked against Davenport, *Multiplicative Number Theory*, 2nd ed., Ch. 12, (17) and (18) on p. 83, with a = ε (p. 70). Taking real parts of (17) and using (18), Re B(χ) = −Σ Re 1/ρ, gives (2.3).
 3. **Rosser–Schoenfeld Theorem 6,** read in the original: (3.21) for 1 < x and (3.22) for 319 ≤ x, p. 70. E ≈ −1.33258 22757 33221, (2.11). This agrees with the quotation in arXiv:1703.08032 and with the enclosure in src/effectivity.py.
 4. **Platt (2016) [S9],** read in the original. Theorem 10.1 states GRH for primitive characters of modulus q ≤ 400 000, up to a positive height. Theorem 10.2 states L(1/2, χ) ≠ 0 for q ≤ 2 000 000. Together (our inference) they rule out a real zero in (0, 1) for q ≤ 4·10⁵, matching the Lu–Zaman–Zhao summary. Needed only for the 3.399·10⁻³ statement.
 5. **Lu–Zaman–Zhao Theorem 1.1** (arXiv:2602.03626v1, a preprint), read in the original. Needed only for the 4.467·10⁻³ statement.
-6. **Platt–Trudgian Corollary 2,** read in the original.
+6. **Platt–Trudgian Corollary 2,** read in the arXiv version (arXiv:1407.1914, v1, the only version; sha256 in docs/effectivity/sources.md). The published version [S5] was not available to check whether the corollary has the same number there.
 7. **Lemma 12 of arXiv:2511.13898** (a preprint), read in the original. Its reduction steps are taken from that proof; its final inequality is proved here.
 8. **χ(p) = (d/p) for odd p ∤ q, and |d| ≤ q,** as stated in the paper.
 
@@ -169,7 +171,7 @@ Not used: any unproved hypothesis (GRH or similar), or any floating-point value 
 - [S2] R. F. Lu, A. Zaman, H. Zhao, *Numerical computations concerning Landau–Siegel zeros*, arXiv:2602.03626v1 (2026).
 - [S3] J. B. Rosser, L. Schoenfeld, *Approximate formulas for some functions of prime numbers*, Illinois J. Math. 6 (1962), 64–94, doi:10.1215/ijm/1255631807.
 - [S4] C. Axler, *New estimates for some functions defined over primes*, arXiv:1703.08032.
-- [S5] Platt, Trudgian, *On the first sign change of θ(x) − x*, arXiv:1407.1914.
+- [S5] D. J. Platt, T. S. Trudgian, *On the first sign change of θ(x) − x*, Math. Comp. 85 (2016), 1539–1547, doi:10.1090/mcom/3021; arXiv:1407.1914. Corollary 2 is cited from the arXiv version (v1), the version read. Its numbering in the published version was not confirmed.
 - [S6] T. Zhao, *Upper bounds on gaps between zeros of L-functions*, arXiv:2511.13898, Appendix, Lemma 12.
 - [S7] H. Davenport, *Multiplicative Number Theory*, 2nd ed., rev. H. L. Montgomery, Springer GTM 74.
 - [S8] Elementary facts (no citation): ψ increasing on (0, ∞), ψ(3/2) = 2 − γ − 2 log 2, and log p/p ≤ (log p)/2 for p ≥ 2 (docs/effectivity/sources.md §S8).

@@ -807,3 +807,12 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - B8 at q₀ = 10¹⁰ vs 10¹⁰ + 1 differs by 1.75e-12 relative.
   - Diff summary: results/2026-10-20-paper-prep-3/note-v2-diff-summary.txt.
   - Judgment call, flagged for Joe: note-v2 does not say Banks's constant was "first". docs/explicit-constant.md (0.00258 for all q ≥ 3) was public in reviewer-packet-v1 (tag 3a36016, Zenodo 10.5281/zenodo.23269528) on 2026-10-09; Banks is dated 2026-10-11.
+- 2026-10-20, paper prep 3, Tasks 3 and 5 (priority check; packet v3 drafts).
+  - Task 3, results/2026-10-20-paper-prep-3/task3-priority-check.txt (git log -S on docs/lemma3-audit.md), COMPUTED:
+    - Both unstated facts were first recorded in 447ad02 (2026-10-09 08:50:39 −0400; rewritten from 9045c22); lines 23, 29 and 45. Both dates are before 2026-10-11.
+    - Banks writes them out in Lemma 3.2 and Step 5 of Proposition 3.4's proof, not in (3.1).
+    - No conclusion drawn.
+  - docs/packet-related-work-draft-v2.md (v1 kept): Kerr and Green items filled from Joe's addendum and marked CHECKED-BY-JOE pending his read.
+    - Discrepancy flagged: Joe gives Green v2 as 2026-10-18; the Hexagon page shows Oct 17, 2026.
+  - docs/packet-v3/ (drafts only): README-draft.md (framing "machine-checked complement to existing human write-ups"), related-work.md, lemma3-scope.md, release-notes-v3.md (Part 1 = docs/v2-release-notes.md; Part 2 adds note-v2 and the corpus table).
+  - docs/zenodo-v3-metadata.json (draft; Zenodo not contacted): isNewVersionOf 10.5281/zenodo.23499651; isSupplementedBy 10.5281/zenodo.23505836 (inverse of the corpus record's existing isSupplementTo); references Banks, Kerr, Green, LZZ, openai/math adc7f12.

@@ -1,0 +1,41 @@
+{
+  "_status": "DRAFT 2026-10-20. Not sent to Zenodo. Zenodo legacy deposit API field names. Review every field before use.",
+  "_relation_choice_for_corpus_record": "isSupplementedBy 10.5281/zenodo.23505836. Reason: the corpus record already declares 'isSupplementTo' the packet's concept DOI 10.5281/zenodo.23269527 (docs/log.md, 2026-10-20 corpus deposit). DataCite's inverse of isSupplementTo is isSupplementedBy, so this keeps the pair symmetric and matches what the corpus is to the packet (supporting material). 'references' would also be valid but weaker, and it would not mirror the existing link.",
+  "metadata": {
+    "title": "Verification package for openai/math family 003, Uniform exclusion of Landau–Siegel zeros: machine-checked complement to existing write-ups (comparator + nanoda, Lean Lemma 3, explicit constant)",
+    "upload_type": "software",
+    "version": "reviewer-packet-v3",
+    "creators": [{"name": "Reilly, Joseph M."}],
+    "description": "<p>A machine-checked complement to the existing human write-ups of the OpenAI argument for the uniform exclusion of Landau–Siegel zeros (OpenAI, manuscript dated October 1, 2026; openai/math family 003). Human write-ups: W. D. Banks, arXiv:2610.15483; B. Kerr, arXiv:2610.21099; B. Green, Hexagon 2610.00311. Not refereed; not a proof of the theorem.</p><p>Contents: (1) the official Lean FRO comparator with nanoda as a second kernel accepts the family's Lean statements with standard axioms only, under a full network block; (2) a Lean proof of the paper's Lemma 3, whose hypotheses equal Banks's Proposition 3.4, condition (3.1), and which certifies a step of OpenAI's and Banks's route; (3) the challenge theorem rerouted through that Lemma 3 and accepted by the comparator with both kernels; (4) an Arb-certified explicit constant, conditional on the paper's proof: (1 − β) log q > 4.467×10⁻³ with Lu–Zaman–Zhao (q ≤ 10¹⁰), or > 3.399×10⁻³ with Platt (q ≤ 4×10⁵) only, compared term by term with Banks's 3.0696×10⁻³; (5) exact small-N checks. Release notes: docs/packet-v3/release-notes-v3.md, including corrections to the v1 methods text.</p>",
+    "license": "apache-2.0",
+    "access_right": "open",
+    "keywords": ["Landau–Siegel zeros", "Dirichlet L-functions", "Lean 4", "formal verification", "nanoda", "interpolation determinant", "explicit constants"],
+    "related_identifiers": [
+      {"relation": "isNewVersionOf", "identifier": "10.5281/zenodo.23499651", "scheme": "doi", "resource_type": "software"},
+      {"relation": "isSupplementedBy", "identifier": "10.5281/zenodo.23505836", "scheme": "doi", "resource_type": "software"},
+      {"relation": "references", "identifier": "arXiv:2610.15483", "scheme": "arxiv", "resource_type": "publication-preprint"},
+      {"relation": "references", "identifier": "arXiv:2610.21099", "scheme": "arxiv", "resource_type": "publication-preprint"},
+      {"relation": "references", "identifier": "https://hexagonmath.org/2610.00311v2", "scheme": "url", "resource_type": "publication-preprint"},
+      {"relation": "references", "identifier": "arXiv:2602.03626", "scheme": "arxiv", "resource_type": "publication-preprint"},
+      {"relation": "references", "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a", "scheme": "url"},
+      {"relation": "isSupplementTo", "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/reviewer-packet-v3", "scheme": "url", "_note": "tag not yet created; v1 and v2 had a GitHub tag-tree identifier (relation as Zenodo's GitHub integration set it; check before use)"}
+    ]
+  },
+  "files": [
+    {"name": "siegel-zeros-audit-reviewer-packet-v3.zip", "_note": "GitHub release archive of tag reviewer-packet-v3 (as v1 and v2 were); contents = the repository tree at that tag. Key entries:",
+     "key_contents": [
+       "README.md (from docs/packet-v3/README-draft.md once approved)",
+       "docs/packet-v3/release-notes-v3.md", "docs/packet-v3/related-work.md", "docs/packet-v3/lemma3-scope.md",
+       "docs/effectivity/note-v2.md", "docs/effectivity/note-v2.tex", "docs/effectivity/note-v2.pdf",
+       "docs/effectivity/note.md", "docs/effectivity/note.tex", "docs/effectivity/note.pdf",
+       "docs/effectivity/banks-comparison.md", "docs/effectivity/banks-comparison-v2.md", "docs/effectivity/derivation.md", "docs/effectivity/sources.md",
+       "src/effectivity.py", "src/banks_compare.py", "scripts/final_table.py",
+       "results/2026-10-20-paper-prep-3/corpus-189.tsv", "results/2026-10-20-paper-prep-3/summary.txt", "results/2026-10-20-paper-prep-3/tables.tex",
+       "results/2026-10-20-paper-prep-2/ (Task 1-3 outputs, banks-compare-output.txt)",
+       "results/2026-10-20-effectivity/effectivity-output-v2.txt",
+       "lean-checks/Lemma3.lean", "lean-checks/Lemma3Bridged.lean",
+       "refs/banks-2610.15483.md (citation only; the PDF and TeX are not redistributed)"
+     ],
+     "_excluded": "refs/banks-2610.15483v1.pdf and .tex (gitignored, arXiv nonexclusive license). The UNREVIEWED device files (docs/effectivity/derivation-banks-device.md, src/effectivity_banks_device.py, results/2026-10-20-effectivity-device/) are in the tree but labeled UNREVIEWED; decide whether the tag should include them."}
+  ]
+}

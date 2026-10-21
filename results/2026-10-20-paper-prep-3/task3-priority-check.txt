@@ -1,0 +1,30 @@
+Paper prep 3, Task 3: first commit recording each of the two facts the Lemma 3 audit found unstated (report only).
+
+Commands (read-only, this repository):
+  git log --all --reverse -S "<phrase>" --format="%H | author %ad | committer %cd | %s" --date=iso -- docs/lemma3-audit.md
+  git show 447ad02:docs/lemma3-audit.md   (line numbers below are in that commit's version of the file)
+
+Correction to the brief's wording: Banks does not write these facts out "in (3.1)". (3.1) is the hypothesis of his
+Proposition 3.4. He writes them out in Lemma 3.2 (faces of a polytope) and in Step 5 of the proof of
+Proposition 3.4 ("s_j != u_j for some j different from j_0").
+
+Fact 1 (audit step 8): the face G of conv(S) satisfies G = conv(S ∩ G), so its vertices lie in S.
+  COMPUTED: first commit 447ad02b96be888ac794dc747769a252e01d375c
+    author date 2026-10-09 08:50:39 -0400, committer date 2026-10-09 08:50:39 -0400
+    subject "Baseline: state after 2026-10-08 documentation passes"
+  File and lines: docs/lemma3-audit.md:23 (table row 8, "Unstated but standard: G is an exposed face of the polytope
+    conv S, so G = conv(S ∩ G), and its vertices lie in S.") and docs/lemma3-audit.md:45 (summary item 2).
+  Before 2026-10-11: yes.
+
+Fact 2 (audit step 14): two distinct points of the hyperplane ℋ differ in some coordinate i ≠ i₀.
+  COMPUTED: first commit 447ad02b96be888ac794dc747769a252e01d375c (same commit, same dates)
+  File and lines: docs/lemma3-audit.md:29 (table row 14, "Unstated but immediate: if n ≠ u are both in ℋ, they differ in
+    some coordinate i ≠ i₀ ...") and docs/lemma3-audit.md:45 (summary item 2).
+  Before 2026-10-11: yes.
+
+Context recorded in this repository (COMPUTED; stated without inference):
+  - 447ad02 is a rewritten hash: docs/log.md (2026-10-09, history rewrite) records git filter-repo, with 447ad02 formerly
+    9045c22; the rewrite removed one PDF and kept the tree otherwise unchanged. The author and committer dates shown
+    are those of the rewritten commit.
+  - 447ad02 is on origin/main and in the tags reviewer-packet-v1, reviewer-packet-v1.1 and reviewer-packet-v2-preliminary.
+  - docs/tasks.md records the audit (8.3a) as done 2026-10-08; there is no earlier commit of the file.

@@ -1,0 +1,26 @@
+Extended replay, Phase 1: measurement method and its test (COMPUTED unless marked INFERRED)
+
+Peak memory method used: 111_memsample.py, run as root OUTSIDE the sandbox. It locates the transient unit's own unified cgroup
+(user@1000.service/app.slice/run-uN.service) from the unit's main process, and every 0.5 s reads cgroup.procs and each
+process's VmRSS and VmHWM. Recorded: peak_rss_sum_kb (sampled sum of VmRSS; lower bound of the true peak) and peak_hwm_kb
+(largest single-process kernel high-water mark). No unit property is set; 67_corpus_run.sh is unchanged.
+Why not the brief's first two options: kernel 5.15 has no memory.peak; systemd 255 has no MemoryPeak; in this hybrid cgroup
+setup the unit's v1 memory cgroup is the whole user@1000.service (shared, includes page cache). /usr/bin/time -v outside the
+wrapper would measure the systemd-run client, which is not the parent of the unit's processes, so it was not used.
+Export: the same sampler opens the temp export file Comparator passes to nanoda, hashes it and (for the replay) copies it.
+Build disk: du -sk of lean/.lake/build before and after the prebuild.
+
+Test 1 (phase1/run.log; 116_phase1_test.sh), TalagrandDiscreteConvexity, fd4aeeb, corpus config copy:
+  plain 67_corpus_run.sh: ACCEPT_BOTH, 29 s. Instrumented: ACCEPT_BOTH, 40 s, 79 samples, peak_rss_sum 3,097,980 KB,
+  peak_hwm 2,118,300 KB (lean4export). Earlier uninstrumented corpus run (results/2026-10-12-corpus-remainder/batch-01/
+  TalagrandDiscreteConvexity-nanoda.log): ACCEPT_BOTH, 27 s.
+  Captured export sha256 c4d926a3b19cd18089120f1b09f0fc6def0ca7bd691ccc6a1e77413496559df1, 67,861,557 bytes = the export made
+  separately with lean4export by the 107_paperprep.sh task-3 method (same sha256, same bytes): the capture is the file nanoda read.
+  Build footprint 30,620 KB; prune afterwards left 56 KB.
+Test 2 (phase1-repeat/run.log; 116b_phase1_repeat.sh), alternating:
+  plain 50, instr 39, plain 31, hash-only 42, plain 31, instr 35, hash-only 36 s. Every run: "Your solution is okay!", exit 0.
+  Instrumented peaks: rss_sum 3,125,872-3,169,288 KB; hwm 2,106,240-2,117,856 KB; export sha256 identical in all four.
+Conclusion: outcome identical with and without instrumentation (9 runs today + the 2026-10-12 run). INFERRED: the sampler adds
+  about 4-8 s per run (median 39 s vs 31 s plain), copying or not; about 2% at the 189's median replay (250 s). Phase 5 runs both
+  nanoda-on and nanoda-off instrumented, so their difference is not affected. Wall times of the 227 are therefore comparable to
+  the 189's up to this small offset, which the write-up must state.

@@ -1,0 +1,8 @@
+== reference export (107_paperprep.sh task 3 method): lake env lean4export OAI.Combinatorics.DiscreteConvexity.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.TalagrandDiscreteConvexity.talagrand_discrete_convexity propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/xr/exp/TalagrandDiscreteConvexity.ref-export  2026-10-21 09:41:34
+Running as unit: run-u5.service; invocation ID: c3e3253da87f4a8eb5fd90dc69f7d841
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 6.897s
+SANDBOX EXIT CODE: 0
+-rw-rw-r-- 1 checker checker 67861557 Oct 21 09:41 /home/checker/corpus/xr/exp/TalagrandDiscreteConvexity.ref-export
+c4d926a3b19cd18089120f1b09f0fc6def0ca7bd691ccc6a1e77413496559df1  /home/checker/corpus/xr/exp/TalagrandDiscreteConvexity.ref-export

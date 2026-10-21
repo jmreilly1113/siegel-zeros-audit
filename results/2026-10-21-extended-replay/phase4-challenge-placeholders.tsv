@@ -1,0 +1,4 @@
+config	group	finding	line	enclosing_kind	enclosing_name_qualified_guess	in_definition_names	text
+ElementaryPositivity	P	sorry outside theorem/lemma	61	def	OAI.elementaryPositivityWitness	True	sorry
+DefocusingNLS	P	sorry outside theorem/lemma	107	def	OAI.DefocusingNLS.sobolevProduct	True	by sorry⟩
+NavierStokesVelocity	P	sorry outside theorem/lemma	454	def	OAI.VelocityDetection.TapeCodes.half	False	w.liftOn word (by sorry)

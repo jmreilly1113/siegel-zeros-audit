@@ -1,0 +1,32 @@
+{
+ "method": "sampled unified cgroup of the transient unit, 0.5 s; VmRSS sum and per-process VmHWM (111_memsample.py)",
+ "config": "/home/checker/corpus/configs/TalagrandDiscreteConvexity-nanoda.json",
+ "unit_cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/run-u8.service",
+ "samples": 77,
+ "peak_rss_sum_kb": 3169288,
+ "peak_hwm_kb": 2112000,
+ "peak_hwm_proc": "lean4export | lean4export OAI.Combinatorics.DiscreteConvexity.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.TalagrandDiscreteConvexity.t",
+ "export": {
+  "nanoda_pid": 5684,
+  "nanoda_config": "/tmp/tmp.XXGTMcnP",
+  "export_file_path": "/tmp/tmp.XXSlGuEU",
+  "nanoda_config_json": {
+   "export_file_path": "/tmp/tmp.XXSlGuEU",
+   "nat_extension": true,
+   "num_threads": 4,
+   "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+   ],
+   "string_extension": true,
+   "unpermitted_axiom_hard_error": true,
+   "use_stdin": false
+  },
+  "export_sha256": "c4d926a3b19cd18089120f1b09f0fc6def0ca7bd691ccc6a1e77413496559df1",
+  "export_bytes": 67861557,
+  "copied_to": "/home/checker/corpus/xr/exp/TalagrandDiscreteConvexity.export"
+ },
+ "first_seen": "2026-10-21 09:43:35",
+ "last_seen": "2026-10-21 09:44:13"
+}

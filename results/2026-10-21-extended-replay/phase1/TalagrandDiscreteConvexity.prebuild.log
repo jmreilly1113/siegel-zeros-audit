@@ -1,0 +1,11 @@
+== prebuild: lake build OAI.Combinatorics.DiscreteConvexity.Main ComparatorChallenges.TalagrandDiscreteConvexity with LEAN_NUM_THREADS=4  2026-10-21 09:39:08
+Running as unit: run-u0.service; invocation ID: 8236bee7628b46dba72386d51ea86578
+⚠ [1583/1591] Built ComparatorChallenges.TalagrandDiscreteConvexity (1.8s)
+warning: ComparatorChallenges/TalagrandDiscreteConvexity.lean:47:8: declaration uses `sorry`
+Build completed successfully (1591 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 39.630s
+SANDBOX EXIT CODE: 0
+PREBUILD_SECONDS: 40
+disk used: 24G

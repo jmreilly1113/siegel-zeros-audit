@@ -1,0 +1,9 @@
+Extended replay, Phase 0.4 (COMPUTED; scripts/extended_plan.py; clone at fd4aeeb)
+configs: 227; by group: P 3, C 21, U 120, S 7, N 76
+shipped nanoda setting among the 227: true 1, false 224, absent 2
+the one config shipping with nanoda on: ArtinParabolicIntersections
+configs with no nanoda key (Comparator default: off): ['KadisonRingrose', 'UniversalTensorSquares']
+pilot (smallest challenge file per group): P ElementaryPositivity (63 lines); C KaplanskyDirectFiniteness (17 lines); U Catalan (13 lines); S ShortEgyptianFractions (27 lines); N OstmannPrimes (15 lines)
+Phase 4.2 inputs: 3 placeholder findings in 3 challenge files: ['DefocusingNLS', 'ElementaryPositivity', 'NavierStokesVelocity']
+Phase 4.3: configs whose permitted_axioms go beyond propext, Classical.choice, Quot.sound: 0 []
+query files written to lean-checks\extended-replay: 233

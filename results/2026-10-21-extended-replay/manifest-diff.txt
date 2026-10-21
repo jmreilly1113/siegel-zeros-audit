@@ -1,0 +1,32 @@
+Extended replay, Phase 0.1: manifest-extended.json vs results/2026-10-21-paper-prep-4/manifest-final.json (COMPUTED; scripts/manifest_extended.py)
+
+same	openai/math commit	fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+same	clone clean (status lines)	0
+same	lean-toolchain	leanprover/lean4:v4.34.1
+same	Lean version	5045d0056413266e57c625dcd7c365b10e377c52
+same	Comparator commit	d03acab154d269c06e60e4de7e4cc85deebff94b
+same	Comparator binary	afa65e57a1770f5961efe7681626a9a1cd99705262421658abd30b705f66e4a2
+same	nanoda 3a24072 binary	897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714
+same	nanoda f67473b binary	be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5
+same	exporter commit	076e8e57707e813375e8f9da8bf989799ace9680
+same	exporter binary	8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1
+same	landrun commit	811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
+same	landrun binary	5f6fd588dbdf5116969c3dee3fee52ba7f46aa80df2bb58277326a9186e736de
+same	lake-manifest sha256	cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794
+same	mathlib rev	d13f23b723b8a846827a245b89c10fc7d3f11612
+same	sandbox systemd-run line	systemd-run --property="RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET" --user --wait --pipe --collect -E PATH="$PATH" --working-directory "$(pwd)" -- timeout --signal=TERM --kill-after=60 $TMO bash -c 'lake env comparator $CFG'
+same	67_corpus_run.sh sha256 (last changed in 30dbb30, 2026-10-11)	5626871e435b055474e290f81f8bec7502ddf4fc944af4e77178f550a2abaf89
+same	uid	uid=1000(checker) gid=1000(checker) groups=1000(checker)
+same	CapEff	0000000000000000
+same	NoNewPrivs	1
+same	netblock tcp 1.1.1.1:443	bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol
+same	netblock python AF_INET udp socket	OSError: [Errno 97] Address family not supported by protocol
+same	netblock python AF_INET6 socket	OSError: [Errno 97] Address family not supported by protocol
+same	netblock python AF_UNIX socket	OSError: [Errno 97] Address family not supported by protocol
+same	WSL kernel	5.15.167.4-microsoft-standard-WSL2
+same	WSL version	2.4.11.0
+same	distro	Ubuntu 24.04.5 LTS
+same	systemd	255 (255.4-1ubuntu8.18)
+same	Windows	10.0.26200.9457
+
+STOP (c): no; every STOP field is identical

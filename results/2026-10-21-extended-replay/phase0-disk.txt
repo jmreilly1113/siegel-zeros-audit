@@ -1,0 +1,16 @@
+Extended replay, Phase 0.3: disk check before the replay (2026-10-21 09:43:32)
+
+COMPUTED now:
+  C: free 104 GB; WSL ext4.vhdx 27 GB on C:; WSL filesystem used 24 GB (of which lean/.lake/packages 8.6 GB; no OAI build).
+  Phase 1 test config TalagrandDiscreteConvexity: build footprint 30,620 KB after prebuild (phase1/TalagrandDiscreteConvexity.disk.tsv);
+  captured export 67,861,557 bytes.
+COMPUTED earlier (results/2026-10-21-paper-prep-4/cost-summary.txt, cost.tsv): the 190 corpus prebuilds peaked at 84 G WSL
+  filesystem used, with whole batches of closures kept until each batch-end prune; per-build footprint was not logged
+  (MISSING). The 9 retained exports of 2026-10-20 were 0.41-0.90 GB each (results/2026-10-20-paper-prep/wsl/task3-*.export.log).
+Projection (INFERRED; the 190 builds' total is not on record, so the peak is the usable figure):
+  - This run prunes after every ACCEPT_BOTH config, so at most one fresh closure plus the kept builds is on disk. The
+    earlier batch-retention peak (84 G) is an upper bound for builds; add up to ~1 GB per retained export.
+  - Worst case: WSL used 84 G + 10 retained exports (~10 G) = ~94 G, i.e. vhdx growth ~70 G over today ->
+    C: free about 34 G, above the 20 GB floor. STOP (d): not triggered.
+  - Runtime limits: 69_corpus_guard.sh stops at WSL used > 85 G (as for the 189); 114_extended_replay.sh stops before any
+    config when C: free < 22 GB.

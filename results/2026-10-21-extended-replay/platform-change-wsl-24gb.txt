@@ -1,0 +1,12 @@
+Extended replay: platform change during Phase 3 (Joe chose "Raise WSL to 24 GB", 2026-10-21 ~12:40)
+
+Why (COMPUTED): Catalan's nanoda 3a24072 run reached a 14,237,680 KB high-water mark (runs/Catalan-nanoda.mem.json; summed
+RSS 15,559,504 KB) with WSL limited to 15,965 MB (the Windows default, half of 31.9 GB physical; no .wslconfig). The WSL guard
+(69_corpus_guard.sh 85 1500 2) stopped the run at 12:17:20 (MemAvailable 421 MB). No exit-code line, so not a verdict.
+Change: %USERPROFILE%\.wslconfig created with "[wsl2] memory=24GB"; wsl --shutdown; restart.
+After (COMPUTED): free -m total 24,037 MB; 12 CPUs; kernel 5.15.167.4-microsoft-standard-WSL2 (unchanged); clone fd4aeeb, clean;
+nanoda_bin 897971d7..., comparator afa65e57... (unchanged). Sandbox, timeouts, LEAN_NUM_THREADS=4, guard limits and checks unchanged.
+Effect on comparability (INFERRED): memory size changes no verdict unless a run runs out of memory; the 189 ran at ~16 GB, so a
+config that completes here at > ~14 GB would not have completed on the 189's platform. Every config's peak memory is recorded.
+Configs completed before the change at 16 GB: ElementaryPositivity, KaplanskyDirectFiniteness, ShortEgyptianFractions.
+Stopped for the restart: OstmannPrimes during its prebuild (redone; partial logs moved aside by 114b). Catalan undeferred.

@@ -51,6 +51,7 @@ while IFS=$'\t' read -r -u 9 ORD N G PIL SHIP LINES NTH EXTRA FLAG; do
   [ $i -ge $MAX ] && break
   stopped && break
   [ -f $R/$N.result.json ] && { i=$((i+1)); continue; }
+  grep -qx "$N" $OUT/deferred.txt 2>/dev/null && { log "$N: deferred (deferred.txt: memory guard stop); skipped for now"; continue; }
   f=$(cfree); if [ -n "$f" ] && [ "$f" -lt 22 ]; then echo "(d) C: free ${f} GB < 22 GB before $N  $(date '+%F %T')" >> $R/STOP.txt; log "STOP (d): C: free ${f}G"; break; fi
   [ -n "$(live $N)" ] && { log "$N: partial files from an interrupted attempt moved aside"; aside $N; }
   i=$((i+1))

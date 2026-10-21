@@ -1060,3 +1060,23 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Phase 5 plan adjusted: the 10 timing configs are chosen from builds still on disk at the end where possible (no rebuild), and "long" = top decile of replay time, nearest p95 rather than the extreme maximum.
   - First pilot config, COMPUTED (runs/ElementaryPositivity.result.json): ACCEPT_BOTH; prebuild 2,543 s from an empty OAI build (550 OAI modules, 3.47 GB); comparator 517 s; peak HWM 6.9 GB (lean4export); #print axioms: propext, Classical.choice, Quot.sound; challenge audit: the stub definition uses sorryAx, the solution does not (intended definition_names stub).
   - Estimate (INFERRED): ~16 min per config with shared builds (the 189's builds: mean 552 s, median 384 s; comparator mean 340 s; queries ~1.5 min) → Phase 3 ~2.5 days; Phase 5 ~6–8 h; total ~3 days, finishing about 2026-10-24.
+- 2026-10-21 12:17–13:56, extended replay: memory guard stop, deferral and WSL memory change.
+  - COMPUTED: during Catalan (group U, pilot) nanoda 3a24072 reached a 14,237,680 KB high-water mark (summed RSS 15.56 GB, export 832,532,249 bytes) under WSL's default 15,965 MB.
+    - The WSL guard (69, floor 1500 MB) stopped the run at 12:17:20 (MemAvailable 421 MB). Catalan's nanoda log has no exit-code line: not a verdict, no result written. No STOP condition.
+    - 118 correctly did not start Phase 3 after the guard stop.
+  - New wsl-comparator/119_supervise.sh runs 114b and restarts it after a MEMORY guard stop (at most 15 times), deferring the config in progress to deferred.txt. Not after a disk stop, STOP.txt or DONE.
+    - 114b skips deferred configs; that check was added before 114b first ran.
+    - First supervisor launch got no arguments (quoting) and exited at once; relaunched 12:20.
+  - Pilot results (COMPUTED, runs/*.result.json):
+    - ElementaryPositivity: ACCEPT_BOTH.
+    - KaplanskyDirectFiniteness (C): LEAN_ACCEPT_NANODA_CRASH ("thread 'thread_3' has overflowed its stack"); shipped run ACCEPT_LEAN; nanoda f67473b directly on the retained export at default stack (ulimit -s 8192, RUST_MIN_STACK unset): exit 0 in 37 s. Final label: crash at 3a24072, pass at f67473b. Not named in the #55 copy.
+    - ShortEgyptianFractions (S): ACCEPT_BOTH, the first config under 114b.
+    - Each has #print axioms = propext, Classical.choice, Quot.sound.
+  - Joe chose to raise WSL memory to 24 GB.
+    - Stopped by hand at 12:40 during OstmannPrimes' prebuild (redone).
+    - The first stop command's pkill matched its own shell (exit 15); the stop was then completed from a script file.
+    - %USERPROFILE%\.wslconfig = "[wsl2] memory=24GB"; wsl --shutdown; restart. COMPUTED after: 24,037 MB, 12 CPUs, kernel unchanged, clone fd4aeeb clean, binaries unchanged.
+    - Record: results/2026-10-21-extended-replay/platform-change-wsl-24gb.txt. deferred.txt was emptied (old copy kept as deferred-1-before-24GB.txt).
+    - The restart took until 13:56 (clocks checked: Windows and WSL agree).
+  - Disk after restart, COMPUTED: WSL used 46 G (OAI builds 21 G under the shared policy, including the kept KaplanskyDirectFiniteness build and Catalan's unfinished one; exports 1.4 G); C: free 81 GB.
+  - Resumed 13:56:23 under 119 → 114b on phase3-order.tsv; Catalan rerun first, with its build reused (prebuild 19 s).

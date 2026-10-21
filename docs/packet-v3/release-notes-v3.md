@@ -83,4 +83,12 @@ Copied from `docs/v2-release-notes.md`. These correct the five mismatches in `re
 - **nanoda wording:** "crash at 3a24072, pass at f67473b" for the 9 configs (`results/2026-10-20-paper-prep-2/task2-nanoda-reclassification.txt`).
 - **Related work and Lemma 3 scope:** `docs/packet-v3/related-work.md`, `docs/packet-v3/lemma3-scope.md`. The Kerr and Green statements are marked [CHECKED-BY-JOE, pending Joe's read].
 - **README framing:** "machine-checked complement to existing human write-ups" (`docs/packet-v3/README-draft.md`).
-- **Not included:** the UNREVIEWED primes-dividing-q refinement (`docs/effectivity/derivation-banks-device.md`, `results/2026-10-20-effectivity-device/`). It is in the repository but is not part of any claim in this release.
+- **Not included:** the UNREVIEWED primes-dividing-q refinement. It is in the repository but is not part of any claim in this release.
+- **Files still labeled UNREVIEWED** (`git grep -l UNREVIEWED`, 2026-10-20). The device files carry the label themselves:
+  - `docs/effectivity/derivation-banks-device.md`;
+  - `src/effectivity_banks_device.py`, which prints the label on every result line;
+  - `results/2026-10-20-effectivity-device/device-output.txt`.
+
+  The device's tests, `tests/test_effectivity_banks_device.py`, belong to the same unreviewed work but do not carry the word.
+
+  Files that only mention the label: `docs/log.md`, `docs/zenodo-v3-metadata.json`, `results/2026-10-20-paper-prep-3/note-v2-diff-summary.txt`, and this file.

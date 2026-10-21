@@ -841,3 +841,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - PDF: 6 pages, no warnings. Two TeX fixes on the way: a dropped '' and a paragraph indent before the table.
   - Diff vs 4546335: results/2026-10-20-paper-prep-4/note-v2-diff-vs-4546335.txt.
   - Assumption 1 is unchanged, pending Joe. docs/log.md:666–667 put the family-003 statement checks on grwtsk/openai-math #29 (2026-10-20, issuecomment-6296359378); #40 holds the 2026-10-09 packet post and the 2026-10-20 corpus comment.
+- 2026-10-20, paper prep 4, Task 4: packet drafts edited in place.
+  - Green is dated 2026-10-17 everywhere (related-work.md, packet-related-work-draft-v2.md, README-draft.md, zenodo-v3-metadata.json); the 2026-10-18 date is removed.
+  - The Lemma 3 wording is Joe's ("Both points were recorded in this audit (commit 447ad02, 2026-10-09). Banks writes both out (Lemma 3.2; Step 5 of the proof of Proposition 3.4).").
+  - release-notes-v3.md lists every file still labeled UNREVIEWED.
+  - Task 5: 34 tests passed.

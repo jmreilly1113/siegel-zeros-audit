@@ -4,7 +4,7 @@ Draft v2, 2026-10-20. `docs/packet-related-work-draft.md` (v1) is kept unchanged
 
 - **Change from v1:** the bracketed Kerr and Green items are filled in from facts Joe supplied on 2026-10-20 (his addendum to the paper-prep-3 brief). They are marked **CHECKED-BY-JOE (pending Joe's read)**.
 - **What I read:** only the abstract pages (arxiv.org/abs/2610.21099; hexagonmath.org/2610.00311v2). I did not read either paper, and I have not verified the section, lemma or date details.
-- **Open discrepancy for Joe:** for Green, Joe gives v1 2026-10-17 and v2 2026-10-18. The Hexagon page I fetched on 2026-10-20 shows "Version 2 / Oct 17, 2026". The dates below are Joe's, flagged.
+- **Green's date:** 2026-10-17 (v2), as shown on the Hexagon page and confirmed by Joe on 2026-10-20.
 
 ## Related work (paragraph for the packet)
 
@@ -15,7 +15,7 @@ Three other accounts of the OpenAI argument appeared after the October 1 manuscr
   - He uses the same biquadratic field and the same points.
   - A pigeonhole construction (Lemmas 3–5) and Masser's degree bound (Lemma 6), with μ ≥ 4/3 (Lemma 7), replace the interpolation lemma and the greedy determinant.
   - The constants are not made explicit.
-- **Green** gives a variant (B. Green, *On Landau–Siegel zeros*, Hexagon 2610.00311, v1 2026-10-17, v2 2026-10-18 [dates as supplied by Joe; Hexagon page shows v2 dated Oct 17, 2026], CC BY 4.0). Its provenance statement attributes the mathematical arguments to ChatGPT and the text to the author. **CHECKED-BY-JOE (pending Joe's read):**
+- **Green** gives a variant (B. Green, *On Landau–Siegel zeros*, Hexagon 2610.00311v2, 2026-10-17, CC BY 4.0). Its provenance statement attributes the mathematical arguments to ChatGPT and the text to the author. **CHECKED-BY-JOE (pending Joe's read):**
   - It works in ℚ(√d) only, without √2.
   - It uses a Gram-matrix determinant, whose nonsingularity is Lemma 3.1 (resultants, Schwarz–Zippel).
   - The main theorem is a prime-sum bound, (1/2 + O(1/C)) log X + O_C(1).
@@ -33,6 +33,6 @@ None of these works, ours included, has been refereed.
 > Our Lean Lemma 3 (lean-checks/Lemma3.lean, theorem `Lemma3.interpolation`, standard axioms only) certifies a step of OpenAI's and Banks's route only.
 > - Its hypotheses are identical to Banks's (3.1), and its statement is his Proposition 3.4.
 > - Kerr's and Green's arguments bypass this step. Per the CHECKED-BY-JOE items above: Kerr uses a pigeonhole construction with Masser's degree bound, and Green a Gram-matrix determinant in ℚ(√d).
-> - Banks's proof of Proposition 3.4 writes out the two facts our hand audit recorded as unstated in the OpenAI manuscript: Lemma 3.2, and Step 5 of the proof.
+> - Both points were recorded in this audit (commit 447ad02, 2026-10-09). Banks writes both out (Lemma 3.2; Step 5 of the proof of Proposition 3.4).
 
 The hypotheses comparison table is unchanged from v1 (`docs/packet-related-work-draft.md`, "Hypotheses compared").

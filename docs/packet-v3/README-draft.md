@@ -7,7 +7,7 @@ DOI (all versions): [10.5281/zenodo.23269527](https://doi.org/10.5281/zenodo.232
 **What this package is.** A machine-checked complement to the existing human write-ups of the OpenAI argument:
 - W. D. Banks, *On the OpenAI proof that Landau–Siegel zeros do not exist*, arXiv:2610.15483, an exposition with explicit constants;
 - B. Kerr, *A simpler proof that there are no Landau–Siegel zeros*, arXiv:2610.21099;
-- B. Green, *On Landau–Siegel zeros*, Hexagon 2610.00311.
+- B. Green, *On Landau–Siegel zeros*, Hexagon 2610.00311v2 (2026-10-17).
 
 Those papers give the mathematics in human-readable form. This package records what can be checked by machine:
 - kernel acceptance of the Lean formalization by two independent kernels;

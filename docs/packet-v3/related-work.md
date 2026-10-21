@@ -2,7 +2,7 @@
 
 <!-- DRAFT for reviewer-packet-v3 (2026-10-20). Merged from docs/packet-related-work-draft-v2.md; that file and v1 are kept. -->
 
-**Read before use.** Banks was read in full (refs/banks-2610.15483.md). For Kerr and Green, only the abstract pages were read here. Every statement about the content of Kerr's and Green's papers comes from facts Joe supplied on 2026-10-20 and is marked **[CHECKED-BY-JOE, pending Joe's read]**. Green's version dates are flagged: Joe gives v2 as 2026-10-18, and the Hexagon page fetched on 2026-10-20 shows v2 dated Oct 17, 2026.
+**Read before use.** Banks was read in full (refs/banks-2610.15483.md). For Kerr and Green, only the abstract pages were read here. Every statement about the content of Kerr's and Green's papers comes from facts Joe supplied on 2026-10-20 and is marked **[CHECKED-BY-JOE, pending Joe's read]**.
 
 Three other accounts of the OpenAI argument (OpenAI, *Uniform exclusion of Landau–Siegel zeros*, manuscript dated October 1, 2026) have appeared.
 
@@ -14,7 +14,7 @@ Three other accounts of the OpenAI argument (OpenAI, *Uniform exclusion of Landa
   - same biquadratic field and points as OpenAI and Banks;
   - a pigeonhole construction (Lemmas 3–5) plus Masser's degree bound (Lemma 6), with μ ≥ 4/3 (Lemma 7), replaces the interpolation lemma and the greedy determinant;
   - constants are not made explicit.
-- **Green.** B. Green, *On Landau–Siegel zeros*, Hexagon 2610.00311, v1 2026-10-17, v2 2026-10-18 [dates as supplied by Joe; the Hexagon page shows v2 dated Oct 17, 2026], CC BY 4.0. Its provenance statement attributes the mathematical arguments to ChatGPT and the text to the author. **[CHECKED-BY-JOE, pending Joe's read]:**
+- **Green.** B. Green, *On Landau–Siegel zeros*, Hexagon 2610.00311v2 (2026-10-17), CC BY 4.0. Its provenance statement attributes the mathematical arguments to ChatGPT and the text to the author. **[CHECKED-BY-JOE, pending Joe's read]:**
   - works in ℚ(√d) only, without √2;
   - a Gram-matrix determinant, whose nonsingularity is Lemma 3.1 (resultants, Schwarz–Zippel);
   - the main theorem is a prime-sum bound, (1/2 + O(1/C)) log X + O_C(1);

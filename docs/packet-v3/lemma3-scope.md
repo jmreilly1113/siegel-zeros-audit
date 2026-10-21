@@ -13,4 +13,4 @@ What it does **not** cover:
 - **Banks's Corollary 3.5.** Our Lean bridge (`lean-checks/Lemma3Bridged.lean`) proves OAI's own Corollary 4 statement from `Lemma3.interpolation`. It does not prove Banks's Corollary 3.5 (box T₁ = 32H^{2/3}M, T₂ = T₃ = 32H^{−1/3}M) as stated.
 - **The rest of the argument.** The Lean Lemma 3 says nothing about the analytic input, the determinant, or the explicit constant.
 
-Banks's proof of Proposition 3.4 writes out the two facts our hand audit (`docs/lemma3-audit.md`) recorded as unstated in the OpenAI manuscript: his Lemma 3.2, and Step 5 of the proof. Banks leaves his Lemma 3.3 to the reader. The form his Step 2 uses is proved in our Lean file (`exists_lattice_nonvanishing`, lean-checks/Lemma3.lean:740).
+The hand audit (`docs/lemma3-audit.md`) found two points used without being stated in the OpenAI manuscript. Both points were recorded in this audit (commit 447ad02, 2026-10-09). Banks writes both out (Lemma 3.2; Step 5 of the proof of Proposition 3.4). Banks leaves his Lemma 3.3 to the reader. The form his Step 2 uses is proved in our Lean file (`exists_lattice_nonvanishing`, lean-checks/Lemma3.lean:740).

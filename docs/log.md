@@ -982,3 +982,17 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Mistake: one rerun overwrote the committed paper-numbers.json and numbers.tex. Both were restored with `git checkout` before anything else happened.
     - `python -I scripts/paper_numbers.py . results/2026-10-21-paper-prep-4 -v2` → paper-numbers-v2.json, numbers-v2.tex: 49 numbers. The 37 earlier ones are unchanged; 12 are new. New asserts: 1 + 188 + 0 = 189; the groups sum to 227; the unsafe hits are all in carleson with 0 configs; 0 outside import lines; Zenodo md5 MATCH.
     - Tests: `.venv/Scripts/python -m pytest tests -q`: 42 passed (Python 3.14.6, python-flint 0.9.0).
+- 2026-10-21, unpushed history rewritten (Joe's instruction; origin/main = 7748a40 unchanged).
+  - refs/nanoda-issue-55-2026-10-21.md removed from every commit after origin/main.
+    - 0ec9399 → 5b895f3: the same tree minus that one file.
+    - ecf238d → b7dad4c: an identical tree, re-parented.
+    - Messages, authors and dates are kept.
+  - Method: git plumbing (read-tree into a temporary index, rm --cached, write-tree, commit-tree, update-ref), not `rebase -i`, which this environment cannot run interactively. The working tree was not touched.
+  - The b7dad4c message still says "untrack #55 copy"; with the rewrite, the file was never in history.
+  - The log entry above, which says the file was removed with `git rm --cached`, describes the step as it was done before this rewrite.
+  - Checks:
+    - `git log --all -- refs/nanoda-issue-55-2026-10-21.md` lists 0 commits.
+    - `git cat-file -e <c>:<path>` fails for all 4 unpushed commits.
+    - The file is still on disk and untracked: sha256 c0087685…bdc159, ignored through .git/info/exclude.
+    - Tests: 42 passed.
+  - The old commits stay in the local reflog only, until it expires; they are not reachable from any ref. Not pushed.

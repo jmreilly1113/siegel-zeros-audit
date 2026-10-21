@@ -785,3 +785,12 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - EditApproximation (unreferenced): ACCEPT_BOTH at adc7f12; challenge file 19,169 lines at both commits.
     - Reconciliation: 178/185 (yaml at adc7f12), 187 (fd4aeeb), 190 (any stage).
   - The per-config corpus logs do not record the nanoda 3a24072 binary hash. The table says so and points to the provenance files; the f67473b logs record be15131c….
+- 2026-10-20, paper prep 3, Task 2 (UNREVIEWED Banks device). Not in note.md or note-v2.
+  - New src/effectivity_banks_device.py. It is the effectivity.py pipeline with (D1), Banks's primes-dividing-q device ((2.5)–(2.8): C_ℓ = e^s/4 + 1/(2H)), and (D2), the shift s in σ = 1 + s/log X (Lemma 2.1).
+  - Ran `.venv/Scripts/python -I src/effectivity_banks_device.py` → results/2026-10-20-effectivity-device/device-output.txt. Python 3.14.6, python-flint 0.9.0, Arb 256 bits; downward-rounded bounds.
+  - COMPUTED, UNREVIEWED: δ₀ > 4.5799298821e-3 (q > 4e5: s 31/20, γ 103/5, H 1,995,262,314) and δ₀ > 5.9439667682e-3 (q > 1e10: s 29/20, γ 77/5, H 2,660,725,059).
+    - All side conditions hold, including the D1/D2 additions.
+    - Device alone at note.md's parameters: 3.7682773365e-3 and 5.0833123747e-3.
+  - First run printed a wrong "ratio new/old" (13.47: parsing bug). Fixed by reading the old value as a Fraction and rerun (1.34732, 1.33053).
+  - docs/effectivity/derivation-banks-device.md records which inequality changes (§1.2–1.5 only) and that no H ≤ q is needed.
+  - tests/test_effectivity_banks_device.py: 6 tests (new ≥ old; device beats every c_q at the same parameters; s = 1 with c_dev = 1/2 reproduces effectivity; weakening c_dev lowers δ₀; side conditions; shift > 2 rejected). Full suite 34 passed.

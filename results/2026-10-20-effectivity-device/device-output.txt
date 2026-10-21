@@ -1,0 +1,24 @@
+UNREVIEWED: explicit constant with Banks's primes-dividing-q device (src/effectivity_banks_device.py; Arb prec 256 bits)
+python 3.14.6, python-flint 0.9.0
+UNREVIEWED: not part of docs/effectivity/note.md or note-v2. Derivation: docs/effectivity/derivation-banks-device.md
+Lemma 12 final inequality, all s > 1 (reused from effectivity.py): (i) True; (ii) True (min lower bound of phi > 3.878e-02); (iii) True
+
+[Platt regime: q > 4*10^5] UNREVIEWED
+   q0 = 400001, gamma = 103/5, H = 1995262314, shift s = 31/20, c_dev = 1/(2H)
+   C_delta = [0.9805348975 +/- 2.15e-11]  C_ell = [1.177867546 +/- 1.02e-10]  C_H = [20.13344194 +/- 3.91e-9]
+   lambda in [[27.466667 +/- 3.34e-7], [27.466667 +/- 3.34e-7]], L >= [354.29864 +/- 1.11e-7]
+   t1 = [0.7527162263 +/- 1.37e-11]  t2 = [0.06115333847 +/- 4.79e-12]  t3 = [0.06271662367 +/- 2.08e-12]  t4 = [6.7024611e-5 +/- 2.32e-13]  t5 = [4.806e-156 +/- 3.69e-160]  T = [0.876653213067 +/- 1.66e-13]
+   delta0 = [0.00457992988215225 +/- 4.79e-18]   certified: delta0 > 4.5799298821e-03   (UNREVIEWED)
+   side conditions (at q0, implied for all q >= q0): SC2 H >= 319: OK; SC3 N >= H (log N >= g log q0 > log H): OK; SC4 H^(2/3)N^(4/3) >= 2*97^2 (via N >= H and H^2 >= 2*97^2): OK; SC5 U >= 3 (L >= log 3): OK; SC9 s = 1 + 1/L <= 2 (L >= 1): OK; kappa < 0: OK; D2 0 < s <= 2 (Banks Lemma 2.1: lambda in (0,2]): OK; D2 sigma = 1 + s/L <= 2, i.e. L >= s (so (sigma+eps)/2 <= 3/2 and the zeta bound applies): OK; D2 X = U >= 8 (Banks Lemma 2.1 hypothesis), i.e. L >= log 8: OK; D1 H >= 319 (Mertens upper bound at H) and H >= 3 ((log t)/t decreasing for t >= e): OK
+   note.md value for this regime (certified): 3.3992904026e-03; ratio new/old = [1.34732 +/- 6.08e-7]
+   device alone at note.md's (gamma, H) and shift 1: delta0 > 3.7682773365e-03
+
+[LZZ regime: q > 10^10] UNREVIEWED
+   q0 = 10000000001, gamma = 77/5, H = 2660725059, shift s = 29/20, c_dev = 1/(2H)
+   C_delta = [1.013820337 +/- 4.56e-10]  C_ell = [1.065778629 +/- 1.99e-11]  C_H = [20.54482312 +/- 2.16e-9]
+   lambda in [[20.533333 +/- 3.34e-7], [20.533333 +/- 3.34e-7]], L >= [472.79747 +/- 2.44e-6]
+   t1 = [0.7520368824 +/- 1.66e-11]  t2 = [0.07632158525 +/- 5.00e-12]  t3 = [0.04786386014 +/- 3.62e-12]  t4 = [4.1456755e-5 +/- 1.16e-13]  t5 = [1.365e-207 +/- 3.29e-211]  T = [0.876263784537 +/- 2.17e-13]
+   delta0 = [0.00594396676827550 +/- 2.82e-18]   certified: delta0 > 5.9439667682e-03   (UNREVIEWED)
+   side conditions (at q0, implied for all q >= q0): SC2 H >= 319: OK; SC3 N >= H (log N >= g log q0 > log H): OK; SC4 H^(2/3)N^(4/3) >= 2*97^2 (via N >= H and H^2 >= 2*97^2): OK; SC5 U >= 3 (L >= log 3): OK; SC9 s = 1 + 1/L <= 2 (L >= 1): OK; kappa < 0: OK; D2 0 < s <= 2 (Banks Lemma 2.1: lambda in (0,2]): OK; D2 sigma = 1 + s/L <= 2, i.e. L >= s (so (sigma+eps)/2 <= 3/2 and the zeta bound applies): OK; D2 X = U >= 8 (Banks Lemma 2.1 hypothesis), i.e. L >= log 8: OK; D1 H >= 319 (Mertens upper bound at H) and H >= 3 ((log t)/t decreasing for t >= e): OK
+   note.md value for this regime (certified): 4.4673780338e-03; ratio new/old = [1.33053 +/- 3.08e-6]
+   device alone at note.md's (gamma, H) and shift 1: delta0 > 5.0833123747e-03

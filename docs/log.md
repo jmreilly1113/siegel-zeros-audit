@@ -774,3 +774,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - fstrim ran, as in the morning prune. The vhdx is non-sparse and mounted with discard. Afterwards: no ext4 errors in dmesg, git fsck and status clean.
   - Versions: Python 3.14.6, python-flint 0.9.0, Lean 4.34.1, comparator d03acab, WSL 2.4.11.0, kernel 5.15.167.4.
   - Tests: 28 passed.
+- 2026-10-20, paper prep 3, Task 1 (final corpus table). Started from cc6eb58 (not pushed).
+  - Inputs, read-only extracts from an anonymous scratch clone of openai/math (`git archive`): lean/formalization.yaml, lean/docs/*.md and lean/ComparatorChallenges/*.json at fd4aeeb; the same plus EditApproximation.lean at adc7f12.
+  - Ran `python -I scripts/final_table.py . <tree fd4aeeb> <tree adc7f12> results/2026-10-20-paper-prep-3` (Python 3.14.6). It reads raw per-config logs only.
+  - Output: corpus-189.tsv, summary.txt, tables.tex.
+  - COMPUTED:
+    - 189 referenced configs (200 entries). Lean accepts 189.
+    - nanoda 3a24072 accepts 180 (178 at fd4aeeb + 2 at adc7f12); 9 crash at 3a24072 and pass at f67473b. Assertions hold.
+    - Every config has one family page.
+    - EditApproximation (unreferenced): ACCEPT_BOTH at adc7f12; challenge file 19,169 lines at both commits.
+    - Reconciliation: 178/185 (yaml at adc7f12), 187 (fd4aeeb), 190 (any stage).
+  - The per-config corpus logs do not record the nanoda 3a24072 binary hash. The table says so and points to the provenance files; the f67473b logs record be15131c….

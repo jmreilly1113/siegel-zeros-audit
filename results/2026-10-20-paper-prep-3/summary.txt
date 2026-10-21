@@ -1,0 +1,21 @@
+Paper prep 3, Task 1: final corpus table (COMPUTED from raw per-config logs by scripts/final_table.py)
+Population: configs referenced by lean/formalization.yaml at fd4aeeb: 189 (from 200 main_results entries).
+Rows written: 189; problems: none
+
+Counts over the referenced configs:
+  Lean kernel accepts (every final run of the config): 189
+  nanoda 3a24072 accepts: 180  (of which run at adc7f12 in the pilot: 2)
+  crash at nanoda 3a24072, pass at nanoda f67473b: 9
+  other: 0
+  ASSERTION OK: Lean accepts = 189; nanoda 3a24072 accepts + (crash at 3a24072, pass at f67473b) = 180 + 9 = 189.
+  Commit split: adc7f12: 2, fd4aeeb: 187
+  Binary hashes: per-config corpus logs do not record the nanoda 3a24072 hash; the f67473b logs record be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5 in all 9.
+
+Unreferenced (not in the 189):
+  EditApproximation: commit adc7f12, Lean ACCEPT, nanoda 3a24072 ACCEPT, exit 0 (results/2026-10-11-corpus-pilot/EditApproximation-nanoda.log); challenge file ComparatorChallenges/EditApproximation.lean: 19169 lines at adc7f12 (same at fd4aeeb); referenced by the yaml at adc7f12: False, at fd4aeeb: False
+
+Reconciliation with other figures in circulation:
+  178 = distinct configs referenced by the yaml at adc7f12; 185 = its main_results entries (configs vs entries): 178 / 185.
+  187 = configs replayed at fd4aeeb (headline + remainder): 187; the two others of the 189 (QuasiRiemannHypothesis, SiegelZeros) ran at adc7f12.
+  190 = configs run in any stage: 190 = 189 referenced + EditApproximation.
+  178 ACCEPT_BOTH (corpus table, nanoda 3a24072 at fd4aeeb) = 178 here; with the 2 pilot configs, nanoda 3a24072 accepts 180 of the 189.

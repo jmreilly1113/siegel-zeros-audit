@@ -869,3 +869,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Creator "Reilly, Joseph M." with affiliation Northeastern University, as in CITATION.cff; license Apache-2.0; valid JSON; no email address.
   - local/outreach-facts.md (local only): lines 19, 20 and 77 repinned to a81b9a9, line 55 to 049b746.
   - Tests: 34 passed.
+- 2026-10-20, packet v3 release, final changes (Joe approved):
+  - (a) README.md and docs/packet-v3/README-draft.md gain the line "To cite: see CITATION.cff, or the concept DOI 10.5281/zenodo.23269527." above "## License".
+  - (b) COMPUTED: the public Zenodo record https://zenodo.org/api/records/23499651 (fetched unauthenticated, HTTP 200, no contact details) carries metadata.license = {"id": "apache2.0"}. On Joe's instruction, .zenodo.json now has "license": "apache2.0" (plain string).
+  - Tests: 34 passed.

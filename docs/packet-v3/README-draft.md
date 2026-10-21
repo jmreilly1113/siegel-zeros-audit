@@ -34,6 +34,8 @@ Where to start:
 - `docs/packet-v3/release-notes-v3.md`: what changed since v1 and v2, including the corrections to the v1 methods text.
 - `docs/reviewer-packet.md`, `docs/writeup.md`, `docs/issue40-facts.md`, `docs/reproduce.md`: as in v1.
 
+To cite: see CITATION.cff, or the concept DOI 10.5281/zenodo.23269527.
+
 ## License
 
 - **Code, scripts, tests and Lean files original to this project:** Apache License 2.0 (`LICENSE`). Copyright 2026 Joseph M. Reilly.

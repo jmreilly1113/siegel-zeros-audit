@@ -1,0 +1,13 @@
+Platt row of note.md, side conditions rechecked with H > q0 noted (COMPUTED; src/effectivity.py side_conditions)
+python 3.14.6, python-flint 0.9.0; q0 = 400001, gamma = 201/10, H = 1995262314
+H > q0: True (H/q0 = 4988.1); Banks's Section 7 assumes 319 <= H <= q <= N, which this row does not satisfy for q < H.
+  SC2 H >= 319: OK
+  SC3 N >= H (log N >= g log q0 > log H): OK
+  SC4 H^(2/3)N^(4/3) >= 2*97^2 (via N >= H and H^2 >= 2*97^2): OK
+  SC5 U >= 3 (L >= log 3): OK
+  SC9 s = 1 + 1/L <= 2 (L >= 1): OK
+  kappa < 0: OK
+  N >= H for every q >= q0: g log q0 = [259.2743688 +/- 4.57e-8] > log H = [21.41404136 +/- 4.36e-9]: True
+  Lemma 6 / Banks Lemma 4.2 hypotheses: 1 <= H <= N (from N >= H) and H^(2/3) N^(4/3) >= 2*97^2 (SC4): see SC3, SC4 above.
+  Primes p > H dividing q: for q < H there are none; in note.md's accounting (c_q) H plays no role in this bound;
+  in Banks's device the term is 0 <= ell/(2H). Neither needs H <= q.

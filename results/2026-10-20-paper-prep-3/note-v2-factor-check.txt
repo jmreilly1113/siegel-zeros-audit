@@ -1,0 +1,16 @@
+note-v2 factor attribution check (COMPUTED from results/2026-10-20-paper-prep-2/banks-compare-output.txt,
+  certified lower bounds of the waterfall B0..B8, gamma free; exact rational arithmetic on those 10-digit bounds)
+  exact solve vs 3/32 split      3.0695555319e-03 -> 3.1432018412e-03   factor 1.023992
+  lambda upper end               3.1432018412e-03 -> 3.2879618267e-03   factor 1.046055
+  S1 bounds                      3.2879618267e-03 -> 3.4332712281e-03   factor 1.044194
+  theta (Platt-Trudgian)         3.4332712281e-03 -> 3.4444621542e-03   factor 1.003260
+  kappa (with Mertens terms)     3.4444621542e-03 -> 3.5167989809e-03   factor 1.021001
+  shift 1 instead of 3/2         3.5167989809e-03 -> 3.0944540478e-03   factor 0.879906
+  primes dividing q              3.0944540478e-03 -> 2.6522966434e-03   factor 0.857113
+  free H                         2.6522966434e-03 -> 4.4673780338e-03   factor 1.684343
+exact product of the 8 factors = 1.4553827052; ratio B8/B0 = 1.4553827052 (equal by construction)
+product of the 7 rounded factors in the brief = 1.45018; ratio = 1.45538; relative difference -0.3573%
+with theta x1.003 added (the factor the brief omits): 1.45453; relative difference -0.0584%
+stated-rounding interval for the 7 factors x theta: [1.42378, 1.48580] contains the ratio: True
+stated-rounding interval for the 7 factors alone: [1.42023, 1.48062] contains the ratio: True
+B8 at q0=10^10: [0.00446737803383399 +/- 1.51e-19]  at 10^10+1: [0.00446737803384182 +/- 3.32e-19]  relative difference [-1.75e-12 +/- 2.75e-15]

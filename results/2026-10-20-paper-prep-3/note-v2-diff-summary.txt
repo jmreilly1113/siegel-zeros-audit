@@ -1,0 +1,44 @@
+note.md (v1, committed cc6eb58, unchanged) vs note-v2.md: diff summary (COMPUTED by diff --strip-trailing-cr; INFERRED summary below)
+v1 sha256 fb72d0a90f5acd11456beaef8202a37e0fe37315d06b8d4abdc27a28bab779f8; v2 sha256 afa9471b3c17bb5a80f376fb134557634bb3a69b1a120d0f61e10998c4508e9a
+lines v1 125, v2 154; diff lines removed 32, added 61
+
+Section headings v1:
+## 1. Statement
+## 2. What the paper proves and what is added here
+## 3. Explicit inputs
+## 4. The direct inequality and the parameter choice
+## 5. Small conductors
+## 6. The final constant
+## 7. Assumptions (everything the constant depends on)
+Section headings v2:
+## 1. Background: Banks's explicit constant
+## 2. Statement
+## 3. Explicit inputs
+## 4. The master inequality, the parameters, and the comparison with Banks
+## 5. Remarks
+## 6. Small conductors
+## 7. The final constant
+## 8. Assumptions (everything the constant depends on)
+
+Changes (by section):
+- Title: "... is effective: c >= 3.39e-3" -> "An explicit constant ... with H free: c >= 4.467e-3 (with Lu-Zaman-Zhao)".
+- Header: adds pointers to banks_compare.py, banks-comparison-v2.md, refs/banks-2610.15483.md; states v1 kept.
+- New section 1 (Background: Banks's explicit constant) replaces v1 section 2 ("What the paper proves and what is added
+  here"). Banks's delta0 = 81/(5888 e^{3/2}) = 3.0696e-3 for q >= 10^10 and, with LZZ, for all q >= 3 (stated rounded as
+  3.0e-3 by Banks). The v1 "Added here" list (which presented effectivity as new) is removed. The word "first" is NOT used
+  (see SUMMARY: needs Joe's judgment).
+- Section 2 (Statement): LZZ figure listed first; "Platt range only" wording; numbers unchanged.
+- Section 3 (Explicit inputs): unchanged except "(= Banks Lemma 4.2)" on the Lemma 6 row.
+- Section 4: "master inequality ... comparison with Banks". Same inequality and table of certified values; adds
+  (i) the statement that this is Banks's Step 3 inequality term for term; (ii) the H <= q remark; (iii) the factor-attribution
+  table (8 rows, including theta x1.003, which the brief's list omitted) with the product check; (iv) one sentence
+  "A further refinement of the accounting is under review and is not used here" (no numbers). Removes "The paper's split of
+  the margin (13/16 + 1/16) is not needed" (replaced by "no fixed split of the margin is used") and "Optimizing over H is
+  worth a factor of about 1.6" (now in the table as x1.68).
+- New section 5 (Remarks): Banks's 12 numeric claims recomputed (src/banks_compare.py); Lemma 3 hypotheses = Banks (3.1),
+  Proposition 3.4.
+- Sections 6-7 (v1 5-6): unchanged in substance; LZZ listed first; v1's context bullet "the nine-page Landau-Siegel argument,
+  on its own, yields an explicit constant" removed.
+- Section 8 (v1 7, Assumptions): unchanged, including item 1 (conditional on the paper's proof being correct).
+Not included (per the brief): the UNREVIEWED device figures; the 3.998e-3 figure; any claim about who identified the
+unstated facts first.

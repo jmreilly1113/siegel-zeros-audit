@@ -794,3 +794,16 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - First run printed a wrong "ratio new/old" (13.47: parsing bug). Fixed by reading the old value as a Fraction and rerun (1.34732, 1.33053).
   - docs/effectivity/derivation-banks-device.md records which inequality changes (§1.2–1.5 only) and that no H ≤ q is needed.
   - tests/test_effectivity_banks_device.py: 6 tests (new ≥ old; device beats every c_q at the same parameters; s = 1 with c_dev = 1/2 reproduces effectivity; weakening c_dev lowers δ₀; side conditions; shift > 2 rejected). Full suite 34 passed.
+- 2026-10-20, paper prep 3, Task 4 (note v2) and the Banks-comparison addendum.
+  - docs/effectivity/banks-comparison-v2.md (v1 kept):
+    - row 21 states that our rows drop Banks's H ≤ q (§7 Step 1), with the reason;
+    - section (a) cites Remark 7.2(vii), the three uses of q ≥ q₀;
+    - the 3.998e-3 result is relabeled "Banks's inequalities with H ≤ q and integer ω relaxed".
+  - COMPUTED: Platt-row side conditions rechecked with H > q₀ noted, all OK (results/2026-10-20-paper-prep-3/banks-v2-platt-side-conditions.txt).
+  - docs/effectivity/note-v2.md, note-v2.tex, note-v2.pdf (TeX Live 2023, latexmk; 5 pages, sha256 6c81065b…; one overfull line fixed with \url). note.md/.tex/.pdf unchanged (sha256 of note.pdf still 5ec6bcd0…).
+  - COMPUTED: the factor-attribution product check is in results/2026-10-20-paper-prep-3/note-v2-factor-check.txt.
+    - Exact product = ratio 1.45538.
+    - The brief's 7 rounded factors give 1.45018 (−0.36%); with θ ×1.003, which the brief omitted, 1.45453 (−0.06%); both within rounding.
+    - B8 at q₀ = 10¹⁰ vs 10¹⁰ + 1 differs by 1.75e-12 relative.
+  - Diff summary: results/2026-10-20-paper-prep-3/note-v2-diff-summary.txt.
+  - Judgment call, flagged for Joe: note-v2 does not say Banks's constant was "first". docs/explicit-constant.md (0.00258 for all q ≥ 3) was public in reviewer-packet-v1 (tag 3a36016, Zenodo 10.5281/zenodo.23269528) on 2026-10-09; Banks is dated 2026-10-11.

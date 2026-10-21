@@ -1,0 +1,21 @@
+v3 deposit metadata vs .zenodo.json at tag reviewer-packet-v3 (COMPUTED)
+record: https://zenodo.org/api/records/23523697 (fetched unauthenticated); .zenodo.json: git show reviewer-packet-v3:.zenodo.json (sha256 038588119b2f5558da690a89dd021fd1b1c5c2d8c6f039b057ee0c0c03572039)
+- title: SAME
+- creators: SAME
+- description: DIFFERENT
+    .zenodo.json: "<p>A machine-checked complement to the existing human write-ups of the OpenAI argument for the uniform exclusion of Landau–Siegel zeros (OpenAI, manuscript dated October 1, 2026; openai/math family 003). Human write-ups: W. D. Banks, arXiv:2610.15483; B. Kerr, arXiv:2610.21099; B. Green, Hexagon 2610.00311v2 (2026-10-17). Not refereed; not a proof of the theorem.</p><p>Contents: (1) the official Lean FRO comparator with nanoda as a second kernel accepts the family's Lean statements with standard axioms only, under a full network block; (2) a Lean proof of the paper's Lemma 3, whose hypotheses equal Banks's Proposition 3.4, condition (3.1), and which certifies a step of OpenAI's and Banks's route; (3) the challenge theorem rerouted through that Lemma 3 and accepted by the comparator with both kernels; (4) an Arb-certified explicit constant, conditional on the paper's proof: (1 − β) log q > 4.467×10⁻³ with Lu–Zaman–Zhao (q ≤ 10¹⁰), or > 3.399×10⁻³ with Platt (q ≤ 4×10⁵) only, compared term by term with Banks's 3.0696×10⁻³; (5) exact small-N checks. Release notes: docs/packet-v3/release-notes-v3.md, including corrections to the v1 methods text.</p>"
+    record      : "<p>A machine-checked complement to the existing human write-ups of the OpenAI argument for the uniform exclusion of Landau–Siegel zeros (OpenAI, manuscript dated October 1, 2026; openai/math family 003). Human write-ups: W. D. Banks, arXiv:2610.15483; B. Kerr, arXiv:2610.21099; B. Green, Hexagon 2610.00311v2 (2026-10-17). Not refereed; not a proof of the theorem.</p><p>Contents: (1) the official Lean FRO comparator with nanoda as a second kernel accepts the family's Lean statements with standard axioms only, under a full network block; (2) a Lean proof of the paper's Lemma 3, whose hypotheses equal Banks's Proposition 3.4, condition (3.1), and which certifies a step of OpenAI's and Banks's route; (3) the challenge theorem rerouted through that Lemma 3 and accepted by the comparator with both kernels; (4) an Arb-certified explicit constant, conditional on the paper's proof: (1 − β) log q &gt; 4.467×10⁻³ with Lu–Zaman–Zhao (q ≤ 10¹⁰), or &gt; 3.399×10⁻³ with Platt (q ≤ 4×10⁵) only, compared term by term with Banks's 3.0696×10⁻³; (5) exact small-N checks. Release notes: docs/packet-v3/release-notes-v3.md, including corrections to the v1 methods text.</p>"
+- license: SAME (record stores it as {"id": ...}; compared on the id)
+- version: SAME
+- upload_type / resource_type: SAME
+- access_right: SAME
+- keywords: SAME
+- related_identifiers (as sets, all fields): SAME
+  .zenodo.json has 6; record has 6
+  added by Zenodo: none; dropped by Zenodo: none
+- references: SAME (neither side sets a "references" field; related works are in related_identifiers)
+- record-only fields (set by Zenodo): ['custom', 'doi', 'publication_date', 'relations']
+  publication_date 2026-10-21; doi 10.5281/zenodo.23523697; relations.version [{"index": 2, "is_last": true, "parent": {"pid_type": "recid", "pid_value": "23269527"}}]
+  custom: {"code:codeRepository": "https://github.com/jmreilly1113/siegel-zeros-audit"}
+- description detail: 2 differing spans: [('replace', '>', '&gt;'), ('replace', '>', '&gt;')]
+  html.unescape(record) == .zenodo.json: True  (INFERRED: Zenodo HTML-escaped ">" as "&gt;"; the rendered text is unchanged)

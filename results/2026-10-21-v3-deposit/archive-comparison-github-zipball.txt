@@ -1,0 +1,22 @@
+v3 deposit: archive comparison (COMPUTED on GitHub's zipball of tag reviewer-packet-v3, NOT on the Zenodo-archived file)
+Zenodo file jmreilly1113/siegel-zeros-audit-reviewer-packet-v3.zip, 13,841,657 bytes, md5 048a6d061b5ddfac7f39d6ba14b56569 (from the record). Its download from zenodo.org ran at about 20 KB/s with repeated truncation (curl error 18) and was not completed; on Joe's instruction the comparison of that file was skipped.
+Reference: git -c core.autocrlf=false -c core.eol=lf archive reviewer-packet-v3 (a first attempt with autocrlf=true produced CRLF files and false differences; discarded).
+GitHub zipball: https://github.com/jmreilly1113/siegel-zeros-audit/archive/refs/tags/reviewer-packet-v3.zip, fetched unauthenticated.
+
+zip: 13835065 bytes, md5 ac25d45770c456de82fcdb30817d8a44 (record checksum md5:048a6d061b5ddfac7f39d6ba14b56569: MISMATCH)
+zip sha256 2395d43a2b0a959e175dfb84a22e4c2f86f77fce294ad3e90adbd06ef38b5781
+zip top-level directories: ['siegel-zeros-audit-reviewer-packet-v3']
+files: zip 1582, git archive 1582
+only in zip: none
+only in git archive: none
+same path, different content: none
+RESULT: IDENTICAL file tree and contents (top-level directory name ignored)
+  contains README.md: True
+  contains CITATION.cff: True
+  contains .zenodo.json: True
+  contains docs/effectivity/note-v2.pdf: True
+  contains docs/effectivity/derivation-banks-device.md: True
+  contains src/effectivity_banks_device.py: True
+  contains results/2026-10-20-effectivity-device/device-output.txt: True
+  contains local/outreach-facts.md: False; any path under local/: False
+  contains refs/banks-2610.15483v1.pdf or .tex: False

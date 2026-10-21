@@ -879,3 +879,20 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Annotated tag reviewer-packet-v3: tag object d1aff7a7e931c7252af4fbb840c3c69af2cf22ba → commit 1053b22, pushed; the remote shows the same object.
   - No GitHub release was created (gh release list shows only v1 and v2-preliminary), so the Zenodo webhook has not been triggered.
   - This entry is a local commit after the tag, not pushed.
+- 2026-10-21, packet v3 Zenodo deposit recorded (read-only checks; nothing posted or edited on Zenodo).
+  - COMPUTED, Zenodo API, unauthenticated, no contact details: https://zenodo.org/api/records/23499651/versions/latest redirects to record 23523697.
+    - Version DOI 10.5281/zenodo.23523697, under concept DOI 10.5281/zenodo.23269527 (index 2, is_last).
+    - Published 2026-10-21; version reviewer-packet-v3; license id apache2.0; resource type software.
+    - File jmreilly1113/siegel-zeros-audit-reviewer-packet-v3.zip, 13,841,657 bytes, md5:048a6d061b5ddfac7f39d6ba14b56569.
+    - Related identifiers (6): isSupplementedBy 10.5281/zenodo.23505836; references arXiv:2610.15483, arXiv:2610.21099, https://hexagonmath.org/2610.00311v2, arXiv:2602.03626, and https://github.com/openai/math/tree/adc7f12….
+    - The deposit came from the GitHub release reviewer-packet-v3, created 2026-10-21T02:40:42Z; not created in this session.
+  - Source: tag object d1aff7a7e931c7252af4fbb840c3c69af2cf22ba → commit 1053b225bd351030ae705354b64297152d40f4e9.
+  - Archive check: results/2026-10-21-v3-deposit/archive-comparison-github-zipball.txt.
+    - The Zenodo-archived zip itself was NOT compared. Zenodo served it at about 20 KB/s with repeated truncation, and Joe said to skip it.
+    - COMPUTED on GitHub's zipball of the tag instead (a different file: 13,835,065 bytes, md5 ac25d457…): identical file tree and contents to `git archive reviewer-packet-v3`, 1,582 files, top-level directory ignored. This needs core.autocrlf=false; with autocrlf=true the reference was CRLF-converted, giving false differences.
+    - The GitHub zipball contains README.md, CITATION.cff, .zenodo.json, note-v2.pdf and the three UNREVIEWED device files; it contains no local/ path and no Banks PDF/TeX.
+    - INFERRED: the archived zip, taken from the same tag, has the same contents. Not verified.
+  - Metadata check, COMPUTED (results/2026-10-21-v3-deposit/metadata-comparison.txt; record saved as zenodo-record-23523697.json):
+    - title, creators, license, version, resource type, access right, keywords and all 6 related identifiers are the same as .zenodo.json at the tag. Nothing was added or dropped.
+    - description differs only by HTML escaping (two ">" stored as "&gt;"); html.unescape(record) equals .zenodo.json.
+    - Zenodo-only fields: doi, publication_date, relations, custom (code:codeRepository = the GitHub repository).

@@ -899,8 +899,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - 2026-10-21, Banks devices round, Task 1 only. results/2026-10-21-banks-devices/task1-which-devices.txt (COMPUTED by reading b231660; nothing rerun):
   - The 2026-10-20 UNREVIEWED run used both devices: (D1) primes dividing q via ½S₀ and ℓ/(2H); (D2) the shift s.
   - s was chosen by search on the grid 1/5, 1/4, …, 2 (step 1/20): s = 31/20 for q₀ = 400,001 (4.5799298821e-3) and s = 29/20 for q₀ = 10¹⁰ + 1 (5.9439667682e-3).
-  - Tasks 2–4 are not started: the input refs/banks-2026-10-21-improved-constants.txt is not present.
-- 2026-10-21, Banks devices round, Tasks 2–4. Input: refs/improved-constants-from-banks-devices.txt (sha256 a680b88e…; 153 lines; `file` calls it Python source). It was read and NOT executed, and is treated as UNREVIEWED third-party input. It does not name its author ("Written 2026-10-21 for the author's AI assistant"); its authorship is as stated by Joe, and the name is withheld pending consent.
+  - Tasks 2–4 are not started: the 2026-10-21 input file is not present yet.
+- 2026-10-21, Banks devices round, Tasks 2–4. Input: the 2026-10-21 input file (received 2026-10-21; sha256 a680b88e…). It was read and NOT executed, and is treated as UNREVIEWED input.
   - Its master inequality (lines 73–80) is the one in src/effectivity_banks_device.py.
   - New src/effectivity_banks_devices.py (s and the device as parameters; downward rounding; vectorized float search, then refinement).
     - Ran `.venv/Scripts/python -I src/effectivity_banks_devices.py` → results/2026-10-21-banks-devices/devices-output.txt. Python 3.14.6, python-flint 0.9.0, numpy 2.5.3.
@@ -914,16 +914,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - docs/effectivity/note-v3.md drafted from note-v2.md (note-v2 unchanged, sha256 c1ff3cba…). The headline constants in the title, §2, §6 and §7 are placeholders pending Joe's approval.
   - Not committed.
 - 2026-10-21, note-v3 (Joe approved the s = 3/2 headline).
-  - Input file received 2026-10-21 (file time 06:27 local): refs/improved-constants-from-banks-devices.txt, 7,455 bytes, 153 lines, sha256 a680b88ef21046ac9fe0c812bc0f23b8209aa0330cdc01bea1fe2a7683627cd7.
-    - It is cited in note-v3 as [S11]: personal communication, 2026-10-21, AI-produced, not checked by its author, with the author's name a TODO pending consent.
-    - It is NOT added to git.
+  - Input file: received 2026-10-21; sha256 a680b88ef21046ac9fe0c812bc0f23b8209aa0330cdc01bea1fe2a7683627cd7. It is NOT added to git.
   - docs/effectivity/note-v3.md and note-v3.tex: headline and §2/§6/§7 constants filled for s = 3/2.
     - LZZ δ₀ > 5.9299e-3 (certified 5.9299071904e-3, q₀ = 10¹⁰+1); c = min(5.9299e-3, 1/5).
     - Platt δ₀ > 4.5797e-3. Joe's brief gave 4.5798e-3, but the certified lower endpoint is 4.5797976819e-3 < 4.5798e-3, so 4.5798e-3 would be a false lower bound; the note rounds down. Flagged to Joe.
     - Argument alone: 7.04e-4 (certified 7.0435116103e-4).
   - The §4 remark gives the s-optimized values for all three q₀; the q₀ = 3 value (7.5971166796e-4) uses s = 2, the endpoint of Banks's Lemma 2.1, pending Joe's check of the lemma's range.
   - The waterfall check now cites results/2026-10-21-banks-devices/waterfall-v3.txt; the δ₀ pointer goes to src/effectivity_banks_devices.py.
-  - note-v3.pdf: 7 pages, no warnings. TeX fixes: the [S11] item label (a bracket after \item read as the label) and the sha256 wrapped for line breaking.
+  - note-v3.pdf: 7 pages, no warnings. TeX fixes: a reference-item label (a bracket after \item read as the label) and a sha256 wrapped for line breaking.
   - note-v2.md/.tex/.pdf unchanged (sha256 c1ff3cba…, 26368a30…, 07a3404a…). release-notes-v3.md left untouched.
 - 2026-10-21: Joe confirmed 4.5797e-3 for the Platt row (rounded down from the certified 4.5797976819e-3) and the other edits. Committed locally, not pushed. The refs/ input file and release-notes-v3.md are excluded.
 - 2026-10-21, note-v3 edit (Joe):
@@ -944,7 +942,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - T7 upstream-drift.txt: openai/math main 1581d4c changes only .github/workflows since fd4aeeb.
   - T8 `python -I scripts/appendix_material.py . results/2026-10-21-paper-prep-4` → appendix/ (A longtable from corpus-189.tsv, C1–C4, D-<config> ×9).
   - T9 `python -I scripts/paper_numbers.py . results/2026-10-21-paper-prep-4` → paper-numbers.json, numbers.tex (37 numbers, each with its source file). All asserts pass: 189 referenced, 189 Lean accepts, 180 + 9 = 189, 7 of 9 in #55, 405/402, 0 configs reaching a hit. tests/test_paper_numbers.py (3 tests). `.venv/Scripts/python -m pytest tests -q`: 41 passed.
-  - T10: committed locally, not pushed. Excluded: refs/improved-constants-from-banks-devices.txt and docs/packet-v3/release-notes-v3.md. refs/nanoda-issue-55-2026-10-21.md is committed (public issue text; names GitHub handles already in this log); drop it before any push if Joe prefers.
+  - T10: committed locally, not pushed. Excluded: the 2026-10-21 input file and docs/packet-v3/release-notes-v3.md. refs/nanoda-issue-55-2026-10-21.md is committed (public issue text; names GitHub handles already in this log); drop it before any push if Joe prefers.
 - 2026-10-21, paper prep 4 follow-up (Joe's five items). New commit; 0ec9399 not amended. Nothing pushed.
   - Item 1: refs/nanoda-issue-55-2026-10-21.md removed from git (`git rm --cached`) and kept untracked locally; it is listed in .git/info/exclude, which is local and not committed. Record of the file:
     - issue https://github.com/ammkrn/nanoda_lib/issues/55, fetched 2026-10-21T12:33:27Z (gh api GET of the issue and its comments, read-only);
@@ -1006,3 +1004,45 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - WSL disk image (ext4.vhdx) compacted with diskpart (`attach vdisk readonly`, `compact vdisk`, `detach`), after `wsl --shutdown`, elevated through a UAC prompt: 59.99 GB → 26.87 GB.
   - C: free space went from 70 GB to 104.2 GB.
   - Checked afterwards: WSL starts; /home/checker/math is at fd4aeeb and clean; lean/.lake/packages is 8.6G; toolchain v4.34.1 present.
+- 2026-10-21, extended replay (Joe's brief: replay the 227 unreferenced configs at fd4aeeb under the 189's pipeline). Output: results/2026-10-21-extended-replay/. Precondition met: the history rewrite is verified (`git log --all -- refs/nanoda-issue-55-2026-10-21.md` lists 0 commits).
+  - New scripts:
+    - wsl-comparator/: 110_provenance.sh, 111_memsample.py, 112_prune.py, 113_nanoda_direct.sh, 114_extended_replay.sh, 115_classify.py, 116_phase1_test.sh, 116b_phase1_repeat.sh, 117_timing.sh.
+    - scripts/: extended_plan.py, manifest_extended.py.
+    - lean-checks/extended-replay/: 233 generated query files.
+    - 67_corpus_run.sh, 75_sbx.sh and 69_corpus_guard.sh are used unchanged.
+  - Phase 0.1:
+    - `bash 110_provenance.sh` → phase0-provenance.tsv. `python -I scripts/manifest_extended.py . results/2026-10-21-extended-replay` → manifest-extended.json, manifest-diff.txt.
+    - COMPUTED: all 28 compared fields are identical to manifest-final.json, including commits, binaries, lake-manifest, the sandbox line, uid, CapEff, NoNewPrivs, the four netblock results, and the WSL kernel 5.15.167.4 (unchanged). STOP (c): no.
+    - First attempt: a false STOP (c) on the sandbox line, caused by my comparison unescaping `\$` on one side only.
+      - Re-derived by hand: both strings come from the same line of 67_corpus_run.sh.
+      - Second method: the file's sha256 5626871e… is the same in git (last changed in 30dbb30, 2026-10-11), on disk and as read from WSL.
+      - Kept as manifest-*-attempt1-escaping-artifact.*. The normalization is now symmetric and the file hash is an explicit check.
+  - Phase 0.2, COMPUTED (phase1/phase0-probe-TalagrandDiscreteConvexity.log, 107_run.sh probe): uid=1000(checker), CapEff 0, NoNewPrivs 1; TCP, AF_INET, AF_INET6 and AF_UNIX all refused (errno 97).
+  - Phase 0.3 (phase0-disk.txt): C: free 104 GB, vhdx 27 GB, WSL used 24 G. INFERRED worst case ~94 G WSL used → ~34 GB free on C:. STOP (d): no.
+  - Phase 0.4 (`python -I scripts/extended_plan.py <clone> . results/2026-10-21-extended-replay lean-checks/extended-replay` → phase0-configs-227.tsv, -summary.txt, phase4-challenge-placeholders.tsv). COMPUTED:
+    - groups P 3, C 21, U 120, S 7, N 76;
+    - shipped nanoda on in 1 (ArtinParabolicIntersections), off in 224, absent in 2 (KadisonRingrose, UniversalTensorSquares);
+    - pilot: ElementaryPositivity, KaplanskyDirectFiniteness, Catalan, ShortEgyptianFractions, OstmannPrimes;
+    - challenge placeholders only in the 3 P configs; 0 configs permit axioms beyond the standard three.
+    - The first generation had two defects, fixed and regenerated before any use (the files were uncommitted and minutes old): `noncomputable section` was not tracked, dropping `OAI.` from a guessed name; and definition_names were missing from the axiom queries.
+  - Phase 1 (phase1-method-test.txt):
+    - Peak memory is sampled from the unit's own unified cgroup, outside the sandbox. memory.peak and MemoryPeak are unavailable, and /usr/bin/time outside the wrapper would time only the client.
+    - COMPUTED: the outcome is identical with and without instrumentation (9 runs). The captured export equals a separately made lean4export export (sha256 c4d926a3…).
+    - INFERRED: the sampler adds ~4–8 s per run (median 39 s vs 31 s plain).
+  - Launch note: the first detached launch of 116 died when the wsl session closed (as on 2026-10-13); relaunched with the session held open 20 s (88_start_queue_driver.sh pattern).
+  - Phase 2 pilot started 2026-10-21 09:48:08: `114_extended_replay.sh phase0-configs-227.tsv <out> 5`. The Windows-side monitor 78 runs alongside.
+- 2026-10-21, note-v3 attribution change (Joe's instruction; the replay ran meanwhile, untouched).
+  - docs/effectivity/note-v3.md and .tex:
+    - [S11] and every mention of it are removed: the TODO, the §1 paragraph, the Assumption 9 clause, the input-file pointer at the top, and the "Primes dividing q" table cell.
+    - The two devices are credited only to Banks, arXiv:2610.15483 [S10]: the shift to Lemma 2.1 (λ ∈ (0,2]); the κ weighting to (2.6); the p | q device to (2.8) and the tail bound in the proof of Lemma 2.1.
+    - New Acknowledgments section, one unnamed sentence: "The use of these two devices in this framework was suggested in private correspondence; all values were independently certified."
+    - No name, initials or affiliation of the correspondent appears.
+  - note-v3.pdf rebuilt (latexmk, TeX Live 2023, in a WSL temp dir): 6 pages, no warnings; sha256 22e54827…. pdftotext contains no S11, TODO, "personal", "consent", the input file name or its hash.
+  - Repo search for anything tying the 2026-10-21 input file to a named person (tracked and ignored files, docs/log.md, results/, git history and commit messages; external/ excluded). No file names its author. Hits:
+    - docs/log.md: five passages described the file or its authorship status, one an expected file name containing a person's name and the date. Rewritten in this commit: the log now keeps only the receipt date (2026-10-21) and the sha256 (a680b88e…).
+    - Committed results/, NOT changed (report only): results/2026-10-21-banks-devices/file-float-agreement.txt line 1 and devices-output.txt line 3 give the file's path (no person).
+    - Code, not changed: src/effectivity_banks_devices.py (path, sha256) and tests/test_effectivity_banks_devices.py (path); no person.
+    - Git history: earlier note-v3 versions (b375a56, 6774440) contain the [S11] "[TODO: author name pending consent]" line, and b375a56's commit message says "[S11] is a personal communication, author name pending consent". No name appears. Both commits are unpushed; not rewritten (not asked).
+    - Not hits: local/outreach-facts.md (gitignored) has an outreach section about Banks's published paper, unrelated to the file; refs/banks-2610.15483v1.tex (gitignored) is the paper itself.
+  - The input file stays untracked permanently: added to .git/info/exclude (local, not committed).
+  - Tests: `.venv/Scripts/python -m pytest tests -q`, 42 passed. Committed locally, not pushed.

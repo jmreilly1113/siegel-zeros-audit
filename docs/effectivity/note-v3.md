@@ -2,9 +2,9 @@
 
 Joseph M. Reilly. **Draft v3 of 2026-10-21, not reviewed by a specialist; constants UNREVIEWED.** Version 2 (`note-v2.md`, `note-v2.tex`, `note-v2.pdf`) and version 1 (`note.md`, `note.tex`, `note.pdf`) are kept unchanged.
 
-- Computation: `src/effectivity_banks_devices.py` (this version); output: `results/2026-10-21-banks-devices/devices-output.txt`; agreement with the input file: `results/2026-10-21-banks-devices/file-float-agreement.txt`; waterfall: `results/2026-10-21-banks-devices/waterfall-v3.txt`. note-v2's pipeline: `src/effectivity.py`, `results/2026-10-20-effectivity/effectivity-output-v2.txt`.
+- Computation: `src/effectivity_banks_devices.py` (this version); output: `results/2026-10-21-banks-devices/devices-output.txt`; waterfall: `results/2026-10-21-banks-devices/waterfall-v3.txt`. note-v2's pipeline: `src/effectivity.py`, `results/2026-10-20-effectivity/effectivity-output-v2.txt`.
 - Comparison with Banks: `src/banks_compare.py`; output: `results/2026-10-20-paper-prep-2/banks-compare-output.txt`; term-by-term table: `docs/effectivity/banks-comparison-v2.md`.
-- Derivation: `docs/effectivity/derivation.md`, with the changes for the two devices in `docs/effectivity/derivation-banks-device.md`. Sources: [S1]–[S11], listed at the end; [S1]–[S8] are as in `docs/effectivity/sources.md`, where the quotations are; [S10] is described in `refs/banks-2610.15483.md`; [S11] is a personal communication (kept locally, not in the repository).
+- Derivation: `docs/effectivity/derivation.md`, with the changes for the two devices in `docs/effectivity/derivation-banks-device.md`. Sources: [S1]–[S10], listed at the end; [S1]–[S8] are as in `docs/effectivity/sources.md`, where the quotations are; [S10] is described in `refs/banks-2610.15483.md`.
 
 ### Author’s note
 
@@ -24,7 +24,11 @@ This note uses the same master inequality as Banks's §7, with H left free, and 
 - the shift s in σ = 1 + s/log X (note-v2 used s = 1). Banks's λ in Lemma 2.1 is our s; our λ is L/log q;
 - the ½S₀ device for the primes dividing q (note-v2 used c_q·log q).
 
-Both devices are Banks's: his Lemma 2.1 and its proof, eqs. (2.3)–(2.8), as used in his §7 [S10]. Their restoration in this note's accounting follows a personal communication dated 2026-10-21 [S11]: an AI-produced text file that its author did not check. It is treated here as UNREVIEWED third-party input; every number in this note was recomputed from the inequality in Arb.
+Both devices are Banks's [S10]:
+- the shift is his Lemma 2.1 (λ ∈ (0, 2]), and the κ weighting it brings is his (2.6);
+- the device for the primes dividing q is his (2.8), with the tail bound in the proof of his Lemma 2.1.
+
+Every number in this note was recomputed from the inequality in Arb.
 
 ## 2. Statement
 
@@ -49,7 +53,7 @@ These bounds are certified in Arb ball arithmetic from exact rational parameters
 | Digamma | ψ((σ+ε)/2) ≤ ψ(3/2) = 2 − γ − 2 log 2 for 1 < σ ≤ 2 | ψ increasing |
 | Mertens | log x + E − 1/(2 log x) < Σ_{p≤x} log p/p (x > 1); Σ_{p≤x} log p/p < log x + E + 1/(2 log x) (x ≥ 319) | Rosser–Schoenfeld Thm 6, (3.21)–(3.22), p. 70, read in the original |
 | Chebyshev | θ(x) < (1 + 7.5·10⁻⁷)x, x > 0 | [S5] Platt–Trudgian Cor. 2 (arXiv numbering) |
-| Primes dividing q | primes p \| q enter Σ_n Λ(n)(1+χ(n))n^(−σ) with weight 1, so the analytic bound controls S₊ + ½S₀; only Σ_{p>H, p\|q} log p/p ≤ (log q)/H remains, with half weight, i.e. ℓ/(2H) | [S10] Lemma 2.1, (2.4)–(2.8); [S11] |
+| Primes dividing q | primes p \| q enter Σ_n Λ(n)(1+χ(n))n^(−σ) with weight 1, so the analytic bound controls S₊ + ½S₀; only Σ_{p>H, p\|q} log p/p ≤ (log q)/H remains, with half weight, i.e. ℓ/(2H) | [S10] (2.8) and the tail bound in the proof of Lemma 2.1 |
 | Lemma 6 | S₂ ≤ 192 M H^(−1/3) U, S₁ ≥ M H^(2/3) U/(4·97²), given N ≥ H and H^(2/3)N^(4/3) ≥ 2·97² | [S1] lines 517–550 (= Banks Lemma 4.2) |
 | Small q | no real zero with σ > 0 for q ≤ 4·10⁵ ([S9]); δ > 1/5 for q ≤ 10¹⁰ | [S9] Thms 10.1–10.2, read in the original; [S2] Theorem 1.1 |
 
@@ -175,9 +179,13 @@ At the paper's own H = 86,713,344 (LZZ range, q₀ = 10¹⁰, s = 3/2, both devi
 6. **Platt–Trudgian Corollary 2,** read in the arXiv version (arXiv:1407.1914, v1, the only version; sha256 in docs/effectivity/sources.md). The published version [S5] was not available to check whether the corollary has the same number there.
 7. **Lemma 12 of arXiv:2511.13898** (a preprint), read in the original. Its reduction steps are taken from that proof; its final inequality is proved here.
 8. **χ(p) = (d/p) for odd p ∤ q, and |d| ≤ q,** as stated in the paper.
-9. **Banks's Lemma 2.1** [S10], read in the original: the shift s ∈ (0, 2] ((2.3), (2.5)–(2.6)) and the ½S₀ device for the primes dividing q ((2.6)–(2.8) and the bound after (2.8)). Their use in this accounting follows [S11], an AI-produced personal communication not checked by its author (UNREVIEWED). Every number here was recomputed from the inequality in Arb, and the file's floating values agree to within 10⁻¹⁵ relative (`results/2026-10-21-banks-devices/file-float-agreement.txt`).
+9. **Banks's two devices** [S10], read in the original: the shift, his Lemma 2.1 (λ ∈ (0, 2], our s); the κ weighting, his (2.6); and the ½S₀ device for the primes dividing q, his (2.8) with the tail bound in the proof of his Lemma 2.1. Every number here was recomputed from the inequality in Arb (UNREVIEWED).
 
 Not used: any unproved hypothesis (GRH or similar), or any floating-point value in a claimed inequality.
+
+## Acknowledgments
+
+The use of these two devices in this framework was suggested in private correspondence; all values were independently certified.
 
 ## References
 
@@ -191,4 +199,3 @@ Not used: any unproved hypothesis (GRH or similar), or any floating-point value 
 - [S8] Elementary facts (no citation): ψ increasing on (0, ∞), ψ(3/2) = 2 − γ − 2 log 2, and log p/p ≤ (log p)/2 for p ≥ 2 (docs/effectivity/sources.md §S8).
 - [S9] D. J. Platt, *Numerical computations concerning the GRH*, Math. Comp. 85 (2016), 3009–3027, doi:10.1090/mcom/3077.
 - [S10] W. D. Banks, *On the OpenAI proof that Landau–Siegel zeros do not exist*, arXiv:2610.15483v1 (2026).
-- [S11] [TODO: author name pending consent], personal communication, 2026-10-21: a text file, AI-produced, not checked by its author (kept locally as `refs/improved-constants-from-banks-devices.txt`, not in the repository; sha256 a680b88ef21046ac9fe0c812bc0f23b8209aa0330cdc01bea1fe2a7683627cd7). UNREVIEWED.

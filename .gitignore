@@ -16,3 +16,6 @@ lean-build/.lake/
 # Third-party preprints under the arXiv non-exclusive license: kept locally, not redistributed
 refs/banks-2610.15483v1.pdf
 refs/banks-2610.15483v1.tex
+
+# Local-only notes (not for the repository: names of people Joe contacts)
+local/

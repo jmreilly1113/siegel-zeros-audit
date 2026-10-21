@@ -816,3 +816,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Discrepancy flagged: Joe gives Green v2 as 2026-10-18; the Hexagon page shows Oct 17, 2026.
   - docs/packet-v3/ (drafts only): README-draft.md (framing "machine-checked complement to existing human write-ups"), related-work.md, lemma3-scope.md, release-notes-v3.md (Part 1 = docs/v2-release-notes.md; Part 2 adds note-v2 and the corpus table).
   - docs/zenodo-v3-metadata.json (draft; Zenodo not contacted): isNewVersionOf 10.5281/zenodo.23499651; isSupplementedBy 10.5281/zenodo.23505836 (inverse of the corpus record's existing isSupplementTo); references Banks, Kerr, Green, LZZ, openai/math adc7f12.
+- 2026-10-20, paper prep 3, Task 6: an outreach facts sheet (facts only, no prose) for three messages Joe writes himself.
+  - Links are pinned to cc6eb58, d55e9d0, 4546335 and 0bddb38; each pinned path was checked to exist at its commit (git cat-file -e).
+  - The sheet was first committed as 16b2f7f (local, never pushed). On Joe's instruction (paper prep 4, Task 1), 16b2f7f was undone with `git reset --soft HEAD~1`, and the sheet moved to the gitignored local/ directory, to keep the names of people contacted out of the repository, as in the 2026-10-09 convention.
+  - Task 7: full test suite 34 passed.

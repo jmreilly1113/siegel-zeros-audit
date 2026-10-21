@@ -1046,3 +1046,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Not hits: local/outreach-facts.md (gitignored) has an outreach section about Banks's published paper, unrelated to the file; refs/banks-2610.15483v1.tex (gitignored) is the paper itself.
   - The input file stays untracked permanently: added to .git/info/exclude (local, not committed).
   - Tests: `.venv/Scripts/python -m pytest tests -q`, 42 passed. Committed locally, not pushed.
+- 2026-10-21: pushed main to origin on Joe's instruction (7748a40..c14e3a3, 8 commits: b375a56 … c14e3a3). Pre-push checks, COMPUTED:
+  - none of the 8 commits touches refs/nanoda-issue-55-2026-10-21.md or the 2026-10-21 input file;
+  - no added line contains an email address (only systemd unit names such as user@1000.service) or the correspondent's name.
+  - The first push attempt failed for lack of a terminal credential prompt; it went through with gh as the credential helper.
+  - Not pushed: Joe's uncommitted edit to release-notes-v3.md, and the extended replay's in-progress run.log and runs/.

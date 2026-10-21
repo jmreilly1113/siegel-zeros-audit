@@ -1,0 +1,33 @@
+# Negative control (b): challenge copy with one hypothesis altered (3 <= q -> 2 <= q) (SiegelZeros, adc7f12). Expected: statements do not match
+# source: results/2026-10-11-corpus-pilot/SiegelZeros-control-altered.log (sha256 08ec2652fc0e4de34be544cd704a479690cc78b9e4ca0752d8e9f756e6ddb7a4); copied 2026-10-21, unchanged
+# challenge diff: results/2026-10-11-corpus-pilot/SiegelZeros-control-altered.challenge-diff.txt (sha256 20975c2c62d643889dd11c8ecb668e9dfc966a2634a5c4a988a347ea4e69a15f):
+== control (b) challenge copy: diff SiegelZeros.lean SiegelZerosAlteredControl.lean
+10c10
+<       ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+---
+>       ∀ (q : ℕ) [NeZero q], 2 ≤ q →
+clone status after removing the control file: ''
+
+== config and diff against the shipped config (as printed in the log)
+== run SiegelZeros-control-altered  2026-10-11 13:29:12
+config: /home/checker/corpus/configs/SiegelZeros-control-altered.json
+{
+  "challenge_module": "ComparatorChallenges.SiegelZerosAlteredControl",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}== no shipped config named SiegelZerosAlteredControl.json (copied challenge)
+
+== Comparator result lines
+uncaught exception: Challenge and solution theorem statement do not match: 'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap'
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 214

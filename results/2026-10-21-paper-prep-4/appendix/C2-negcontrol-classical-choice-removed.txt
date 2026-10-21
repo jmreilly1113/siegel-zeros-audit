@@ -1,0 +1,32 @@
+# Negative control (a): Classical.choice removed from permitted_axioms (SiegelZeros, adc7f12). Expected: rejected
+# source: results/2026-10-11-corpus-pilot/SiegelZeros-control-noChoice.log (sha256 14408fbfc0b41697f5a73b333295fdadea065fe5b5092f18c78aeab022d89f46); copied 2026-10-21, unchanged
+
+== config and diff against the shipped config (as printed in the log)
+== run SiegelZeros-control-noChoice  2026-10-11 13:25:42
+config: /home/checker/corpus/configs/SiegelZeros-control-noChoice.json
+{
+  "challenge_module": "ComparatorChallenges.SiegelZeros",
+  "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+  "theorem_names": [
+    "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+    "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/SiegelZeros.json vs this config
+11d10
+<         "Classical.choice",
+14c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+
+== Comparator result lines
+uncaught exception: Illegal axiom detected: 'Classical.choice'
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 210

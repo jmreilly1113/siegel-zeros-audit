@@ -1,0 +1,32 @@
+Paper prep 4, Task 1: nanoda setting of every Comparator config (COMPUTED; scripts/nanoda_settings.py; json.load)
+
+== fd4aeeb: 416 config files in lean/ComparatorChallenges/; 189 referenced by formalization.yaml
+   key names found: {'enable_nanoda': 414, '': 2}
+   (i) all config files: absent 2, false 412, true 2
+   (ii) referenced configs: false 188, true 1
+   configs with nanoda on: ['ArtinParabolicIntersections', 'TraceIdealTransportSupport']
+   configs with no nanoda key: ['KadisonRingrose', 'UniversalTensorSquares']
+   referenced configs missing on disk: []
+   explicit "enable_nanoda": false: 412 of 416 config files -> no match
+   "402 of 405 ship with nanoda off": (i) off 414 of 416 -> no match; (ii) off 188 of 189 -> no match
+
+== adc7f12: 405 config files in lean/ComparatorChallenges/; 178 referenced by formalization.yaml
+   key names found: {'enable_nanoda': 403, '': 2}
+   (i) all config files: absent 2, false 402, true 1
+   (ii) referenced configs: false 178
+   configs with nanoda on: ['ArtinParabolicIntersections']
+   configs with no nanoda key: ['KadisonRingrose', 'UniversalTensorSquares']
+   referenced configs missing on disk: []
+   explicit "enable_nanoda": false: 402 of 405 config files -> MATCHES 402 of 405
+   "402 of 405 ship with nanoda off": (i) off 404 of 405 -> no match; (ii) off 178 of 178 -> no match
+
+Resolution of "402 of 405 ship with nanoda off":
+- COMPUTED: at adc7f12 there are 405 config files; 402 set "enable_nanoda": false explicitly, 2 have no nanoda key (Comparator's
+  default then applies), 1 sets it true (ArtinParabolicIntersections). So "402 of 405" = config files at adc7f12 with an explicit
+  false. Read as "off by any route" (false or absent) the figure would be 404 of 405.
+- COMPUTED: at fd4aeeb (the corpus commit) there are 416 config files: 412 false, 2 absent, 2 true (ArtinParabolicIntersections,
+  TraceIdealTransportSupport). Of the 189 referenced configs, 188 are false and 1 is true (TraceIdealTransportSupport).
+- INFERRED: the 402/405 figure describes adc7f12, not the corpus commit; at fd4aeeb the matching statement is "412 of 416 set
+  enable_nanoda false explicitly; 2 set it true".
+- This agrees with the earlier record that nealmcb's as-shipped run had nanoda on in 2 of 416 configs (docs/log.md,
+  results/2026-10-19-external-checks-comparison.txt).

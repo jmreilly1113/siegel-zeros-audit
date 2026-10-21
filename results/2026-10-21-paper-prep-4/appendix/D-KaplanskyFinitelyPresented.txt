@@ -1,0 +1,21 @@
+# KaplanskyFinitelyPresented: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-12-corpus-remainder/batch-04/KaplanskyFinitelyPresented-nanoda.log (sha256 94b2df8549d1a9582e6f3ec7832a6c01c71758a9f5617f522b4e091590c4f1dd), lines 33-44 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_0' (355462) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 5min 40.973s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/KaplanskyFinitelyPresented-postfix.log (sha256 0bf78c654bfc03be8a09c66dd274df591ae0f22733d96ba2c1a87761a0236eb9)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 386

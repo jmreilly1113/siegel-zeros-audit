@@ -1,0 +1,39 @@
+Paper prep 4, Task 6: nanoda_lib #55 cross-check (COMPUTED unless marked INFERRED)
+Source: refs/nanoda-issue-55-2026-10-21.md (gh api GET, read-only; issue opened 2026-10-15 by nealmcb, open, 5 comments); nanoda_lib cloned anonymously into the session scratchpad.
+
+(b) The 9 crash configs (crash at 3a24072, pass at f67473b) against #55:
+  OptimalMaxCut: IN THE ISSUE BODY (line 43): "The RoundTables group is DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover, IndependentSets, MinUncut, PerfectCompleteness and OptimalMaxCut; ..."
+  UniqueGamesTheorem: IN THE ISSUE BODY (line 43): "The RoundTables group is DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover, IndependentSets, MinUncut, PerfectCompleteness and OptimalMaxCut; ..."
+  VertexCover: IN THE ISSUE BODY (line 43): "The RoundTables group is DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover, IndependentSets, MinUncut, PerfectCompleteness and OptimalMaxCut; ..."
+  BinPackingGap: IN THE ISSUE BODY (line 43): "The RoundTables group is DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover, IndependentSets, MinUncut, PerfectCompleteness and OptimalMaxCut; ..."
+  IndependentSets: IN THE ISSUE BODY (line 43): "The RoundTables group is DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover, IndependentSets, MinUncut, PerfectCompleteness and OptimalMaxCut; ..."
+  PerfectCompleteness: IN THE ISSUE BODY (line 43): "The RoundTables group is DirectedFeedback, UniqueGamesTheorem, BinPackingGap, VertexCover, IndependentSets, MinUncut, PerfectCompleteness and OptimalMaxCut; ..."
+  Laughlin: IN THE ISSUE BODY (line 37): "| Laughlin, LaughlinPlanar | `OAI.Laughlin.Certificate.computeLDL_21_*_*._proof_1_1` |"
+  KaplanskyFinitelyPresented: NOT in the issue body; appears only in comment 6291244827 (ours) and later comments.
+  GroupRingDeterminant: NOT in the issue body; appears only in comment 6291244827 (ours) and later comments.
+  Count in the issue body: 7 of 9. MATCHES the 7-of-9 figure (results/2026-10-20-paper-prep-3/summary.txt, tables.tex). No STOP.
+  Failing declarations: #55 names them per group (line 34: RoundTables `...Foundations.PCP.RoundTables.sizeFactor_positive`, `...build_size_le`; line 37: Laughlin `OAI.Laughlin.Certificate.computeLDL_21_*_*._proof_1_1`). Our crash logs print only "thread ... has overflowed its stack" and no declaration name, so our runs do not identify the failing declaration; the match above is by config name.
+
+(c) Comments that list the 2 configs not in the issue:
+  - comment 6291244827 by jmreilly1113, 2026-10-20T12:50:34Z (https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6291244827): "**2. KaplanskyFinitelyPresented and GroupRingDeterminant overflow 3a24072 at 16 MiB and pass at 1 GiB, unlike the configs reported above as failing at 1 GiB and 16 GiB.**" (refs file line 155). This is the comment recorded in docs/log.md (2026-10-20, line 610).
+  - comment 6293743601 by nealmcb, 2026-10-20T14:51:48Z, replies to it (the 401/416 used a 1 GiB checker stack).
+
+(d) Ancestry and intervening commits:
+  nanoda_lib master = 9d6964f78d0fa4c93fd22fe956e17afe7e72a441 (2026-10-19 05:57:00 -0700); f67473b is an ancestor of master: yes; 3a24072 is an ancestor of f67473b: yes.
+  Commits 3a24072..f67473b: 14 (subjects below). STACK_SIZE = 16_777_216 (src/lib.rs:23) at 3a24072, f67473b and master 9d6964f; no commit in the range changes it (git log -S STACK_SIZE: none).
+    f67473b 2026-10-15 Merge pull request #54 from ammkrn/panic_parent_declar
+    233aa4a 2026-10-15 chore: improve panic message for missing const
+    e0d76f5 2026-10-13 Merge pull request #52 from ammkrn/toobignums
+    e8a9606 2026-10-13 perf: better support large(r) nats in shl/shr
+    ab1e9c4 2026-10-13 Merge pull request #51 from ammkrn/do_nat_bin_order
+    0e520fd 2026-10-13 perf: tweak imperative semantics of do_nat_bin
+    7357334 2026-10-12 Merge pull request #46 from muneikh/fix-invalid-config-errors
+    9ed8695 2026-10-12 Merge remote-tracking branch 'origin/master' into fix-invalid-config-errors
+    f99dbb2 2026-10-12 chore: bump semver
+    e3927cc 2026-10-12 Merge pull request #48 from ammkrn/proj_ty_name
+    ee55844 2026-10-12 chore: check proj ty_name as other kernels do
+    3cc92e2 2026-10-11 Return errors for invalid checker configurations
+    0f88b5f 2026-10-11 Merge pull request #45 from ammkrn/irrel_option
+    9f2b66c 2026-10-11 feat: 3-valued proof irrelevance
+  Subjects mentioning stack size, recursion or threading: none by keyword. INFERRED: 0e520fd "perf: tweak imperative semantics of do_nat_bin" (PR #51) is the change to the do_nat_bin evaluation order behind #49/#55 (results/2026-10-19-external-checks-comparison.txt: #49 "do_nat_bin reduced its second argument before checking the first"), i.e. the recursion-depth fix; e8a9606 (large nats in shl/shr, PR #52) also touches Nat reduction.
+  Commits after f67473b on master: 2: 9d6964f Merge pull request #58 from ammkrn/nat_fvar;6239144 perf: remove vestigial has_fvars check;

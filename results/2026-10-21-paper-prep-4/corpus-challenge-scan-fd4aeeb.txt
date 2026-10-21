@@ -1,0 +1,8 @@
+# Phase 3B challenge-file scan at fd4aeeb (HEURISTIC; rerun 2026-10-21)
+script sha256: dd5e2d5b4e02bb0d11d9dec5f12183a172550968a6fae95c40cd205fce008124
+challenge files: 416
+  sorry outside theorem/lemma: DefocusingNLS.lean:107 (in def sobolevProduct): by sorry⟩
+  sorry outside theorem/lemma: ElementaryPositivity.lean:61 (in def elementaryPositivityWitness): sorry
+  axiom declaration: HarmonicGrowth.lean:97: 
+  sorry outside theorem/lemma: NavierStokesVelocity.lean:454 (in def half): w.liftOn word (by sorry)
+totals: {'sorry outside theorem/lemma': 3, 'axiom declaration': 1}

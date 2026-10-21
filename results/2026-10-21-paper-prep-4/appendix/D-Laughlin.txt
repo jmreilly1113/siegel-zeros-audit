@@ -1,0 +1,21 @@
+# Laughlin: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-12-corpus-remainder/batch-05/Laughlin-nanoda.log (sha256 ee639eaba9b57c5a418608f8cece9b976d816b66a401d29127889af92424c598), lines 33-44 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_1' (434420) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 1h 10min 49.995s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/Laughlin-postfix.log (sha256 b193f1cf77f7071fd9262ccf95deb6d311473bb07037ed983d41fa7a8a1c8d10)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 4737

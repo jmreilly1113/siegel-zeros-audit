@@ -1,0 +1,21 @@
+# BinPackingGap: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-12-corpus-remainder/batch-05/BinPackingGap-nanoda.log (sha256 455f5398e75fe9b7f6ebe8e45871afe95f0cf2eb86470dff48ab221ee86705c6), lines 33-44 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_2' (447715) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 3min 4.006s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/BinPackingGap-postfix.log (sha256 84ea6c3a9ad5e9f48863382ae2ac3a7dd91a48e085157b75f580f7a2cd6ec723)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 264

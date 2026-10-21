@@ -1,0 +1,8 @@
+# Retained builds and caches in WSL, 2026-10-21 08:38:36 (du -sh, read-only)
+8.6G	/home/checker/math/lean/.lake/packages
+8.3M	/home/checker/math/lean/.lake
+ls: cannot access '/home/checker/math/lean/.lake/build': No such file or directory
+3.0G	/home/checker/.elan
+593M	/root/tools
+1.1M	/home/checker/corpus
+filesystem:   24G     1007G

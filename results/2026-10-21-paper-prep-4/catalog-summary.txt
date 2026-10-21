@@ -1,0 +1,24 @@
+Paper prep 4, Task 2: catalog consistency at fd4aeeb (COMPUTED; Phase 1 rerun 2026-10-21, script 61_corpus_catalog.py unchanged)
+Inputs: results/2026-10-21-paper-prep-4/corpus-catalog-fd4aeeb-findings.txt and .tsv (run against /home/checker/math at fd4aeeb, clean).
+The original Phase 1 run (results/2026-10-11-corpus-catalog*.tsv/-findings.txt) was at adc7f12; this rerun replaces nothing.
+
+yaml version v0.4; sources 173; main_results 200; distinct configs 189; review status {'status': 'unchecked'}
+entries: 200; config exists 200; file exists 200; declaration keyword+name text match (heuristic) 200; full-name namespace match (heuristic) 198
+configs on disk: 416; referenced: 189
+sources: 173; id resolves to an existing file: 173; not resolving: []
+yaml/config/file mismatches: entries whose config or file is missing: ('200', '200', '200') (entries, config exists, file exists) -> none missing
+  declaration matches are HEURISTIC text matches: declaration keyword+name text match (heuristic) 200; full-name namespace match (heuristic) 198
+full-name heuristic miss (text match found): OAI.Grothendieck.elementary_expansion in OAI/CategoryTheory/Globular/ElementaryExpansion.lean
+full-name heuristic miss (text match found): OAI.StrongThinTree.strongThinTree in OAI/Combinatorics/ThinTrees/Main.lean
+configs on disk not referenced: 227 (= 416 - 189)
+references with no config on disk: 0 []
+unresolved sources[].id paths: 0 []
+withdrawn-manuscript check (yaml lines matching each title):
+  withdrawn "Weil classes on split abelian eightfolds": yaml lines matching /weil.*eightfold|eightfold.*weil/i: 0 []
+  withdrawn "Kuga-Satake algebraicity": yaml lines matching /kuga.?satake/i: 0 []
+  withdrawn "rational Hodge for products of K3 surfaces": yaml lines matching /hodge.*k3|k3.*hodge/i: 0 []
+  preprint folders that still exist for those titles (not referenced by the yaml):
+  preprints/ folders matching: ['Algebraicity-of-Weil-classes-on-split-abelian-eightfolds-September-18-2026']
+  preprints/ folders matching: ['Algebraic-Kuga-Satake-correspondences-and-Hodge-conjectures-on-a-K3-quadratic-locus-September-30-2026', 'A-Conditional-Reduction-for-Algebraic-Kuga-Satake-Correspondences-September-10-2026', 'Algebraicity-of-Kuga-Satake-Correspondences-for-K3-Surfaces-October-3-2026']
+  preprints/ folders matching: ['Algebraic-Kuga-Satake-correspondences-and-Hodge-conjectures-on-a-K3-quadratic-locus-September-30-2026', 'The-rational-Hodge-conjecture-for-products-of-K3-surfaces-October-4-2026']
+configs referenced by more than one yaml entry: 8

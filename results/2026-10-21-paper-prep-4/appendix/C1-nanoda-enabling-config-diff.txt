@@ -1,0 +1,32 @@
+# Representative nanoda-enabling config: the corpus copy differs from the shipped config only in enable_nanoda
+# source: results/2026-10-11-corpus-headline/DirichletSevenEighths-nanoda.log (sha256 230b15e88d049901c1f5c9b6744018eb6f3e5fd67157ed362ad11b698d18a87e); copied 2026-10-21, unchanged
+
+== config and diff against the shipped config (as printed in the log)
+== run DirichletSevenEighths  2026-10-11 22:49:43
+config: /home/checker/corpus/configs/DirichletSevenEighths-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.DirichletSevenEighths",
+  "solution_module": "OAI.NumberTheory.DirichletL.Nonvanishing",
+  "theorem_names": [
+    "OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}== diff shipped /home/checker/math/lean/ComparatorChallenges/DirichletSevenEighths.json vs this config
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+
+== Comparator result lines
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 963

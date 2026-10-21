@@ -1,0 +1,64 @@
+Paper prep 4, Task 7: upstream drift of openai/math since fd4aeeb (COMPUTED; report only; nothing rerun)
+Fresh anonymous clone (git clone --filter=blob:none --no-checkout https://github.com/openai/math.git) into the session scratchpad, 2026-10-21T12:37Z; the existing checkouts were not touched.
+
+(a) main = 1581d4cbdd69a0faf34b2089614fe2a814316a6a, committed 2026-10-12 14:55:24 -0700 ("Merge pull request #2 from openai/codex/lock-prs"). fd4aeeb is an ancestor; 2 commits since:
+    1581d4c 2026-10-12 Merge pull request #2 from openai/codex/lock-prs
+    2710f99 2026-10-12 Lock pull request conversations when opened
+
+(b) git diff --stat fd4aeeb..main:
+    whole repository:  1 file changed, 20 insertions(+)
+       .github/workflows/lock-prs.yml | 20 ++++++++++++++++++++
+       1 file changed, 20 insertions(+)
+    lean/formalization.yaml: no change
+    lean/ComparatorChallenges/: no change
+    lean/OAI/ (all solution modules, which include those of the 189 referenced configs): no change
+    lean/ as a whole: no change
+
+(c) Configs added / removed / nanoda setting changed since fd4aeeb: none (no file under lean/ changed; git diff --name-status fd4aeeb main -- lean/ComparatorChallenges is empty: '0' lines).
+
+(d) HarmonicGrowth / NavierStokesVelocity: unchanged (0 changed files).
+
+(e) Issues (gh api GET, read-only):
+    openai/math: has_issues=false (issues disabled); open_issues_count 0. Its issue/PR list holds only PRs:
+      #2 [closed] PR 2026-10-12 Automatically lock new PR conversations
+      #1 [closed] PR 2026-10-08 Update manuscripts and Lean formalizations
+    No issue in openai/math can mention HarmonicGrowth, NavierStokesVelocity, nanoda or kernel.
+    Supplement, grwtsk/openai-math (the public audit tracker where this project posted; search/issues, titles/numbers/dates only):
+      'HarmonicGrowth': 3 hits
+        #3 [open] issue 2026-10-09 [AUDIT.01] Enforce the Comparator challenge/solution boundary
+        #5 [open] issue 2026-10-09 [AUDIT.03] Audit transitive axioms for every selected solution theorem
+        #2 [open] issue 2026-10-09 [AUDIT.00] Audit the formal trust surface of the OpenAI math release
+      'NavierStokesVelocity': 0 hits
+      'nanoda': 6 hits
+        #40 [open] issue 2026-10-09 [AUDIT.35] Independently audit the uniform Landau–Siegel real-zero gap
+        #23 [open] issue 2026-10-09 [AUDIT.20] Expand independent-kernel verification beyond the two enabled Comparator configurations
+        #42 [open] PR 2026-10-09 Audit-only: run selected theorem primary-kernel probes
+        #27 [open] issue 2026-10-09 [AUDIT.24] Reconstruct Comparator runs under the full clean-room and sandbox trust contract
+        #14 [open] issue 2026-10-09 [AUDIT.12] Independently replay the quasi-Riemann-Hypothesis declaration
+        #2 [open] issue 2026-10-09 [AUDIT.00] Audit the formal trust surface of the OpenAI math release
+      'kernel': 25 hits
+        #42 [open] PR 2026-10-09 Audit-only: run selected theorem primary-kernel probes
+        #21 [open] PR 2026-10-09 Audit: add deterministic integrity and rigor scanner
+        #23 [open] issue 2026-10-09 [AUDIT.20] Expand independent-kernel verification beyond the two enabled Comparator configurations
+        #27 [open] issue 2026-10-09 [AUDIT.24] Reconstruct Comparator runs under the full clean-room and sandbox trust contract
+        #13 [open] issue 2026-10-09 [AUDIT.11] Generate theorem-level trust receipts
+        #2 [open] issue 2026-10-09 [AUDIT.00] Audit the formal trust surface of the OpenAI math release
+        #40 [open] issue 2026-10-09 [AUDIT.35] Independently audit the uniform Landau–Siegel real-zero gap
+        #5 [open] issue 2026-10-09 [AUDIT.03] Audit transitive axioms for every selected solution theorem
+        #14 [open] issue 2026-10-09 [AUDIT.12] Independently replay the quasi-Riemann-Hypothesis declaration
+        #11 [open] issue 2026-10-09 [AUDIT.09] Audit metaprogramming, `run_tac`, and custom elaboration in proofs
+        #26 [open] issue 2026-10-09 [AUDIT.23] Restore explicit binder discipline where `autoImplicit` is re-enabled
+        #10 [open] issue 2026-10-09 [AUDIT.08] Run hostile theorem-statement and vacuity review
+        #7 [open] issue 2026-10-09 [AUDIT.05] Build a clean replay and public CI matrix for Comparator targets
+        #60 [closed] PR 2026-10-09 Audit-only: capture Genesis integrity evidence and correction packages
+        #58 [closed] PR 2026-10-09 Audit-only: preserve integrity and rigor evidence
+        #17 [open] issue 2026-10-09 [AUDIT.15] Audit the Kaplansky direct-finiteness prescribed-witness chain
+        #24 [open] issue 2026-10-09 [AUDIT.21] Align the default Lake target with theorem-level sharding and bounded reproducibility
+        #39 [open] issue 2026-10-09 [AUDIT.34] Establish minimal import closure and ambient elaboration receipts
+        #32 [open] issue 2026-10-09 [AUDIT.29] Publish signed immutable release manifests and artifact attestations
+        #41 [closed] PR 2026-10-09 Audit-only: add bounded theorem-closure receipts
+        #34 [open] issue 2026-10-09 [AUDIT.31] Grade causal independence separately from model production, originality, and publication order
+        #49 [closed] PR 2026-10-09 Audit-only: bind Comparator targets to transitive solution closures
+        #57 [closed] PR 2026-10-09 Audit-only: measure Landau–Siegel proof-route closure overlap
+        #54 [closed] PR 2026-10-09 Audit-only: replay quasi-Riemann theorem types and transitive axioms
+        #55 [closed] PR 2026-10-09 Audit-only: replay the Kaplansky prescribed-witness chain

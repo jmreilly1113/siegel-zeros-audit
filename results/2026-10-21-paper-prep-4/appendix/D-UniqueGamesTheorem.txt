@@ -1,0 +1,21 @@
+# UniqueGamesTheorem: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-11-corpus-headline/UniqueGamesTheorem-nanoda.log (sha256 3ee39d9e9b27e8249f465f19c716a1d4fc401a1de9e1e5e511a832a78b54e358), lines 33-44 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_1' (22090) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 4min 56.974s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/UniqueGamesTheorem-postfix.log (sha256 0427b28bb8142607e909a7489bce3254f3ce2c4d5efebb58c6486e0bdeb96be0)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 363

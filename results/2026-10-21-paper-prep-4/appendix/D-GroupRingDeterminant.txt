@@ -1,0 +1,21 @@
+# GroupRingDeterminant: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-12-corpus-remainder/batch-04/GroupRingDeterminant-nanoda.log (sha256 6acd1bdf5e1004aa562ea6f43b556e78cbc333db7f4f79208fe9704a6be98721), lines 33-44 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_1' (357844) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 5min 51.609s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/GroupRingDeterminant-postfix.log (sha256 3b76e32ff3e0633494c0ee7a298f9153f23216c6f0fd2aafa8005cbd28753851)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 403

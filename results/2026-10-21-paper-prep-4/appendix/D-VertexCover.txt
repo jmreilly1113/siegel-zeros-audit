@@ -1,0 +1,21 @@
+# VertexCover: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-11-corpus-headline/VertexCover-nanoda.log (sha256 462309da088147d42f6a58405aa2e23b3319b25c5bc24dc09b12fd1041346519), lines 35-46 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_2' (29872) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 4min 3.694s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/VertexCover-postfix.log (sha256 e71f19dc28dbb684ea16165be8585cb81cf8dda7677a4d04b4378d9b89f8729a)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 243

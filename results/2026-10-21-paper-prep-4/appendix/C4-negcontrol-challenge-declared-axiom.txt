@@ -1,0 +1,78 @@
+# Negative control (c): challenge-declared axiom used by the solution (HarmonicGrowth, fd4aeeb). Expected: illegal axiom
+# solution source diff: results/2026-10-20-paper-prep/wsl/task2d-control-diff.txt (sha256 a55d7b45510be62026614a2254748a65f13f6115ceebfca3854bd6ecade16b6d):
+== negative-control solution: diff ComparatorChallenges/HarmonicGrowth.lean /home/checker/math/lean/ComparatorChallenges/HarmonicGrowthNegControl.lean
+102c102,103
+< theorem main : MainClaim := mainStatement
+---
+> theorem main : MainClaim := by
+>   exact mainStatement
+sha256 b93f8a04e1ccfe742d43aeb45be4b87d9c014c758596b931a7f25436d3159ad1
+clone status after removing the control file: ''
+
+# run with shipped settings
+# source: results/2026-10-20-paper-prep/wsl/task2d-negcontrol-shipped.log (sha256 106e147be417af1883848b177a742e3fa4b9619d4072cb7109103ed5cd1e94a1); copied 2026-10-21, unchanged
+
+== config and diff against the shipped config (as printed in the log)
+== run HarmonicGrowth-negcontrol-shipped  mode plain  2026-10-20 14:57:49
+config: /home/checker/corpus/pp/HarmonicGrowth-negcontrol-shipped.json
+{
+  "challenge_module": "ComparatorChallenges.HarmonicGrowth",
+  "solution_module": "ComparatorChallenges.HarmonicGrowthNegControl",
+  "theorem_names": [
+    "OAI.HarmonicCounterexample.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/HarmonicGrowth.json vs this config
+3c3
+<     "solution_module": "OAI.Geometry.HarmonicGrowth.Main",
+---
+>     "solution_module": "ComparatorChallenges.HarmonicGrowthNegControl",
+(diff exit 1)
+
+== Comparator result lines
+uncaught exception: Illegal axiom detected: 'OAI.HarmonicCounterexample.mainStatement'
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 86
+
+# run with nanoda settings
+# source: results/2026-10-20-paper-prep/wsl/task2d-negcontrol-nanoda.log (sha256 8d2caf6e83761a8277d539573926d23642c6d8584f58dbf109ba3c57bc92cb7a); copied 2026-10-21, unchanged
+
+== config and diff against the shipped config (as printed in the log)
+== run HarmonicGrowth-negcontrol-nanoda  mode plain  2026-10-20 14:59:17
+config: /home/checker/corpus/pp/HarmonicGrowth-negcontrol-nanoda.json
+{
+  "challenge_module": "ComparatorChallenges.HarmonicGrowth",
+  "solution_module": "ComparatorChallenges.HarmonicGrowthNegControl",
+  "theorem_names": [
+    "OAI.HarmonicCounterexample.main"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/HarmonicGrowth.json vs this config
+3c3
+<     "solution_module": "OAI.Geometry.HarmonicGrowth.Main",
+---
+>     "solution_module": "ComparatorChallenges.HarmonicGrowthNegControl",
+13c13
+<     "enable_nanoda": false
+---
+>     "enable_nanoda": true
+(diff exit 1)
+
+== Comparator result lines
+uncaught exception: Illegal axiom detected: 'OAI.HarmonicCounterexample.mainStatement'
+COMPARATOR EXIT CODE: 1
+DURATION_SECONDS: 79

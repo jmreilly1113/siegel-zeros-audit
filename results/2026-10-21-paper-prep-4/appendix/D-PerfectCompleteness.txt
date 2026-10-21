@@ -1,0 +1,21 @@
+# PerfectCompleteness: nanoda 3a24072 crash (corpus run) and nanoda f67473b accept (unofficial batch)
+# 3a24072 log: results/2026-10-12-corpus-remainder/batch-07/PerfectCompleteness-nanoda.log (sha256 80a5956b452f1af657981b480426f759d7216de0bdfbeb4121e66461f1d35a45), lines 33-44 (excerpt, 12 lines)
+Running nanoda kernel on solution
+
+thread 'thread_3' (98263) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+nanoda kernel rejected the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+uncaught exception: nanoda exited with 134
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 4min 46.290s
+COMPARATOR EXIT CODE: 1
+
+# f67473b log: results/2026-10-20-nanoda-postfix-f67473b/PerfectCompleteness-postfix.log (sha256 591a2ae6d0a6927e0743de60892970e8da616db3f3293ec54f18f2de84ac5c3b)
+nanoda kernel accepts the solution
+Lean default kernel accepts the solution
+Your solution is okay!
+COMPARATOR EXIT CODE: 0
+DURATION_SECONDS: 350

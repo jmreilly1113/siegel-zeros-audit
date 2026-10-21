@@ -1,0 +1,105 @@
+{
+  "openai_math": {
+    "adc7f12": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+    "fd4aeeb": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "main_2026_10_21": "1581d4cbdd69a0faf34b2089614fe2a814316a6a (only .github/workflows changed since fd4aeeb)",
+    "source": "results/2026-10-20-paper-prep/manifest.json; results/2026-10-21-paper-prep-4/upstream-drift.txt"
+  },
+  "lean_toolchain": {
+    "file": "leanprover/lean4:v4.34.1 (identical at adc7f12, fd4aeeb, main)",
+    "lean": "Lean 4.34.1, commit 5045d0056413266e57c625dcd7c365b10e377c52, x86_64-unknown-linux-gnu, Release",
+    "elan": "4.2.4 (227caca13 2026-08-25)",
+    "source": "task4-provenance-commands.txt; results/2026-10-11-corpus-provenance.txt"
+  },
+  "lake_manifest": {
+    "sha256": "cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794",
+    "identical_at": [
+      "adc7f12",
+      "fd4aeeb",
+      "main 1581d4c"
+    ],
+    "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "packages": 42,
+    "source": "results/2026-10-20-paper-prep/task4-provenance-commands.txt"
+  },
+  "comparator": {
+    "commit": "d03acab154d269c06e60e4de7e4cc85deebff94b",
+    "tag": "v4.34.0",
+    "binary_sha256": "afa65e57a1770f5961efe7681626a9a1cd99705262421658abd30b705f66e4a2",
+    "source": "task4-provenance-commands.txt"
+  },
+  "exporter": {
+    "name": "lean4export",
+    "commit": "076e8e57707e813375e8f9da8bf989799ace9680",
+    "tag": "v4.34.0",
+    "binary_sha256": "8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1",
+    "role": "Comparator's only Lake dependency; both kernels consume its output (docs/paper/independence.md)",
+    "source": "Comparator lake-manifest.json at d03acab; task4-provenance-commands.txt"
+  },
+  "nanoda_3a24072": {
+    "commit": "3a2407216ee84a75f9e1aead6803d0578be06ae7",
+    "cargo_version": "0.4.19",
+    "checker_thread_stack": "16 MiB, explicit (src/lib.rs STACK_SIZE; src/tc.rs:160 .stack_size)",
+    "binary_sha256": "897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714",
+    "source": "results/2026-10-08-lean-comparator-nanoda-netblock.txt; 2026-10-11-corpus-provenance.txt"
+  },
+  "nanoda_f67473b": {
+    "commit": "f67473ba5f9397266f89c7852082c9c914b5d219",
+    "binary_sha256": "be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5",
+    "used_for": "results/2026-10-20-nanoda-postfix-f67473b only (not the table)",
+    "stack": "STACK_SIZE 16_777_216 (src/lib.rs:23), unchanged from 3a24072",
+    "cargo_version": "0.4.24",
+    "source": "results/2026-10-20-nanoda-postfix-f67473b/build.log and SUMMARY.txt; results/2026-10-21-paper-prep-4/nanoda55-crosscheck.txt"
+  },
+  "landrun": {
+    "commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "git_describe": "v0.1.17-4-g811cfff",
+    "self_reported_version": "0.1.18",
+    "binary_sha256": "5f6fd588dbdf5116969c3dee3fee52ba7f46aa80df2bb58277326a9186e736de",
+    "source": "task4-provenance-commands.txt"
+  },
+  "platform": {
+    "windows": "10.0.26200.9457 (Windows 11 Home)",
+    "wsl": "2.4.11.0",
+    "wsl_kernel": "5.15.167.4-microsoft-standard-WSL2",
+    "wsl_kernel_recorded_2026_10_08": "5.15.167.4-microsoft-standard-WSL2 (results/2026-10-08-lean-comparator-wsl.txt)",
+    "distro": "Ubuntu 24.04.5 LTS",
+    "systemd": "255 (255.4-1ubuntu8.18)",
+    "landlock": "kernel < 6.7: Landlock cannot restrict network (v1 reproduce.md); network blocked by seccomp instead"
+  },
+  "sandbox": {
+    "wrapper_command_line": "sudo -u checker -H env XDG_RUNTIME_DIR=/run/user/$UID_C DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID_C/bus bash -lc \"...; systemd-run --property=\"RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET\" --user --wait --pipe --collect -E PATH=\"\\$PATH\" --working-directory \"\\$(pwd)\" -- timeout --signal=TERM --kill-after=60 $TMO bash -c 'lake env comparator $CFG'\"",
+    "note": "$TMO = timeout in seconds (7200 for corpus runs); $CFG = config path; comparator then runs each subprocess under landrun (Main.lean buildLandrunArgs)",
+    "source": "wsl-comparator/67_corpus_run.sh (lines 21-26)"
+  },
+  "identity_and_network_self_test": {
+    "adc7f12 shipped, full block (2026-10-20)": {
+      "log": "results/2026-10-20-paper-prep-2/wsl/task3-SiegelZeros-adc7f12-shipped.log",
+      "id": "uid=1000(checker) gid=1000(checker) groups=1000(checker)",
+      "CapEff": "0000000000000000",
+      "NoNewPrivs": "1",
+      "kernel": "5.15.167.4-microsoft-standard-WSL2",
+      "netblock": {
+        "tcp 1.1.1.1:443": "bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol",
+        "python AF_INET udp socket": "OSError: [Errno 97] Address family not supported by protocol",
+        "python AF_INET6 socket": "OSError: [Errno 97] Address family not supported by protocol",
+        "python AF_UNIX socket": "OSError: [Errno 97] Address family not supported by protocol"
+      }
+    },
+    "fd4aeeb nanoda copy, post-hoc (2026-10-20)": {
+      "log": "results/2026-10-20-paper-prep/wsl/task4-SiegelZeros-posthoc.log",
+      "id": "uid=1000(checker) gid=1000(checker) groups=1000(checker)",
+      "CapEff": "0000000000000000",
+      "NoNewPrivs": "1",
+      "kernel": "5.15.167.4-microsoft-standard-WSL2",
+      "netblock": {
+        "tcp 1.1.1.1:443": "bash: line 1: /dev/tcp/1.1.1.1/443: Address family not supported by protocol",
+        "python AF_INET udp socket": "OSError: [Errno 97] Address family not supported by protocol",
+        "python AF_INET6 socket": "OSError: [Errno 97] Address family not supported by protocol",
+        "python AF_UNIX socket": "OSError: [Errno 97] Address family not supported by protocol"
+      }
+    },
+    "note": "Corpus replay logs do not print id; these two runs used the same wrapper with the payload in 108_inner.sh/107_inner.sh. Earlier probe: results/2026-10-11-corpus-runas-2.txt (uid=1000(checker))."
+  },
+  "missing_fields": []
+}

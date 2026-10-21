@@ -1,0 +1,440 @@
+stage	kind	config	wall_seconds	max_build_jobs	WSL_disk_used_max_G	log
+pilot adc7f12	replay nanoda-3a24072+Lean	EditApproximation	545	9947	39	results/2026-10-11-corpus-pilot/EditApproximation-nanoda.log
+pilot adc7f12	build	EditApproximation	2417	9947	39	results/2026-10-11-corpus-pilot/EditApproximation.prebuild.log
+pilot adc7f12	replay nanoda-3a24072+Lean	QuasiRiemannHypothesis	1015	8924	33	results/2026-10-11-corpus-pilot/QuasiRiemannHypothesis-nanoda.log
+pilot adc7f12	build	QuasiRiemannHypothesis	885	7061	33	results/2026-10-11-corpus-pilot/QuasiRiemannHypothesis.prebuild.log
+pilot adc7f12	replay nanoda-3a24072+Lean	SiegelZeros	920	9242	24	results/2026-10-11-corpus-pilot/SiegelZeros-nanoda.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	DirichletSevenEighths	963	8924	39	results/2026-10-11-corpus-headline/DirichletSevenEighths-nanoda.log
+headline fd4aeeb	build	DirichletSevenEighths	21	11869	39	results/2026-10-11-corpus-headline/DirichletSevenEighths.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	EuclideanFiveColor	345	8993	53	results/2026-10-11-corpus-headline/EuclideanFiveColor-nanoda.log
+headline fd4aeeb	build	EuclideanFiveColor	360	8994	53	results/2026-10-11-corpus-headline/EuclideanFiveColor.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	ExactFourier	243	8974	52	results/2026-10-11-corpus-headline/ExactFourier-nanoda.log
+headline fd4aeeb	build	ExactFourier	518	8975	52	results/2026-10-11-corpus-headline/ExactFourier.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	HarmonicGrowth	640	8959	53	results/2026-10-11-corpus-headline/HarmonicGrowth-nanoda.log
+headline fd4aeeb	build	HarmonicGrowth	599	8960	53	results/2026-10-11-corpus-headline/HarmonicGrowth.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	HeckeSevenEighths	946	8924	39	results/2026-10-11-corpus-headline/HeckeSevenEighths-nanoda.log
+headline fd4aeeb	build	HeckeSevenEighths	15	11870	39	results/2026-10-11-corpus-headline/HeckeSevenEighths.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	MahlerConjecture	263	8924	51	results/2026-10-11-corpus-headline/MahlerConjecture-nanoda.log
+headline fd4aeeb	build	MahlerConjecture	296	9153	51	results/2026-10-11-corpus-headline/MahlerConjecture.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	MatrixFields	2893	9277	49	results/2026-10-11-corpus-headline/MatrixFields-nanoda.log
+headline fd4aeeb	build	MatrixFields	1687	9278	49	results/2026-10-11-corpus-headline/MatrixFields.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	MatrixMultiplication	202	9433	51	results/2026-10-11-corpus-headline/MatrixMultiplication-nanoda.log
+headline fd4aeeb	build	MatrixMultiplication	761	9434	51	results/2026-10-11-corpus-headline/MatrixMultiplication.prebuild.log
+headline fd4aeeb	build	NavierStokesVelocity-query	633	9076	54	results/2026-10-11-corpus-headline/NavierStokesVelocity-query.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	OptimalMaxCut	441	9295	42	results/2026-10-11-corpus-headline/OptimalMaxCut-nanoda.log
+headline fd4aeeb	replay Lean-only (shipped config)	OptimalMaxCut	438	9295	42	results/2026-10-11-corpus-headline/OptimalMaxCut-shipped.log
+headline fd4aeeb	build	OptimalMaxCut	1307	9296	42	results/2026-10-11-corpus-headline/OptimalMaxCut.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	PlaneColoring	58	8932	53	results/2026-10-11-corpus-headline/PlaneColoring-nanoda.log
+headline fd4aeeb	build	PlaneColoring	149	8933	53	results/2026-10-11-corpus-headline/PlaneColoring.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	SymmetricMahlerEquality	307	8924	51	results/2026-10-11-corpus-headline/SymmetricMahlerEquality-nanoda.log
+headline fd4aeeb	build	SymmetricMahlerEquality	113	9161	51	results/2026-10-11-corpus-headline/SymmetricMahlerEquality.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	SymmetricPolar	299	8969	52	results/2026-10-11-corpus-headline/SymmetricPolar-nanoda.log
+headline fd4aeeb	build	SymmetricPolar	408	8970	52	results/2026-10-11-corpus-headline/SymmetricPolar.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	UniformFourier	87	9012	52	results/2026-10-11-corpus-headline/UniformFourier-nanoda.log
+headline fd4aeeb	build	UniformFourier	271	9013	52	results/2026-10-11-corpus-headline/UniformFourier.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	UniqueGamesTheorem	301	9401	45	results/2026-10-11-corpus-headline/UniqueGamesTheorem-nanoda.log
+headline fd4aeeb	replay Lean-only (shipped config)	UniqueGamesTheorem	314	9401	45	results/2026-10-11-corpus-headline/UniqueGamesTheorem-shipped.log
+headline fd4aeeb	build	UniqueGamesTheorem	1012	9402	45	results/2026-10-11-corpus-headline/UniqueGamesTheorem.prebuild.log
+headline fd4aeeb	replay nanoda-3a24072+Lean	VertexCover	248	9274	47	results/2026-10-11-corpus-headline/VertexCover-nanoda.log
+headline fd4aeeb	replay Lean-only (shipped config)	VertexCover	183	9274	47	results/2026-10-11-corpus-headline/VertexCover-shipped.log
+headline fd4aeeb	build	VertexCover	725	9275	47	results/2026-10-11-corpus-headline/VertexCover.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	AbhyankarSathaye	30	1618	48	results/2026-10-12-corpus-remainder/batch-01/AbhyankarSathaye-nanoda.log
+remainder batch-01	build	AbhyankarSathaye	25	1619	48	results/2026-10-12-corpus-remainder/batch-01/AbhyankarSathaye.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	AmplitudeDamping	259	8958	56	results/2026-10-12-corpus-remainder/batch-01/AmplitudeDamping-nanoda.log
+remainder batch-01	build	AmplitudeDamping	315	8959	56	results/2026-10-12-corpus-remainder/batch-01/AmplitudeDamping.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ArnoldCounterexample	1603	8959	57	results/2026-10-12-corpus-remainder/batch-01/ArnoldCounterexample-nanoda.log
+remainder batch-01	build	ArnoldCounterexample	811	8960	57	results/2026-10-12-corpus-remainder/batch-01/ArnoldCounterexample.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ArtinCAT0	128	8943	50	results/2026-10-12-corpus-remainder/batch-01/ArtinCAT0-nanoda.log
+remainder batch-01	build	ArtinCAT0	219	8944	50	results/2026-10-12-corpus-remainder/batch-01/ArtinCAT0.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	AsymptoticallyMinimalLittlewood	208	8947	51	results/2026-10-12-corpus-remainder/batch-01/AsymptoticallyMinimalLittlewood-nanoda.log
+remainder batch-01	build	AsymptoticallyMinimalLittlewood	246	8948	51	results/2026-10-12-corpus-remainder/batch-01/AsymptoticallyMinimalLittlewood.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	BackwardIntertwiners	205	8946	50	results/2026-10-12-corpus-remainder/batch-01/BackwardIntertwiners-nanoda.log
+remainder batch-01	build	BackwardIntertwiners	254	8947	50	results/2026-10-12-corpus-remainder/batch-01/BackwardIntertwiners.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	BipartiteCrossing	74	2575	54	results/2026-10-12-corpus-remainder/batch-01/BipartiteCrossing-nanoda.log
+remainder batch-01	build	BipartiteCrossing	292	2576	54	results/2026-10-12-corpus-remainder/batch-01/BipartiteCrossing.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	BoundedRecovery	341	8950	52	results/2026-10-12-corpus-remainder/batch-01/BoundedRecovery-nanoda.log
+remainder batch-01	replay Lean-only (shipped config)	BoundedRecovery	288	8950	52	results/2026-10-12-corpus-remainder/batch-01/BoundedRecovery-shipped.log
+remainder batch-01	build	BoundedRecovery	334	8951	52	results/2026-10-12-corpus-remainder/batch-01/BoundedRecovery.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	BoundedTreewidthL1	127	8956	56	results/2026-10-12-corpus-remainder/batch-01/BoundedTreewidthL1-nanoda.log
+remainder batch-01	build	BoundedTreewidthL1	284	8957	56	results/2026-10-12-corpus-remainder/batch-01/BoundedTreewidthL1.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	C0Absorption	195	8957	55	results/2026-10-12-corpus-remainder/batch-01/C0Absorption-nanoda.log
+remainder batch-01	build	C0Absorption	247	8958	55	results/2026-10-12-corpus-remainder/batch-01/C0Absorption.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CHObstruction	52	8938	49	results/2026-10-12-corpus-remainder/batch-01/CHObstruction-nanoda.log
+remainder batch-01	build	CHObstruction	224	8939	49	results/2026-10-12-corpus-remainder/batch-01/CHObstruction.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CartierChartCompactnessSupport	142	3287	48	results/2026-10-12-corpus-remainder/batch-01/CartierChartCompactnessSupport-nanoda.log
+remainder batch-01	build	CartierChartCompactnessSupport	49	3288	48	results/2026-10-12-corpus-remainder/batch-01/CartierChartCompactnessSupport.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CharacterVarietiesAllSeamsSupport	74	3172	54	results/2026-10-12-corpus-remainder/batch-01/CharacterVarietiesAllSeamsSupport-nanoda.log
+remainder batch-01	build	CharacterVarietiesAllSeamsSupport	2490	3173	54	results/2026-10-12-corpus-remainder/batch-01/CharacterVarietiesAllSeamsSupport.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ChoicelessPolynomialTime	233	8949	53	results/2026-10-12-corpus-remainder/batch-01/ChoicelessPolynomialTime-nanoda.log
+remainder batch-01	build	ChoicelessPolynomialTime	385	8950	53	results/2026-10-12-corpus-remainder/batch-01/ChoicelessPolynomialTime.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CirculantHadamard	274	8991	51	results/2026-10-12-corpus-remainder/batch-01/CirculantHadamard-nanoda.log
+remainder batch-01	build	CirculantHadamard	104	8992	51	results/2026-10-12-corpus-remainder/batch-01/CirculantHadamard.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CliqueFreeLog	160	8954	54	results/2026-10-12-corpus-remainder/batch-01/CliqueFreeLog-nanoda.log
+remainder batch-01	build	CliqueFreeLog	157	8955	54	results/2026-10-12-corpus-remainder/batch-01/CliqueFreeLog.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CommonBasesFPRAS	139	8924	48	results/2026-10-12-corpus-remainder/batch-01/CommonBasesFPRAS-nanoda.log
+remainder batch-01	build	CommonBasesFPRAS	280	8925	48	results/2026-10-12-corpus-remainder/batch-01/CommonBasesFPRAS.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CommutingDerivations	38	1695	48	results/2026-10-12-corpus-remainder/batch-01/CommutingDerivations-nanoda.log
+remainder batch-01	build	CommutingDerivations	31	1696	48	results/2026-10-12-corpus-remainder/batch-01/CommutingDerivations.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CompactBanach	272	8951	49	results/2026-10-12-corpus-remainder/batch-01/CompactBanach-nanoda.log
+remainder batch-01	build	CompactBanach	112	8952	49	results/2026-10-12-corpus-remainder/batch-01/CompactBanach.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CompleteCrossing	93	3440	54	results/2026-10-12-corpus-remainder/batch-01/CompleteCrossing-nanoda.log
+remainder batch-01	build	CompleteCrossing	81	3441	54	results/2026-10-12-corpus-remainder/batch-01/CompleteCrossing.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ConjugatePoints	385	8942	51	results/2026-10-12-corpus-remainder/batch-01/ConjugatePoints-nanoda.log
+remainder batch-01	build	ConjugatePoints	390	8943	51	results/2026-10-12-corpus-remainder/batch-01/ConjugatePoints.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CoordinateSweeps	332	8957	58	results/2026-10-12-corpus-remainder/batch-01/CoordinateSweeps-nanoda.log
+remainder batch-01	build	CoordinateSweeps	289	8958	58	results/2026-10-12-corpus-remainder/batch-01/CoordinateSweeps.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CourtadeKumar	276	8966	59	results/2026-10-12-corpus-remainder/batch-01/CourtadeKumar-nanoda.log
+remainder batch-01	build	CourtadeKumar	184	8967	59	results/2026-10-12-corpus-remainder/batch-01/CourtadeKumar.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CriticalSK	242	8958	58	results/2026-10-12-corpus-remainder/batch-01/CriticalSK-nanoda.log
+remainder batch-01	build	CriticalSK	240	8959	58	results/2026-10-12-corpus-remainder/batch-01/CriticalSK.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CriticalZ3	118	8957	56	results/2026-10-12-corpus-remainder/batch-01/CriticalZ3-nanoda.log
+remainder batch-01	build	CriticalZ3	325	8958	56	results/2026-10-12-corpus-remainder/batch-01/CriticalZ3.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	CycleDecomposition	195	8957	58	results/2026-10-12-corpus-remainder/batch-01/CycleDecomposition-nanoda.log
+remainder batch-01	build	CycleDecomposition	400	8958	58	results/2026-10-12-corpus-remainder/batch-01/CycleDecomposition.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	DaugavetModuli	145	8951	52	results/2026-10-12-corpus-remainder/batch-01/DaugavetModuli-nanoda.log
+remainder batch-01	build	DaugavetModuli	275	8952	52	results/2026-10-12-corpus-remainder/batch-01/DaugavetModuli.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	DeligneDrinfeld	284	8944	52	results/2026-10-12-corpus-remainder/batch-01/DeligneDrinfeld-nanoda.log
+remainder batch-01	build	DeligneDrinfeld	665	8945	52	results/2026-10-12-corpus-remainder/batch-01/DeligneDrinfeld.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	DiamondDistortion	140	8955	55	results/2026-10-12-corpus-remainder/batch-01/DiamondDistortion-nanoda.log
+remainder batch-01	build	DiamondDistortion	385	8956	55	results/2026-10-12-corpus-remainder/batch-01/DiamondDistortion.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	DixmierAllDiscrete	158	8962	49	results/2026-10-12-corpus-remainder/batch-01/DixmierAllDiscrete-nanoda.log
+remainder batch-01	build	DixmierAllDiscrete	107	8963	49	results/2026-10-12-corpus-remainder/batch-01/DixmierAllDiscrete.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	DoublingHilbert	214	8935	49	results/2026-10-12-corpus-remainder/batch-01/DoublingHilbert-nanoda.log
+remainder batch-01	build	DoublingHilbert	138	8936	49	results/2026-10-12-corpus-remainder/batch-01/DoublingHilbert.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	EntangledGames	170	8953	53	results/2026-10-12-corpus-remainder/batch-01/EntangledGames-nanoda.log
+remainder batch-01	build	EntangledGames	374	8954	53	results/2026-10-12-corpus-remainder/batch-01/EntangledGames.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	EuclideanRamsey	257	8951	52	results/2026-10-12-corpus-remainder/batch-01/EuclideanRamsey-nanoda.log
+remainder batch-01	build	EuclideanRamsey	279	8952	52	results/2026-10-12-corpus-remainder/batch-01/EuclideanRamsey.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ForestSpace	125	8943	50	results/2026-10-12-corpus-remainder/batch-01/ForestSpace-nanoda.log
+remainder batch-01	build	ForestSpace	201	8944	50	results/2026-10-12-corpus-remainder/batch-01/ForestSpace.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	GaussianReplacement	312	8958	57	results/2026-10-12-corpus-remainder/batch-01/GaussianReplacement-nanoda.log
+remainder batch-01	build	GaussianReplacement	351	8959	57	results/2026-10-12-corpus-remainder/batch-01/GaussianReplacement.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	GotsmanLinial	84	3205	48	results/2026-10-12-corpus-remainder/batch-01/GotsmanLinial-nanoda.log
+remainder batch-01	build	GotsmanLinial	38	3206	48	results/2026-10-12-corpus-remainder/batch-01/GotsmanLinial.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	GrahamSpherical	87	2675	48	results/2026-10-12-corpus-remainder/batch-01/GrahamSpherical-nanoda.log
+remainder batch-01	build	GrahamSpherical	45	2676	48	results/2026-10-12-corpus-remainder/batch-01/GrahamSpherical.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	IndependentProducts	182	8945	50	results/2026-10-12-corpus-remainder/batch-01/IndependentProducts-nanoda.log
+remainder batch-01	build	IndependentProducts	228	8946	50	results/2026-10-12-corpus-remainder/batch-01/IndependentProducts.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	InfiniteMatroid	94	8948	51	results/2026-10-12-corpus-remainder/batch-01/InfiniteMatroid-nanoda.log
+remainder batch-01	build	InfiniteMatroid	221	8949	51	results/2026-10-12-corpus-remainder/batch-01/InfiniteMatroid.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	KaplanskyQuasitrace	356	3741	59	results/2026-10-12-corpus-remainder/batch-01/KaplanskyQuasitrace-nanoda.log
+remainder batch-01	build	KaplanskyQuasitrace	331	3742	59	results/2026-10-12-corpus-remainder/batch-01/KaplanskyQuasitrace.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	LiebThirring	352	8961	59	results/2026-10-12-corpus-remainder/batch-01/LiebThirring-nanoda.log
+remainder batch-01	replay Lean-only (shipped config)	LiebThirring	316	8961	59	results/2026-10-12-corpus-remainder/batch-01/LiebThirring-shipped.log
+remainder batch-01	build	LiebThirring	402	8962	59	results/2026-10-12-corpus-remainder/batch-01/LiebThirring.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	LogBrunnMinkowski	367	8924	48	results/2026-10-12-corpus-remainder/batch-01/LogBrunnMinkowski-nanoda.log
+remainder batch-01	build	LogBrunnMinkowski	343	8925	48	results/2026-10-12-corpus-remainder/batch-01/LogBrunnMinkowski.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	MarkovType	179	8924	53	results/2026-10-12-corpus-remainder/batch-01/MarkovType-nanoda.log
+remainder batch-01	build	MarkovType	200	9131	53	results/2026-10-12-corpus-remainder/batch-01/MarkovType.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	MatchingEntropy	159	8941	49	results/2026-10-12-corpus-remainder/batch-01/MatchingEntropy-nanoda.log
+remainder batch-01	build	MatchingEntropy	112	8942	49	results/2026-10-12-corpus-remainder/batch-01/MatchingEntropy.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	MetricEntropyDuality	48	2244	48	results/2026-10-12-corpus-remainder/batch-01/MetricEntropyDuality-nanoda.log
+remainder batch-01	build	MetricEntropyDuality	46	2245	48	results/2026-10-12-corpus-remainder/batch-01/MetricEntropyDuality.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	MidpointLenses	125	8934	49	results/2026-10-12-corpus-remainder/batch-01/MidpointLenses-nanoda.log
+remainder batch-01	build	MidpointLenses	135	8935	49	results/2026-10-12-corpus-remainder/batch-01/MidpointLenses.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	Nagata	199	3332	56	results/2026-10-12-corpus-remainder/batch-01/Nagata-nanoda.log
+remainder batch-01	build	Nagata	182	3333	56	results/2026-10-12-corpus-remainder/batch-01/Nagata.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	OneWayLiveness	57	8939	49	results/2026-10-12-corpus-remainder/batch-01/OneWayLiveness-nanoda.log
+remainder batch-01	build	OneWayLiveness	125	8940	49	results/2026-10-12-corpus-remainder/batch-01/OneWayLiveness.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	PettyProjectionVolume	311	8956	56	results/2026-10-12-corpus-remainder/batch-01/PettyProjectionVolume-nanoda.log
+remainder batch-01	build	PettyProjectionVolume	471	8957	56	results/2026-10-12-corpus-remainder/batch-01/PettyProjectionVolume.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ProjectionCounterexample	176	3089	48	results/2026-10-12-corpus-remainder/batch-01/ProjectionCounterexample-nanoda.log
+remainder batch-01	build	ProjectionCounterexample	50	3090	48	results/2026-10-12-corpus-remainder/batch-01/ProjectionCounterexample.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ProjectionVolume	179	8952	51	results/2026-10-12-corpus-remainder/batch-01/ProjectionVolume-nanoda.log
+remainder batch-01	replay Lean-only (shipped config)	ProjectionVolume	212	8952	51	results/2026-10-12-corpus-remainder/batch-01/ProjectionVolume-shipped.log
+remainder batch-01	build	ProjectionVolume	135	8953	51	results/2026-10-12-corpus-remainder/batch-01/ProjectionVolume.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	QACParity	270	8944	50	results/2026-10-12-corpus-remainder/batch-01/QACParity-nanoda.log
+remainder batch-01	build	QACParity	136	8945	50	results/2026-10-12-corpus-remainder/batch-01/QACParity.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	QuadricBundles	333	8957	57	results/2026-10-12-corpus-remainder/batch-01/QuadricBundles-nanoda.log
+remainder batch-01	build	QuadricBundles	462	8958	57	results/2026-10-12-corpus-remainder/batch-01/QuadricBundles.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	QuantitativeVanDerWaerden	169	9038	50	results/2026-10-12-corpus-remainder/batch-01/QuantitativeVanDerWaerden-nanoda.log
+remainder batch-01	build	QuantitativeVanDerWaerden	151	9039	50	results/2026-10-12-corpus-remainder/batch-01/QuantitativeVanDerWaerden.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	RecursivePotentials	199	8935	49	results/2026-10-12-corpus-remainder/batch-01/RecursivePotentials-nanoda.log
+remainder batch-01	build	RecursivePotentials	270	8936	49	results/2026-10-12-corpus-remainder/batch-01/RecursivePotentials.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	RegularParity	171	8945	50	results/2026-10-12-corpus-remainder/batch-01/RegularParity-nanoda.log
+remainder batch-01	build	RegularParity	156	8946	50	results/2026-10-12-corpus-remainder/batch-01/RegularParity.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	RyserCovering	84	8924	48	results/2026-10-12-corpus-remainder/batch-01/RyserCovering-nanoda.log
+remainder batch-01	build	RyserCovering	201	9141	48	results/2026-10-12-corpus-remainder/batch-01/RyserCovering.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	RyserOddExtensions	86	8924	48	results/2026-10-12-corpus-remainder/batch-01/RyserOddExtensions-nanoda.log
+remainder batch-01	build	RyserOddExtensions	62	9143	48	results/2026-10-12-corpus-remainder/batch-01/RyserOddExtensions.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	Saxl	391	8961	58	results/2026-10-12-corpus-remainder/batch-01/Saxl-nanoda.log
+remainder batch-01	build	Saxl	461	8962	58	results/2026-10-12-corpus-remainder/batch-01/Saxl.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SecondKahnKalai	49	3251	48	results/2026-10-12-corpus-remainder/batch-01/SecondKahnKalai-nanoda.log
+remainder batch-01	build	SecondKahnKalai	57	3252	48	results/2026-10-12-corpus-remainder/batch-01/SecondKahnKalai.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SensitivitySeparation	51	8965	55	results/2026-10-12-corpus-remainder/batch-01/SensitivitySeparation-nanoda.log
+remainder batch-01	build	SensitivitySeparation	141	8966	55	results/2026-10-12-corpus-remainder/batch-01/SensitivitySeparation.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SeymourSecondNeighborhood	57	1871	48	results/2026-10-12-corpus-remainder/batch-01/SeymourSecondNeighborhood-nanoda.log
+remainder batch-01	build	SeymourSecondNeighborhood	41	1872	48	results/2026-10-12-corpus-remainder/batch-01/SeymourSecondNeighborhood.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SingleFold	242	8951	52	results/2026-10-12-corpus-remainder/batch-01/SingleFold-nanoda.log
+remainder batch-01	build	SingleFold	331	8952	52	results/2026-10-12-corpus-remainder/batch-01/SingleFold.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SteinitzBergstrom	335	8952	54	results/2026-10-12-corpus-remainder/batch-01/SteinitzBergstrom-nanoda.log
+remainder batch-01	build	SteinitzBergstrom	308	8953	54	results/2026-10-12-corpus-remainder/batch-01/SteinitzBergstrom.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SubsphereCurrent	271	8948	51	results/2026-10-12-corpus-remainder/batch-01/SubsphereCurrent-nanoda.log
+remainder batch-01	build	SubsphereCurrent	381	8949	51	results/2026-10-12-corpus-remainder/batch-01/SubsphereCurrent.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	SurfaceConeCandidateSupport	267	8934	49	results/2026-10-12-corpus-remainder/batch-01/SurfaceConeCandidateSupport-nanoda.log
+remainder batch-01	build	SurfaceConeCandidateSupport	482	8935	49	results/2026-10-12-corpus-remainder/batch-01/SurfaceConeCandidateSupport.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	Tachikawa	453	8954	57	results/2026-10-12-corpus-remainder/batch-01/Tachikawa-nanoda.log
+remainder batch-01	build	Tachikawa	1000	8955	57	results/2026-10-12-corpus-remainder/batch-01/Tachikawa.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TalagrandDiscreteConvexity	27	1590	48	results/2026-10-12-corpus-remainder/batch-01/TalagrandDiscreteConvexity-nanoda.log
+remainder batch-01	build	TalagrandDiscreteConvexity	39	1591	48	results/2026-10-12-corpus-remainder/batch-01/TalagrandDiscreteConvexity.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TalagrandExpectationThreshold	28	1601	48	results/2026-10-12-corpus-remainder/batch-01/TalagrandExpectationThreshold-nanoda.log
+remainder batch-01	build	TalagrandExpectationThreshold	40	1602	48	results/2026-10-12-corpus-remainder/batch-01/TalagrandExpectationThreshold.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ThompsonNonamenability	114	3082	49	results/2026-10-12-corpus-remainder/batch-01/ThompsonNonamenability-nanoda.log
+remainder batch-01	build	ThompsonNonamenability	80	3083	49	results/2026-10-12-corpus-remainder/batch-01/ThompsonNonamenability.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	ThorpWeightedCompatibility	205	8957	55	results/2026-10-12-corpus-remainder/batch-01/ThorpWeightedCompatibility-nanoda.log
+remainder batch-01	build	ThorpWeightedCompatibility	182	8958	55	results/2026-10-12-corpus-remainder/batch-01/ThorpWeightedCompatibility.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TingleySphereIsometry	60	2432	48	results/2026-10-12-corpus-remainder/batch-01/TingleySphereIsometry-nanoda.log
+remainder batch-01	build	TingleySphereIsometry	63	2433	48	results/2026-10-12-corpus-remainder/batch-01/TingleySphereIsometry.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TorsionFreeHyperbolic	140	8952	53	results/2026-10-12-corpus-remainder/batch-01/TorsionFreeHyperbolic-nanoda.log
+remainder batch-01	build	TorsionFreeHyperbolic	276	8953	53	results/2026-10-12-corpus-remainder/batch-01/TorsionFreeHyperbolic.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TraceIdealTransportSupport	175	8924	48	results/2026-10-12-corpus-remainder/batch-01/TraceIdealTransportSupport-nanoda.log
+remainder batch-01	build	TraceIdealTransportSupport	49	8927	48	results/2026-10-12-corpus-remainder/batch-01/TraceIdealTransportSupport.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TwoWayComplementation	56	8942	49	results/2026-10-12-corpus-remainder/batch-01/TwoWayComplementation-nanoda.log
+remainder batch-01	build	TwoWayComplementation	192	8943	49	results/2026-10-12-corpus-remainder/batch-01/TwoWayComplementation.prebuild.log
+remainder batch-01	replay nanoda-3a24072+Lean	TwoWayDeterminization	64	8964	50	results/2026-10-12-corpus-remainder/batch-01/TwoWayDeterminization-nanoda.log
+remainder batch-01	build	TwoWayDeterminization	82	8965	50	results/2026-10-12-corpus-remainder/batch-01/TwoWayDeterminization.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	BoundedTreePotentials	114	8969	50	results/2026-10-12-corpus-remainder/batch-02/BoundedTreePotentials-nanoda.log
+remainder batch-02	build	BoundedTreePotentials	489	8970	50	results/2026-10-12-corpus-remainder/batch-02/BoundedTreePotentials.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	Brennan	302	8961	48	results/2026-10-12-corpus-remainder/batch-02/Brennan-nanoda.log
+remainder batch-02	build	Brennan	398	8962	48	results/2026-10-12-corpus-remainder/batch-02/Brennan.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	BrennanSharp	203	8970	48	results/2026-10-12-corpus-remainder/batch-02/BrennanSharp-nanoda.log
+remainder batch-02	build	BrennanSharp	115	8971	48	results/2026-10-12-corpus-remainder/batch-02/BrennanSharp.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	CompleteCrouzeix	314	8971	53	results/2026-10-12-corpus-remainder/batch-02/CompleteCrouzeix-nanoda.log
+remainder batch-02	build	CompleteCrouzeix	564	8972	53	results/2026-10-12-corpus-remainder/batch-02/CompleteCrouzeix.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	ComplexCancellation	240	8978	54	results/2026-10-12-corpus-remainder/batch-02/ComplexCancellation-nanoda.log
+remainder batch-02	build	ComplexCancellation	232	8979	54	results/2026-10-12-corpus-remainder/batch-02/ComplexCancellation.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	DirectCrouzeix	382	8965	48	results/2026-10-12-corpus-remainder/batch-02/DirectCrouzeix-nanoda.log
+remainder batch-02	build	DirectCrouzeix	441	8966	48	results/2026-10-12-corpus-remainder/batch-02/DirectCrouzeix.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	FinitisticAsymmetry	838	9511	58	results/2026-10-12-corpus-remainder/batch-02/FinitisticAsymmetry-nanoda.log
+remainder batch-02	build	FinitisticAsymmetry	188	9512	58	results/2026-10-12-corpus-remainder/batch-02/FinitisticAsymmetry.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	FoulkesHowe	218	8986	57	results/2026-10-12-corpus-remainder/batch-02/FoulkesHowe-nanoda.log
+remainder batch-02	build	FoulkesHowe	216	8987	57	results/2026-10-12-corpus-remainder/batch-02/FoulkesHowe.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	GaussianMoat	265	8964	49	results/2026-10-12-corpus-remainder/batch-02/GaussianMoat-nanoda.log
+remainder batch-02	build	GaussianMoat	342	8965	49	results/2026-10-12-corpus-remainder/batch-02/GaussianMoat.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	GaussianPropeller	295	8970	52	results/2026-10-12-corpus-remainder/batch-02/GaussianPropeller-nanoda.log
+remainder batch-02	build	GaussianPropeller	434	8971	52	results/2026-10-12-corpus-remainder/batch-02/GaussianPropeller.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	GrothendieckElementaryExpansion	160	8981	56	results/2026-10-12-corpus-remainder/batch-02/GrothendieckElementaryExpansion-nanoda.log
+remainder batch-02	replay Lean-only (shipped config)	GrothendieckElementaryExpansion	59	8981	56	results/2026-10-12-corpus-remainder/batch-02/GrothendieckElementaryExpansion-shipped.log
+remainder batch-02	build	GrothendieckElementaryExpansion	652	8982	56	results/2026-10-12-corpus-remainder/batch-02/GrothendieckElementaryExpansion.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	HadwigerCounterexample	180	9211	59	results/2026-10-12-corpus-remainder/batch-02/HadwigerCounterexample-nanoda.log
+remainder batch-02	build	HadwigerCounterexample	619	9212	59	results/2026-10-12-corpus-remainder/batch-02/HadwigerCounterexample.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	KahlerSplitting	273	8969	51	results/2026-10-12-corpus-remainder/batch-02/KahlerSplitting-nanoda.log
+remainder batch-02	build	KahlerSplitting	508	8970	51	results/2026-10-12-corpus-remainder/batch-02/KahlerSplitting.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	LipschitzEquivalence	217	8983	57	results/2026-10-12-corpus-remainder/batch-02/LipschitzEquivalence-nanoda.log
+remainder batch-02	build	LipschitzEquivalence	550	8984	57	results/2026-10-12-corpus-remainder/batch-02/LipschitzEquivalence.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	LittleFinitistic	775	3010	58	results/2026-10-12-corpus-remainder/batch-02/LittleFinitistic-nanoda.log
+remainder batch-02	build	LittleFinitistic	908	3011	58	results/2026-10-12-corpus-remainder/batch-02/LittleFinitistic.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	LogspaceEquality	238	8962	51	results/2026-10-12-corpus-remainder/batch-02/LogspaceEquality-nanoda.log
+remainder batch-02	build	LogspaceEquality	460	8963	51	results/2026-10-12-corpus-remainder/batch-02/LogspaceEquality.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	MatrixRemoval	132	8984	56	results/2026-10-12-corpus-remainder/batch-02/MatrixRemoval-nanoda.log
+remainder batch-02	build	MatrixRemoval	182	8985	56	results/2026-10-12-corpus-remainder/batch-02/MatrixRemoval.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	MemoryPrecision	229	9011	53	results/2026-10-12-corpus-remainder/batch-02/MemoryPrecision-nanoda.log
+remainder batch-02	build	MemoryPrecision	218	9012	53	results/2026-10-12-corpus-remainder/batch-02/MemoryPrecision.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	OneTapeSpace	200	8972	52	results/2026-10-12-corpus-remainder/batch-02/OneTapeSpace-nanoda.log
+remainder batch-02	build	OneTapeSpace	161	8973	52	results/2026-10-12-corpus-remainder/batch-02/OneTapeSpace.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	PinnedDistances	246	8970	52	results/2026-10-12-corpus-remainder/batch-02/PinnedDistances-nanoda.log
+remainder batch-02	build	PinnedDistances	368	8971	52	results/2026-10-12-corpus-remainder/batch-02/PinnedDistances.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	PlanarFirstPassage	178	3463	57	results/2026-10-12-corpus-remainder/batch-02/PlanarFirstPassage-nanoda.log
+remainder batch-02	build	PlanarFirstPassage	309	3464	57	results/2026-10-12-corpus-remainder/batch-02/PlanarFirstPassage.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	ProjectionMoments	317	8969	50	results/2026-10-12-corpus-remainder/batch-02/ProjectionMoments-nanoda.log
+remainder batch-02	replay Lean-only (shipped config)	ProjectionMoments	335	8969	50	results/2026-10-12-corpus-remainder/batch-02/ProjectionMoments-shipped.log
+remainder batch-02	build	ProjectionMoments	359	8970	50	results/2026-10-12-corpus-remainder/batch-02/ProjectionMoments.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	RationalHitting	250	8976	55	results/2026-10-12-corpus-remainder/batch-02/RationalHitting-nanoda.log
+remainder batch-02	build	RationalHitting	618	8977	55	results/2026-10-12-corpus-remainder/batch-02/RationalHitting.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	ReflexiveFixedPoints	164	9009	51	results/2026-10-12-corpus-remainder/batch-02/ReflexiveFixedPoints-nanoda.log
+remainder batch-02	build	ReflexiveFixedPoints	205	9010	51	results/2026-10-12-corpus-remainder/batch-02/ReflexiveFixedPoints.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	SelfSimilar	194	8980	55	results/2026-10-12-corpus-remainder/batch-02/SelfSimilar-nanoda.log
+remainder batch-02	build	SelfSimilar	462	8981	55	results/2026-10-12-corpus-remainder/batch-02/SelfSimilar.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	SignedFiniteBand	277	8962	49	results/2026-10-12-corpus-remainder/batch-02/SignedFiniteBand-nanoda.log
+remainder batch-02	build	SignedFiniteBand	416	8963	49	results/2026-10-12-corpus-remainder/batch-02/SignedFiniteBand.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	SingleLatticeCovering	378	8964	50	results/2026-10-12-corpus-remainder/batch-02/SingleLatticeCovering-nanoda.log
+remainder batch-02	build	SingleLatticeCovering	551	8965	50	results/2026-10-12-corpus-remainder/batch-02/SingleLatticeCovering.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	StableCoordinateFour	214	9032	49	results/2026-10-12-corpus-remainder/batch-02/StableCoordinateFour-nanoda.log
+remainder batch-02	build	StableCoordinateFour	231	9033	49	results/2026-10-12-corpus-remainder/batch-02/StableCoordinateFour.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	StructuralCrouzeix	379	8983	53	results/2026-10-12-corpus-remainder/batch-02/StructuralCrouzeix-nanoda.log
+remainder batch-02	build	StructuralCrouzeix	94	8984	53	results/2026-10-12-corpus-remainder/batch-02/StructuralCrouzeix.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	SubpolynomialLp	357	8967	50	results/2026-10-12-corpus-remainder/batch-02/SubpolynomialLp-nanoda.log
+remainder batch-02	build	SubpolynomialLp	438	8968	50	results/2026-10-12-corpus-remainder/batch-02/SubpolynomialLp.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	Superstring	67	8974	54	results/2026-10-12-corpus-remainder/batch-02/Superstring-nanoda.log
+remainder batch-02	build	Superstring	502	8975	54	results/2026-10-12-corpus-remainder/batch-02/Superstring.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	UniformGamma	277	8974	54	results/2026-10-12-corpus-remainder/batch-02/UniformGamma-nanoda.log
+remainder batch-02	build	UniformGamma	566	8975	54	results/2026-10-12-corpus-remainder/batch-02/UniformGamma.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	UniformSparsestCut	302	8978	55	results/2026-10-12-corpus-remainder/batch-02/UniformSparsestCut-nanoda.log
+remainder batch-02	build	UniformSparsestCut	437	8979	55	results/2026-10-12-corpus-remainder/batch-02/UniformSparsestCut.prebuild.log
+remainder batch-02	replay nanoda-3a24072+Lean	UniversalFInfinity	185	8973	53	results/2026-10-12-corpus-remainder/batch-02/UniversalFInfinity-nanoda.log
+remainder batch-02	build	UniversalFInfinity	479	8974	53	results/2026-10-12-corpus-remainder/batch-02/UniversalFInfinity.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	AuslanderReiten	1344	9655	55	results/2026-10-12-corpus-remainder/batch-03/AuslanderReiten-nanoda.log
+remainder batch-03	build	AuslanderReiten	1219	9656	55	results/2026-10-12-corpus-remainder/batch-03/AuslanderReiten.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	BassTrace	189	8992	50	results/2026-10-12-corpus-remainder/batch-03/BassTrace-nanoda.log
+remainder batch-03	build	BassTrace	644	8993	50	results/2026-10-12-corpus-remainder/batch-03/BassTrace.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	BinaryMatching	133	9035	53	results/2026-10-12-corpus-remainder/batch-03/BinaryMatching-nanoda.log
+remainder batch-03	replay Lean-only (shipped config)	BinaryMatching	175	9035	53	results/2026-10-12-corpus-remainder/batch-03/BinaryMatching-shipped.log
+remainder batch-03	build	BinaryMatching	644	9036	53	results/2026-10-12-corpus-remainder/batch-03/BinaryMatching.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	CharacterCriterion	409	8985	48	results/2026-10-12-corpus-remainder/batch-03/CharacterCriterion-nanoda.log
+remainder batch-03	build	CharacterCriterion	1155	8986	48	results/2026-10-12-corpus-remainder/batch-03/CharacterCriterion.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	ClassicalON	232	9040	58	results/2026-10-12-corpus-remainder/batch-03/ClassicalON-nanoda.log
+remainder batch-03	build	ClassicalON	858	9041	58	results/2026-10-12-corpus-remainder/batch-03/ClassicalON.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	Cotype	202	9048	57	results/2026-10-12-corpus-remainder/batch-03/Cotype-nanoda.log
+remainder batch-03	build	Cotype	384	9049	57	results/2026-10-12-corpus-remainder/batch-03/Cotype.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	FactorGeneration	1373	9016	51	results/2026-10-12-corpus-remainder/batch-03/FactorGeneration-nanoda.log
+remainder batch-03	build	FactorGeneration	2084	9017	51	results/2026-10-12-corpus-remainder/batch-03/FactorGeneration.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	HenonEmden	243	9019	54	results/2026-10-12-corpus-remainder/batch-03/HenonEmden-nanoda.log
+remainder batch-03	build	HenonEmden	837	9020	54	results/2026-10-12-corpus-remainder/batch-03/HenonEmden.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	HyperbolicCones	272	9009	51	results/2026-10-12-corpus-remainder/batch-03/HyperbolicCones-nanoda.log
+remainder batch-03	build	HyperbolicCones	230	9010	51	results/2026-10-12-corpus-remainder/batch-03/HyperbolicCones.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	PeriodicTilingThree	231	9045	52	results/2026-10-12-corpus-remainder/batch-03/PeriodicTilingThree-nanoda.log
+remainder batch-03	build	PeriodicTilingThree	242	9046	52	results/2026-10-12-corpus-remainder/batch-03/PeriodicTilingThree.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	PinchedKahler	350	9042	59	results/2026-10-12-corpus-remainder/batch-03/PinchedKahler-nanoda.log
+remainder batch-03	build	PinchedKahler	1081	9043	59	results/2026-10-12-corpus-remainder/batch-03/PinchedKahler.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	PlanarL1	248	8986	49	results/2026-10-12-corpus-remainder/batch-03/PlanarL1-nanoda.log
+remainder batch-03	build	PlanarL1	332	8987	49	results/2026-10-12-corpus-remainder/batch-03/PlanarL1.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	PowerFreeValues	309	8986	49	results/2026-10-12-corpus-remainder/batch-03/PowerFreeValues-nanoda.log
+remainder batch-03	build	PowerFreeValues	706	8987	49	results/2026-10-12-corpus-remainder/batch-03/PowerFreeValues.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	RadialTransition	268	9026	56	results/2026-10-12-corpus-remainder/batch-03/RadialTransition-nanoda.log
+remainder batch-03	build	RadialTransition	834	9027	56	results/2026-10-12-corpus-remainder/batch-03/RadialTransition.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	RandomizedMeanPayoff	174	9012	52	results/2026-10-12-corpus-remainder/batch-03/RandomizedMeanPayoff-nanoda.log
+remainder batch-03	build	RandomizedMeanPayoff	777	9013	52	results/2026-10-12-corpus-remainder/batch-03/RandomizedMeanPayoff.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	SingletonLoopMatching	188	9059	53	results/2026-10-12-corpus-remainder/batch-03/SingletonLoopMatching-nanoda.log
+remainder batch-03	build	SingletonLoopMatching	120	9060	53	results/2026-10-12-corpus-remainder/batch-03/SingletonLoopMatching.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	StrictMeans	238	9017	54	results/2026-10-12-corpus-remainder/batch-03/StrictMeans-nanoda.log
+remainder batch-03	build	StrictMeans	721	9018	54	results/2026-10-12-corpus-remainder/batch-03/StrictMeans.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	StrongThinTree	282	8995	50	results/2026-10-12-corpus-remainder/batch-03/StrongThinTree-nanoda.log
+remainder batch-03	build	StrongThinTree	600	8996	50	results/2026-10-12-corpus-remainder/batch-03/StrongThinTree.prebuild.log
+remainder batch-03	replay nanoda-3a24072+Lean	TriangularHilbert	297	9028	57	results/2026-10-12-corpus-remainder/batch-03/TriangularHilbert-nanoda.log
+remainder batch-03	build	TriangularHilbert	938	9029	57	results/2026-10-12-corpus-remainder/batch-03/TriangularHilbert.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	BinarySweep	303	9115	58	results/2026-10-12-corpus-remainder/batch-04/BinarySweep-nanoda.log
+remainder batch-04	build	BinarySweep	520	9116	58	results/2026-10-12-corpus-remainder/batch-04/BinarySweep.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	ContinuumTransition	282	9084	56	results/2026-10-12-corpus-remainder/batch-04/ContinuumTransition-nanoda.log
+remainder batch-04	build	ContinuumTransition	1168	9085	56	results/2026-10-12-corpus-remainder/batch-04/ContinuumTransition.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	DepthThree	132	9098	51	results/2026-10-12-corpus-remainder/batch-04/DepthThree-nanoda.log
+remainder batch-04	build	DepthThree	297	9099	51	results/2026-10-12-corpus-remainder/batch-04/DepthThree.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	FourierLLogL	281	9079	56	results/2026-10-12-corpus-remainder/batch-04/FourierLLogL-nanoda.log
+remainder batch-04	build	FourierLLogL	800	9080	56	results/2026-10-12-corpus-remainder/batch-04/FourierLLogL.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	GroupRingDeterminant	352	9078	50	results/2026-10-12-corpus-remainder/batch-04/GroupRingDeterminant-nanoda.log
+remainder batch-04	replay Lean-only (shipped config)	GroupRingDeterminant	364	9078	50	results/2026-10-12-corpus-remainder/batch-04/GroupRingDeterminant-shipped.log
+remainder batch-04	build	GroupRingDeterminant	351	9079	50	results/2026-10-12-corpus-remainder/batch-04/GroupRingDeterminant.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	HoneycombBridgeMassSupport	696	9021	49	results/2026-10-12-corpus-remainder/batch-04/HoneycombBridgeMassSupport-nanoda.log
+remainder batch-04	build	HoneycombBridgeMassSupport	1215	9022	49	results/2026-10-12-corpus-remainder/batch-04/HoneycombBridgeMassSupport.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	IsometricImmersion	255	3549	53	results/2026-10-12-corpus-remainder/batch-04/IsometricImmersion-nanoda.log
+remainder batch-04	build	IsometricImmersion	473	3550	53	results/2026-10-12-corpus-remainder/batch-04/IsometricImmersion.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	KaplanskyFinitelyPresented	341	9049	50	results/2026-10-12-corpus-remainder/batch-04/KaplanskyFinitelyPresented-nanoda.log
+remainder batch-04	replay Lean-only (shipped config)	KaplanskyFinitelyPresented	338	9049	50	results/2026-10-12-corpus-remainder/batch-04/KaplanskyFinitelyPresented-shipped.log
+remainder batch-04	build	KaplanskyFinitelyPresented	895	9050	50	results/2026-10-12-corpus-remainder/batch-04/KaplanskyFinitelyPresented.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	OddKaplansky	144	9061	50	results/2026-10-12-corpus-remainder/batch-04/OddKaplansky-nanoda.log
+remainder batch-04	build	OddKaplansky	746	9062	50	results/2026-10-12-corpus-remainder/batch-04/OddKaplansky.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	PosteriorReplicas	256	9059	54	results/2026-10-12-corpus-remainder/batch-04/PosteriorReplicas-nanoda.log
+remainder batch-04	replay Lean-only (shipped config)	PosteriorReplicas	274	9059	54	results/2026-10-12-corpus-remainder/batch-04/PosteriorReplicas-shipped.log
+remainder batch-04	build	PosteriorReplicas	500	9060	54	results/2026-10-12-corpus-remainder/batch-04/PosteriorReplicas.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	QuinticLienard	318	9069	55	results/2026-10-12-corpus-remainder/batch-04/QuinticLienard-nanoda.log
+remainder batch-04	build	QuinticLienard	1018	9070	55	results/2026-10-12-corpus-remainder/batch-04/QuinticLienard.prebuild.log
+remainder batch-04	replay nanoda-3a24072+Lean	TorsionFreeZeroDivisors	226	9046	52	results/2026-10-12-corpus-remainder/batch-04/TorsionFreeZeroDivisors-nanoda.log
+remainder batch-04	build	TorsionFreeZeroDivisors	577	9047	52	results/2026-10-12-corpus-remainder/batch-04/TorsionFreeZeroDivisors.prebuild.log
+remainder batch-05	replay nanoda-3a24072+Lean	BinPackingGap	194	9207	58	results/2026-10-12-corpus-remainder/batch-05/BinPackingGap-nanoda.log
+remainder batch-05	replay Lean-only (shipped config)	BinPackingGap	200	9207	58	results/2026-10-12-corpus-remainder/batch-05/BinPackingGap-shipped.log
+remainder batch-05	build	BinPackingGap	982	9208	58	results/2026-10-12-corpus-remainder/batch-05/BinPackingGap.prebuild.log
+remainder batch-05	replay nanoda-3a24072+Lean	BorsukNine	589	9192	58	results/2026-10-12-corpus-remainder/batch-05/BorsukNine-nanoda.log
+remainder batch-05	build	BorsukNine	764	9193	56	results/2026-10-12-corpus-remainder/batch-05/BorsukNine.prebuild.log
+remainder batch-05	replay nanoda-3a24072+Lean	Laughlin	4394	10181	56	results/2026-10-12-corpus-remainder/batch-05/Laughlin-nanoda.log
+remainder batch-05	replay Lean-only (shipped config)	Laughlin	4203	10181	56	results/2026-10-12-corpus-remainder/batch-05/Laughlin-shipped.log
+remainder batch-05	build	Laughlin	1673	10182	55	results/2026-10-12-corpus-remainder/batch-05/Laughlin.prebuild.log
+remainder batch-05	replay nanoda-3a24072+Lean	ThorpRouting	340	9093	50	results/2026-10-12-corpus-remainder/batch-05/ThorpRouting-nanoda.log
+remainder batch-05	build	ThorpRouting	746	9094	50	results/2026-10-12-corpus-remainder/batch-05/ThorpRouting.prebuild.log
+remainder batch-05	replay nanoda-3a24072+Lean	VlasovMaxwell	684	9130	53	results/2026-10-12-corpus-remainder/batch-05/VlasovMaxwell-nanoda.log
+remainder batch-05	build	VlasovMaxwell	11	9131	53	results/2026-10-12-corpus-remainder/batch-05/VlasovMaxwell.prebuild.log
+remainder batch-05	replay nanoda-3a24072+Lean	WeakMTWGlobalSupport	375	9133	51	results/2026-10-12-corpus-remainder/batch-05/WeakMTWGlobalSupport-nanoda.log
+remainder batch-05	build	WeakMTWGlobalSupport	785	9134	51	results/2026-10-12-corpus-remainder/batch-05/WeakMTWGlobalSupport.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	CriticalSKMixing	621	9516	84	results/2026-10-12-corpus-remainder/batch-06/CriticalSKMixing-nanoda.log
+remainder batch-06	build	CriticalSKMixing	1368	9517	84	results/2026-10-12-corpus-remainder/batch-06/CriticalSKMixing.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	DirectionalBallisticity	426	9436	74	results/2026-10-12-corpus-remainder/batch-06/DirectionalBallisticity-nanoda.log
+remainder batch-06	build	DirectionalBallisticity	1482	9437	74	results/2026-10-12-corpus-remainder/batch-06/DirectionalBallisticity.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	EgyptianFractions	273	9213	55	results/2026-10-12-corpus-remainder/batch-06/EgyptianFractions-nanoda.log
+remainder batch-06	build	EgyptianFractions	456	9214	54	results/2026-10-12-corpus-remainder/batch-06/EgyptianFractions.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	HyperbolicObstruction	637	9340	63	results/2026-10-12-corpus-remainder/batch-06/HyperbolicObstruction-nanoda.log
+remainder batch-06	build	HyperbolicObstruction	870	9341	61	results/2026-10-12-corpus-remainder/batch-06/HyperbolicObstruction.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	IndependentSets	236	9377	71	results/2026-10-12-corpus-remainder/batch-06/IndependentSets-nanoda.log
+remainder batch-06	replay Lean-only (shipped config)	IndependentSets	253	9377	71	results/2026-10-12-corpus-remainder/batch-06/IndependentSets-shipped.log
+remainder batch-06	build	IndependentSets	885	9378	71	results/2026-10-12-corpus-remainder/batch-06/IndependentSets.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	KMedianRecovery	319	9429	71	results/2026-10-12-corpus-remainder/batch-06/KMedianRecovery-nanoda.log
+remainder batch-06	replay Lean-only (shipped config)	KMedianRecovery	271	9429	71	results/2026-10-12-corpus-remainder/batch-06/KMedianRecovery-shipped.log
+remainder batch-06	build	KMedianRecovery	12	9430	71	results/2026-10-12-corpus-remainder/batch-06/KMedianRecovery.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	LogConcaveQuery	521	9249	58	results/2026-10-12-corpus-remainder/batch-06/LogConcaveQuery-nanoda.log
+remainder batch-06	build	LogConcaveQuery	1059	9250	56	results/2026-10-12-corpus-remainder/batch-06/LogConcaveQuery.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	MaximalSeshadriConstants	1078	9344	68	results/2026-10-12-corpus-remainder/batch-06/MaximalSeshadriConstants-nanoda.log
+remainder batch-06	build	MaximalSeshadriConstants	19	9345	68	results/2026-10-12-corpus-remainder/batch-06/MaximalSeshadriConstants.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	SimpleAmenable	610	9473	81	results/2026-10-12-corpus-remainder/batch-06/SimpleAmenable-nanoda.log
+remainder batch-06	build	SimpleAmenable	1871	9474	81	results/2026-10-12-corpus-remainder/batch-06/SimpleAmenable.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	SmoothYau	778	9359	68	results/2026-10-12-corpus-remainder/batch-06/SmoothYau-nanoda.log
+remainder batch-06	build	SmoothYau	940	9360	68	results/2026-10-12-corpus-remainder/batch-06/SmoothYau.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	SymmetricDomains	711	9258	61	results/2026-10-12-corpus-remainder/batch-06/SymmetricDomains-nanoda.log
+remainder batch-06	build	SymmetricDomains	1144	9259	58	results/2026-10-12-corpus-remainder/batch-06/SymmetricDomains.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	WeakHessian	416	9465	77	results/2026-10-12-corpus-remainder/batch-06/WeakHessian-nanoda.log
+remainder batch-06	build	WeakHessian	1416	9466	77	results/2026-10-12-corpus-remainder/batch-06/WeakHessian.prebuild.log
+remainder batch-06	replay nanoda-3a24072+Lean	YauCounterexample	548	9991	58	results/2026-10-12-corpus-remainder/batch-06/YauCounterexample-nanoda.log
+remainder batch-06	build	YauCounterexample	998	9992	58	results/2026-10-12-corpus-remainder/batch-06/YauCounterexample.prebuild.log
+remainder batch-07	replay nanoda-3a24072+Lean	BiholderTransport	468	9568	76	results/2026-10-12-corpus-remainder/batch-07/BiholderTransport-nanoda.log
+remainder batch-07	build	BiholderTransport	1824	9569	76	results/2026-10-12-corpus-remainder/batch-07/BiholderTransport.prebuild.log
+remainder batch-07	replay nanoda-3a24072+Lean	Conductivity	576	9518	69	results/2026-10-12-corpus-remainder/batch-07/Conductivity-nanoda.log
+remainder batch-07	build	Conductivity	1512	9519	69	results/2026-10-12-corpus-remainder/batch-07/Conductivity.prebuild.log
+remainder batch-07	replay nanoda-3a24072+Lean	CoulombIonization	480	9530	72	results/2026-10-12-corpus-remainder/batch-07/CoulombIonization-nanoda.log
+remainder batch-07	build	CoulombIonization	1750	9531	72	results/2026-10-12-corpus-remainder/batch-07/CoulombIonization.prebuild.log
+remainder batch-07	replay nanoda-3a24072+Lean	HarmonicArtin	302	9583	80	results/2026-10-12-corpus-remainder/batch-07/HarmonicArtin-nanoda.log
+remainder batch-07	build	HarmonicArtin	1344	9584	80	results/2026-10-12-corpus-remainder/batch-07/HarmonicArtin.prebuild.log
+remainder batch-07	replay nanoda-3a24072+Lean	PerfectCompleteness	287	9786	65	results/2026-10-12-corpus-remainder/batch-07/PerfectCompleteness-nanoda.log
+remainder batch-07	replay Lean-only (shipped config)	PerfectCompleteness	311	9786	65	results/2026-10-12-corpus-remainder/batch-07/PerfectCompleteness-shipped.log
+remainder batch-07	build	PerfectCompleteness	1228	9787	65	results/2026-10-12-corpus-remainder/batch-07/PerfectCompleteness.prebuild.log
+remainder batch-07	replay nanoda-3a24072+Lean	TamingCompatibility	1899	9505	61	results/2026-10-12-corpus-remainder/batch-07/TamingCompatibility-nanoda.log
+remainder batch-07	build	TamingCompatibility	2204	9506	61	results/2026-10-12-corpus-remainder/batch-07/TamingCompatibility.prebuild.log
+remainder batch-08	replay nanoda-3a24072+Lean	DegreeRigidity	148	9897	73	results/2026-10-12-corpus-remainder/batch-08/DegreeRigidity-nanoda.log
+remainder batch-08	build	DegreeRigidity	1752	9898	73	results/2026-10-12-corpus-remainder/batch-08/DegreeRigidity.prebuild.log
+remainder batch-08	replay nanoda-3a24072+Lean	FreeIsing	371	9814	80	results/2026-10-12-corpus-remainder/batch-08/FreeIsing-nanoda.log
+remainder batch-08	build	FreeIsing	1539	9815	80	results/2026-10-12-corpus-remainder/batch-08/FreeIsing.prebuild.log
+remainder batch-08	replay nanoda-3a24072+Lean	Jacobsthal	830	9776	70	results/2026-10-12-corpus-remainder/batch-08/Jacobsthal-nanoda.log
+remainder batch-08	build	Jacobsthal	1985	9777	70	results/2026-10-12-corpus-remainder/batch-08/Jacobsthal.prebuild.log
+remainder batch-08	replay nanoda-3a24072+Lean	PartitionPrinciple	444	9866	68	results/2026-10-12-corpus-remainder/batch-08/PartitionPrinciple-nanoda.log
+remainder batch-08	build	PartitionPrinciple	209	9867	68	results/2026-10-12-corpus-remainder/batch-08/PartitionPrinciple.prebuild.log
+remainder batch-08	replay nanoda-3a24072+Lean	PlanarFalconer	329	9642	65	results/2026-10-12-corpus-remainder/batch-08/PlanarFalconer-nanoda.log
+remainder batch-08	build	PlanarFalconer	1324	9643	65	results/2026-10-12-corpus-remainder/batch-08/PlanarFalconer.prebuild.log
+remainder batch-08	replay nanoda-3a24072+Lean	RieszQuantitative	363	9753	75	results/2026-10-12-corpus-remainder/batch-08/RieszQuantitative-nanoda.log
+remainder batch-08	build	RieszQuantitative	1587	9754	75	results/2026-10-12-corpus-remainder/batch-08/RieszQuantitative.prebuild.log
+postfix f67473b	replay nanoda-f67473b+Lean	BinPackingGap	264	9207	MISSING	results/2026-10-20-nanoda-postfix-f67473b/BinPackingGap-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	GroupRingDeterminant	403	9078	MISSING	results/2026-10-20-nanoda-postfix-f67473b/GroupRingDeterminant-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	IndependentSets	276	9377	MISSING	results/2026-10-20-nanoda-postfix-f67473b/IndependentSets-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	KaplanskyFinitelyPresented	386	9049	MISSING	results/2026-10-20-nanoda-postfix-f67473b/KaplanskyFinitelyPresented-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	Laughlin	4737	10181	MISSING	results/2026-10-20-nanoda-postfix-f67473b/Laughlin-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	OptimalMaxCut	527	9295	MISSING	results/2026-10-20-nanoda-postfix-f67473b/OptimalMaxCut-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	PerfectCompleteness	350	9786	MISSING	results/2026-10-20-nanoda-postfix-f67473b/PerfectCompleteness-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	UniqueGamesTheorem	363	9401	MISSING	results/2026-10-20-nanoda-postfix-f67473b/UniqueGamesTheorem-postfix.log
+postfix f67473b	replay nanoda-f67473b+Lean	VertexCover	243	9274	MISSING	results/2026-10-20-nanoda-postfix-f67473b/VertexCover-postfix.log
+paper-prep rebuild 2026-10-20	build	BinPackingGap	1053	9208	39	results/2026-10-20-paper-prep/wsl/BinPackingGap.prebuild.log
+paper-prep rebuild 2026-10-20	build	GroupRingDeterminant	373	9079	35	results/2026-10-20-paper-prep/wsl/GroupRingDeterminant.prebuild.log
+paper-prep rebuild 2026-10-20	build	HarmonicGrowth	829	8960	24	results/2026-10-20-paper-prep/wsl/HarmonicGrowth.prebuild.log
+paper-prep rebuild 2026-10-20	build	IndependentSets	981	9378	41	results/2026-10-20-paper-prep/wsl/IndependentSets.prebuild.log
+paper-prep rebuild 2026-10-20	build	KaplanskyFinitelyPresented	808	9050	35	results/2026-10-20-paper-prep/wsl/KaplanskyFinitelyPresented.prebuild.log
+paper-prep rebuild 2026-10-20	build	Laughlin	1959	10182	37	results/2026-10-20-paper-prep/wsl/Laughlin.prebuild.log
+paper-prep rebuild 2026-10-20	build	NavierStokesVelocity	753	9076	25	results/2026-10-20-paper-prep/wsl/NavierStokesVelocity.prebuild.log
+paper-prep rebuild 2026-10-20	build	OptimalMaxCut	1603	9296	29	results/2026-10-20-paper-prep/wsl/OptimalMaxCut.prebuild.log
+paper-prep rebuild 2026-10-20	build	PerfectCompleteness	1286	9787	45	results/2026-10-20-paper-prep/wsl/PerfectCompleteness.prebuild.log
+paper-prep rebuild 2026-10-20	build	SiegelZeros	649	9243	27	results/2026-10-20-paper-prep/wsl/SiegelZeros.prebuild.log
+paper-prep rebuild 2026-10-20	build	UniqueGamesTheorem	1048	9402	32	results/2026-10-20-paper-prep/wsl/UniqueGamesTheorem.prebuild.log
+paper-prep rebuild 2026-10-20	build	VertexCover	732	9275	34	results/2026-10-20-paper-prep/wsl/VertexCover.prebuild.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	BinPackingGap	280	9207	39	results/2026-10-20-paper-prep/wsl/task3-BinPackingGap-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	BinPackingGap	21	MISSING	39	results/2026-10-20-paper-prep/wsl/task3-BinPackingGap-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	GroupRingDeterminant	444	9078	35	results/2026-10-20-paper-prep/wsl/task3-GroupRingDeterminant-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	GroupRingDeterminant	46	MISSING	35	results/2026-10-20-paper-prep/wsl/task3-GroupRingDeterminant-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	IndependentSets	249	9377	41	results/2026-10-20-paper-prep/wsl/task3-IndependentSets-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	IndependentSets	36	MISSING	42	results/2026-10-20-paper-prep/wsl/task3-IndependentSets-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	KaplanskyFinitelyPresented	344	9049	35	results/2026-10-20-paper-prep/wsl/task3-KaplanskyFinitelyPresented-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	KaplanskyFinitelyPresented	37	MISSING	35	results/2026-10-20-paper-prep/wsl/task3-KaplanskyFinitelyPresented-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	Laughlin	4105	10181	37	results/2026-10-20-paper-prep/wsl/task3-Laughlin-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	Laughlin	166	MISSING	37	results/2026-10-20-paper-prep/wsl/task3-Laughlin-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	OptimalMaxCut	506	9295	29	results/2026-10-20-paper-prep/wsl/task3-OptimalMaxCut-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	OptimalMaxCut	63	MISSING	30	results/2026-10-20-paper-prep/wsl/task3-OptimalMaxCut-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	PerfectCompleteness	329	9786	45	results/2026-10-20-paper-prep/wsl/task3-PerfectCompleteness-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	PerfectCompleteness	25	MISSING	46	results/2026-10-20-paper-prep/wsl/task3-PerfectCompleteness-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	UniqueGamesTheorem	361	9401	32	results/2026-10-20-paper-prep/wsl/task3-UniqueGamesTheorem-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	UniqueGamesTheorem	43	MISSING	32	results/2026-10-20-paper-prep/wsl/task3-UniqueGamesTheorem-nanoda-direct.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 bigenv	VertexCover	254	9274	34	results/2026-10-20-paper-prep/wsl/task3-VertexCover-comparator-bigenv.log
+paper-prep rebuild 2026-10-20	diagnostic 3a24072 direct	VertexCover	16	MISSING	34	results/2026-10-20-paper-prep/wsl/task3-VertexCover-nanoda-direct.log
+paper-prep rebuild 2026-10-20	replay nanoda-3a24072+Lean (post-hoc)	SiegelZeros	797	9242	27	results/2026-10-20-paper-prep/wsl/task4-SiegelZeros-posthoc.log
+paper-prep-2 adc7f12 2026-10-20	replay Lean-only (shipped config)	SiegelZeros	750	9242	57	results/2026-10-20-paper-prep-2/wsl/task3-SiegelZeros-adc7f12-shipped.log
+paper-prep-2 adc7f12 2026-10-20	build	task3-SiegelZeros-adc7f12	779	9243	MISSING	results/2026-10-20-paper-prep-2/wsl/task3-SiegelZeros-adc7f12.prebuild.log

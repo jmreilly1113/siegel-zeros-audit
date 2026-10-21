@@ -1,0 +1,40 @@
+Paper prep 4, Task 2: static scan at fd4aeeb (HEURISTIC; Phase 3 rerun 2026-10-21, scripts 63/64 unchanged; comments stripped,
+string literals not stripped; a hit is a review pointer, not a finding).
+Inputs: corpus-static-scan-fd4aeeb-findings.txt, corpus-static-scan-fd4aeeb.tsv, -challenges.tsv, corpus-challenge-scan-fd4aeeb.txt.
+The original Phase 3 run (results/2026-10-11-corpus-static-scan*) was at adc7f12.
+
+A. files scanned: 122458 under lean/OAI + 678 .lean files created or changed by dependency patches
+
+Solution side: hits, and configs (of 416; of the 189 referenced) whose solution import closure reaches a hit:
+  native_decide                      0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  decide_native_or_kernel_option     0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  Lean.ofReduceBool                  0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  Lean.ofReduceNat                   0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  implemented_by                     0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  extern                             0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  unsafe                             5 hits in   4 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  set_option debug.*                 0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  skipKernelTC                       0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  axiom declaration                  0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  sorry                              0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  admit                              0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  addDecl / addAndCompile            0 hits in   0 files; configs reaching a hit: 0 of 416, 0 of 189 referenced
+  closure mapping: computed for 416 configs; unresolved imports for 2: ['DukePrimeDegree', 'OstmannComplete'] (referenced: []). For those, the mapping is incomplete; for all others it is the import-header closure.
+  The 5 "unsafe" hits are Aesop rule attributes (e.g. @[aesop ... unsafe apply]) in carleson ToMathlib files that no solution closure reaches (as in the adc7f12 run).
+
+Challenge side (416 challenge files), placeholder scan (corpus-challenge-scan-fd4aeeb.txt):
+  sorry outside theorem/lemma: DefocusingNLS.lean:107 (in def sobolevProduct): by sorry⟩   [referenced at fd4aeeb: False]
+  sorry outside theorem/lemma: ElementaryPositivity.lean:61 (in def elementaryPositivityWitness): sorry   [referenced at fd4aeeb: False]
+  axiom declaration: HarmonicGrowth.lean:97:   [referenced at fd4aeeb: True]
+  sorry outside theorem/lemma: NavierStokesVelocity.lean:454 (in def half): w.liftOn word (by sorry)   [referenced at fd4aeeb: False]
+  In referenced challenge files the only nonstandard placeholder is HarmonicGrowth (axiom mainStatement). NavierStokesVelocity (sorried def half) is NOT referenced by formalization.yaml at fd4aeeb; DefocusingNLS and ElementaryPositivity (sorried defs) are not referenced and their sorries are the intended definition_names stubs.
+  sorry count == named theorems + definitions in 405 of 416; differs (file, sorries, theorem names, definition names): [('Brenier.json', 2, 2, 12), ('DefocusingNLS.json', 4, 3, 3), ('EuclideanFiveColor.json', 1, 1, 1), ('HarmonicGrowth.json', 0, 1, 0), ('KServer.json', 1, 1, 9), ('LogspaceEquality.json', 1, 1, 20), ('Naimark.json', 1, 1, 7), ('NavierStokesVelocity.json', 2, 1, 0), ('OccupiedOverlap.json', 2, 2, 5), ('Rokhlin.json', 1, 1, 4), ('SpinAngle.json', 1, 1, 3)]
+
+Challenge-file junk-value hazard pointers (number of challenge files with >= 1 occurrence; HEURISTIC):
+  sInf                                          all 416:  96; referenced 189:  35
+  sSup                                          all 416:  72; referenced 189:  34
+  inverse ⁻¹                                    all 416: 132; referenced 189:  48
+  division /                                    all 416: 256; referenced 189: 113
+  Nat subtraction (heuristic: "- " near ℕ)      all 416:  43; referenced 189:  13
+  riemannZeta                                   all 416:   1; referenced 189:   1
+  Classical.choose / epsilon                    all 416:  25; referenced 189:   7

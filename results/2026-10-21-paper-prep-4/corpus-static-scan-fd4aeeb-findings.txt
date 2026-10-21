@@ -1,0 +1,39 @@
+# Phase 3 static scan at fd4aeeb (HEURISTIC; rerun 2026-10-21; script unchanged; no build)
+script sha256: 4cc10711f08a1c22953402ba672fe2eca2c41f0f7ee0a88cf99a2e11671af629
+A. files scanned: 122458 under lean/OAI + 678 .lean files created or changed by dependency patches
+pattern hit counts (comments stripped; HEURISTIC):
+  native_decide                          0 hits in 0 files
+  decide_native_or_kernel_option         0 hits in 0 files
+  Lean.ofReduceBool                      0 hits in 0 files
+  Lean.ofReduceNat                       0 hits in 0 files
+  implemented_by                         0 hits in 0 files
+  extern                                 0 hits in 0 files
+  unsafe                                 5 hits in 4 files
+  set_option debug.*                     0 hits in 0 files
+  skipKernelTC                           0 hits in 0 files
+  axiom declaration                      0 hits in 0 files
+  sorry                                  0 hits in 0 files
+  admit                                  0 hits in 0 files
+  addDecl / addAndCompile                0 hits in 0 files
+solution-module import closures computed for 416 configs; configs with unresolved imports: 2
+  ComparatorChallenges/DukePrimeDegree.json: ['ClassFieldTheory.AlgebraicNumberTheory.RayClass.PrimeGeneration', 'ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.AbelianConductorExactness', 'ClassFieldTheory.GlobalClassFieldTheory.GlobalClassFields.MathlibFrobeniusHilbertComparison', 'ClassFieldTheory.GlobalClassFieldTheory.IdealClassFieldTheory.ArithmeticIdealArtin']
+  ComparatorChallenges/OstmannComplete.json: ['BernoulliRegular.GaussSum.QuadraticEndpoint']
+patterns by number of configs whose solution closure reaches a hit (HEURISTIC):
+  native_decide                    0 configs
+  decide_native_or_kernel_option   0 configs
+  Lean.ofReduceBool                0 configs
+  Lean.ofReduceNat                 0 configs
+  implemented_by                   0 configs
+  extern                           0 configs
+  unsafe                           0 configs
+  set_option debug.*               0 configs
+  skipKernelTC                     0 configs
+  axiom declaration                0 configs
+  sorry                            0 configs
+  admit                            0 configs
+  addDecl / addAndCompile          0 configs
+B. challenge files: 416; total lines 91109; largest: ('ComparatorChallenges/EditApproximation.json', 19170); smallest: ('ComparatorChallenges/QuasiRiemannHypothesis.json', 10)
+   sorry count == named theorems+definitions: 405; differs: [('Brenier.json', 2, 2, 12), ('DefocusingNLS.json', 4, 3, 3), ('EuclideanFiveColor.json', 1, 1, 1), ('HarmonicGrowth.json', 0, 1, 0), ('KServer.json', 1, 1, 9), ('LogspaceEquality.json', 1, 1, 20), ('Naimark.json', 1, 1, 7), ('NavierStokesVelocity.json', 2, 1, 0), ('OccupiedOverlap.json', 2, 2, 5), ('Rokhlin.json', 1, 1, 4), ('SpinAngle.json', 1, 1, 3)]
+   hazard pointers (number of challenge files with >=1 occurrence): sInf 96, sSup 72, inverse ⁻¹ 132, division / 256, Nat subtraction (heuristic: "- " near ℕ) 43, riemannZeta 1, Classical.choose / epsilon 25
+   five largest challenge files: EditApproximation.json (19170 lines), CoarseAssembly.json (6649 lines), CKSBondiPenrose.json (3597 lines), ThorpRouting.json (2580 lines), ThomasonModelStructures.json (2474 lines)
+(1154.58 s, 344676 KB)

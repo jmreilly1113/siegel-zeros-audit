@@ -1,0 +1,33 @@
+Paper prep 4, Task 3: cost from existing logs (COMPUTED; scripts/cost_from_logs.py; per-row data in cost.tsv)
+Scope: final runs only (stopped/interrupted logs excluded). Wall times are DURATION_SECONDS / PREBUILD_SECONDS as
+printed by the drivers. Nothing is estimated; anything not in a log is MISSING.
+
+(a) Builds (prebuild = `lake build` of solution + challenge modules, LEAN_NUM_THREADS=4, in the sandbox):
+  corpus prebuilds (pilot, headline, remainder): 190 builds; wall n 190; min 11 s; median 384.5 s; p90 1307 s (nearest rank); max 2490 s; total 104844 s (29.12 h)
+    job counts (largest "Build completed successfully (N jobs)" per log): min 1591, max 11870, logs with a count 190/190
+    WSL filesystem "disk used" printed in these logs: max 84 G (whole WSL filesystem, not per-build footprint; a per-build footprint is MISSING)
+  2026-10-20 paper-prep rebuilds (12 closures): 12 builds; wall n 12; min 373 s; median 905 s; p90 1603 s (nearest rank); max 1959 s; total 12074 s (3.35 h)
+    job counts (largest "Build completed successfully (N jobs)" per log): min 8960, max 10182, logs with a count 12/12
+    WSL filesystem "disk used" printed in these logs: max 45 G (whole WSL filesystem, not per-build footprint; a per-build footprint is MISSING)
+  2026-10-20 adc7f12 SiegelZeros rebuild: 1 builds; wall n 1; min 779 s; median 779 s; p90 779 s (nearest rank); max 779 s; total 779 s (0.22 h)
+    job counts (largest "Build completed successfully (N jobs)" per log): min 9243, max 9243, logs with a count 1/1
+    WSL filesystem "disk used" printed in these logs: MISSING (whole WSL filesystem, not per-build footprint; a per-build footprint is MISSING)
+  The 2026-10-08 SiegelZeros build (first comparator run, includes build): see results/2026-10-08-lean-comparator-wsl.txt (26 min end to end); no PREBUILD_SECONDS line exists for it.
+
+(b) Replay wall time per config (comparator run on a prebuilt closure: export of challenge and solution, statement and
+    axiom checks, then the kernels). Per-kernel time inside one comparator run is NOT logged: MISSING.
+  nanoda 3a24072 + Lean kernel (enable_nanoda copy), fd4aeeb, 187 configs: n 187; min 27 s; median 250 s; p90 610 s (nearest rank); max 4394 s; total 63663 s (17.68 h)
+    five slowest: Laughlin 4394 s; MatrixFields 2893 s; TamingCompatibility 1899 s; ArnoldCounterexample 1603 s; FactorGeneration 1373 s
+  nanoda 3a24072 + Lean kernel, pilot adc7f12: n 3; min 545 s; median 920 s; p90 1015 s (nearest rank); max 1015 s; total 2480 s (0.69 h)
+    five slowest: QuasiRiemannHypothesis 1015 s; SiegelZeros 920 s; EditApproximation 545 s
+  Lean kernel only (shipped config), corpus: n 17; min 59 s; median 288 s; p90 364 s (nearest rank); max 4203 s; total 8534 s (2.37 h)
+    five slowest: Laughlin 4203 s; OptimalMaxCut 438 s; GroupRingDeterminant 364 s; KaplanskyFinitelyPresented 338 s; ProjectionMoments 335 s
+  nanoda f67473b + Lean kernel (unofficial batch), 9 configs: n 9; min 243 s; median 363 s; p90 527 s (nearest rank); max 4737 s; total 7549 s (2.10 h)
+    five slowest: Laughlin 4737 s; OptimalMaxCut 527 s; GroupRingDeterminant 403 s; KaplanskyFinitelyPresented 386 s; UniqueGamesTheorem 363 s
+  Note: for the 9 crash configs the 3a24072 figure is time to the nanoda abort plus the Lean kernel, not a completed nanoda check.
+
+(c) Peak memory: per-run peak RSS is not logged for any replay or build: MISSING.
+  System-level only (WSL guard log, copied as wsl-guard-log-copy.txt; samples every 30-600 s): MemAvailable min 27 MB, max 15243 MB over 3345 samples; guard limit events: 5.
+  The static scan 63 prints /usr/bin/time "(s, KB)" for itself only (corpus-static-scan findings).
+
+(d) Disk used by retained builds now: see retained-disk.txt (du -sh, 2026-10-21): 8.6G	/home/checker/math/lean/.lake/packages | 8.3M	/home/checker/math/lean/.lake | ls: cannot access '/home/checker/math/lean/.lake/build': No such file or directory | 3.0G	/home/checker/.elan | 593M	/root/tools | 1.1M	/home/checker/corpus | filesystem:   24G     1007G

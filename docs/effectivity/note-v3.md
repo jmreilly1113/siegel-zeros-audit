@@ -21,7 +21,7 @@ W. D. Banks [S10] (arXiv:2610.15483, dated October 11, 2026) rearranges the argu
 Kerr (arXiv:2610.21099) and Green (hexagon:2610.00311v2, 2026-10-17) give no explicit constant.
 
 This note uses the same master inequality as Banks's §7, with H left free, and with both of Banks's devices that note-v2 had replaced by weaker choices:
-- the shift s in σ = 1 + s/log X (Banks's λ; note-v2 used s = 1);
+- the shift s in σ = 1 + s/log X (note-v2 used s = 1). Banks's λ in Lemma 2.1 is our s; our λ is L/log q;
 - the ½S₀ device for the primes dividing q (note-v2 used c_q·log q).
 
 Both devices are Banks's: his Lemma 2.1 and its proof, eqs. (2.3)–(2.8), as used in his §7 [S10]. Their restoration in this note's accounting follows a personal communication dated 2026-10-21 [S11]: an AI-produced text file that its author did not check. It is treated here as UNREVIEWED third-party input; every number in this note was recomputed from the inequality in Arb.
@@ -80,14 +80,14 @@ For fixed (γ, H), δ₀ is determined exactly; no fixed split of the margin is 
 |---|---|---|---|---|---|
 | Lu–Zaman–Zhao | 10¹⁰ + 1 | 3/2 | 63/4 | 2,754,228,703 | **5.9299071904 × 10⁻³** |
 | Platt | 400,001 | 3/2 | 2033/100 | 1,995,262,314 | **4.5797976819 × 10⁻³** |
-| argument alone | 3 | 3/2 | 131 | 1,083,926,914 | **7.0435116103 × 10⁻⁴** |
+| argument alone (q ≠ 8) | 3 | 3/2 | 131 | 1,083,926,914 | **7.0435116103 × 10⁻⁴** |
 
 With s = 1 and c_q in place of 1/(2H), the same code reproduces note-v2's three certified values exactly (3.3992904026·10⁻³, 4.4673780338·10⁻³, 5.0425352961·10⁻⁴).
 
 **Remark (s optimized; COMPUTED, UNREVIEWED; not used in the headline).** With s also optimized (grid step 1/20, refined to 1/200, 0 < s ≤ 2), the same inequality certifies:
 - δ₀ > 5.9448352235·10⁻³ for q₀ = 10¹⁰ + 1 (s = 287/200, γ = 767/50, H = 2,691,534,804);
 - δ₀ > 4.5814133700·10⁻³ for q₀ = 400,001 (s = 61/40, γ = 41/2, H = 1,995,262,314);
-- δ₀ > 7.5971166796·10⁻⁴ for q₀ = 3 (s = 2, γ = 6547/50, H = 1,083,926,914). This value uses s = 2, the endpoint of the range s ∈ (0, 2] in Banks's Lemma 2.1, and is pending Joe's check of the lemma's range.
+- δ₀ > 7.5971166796·10⁻⁴ for q₀ = 3 (s = 2, γ = 6547/50, H = 1,083,926,914). This value uses s = 2, the closed endpoint allowed by Banks's Lemma 2.1 (λ ∈ (0, 2], i.e. s ∈ (0, 2]); σ = 1 + s/L ≤ 2 holds since L ≈ 192 ≥ s. As for the other argument-alone row, q = 8 is excluded and is covered by [S2] (Lu–Zaman–Zhao) or [S9] (Platt).
 
 Source: `results/2026-10-21-banks-devices/devices-output.txt`, section (b).
 
@@ -139,7 +139,7 @@ At the paper's own H = 86,713,344 (LZZ range, q₀ = 10¹⁰, s = 3/2, both devi
   - for q ≤ 10¹⁰, δ > 1/5, which also covers q = 8;
   - q > 10¹⁰ is covered by the second row;
   - so c = min(5.9299·10⁻³, 1/5) = 5.9299·10⁻³.
-- **Argument alone:** covers q ≥ 3 with q ≠ 8 by taking γ large (γ = 131, λ ≈ 174.7), i.e. N ≈ q^131. q = 8 needs a separate input.
+- **Argument alone:** covers q ≥ 3 with q ≠ 8 by taking γ large (γ = 131, λ ≈ 174.7), i.e. N ≈ q^131. q = 8 is excluded here (the field construction needs d ≠ 2) and is covered by [S2] (Lu–Zaman–Zhao, δ > 1/5) or [S9] (Platt, no real zero).
 
 ## 7. The final constant
 

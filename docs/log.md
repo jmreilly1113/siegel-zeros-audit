@@ -926,3 +926,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - note-v3.pdf: 7 pages, no warnings. TeX fixes: the [S11] item label (a bracket after \item read as the label) and the sha256 wrapped for line breaking.
   - note-v2.md/.tex/.pdf unchanged (sha256 c1ff3cba…, 26368a30…, 07a3404a…). release-notes-v3.md left untouched.
 - 2026-10-21: Joe confirmed 4.5797e-3 for the Platt row (rounded down from the certified 4.5797976819e-3) and the other edits. Committed locally, not pushed. The refs/ input file and release-notes-v3.md are excluded.
+- 2026-10-21, note-v3 edit (Joe):
+  - The §4 remark's q₀ = 3 s-optimized value no longer says "pending check". It cites Banks Lemma 2.1 (λ ∈ (0,2], closed) and notes σ = 1 + s/L ≤ 2 since L ≈ 192 ≥ s (COMPUTED: (4/3)·(6547/50)·log 3 ≈ 191.8).
+  - Added once in §1: "Banks's λ in Lemma 2.1 is our s; our λ is L/log q."
+  - The q₀ = 3 rows (table and remark) and §6 now state that q = 8 is excluded and covered by [S2] (LZZ) or [S9] (Platt).
+  - note-v3.pdf rebuilt (7 pages, no warnings). Tests: 38 passed. Committed locally, not pushed.

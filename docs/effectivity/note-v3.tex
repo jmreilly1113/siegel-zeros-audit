@@ -36,7 +36,7 @@ W.~D.~Banks [S10] (arXiv:2610.15483, dated October 11, 2026) rearranges the argu
 \end{itemize}
 Kerr (arXiv:2610.21099) and Green (hexagon:2610.00311v2, 2026-10-17) give no explicit constant.
 
-This note uses the same master inequality as Banks's \S7, with $H$ left free, and with both of Banks's devices that note-v2 had replaced by weaker choices: the shift $s$ in $\sigma=1+s/\log X$ (Banks's $\lambda$; note-v2 used $s=1$), and the $\frac12S_0$ device for the primes dividing $q$ (note-v2 used $c_q\log q$). Both devices are Banks's: his Lemma~2.1 and its proof, (2.3)--(2.8), as used in his \S7 [S10]. Their restoration in this note's accounting follows a personal communication dated 2026-10-21 [S11]: an AI-produced text file that its author did not check. It is treated here as UNREVIEWED third-party input; every number in this note was recomputed from the inequality in Arb.
+This note uses the same master inequality as Banks's \S7, with $H$ left free, and with both of Banks's devices that note-v2 had replaced by weaker choices: the shift $s$ in $\sigma=1+s/\log X$ (note-v2 used $s=1$; Banks's $\lambda$ in Lemma~2.1 is our $s$; our $\lambda$ is $L/\log q$), and the $\frac12S_0$ device for the primes dividing $q$ (note-v2 used $c_q\log q$). Both devices are Banks's: his Lemma~2.1 and its proof, (2.3)--(2.8), as used in his \S7 [S10]. Their restoration in this note's accounting follows a personal communication dated 2026-10-21 [S11]: an AI-produced text file that its author did not check. It is treated here as UNREVIEWED third-party input; every number in this note was recomputed from the inequality in Arb.
 
 \section{Statement}
 
@@ -95,14 +95,14 @@ Range ($s=3/2$) & $q_0$ & $\gamma$ & $H$ & & certified $\delta_0 >$\\
 \midrule
 Platt & 400{,}001 & 2033/100 & 1{,}995{,}262{,}314 & & $\mathbf{4.5797976819\times10^{-3}}$\\
 Lu--Zaman--Zhao & $10^{10}+1$ & 63/4 & 2{,}754{,}228{,}703 & & $\mathbf{5.9299071904\times10^{-3}}$\\
-argument alone & 3 & 131 & 1{,}083{,}926{,}914 & & $\mathbf{7.0435116103\times10^{-4}}$\\
+argument alone ($q\ne8$) & 3 & 131 & 1{,}083{,}926{,}914 & & $\mathbf{7.0435116103\times10^{-4}}$\\
 \bottomrule
 \end{tabular}
 \end{center}
 
 These values are COMPUTED and UNREVIEWED. With $s=1$ and $c_q$ in place of $1/(2H)$, the same code reproduces note-v2's three certified values exactly ($3.3992904026\cdot10^{-3}$, $4.4673780338\cdot10^{-3}$, $5.0425352961\cdot10^{-4}$).
 
-\paragraph{Remark (s optimized; COMPUTED, UNREVIEWED; not used in the headline).} With $s$ also optimized (grid step $1/20$, refined to $1/200$, $0<s\le2$), the same inequality certifies $\delta_0>5.9448352235\cdot10^{-3}$ for $q_0=10^{10}+1$ ($s=287/200$, $\gamma=767/50$, $H=2{,}691{,}534{,}804$); $\delta_0>4.5814133700\cdot10^{-3}$ for $q_0=400{,}001$ ($s=61/40$, $\gamma=41/2$, $H=1{,}995{,}262{,}314$); and $\delta_0>7.5971166796\cdot10^{-4}$ for $q_0=3$ ($s=2$, $\gamma=6547/50$, $H=1{,}083{,}926{,}914$). The last value uses $s=2$, the endpoint of the range $s\in(0,2]$ in Banks's Lemma~2.1, and is pending Joe's check of the lemma's range. Source: \url{results/2026-10-21-banks-devices/devices-output.txt}, section (b).
+\paragraph{Remark (s optimized; COMPUTED, UNREVIEWED; not used in the headline).} With $s$ also optimized (grid step $1/20$, refined to $1/200$, $0<s\le2$), the same inequality certifies $\delta_0>5.9448352235\cdot10^{-3}$ for $q_0=10^{10}+1$ ($s=287/200$, $\gamma=767/50$, $H=2{,}691{,}534{,}804$); $\delta_0>4.5814133700\cdot10^{-3}$ for $q_0=400{,}001$ ($s=61/40$, $\gamma=41/2$, $H=1{,}995{,}262{,}314$); and $\delta_0>7.5971166796\cdot10^{-4}$ for $q_0=3$ ($s=2$, $\gamma=6547/50$, $H=1{,}083{,}926{,}914$). The last value uses $s=2$, the closed endpoint allowed by Banks's Lemma~2.1 ($\lambda\in(0,2]$, i.e.\ $s\in(0,2]$); $\sigma=1+s/L\le2$ holds since $L\approx192\ge s$. As for the other argument-alone row, $q=8$ is excluded and is covered by [S2] (Lu--Zaman--Zhao) or [S9] (Platt). Source: \url{results/2026-10-21-banks-devices/devices-output.txt}, section (b).
 
 Unlike Banks's \S7, our rows do not need $H\le q$: the Platt row has $H>q_0$. Banks uses $H\le q$ only to get $N\ge H$, which $\gamma$ secures here (side condition $N\ge H$ below).
 
@@ -147,7 +147,7 @@ for $\sigma\ge 5$ by $\varphi>0 \Leftarrow \sigma^2-5\sigma+2>0$.
 \begin{itemize}
 \item \textbf{Platt range:} for $q\le 4\cdot10^5$ there is no real zero with $\sigma>0$ at all, so the bound holds vacuously. This range includes $q=8$, the conductor the paper's field construction excludes ($d=2$). $q>4\cdot10^5$ is covered by the first row.
 \item \textbf{Lu--Zaman--Zhao range:} for $q\le10^{10}$, $\delta>1/5$, which also covers $q=8$; $q>10^{10}$ is covered by the second row; so $c=\min(5.9299\cdot10^{-3},1/5)=5.9299\cdot10^{-3}$.
-\item \textbf{Argument alone:} covers $q\ge3$ with $q\ne8$ by taking $\gamma$ large ($\gamma=131$, $\lambda\approx174.7$), i.e.\ $N\approx q^{131}$. $q=8$ needs a separate input.
+\item \textbf{Argument alone:} covers $q\ge3$ with $q\ne8$ by taking $\gamma$ large ($\gamma=131$, $\lambda\approx174.7$), i.e.\ $N\approx q^{131}$. $q=8$ is excluded here (the field construction needs $d\ne2$) and is covered by [S2] (Lu--Zaman--Zhao, $\delta>1/5$) or [S9] (Platt, no real zero).
 \end{itemize}
 
 \section{The final constant}

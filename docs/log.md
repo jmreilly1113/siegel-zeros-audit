@@ -873,3 +873,9 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - (a) README.md and docs/packet-v3/README-draft.md gain the line "To cite: see CITATION.cff, or the concept DOI 10.5281/zenodo.23269527." above "## License".
   - (b) COMPUTED: the public Zenodo record https://zenodo.org/api/records/23499651 (fetched unauthenticated, HTTP 200, no contact details) carries metadata.license = {"id": "apache2.0"}. On Joe's instruction, .zenodo.json now has "license": "apache2.0" (plain string).
   - Tests: 34 passed.
+- 2026-10-20, packet v3 pushed and tagged (Joe approved):
+  - main pushed with the gh credential helper: 19bbe92..1053b22. Afterwards, origin/main = HEAD = 1053b225bd351030ae705354b64297152d40f4e9.
+  - COMPUTED: all 13 pinned URLs in local/outreach-facts.md return HTTP 200 (curl, unauthenticated, no contact details). Those are lines 19, 20, 32, 33, 38, 53, 54, 55, 60, 61, 62, 73 and 77.
+  - Annotated tag reviewer-packet-v3: tag object d1aff7a7e931c7252af4fbb840c3c69af2cf22ba → commit 1053b22, pushed; the remote shows the same object.
+  - No GitHub release was created (gh release list shows only v1 and v2-preliminary), so the Zenodo webhook has not been triggered.
+  - This entry is a local commit after the tag, not pushed.

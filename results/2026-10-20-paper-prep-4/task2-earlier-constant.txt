@@ -1,0 +1,38 @@
+Paper prep 4, Task 2: the earlier explicit constant as published in reviewer-packet-v1 (facts only; nothing changed).
+Source: git show reviewer-packet-v1:docs/explicit-constant.md (blob ce447bbd56fb7507db418641000214cdcf549114); line numbers are in that blob.
+Published: tag reviewer-packet-v1 -> commit 3a360169db79580334a63ca053d2a9257e9b7cde (commit date 2026-10-09 10:29:22 -0400); made public 2026-10-09 on github.com/jmreilly1113/siegel-zeros-audit and as Zenodo 10.5281/zenodo.23269528 (docs/log.md, '2026-10-09: public release and outreach').
+First commit of the file: 447ad02 (2026-10-09 08:50:39 -0400). INFERRED from docs/log.md (2026-10-09: private GitHub remote, then public release): the repository was private before the release.
+
+Status line of the file (line 3, verbatim): Status: **inference, not a finding.** The derivation below assumes the paper's algebraic steps (Lemma 6, Lemma 7, (5.1), first line of (5.6)) and six classical explicit inputs. It replaces every O-constant in the paper's Lemma 2 and (5.7) by an explicit number. The final inequality is certified in Arb, but the bookkeeping needs 
+
+== Verbatim, lines 54-70:
+## 4. Result (Arb, 200-bit; `python src/explicit_c.py`)
+
+| range | best t = L/ℓ | δ certified | F lower bound | N needed |
+|---|---|---|---|---|
+| all q ≥ 3 (ℓ₀ = log 3) | 226.9 | 3.0379 × 10⁻⁴ | 9.48 × 10⁻⁵ | ≈ 10⁸¹ |
+| q > 4·10⁵ | 34.48 | 1.99806 × 10⁻³ | 9.38 × 10⁻⁵ | ≈ 10¹⁴⁵ |
+| q > 10¹⁰ | 26.60 | 2.58930 × 10⁻³ | 9.37 × 10⁻⁵ | ≈ 10²⁰⁰ |
+
+Combined with the numerical results for small q, this gives the conditional statement:
+
+  **(1 − β) log q ≥ 0.00258 for every real zero β of every primitive real L-function with q ≥ 3.**
+
+The small-q inputs are:
+- Platt (2016): no real zeros at all for q ≤ 4·10⁵, which also covers q = 8, i.e. d = 2, the case the paper excludes.
+- Lu–Zaman–Zhao (arXiv 2602.03626, Theorem 1.1; checked against the arXiv v1 PDF; citation and sha256 in `refs/lu-zaman-zhao-2602.03626.md`): for q ≤ 10¹⁰ and quadratic χ mod q, L(σ, χ) ≠ 0 for σ ≥ 1 − 1/(5 log q). So δ > 1/5 there.
+
+Without those inputs, the argument alone gives 3.0 × 10⁻⁴ for all q ≥ 3 with q ≠ 8.
+
+== Each figure (COMPUTED by reading the lines above):
+- 3.0379 × 10⁻⁴ (line 58): table row labeled "all q ≥ 3 (ℓ₀ = log 3)". Small-q coverage: none (argument alone, evaluated
+  at ℓ₀ = log 3). Line 70 restates it as "3.0 × 10⁻⁴ for all q ≥ 3 with q ≠ 8"; the table row itself does not say q ≠ 8.
+- 1.99806 × 10⁻³ (line 59): table row "q > 4·10⁵". Small-q coverage named in the file for q ≤ 4·10⁵: Platt (2016), line 67.
+  The file states no combined all-q constant from this row.
+- 2.58930 × 10⁻³ (line 60): table row "q > 10¹⁰". Small-q coverage: Lu–Zaman–Zhao Theorem 1.1, line 68 (δ > 1/5 for q ≤ 10¹⁰).
+  This row is the source of the bold statement on line 64: "(1 − β) log q ≥ 0.00258 for every real zero β of every primitive
+  real L-function with q ≥ 3", introduced on line 62 as "Combined with the numerical results for small q" (lines 66-68 list
+  both Platt and Lu–Zaman–Zhao).
+Which was labeled "all q ≥ 3": two places use the phrase. The table row label (line 58) is the 3.0379 × 10⁻⁴ figure (no
+small-q input). The bold conditional statement (line 64) attaches "q ≥ 3" to 0.00258, i.e. the 2.58930 × 10⁻³ row combined
+with the small-q computations.

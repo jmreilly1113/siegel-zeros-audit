@@ -820,3 +820,24 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Links are pinned to cc6eb58, d55e9d0, 4546335 and 0bddb38; each pinned path was checked to exist at its commit (git cat-file -e).
   - The sheet was first committed as 16b2f7f (local, never pushed). On Joe's instruction (paper prep 4, Task 1), 16b2f7f was undone with `git reset --soft HEAD~1`, and the sheet moved to the gitignored local/ directory, to keep the names of people contacted out of the repository, as in the 2026-10-09 convention.
   - Task 7: full test suite 34 passed.
+- 2026-10-20, paper prep 4, Tasks 1–3.
+  - Task 1:
+    - 16b2f7f undone (git reset --soft HEAD~1). The facts sheet moved to local/ (gitignored); the rest recommitted as 107d20f.
+    - d55e9d0, b231660, 4546335 and 0bddb38 are unchanged (hash and tree compared before and after).
+    - COMPUTED, grep of HEAD and those four commits: "Zaman" appears only in the Lu–Zaman–Zhao citation form and in the OpenAI paper's own BGTZ citation (refs/siegel-paper.tex:90). All "Banks" hits (22 files) refer to his paper or its content. No hit names either person as someone contacted.
+  - Task 2: results/2026-10-20-paper-prep-4/task2-earlier-constant.txt quotes reviewer-packet-v1:docs/explicit-constant.md (public 2026-10-09; tag commit 3a36016; Zenodo 10.5281/zenodo.23269528). COMPUTED:
+    - 3.0379e-4 = table row "all q ≥ 3", no small-q input (line 70 adds q ≠ 8);
+    - 1.99806e-3 = row q > 4e5 (Platt named, line 67);
+    - 2.58930e-3 = row q > 1e10 (LZZ). This row underlies the bold "(1 − β) log q ≥ 0.00258 … q ≥ 3".
+  - Task 3, note-v2.md/.tex/.pdf edited in place (never published):
+    - author's note with a [JOE: …] placeholder;
+    - a Definitions line (our M = N⁴, U = N^(4/3); Banks's M = our U);
+    - σ instead of s for the real variable;
+    - §7: public date added. FIX: §7 had described only the table row as the earlier "all q ≥ 3" figure; the bold 0.00258 statement (q > 1e10 row + LZZ/Platt) is now stated too;
+    - references [S1]–[S10], with Platt 2016 = [S9] and Banks = [S10];
+    - authors C. Axler (arXiv:1703.08032) and T. Zhao (arXiv:2511.13898), from their arXiv abstract pages via plain HTTP;
+    - the Lemma 3 pointer now goes to packet-related-work-draft-v2.md;
+    - a Kerr/Green "no explicit constant" sentence (per Joe's facts).
+  - PDF: 6 pages, no warnings. Two TeX fixes on the way: a dropped '' and a paragraph indent before the table.
+  - Diff vs 4546335: results/2026-10-20-paper-prep-4/note-v2-diff-vs-4546335.txt.
+  - Assumption 1 is unchanged, pending Joe. docs/log.md:666–667 put the family-003 statement checks on grwtsk/openai-math #29 (2026-10-20, issuecomment-6296359378); #40 holds the 2026-10-09 packet post and the 2026-10-20 corpus comment.

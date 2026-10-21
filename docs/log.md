@@ -854,3 +854,18 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - The Author's note is replaced by Joe's text, verbatim, under the heading "Author's note" (typographic apostrophes).
   - PDF rebuilt: 6 pages, no warnings, sha256 07a3404a…. note.pdf unchanged.
   - Tests: 34 passed.
+- 2026-10-20, packet v3 release preparation (not pushed).
+  - README.md is replaced by docs/packet-v3/README-draft.md without its DRAFT comment.
+    - The draft's shortened license section ("Unchanged from v1") had dropped the copyright line, the lean-build/PrimeNumberTheoremAnd Apache-2.0 notice and the DOI badge. The v1 license block was restored verbatim, in README.md and in the draft.
+    - The v1 "Cite as" line is gone; CITATION.cff carries the citation.
+  - CITATION.cff:
+    - version reviewer-packet-v3, date-released 2026-10-20;
+    - title and a new abstract use the "machine-checked complement to existing human write-ups" framing;
+    - the top-level doi is now the concept DOI 10.5281/zenodo.23269527 (v3's version DOI does not exist yet), and the corpus record DOI is added to identifiers.
+    - Validated: cffconvert 2.0.0 (scratch venv) reports "valid according to schema version 1.2.0".
+  - .zenodo.json (repo root) is built from docs/zenodo-v3-metadata.json.
+    - Removed: isNewVersionOf (the GitHub integration versions under the concept DOI); the GitHub tag-tree identifier (the integration adds it); the private "_" fields; files.
+    - Kept: isSupplementedBy 10.5281/zenodo.23505836 and the references to Banks, Kerr, Green, LZZ and openai/math adc7f12.
+    - Creator "Reilly, Joseph M." with affiliation Northeastern University, as in CITATION.cff; license Apache-2.0; valid JSON; no email address.
+  - local/outreach-facts.md (local only): lines 19, 20 and 77 repinned to a81b9a9, line 55 to 049b746.
+  - Tests: 34 passed.

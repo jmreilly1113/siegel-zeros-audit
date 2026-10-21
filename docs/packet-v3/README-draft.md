@@ -36,9 +36,10 @@ Where to start:
 
 ## License
 
-Unchanged from v1:
-- **Code:** Apache-2.0 (`LICENSE`).
-- **Prose:** CC BY 4.0 (`LICENSE-docs`).
-- **openai/math files:** Apache-2.0 (`LICENSE-openai-math`, `MODIFICATIONS.md`).
-- **`results/`:** CC BY 4.0, except quoted openai/math text.
-- **Third-party preprints:** not redistributed (`refs/*.md` give citations and hashes).
+- **Code, scripts, tests and Lean files original to this project:** Apache License 2.0 (`LICENSE`). Copyright 2026 Joseph M. Reilly.
+- **Prose documentation:** the `.md` files in `docs/` (including `writeup.md` and `reviewer-packet.md`) and this README are under CC BY 4.0 (`LICENSE-docs`).
+- **Files copied from openai/math:** Apache-2.0 under OpenAI's copyright, unchanged. See `MODIFICATIONS.md` and `LICENSE-openai-math`.
+- **Files under `lean-build/PrimeNumberTheoremAnd/`:** Apache-2.0, per their `NOTICE.md`.
+- **Outputs in `results/`:** CC BY 4.0, except where they quote openai/math text.
+
+[![DOI](https://zenodo.org/badge/1411973467.svg)](https://doi.org/10.5281/zenodo.23269527)

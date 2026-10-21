@@ -1051,3 +1051,12 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - no added line contains an email address (only systemd unit names such as user@1000.service) or the correspondent's name.
   - The first push attempt failed for lack of a terminal credential prompt; it went through with gh as the credential helper.
   - Not pushed: Joe's uncommitted edit to release-notes-v3.md, and the extended replay's in-progress run.log and runs/.
+- 2026-10-21 ~10:45, extended replay plan change (Joe: cut the total to 2–3 days). Only speed and disk handling change; sandbox, timeouts, LEAN_NUM_THREADS=4, checks and outputs are unchanged.
+  - Prune policy, wsl-comparator/114b_extended_replay_shared.sh (a copy of 114 with 18 changed lines; 114 was left alone because the pilot is executing it):
+    - no prune after each config; after a config, if WSL disk used > 55 G, 112_prune.py deletes every OAI build output outside keep-configs.txt (as the 189's batch-end prunes did);
+    - so later configs reuse shared modules, and build_disk_kb becomes the INCREMENTAL footprint (the total build size is also recorded).
+  - Order: results/2026-10-21-extended-replay/phase3-order.tsv = the 5 pilot configs (skipped once done), then the other 222 sorted by solution module (204 projects, 12 with more than one config).
+  - Chaining: wsl-comparator/118_chain_phase3.sh starts 114b on phase3-order.tsv when the pilot writes PART_DONE-5.txt, and not at all if the pilot ends with STOP.txt or a guard stop.
+  - Phase 5 plan adjusted: the 10 timing configs are chosen from builds still on disk at the end where possible (no rebuild), and "long" = top decile of replay time, nearest p95 rather than the extreme maximum.
+  - First pilot config, COMPUTED (runs/ElementaryPositivity.result.json): ACCEPT_BOTH; prebuild 2,543 s from an empty OAI build (550 OAI modules, 3.47 GB); comparator 517 s; peak HWM 6.9 GB (lean4export); #print axioms: propext, Classical.choice, Quot.sound; challenge audit: the stub definition uses sorryAx, the solution does not (intended definition_names stub).
+  - Estimate (INFERRED): ~16 min per config with shared builds (the 189's builds: mean 552 s, median 384 s; comparator mean 340 s; queries ~1.5 min) → Phase 3 ~2.5 days; Phase 5 ~6–8 h; total ~3 days, finishing about 2026-10-24.

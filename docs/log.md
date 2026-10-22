@@ -1149,3 +1149,12 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - 2026-10-22 15:22: slow-lane switch done (120b at the 15:17:39 boundary; 119c restarted the new 114c at 15:21:32; first iteration ran normally).
   - COMPUTED, LaughlinFock: crash at 3a24072, pass at f67473b; shipped run ACCEPT_LEAN in 6,374 s; axioms standard.
   - 37 results: 34 ACCEPT_BOTH and 3 crash/pass, all Laughlin or Kaplansky families, the same families as the 189's crashes.
+- 2026-10-22 19:15, status and one transient build failure.
+  - COMPUTED: 43 result files (39 ACCEPT_BOTH, 3 crash at 3a24072 / pass at f67473b, 1 BUILD_FAIL). No STOP; no guard stops since 08:10; deferred: Catalan.
+  - LipschitzHilbert (U) BUILD_FAIL, prebuild log: `✖ [4850/4957] Running OAI.Analysis.LipschitzHilbert.Trees.«S/urceLabeledMainSlots»` / `error: no such file or directory … Trees/S/urceLabeledMainSlots.lean`.
+    - In the clone (read-only grep): every importer reads `import OAI.Analysis.LipschitzHilbert.Trees.SourceLabeledMainSlots`, and the file exists. 'o' (0x6F) and '/' (0x2F) differ in one bit.
+    - INFERRED: a transient error inside that build, not a property of the config.
+    - The result and logs were renamed *.transient-buildfail-20261022191441.* (nothing deleted) and LipschitzHilbert listed in redo.txt, to be redone before Phase 5 with the other leftovers.
+  - Throughput, COMPUTED from run.log outcome times since 21:51 (the 4.7 h idle gap excluded): median cycle 12 min, mean 30 min; 14 of 23 cycles ≤ 15 min. The long tail is the Laughlin cluster (LaughlinFock 247 min, before the slow lane; LaughlinGap 82 min) and StrongKadisonKastler (123 min).
+  - MUBSix's prebuild had run ~2 h (five lean processes, ~6.8 GB RSS each, mostly shared mmap).
+  - INFERRED: 184 configs remain; at 12–20 min each (the slow lane removes most of the crash tail) that is ~37–60 h.

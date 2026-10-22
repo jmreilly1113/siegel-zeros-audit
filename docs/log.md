@@ -1133,3 +1133,6 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - 119b stopped (pkill of the supervisor only); the running 114c continues; the keeper starts 119c when 114c ends.
   - Claude-side: one lightweight watcher (every 5 min) for HALT/STOP/DONE, every 25 results, or run.log unchanged for 3 h. Restarted at Joe's request after the earlier reap.
   - Checked: desktop (no battery); AC standby and hibernate timeouts are 0 (never), so Windows sleep cannot pause the run.
+- 2026-10-22 ~11:15: Claude Code reaped the Claude-side watcher again (Windows critically low on memory). COMPUTED at 11:15:44: Windows free 4,065 MB; vmmemWSL private 18,695 MB (cap 20 GB); commit 38.8/51.7 GB.
+  - Joe chose option 1: leave it. No Claude-side watcher. The run heals itself in WSL (119c/122); status only when Joe asks.
+  - Progress, COMPUTED: 36 results. LaughlinPlanar (C): crash at 3a24072 ("thread 'thread_1' has overflowed its stack", exit 134, nanoda run 5,597 s); Lean-only run ACCEPT_LEAN in 4,150 s; f67473b direct: pass; axioms standard. It is named in the #55 copy (line 37, "Laughlin, LaughlinPlanar").

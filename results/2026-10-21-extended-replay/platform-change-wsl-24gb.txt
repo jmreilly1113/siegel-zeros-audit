@@ -10,3 +10,12 @@ Effect on comparability (INFERRED): memory size changes no verdict unless a run 
 config that completes here at > ~14 GB would not have completed on the 189's platform. Every config's peak memory is recorded.
 Configs completed before the change at 16 GB: ElementaryPositivity, KaplanskyDirectFiniteness, ShortEgyptianFractions.
 Stopped for the restart: OstmannPrimes during its prebuild (redone; partial logs moved aside by 114b). Catalan undeferred.
+
+Second change, 2026-10-22 08:10 (overnight decision, under Joe's "keep runs fast and stable"): WSL memory 24 GB -> 20 GB.
+Why (COMPUTED): at 03:26 the run was stopped with no WSL guard LIMIT line; WSL MemAvailable never fell below 12,890 MB
+(guard.log 03:26:21), while Windows went below the Windows-side monitor's 3000 MB floor (INFERRED: the orphaned monitor 78,
+whose parent shell Claude Code had reaped at ~00:20, fired and exited; no 78 process remained at 08:05). INFERRED: the WSL
+VM keeps memory it no longer needs, so Windows memory, not WSL memory, is the binding limit. With a 20 GB cap Windows keeps
+~7 GB even when the VM is full, so no Windows-side monitor is needed.
+Fit (COMPUTED, 35 results): largest summed peak 11.7 GB (OstmannPrimes), median 8.5 GB; only Catalan (> 22 GB) exceeds 20 GB.
+After (COMPUTED): free -m total 20,005 MB; kernel, clone (fd4aeeb, clean) and binaries unchanged.

@@ -1114,3 +1114,13 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Started 00:29:37.
   - Progress, COMPUTED: 31 result.json files; no STOP; guard records unchanged (2); deferred: Catalan; serial-once: none.
     - Since the switch to 114c (21:51): 11 configs in 2.6 h (~14 min each, including the first build without overlap).
+- 2026-10-22 03:27–08:10, overnight stop and fix.
+  - 03:27: 114c stopped with no WSL guard LIMIT line (guard.log: MemAvailable ≥ 12,890 MB throughout). 119b found no active run or build and did not restart: 4 h 43 min idle.
+    - INFERRED source: the orphaned Windows-side monitor 78 (its parent shell was reaped ~00:20; it fires when Windows free RAM < 3000 MB, then exits; no 78 process remained at 08:05). Windows ran short while WSL had memory, i.e. the VM had not returned memory to Windows.
+  - Bug (mine, in 114c): on a stop it cleared active-run.txt / active-build.txt before exiting, so 119b could never attribute a stop. Fixed (markers kept on stop paths; header note in the script). 119b unchanged.
+  - Decision: WSL memory 24 GB → 20 GB (.wslconfig; wsl --shutdown at 08:10). The VM cap now keeps ~7 GB for Windows, so neither the Windows monitor nor the strict guard loop 121 is needed; 121 stopped.
+    - Fit, COMPUTED from 35 results: largest summed peak 11.7 GB (OstmannPrimes), median 8.5 GB.
+    - After restart: 20,005 MB; kernel, clone and binaries unchanged. Record: results/2026-10-21-extended-replay/platform-change-wsl-24gb.txt (second section); GUARD_STOPPED-3.txt.
+  - Resumed 08:10:33. The interrupted LaughlinPlanar run and LaughlinFock build were moved aside and redone. A boundary prune freed 27.3 GiB.
+  - Progress, COMPUTED: 35 results (34 ACCEPT_BOTH; 1 crash at 3a24072 / pass at f67473b, KaplanskyDirectFiniteness); no STOP; deferred: Catalan.
+  - Background waiters on the Windows side were not restarted after the reap (Claude Code's instruction).

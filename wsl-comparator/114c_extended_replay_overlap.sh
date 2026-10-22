@@ -7,6 +7,8 @@
 #     j+1's build writes only modules outside it). Threshold prunes (WSL used > PRUNE_AT) happen only at a config
 #     boundary while no build runs, keeping keep-configs.txt plus the next config's closure.
 # A config listed in serial-once.txt runs with no concurrent build (set by 119b after a memory stop with both active).
+# 2026-10-22 fix: on a stop, active-run.txt / active-build.txt are no longer cleared, so 119b can attribute the stop
+# (before, 119b always saw both empty after a stop and did not restart: 03:27 on 2026-10-22).
 # Markers for 119b: active-run.txt (config whose comparator/queries run), active-build.txt (config being built).
 # Resumable as 114b (result.json skip, deferred.txt skip, partial files moved aside at the config's build start).
 # Run as root, detached, via 119b_supervise_overlap.sh. Usage: 114c_extended_replay_overlap.sh <plan tsv> <out dir>
@@ -58,12 +60,12 @@ build_one() { # build_one <config>: run in the background; writes $PB/<config>.b
   printf 'build_kb_before\t%s\nconcurrent_run_at_build_start\t%s\n' "$(bkb)" "$(cat $OUT/active-run.txt)" > $R/$N.disk.tsv
   prebuild $R/$N.prebuild.log "$TG" 14400
   printf 'build_kb_after_prebuild\t%s\nwsl_disk_used_after_prebuild\t%s\nc_free_gb_after_prebuild\t%s\n' "$(bkb)" "$(wused)" "$(cfree)" >> $R/$N.disk.tsv
-  if stopped; then : > $OUT/active-build.txt; return; fi
+  if stopped; then return; fi   # marker kept: 119b reads it after a stop
   if grep -q 'SANDBOX EXIT CODE: 12[4-9]\|SANDBOX EXIT CODE: 137' $R/$N.prebuild.log; then
     log "$N: prebuild TIMEOUT at 14400 s; rerun once at 57600 s"
     prebuild $R/$N.prebuild-4x.log "$TG" 57600
     printf 'build_kb_after_prebuild_4x\t%s\n' "$(bkb)" >> $R/$N.disk.tsv
-    if stopped; then : > $OUT/active-build.txt; return; fi
+    if stopped; then return; fi   # marker kept for 119b
     PBOK=$(grep -c 'SANDBOX EXIT CODE: 0' $R/$N.prebuild-4x.log)
   else
     PBOK=$(grep -c 'SANDBOX EXIT CODE: 0' $R/$N.prebuild.log)
@@ -143,7 +145,7 @@ for ((j=0; j<n; j++)); do
   if [ -n "$NX" ] && ! grep -qx "$N" $OUT/serial-once.txt 2>/dev/null; then build_one $NX & WPID=$!
   elif [ -n "$NX" ]; then log "$N: in serial-once.txt; no concurrent build"; fi
   run_one $N; rc=$?
-  : > $OUT/active-run.txt
+  [ $rc -eq 0 ] && : > $OUT/active-run.txt   # on a stop the marker is kept for 119b
   [ $rc -eq 3 ] || [ $rc -eq 9 ] || [ $rc -eq 2 ] && break
 done
 [ -n "$WPID" ] && wait $WPID

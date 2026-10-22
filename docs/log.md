@@ -1124,3 +1124,12 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Resumed 08:10:33. The interrupted LaughlinPlanar run and LaughlinFock build were moved aside and redone. A boundary prune freed 27.3 GiB.
   - Progress, COMPUTED: 35 results (34 ACCEPT_BOTH; 1 crash at 3a24072 / pass at f67473b, KaplanskyDirectFiniteness); no STOP; deferred: Catalan.
   - Background waiters on the Windows side were not restarted after the reap (Claude Code's instruction).
+- 2026-10-22 08:14, self-healing run (Joe: "don't lose big chunks of time like this again").
+  - wsl-comparator/119c_supervise_selfheal.sh replaces 119b's policy. It restarts 114c after any guard stop except a WSL disk-limit stop, and halts (writing HALT.txt) only on STOP.txt, DONE, the disk limit, C: free < 22 GB or 40 restarts.
+    - Stop handling: active run → first stop: serial-once, second: deferred. Only a build active → first stop: retried, second: deferred. Nothing active → plain restart.
+    - Leftover stops are handled at start; every stop goes to stops.tsv; one instance (flock).
+    - COMPUTED, dry test with a stub driver in /tmp (5 scenarios): all actions as specified.
+  - wsl-comparator/122_keeper.sh: every 60 s, if no 119b/119c/114c is running and no DONE/HALT/STOP, it starts 119c. It is a WSL process, so Claude Code's memory reaper cannot stop it. Started 08:14:36 (one instance, flock).
+  - 119b stopped (pkill of the supervisor only); the running 114c continues; the keeper starts 119c when 114c ends.
+  - Claude-side: one lightweight watcher (every 5 min) for HALT/STOP/DONE, every 25 results, or run.log unchanged for 3 h. Restarted at Joe's request after the earlier reap.
+  - Checked: desktop (no battery); AC standby and hibernate timeouts are 0 (never), so Windows sleep cannot pause the run.

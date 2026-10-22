@@ -1146,3 +1146,6 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Installed with mv (the running 114c keeps reading its old inode).
   - Switch: wsl-comparator/120b_switch_slowlane.sh waits for the next outcome line (LaughlinFock's), stops only 114c and its children, and 119c restarts the new version after 60 s; the config whose run had just started (LaughlinGap) is redone.
   - Known limit: 119c attributes a guard stop to the main lane's config (active-run.txt), not to the slow-lane config.
+- 2026-10-22 15:22: slow-lane switch done (120b at the 15:17:39 boundary; 119c restarted the new 114c at 15:21:32; first iteration ran normally).
+  - COMPUTED, LaughlinFock: crash at 3a24072, pass at f67473b; shipped run ACCEPT_LEAN in 6,374 s; axioms standard.
+  - 37 results: 34 ACCEPT_BOTH and 3 crash/pass, all Laughlin or Kaplansky families, the same families as the 189's crashes.

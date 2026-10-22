@@ -1080,3 +1080,24 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - The restart took until 13:56 (clocks checked: Windows and WSL agree).
   - Disk after restart, COMPUTED: WSL used 46 G (OAI builds 21 G under the shared policy, including the kept KaplanskyDirectFiniteness build and Catalan's unfinished one; exports 1.4 G); C: free 81 GB.
   - Resumed 13:56:23 under 119 → 114b on phase3-order.tsv; Catalan rerun first, with its build reused (prebuild 19 s).
+- 2026-10-21 14:04, extended replay: second stop during Catalan, this time from the Windows-side monitor (78: Windows free RAM < 3000 MB), not the WSL guard.
+  - COMPUTED: the WSL guard log has no LIMIT line after 12:17:20; its last samples were MemAvailable 15,819 MB at 14:02 and 7,408 MB at 14:03.
+  - Catalan's nanoda 3a24072 run under 24 GB, at the stop (runs/Catalan-nanoda.mem.json, last sample 14:04:09): high-water mark 19,565,700 KB, summed RSS 22,365,588 KB, still rising. No exit-code line: not a verdict.
+  - 119 misattributed the stop: it parsed the stale 12:17:20 LIMIT line and logged "memory guard stop". The action was the intended one: Catalan deferred (deferred.txt), record GUARD_STOPPED-2.txt, 114b restarted after 60 s.
+    - CORRECTION to the 14:04:11 run.log line: the source was the Windows monitor.
+    - 119 is not edited while running; a later Windows-monitor memory stop will be logged the same way and handled the same way (defer and continue).
+  - INFERRED: Catalan's nanoda 3a24072 needs more than 22 GB, more than this machine can give WSL with a 3 GB Windows margin. It stays deferred, for Joe to decide at the end; the Lean-only (shipped) run is still to do.
+  - The Windows monitor exits after it fires; restarted 14:1x.
+- 2026-10-21 ~20:00, extended replay speed-up (Joe chose "builds at 8 threads" and "overlap next build with current run"; not chosen: trimming the Phase 5 sample).
+  - Why, COMPUTED from the first 19 result.json files: prebuild 4 s to 4,859 s (KoebeCircleDomains; OstmannPrimes 2,644 s; ElementaryPositivity 2,543 s); comparator runs 11–897 s, mostly 220–400 s. At 19 configs in ~10 h, Phase 3 was heading for ~2.5 more days.
+  - New wsl-comparator/114c_extended_replay_overlap.sh: the same per-config steps, logs, sandbox, timeouts and checks as 114b, except:
+    - prebuild LEAN_NUM_THREADS=8 (the 189: 4; comparator runs and queries unchanged at their settings);
+    - lookahead of one: config j+1's prebuild runs while config j's comparator run and queries run;
+    - builds stay serial, so j's closure is complete before its comparator run, and j+1's build only adds modules outside it;
+    - threshold prunes only at a boundary with no build running, keeping keep-configs plus the current config.
+  - New wsl-comparator/119b_supervise_overlap.sh:
+    - restarts 114c after a memory stop;
+    - tells the WSL guard from the Windows monitor by the guard.log LIMIT time (fixing 119's misattribution of 14:04);
+    - attribution: both a run and a build active → the run's config goes to serial-once.txt (redone without overlap), nothing deferred; one active → that config deferred.
+  - Switch: wsl-comparator/120_switch_to_114c.sh waits for the next "outcome" line, stops 119/114b at that boundary and execs 119b. Started 20:03; UniformCommutator's prebuild was 45 min in and was not interrupted.
+  - INFERRED estimate: builds ~1.5× faster at 8 threads, and the overlap hides most comparator time → ~8–10 min per config → Phase 3 ~30–35 h from the switch, unless memory stops force serial reruns.

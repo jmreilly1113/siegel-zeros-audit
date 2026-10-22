@@ -1,0 +1,155 @@
+#!/usr/bin/env bash
+# Extended replay, 114c (Joe, 2026-10-21 ~16:40: "builds at 8 threads" + "overlap next build with current run").
+# Same per-config steps, logs, sandbox, timeouts, checks and outputs as 114b_extended_replay_shared.sh, with two changes:
+#  1. prebuilds use LEAN_NUM_THREADS=$THREADS (8; the 189 used 4). Comparator runs and queries are unchanged.
+#  2. lookahead of ONE: while config j's comparator runs and queries run, config j+1's prebuild runs. Builds stay serial
+#     (j+1's build starts only after j's build finished, so j's closure is complete before its comparator run, and
+#     j+1's build writes only modules outside it). Threshold prunes (WSL used > PRUNE_AT) happen only at a config
+#     boundary while no build runs, keeping keep-configs.txt plus the next config's closure.
+# A config listed in serial-once.txt runs with no concurrent build (set by 119b after a memory stop with both active).
+# Markers for 119b: active-run.txt (config whose comparator/queries run), active-build.txt (config being built).
+# Resumable as 114b (result.json skip, deferred.txt skip, partial files moved aside at the config's build start).
+# Run as root, detached, via 119b_supervise_overlap.sh. Usage: 114c_extended_replay_overlap.sh <plan tsv> <out dir>
+set -u
+PLAN=$1; OUT=$2; PRUNE_AT=${PRUNE_AT:-55}; THREADS=${THREADS:-8}
+W=/mnt/c/Users/Work/dev/siegel/wsl-comparator; QD=/mnt/c/Users/Work/dev/siegel/lean-checks/extended-replay
+L=/home/checker/math/lean; X=/home/checker/corpus/xr; R=$OUT/runs; PB=$X/pb-114c
+NB_POST=/opt/nanoda-postfix/nanoda_bin
+mkdir -p $R $X/configs $X/exp; rm -rf $PB; mkdir -p $PB; chown -R checker:checker $X
+: > $OUT/active-run.txt; : > $OUT/active-build.txt
+log() { echo "$(date '+%F %T') $*" >> $OUT/run.log; }
+stopped() { [ -f /home/checker/corpus/GUARD_STOPPED ] || [ -f $R/STOP.txt ]; }
+cfree() { df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9; }
+wused() { df -BG --output=used / | tail -1 | tr -dc 0-9; }
+rm -f /home/checker/corpus/GUARD_STOPPED
+nohup bash $W/69_corpus_guard.sh 85 1500 2 >/dev/null 2>&1 &
+GD=$!
+log "start 114c_extended_replay_overlap.sh (prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69_corpus_guard.sh 85 1500 2"
+prebuild() { # prebuild <log> <targets> <timeout>
+  { echo "== prebuild: lake build $2 with LEAN_NUM_THREADS=$THREADS (114c)  $(date '+%F %T')"; T0=$(date +%s)
+    bash $W/75_sbx.sh $3 $THREADS "lake build $2" </dev/null
+    echo "PREBUILD_SECONDS: $(( $(date +%s) - T0 ))"; echo "disk used: $(df -BG --output=used / | tail -1 | tr -d ' ')"
+  } 2>&1 | cat > $1
+}
+crun() { python3 -I $W/111_memsample.py $2 $5 ${6:-} & local SP=$!; bash $W/67_corpus_run.sh $1 $2 $3 $4 </dev/null; wait $SP; }
+live() { ls $R/$1.* $R/$1-* 2>/dev/null | grep -v '\.stopped-'; }
+aside() { local ts; ts=$(date +%Y%m%d%H%M%S); for f in $(live $1); do mv "$f" "${f%.*}.stopped-$ts.${f##*.}"; done; }
+bkb() { du -sk $L/.lake/build 2>/dev/null | cut -f1; }
+declare -A GRP SHP ORDN
+PEND=()
+while IFS=$'\t' read -r -u 9 ORD N G PIL SHIP LINES NTH EXTRA FLAG; do
+  [ "$ORD" = order ] && continue
+  case "$ORD" in \#*) continue ;; esac
+  [ -f $R/$N.result.json ] && continue
+  grep -qx "$N" $OUT/deferred.txt 2>/dev/null && { log "$N: deferred (deferred.txt); skipped for now"; continue; }
+  PEND+=("$N"); GRP[$N]=$G; SHP[$N]=$SHIP; ORDN[$N]=$ORD
+done 9< $PLAN
+log "114c: ${#PEND[@]} configs pending"
+
+build_one() { # build_one <config>: run in the background; writes $PB/<config>.built = 1 (prebuild ok) or 0
+  local N=$1 CFG TG PBOK
+  echo "$N" > $OUT/active-build.txt
+  [ -n "$(live $N)" ] && { log "$N: partial files from an interrupted attempt moved aside"; aside $N; }
+  CFG=$X/configs/$N-nanoda.json
+  python3 -I -c "import json,sys; c=json.load(open(sys.argv[1])); c['enable_nanoda']=True; json.dump(c, open(sys.argv[2],'w'), indent=2)" $L/ComparatorChallenges/$N.json $CFG
+  chown checker:checker $CFG
+  TG=$(python3 -I -c "import json,sys; c=json.load(open(sys.argv[1])); print(' '.join([c['solution_module'], c['challenge_module']] + c.get('solution_imports', [])))" $CFG)
+  log "$N (${ORDN[$N]}, group ${GRP[$N]}, shipped nanoda ${SHP[$N]}): prebuild (LEAN_NUM_THREADS=$THREADS; concurrent run: $(cat $OUT/active-run.txt))"
+  printf 'build_kb_before\t%s\nconcurrent_run_at_build_start\t%s\n' "$(bkb)" "$(cat $OUT/active-run.txt)" > $R/$N.disk.tsv
+  prebuild $R/$N.prebuild.log "$TG" 14400
+  printf 'build_kb_after_prebuild\t%s\nwsl_disk_used_after_prebuild\t%s\nc_free_gb_after_prebuild\t%s\n' "$(bkb)" "$(wused)" "$(cfree)" >> $R/$N.disk.tsv
+  if stopped; then : > $OUT/active-build.txt; return; fi
+  if grep -q 'SANDBOX EXIT CODE: 12[4-9]\|SANDBOX EXIT CODE: 137' $R/$N.prebuild.log; then
+    log "$N: prebuild TIMEOUT at 14400 s; rerun once at 57600 s"
+    prebuild $R/$N.prebuild-4x.log "$TG" 57600
+    printf 'build_kb_after_prebuild_4x\t%s\n' "$(bkb)" >> $R/$N.disk.tsv
+    if stopped; then : > $OUT/active-build.txt; return; fi
+    PBOK=$(grep -c 'SANDBOX EXIT CODE: 0' $R/$N.prebuild-4x.log)
+  else
+    PBOK=$(grep -c 'SANDBOX EXIT CODE: 0' $R/$N.prebuild.log)
+  fi
+  [ "$PBOK" -ge 1 ] && echo 1 > $PB/$N.built || echo 0 > $PB/$N.built
+  : > $OUT/active-build.txt
+}
+
+run_one() { # run_one <config>: comparator runs, queries, classification; returns the classifier's code (0, 2, 3)
+  local N=$1 CFG=$X/configs/$1-nanoda.json NL rc NC OC EXS SP
+  echo "$N" > $OUT/active-run.txt
+  if [ "$(cat $PB/$N.built)" = 1 ]; then
+    log "$N: nanoda run"
+    crun $N $CFG 7200 $R/$N-nanoda.log $R/$N-nanoda.mem.json $X/exp/$N.export
+    stopped && return 9
+    if grep -q 'COMPARATOR EXIT CODE: 12[4-9]\|COMPARATOR EXIT CODE: 137' $R/$N-nanoda.log; then
+      log "$N: comparator TIMEOUT at 7200 s; rerun once at 28800 s"
+      crun $N $CFG 28800 $R/$N-nanoda-4x.log $R/$N-nanoda-4x.mem.json $X/exp/$N.export
+      stopped && return 9
+    fi
+    NL=$R/$N-nanoda.log; [ -f $R/$N-nanoda-4x.log ] && NL=$R/$N-nanoda-4x.log
+    if ! { grep -q 'nanoda kernel accepts the solution' $NL && grep -q 'Lean default kernel accepts the solution' $NL && grep -q 'Your solution is okay!' $NL && grep -q 'COMPARATOR EXIT CODE: 0' $NL; }; then
+      log "$N: shipped-config run (nanoda run not ACCEPT_BOTH)"
+      crun $N $L/ComparatorChallenges/$N.json 7200 $R/$N-shipped.log $R/$N-shipped.mem.json
+      stopped && return 9
+    fi
+    log "$N: #print axioms"
+    { echo "== #print axioms $N: lake env lean $QD/$N-axioms.lean  $(date '+%F %T')"; echo "file sha256 $(sha256sum $QD/$N-axioms.lean | cut -c1-64)"
+      bash $W/75_sbx.sh 3600 4 "lake env lean $QD/$N-axioms.lean" </dev/null; } > $R/$N-axioms.log 2>&1
+    for S in challenge solution; do
+      [ -f $QD/$N-audit-$S.lean ] || continue
+      log "$N: audit query ($S)"
+      { echo "== audit query $N $S: lake env lean $QD/$N-audit-$S.lean  $(date '+%F %T')"; echo "file sha256 $(sha256sum $QD/$N-audit-$S.lean | cut -c1-64)"
+        bash $W/75_sbx.sh 3600 4 "lake env lean $QD/$N-audit-$S.lean" </dev/null; } > $R/$N-audit-$S.log 2>&1
+    done
+    stopped && return 9
+  fi
+  python3 -I $W/115_classify.py $R $N ${GRP[$N]} ${SHP[$N]}; rc=$?
+  if [ $rc -eq 4 ]; then
+    NC=$X/exp/$N.f67473b-config.json
+    python3 -I -c "import json,sys; c=json.load(open(sys.argv[1])); c['export_file_path']=sys.argv[3]; json.dump(c, open(sys.argv[2],'w'), indent=1)" $X/exp/$N.export.nanoda-config.json $NC $X/exp/$N.export
+    chown checker:checker $NC $X/exp/$N.export
+    log "$N: nanoda crash; nanoda f67473b directly on the retained export (default stack)"
+    python3 -I $W/111_memsample.py $NC $R/$N-f67473b-direct.mem.json & SP=$!
+    bash $W/113_nanoda_direct.sh $N $NC $NB_POST 7200 $R/$N-f67473b-direct.log </dev/null
+    wait $SP
+    stopped && return 9
+    python3 -I $W/115_classify.py $R $N ${GRP[$N]} ${SHP[$N]}; rc=$?
+  fi
+  [ $rc -eq 2 ] && { log "$N: not final (a run has no exit code line)"; return 2; }
+  OC=$(python3 -I -c "import json,sys; print(json.load(open(sys.argv[1]))['outcome'])" $R/$N.result.json)
+  EXS=$(python3 -I -c "import json,sys; e=json.load(open(sys.argv[1])).get('export') or {}; print(e.get('export_sha256'), e.get('export_bytes'))" $R/$N.result.json)
+  log "$N: outcome $OC; export sha256/bytes $EXS"
+  if [ $rc -eq 3 ]; then log "STOP: $(tail -1 $R/STOP.txt)"; echo "ComparatorChallenges/$N.json" >> $OUT/keep-configs.txt; return 3; fi
+  if [ "$OC" = ACCEPT_BOTH ]; then rm -f $X/exp/$N.export $X/exp/$N.export.nanoda-config.json
+  else echo "ComparatorChallenges/$N.json" >> $OUT/keep-configs.txt; log "$N: build and export kept ($OC)"; fi
+  : > $OUT/active-run.txt
+  return 0
+}
+
+WPID=; n=${#PEND[@]}
+for ((j=0; j<n; j++)); do
+  N=${PEND[$j]}
+  stopped && break
+  f=$(cfree); if [ -n "$f" ] && [ "$f" -lt 22 ]; then echo "(d) C: free ${f} GB < 22 GB before $N  $(date '+%F %T')" >> $R/STOP.txt; log "STOP (d): C: free ${f}G"; break; fi
+  if [ ! -f $PB/$N.built ] && [ -z "$WPID" ]; then build_one $N & WPID=$!; fi
+  [ -n "$WPID" ] && { wait $WPID; WPID=; }
+  stopped && break
+  [ -f $PB/$N.built ] || { log "$N: build did not finish (stopped)"; break; }
+  if [ "$(wused)" -gt "$PRUNE_AT" ]; then   # boundary prune: no build running; keep the current config's closure too
+    cp $OUT/keep-configs.txt $X/keep-now.txt 2>/dev/null || : > $X/keep-now.txt
+    echo "ComparatorChallenges/$N.json" >> $X/keep-now.txt
+    python3 -I $W/112_prune.py $L $X/keep-now.txt --apply > $R/$N.prune-before.log 2>&1
+    log "threshold prune before running $N (WSL used > ${PRUNE_AT}G): $(head -1 $R/$N.prune-before.log); WSL used $(wused)G"
+  fi
+  NX=${PEND[$((j+1))]:-}
+  if [ -n "$NX" ] && ! grep -qx "$N" $OUT/serial-once.txt 2>/dev/null; then build_one $NX & WPID=$!
+  elif [ -n "$NX" ]; then log "$N: in serial-once.txt; no concurrent build"; fi
+  run_one $N; rc=$?
+  : > $OUT/active-run.txt
+  [ $rc -eq 3 ] || [ $rc -eq 9 ] || [ $rc -eq 2 ] && break
+done
+[ -n "$WPID" ] && wait $WPID
+kill $GD 2>/dev/null
+log "114c end; clone status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; WSL used $(wused)G; C: free $(cfree)G"
+if [ -f /home/checker/corpus/GUARD_STOPPED ]; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt
+elif [ -f $R/STOP.txt ]; then :
+elif [ $j -ge $n ]; then echo "EXTENDED REPLAY DONE (pending list complete; see deferred.txt) $(date '+%F %T')" > $OUT/DONE.txt; fi
+sync

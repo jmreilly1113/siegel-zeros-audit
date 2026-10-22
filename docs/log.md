@@ -1136,3 +1136,13 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - 2026-10-22 ~11:15: Claude Code reaped the Claude-side watcher again (Windows critically low on memory). COMPUTED at 11:15:44: Windows free 4,065 MB; vmmemWSL private 18,695 MB (cap 20 GB); commit 38.8/51.7 GB.
   - Joe chose option 1: leave it. No Claude-side watcher. The run heals itself in WSL (119c/122); status only when Joe asks.
   - Progress, COMPUTED: 36 results. LaughlinPlanar (C): crash at 3a24072 ("thread 'thread_1' has overflowed its stack", exit 134, nanoda run 5,597 s); Lean-only run ACCEPT_LEAN in 4,150 s; f67473b direct: pass; axioms standard. It is named in the #55 copy (line 37, "Laughlin, LaughlinPlanar").
+- 2026-10-22 13:10, slow lane (speed; the rule that finishing quickly is essential).
+  - COMPUTED: LaughlinFock (S): nanoda 3a24072 stack overflow ("thread 'thread_3' has overflowed its stack"); Lean kernel accepts; comparator 7,020 s (180 s under the 7,200 s timeout). Shipped run started 13:07.
+  - Why: after a non-ACCEPT_BOTH nanoda run, the shipped run and the f67473b direct run use one core and little memory (LaughlinFock's comparator: 0.9 GB RSS, ~110% CPU) but blocked the pipeline; LaughlinGap's build had been ready since ~11:35.
+  - wsl-comparator/114c_extended_replay_overlap.sh updated (the old version is in git):
+    - after a non-ACCEPT_BOTH nanoda run, the rest of that config (shipped run, #print axioms, audits, classification, f67473b direct run, keep/export) runs in the background as the slow lane: at most one config, marker active-slow.txt;
+    - while the slow lane runs, no lookahead build is started (at most two comparator runs share memory), and boundary prunes keep the slow-lane config's build;
+    - per-config steps and outputs unchanged.
+    - Installed with mv (the running 114c keeps reading its old inode).
+  - Switch: wsl-comparator/120b_switch_slowlane.sh waits for the next outcome line (LaughlinFock's), stops only 114c and its children, and 119c restarts the new version after 60 s; the config whose run had just started (LaughlinGap) is redone.
+  - Known limit: 119c attributes a guard stop to the main lane's config (active-run.txt), not to the slow-lane config.

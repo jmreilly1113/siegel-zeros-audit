@@ -9,6 +9,10 @@
 # A config listed in serial-once.txt runs with no concurrent build (set by 119b after a memory stop with both active).
 # 2026-10-22 fix: on a stop, active-run.txt / active-build.txt are no longer cleared, so 119b can attribute the stop
 # (before, 119b always saw both empty after a stop and did not restart: 03:27 on 2026-10-22).
+# 2026-10-22 slow lane (Joe: finishing quickly is essential): when a nanoda run is not ACCEPT_BOTH, the rest of that
+# config (shipped run, queries, classification, f67473b direct run) runs in the background as the SLOW LANE (at most
+# one config; active-slow.txt), and the main loop goes on. While the slow lane runs, no lookahead build is started
+# (so at most two comparator runs and no build share memory), and boundary prunes keep the slow-lane config's build.
 # Markers for 119b: active-run.txt (config whose comparator/queries run), active-build.txt (config being built).
 # Resumable as 114b (result.json skip, deferred.txt skip, partial files moved aside at the config's build start).
 # Run as root, detached, via 119b_supervise_overlap.sh. Usage: 114c_extended_replay_overlap.sh <plan tsv> <out dir>
@@ -88,7 +92,23 @@ run_one() { # run_one <config>: comparator runs, queries, classification; return
     fi
     NL=$R/$N-nanoda.log; [ -f $R/$N-nanoda-4x.log ] && NL=$R/$N-nanoda-4x.log
     if ! { grep -q 'nanoda kernel accepts the solution' $NL && grep -q 'Lean default kernel accepts the solution' $NL && grep -q 'Your solution is okay!' $NL && grep -q 'COMPARATOR EXIT CODE: 0' $NL; }; then
-      log "$N: shipped-config run (nanoda run not ACCEPT_BOTH)"
+      if [ -n "$SPID" ] && kill -0 $SPID 2>/dev/null; then log "$N: waiting for the slow lane ($(cat $OUT/active-slow.txt)) to finish"; wait $SPID; fi
+      echo "$N" > $OUT/active-slow.txt; SLOWN=$N
+      log "$N: nanoda run not ACCEPT_BOTH; shipped run, queries and classification continue in the slow lane"
+      finish_one $N slow &
+      SPID=$!
+      return 0
+    fi
+  fi
+  finish_one $N main
+}
+
+finish_one() { # finish_one <config> <main|slow>: shipped run (if needed), queries, classification, f67473b, keep/export
+  local N=$1 MODE=$2 CFG=$X/configs/$1-nanoda.json NL rc NC OC EXS SP
+  if [ "$(cat $PB/$N.built)" = 1 ]; then
+    NL=$R/$N-nanoda.log; [ -f $R/$N-nanoda-4x.log ] && NL=$R/$N-nanoda-4x.log
+    if ! { grep -q 'nanoda kernel accepts the solution' $NL && grep -q 'Lean default kernel accepts the solution' $NL && grep -q 'Your solution is okay!' $NL && grep -q 'COMPARATOR EXIT CODE: 0' $NL; }; then
+      log "$N: shipped-config run (nanoda run not ACCEPT_BOTH; $MODE lane)"
       crun $N $L/ComparatorChallenges/$N.json 7200 $R/$N-shipped.log $R/$N-shipped.mem.json
       stopped && return 9
     fi
@@ -122,11 +142,12 @@ run_one() { # run_one <config>: comparator runs, queries, classification; return
   if [ $rc -eq 3 ]; then log "STOP: $(tail -1 $R/STOP.txt)"; echo "ComparatorChallenges/$N.json" >> $OUT/keep-configs.txt; return 3; fi
   if [ "$OC" = ACCEPT_BOTH ]; then rm -f $X/exp/$N.export $X/exp/$N.export.nanoda-config.json
   else echo "ComparatorChallenges/$N.json" >> $OUT/keep-configs.txt; log "$N: build and export kept ($OC)"; fi
-  : > $OUT/active-run.txt
+  if [ "$MODE" = slow ]; then : > $OUT/active-slow.txt; else : > $OUT/active-run.txt; fi
   return 0
 }
 
-WPID=; n=${#PEND[@]}
+WPID=; SPID=; SLOWN=; : > $OUT/active-slow.txt; n=${#PEND[@]}
+slow_on() { [ -n "$SPID" ] && kill -0 $SPID 2>/dev/null; }
 for ((j=0; j<n; j++)); do
   N=${PEND[$j]}
   stopped && break
@@ -138,17 +159,20 @@ for ((j=0; j<n; j++)); do
   if [ "$(wused)" -gt "$PRUNE_AT" ]; then   # boundary prune: no build running; keep the current config's closure too
     cp $OUT/keep-configs.txt $X/keep-now.txt 2>/dev/null || : > $X/keep-now.txt
     echo "ComparatorChallenges/$N.json" >> $X/keep-now.txt
+    slow_on && echo "ComparatorChallenges/$SLOWN.json" >> $X/keep-now.txt
     python3 -I $W/112_prune.py $L $X/keep-now.txt --apply > $R/$N.prune-before.log 2>&1
     log "threshold prune before running $N (WSL used > ${PRUNE_AT}G): $(head -1 $R/$N.prune-before.log); WSL used $(wused)G"
   fi
   NX=${PEND[$((j+1))]:-}
-  if [ -n "$NX" ] && ! grep -qx "$N" $OUT/serial-once.txt 2>/dev/null; then build_one $NX & WPID=$!
+  if [ -n "$NX" ] && slow_on; then log "$N: slow lane busy ($SLOWN); no concurrent build"
+  elif [ -n "$NX" ] && ! grep -qx "$N" $OUT/serial-once.txt 2>/dev/null; then build_one $NX & WPID=$!
   elif [ -n "$NX" ]; then log "$N: in serial-once.txt; no concurrent build"; fi
   run_one $N; rc=$?
   [ $rc -eq 0 ] && : > $OUT/active-run.txt   # on a stop the marker is kept for 119b
   [ $rc -eq 3 ] || [ $rc -eq 9 ] || [ $rc -eq 2 ] && break
 done
 [ -n "$WPID" ] && wait $WPID
+slow_on && { log "114c: waiting for the slow lane ($SLOWN)"; wait $SPID; }
 kill $GD 2>/dev/null
 log "114c end; clone status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; WSL used $(wused)G; C: free $(cfree)G"
 if [ -f /home/checker/corpus/GUARD_STOPPED ]; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt

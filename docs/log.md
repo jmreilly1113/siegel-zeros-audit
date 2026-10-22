@@ -1101,3 +1101,16 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - attribution: both a run and a build active → the run's config goes to serial-once.txt (redone without overlap), nothing deferred; one active → that config deferred.
   - Switch: wsl-comparator/120_switch_to_114c.sh waits for the next "outcome" line, stops 119/114b at that boundary and execs 119b. Started 20:03; UniformCommutator's prebuild was 45 min in and was not interrupted.
   - INFERRED estimate: builds ~1.5× faster at 8 threads, and the overlap hides most comparator time → ~8–10 min per config → Phase 3 ~30–35 h from the switch, unless memory stops force serial reruns.
+- 2026-10-22 ~00:20–00:30, overnight (Joe asleep; standing instruction: keep runs fast and stable).
+  - Claude Code stopped two Windows-side background shells because Windows was critically low on memory: the Windows-side monitor 78 and the progress waiter. Per its instruction they were NOT restarted.
+  - COMPUTED at 00:29:
+    - Windows free RAM 5,204 MB; vmmemWSL working set 16,755 MB; commit 34.3 / 51.7 GB.
+    - WSL: 24,037 MB total, 15,747 MB available, buff/cache 6,996 MB.
+  - INFERRED cause: a large nanoda run overlapping an 8-thread build lets the WSL VM grow toward its 24 GB cap, leaving Windows a few GB.
+  - Decision: a stricter WSL guard instead of the Windows monitor. wsl-comparator/121_strict_guard_loop.sh keeps a second instance of the unchanged 69_corpus_guard.sh running with a MemAvailable floor of 5000 MB (disk 85 G, drop_caches every 10 min) while 119b runs; 114c's own instance keeps 1500 MB.
+    - It is a WSL process, so Claude Code's memory reaper cannot stop it.
+    - Its stops are WSL-guard memory stops for 119b: run+build both active → serial-once; one active → deferred.
+    - Effect (INFERRED): WSL's own use stays below ~19 GB; configs needing more than that are deferred, like Catalan.
+    - Started 00:29:37.
+  - Progress, COMPUTED: 31 result.json files; no STOP; guard records unchanged (2); deferred: Catalan; serial-once: none.
+    - Since the switch to 114c (21:51): 11 configs in 2.6 h (~14 min each, including the first build without overlap).

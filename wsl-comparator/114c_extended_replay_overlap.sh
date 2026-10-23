@@ -40,9 +40,10 @@ GD=$!
 ( while sleep 2; do limit_seen && { for m in run build slow; do cp $OUT/active-$m.txt $OUT/active-$m.at-limit.txt; done; exit 0; }; done ) &
 SW=$!
 log "start 114c_extended_replay_overlap.sh (prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69_corpus_guard.sh 85 1500 2"
-prebuild() { # prebuild <log> <targets> <timeout>
-  { echo "== prebuild: lake build $2 with LEAN_NUM_THREADS=$THREADS (114c)  $(date '+%F %T')"; T0=$(date +%s)
-    bash $W/75_sbx.sh $3 $THREADS "lake build $2" </dev/null
+prebuild() { # prebuild <log> <targets> <timeout> [threads]
+  local T=${4:-$THREADS}
+  { echo "== prebuild: lake build $2 with LEAN_NUM_THREADS=$T (114c)  $(date '+%F %T')"; T0=$(date +%s)
+    bash $W/75_sbx.sh $3 $T "lake build $2" </dev/null
     echo "PREBUILD_SECONDS: $(( $(date +%s) - T0 ))"; echo "disk used: $(df -BG --output=used / | tail -1 | tr -d ' ')"
   } 2>&1 | cat > $1
 }
@@ -62,21 +63,23 @@ done 9< $PLAN
 log "114c: ${#PEND[@]} configs pending"
 
 build_one() { # build_one <config>: run in the background; writes $PB/<config>.built = 1 (prebuild ok) or 0
-  local N=$1 CFG TG PBOK
+  local N=$1 CFG TG PBOK BT
   echo "$N" > $OUT/active-build.txt
+  # build-threads.txt "<config> <threads>": set by 119c after a memory stop on this config's build (last line wins)
+  BT=$(awk -v c="$N" '$1==c {t=$2} END {print t}' $OUT/build-threads.txt 2>/dev/null); BT=${BT:-$THREADS}
   [ -n "$(live $N)" ] && { log "$N: partial files from an interrupted attempt moved aside"; aside $N; }
   CFG=$X/configs/$N-nanoda.json
   python3 -I -c "import json,sys; c=json.load(open(sys.argv[1])); c['enable_nanoda']=True; json.dump(c, open(sys.argv[2],'w'), indent=2)" $L/ComparatorChallenges/$N.json $CFG
   chown checker:checker $CFG
   TG=$(python3 -I -c "import json,sys; c=json.load(open(sys.argv[1])); print(' '.join([c['solution_module'], c['challenge_module']] + c.get('solution_imports', [])))" $CFG)
-  log "$N (${ORDN[$N]}, group ${GRP[$N]}, shipped nanoda ${SHP[$N]}): prebuild (LEAN_NUM_THREADS=$THREADS; concurrent run: $(cat $OUT/active-run.txt))"
+  log "$N (${ORDN[$N]}, group ${GRP[$N]}, shipped nanoda ${SHP[$N]}): prebuild (LEAN_NUM_THREADS=$BT; concurrent run: $(cat $OUT/active-run.txt))"
   printf 'build_kb_before\t%s\nconcurrent_run_at_build_start\t%s\n' "$(bkb)" "$(cat $OUT/active-run.txt)" > $R/$N.disk.tsv
-  prebuild $R/$N.prebuild.log "$TG" 14400
+  prebuild $R/$N.prebuild.log "$TG" 14400 $BT
   printf 'build_kb_after_prebuild\t%s\nwsl_disk_used_after_prebuild\t%s\nc_free_gb_after_prebuild\t%s\n' "$(bkb)" "$(wused)" "$(cfree)" >> $R/$N.disk.tsv
   if stopped; then return; fi   # marker kept: 119b reads it after a stop
   if grep -q 'SANDBOX EXIT CODE: 12[4-9]\|SANDBOX EXIT CODE: 137' $R/$N.prebuild.log; then
     log "$N: prebuild TIMEOUT at 14400 s; rerun once at 57600 s"
-    prebuild $R/$N.prebuild-4x.log "$TG" 57600
+    prebuild $R/$N.prebuild-4x.log "$TG" 57600 $BT
     printf 'build_kb_after_prebuild_4x\t%s\n' "$(bkb)" >> $R/$N.disk.tsv
     if stopped; then return; fi   # marker kept for 119b
     PBOK=$(grep -c 'SANDBOX EXIT CODE: 0' $R/$N.prebuild-4x.log)
@@ -188,5 +191,8 @@ kill $GD $SW 2>/dev/null
 log "114c end; clone status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; WSL used $(wused)G; C: free $(cfree)G"
 if [ -f /home/checker/corpus/GUARD_STOPPED ] || limit_seen; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt
 elif [ -f $R/STOP.txt ]; then :
+elif [ $j -ge $n ] && LEFT=$(awk -F'\t' -v R=$R -v D=$OUT/deferred.txt 'BEGIN {while ((getline l < D) > 0) d[l]=1}
+       $1 != "order" && $1 !~ /^#/ && !($2 in d) && system("test -f " R "/" $2 ".result.json") != 0 {c++} END {print c+0}' $PLAN) \
+     && [ "$LEFT" -gt 0 ]; then log "114c: $LEFT configs without a result and not deferred (taken out of deferred.txt during this attempt); no DONE, 119c restarts"
 elif [ $j -ge $n ]; then echo "EXTENDED REPLAY DONE (pending list complete; see deferred.txt) $(date '+%F %T')" > $OUT/DONE.txt; fi
 sync

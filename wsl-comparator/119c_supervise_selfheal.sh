@@ -6,7 +6,8 @@
 # Handling of a guard stop (also a leftover GUARD_STOPPED.txt found at start), using 114c's markers:
 #   run R active (with or without a build): first stop on R -> R goes to serial-once.txt (redone with no concurrent
 #     build); a second stop on R -> R deferred (deferred.txt)
-#   only build B active: first stop on B -> retried; a second stop on B -> B deferred
+#   (2026-10-23) run R active and nothing else (no build, no slow lane, per the at-limit snapshot) -> R deferred at once
+#   only build B active: first stop on B -> retried at 4 threads (build-threads.txt); a second stop on B -> B deferred
 #   nothing active -> plain restart
 # Every stop is recorded in stops.tsv (time, source, run, build, action) and kept as GUARD_STOPPED-<k>.txt.
 # Run as root, detached. Usage: 119c_supervise_selfheal.sh <plan tsv> <out dir>
@@ -23,8 +24,8 @@ handle_stop() {
   # 2026-10-23: blame the configs active when the guard fired (114c's *.at-limit.txt snapshot; the end-of-114c
   # markers are the fallback), and take the source from any LIMIT line after the last "guard start" line, i.e. from
   # the stopped attempt's guard (before: a LIMIT within 300 s of GUARD_STOPPED.txt; 114c can end > 300 s later).
-  local MR=$OUT/active-run.txt MB=$OUT/active-build.txt
-  [ -f $OUT/active-run.at-limit.txt ] && { MR=$OUT/active-run.at-limit.txt; MB=$OUT/active-build.at-limit.txt; }
+  local MR=$OUT/active-run.txt MB=$OUT/active-build.txt SLC=unknown
+  [ -f $OUT/active-run.at-limit.txt ] && { MR=$OUT/active-run.at-limit.txt; MB=$OUT/active-build.at-limit.txt; SLC=$(cat $OUT/active-slow.at-limit.txt 2>/dev/null); }
   RUNC=$(cat $MR 2>/dev/null); BLDC=$(cat $MB 2>/dev/null)
   LL=$(awk '/guard start/ {s=NR} {l[NR]=$0} END {for (i=s+1; i<=NR; i++) if (l[i] ~ /LIMIT:/) last=l[i]; print last}' $G)
   CF=$(df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9)
@@ -33,12 +34,17 @@ handle_stop() {
     [ "${DISK:-0}" -gt 85 ] && halt "WSL guard disk-limit stop ($LL)"
   else SRC="no WSL guard LIMIT line since the last guard start (external stop; C: free ${CF} GB)"; fi
   [ "${CF:-99}" -lt 22 ] && halt "C: free ${CF} GB < 22 GB"
-  if [ -n "$RUNC" ]; then
+  # 2026-10-23 (MUBSix: three 22-min nanoda runs, each killed alone at ~19 GB; NuclearUltrapower: two 8-thread builds
+  # killed alone): a run stopped with nothing else running is deferred at once (a rerun cannot use less memory); a build
+  # stopped once is retried at 4 threads (build-threads.txt), and deferred only after a second stop.
+  if [ -n "$RUNC" ] && [ -z "$BLDC" ] && [ -z "$SLC" ]; then
+    echo "$RUNC" >> $OUT/deferred.txt; ACT="stop on $RUNC with no build or slow lane running: deferred (needs more memory than WSL has)"
+  elif [ -n "$RUNC" ]; then
     if [ "$(nstops $RUNC)" -ge 1 ]; then echo "$RUNC" >> $OUT/deferred.txt; ACT="second stop on $RUNC: deferred"
     else echo "$RUNC" >> $OUT/serial-once.txt; ACT="first stop on $RUNC: serial-once (no concurrent build)"; fi
   elif [ -n "$BLDC" ]; then
     if [ "$(nstops $BLDC)" -ge 1 ]; then echo "$BLDC" >> $OUT/deferred.txt; ACT="second stop on build $BLDC: deferred"
-    else ACT="first stop on build $BLDC: retried"; fi
+    else echo "$BLDC 4" >> $OUT/build-threads.txt; ACT="first stop on build $BLDC: retried at 4 threads"; fi
   else ACT="nothing active: plain restart"; fi
   printf '%s\t%s\t%s\t%s\t%s\n' "$(date '+%F %T')" "$SRC" "$RUNC" "$BLDC" "$ACT" >> $OUT/stops.tsv
   k=$(( $(ls $OUT/GUARD_STOPPED-*.txt 2>/dev/null | wc -l) + 1 )); mv $OUT/GUARD_STOPPED.txt $OUT/GUARD_STOPPED-$k.txt

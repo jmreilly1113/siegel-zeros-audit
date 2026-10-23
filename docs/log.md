@@ -1184,3 +1184,19 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - 123_boot_resume.ps1: starts the wsl.exe keep-alive and runs 123_boot_resume.sh.
   - COMPUTED, live test at 10:17:58: "build processes running; no scan"; still exactly one keeper.
   - The Windows logon task that would run it after a restart was NOT registered: Claude Code's permission check blocked it. Waiting on Joe.
+- 2026-10-23 14:10–14:30, status check (Joe: "make sure it is still working right"): six guard memory stops since 12:21, and a policy fix.
+  - COMPUTED (run.log, stops.tsv, runs/*.mem*.json):
+    - MUBSix's prebuild finished at 11:59 (timeout at 14,400 s, then the rerun).
+    - Its nanoda run was killed by the guard at ~22 min three times today (12:21:59, 12:46:26, 13:10:24), each time with no build running. Peak summed RSS 19.53–19.70 GB, per-process high-water 18.6–19.0 GB, still rising. With last night's run that is 4 kills. 119c deferred it after the 3rd.
+    - INFERRED: MUBSix's nanoda run needs more memory than the 20 GB WSL cap allows (like Catalan's). Retrying it could not help; the policy cost two extra ~22 min runs.
+    - 12:21:59: the first of these runs was handled by the pre-fix 114c copy (no at-limit snapshot; it had already cleared active-run). It blamed Naimark's build, started in the same second, and since stops.tsv already held Naimark twice, Naimark was deferred. CORRECTION: that stop was MUBSix's run. Naimark built fine on 2026-10-22 (1,374 s).
+    - NuclearUltrapower's 8-thread prebuild was stopped twice running alone (13:41:51 MemAvailable 1,397 MB; 13:46:09 738 MB) and was deferred. Retrying at 8 threads could not help.
+    - The 13:21:52 boundary prune deleted 30.76 GiB, including MUBSix's build: deferred configs are not kept (as designed). INFERRED: a later MUBSix run needs a full rebuild (~5 h at 8 threads).
+    - The new 119c attribution worked: stop 8 snapshot = build NuclearUltrapower, no run (runs/stop-8.active-*.at-limit.txt).
+  - Fix (old versions in git), installed with mv; the running 114c keeps its copy:
+    - 119c: a run stopped with no build and no slow lane running (per the snapshot) is deferred at once. A build stopped once is retried at 4 threads (build-threads.txt), deferred after a second stop. Other cases unchanged.
+    - 114c: reads build-threads.txt for the prebuild thread count. It writes DONE only if every plan config has a result or is deferred; otherwise 119c restarts it.
+    - Tested (scratchpad t2.sh, WSL): 7 scenarios run through the new handle_stop extracted verbatim from the file (run alone; run+build first and second; run+slow lane; build only first and second; no snapshot). All gave the intended action. The pending count on the real plan was 179 = 227 − 44 results − 4 deferred, and 181 with the two configs taken out of deferral.
+  - Lists: Naimark and NuclearUltrapower taken out of deferred.txt (copy deferred-2-before-undefer-20261023.txt); build-threads.txt: NuclearUltrapower 4. Deferred now: Catalan, MUBSix, both over the 20 GB cap.
+  - Old 119c stopped (supervisor only). The next stop is handled by the new 119c, and its restart runs the new 114c. Known gap: if the running 114c copy (installed 10:08) reaches the end with no stop at all, it writes DONE without Naimark and NuclearUltrapower; they would then be run with the leftovers (redo.txt).
+  - At 14:08 PlanarPacking was prebuilding (MemAvailable 5.8 GB).

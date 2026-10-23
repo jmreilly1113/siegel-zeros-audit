@@ -1158,3 +1158,9 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Throughput, COMPUTED from run.log outcome times since 21:51 (the 4.7 h idle gap excluded): median cycle 12 min, mean 30 min; 14 of 23 cycles ≤ 15 min. The long tail is the Laughlin cluster (LaughlinFock 247 min, before the slow lane; LaughlinGap 82 min) and StrongKadisonKastler (123 min).
   - MUBSix's prebuild had run ~2 h (five lean processes, ~6.8 GB RSS each, mostly shared mmap).
   - INFERRED: 184 configs remain; at 12–20 min each (the slow lane removes most of the crash tail) that is ~37–60 h.
+- 2026-10-23 08:00, resumed after a Windows update restart.
+  - COMPUTED: Windows Update (TrustedInstaller / MoUsoCoreWorker) restarted the PC at 00:29 and 00:37. These were orderly restarts (event 1074, no event 41). Windows build 10.0.26200.9457 → 26200.9711. WSL 2.4.11.0 and kernel 5.15.167.4 are unchanged; .wslconfig memory=20GB.
+  - State at the stop: last run.log line 23:24:48 (LipschitzHilbert redo, ACCEPT_BOTH). MUBSix's prebuild had been running since 23:10:55 (its build was pruned at the 23:10 boundary after the 23:02 stop). 43 result.json files; deferred: Catalan; serial-once: Naimark; no STOP/HALT/DONE.
+  - Debris check (scratchpad script; same test as 18_olean_scan.sh, limited to files written since 2026-10-22 23:00): 1,388 .olean files, all with a valid header, none empty; 9,705 other files, none zero-filled. Nothing removed.
+  - Restarted the same way as before: a Windows-side keep-alive (`wsl.exe -u root -- sleep 259200`, Start-Process, detached) and 122_keeper.sh. At 08:00:26 the keeper started 119c, which started 114c with every speed setting in place (8-thread prebuild, lookahead 1, slow lane, prune at > 55G): 183 configs pending; MUBSix's prebuild picked up from its partial build.
+  - Lost time: ~7.5 h (00:29–08:00).

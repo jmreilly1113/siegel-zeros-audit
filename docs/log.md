@@ -1179,3 +1179,8 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - The old 119c was stopped (supervisor only; 114c, MUBSix's build, the guard and keeper 122 untouched). When 114c ends, 122 starts the new 119c, which runs the new 114c.
   - MUBSix added to serial-once.txt now (114c reads it at each config): its redo runs with no concurrent build. Naimark stays in serial-once (harmless).
   - Cost of the two bugs, INFERRED: ~5 h of MUBSix rebuild, plus NodalLength's 586 s build (pruned at 23:10).
+- 2026-10-23 10:20, resume-after-restart script (Joe: "we are losing too much time … stop making these stupid mistakes").
+  - New wsl-comparator/123_boot_resume.sh: on a fresh boot (no lake/lean/comparator running) it does the 18_olean_scan.sh header check on .olean files written in the last 48 h and moves any empty or bad-header one (plus its .ilean/.hash/.trace) to /home/checker/corpus/boot-quarantine/, so lake rebuilds it. Then it starts keeper 122 (flock: a no-op if one runs). If builds are running it scans nothing.
+  - 123_boot_resume.ps1: starts the wsl.exe keep-alive and runs 123_boot_resume.sh.
+  - COMPUTED, live test at 10:17:58: "build processes running; no scan"; still exactly one keeper.
+  - The Windows logon task that would run it after a restart was NOT registered: Claude Code's permission check blocked it. Waiting on Joe.

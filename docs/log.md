@@ -1204,3 +1204,12 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Record: results/2026-10-21-extended-replay/memory-limit-configs-20261023.txt (per-run peaks and source files).
   - Both stay in deferred.txt; 114c's DONE ignores deferred configs. Neither has a verdict from either kernel.
   - At the end-of-run prune: Catalan's retained export (/home/checker/corpus/xr/exp/Catalan.export, 832 MB, plus its nanoda-config) is no longer needed.
+- 2026-10-23 14:45–14:50, efficiency pass (Joe: "make sure we can get through the rest as efficiently as possible").
+  - Since the 14:11 fix, COMPUTED: one stop, 14:20:28: PlanarPacking's 8-thread prebuild running alone, MemAvailable 1,473 MB. 119c: "retried at 4 threads"; restart in 27 s. Then Naimark's prebuild.
+  - Where the time goes, COMPUTED from the 44 result.json files: prebuild total 42,860 s (median 448 s; 6 over 1,800 s); nanoda runs total 35,820 s (median 340 s); shipped runs 11,202 s (3 crash configs).
+    - INFERRED: builds and runs are about equal, so the lookahead overlap hides most of one behind the other. The avoidable losses now are guard stops.
+  - WSL swap, COMPUTED: 5 GB (/dev/sdb), 64 MB used. Guard 69 stops at MemAvailable < 1,500 MB without counting swap. The last three build stops were at 1,473 / 1,397 / 738 MB.
+  - New wsl-comparator/69b_corpus_guard_swap.sh: same as 69, but it stops when MemAvailable + SwapFree < 2,000 MB, so a spike can use up to ~3 GB of swap. Same log lines (the LIMIT line adds SwapFree). The 20 GB VM cap, and so Windows' share, is unchanged. Test hooks: GUARD_LOG / GUARD_MARK / GUARD_MEMINFO / GUARD_DRYRUN / GUARD_POLL; the defaults are the live paths.
+    - Tested (scratchpad t3.sh, dry run on a fake meminfo, temp log and marker): 1,400 + 5,000 MB → no stop (69 would stop); 300 + 1,500 MB → LIMIT, marker, exit 1. 119c's awk and disk parse and 114c's limit_seen read the new LIMIT line. The live guard.log and marker were untouched.
+  - 114c now starts 69b (85 2000 2) instead of 69 (installed with mv).
+  - Swapped live at 14:49:14: 69b started, tied to the running 114c (it exits when that 114c's pid ends, so no duplicate guard later); then the old 69 was stopped. Nothing else touched.

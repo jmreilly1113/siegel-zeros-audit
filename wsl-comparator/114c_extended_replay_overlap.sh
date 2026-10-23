@@ -34,12 +34,12 @@ stopped() { [ -f /home/checker/corpus/GUARD_STOPPED ] || [ -f $R/STOP.txt ] || l
 cfree() { df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9; }
 wused() { df -BG --output=used / | tail -1 | tr -dc 0-9; }
 rm -f /home/checker/corpus/GUARD_STOPPED
-nohup bash $W/69_corpus_guard.sh 85 1500 2 >/dev/null 2>&1 &
+nohup bash $W/69b_corpus_guard_swap.sh 85 2000 2 >/dev/null 2>&1 &
 GD=$!
 # Snapshot the markers when the guard fires (before 114c moves on), so 119c blames the configs active at that moment.
 ( while sleep 2; do limit_seen && { for m in run build slow; do cp $OUT/active-$m.txt $OUT/active-$m.at-limit.txt; done; exit 0; }; done ) &
 SW=$!
-log "start 114c_extended_replay_overlap.sh (prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69_corpus_guard.sh 85 1500 2"
+log "start 114c_extended_replay_overlap.sh (prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69b_corpus_guard_swap.sh 85 2000 2 (MemAvailable+SwapFree)"
 prebuild() { # prebuild <log> <targets> <timeout> [threads]
   local T=${4:-$THREADS}
   { echo "== prebuild: lake build $2 with LEAN_NUM_THREADS=$T (114c)  $(date '+%F %T')"; T0=$(date +%s)

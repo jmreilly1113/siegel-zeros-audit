@@ -1,0 +1,28 @@
+Extended replay: configs not checked because of memory (Joe's decision, 2026-10-23: option 6, report as not checked).
+Platform: WSL2 2.4.11.0, kernel 5.15.167.4, .wslconfig memory=20GB (24GB for Catalan's second attempt); PC 31.9 GB RAM.
+Guard: 69_corpus_guard.sh, MemAvailable floor 1500 MB. Memory sampled by 111_memsample.py (unit cgroup, 0.5 s).
+
+Catalan (group U; shipped config enable_nanoda=false)
+  STATED by the shipped config: Lean-kernel-only check (nanoda off).
+  COMPUTED: nanoda 3a24072 run (comparator with enable_nanoda=true, nanoda num_threads 4)
+    2026-10-21 12:17 (WSL 15,965 MB default): stopped by the guard; nanoda_bin high-water 14,237,680 KB; summed RSS 15,559,504 KB
+      (runs/Catalan-nanoda.mem.stopped-20261021135624.json)
+    2026-10-21 14:04 (WSL 24 GB): stopped by the Windows-side monitor; nanoda_bin high-water 19,565,700 KB; summed RSS 22,365,588 KB, still rising
+      (runs/Catalan-nanoda.mem.json; log runs/Catalan-nanoda.log ends "Running nanoda kernel on solution", no exit-code line)
+  Shipped (Lean-only) run: not done (both attempts were killed at about 19 s by the same stops).
+  RESULT: no verdict from either kernel. Not checked.
+
+MUBSix (group N; shipped config enable_nanoda=false)
+  COMPUTED: four nanoda-config runs, all stopped by the guard about 22 min in, nanoda never started (export not reached):
+    2026-10-22 22:52:10 (with Naimark's build running)  summed RSS 17,951,088 KB  high-water 17,528,988 KB  (runs/MUBSix-nanoda.mem.stopped-20261022231055.json)
+    2026-10-23 12:21:59 (alone)                         19,657,032 KB            18,623,616 KB          (…stopped-20261023122234.json)
+    2026-10-23 12:46:26 (alone)                         19,699,372 KB            18,565,720 KB          (…stopped-20261023124724.json)
+    2026-10-23 13:10:24 (alone)                         19,530,008 KB            18,997,844 KB          (runs/MUBSix-nanoda.mem.json)
+    High-water process in every run: comparator. Each log ends after "Building OAI.Analysis.MutuallyUnbiased.Main / Build completed
+    successfully (12304 jobs)", with no exit-code line.
+  Shipped (Lean-only) run: not done (killed at about 19 s by the 22:52 and 12:21 stops).
+  INFERRED (not tested): the peak is in the comparator before nanoda starts, so the shipped Lean-only run probably also needs more than ~19 GB.
+  RESULT: no verdict from either kernel. Not checked.
+
+Not tried (options 1-5 of 2026-10-23, declined): direct nanoda run on Catalan's retained export or at fewer threads; a bigger WSL cap
+with swap; 64 GB RAM; a cloud machine.

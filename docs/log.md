@@ -1200,3 +1200,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Lists: Naimark and NuclearUltrapower taken out of deferred.txt (copy deferred-2-before-undefer-20261023.txt); build-threads.txt: NuclearUltrapower 4. Deferred now: Catalan, MUBSix, both over the 20 GB cap.
   - Old 119c stopped (supervisor only). The next stop is handled by the new 119c, and its restart runs the new 114c. Known gap: if the running 114c copy (installed 10:08) reaches the end with no stop at all, it writes DONE without Naimark and NuclearUltrapower; they would then be run with the leftovers (redo.txt).
   - At 14:08 PlanarPacking was prebuilding (MemAvailable 5.8 GB).
+- 2026-10-23 ~14:45, Catalan and MUBSix: Joe chose option 6 (report as not checked, with the measured memory peaks). Options 1–5 were declined: direct nanoda run on Catalan's export, a bigger WSL cap with swap, 64 GB RAM, cloud.
+  - Record: results/2026-10-21-extended-replay/memory-limit-configs-20261023.txt (per-run peaks and source files).
+  - Both stay in deferred.txt; 114c's DONE ignores deferred configs. Neither has a verdict from either kernel.
+  - At the end-of-run prune: Catalan's retained export (/home/checker/corpus/xr/exp/Catalan.export, 832 MB, plus its nanoda-config) is no longer needed.

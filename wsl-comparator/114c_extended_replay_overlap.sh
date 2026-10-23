@@ -13,6 +13,10 @@
 # config (shipped run, queries, classification, f67473b direct run) runs in the background as the SLOW LANE (at most
 # one config; active-slow.txt), and the main loop goes on. While the slow lane runs, no lookahead build is started
 # (so at most two comparator runs and no build share memory), and boundary prunes keep the slow-lane config's build.
+# 2026-10-23 fixes (the 2026-10-22 22:52 memory stop): (1) boundary prunes also keep the next config's closure, as
+# stated above (before, a fully built next config could be pruned); (2) a LIMIT line in guard.log from this attempt's
+# guard counts as stopped at once (before, 114c went on until the guard's GUARD_STOPPED touch 20 s later, and started
+# a new build); (3) when the guard fires, the markers are copied to active-{run,build,slow}.at-limit.txt for 119c.
 # Markers for 119b: active-run.txt (config whose comparator/queries run), active-build.txt (config being built).
 # Resumable as 114b (result.json skip, deferred.txt skip, partial files moved aside at the config's build start).
 # Run as root, detached, via 119b_supervise_overlap.sh. Usage: 114c_extended_replay_overlap.sh <plan tsv> <out dir>
@@ -22,14 +26,19 @@ W=/mnt/c/Users/Work/dev/siegel/wsl-comparator; QD=/mnt/c/Users/Work/dev/siegel/l
 L=/home/checker/math/lean; X=/home/checker/corpus/xr; R=$OUT/runs; PB=$X/pb-114c
 NB_POST=/opt/nanoda-postfix/nanoda_bin
 mkdir -p $R $X/configs $X/exp; rm -rf $PB; mkdir -p $PB; chown -R checker:checker $X
-: > $OUT/active-run.txt; : > $OUT/active-build.txt
+: > $OUT/active-run.txt; : > $OUT/active-build.txt; rm -f $OUT/active-*.at-limit.txt
 log() { echo "$(date '+%F %T') $*" >> $OUT/run.log; }
-stopped() { [ -f /home/checker/corpus/GUARD_STOPPED ] || [ -f $R/STOP.txt ]; }
+GL=/home/checker/corpus/guard.log; G0=$(wc -l < $GL 2>/dev/null || echo 0)
+limit_seen() { tail -n +$((G0+1)) $GL 2>/dev/null | grep -q 'LIMIT:'; }   # a LIMIT line from this attempt's guard
+stopped() { [ -f /home/checker/corpus/GUARD_STOPPED ] || [ -f $R/STOP.txt ] || limit_seen; }
 cfree() { df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9; }
 wused() { df -BG --output=used / | tail -1 | tr -dc 0-9; }
 rm -f /home/checker/corpus/GUARD_STOPPED
 nohup bash $W/69_corpus_guard.sh 85 1500 2 >/dev/null 2>&1 &
 GD=$!
+# Snapshot the markers when the guard fires (before 114c moves on), so 119c blames the configs active at that moment.
+( while sleep 2; do limit_seen && { for m in run build slow; do cp $OUT/active-$m.txt $OUT/active-$m.at-limit.txt; done; exit 0; }; done ) &
+SW=$!
 log "start 114c_extended_replay_overlap.sh (prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69_corpus_guard.sh 85 1500 2"
 prebuild() { # prebuild <log> <targets> <timeout>
   { echo "== prebuild: lake build $2 with LEAN_NUM_THREADS=$THREADS (114c)  $(date '+%F %T')"; T0=$(date +%s)
@@ -156,14 +165,16 @@ for ((j=0; j<n; j++)); do
   [ -n "$WPID" ] && { wait $WPID; WPID=; }
   stopped && break
   [ -f $PB/$N.built ] || { log "$N: build did not finish (stopped)"; break; }
-  if [ "$(wused)" -gt "$PRUNE_AT" ]; then   # boundary prune: no build running; keep the current config's closure too
+  NX=${PEND[$((j+1))]:-}
+  if [ "$(wused)" -gt "$PRUNE_AT" ]; then   # boundary prune: no build running; keep the current and next configs' closures too
     cp $OUT/keep-configs.txt $X/keep-now.txt 2>/dev/null || : > $X/keep-now.txt
     echo "ComparatorChallenges/$N.json" >> $X/keep-now.txt
+    [ -n "$NX" ] && echo "ComparatorChallenges/$NX.json" >> $X/keep-now.txt   # 2026-10-23: was missing (MUBSix's full build pruned 22-10 23:10)
     slow_on && echo "ComparatorChallenges/$SLOWN.json" >> $X/keep-now.txt
     python3 -I $W/112_prune.py $L $X/keep-now.txt --apply > $R/$N.prune-before.log 2>&1
     log "threshold prune before running $N (WSL used > ${PRUNE_AT}G): $(head -1 $R/$N.prune-before.log); WSL used $(wused)G"
   fi
-  NX=${PEND[$((j+1))]:-}
+  stopped && break
   if [ -n "$NX" ] && slow_on; then log "$N: slow lane busy ($SLOWN); no concurrent build"
   elif [ -n "$NX" ] && ! grep -qx "$N" $OUT/serial-once.txt 2>/dev/null; then build_one $NX & WPID=$!
   elif [ -n "$NX" ]; then log "$N: in serial-once.txt; no concurrent build"; fi
@@ -173,9 +184,9 @@ for ((j=0; j<n; j++)); do
 done
 [ -n "$WPID" ] && wait $WPID
 slow_on && { log "114c: waiting for the slow lane ($SLOWN)"; wait $SPID; }
-kill $GD 2>/dev/null
+kill $GD $SW 2>/dev/null
 log "114c end; clone status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; WSL used $(wused)G; C: free $(cfree)G"
-if [ -f /home/checker/corpus/GUARD_STOPPED ]; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt
+if [ -f /home/checker/corpus/GUARD_STOPPED ] || limit_seen; then echo "GUARD STOPPED $(date '+%F %T')" > $OUT/GUARD_STOPPED.txt
 elif [ -f $R/STOP.txt ]; then :
 elif [ $j -ge $n ]; then echo "EXTENDED REPLAY DONE (pending list complete; see deferred.txt) $(date '+%F %T')" > $OUT/DONE.txt; fi
 sync

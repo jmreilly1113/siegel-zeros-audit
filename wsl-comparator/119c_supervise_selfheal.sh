@@ -20,14 +20,18 @@ halt() { echo "HALT $(date '+%F %T'): $*" > $OUT/HALT.txt; log "119c: HALT: $*";
 nstops() { awk -F'\t' -v c="$1" 'NR>1 && ($3==c || $4==c)' $OUT/stops.tsv | wc -l; }
 handle_stop() {
   local RUNC BLDC ST LL LT CF SRC DISK ACT k
-  RUNC=$(cat $OUT/active-run.txt 2>/dev/null); BLDC=$(cat $OUT/active-build.txt 2>/dev/null)
-  ST=$(stat -c %Y $OUT/GUARD_STOPPED.txt 2>/dev/null || date +%s)
-  LL=$(grep 'LIMIT:' $G | tail -1); LT=$(date -d "$(echo "$LL" | cut -c1-19)" +%s 2>/dev/null || echo 0)
+  # 2026-10-23: blame the configs active when the guard fired (114c's *.at-limit.txt snapshot; the end-of-114c
+  # markers are the fallback), and take the source from any LIMIT line after the last "guard start" line, i.e. from
+  # the stopped attempt's guard (before: a LIMIT within 300 s of GUARD_STOPPED.txt; 114c can end > 300 s later).
+  local MR=$OUT/active-run.txt MB=$OUT/active-build.txt
+  [ -f $OUT/active-run.at-limit.txt ] && { MR=$OUT/active-run.at-limit.txt; MB=$OUT/active-build.at-limit.txt; }
+  RUNC=$(cat $MR 2>/dev/null); BLDC=$(cat $MB 2>/dev/null)
+  LL=$(awk '/guard start/ {s=NR} {l[NR]=$0} END {for (i=s+1; i<=NR; i++) if (l[i] ~ /LIMIT:/) last=l[i]; print last}' $G)
   CF=$(df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9)
-  if [ $((ST - LT)) -le 300 ] && [ $((ST - LT)) -ge -60 ]; then
+  if [ -n "$LL" ]; then
     SRC="WSL guard: $LL"; DISK=$(echo "$LL" | sed -n 's/.*disk \([0-9]*\)G.*/\1/p')
     [ "${DISK:-0}" -gt 85 ] && halt "WSL guard disk-limit stop ($LL)"
-  else SRC="no WSL guard LIMIT line within 300 s (external stop; C: free ${CF} GB)"; fi
+  else SRC="no WSL guard LIMIT line since the last guard start (external stop; C: free ${CF} GB)"; fi
   [ "${CF:-99}" -lt 22 ] && halt "C: free ${CF} GB < 22 GB"
   if [ -n "$RUNC" ]; then
     if [ "$(nstops $RUNC)" -ge 1 ]; then echo "$RUNC" >> $OUT/deferred.txt; ACT="second stop on $RUNC: deferred"
@@ -38,6 +42,7 @@ handle_stop() {
   else ACT="nothing active: plain restart"; fi
   printf '%s\t%s\t%s\t%s\t%s\n' "$(date '+%F %T')" "$SRC" "$RUNC" "$BLDC" "$ACT" >> $OUT/stops.tsv
   k=$(( $(ls $OUT/GUARD_STOPPED-*.txt 2>/dev/null | wc -l) + 1 )); mv $OUT/GUARD_STOPPED.txt $OUT/GUARD_STOPPED-$k.txt
+  for m in run build slow; do [ -f $OUT/active-$m.at-limit.txt ] && mv $OUT/active-$m.at-limit.txt $OUT/runs/stop-$k.active-$m.at-limit.txt; done
   log "119c: stop handled; source $SRC; $ACT; record GUARD_STOPPED-$k.txt"
 }
 for attempt in $(seq 1 41); do

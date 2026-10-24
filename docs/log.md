@@ -1304,3 +1304,16 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - 172 configs without a result and not deferred (AtomicGaussian included). The next 16 in order are combinatorics configs (BalancedRyser, EditDistance, EuclideanRamsey…).
   - INFERRED: if TriangularGaussian times out, both slow slots are held by 28800 s reruns until ~19:30 / ~21:30, and there are no handoffs until then. The pace cannot be projected reliably from the last hours (heavy Triangular family). At the 51-config average it is ~72 h; with handoffs ~57 h. Either way past the deadline.
   - No action. A protocol option goes to Joe: skip the 28800 s reruns, record TIMEOUT at 7200 s. PlanarPacking's rerun took 8 h and still timed out.
+- 2026-10-24 ~13:40, Joe: "move the reruns to the end" (after the options: keep the 28800 s reruns, drop them, or run them after the main pass).
+  - COMPUTED (runs/*-nanoda.log): in the 7200 s runs of PlanarPacking, TriangularEnergy and TriangularGaussian (TIMEOUT at 7,037 / 7,558 / 7,665 s), the comparator was in "Running nanoda kernel on solution" with no "Lean default kernel accepts" line. So the comparator runs nanoda first, and a timeout gives no Lean verdict either; the Lean-only shipped run is a separate step, also moved to the end. Corrects my earlier remark to Joe that the Lean-only check would happen during the main pass.
+  - Driver 114f_extended_replay_reruns_last.sh (114e plus):
+    - a 7200 s timeout is queued in rerun-end.txt (also at load, for a finished timeout log from an earlier attempt) and the pass goes on;
+    - after the last config: rebuild, then 28800 s rerun, shipped run, queries and classification in the slow lane (≤ 2 at once). The loop keeps picking up configs queued later, by handed-off runs that time out, until the slow lane is empty;
+    - prunes keep the queued configs' builds;
+    - a preempted prebuild retries once A > 8,000 MB for 120 s, or no main-lane run is active.
+  - Tested (scratchpad t9_114f.sh, stub scripts, temp dir; two runs):
+    - first run: all the above, except that F (handed off, timed out after the pass) missed its rerun. Fixed;
+    - second run: B (main-lane timeout), D (earlier timeout log, queued at load, rebuilt at the end) and F (handed off, then timeout) each rerun at 28800 s after H. E's build preempted and retried at 4 threads while C was still running. 8/8 results, DONE.
+  - 124_switch_driver.sh generalized: OLD (driver to stop) and CHECK (marker files whose configs must be fresh); the defaults keep the earlier behavior. Started ~13:53 with OLD=114e_extended_replay_handoff.sh CHECK="run build": it fires when the main-lane run and the build have both just started, and stops the slow-lane reruns. Joe accepted that TriangularEnergy's (from 11:18:45) and TriangularGaussian's (from ~13:30) restart from zero at the end.
+  - Prepared 119c (default driver 114f) and 122 (also matches 114f), installed by 124.
+  - COMPUTED: ExactInfiniteness ACCEPT_BOTH 13:47:46 (54 results).

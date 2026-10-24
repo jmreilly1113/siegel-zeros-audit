@@ -1285,3 +1285,5 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - installs the prepared 119c (default driver 114e) and 122 (also matches 114e) with mv;
     - starts the keeper.
     - INFERRED: it fires when PlanarPacking has finished and TriangularEnergy's run ends (or times out and moves to the slow lane), by ~11:15; at most ~3 min of work is redone.
+- 2026-10-24 10:40, COMPUTED: PlanarPacking result TIMEOUT (runs/PlanarPacking.result.json). Its Lean-only shipped-config run also hit the 7200 s limit (COMPARATOR EXIT CODE 124, DURATION_SECONDS 7522). So within these limits neither kernel finished: nanoda timed out at 7200 s and 28800 s, the Lean default kernel at 7200 s. Build and export (3,853,736,832 bytes) kept.
+  - INFERRED: for the write-up, PlanarPacking is "not checked within the time limits", not a rejection.

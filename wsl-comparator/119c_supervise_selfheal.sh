@@ -2,6 +2,7 @@
 # Extended replay supervisor 119c (2026-10-22, Joe: "don't lose big chunks of time again"). Replaces 119b's policy:
 # 2026-10-23 (night): the driver is 114d_extended_replay_lanes.sh (env DRIVER overrides); 114d uses lane guard 69c.
 # 2026-10-24: the default driver is 114e_extended_replay_handoff.sh (114d plus the run handoff to the slow lane).
+# 2026-10-24 (later): the default driver is 114f_extended_replay_reruns_last.sh (114e with the 28800 s reruns at the end).
 # it restarts 114c after ANY guard stop except a disk-limit stop, and halts only on
 #   STOP.txt (conditions a, b, d) | DONE.txt | WSL guard disk limit | C: free < 22 GB | 40 restarts.
 # When it halts it writes HALT.txt (so the keeper 122 does not restart it). One instance at a time (flock).
@@ -59,7 +60,7 @@ for attempt in $(seq 1 41); do
   [ -f $OUT/GUARD_STOPPED.txt ] && handle_stop
   [ $attempt -ge 41 ] && halt "40 restarts reached"
   [ $attempt -gt 1 ] && sleep 60
-  log "119c: start ${DRIVER:-114e} (attempt $attempt; deferred: $(tr '\n' ' ' < $OUT/deferred.txt 2>/dev/null); serial-once: $(tr '\n' ' ' < $OUT/serial-once.txt 2>/dev/null))"
-  DRIVER=${DRIVER:-114e_extended_replay_handoff.sh}; bash $W/$DRIVER $PLAN $OUT 8>&-
+  log "119c: start ${DRIVER:-114f} (attempt $attempt; deferred: $(tr '\n' ' ' < $OUT/deferred.txt 2>/dev/null); serial-once: $(tr '\n' ' ' < $OUT/serial-once.txt 2>/dev/null))"
+  DRIVER=${DRIVER:-114f_extended_replay_reruns_last.sh}; bash $W/$DRIVER $PLAN $OUT 8>&-
   [ -f $OUT/GUARD_STOPPED.txt ] || [ -f $OUT/DONE.txt ] || [ -f $OUT/runs/STOP.txt ] || log "119c: driver ended without DONE, STOP or guard stop; restarting"
 done

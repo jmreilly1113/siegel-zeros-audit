@@ -1259,3 +1259,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Swapped live 08:24:33: new 69c tied to the 114d pid; old one stopped; it logged "ADOPT frozen build TriangularEnergy".
   - Finding: during t7 the OLD live guard counted the test units as jobs (08:24:06 "PAUSE build TriangularEnergy … beside PlanarPacking,TSstarve"). No harm (that build was already frozen). Fixed by the XRTEST exclusion, which takes effect at the next 69c start.
   - PlanarPacking's 28800 s limit falls at ~08:28.
+- 2026-10-24 08:34, after the first hourly check, COMPUTED:
+  - PlanarPacking's 28800 s rerun: COMPARATOR EXIT CODE 124 after 29,213 s, inside "Running nanoda kernel on solution". So nanoda 3a24072 timed out at both 7200 s and 28800 s (classifier: TIMEOUT). Its Lean-only shipped run (7200 s) started in the slow lane at 08:34:42, per 114c's protocol.
+  - 69c thawed TriangularEnergy at 08:34:45 (MemAvailable 8,738 MB). At once 114d logged "prebuild TIMEOUT at 14400 s; rerun once at 57600 s": the frozen time (02:21–08:34) counted against the build's wall-clock timeout. The 57600 s rerun resumes the partial build.
+  - INFERRED: freezing costs timeout budget. The new 900 s starvation rule bounds how long a build stays frozen with the main lane idle.

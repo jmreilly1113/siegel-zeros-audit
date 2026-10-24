@@ -1287,3 +1287,9 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - INFERRED: it fires when PlanarPacking has finished and TriangularEnergy's run ends (or times out and moves to the slow lane), by ~11:15; at most ~3 min of work is redone.
 - 2026-10-24 10:40, COMPUTED: PlanarPacking result TIMEOUT (runs/PlanarPacking.result.json). Its Lean-only shipped-config run also hit the 7200 s limit (COMPARATOR EXIT CODE 124, DURATION_SECONDS 7522). So within these limits neither kernel finished: nanoda timed out at 7200 s and 28800 s, the Lean default kernel at 7200 s. Build and export (3,853,736,832 bytes) kept.
   - INFERRED: for the write-up, PlanarPacking is "not checked within the time limits", not a rejection.
+- 2026-10-24 11:18, switch to 114e, COMPUTED (run.log):
+  - TriangularEnergy's 7200 s nanoda run ended at 11:18:29 as TIMEOUT. The comparator's own clock started ~09:18, after the export, not at the 09:12 "nanoda run" line. 114d sent it to the slow lane at 28800 s.
+  - At 11:18:31, 124 fired with both active steps 2 s old: "stopped (left: 0 pipeline …)"; 119c (default driver 114e) and 122 (also matches 114e) installed; keeper → 119c → 114e (attempt 1), 173 configs pending.
+  - 114e kept TriangularEnergy's finished 7200 s timeout log and restarted its 28800 s rerun in the slow lane (11:18:45). TriangularGaussian (build no-op, 6 s) nanoda run started 11:18:52; AtomicGaussian lookahead prebuild beside it. The ~2 s of work lost is redone.
+- 2026-10-24 11:25: build-threads.txt gets "* 10" (default prebuild threads 10 instead of 8, from the next build; per-config lines NuclearUltrapower 4 and PlanarPacking 4 still win).
+  - INFERRED: builds are now the floor (~1,200 s per config at 8 threads). The jobs beside a build (main run, slow lane) use ~1 core each of 12. To be watched for PAUSE/PREEMPT in guard.log; revert by appending "* 8".

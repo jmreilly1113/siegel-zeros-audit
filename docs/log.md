@@ -1265,3 +1265,23 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - INFERRED: freezing costs timeout budget. The new 900 s starvation rule bounds how long a build stays frozen with the main lane idle.
 - 2026-10-24 09:18 hourly check, COMPUTED: 51 results (0 in the last hour). TriangularEnergy prebuild done 09:12 (57600 s rerun), nanoda run since 09:12:29; TriangularGaussian lookahead prebuild beside it; PlanarPacking shipped run in the slow lane since 08:34:42 (limit 7200 s). No PAUSE/PREEMPT/LIMIT since 08:34:45. MemAvailable 11.5 GB, swap 3.9 GB used (left from PlanarPacking's rerun), load 4.7. Keeper, 119c, 114d, 69c running. No action.
   - INFERRED: 174 configs left (227 − 51 − 2 deferred) and ~50.7 h to the deadline, so it needs ≤ 17.5 min per config on average (smooth cycles since the switch were 7–40 min, median ~16).
+- 2026-10-24 10:17 hourly check, COMPUTED: 51 results (0 in the last hour). TriangularEnergy nanoda run since 09:12:29 (comparator 33% CPU, 1 GB; 7200 s limit at ~11:12); TriangularGaussian's lookahead build finished in 63 s at 09:13, so the main lane waits on that run. PlanarPacking shipped run in the slow lane (limit ~10:34). No guard events since 08:34:45. Load 2.0 of 12 CPUs.
+  - Throughput, COMPUTED from the 51 finished configs (nanoda DURATION_SECONDS, PREBUILD_SECONDS, plan order): sum of nanoda runs 43,468 s, sum of prebuilds 61,538 s. Modelled main-lane time per config, max(next config's build, this run) + 60 s: 1,519 s on average.
+    - INFERRED: at 1,519 s per config, the ~170 configs left take ~72 h, past the ~2026-10-26 12:00 deadline (~50 h away). Builds alone average ~1,200 s, so with one build at a time they are the floor (~57 h).
+    - Same model with long runs handed off after H s: 1,272 s (H 1800), 1,213 s (H 1200), 1,179 s (H 900).
+  - Fix: driver 114e_extended_replay_handoff.sh (114d plus a run handoff).
+    - A 7200 s nanoda run still going after HANDOFF = 900 s, once the next config's build has finished, moves to the slow lane if it has room: added to active-slow.txt, active-run.txt cleared; a slow-lane job waits for the run, then does the rest (28800 s rerun on a timeout, shipped run, queries, classification).
+    - Also, a "* <threads>" line in build-threads.txt sets the default prebuild threads, read at each build; not used yet.
+    - Tested (scratchpad t8_114e.sh, stub scripts, temp dir, HANDOFF 3 s; run twice, the second after shortening the run poll from 10 s to 3 s):
+      - thread defaults A 3 / others 6;
+      - B, D, E, F handed off; F waited until the slow lane had room;
+      - D's 7200 s timeout rerun at 28800 s inline in the slow lane;
+      - E (crash) shipped run in the slow lane;
+      - F preempted after the handoff gave no result and no DONE;
+      - G (last) ran in the main lane;
+      - results A B C D E G; markers empty at the end; no done-markers left.
+  - Install: a running bash script cannot be edited safely, so 124_switch_driver.sh (detached, root, started 10:3x) waits until every active config's latest run.log line is < 180 s old. Dry run at 10:3x: not ready (TriangularEnergy 4,443 s, PlanarPacking 6,710 s). Then it:
+    - stops the keeper, 119c, 114d and their jobs;
+    - installs the prepared 119c (default driver 114e) and 122 (also matches 114e) with mv;
+    - starts the keeper.
+    - INFERRED: it fires when PlanarPacking has finished and TriangularEnergy's run ends (or times out and moves to the slow lane), by ~11:15; at most ~3 min of work is redone.

@@ -1224,3 +1224,25 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Installed with mv; old 119c stopped (supervisor only).
   - NuclearUltrapower taken out of deferred.txt (copy deferred-3-before-undefer-20261023.txt) and added to serial-once.txt. Its build is protected by a commented line in keep-configs.txt (112_prune.py skips # lines). It runs at the next 114c start; the running 114c's no-DONE-with-undeferred-left check also covers it.
   - Deferred now: Catalan, MUBSix (memory; reported as not checked, Joe's option 6).
+- 2026-10-23 23:45–23:55, redesign: job-level memory handling (Joe: "determine the optimal way to fix these issues that keeps work moving … imperative that this be done in the next 60 hours"; empowered to act).
+  - Root cause (INFERRED from the stops since 2026-10-22): with a hard 20 GB cap and unknown per-job memory, the only safety valve was a guard that kills EVERY job. Each stop then lost the other jobs' work and left 119c to guess, afterwards, whom to blame and what to retry; each earlier fix patched one guess. Separately, a long run (a 28800 s timeout rerun) blocked the main lane, leaving the PC ~92% idle.
+  - Platform facts, COMPUTED: WSL kernel 5.15 in cgroup hybrid mode. systemd-run -p MemoryMax is NOT enforced: a 400 MB allocation under a 200 MB cap succeeded (memory controller not delegated). Per-unit v2 cgroup.freeze and cgroup.kill exist under user@1000.service/app.slice. Transient unit names: run-u<N> with --wait (pipeline), run-r<hex> without.
+  - New wsl-comparator/69c_lane_guard.py (root; replaces 69b for 114d). Lanes, lowest priority first: build < main-lane run < slow lane. A = MemAvailable + SwapFree.
+    - A < 4500 MB: freeze the build if it runs beside another job. Thawed at A > 8000 MB or when it is alone.
+    - A < 2000 MB with ≥ 2 jobs: kill only the lowest-priority job (never a query, never the only top-priority job) and write out/preempt/<config>.<lane>. With 1 job: 69b's full stop, unchanged (LIMIT line, GUARD_STOPPED; 119c policy applies).
+    - Same log format plus PAUSE / RESUME / PREEMPT lines.
+  - New wsl-comparator/114d_extended_replay_lanes.sh (114c's per-config steps, sandbox, timeouts, logs, classification unchanged):
+    - a preempted prebuild is retried at half the threads (min 2) once no main-lane run is active (≤ 3 retries, then left for the next attempt);
+    - a preempted run leaves its config without a result (rc 5; retried at the next attempt; no DONE meanwhile);
+    - a 7200 s timeout's 28800 s rerun runs in the slow lane;
+    - a finished 7200 s timeout log (exit 124/137 after ≥ 7000 s) is kept across restarts;
+    - slow lane up to 2 configs; the lookahead build also runs while the slow lane is busy;
+    - test hooks XR_W / XR_L / XR_C / XR_QD (defaults are the live paths).
+  - 119c runs 114d (DRIVER overrides); keeper 122 also counts 114d as a driver.
+  - Tests (scratchpad):
+    - t5_guard.sh, live: 3 tagged dummy units (XRTEST) under systemd-run as checker; fake meminfo; dry run for the full stop. The sequence: no action at 10,000 MB → build frozen at 4,000 → still frozen at 6,000 → thawed at 9,000 → at 1,500 the build killed, then the run, then the full stop with the slow job alone (exit 1, marker). Live guard.log, GUARD_STOPPED and PlanarPacking's run untouched.
+      - The first two attempts found no units: a test bug (custom unit names; then run-r<hex> names). The guard now globs run-*.service.
+    - t6_114d.sh, end-to-end with stub scripts in a temp dir: A normal; B 7200 s timeout → 28800 s rerun in the slow lane while C, D, E ran in the main lane; C build preempted → retried at 4 threads after the run; D run preempted → no result, "no DONE"; E crash → slow lane beside B; F kept timeout log → no 7200 s run, 28800 s rerun after a slot freed, partial file moved aside. Results A B C E F; active-slow empty at the end.
+  - Switch 23:49:21: keeper and old 114c stopped. PlanarPacking's 28800 s rerun (started 23:09) killed via its unit's cgroup.kill; its finished 7200 s timeout log is kept. 0 checker lake/lean/comparator processes left.
+    - The restarted keeper exited at once: the old keeper's sleep child still held 122.lock. Restarted at 23:51:10 → 119c → 114d (attempt 1): 180 pending; NuclearUltrapower first (serial-once, 4 threads, build done in 12 s, nanoda run 23:51:24).
+  - Deadline (Joe): finish by ~2026-10-26 12:00. Hourly checks from Claude Code from now on.

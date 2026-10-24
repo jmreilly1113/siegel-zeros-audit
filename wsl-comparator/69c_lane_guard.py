@@ -35,6 +35,7 @@ POLL = float(os.environ.get('GUARD_POLL', '5'))
 DRY = os.environ.get('GUARD_DRYRUN', '0') == '1'
 TAG = os.environ.get('GUARD_TAG', '')
 MAXLOOPS = int(os.environ.get('GUARD_MAXLOOPS', '0'))
+FREEZE_MAX = int(os.environ.get('GUARD_FREEZE_MAX', '900'))
 APP = '/sys/fs/cgroup/unified/user.slice/user-1000.slice/user@1000.service/app.slice'
 PRI = {'build': 0, 'run': 1, 'slow': 2}
 CHECKER = int(subprocess.run(['id', '-u', 'checker'], capture_output=True, text=True).stdout.strip() or 1000)
@@ -82,6 +83,7 @@ def units():
             except OSError: continue
             if a and os.path.basename(a[0]) == 'timeout': root = ' '.join(a); break
         if not root or (TAG and TAG not in root): continue
+        if not TAG and 'XRTEST' in root: continue   # the live guard ignores test units (2026-10-24)
         if 'lake build' in root: res.append(('build', bld, d, pids, False)); continue
         n = name_of(root)
         res.append(('slow' if n and n in slow else 'run', n, d, pids, 'lake env lean' in root))
@@ -127,7 +129,17 @@ while True:
             time.sleep(10); continue
         if len(js) == 1: full_stop(u, a, s, 'one job left')
         # >= 2 jobs but no candidate (only queries beside the top job): wait for the queries to end
+    runs = [j for j in js if j[0] == 'run']
     for (lane, cfg, d, pids, _) in builds:
+        if d not in frozen and 'frozen 1' in rd(f'{d}/cgroup.events'):   # frozen by an earlier guard instance
+            frozen[d] = (cfg, time.time()); log(f'ADOPT frozen build {cfg} (unit {os.path.basename(d)})')
+        # 2026-10-24: a build frozen > FREEZE_MAX s while no main-lane run is active is starving the main lane (it waits for
+        # this build), e.g. 02:25-08:28 beside PlanarPacking's 28800 s slow run. Kill it; 114d retries it at half the threads.
+        if d in frozen and not runs and time.time() - frozen[d][1] > FREEZE_MAX:
+            kill(d, pids); del frozen[d]
+            open(f'{OUT}/preempt/{cfg or "unknown"}.build', 'a').write(f'{now()} starved A={A}MB\n')
+            log(f'PREEMPT build {cfg} (frozen > {FREEZE_MAX} s with no main-lane run; MemAvailable {a}MB, SwapFree {s}MB); unit {os.path.basename(d)} killed')
+            continue
         if d in frozen:
             if A > RESUME or not others:
                 freeze(d, False); log(f'RESUME build {cfg} after {int(time.time() - frozen[d][1])} s (MemAvailable {a}MB, SwapFree {s}MB)'); del frozen[d]

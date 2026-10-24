@@ -1246,3 +1246,16 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Switch 23:49:21: keeper and old 114c stopped. PlanarPacking's 28800 s rerun (started 23:09) killed via its unit's cgroup.kill; its finished 7200 s timeout log is kept. 0 checker lake/lean/comparator processes left.
     - The restarted keeper exited at once: the old keeper's sleep child still held 122.lock. Restarted at 23:51:10 → 119c → 114d (attempt 1): 180 pending; NuclearUltrapower first (serial-once, 4 threads, build done in 12 s, nanoda run 23:51:24).
   - Deadline (Joe): finish by ~2026-10-26 12:00. Hourly checks from Claude Code from now on.
+- 2026-10-24 08:22–08:30, first hourly check (CronCreate job 5abaded3, hourly at :07, session-only).
+  - COMPUTED: 51 results (7 since the 23:51 switch, all ACCEPT_BOTH: NuclearUltrapower, DimensionTenChannel, DimensionTenPair, RelativeGeneration, ContinuousCircleWeight, SeparableQuotientNegative, and Naimark before it). No guard stops since 23:51; deferred: Catalan, MUBSix.
+  - STALL, COMPUTED: last outcome 02:25:33. TriangularEnergy's prebuild was frozen by 69c at 02:21:03 (beside SeparableQuotientNegative and PlanarPacking), thawed 04:47:36, frozen again 04:48:27 beside PlanarPacking only. PlanarPacking's 28800 s slow-lane rerun started 00:27:48.
+    - At 08:22: MemAvailable 1,330 MB, swap 4,161 of 5,120 MB used, load 1.0. The main lane had been waiting for that build for ~6 h.
+    - INFERRED: as designed, but wrong. Freezing protects nothing when no main-lane run is active; the main lane just waits.
+  - Fix in 69c:
+    - a build frozen > 900 s (GUARD_FREEZE_MAX) while no main-lane run is active is killed (PREEMPT … starved); 114d retries it at half the threads;
+    - a restarted guard adopts builds already frozen (otherwise they would never be thawed);
+    - the live guard ignores units tagged XRTEST.
+    - Tested (scratchpad t7_guard.sh, tagged units, fake meminfo): a pre-frozen build is adopted and thawed at A = 9,000; a build frozen beside a slow job only is killed after FREEZE_MAX = 5 s, with marker TBstarve.build; the slow job untouched.
+  - Swapped live 08:24:33: new 69c tied to the 114d pid; old one stopped; it logged "ADOPT frozen build TriangularEnergy".
+  - Finding: during t7 the OLD live guard counted the test units as jobs (08:24:06 "PAUSE build TriangularEnergy … beside PlanarPacking,TSstarve"). No harm (that build was already frozen). Fixed by the XRTEST exclusion, which takes effect at the next 69c start.
+  - PlanarPacking's 28800 s limit falls at ~08:28.

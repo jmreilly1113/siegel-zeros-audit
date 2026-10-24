@@ -18,7 +18,7 @@ flock -n 8 || { echo "$(date '+%F %T') 119c: another instance holds the lock; ex
 log() { echo "$(date '+%F %T') $*" >> $OUT/run.log; }
 halt() { echo "HALT $(date '+%F %T'): $*" > $OUT/HALT.txt; log "119c: HALT: $*"; exit 0; }
 [ -f $OUT/stops.tsv ] || printf 'time\tsource\tactive_run\tactive_build\taction\n' > $OUT/stops.tsv
-nstops() { awk -F'\t' -v c="$1" 'NR>1 && ($3==c || $4==c)' $OUT/stops.tsv | wc -l; }
+nstops() { awk -F'	' -v c="$1" -v k="$2" 'NR>1 && $k==c' $OUT/stops.tsv | wc -l; }   # 2026-10-23: count stops by role (k=3 run, k=4 build) so build stops do not count against a run
 handle_stop() {
   local RUNC BLDC ST LL LT CF SRC DISK ACT k
   # 2026-10-23: blame the configs active when the guard fired (114c's *.at-limit.txt snapshot; the end-of-114c
@@ -40,10 +40,10 @@ handle_stop() {
   if [ -n "$RUNC" ] && [ -z "$BLDC" ] && [ -z "$SLC" ]; then
     echo "$RUNC" >> $OUT/deferred.txt; ACT="stop on $RUNC with no build or slow lane running: deferred (needs more memory than WSL has)"
   elif [ -n "$RUNC" ]; then
-    if [ "$(nstops $RUNC)" -ge 1 ]; then echo "$RUNC" >> $OUT/deferred.txt; ACT="second stop on $RUNC: deferred"
+    if [ "$(nstops $RUNC 3)" -ge 1 ]; then echo "$RUNC" >> $OUT/deferred.txt; ACT="second stop on $RUNC: deferred"
     else echo "$RUNC" >> $OUT/serial-once.txt; ACT="first stop on $RUNC: serial-once (no concurrent build)"; fi
   elif [ -n "$BLDC" ]; then
-    if [ "$(nstops $BLDC)" -ge 1 ]; then echo "$BLDC" >> $OUT/deferred.txt; ACT="second stop on build $BLDC: deferred"
+    if [ "$(nstops $BLDC 4)" -ge 1 ]; then echo "$BLDC" >> $OUT/deferred.txt; ACT="second stop on build $BLDC: deferred"
     else echo "$BLDC 4" >> $OUT/build-threads.txt; ACT="first stop on build $BLDC: retried at 4 threads"; fi
   else ACT="nothing active: plain restart"; fi
   printf '%s\t%s\t%s\t%s\t%s\n' "$(date '+%F %T')" "$SRC" "$RUNC" "$BLDC" "$ACT" >> $OUT/stops.tsv

@@ -1213,3 +1213,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - Tested (scratchpad t3.sh, dry run on a fake meminfo, temp log and marker): 1,400 + 5,000 MB → no stop (69 would stop); 300 + 1,500 MB → LIMIT, marker, exit 1. 119c's awk and disk parse and 114c's limit_seen read the new LIMIT line. The live guard.log and marker were untouched.
   - 114c now starts 69b (85 2000 2) instead of 69 (installed with mv).
   - Swapped live at 14:49:14: 69b started, tied to the running 114c (it exits when that 114c's pid ends, so no duplicate guard later); then the old 69 was stopped. Nothing else touched.
+- 2026-10-23 23:27–23:45, status (Joe: "status").
+  - COMPUTED since 14:49: one new result (Naimark ACCEPT_BOTH, 15:42); 45 result files.
+    - NuclearUltrapower: prebuild at 4 threads 21 min (ok). Its nanoda run (comparator high-water 12.43 GB) ran beside PlanarPacking's 4-thread prebuild. Guard 69b stop at 16:41:44 (MemAvailable 643 MB, SwapFree 4 MB: the 5 GB swap was full). Snapshot: run NuclearUltrapower, build PlanarPacking.
+    - 119c deferred NuclearUltrapower ("second stop"). Bug: nstops counted its two earlier BUILD stops (13:41, 13:46) against its run. Under the stated policy it should have gone to serial-once.
+    - PlanarPacking: prebuild at 4 threads 16:42–20:31, timeout at 14,400 s; rerun finished 21:12 (total ~4.5 h). nanoda run 21:12–23:09: COMPARATOR EXIT CODE 124 at 7,037 s, inside "Running nanoda kernel on solution". Summed RSS peak 18.17 GB, comparator high-water 13.67 GB (DimensionTenChannel's 8-thread prebuild, 928 s, ran beside it from 21:12). Rerun at 28,800 s started 23:09.
+    - At 23:27 the PC was ~92% idle (load 1.0): only that rerun, comparator 3.3 GB RSS, swap 72 MB used. DimensionTenChannel built and waiting.
+  - Not changed, and why (INFERRED): PlanarPacking's comparator alone reached 13.7 GB, so running a build beside its rerun risks a guard stop that would kill the rerun too. It runs alone, up to 8 h (until ~07:09).
+  - Fix: 119c nstops now counts by role (column 3 = as run, 4 = as build). Tested (scratchpad t4.sh; handle_stop extracted from the file): on the real stops.tsv NuclearUltrapower = 1 run stop, 2 build stops. 5 scenarios as intended, including run+build after 2 earlier build stops → serial-once.
+    - Installed with mv; old 119c stopped (supervisor only).
+  - NuclearUltrapower taken out of deferred.txt (copy deferred-3-before-undefer-20261023.txt) and added to serial-once.txt. Its build is protected by a commented line in keep-configs.txt (112_prune.py skips # lines). It runs at the next 114c start; the running 114c's no-DONE-with-undeferred-left check also covers it.
+  - Deferred now: Catalan, MUBSix (memory; reported as not checked, Joe's option 6).

@@ -1280,7 +1280,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
       - F preempted after the handoff gave no result and no DONE;
       - G (last) ran in the main lane;
       - results A B C D E G; markers empty at the end; no done-markers left.
-  - Install: a running bash script cannot be edited safely, so 124_switch_driver.sh (detached, root, started 10:3x) waits until every active config's latest run.log line is < 180 s old. Dry run at 10:3x: not ready (TriangularEnergy 4,443 s, PlanarPacking 6,710 s). Then it:
+  - Install: a running bash script cannot be edited safely, so 124_switch_driver.sh (detached, root, started ~10:26) waits until every active config's latest run.log line is < 180 s old. Dry run just before: not ready (TriangularEnergy 4,443 s, PlanarPacking 6,710 s). Then it:
     - stops the keeper, 119c, 114d and their jobs;
     - installs the prepared 119c (default driver 114e) and 122 (also matches 114e) with mv;
     - starts the keeper.

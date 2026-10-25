@@ -1,0 +1,10 @@
+ComparatorChallenges/KaplanskyDirectFiniteness.json
+ComparatorChallenges/LaughlinPlanar.json
+ComparatorChallenges/LaughlinFock.json
+ComparatorChallenges/LipschitzHilbert.json
+# 2026-10-23 23:40: NuclearUltrapower kept only to protect its finished build until its redo (undeferred)
+ComparatorChallenges/NuclearUltrapower.json
+ComparatorChallenges/PlanarPacking.json
+ComparatorChallenges/AtomicGaussian.json
+# 2026-10-25 01:2x: ErdosReciprocal kept to protect its 4,775-module build (~6 h) until its nanoda run is redone; remove after its result
+ComparatorChallenges/ErdosReciprocal.json

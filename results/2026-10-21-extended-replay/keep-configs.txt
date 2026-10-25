@@ -1,0 +1,8 @@
+ComparatorChallenges/KaplanskyDirectFiniteness.json
+ComparatorChallenges/LaughlinPlanar.json
+ComparatorChallenges/LaughlinFock.json
+ComparatorChallenges/LipschitzHilbert.json
+# 2026-10-23 23:40: NuclearUltrapower kept only to protect its finished build until its redo (undeferred)
+ComparatorChallenges/NuclearUltrapower.json
+ComparatorChallenges/PlanarPacking.json
+ComparatorChallenges/AtomicGaussian.json

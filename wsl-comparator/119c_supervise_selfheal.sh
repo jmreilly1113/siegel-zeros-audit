@@ -34,7 +34,7 @@ handle_stop() {
   CF=$(df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9)
   if [ -n "$LL" ]; then
     SRC="WSL guard: $LL"; DISK=$(echo "$LL" | sed -n 's/.*disk \([0-9]*\)G.*/\1/p')
-    [ "${DISK:-0}" -gt 85 ] && halt "WSL guard disk-limit stop ($LL)"
+    [ "${DISK:-0}" -gt ${DISK_GB:-95} ] && halt "WSL guard disk-limit stop ($LL)"
   else SRC="no WSL guard LIMIT line since the last guard start (external stop; C: free ${CF} GB)"; fi
   [ "${CF:-99}" -lt 22 ] && halt "C: free ${CF} GB < 22 GB"
   # 2026-10-23 (MUBSix: three 22-min nanoda runs, each killed alone at ~19 GB; NuclearUltrapower: two 8-thread builds

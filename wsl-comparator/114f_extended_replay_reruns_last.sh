@@ -33,7 +33,7 @@
 # deferred.txt skip, partial files moved aside at the config's build start).
 # Run as root, detached, via 119c_supervise_selfheal.sh. Usage: 114d_extended_replay_lanes.sh <plan tsv> <out dir>
 set -u
-PLAN=$1; OUT=$2; PRUNE_AT=${PRUNE_AT:-55}; THREADS=${THREADS:-8}; SLOW_MAX=${SLOW_MAX:-2}; HANDOFF=${HANDOFF:-900}; RETRY_MB=${RETRY_MB:-8000}; RQ=$OUT/rerun-end.txt
+PLAN=$1; OUT=$2; PRUNE_AT=${PRUNE_AT:-55}; THREADS=${THREADS:-8}; SLOW_MAX=${SLOW_MAX:-2}; HANDOFF=${HANDOFF:-900}; RETRY_MB=${RETRY_MB:-8000}; RQ=$OUT/rerun-end.txt; DISK_GB=${DISK_GB:-95}   # 2026-10-25: 85 -> 95 (ext4.vhdx is already 99 GB; C: free stop at 22 GB unchanged)
 # Test hooks (defaults are the live paths): XR_W scripts dir, XR_L lean dir, XR_C corpus dir (guard.log, GUARD_STOPPED)
 W=${XR_W:-/mnt/c/Users/Work/dev/siegel/wsl-comparator}; QD=${XR_QD:-/mnt/c/Users/Work/dev/siegel/lean-checks/extended-replay}
 C=${XR_C:-/home/checker/corpus}; L=${XR_L:-/home/checker/math/lean}; X=$C/xr; R=$OUT/runs; PB=$X/pb-114d
@@ -47,12 +47,12 @@ stopped() { [ -f $C/GUARD_STOPPED ] || [ -f $R/STOP.txt ] || limit_seen; }
 cfree() { df -BG --output=avail /mnt/c | tail -1 | tr -dc 0-9; }
 wused() { df -BG --output=used / | tail -1 | tr -dc 0-9; }
 rm -f $C/GUARD_STOPPED
-nohup python3 -I $W/69c_lane_guard.py $OUT 85 4500 2000 8000 >> $C/xr-69c.out 2>&1 &
+nohup python3 -I $W/69c_lane_guard.py $OUT $DISK_GB 4500 2000 8000 >> $C/xr-69c.out 2>&1 &
 GD=$!
 # Snapshot the markers when the guard fires (before 114d moves on), so 119c blames the configs active at that moment.
 ( while sleep 2; do limit_seen && { for m in run build slow; do cp $OUT/active-$m.txt $OUT/active-$m.at-limit.txt; done; exit 0; }; done ) &
 SW=$!
-log "start 114f_extended_replay_reruns_last.sh (28800 s reruns at the end; handoff after ${HANDOFF} s; prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, slow lane up to $SLOW_MAX, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69c_lane_guard.py 85 4500 2000 8000"
+log "start 114f_extended_replay_reruns_last.sh (28800 s reruns at the end; handoff after ${HANDOFF} s; prebuild LEAN_NUM_THREADS=$THREADS, lookahead 1, slow lane up to $SLOW_MAX, prune at WSL used > ${PRUNE_AT}G) plan $(basename $PLAN); clone HEAD $(sudo -u checker git -C /home/checker/math rev-parse HEAD) status [$(sudo -u checker git -C /home/checker/math status --short | tr '\n' ' ')]; kernel $(uname -r); WSL used $(wused)G; C: free $(cfree)G; guard 69c_lane_guard.py $DISK_GB 4500 2000 8000"
 prebuild() { # prebuild <log> <targets> <timeout> [threads]
   local T=${4:-$THREADS}
   { echo "== prebuild: lake build $2 with LEAN_NUM_THREADS=$T (114d)  $(date '+%F %T')"; T0=$(date +%s)

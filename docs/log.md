@@ -1576,3 +1576,44 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - COMPUTED: there are still 212 result files, with none in the last hour. deferred.txt has 15 entries: the 14 set aside earlier plus UniversalTensorSquares. At 11:17 no pipeline process was running in WSL (the VM had idled out and restarted for this check).
 - INFERRED: the extended replay finished before the 12:00 deadline. Its 213 non-deferred configs have 212 results; UniversalTensorSquares is not checked here because its build exceeds memory even at 4 threads. A 2-thread retry ran at about 38 modules/h earlier today, so its 388 remaining modules would take roughly 10 h. No retry was started. Report it with the deferred configs: "not run here; accepted in McBurnett's sweep at identical pins" (results/2026-10-25-extended-replay-vs-mcburnett).
 - No action taken. End-of-run cleanup (stale keep lines, /tmp leftovers, offload and prune, the stale redo.txt entry for LipschitzHilbert) is still to do.
+
+### 2026-10-26 12:20–15:30 nanoda version matrix (UNOFFICIAL) and extended-replay final table (Joe's brief, approved with changes)
+
+- Output: results/2026-10-26-nanoda-version-matrix/: MANIFEST.txt, SUMMARY.md, matrix.tsv, run.log, outcomes-raw.tsv, runs/, exports/, reply-61-draft.md (not posted), extended-replay-227/.
+- Versions: rustc 1.99.0 and cargo 1.99.0 (WSL); Python 3.14 (Windows, scripts/); Lean 4.34.1; lean4export 076e8e5; openai/math fd4aeeb, clean.
+- Binaries:
+  - B1: 3a24072 with a 1 GiB stack, the 2026-10-20 build, re-verified.
+  - B2: 37cb87b, stock. A clean rebuild was byte-identical.
+  - B3: 37cb87b plus nealmcb's let fix and Nat.succ guard patch (sha256 edd9824f…), with a 64 MiB stack.
+  - The official 3a24072 binary is unchanged (same sha256 before and after).
+- New scripts:
+  - wsl-comparator/140_matrix_run.sh: one run. It was stub-tested 8/8: pass, OOM, timeout, overflow, other, network, peak, hash.
+  - wsl-comparator/141 (build), 142 (batch), 143 (export) and 144 (chain).
+  - scripts/nanoda_matrix.py and scripts/extended_final_table.py.
+- COMPUTED (method): systemd 255 does not enforce MemoryMax in this cgroup-hybrid WSL. A 600 MB allocation under MemoryMax=200M ran to the end, in both user and system units, and MemoryLimit= caps RAM only.
+  - 140 instead sets the unit's own v1 memory cgroup: limit_in_bytes = memsw.limit_in_bytes = 16G.
+  - Joe asked for MemoryMax=16G; this is how that limit is enforced here.
+- COMPUTED (step 1):
+  - The six extended f67473b-direct outcomes are in runs/<C>.result.json (f67473b_direct) and runs/<C>-f67473b-direct.log. Five passed. SquareDifference failed with a thread_2 overflow at 98 s, 4.16 GB.
+  - LogspaceEquality and RandomizedMeanPayoff are ACCEPT_BOTH in the 189 table (lines 104 and 135).
+  - #55: the body (nealmcb, 2026-10-15, never edited) names 15 configs. KaplanskyFinitelyPresented and GroupRingDeterminant were added by our comment of 2026-10-20 12:50:34 UTC.
+  - KaplanskyDirectFiniteness is in neither the #55 nor the #61 text. It first appears in nealmcb's nanoda-stack-size-2026-10-25.txt, linked from #61's 2026-10-25 comment.
+  - Only the 6 extended crash exports were on disk. All matched their logged size and sha256.
+- COMPUTED (steps 2–3, 27 runs, one at a time under 69_corpus_guard.sh, no guard stops): every outcome matched the brief's expectations. There was no genuine rejection and no hash mismatch. See SUMMARY.md for the table.
+  - B1: passes KaplanskyFinitelyPresented, GroupRingDeterminant and KaplanskyDirectFiniteness. It grows to the 16G cap (OOM, a resource outcome) on Laughlin, LaughlinPlanar, LaughlinFock, DirectedFeedback, MinUncut and SquareDifference.
+  - B2: overflows on KaplanskyFinitelyPresented, GroupRingDeterminant, KaplanskyDirectFiniteness and SquareDifference. It passes the other five.
+  - B3: passes all 9.
+  - The regenerated KaplanskyFinitelyPresented and GroupRingDeterminant exports are byte-identical to the 2026-10-20 ones (sha256 7b923557…, bda46ad6…). Laughlin's export is 433,770,627 bytes, sha256 842b632a….
+  - All 9 export sizes equal nealmcb's (results/nanoda-ab-let.jsonl), as do MatchingFPRAS and ContingencyTables (our extended records).
+- COMPUTED (sourcing): the "416 configurations (on 8199c74)" sweep of #61 is on nanoda master 8199c74 (2026-10-23), nine commits before 37cb87b.
+  - So the 37cb87b cells for the six skipped RoundTables configs are INFERRED, not STATED.
+  - LogspaceEquality and RandomizedMeanPayoff are among the ten master failures (STATED), contrary to the brief's "none of these". matrix.tsv marks both accordingly.
+- COMPUTED (step 5): `python -I scripts/extended_final_table.py . results/2026-10-26-nanoda-version-matrix/extended-replay-227` writes corpus-227.tsv and summary-227.txt.
+  - The last run.log outcome equals result.json for all 212. The totals are 205 ACCEPT_BOTH, 6 LEAN_ACCEPT_NANODA_CRASH, 1 TIMEOUT and 15 deferred, each with its reason.
+  - #print axioms: 212 of 212 exit 0, 297 declarations, all {propext, Classical.choice, Quot.sound}.
+  - Audit queries: ElementaryPositivity and NavierStokesVelocity have the placeholder target outside the statement closure. DefocusingNLS is deferred and was not run.
+- **Update 2026-10-26 (appended; the 2026-10-25 entry above is unchanged).** The 2026-10-25 sentence "Our 7 non-ACCEPT_BOTH configs (5 crash at 3a24072/pass at f67473b, SquareDifference, the PlanarPacking TIMEOUT) are the nanoda failures already in issues #55/#61" overstates. Narrowed:
+  - DirectedFeedback, MinUncut, LaughlinPlanar, LaughlinFock and SquareDifference are in #55's original report (2026-10-15).
+  - KaplanskyDirectFiniteness is not in #55. It first appears publicly in nealmcb's nanoda-stack-size-2026-10-25.txt, linked from #61, as a pass with the let fix at 64 MiB. No issue reports its 3a24072 crash.
+  - PlanarPacking is not a nanoda failure. Lean's own shipped run also timed out (runs/PlanarPacking-shipped.log), and no issue names it.
+  - The same sentence was in the paper-planning summary given to Joe on 2026-10-26. That summary's "UniversalTensorSquares still running" was corrected at 11:17.

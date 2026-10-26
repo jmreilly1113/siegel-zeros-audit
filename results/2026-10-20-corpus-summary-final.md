@@ -99,3 +99,16 @@ Details: `results/2026-10-20-nanoda-postfix-f67473b/SUMMARY.txt`.
   - For the 7 configs in #55 (OptimalMaxCut, UniqueGamesTheorem, VertexCover, Laughlin, BinPackingGap, IndependentSets, PerfectCompleteness), the failures are a nanoda 3a24072 bug that f67473b fixes. A larger stack does not help.
   - For KaplanskyFinitelyPresented and GroupRingDeterminant, stock 3a24072 needs more than 16 MiB of stack. Either a 1 GiB stack or f67473b is enough.
   - Across the two nanoda versions, all 187 configs have now been accepted by both nanoda and Lean's kernel. The official table above, which uses one pinned tool set, stays 178 + 9.
+
+## Update 2026-10-26 (appended; earlier text unchanged)
+
+- **Correction to "The other 2 of the 9, KaplanskyFinitelyPresented and GroupRingDeterminant, are not in #55"** (Reading, fifth bullet).
+  - That is true of the issue as filed. nealmcb's issue body is dated 2026-10-15 and was never edited (GitHub `lastEditedAt` null, read 2026-10-26).
+  - STATED: both configs were added to #55 by our own comment of 2026-10-20 12:50:34 UTC (https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6291244827, account jmreilly1113). That comment reported their 16 MiB overflow and 1 GiB pass on 3a24072.
+  - STATED: nealmcb's #61 (2026-10-23) lists both among three configs that need a deeper stack on master: "The last two are the ones @jmreilly1113 reported in #55."
+  - Corrected reading: "not in #55's original report; added to #55 by us on 2026-10-20."
+- COMPUTED (UNOFFICIAL; results/2026-10-26-nanoda-version-matrix/SUMMARY.md):
+  - Both exports regenerated on 2026-10-26 are byte-identical to the 2026-10-20 ones (sha256 7b923557… and bda46ad6…).
+  - On them: 3a24072 with a 1 GiB stack passes, as on 2026-10-20. nanoda master 37cb87b (16 MiB) overflows. 37cb87b with nealmcb's let fix and Nat.succ guard at 64 MiB passes.
+  - Laughlin on 3a24072 with a 1 GiB stack grows to the 16G memory cap; f67473b, 37cb87b and the patched build pass it. This fits the "A larger stack does not help" reading above for the #55 configs.
+  - The official table is unchanged.

@@ -1,0 +1,43 @@
+== 141 build 2026-10-26 12:44:26
+rustc 1.99.0 (b940084d7 2026-09-28)
+cargo 1.99.0 (5f94df478 2026-08-27)
+official /usr/local/bin/nanoda_bin before: 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714
+B2 tree /root/tools/nanoda_lib-37cb87b HEAD 37cb87b7e6cd6862ef2bd121faa9f4604f59fe96; status []
+23:pub(crate) const STACK_SIZE: usize = 16_777_216;
+patch sha256 edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30 (expected edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30)
+== B3 diff against 37cb87b:
+ src/lib.rs  |  2 +-
+ src/tc.rs   | 22 +++++++++++++++++++---
+ src/util.rs |  5 +++++
+ 3 files changed, 25 insertions(+), 4 deletions(-)
+diff --git a/src/lib.rs b/src/lib.rs
+index f7ca1d9..112a050 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -20,4 +20,4 @@ mod tests;
+ pub mod unique_hasher;
+ pub mod util;
+ 
+-pub(crate) const STACK_SIZE: usize = 16_777_216;
++pub(crate) const STACK_SIZE: usize = 67_108_864;
+== cargo build --release --locked in /root/tools/nanoda_lib-37cb87b
+    Finished `release` profile [optimized] target(s) in 0.01s
+== cargo build --release --locked in /root/tools/nanoda_lib-37cb87b-patch64
+   Compiling nanoda_lib v0.4.29 (/root/tools/nanoda_lib-37cb87b-patch64)
+    Finished `release` profile [optimized] target(s) in 11.83s
+== binaries
+1522b91653432c1eb6e1d2d8fb915f8c9a278d1a554c37dd1371522742d7b7e9  /opt/nanoda-1gib-diag/nanoda_bin
+be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5  /opt/nanoda-postfix/nanoda_bin
+2acc966afc4d32945ade5b9dfeaf72fcaea3102060207118c43e288a79171467  /opt/nanoda-37cb87b/nanoda_bin
+a30bc56f037eed717884575af8c0938fbb44af3be87a9ae6725f11ba402456c9  /opt/nanoda-37cb87b-patch64/nanoda_bin
+897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714  /usr/local/bin/nanoda_bin
+official /usr/local/bin/nanoda_bin after: 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714
+== 141 done 2026-10-26 12:44:39
+== B2 clean rebuild 2026-10-26 12:44:54 (the first build ran in an attempt whose log could not be written)
+HEAD 37cb87b7e6cd6862ef2bd121faa9f4604f59fe96 status []
+     Removed 230 files, 73.4MiB total
+   Compiling nanoda_lib v0.4.29 (/root/tools/nanoda_lib-37cb87b)
+    Finished `release` profile [optimized] target(s) in 17.43s
+built 2acc966afc4d32945ade5b9dfeaf72fcaea3102060207118c43e288a79171467; installed 2acc966afc4d32945ade5b9dfeaf72fcaea3102060207118c43e288a79171467
+identical: yes
+706 bash /mnt/c/Users/Work/dev/siegel/wsl-comparator/69_corpus_guard.sh 95 1500 20

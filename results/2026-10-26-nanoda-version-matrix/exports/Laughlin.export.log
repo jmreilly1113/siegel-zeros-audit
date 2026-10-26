@@ -1,0 +1,32 @@
+== 143 export Laughlin  2026-10-26 14:31:20  (UNOFFICIAL matrix)
+shipped config: /home/checker/corpus/configs/Laughlin-nanoda.json sha256 85585951f4d0d328facaf29f1efc180e5cd79e39dff27861b147fa0e8de9768f
+clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []
+lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1
+== (1) build: lake build OAI.Analysis.Laughlin.Main (LEAN_NUM_THREADS 8)
+Build completed successfully (10181 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 17.498s
+SANDBOX EXIT CODE: 0
+BUILD_SECONDS: 20
+disk used: 63G
+== (2) export: LEAN_ABORT_ON_PANIC=1 lake env lean4export OAI.Analysis.Laughlin.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.Laughlin.mainTarget_proved propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/xr/exp/Laughlin.export
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 31.723s
+SANDBOX EXIT CODE: 0
+EXPORT_SECONDS: 349
+export: /home/checker/corpus/xr/exp/Laughlin.export bytes 433770627 sha256 842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523
+{
+ "export_file_path": "/home/checker/corpus/xr/exp/Laughlin.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}

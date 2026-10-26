@@ -1,0 +1,51 @@
+== nanoda matrix run LaughlinPlanar-B2  2026-10-26 12:51:20  (UNOFFICIAL)
+binary: /opt/nanoda-37cb87b/nanoda_bin sha256 2acc966afc4d32945ade5b9dfeaf72fcaea3102060207118c43e288a79171467
+nanoda config: /home/checker/corpus/xr/exp/LaughlinPlanar.f67473b-config.json
+{
+ "export_file_path": "/home/checker/corpus/xr/exp/LaughlinPlanar.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}
+export: /home/checker/corpus/xr/exp/LaughlinPlanar.export bytes 381061437 sha256 f61f11a63bf397a77a2620e4d6cc8c2e6a75d55bdbf7b5240928ec9821f5c8df
+limits: timeout 1800 s (TERM, KILL after 60 s); unit's v1 memory cgroup limit = memsw limit = 16G; network blocked
+Running as unit: run-u22.service; invocation ID: d330c29e17db4ce6bb730a8d67cade2e
+memcg /sys/fs/cgroup/memory/system.slice/run-u22.service limit 17179869184 memsw 17179869184
+INNER uid 1000 ulimit -s: 8192; RUST_MIN_STACK=unset
+	Command being timed: "timeout --signal=TERM --kill-after=60 1800 bash -c echo "INNER uid $(id -u) ulimit -s: $(ulimit -s); RUST_MIN_STACK=${RUST_MIN_STACK:-unset}"; exec /opt/nanoda-37cb87b/nanoda_bin /home/checker/corpus/xr/exp/LaughlinPlanar.f67473b-config.json"
+	User time (seconds): 3787.90
+	System time (seconds): 50.55
+	Percent of CPU this job got: 397%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 16:05.54
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1920068
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 2498067
+	Voluntary context switches: 935
+	Involuntary context switches: 3587
+	Swaps: 0
+	File system inputs: 144
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+cgroup: max_usage_in_bytes 1973121024 memsw.max_usage_in_bytes 1973121024 failcnt 0 oom_kill 0
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 15min 24.857s
+SYSTEMD-RUN EXIT CODE: 0
+DURATION_SECONDS: 966
+OUTCOME: pass; exit 0; wall 966 s; max RSS 1920068 kB

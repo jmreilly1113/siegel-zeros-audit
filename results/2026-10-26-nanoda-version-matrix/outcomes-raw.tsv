@@ -1,0 +1,27 @@
+KaplanskyDirectFiniteness	B1	/opt/nanoda-1gib-diag/nanoda_bin	56075f3f399ae826cc8cbb1708579e8b09f77f11e6d96b5914e4860244c52694	pass; exit 0; wall 43 s; max RSS 1276756 kB
+KaplanskyDirectFiniteness	B2	/opt/nanoda-37cb87b/nanoda_bin	56075f3f399ae826cc8cbb1708579e8b09f77f11e6d96b5914e4860244c52694	stack-overflow (thread 'thread_1' (2418) has overflowed); exit signal 6; wall 41 s; max RSS 945244 kB
+KaplanskyDirectFiniteness	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	56075f3f399ae826cc8cbb1708579e8b09f77f11e6d96b5914e4860244c52694	pass; exit 0; wall 42 s; max RSS 1254868 kB
+LaughlinPlanar	B1	/opt/nanoda-1gib-diag/nanoda_bin	f61f11a63bf397a77a2620e4d6cc8c2e6a75d55bdbf7b5240928ec9821f5c8df	oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 202 s; max RSS 16744092 kB
+LaughlinPlanar	B2	/opt/nanoda-37cb87b/nanoda_bin	f61f11a63bf397a77a2620e4d6cc8c2e6a75d55bdbf7b5240928ec9821f5c8df	pass; exit 0; wall 966 s; max RSS 1920068 kB
+LaughlinPlanar	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	f61f11a63bf397a77a2620e4d6cc8c2e6a75d55bdbf7b5240928ec9821f5c8df	pass; exit 0; wall 926 s; max RSS 1924476 kB
+LaughlinFock	B1	/opt/nanoda-1gib-diag/nanoda_bin	3a57a449811d537dec8572200f2465b64f2046fa01b06afdfa7d1db87a9e4316	oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 453 s; max RSS 16745936 kB
+LaughlinFock	B2	/opt/nanoda-37cb87b/nanoda_bin	3a57a449811d537dec8572200f2465b64f2046fa01b06afdfa7d1db87a9e4316	pass; exit 0; wall 1364 s; max RSS 8622616 kB
+LaughlinFock	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	3a57a449811d537dec8572200f2465b64f2046fa01b06afdfa7d1db87a9e4316	pass; exit 0; wall 1547 s; max RSS 8689444 kB
+SquareDifference	B1	/opt/nanoda-1gib-diag/nanoda_bin	82120e1e436819eb56f5e8186484f241ba471620f5cc7c446ee33cfeb8660e7e	oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 106 s; max RSS 16746012 kB
+SquareDifference	B2	/opt/nanoda-37cb87b/nanoda_bin	82120e1e436819eb56f5e8186484f241ba471620f5cc7c446ee33cfeb8660e7e	stack-overflow (thread 'thread_1' (4592) has overflowed); exit signal 6; wall 97 s; max RSS 3481528 kB
+SquareDifference	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	82120e1e436819eb56f5e8186484f241ba471620f5cc7c446ee33cfeb8660e7e	pass; exit 0; wall 31 s; max RSS 655928 kB
+DirectedFeedback	B1	/opt/nanoda-1gib-diag/nanoda_bin	ad461ba0e4b15a897a6242218df3c474112c8b53cb3b6092beac17f0c4fe04aa	oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 138 s; max RSS 16746264 kB
+DirectedFeedback	B2	/opt/nanoda-37cb87b/nanoda_bin	ad461ba0e4b15a897a6242218df3c474112c8b53cb3b6092beac17f0c4fe04aa	pass; exit 0; wall 48 s; max RSS 1001692 kB
+DirectedFeedback	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	ad461ba0e4b15a897a6242218df3c474112c8b53cb3b6092beac17f0c4fe04aa	pass; exit 0; wall 48 s; max RSS 987436 kB
+MinUncut	B1	/opt/nanoda-1gib-diag/nanoda_bin	8c530169af6e337d0588d4ba73f63cf116688eef10c58b2ba2d5aedabb9dff00	oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 121 s; max RSS 16746156 kB
+MinUncut	B2	/opt/nanoda-37cb87b/nanoda_bin	8c530169af6e337d0588d4ba73f63cf116688eef10c58b2ba2d5aedabb9dff00	pass; exit 0; wall 54 s; max RSS 1000212 kB
+MinUncut	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	8c530169af6e337d0588d4ba73f63cf116688eef10c58b2ba2d5aedabb9dff00	pass; exit 0; wall 51 s; max RSS 996248 kB
+Laughlin	B1	/opt/nanoda-1gib-diag/nanoda_bin	842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523	oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 198 s; max RSS 16745832 kB
+Laughlin	B2	/opt/nanoda-37cb87b/nanoda_bin	842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523	pass; exit 0; wall 877 s; max RSS 2052840 kB
+Laughlin	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523	pass; exit 0; wall 945 s; max RSS 2054300 kB
+KaplanskyFinitelyPresented	B1	/opt/nanoda-1gib-diag/nanoda_bin	7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c	pass; exit 0; wall 44 s; max RSS 1281052 kB
+KaplanskyFinitelyPresented	B2	/opt/nanoda-37cb87b/nanoda_bin	7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c	stack-overflow (thread 'thread_1' (7047) has overflowed); exit signal 6; wall 44 s; max RSS 947764 kB
+KaplanskyFinitelyPresented	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c	pass; exit 0; wall 42 s; max RSS 1271636 kB
+GroupRingDeterminant	B1	/opt/nanoda-1gib-diag/nanoda_bin	bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5	pass; exit 0; wall 49 s; max RSS 1308624 kB
+GroupRingDeterminant	B2	/opt/nanoda-37cb87b/nanoda_bin	bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5	stack-overflow (thread 'thread_2' (8329) has overflowed); exit signal 6; wall 50 s; max RSS 994008 kB
+GroupRingDeterminant	B3	/opt/nanoda-37cb87b-patch64/nanoda_bin	bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5	pass; exit 0; wall 47 s; max RSS 1311128 kB

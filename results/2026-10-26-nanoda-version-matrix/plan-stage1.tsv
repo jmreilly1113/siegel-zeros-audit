@@ -1,0 +1,7 @@
+# stage 1: the 6 extended-replay crash exports on disk (sha256 as logged in results/2026-10-21-extended-replay/runs/<cfg>-f67473b-direct.log)
+KaplanskyDirectFiniteness	/home/checker/corpus/xr/exp/KaplanskyDirectFiniteness.f67473b-config.json	56075f3f399ae826cc8cbb1708579e8b09f77f11e6d96b5914e4860244c52694
+LaughlinPlanar	/home/checker/corpus/xr/exp/LaughlinPlanar.f67473b-config.json	f61f11a63bf397a77a2620e4d6cc8c2e6a75d55bdbf7b5240928ec9821f5c8df
+LaughlinFock	/home/checker/corpus/xr/exp/LaughlinFock.f67473b-config.json	3a57a449811d537dec8572200f2465b64f2046fa01b06afdfa7d1db87a9e4316
+SquareDifference	/home/checker/corpus/xr/exp/SquareDifference.f67473b-config.json	82120e1e436819eb56f5e8186484f241ba471620f5cc7c446ee33cfeb8660e7e
+DirectedFeedback	/home/checker/corpus/xr/exp/DirectedFeedback.f67473b-config.json	ad461ba0e4b15a897a6242218df3c474112c8b53cb3b6092beac17f0c4fe04aa
+MinUncut	/home/checker/corpus/xr/exp/MinUncut.f67473b-config.json	8c530169af6e337d0588d4ba73f63cf116688eef10c58b2ba2d5aedabb9dff00

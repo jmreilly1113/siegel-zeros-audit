@@ -1,0 +1,32 @@
+== 143 export GroupRingDeterminant  2026-10-26 15:16:01  (UNOFFICIAL matrix)
+shipped config: /home/checker/corpus/configs/GroupRingDeterminant-nanoda.json sha256 d3adf2c52bff93718693025e3fe8fda69779a58226778cfd2289bd3b01b07074
+clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []
+lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1
+== (1) build: lake build OAI.Analysis.GroupDeterminants.Main (LEAN_NUM_THREADS 8)
+Build completed successfully (9078 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 35.185s
+SANDBOX EXIT CODE: 0
+BUILD_SECONDS: 350
+disk used: 64G
+== (2) export: LEAN_ABORT_ON_PANIC=1 lake env lean4export OAI.Analysis.GroupDeterminants.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.GroupRingDeterminant.main propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/xr/exp/GroupRingDeterminant.export
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 58.118s
+SANDBOX EXIT CODE: 0
+EXPORT_SECONDS: 61
+export: /home/checker/corpus/xr/exp/GroupRingDeterminant.export bytes 698227515 sha256 bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5
+{
+ "export_file_path": "/home/checker/corpus/xr/exp/GroupRingDeterminant.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}

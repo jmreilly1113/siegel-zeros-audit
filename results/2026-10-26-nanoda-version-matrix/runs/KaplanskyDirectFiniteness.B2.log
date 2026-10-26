@@ -1,0 +1,56 @@
+== nanoda matrix run KaplanskyDirectFiniteness-B2  2026-10-26 12:46:31  (UNOFFICIAL)
+binary: /opt/nanoda-37cb87b/nanoda_bin sha256 2acc966afc4d32945ade5b9dfeaf72fcaea3102060207118c43e288a79171467
+nanoda config: /home/checker/corpus/xr/exp/KaplanskyDirectFiniteness.f67473b-config.json
+{
+ "export_file_path": "/home/checker/corpus/xr/exp/KaplanskyDirectFiniteness.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}
+export: /home/checker/corpus/xr/exp/KaplanskyDirectFiniteness.export bytes 655379215 sha256 56075f3f399ae826cc8cbb1708579e8b09f77f11e6d96b5914e4860244c52694
+limits: timeout 1800 s (TERM, KILL after 60 s); unit's v1 memory cgroup limit = memsw limit = 16G; network blocked
+Running as unit: run-u19.service; invocation ID: b46390e4f9244685b44af311a3c0e657
+memcg /sys/fs/cgroup/memory/system.slice/run-u19.service limit 17179869184 memsw 17179869184
+INNER uid 1000 ulimit -s: 8192; RUST_MIN_STACK=unset
+
+thread 'thread_1' (2418) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+timeout: the monitored command dumped core
+Command terminated by signal 6
+	Command being timed: "timeout --signal=TERM --kill-after=60 1800 bash -c echo "INNER uid $(id -u) ulimit -s: $(ulimit -s); RUST_MIN_STACK=${RUST_MIN_STACK:-unset}"; exec /opt/nanoda-37cb87b/nanoda_bin /home/checker/corpus/xr/exp/KaplanskyDirectFiniteness.f67473b-config.json"
+	User time (seconds): 97.26
+	System time (seconds): 1.11
+	Percent of CPU this job got: 241%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:40.75
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 945244
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 28799
+	Voluntary context switches: 158469
+	Involuntary context switches: 72
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+cgroup: max_usage_in_bytes 968482816 memsw.max_usage_in_bytes 968482816 failcnt 0 oom_kill 0
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=134
+Service runtime: 39.602s
+SYSTEMD-RUN EXIT CODE: 134
+DURATION_SECONDS: 41
+OUTCOME: stack-overflow (thread 'thread_1' (2418) has overflowed); exit signal 6; wall 41 s; max RSS 945244 kB

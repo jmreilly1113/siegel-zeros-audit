@@ -1,0 +1,43 @@
+UNOFFICIAL. nanoda version matrix, 2026-10-26. Not the corpus-pinned tool set; the official tables (results/2026-10-20-corpus-summary-final.tsv
+and the extended replay's 3a24072 outcomes) are unchanged. The official binary /usr/local/bin/nanoda_bin (3a24072) was not modified: its sha256
+is the same before and after the builds (build.log).
+
+Platform (COMPUTED): WSL2 Ubuntu-24.04 on Windows 11, kernel 5.15.167.4, .wslconfig memory=20GB (free: 19 GiB RAM + 5 GiB swap), 12 CPUs;
+rustc 1.99.0 (b940084d7 2026-09-28), cargo 1.99.0 (5f94df478 2026-08-27). Exports: openai/math fd4aeeb (clean), Lean 4.34.1,
+lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1 (076e8e5), comparator d03acab's
+export target list (wsl-comparator/143_matrix_export.sh).
+
+Binaries
+  official  nanoda_lib 3a2407216ee84a75f9e1aead6803d0578be06ae7 (v0.4.19), STACK_SIZE 16_777_216 (16 MiB), stock
+            /usr/local/bin/nanoda_bin sha256 897971d7e99f1ac2ce3d43131d291a63858badf41cab409f70b99dbd04e0b714 (built 2026-10-08)
+  B1        nanoda_lib 3a2407216ee84a75f9e1aead6803d0578be06ae7; only change src/lib.rs:23 STACK_SIZE 16_777_216 -> 1_073_741_824 (1 GiB); no patch
+            /opt/nanoda-1gib-diag/nanoda_bin sha256 1522b91653432c1eb6e1d2d8fb915f8c9a278d1a554c37dd1371522742d7b7e9
+            Reused from 2026-10-20 (results/2026-10-20-nanoda-discrepancy/R3/R3-build.log: cargo build --release --offline, rustc 1.99.0).
+            Re-confirmed 2026-10-26: /root/tools/nanoda_lib-1gib-diag is at 3a24072, `git diff` is that one line, and its target/release
+            binary has the same sha256 as the installed one.
+  f67473b   nanoda_lib f67473ba5f9397266f89c7852082c9c914b5d219 (v0.4.24), stock 16 MiB
+            /opt/nanoda-postfix/nanoda_bin sha256 be15131c173f1b803e3e51239604dbf44489d8be25fe675419ba9a0c9b47ada5 (built 2026-10-20; not rerun here)
+  B2        nanoda_lib 37cb87b7e6cd6862ef2bd121faa9f4604f59fe96 (master, 2026-10-24, "Merge pull request #67", Cargo v0.4.29), stock,
+            STACK_SIZE 16_777_216 (16 MiB); cargo build --release --locked
+            /opt/nanoda-37cb87b/nanoda_bin sha256 2acc966afc4d32945ade5b9dfeaf72fcaea3102060207118c43e288a79171467
+            A clean rebuild (cargo clean; build) gave a byte-identical binary (build.log, second section).
+  B3        B2's source + nealmcb's tools/patches/nanoda-let-fvar-and-succ-guard-37cb87b.patch, STACK_SIZE 67_108_864 (64 MiB)
+            patch: https://raw.githubusercontent.com/nealmcb/openai-math-lean-tooling/1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4/tools/patches/nanoda-let-fvar-and-succ-guard-37cb87b.patch
+            patch sha256 edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30 (checked before applying; git apply)
+            changes: src/tc.rs (Nat.succ has_fvars guard in try_reduce_nat; infer_let checks the body with a let-valued free variable,
+            unfolded lazily in whnf_no_unfolding_aux), src/util.rs (TcCache.let_vals), src/lib.rs (STACK_SIZE)
+            /opt/nanoda-37cb87b-patch64/nanoda_bin sha256 a30bc56f037eed717884575af8c0938fbb44af3be87a9ae6725f11ba402456c9
+
+Run settings (every run): nanoda_bin <config> directly on the export, the nanoda config comparator writes (num_threads 4, nat_extension true,
+string_extension true, unpermitted_axiom_hard_error true, permitted propext/Quot.sound/Classical.choice), as uid checker (setpriv, no_new_privs),
+network blocked (RestrictAddressFamilies), timeout 1800 s, memory cap 16G = RAM + swap (v1 memory cgroup limit_in_bytes and memsw.limit_in_bytes;
+systemd's MemoryMax is not enforced in this cgroup-hybrid WSL, tested 2026-10-26), one run at a time, 69_corpus_guard.sh 95 1500 20 running.
+An OOM kill is recorded as a resource outcome ("oom"), not as a verdict on the proof.
+
+Scripts (sha256)
+  wsl-comparator/140_matrix_run.sh    11b20ff57b9e5d4d5b5002c849ce0e0c490a60058f91088956dcef0729cdb33d  one run (stub-tested 8/8 before use)
+  wsl-comparator/141_matrix_build.sh  6a86cb58472767e23f81f7352e12b7e35e65d4a947fd190fbc066179cce33510  builds B2, B3
+  wsl-comparator/142_matrix_batch.sh  46cf0d3bb1f521c5f1b64e6250224e9135e9a33448588a05ab965059cc233cd4  batch, guard and hash checks
+  wsl-comparator/143_matrix_export.sh a31dc4436974347e5b34fb692fe2a68d5032ea83f080e1394fa45fec763d24fe  export regeneration
+  wsl-comparator/144_matrix_chain.sh  09ca2b2d2cbf3b60ce57a9c319ceeeee371a48852ef20051cf17e2b8a13c0127  stages 2 and 3
+  scripts/nanoda_matrix.py            (see SUMMARY.md)

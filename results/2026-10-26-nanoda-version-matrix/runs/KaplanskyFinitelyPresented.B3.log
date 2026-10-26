@@ -1,0 +1,51 @@
+== nanoda matrix run KaplanskyFinitelyPresented-B3  2026-10-26 15:15:18  (UNOFFICIAL)
+binary: /opt/nanoda-37cb87b-patch64/nanoda_bin sha256 a30bc56f037eed717884575af8c0938fbb44af3be87a9ae6725f11ba402456c9
+nanoda config: /home/checker/corpus/xr/exp/KaplanskyFinitelyPresented.matrix-config.json
+{
+ "export_file_path": "/home/checker/corpus/xr/exp/KaplanskyFinitelyPresented.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}
+export: /home/checker/corpus/xr/exp/KaplanskyFinitelyPresented.export bytes 657348158 sha256 7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c
+limits: timeout 1800 s (TERM, KILL after 60 s); unit's v1 memory cgroup limit = memsw limit = 16G; network blocked
+Running as unit: run-u41.service
+memcg /sys/fs/cgroup/memory/system.slice/run-u41.service limit 17179869184 memsw 17179869184
+INNER uid 1000 ulimit -s: 8192; RUST_MIN_STACK=unset
+	Command being timed: "timeout --signal=TERM --kill-after=60 1800 bash -c echo "INNER uid $(id -u) ulimit -s: $(ulimit -s); RUST_MIN_STACK=${RUST_MIN_STACK:-unset}"; exec /opt/nanoda-37cb87b-patch64/nanoda_bin /home/checker/corpus/xr/exp/KaplanskyFinitelyPresented.matrix-config.json"
+	User time (seconds): 136.38
+	System time (seconds): 0.81
+	Percent of CPU this job got: 327%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:41.91
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1271636
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 105513
+	Voluntary context switches: 46
+	Involuntary context switches: 91
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+cgroup: max_usage_in_bytes 1304109056 memsw.max_usage_in_bytes 1304109056 failcnt 0 oom_kill 0
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 41.931s
+SYSTEMD-RUN EXIT CODE: 0
+DURATION_SECONDS: 42
+OUTCOME: pass; exit 0; wall 42 s; max RSS 1271636 kB

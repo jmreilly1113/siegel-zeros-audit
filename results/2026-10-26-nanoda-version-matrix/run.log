@@ -1,0 +1,72 @@
+2026-10-26 12:45:46 142 start: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-stage1.tsv; binaries B1 B2 B3
+2026-10-26 12:45:46 KaplanskyDirectFiniteness B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 12:46:31 KaplanskyDirectFiniteness B1: OUTCOME: pass; exit 0; wall 43 s; max RSS 1276756 kB
+2026-10-26 12:46:31 KaplanskyDirectFiniteness B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 12:47:14 KaplanskyDirectFiniteness B2: OUTCOME: stack-overflow (thread 'thread_1' (2418) has overflowed); exit signal 6; wall 41 s; max RSS 945244 kB
+2026-10-26 12:47:14 KaplanskyDirectFiniteness B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 12:47:57 KaplanskyDirectFiniteness B3: OUTCOME: pass; exit 0; wall 42 s; max RSS 1254868 kB
+2026-10-26 12:47:57 LaughlinPlanar B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 12:51:20 LaughlinPlanar B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 202 s; max RSS 16744092 kB
+2026-10-26 12:51:20 LaughlinPlanar B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 12:54:17 144 start: waits for stage 1
+2026-10-26 13:07:27 LaughlinPlanar B2: OUTCOME: pass; exit 0; wall 966 s; max RSS 1920068 kB
+2026-10-26 13:07:27 LaughlinPlanar B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 13:22:54 LaughlinPlanar B3: OUTCOME: pass; exit 0; wall 926 s; max RSS 1924476 kB
+2026-10-26 13:22:54 LaughlinFock B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 13:30:28 LaughlinFock B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 453 s; max RSS 16745936 kB
+2026-10-26 13:30:28 LaughlinFock B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 13:53:14 LaughlinFock B2: OUTCOME: pass; exit 0; wall 1364 s; max RSS 8622616 kB
+2026-10-26 13:53:14 LaughlinFock B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 14:19:03 LaughlinFock B3: OUTCOME: pass; exit 0; wall 1547 s; max RSS 8689444 kB
+2026-10-26 14:19:03 SquareDifference B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 14:20:51 SquareDifference B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 106 s; max RSS 16746012 kB
+2026-10-26 14:20:51 SquareDifference B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 14:22:30 SquareDifference B2: OUTCOME: stack-overflow (thread 'thread_1' (4592) has overflowed); exit signal 6; wall 97 s; max RSS 3481528 kB
+2026-10-26 14:22:30 SquareDifference B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 14:23:02 SquareDifference B3: OUTCOME: pass; exit 0; wall 31 s; max RSS 655928 kB
+2026-10-26 14:23:02 DirectedFeedback B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 14:25:22 DirectedFeedback B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 138 s; max RSS 16746264 kB
+2026-10-26 14:25:22 DirectedFeedback B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 14:26:12 DirectedFeedback B2: OUTCOME: pass; exit 0; wall 48 s; max RSS 1001692 kB
+2026-10-26 14:26:12 DirectedFeedback B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 14:27:01 DirectedFeedback B3: OUTCOME: pass; exit 0; wall 48 s; max RSS 987436 kB
+2026-10-26 14:27:01 MinUncut B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 14:29:04 MinUncut B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 121 s; max RSS 16746156 kB
+2026-10-26 14:29:04 MinUncut B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 14:30:01 MinUncut B2: OUTCOME: pass; exit 0; wall 54 s; max RSS 1000212 kB
+2026-10-26 14:30:01 MinUncut B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 14:30:54 MinUncut B3: OUTCOME: pass; exit 0; wall 51 s; max RSS 996248 kB
+2026-10-26 14:30:54 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-stage1.tsv
+2026-10-26 14:31:20 144: Laughlin: export (143) start
+2026-10-26 14:37:31 144: Laughlin: export done: /home/checker/corpus/xr/exp/Laughlin.export sha256 842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523 bytes 433770627
+2026-10-26 14:37:31 142 start: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-Laughlin.tsv; binaries B1 B2 B3
+2026-10-26 14:37:32 Laughlin B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 14:40:50 Laughlin B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 198 s; max RSS 16745832 kB
+2026-10-26 14:40:50 Laughlin B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 14:55:28 Laughlin B2: OUTCOME: pass; exit 0; wall 877 s; max RSS 2052840 kB
+2026-10-26 14:55:28 Laughlin B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 15:11:14 Laughlin B3: OUTCOME: pass; exit 0; wall 945 s; max RSS 2054300 kB
+2026-10-26 15:11:14 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-Laughlin.tsv
+2026-10-26 15:11:14 144: KaplanskyFinitelyPresented: export (143) start
+2026-10-26 15:13:47 144: KaplanskyFinitelyPresented: export done: /home/checker/corpus/xr/exp/KaplanskyFinitelyPresented.export sha256 7b9235575213e672a217d9cfdf783ac7590d6f346002309e0b0c276b707f398c bytes 657348158
+2026-10-26 15:13:47 144: KaplanskyFinitelyPresented: sha256 equals the 2026-10-20 logged value
+2026-10-26 15:13:47 142 start: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-KaplanskyFinitelyPresented.tsv; binaries B1 B2 B3
+2026-10-26 15:13:47 KaplanskyFinitelyPresented B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 15:14:32 KaplanskyFinitelyPresented B1: OUTCOME: pass; exit 0; wall 44 s; max RSS 1281052 kB
+2026-10-26 15:14:32 KaplanskyFinitelyPresented B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 15:15:18 KaplanskyFinitelyPresented B2: OUTCOME: stack-overflow (thread 'thread_1' (7047) has overflowed); exit signal 6; wall 44 s; max RSS 947764 kB
+2026-10-26 15:15:18 KaplanskyFinitelyPresented B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 15:16:01 KaplanskyFinitelyPresented B3: OUTCOME: pass; exit 0; wall 42 s; max RSS 1271636 kB
+2026-10-26 15:16:01 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-KaplanskyFinitelyPresented.tsv
+2026-10-26 15:16:01 144: GroupRingDeterminant: export (143) start
+2026-10-26 15:22:55 144: GroupRingDeterminant: export done: /home/checker/corpus/xr/exp/GroupRingDeterminant.export sha256 bda46ad6b35cc220ba4fbb8c7c93329d920682e3040257134f923bd0a53877e5 bytes 698227515
+2026-10-26 15:22:55 144: GroupRingDeterminant: sha256 equals the 2026-10-20 logged value
+2026-10-26 15:22:55 142 start: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-GroupRingDeterminant.tsv; binaries B1 B2 B3
+2026-10-26 15:22:55 GroupRingDeterminant B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 15:23:45 GroupRingDeterminant B1: OUTCOME: pass; exit 0; wall 49 s; max RSS 1308624 kB
+2026-10-26 15:23:45 GroupRingDeterminant B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 15:24:36 GroupRingDeterminant B2: OUTCOME: stack-overflow (thread 'thread_2' (8329) has overflowed); exit signal 6; wall 50 s; max RSS 994008 kB
+2026-10-26 15:24:36 GroupRingDeterminant B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 15:25:25 GroupRingDeterminant B3: OUTCOME: pass; exit 0; wall 47 s; max RSS 1311128 kB
+2026-10-26 15:25:25 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-GroupRingDeterminant.tsv
+2026-10-26 15:25:25 144 done: stages 2 and 3

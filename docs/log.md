@@ -1523,3 +1523,10 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - COMPUTED: lanes at 05:17: run SKBarriers (nanoda run from 05:09:50), build VelocityHemisphere (10 threads, from 05:09:50), slow SKRatio (28800 s rerun from 02:58:05), 128b TotientCompanionZero. Load average 11.45 on 12 CPUs. The only guard event since 04:17 was the PAUSE of UniversalTensorSquares at 05:08:43, just before the release.
 - INFERRED: 6,636 modules at about 1,200/h means about 5.5 h of builds, so the pass ends about 11:00–12:00; the SKRatio rerun ends by about 10:58. After that the retry round (PerceptronFreeEnergy, BoltzmannNonuniqueness, UniversalTensorSquares; about 1,500 modules) runs past noon.
 - Action: none.
+
+### 2026-10-26 06:17 hourly check (extended replay)
+
+- COMPUTED: 200 result files (3 in the last hour, all ACCEPT_BOTH: SKBarriers 05:20, SKRatio 05:42 on its 28800 s rerun via 125b/w125, VelocityHemisphere 05:54). 13 configs pending; union unbuilt 5,725 (8,148 at 05:17, so about 2,420 built this hour). 4,213 of those belong to the 10 pass configs and 1,512 to the retry-round three. No HALT/STOP/DONE/GUARD_STOPPED; preempt/ empty; stops.tsv 13 rows; no guard events in the hour; keeper 1, 119c 1, 114f 5, 69c 1, w125 1 (idle, rerun-end.txt empty).
+- COMPUTED: lanes at 06:17: run SATComputability (nanoda run from 06:08:51), build CriticalPercolation (10 threads), slow lane empty, 128b JacobsthalImproved (TotientCompanionZero and TotientAsymptotic side-built). Load average 17.8.
+- INFERRED: at 1,500–2,400 modules/h the pass ends about 08:30–10:00. The retry round (PerceptronFreeEnergy, BoltzmannNonuniqueness, UniversalTensorSquares) follows, and the first two likely finish before noon. UniversalTensorSquares probably needs a 7200 s timeout plus a 28800 s rerun, so it runs into the evening.
+- Action: none.

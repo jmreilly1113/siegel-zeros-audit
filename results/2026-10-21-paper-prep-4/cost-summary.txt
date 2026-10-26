@@ -31,3 +31,5 @@ printed by the drivers. Nothing is estimated; anything not in a log is MISSING.
   The static scan 63 prints /usr/bin/time "(s, KB)" for itself only (corpus-static-scan findings).
 
 (d) Disk used by retained builds now: see retained-disk.txt (du -sh, 2026-10-21): 8.6G	/home/checker/math/lean/.lake/packages | 8.3M	/home/checker/math/lean/.lake | ls: cannot access '/home/checker/math/lean/.lake/build': No such file or directory | 3.0G	/home/checker/.elan | 593M	/root/tools | 1.1M	/home/checker/corpus | filesystem:   24G     1007G
+
+Update 2026-10-26 (appended; earlier text unchanged): the 2026-10-08 12:15 SiegelZeros run cited on line 15 is cited for its build time only. That run used the comparator README's wrapper (RestrictAddressFamilies=~AF_UNIX, Unix-domain sockets only). The SiegelZeros comparator acceptance under the IP/Unix deny list is the 2026-10-08 14:00 run (wsl-comparator/29_comparator_nanoda.sh, results/2026-10-08-lean-comparator-nanoda-netblock.txt), with the 2026-10-11 corpus pilot (results/2026-10-11-corpus-pilot/SiegelZeros-nanoda.log). See results/2026-10-26-network-check/.

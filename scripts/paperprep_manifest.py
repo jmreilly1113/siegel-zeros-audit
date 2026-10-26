@@ -61,7 +61,7 @@ m = {
         'wsl': '2.4.11.0', 'wsl_kernel': inner('kernel'),
         'wsl_kernel_recorded_2026_10_08': '5.15.167.4-microsoft-standard-WSL2 (results/2026-10-08-lean-comparator-wsl.txt)',
         'distro': 'Ubuntu 24.04.5 LTS', 'systemd': '255 (255.4-1ubuntu8.18)',
-        'landlock': 'kernel < 6.7: Landlock cannot restrict network (v1 reproduce.md); network blocked by seccomp instead',
+        'landlock': 'kernel < 6.7: Landlock cannot restrict network (v1 reproduce.md); IP and Unix-domain sockets blocked by a seccomp filter; see the 2026-10-26 network note',
     },
     'sandbox': {
         'wrapper': 'sudo -u checker; systemd-run --user --wait --pipe --collect '

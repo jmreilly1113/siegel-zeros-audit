@@ -26,6 +26,6 @@ Each comparator run executed as the unprivileged user checker in a systemd-run u
 
 The corpus, extended-replay and version-matrix builds used a pre-fetched clone of openai/math at fd4aeeb (the SiegelZeros runs of 2026-10-08/09 used one at adc7f12), and 11 export sizes from the version matrix match an independent run (nealmcb's results/nanoda-ab-let.jsonl) to the byte.
 
-- The first SiegelZeros comparator run (2026-10-08 12:15, wsl-comparator/08_comparator.sh) used the comparator README's wrapper, RestrictAddressFamilies=~AF_UNIX, which denies only Unix-domain sockets.
+- The SiegelZeros comparator result cited in the paper is the 2026-10-08 14:00 run, wsl-comparator/29_comparator_nanoda.sh: results/2026-10-08-lean-comparator-nanoda-netblock.txt, where both kernels accept. That was the first run under the deny list above. The earlier 12:15 run (08_comparator.sh) used the comparator README's wrapper, RestrictAddressFamilies=~AF_UNIX, which denies only Unix-domain sockets, so it is not cited for that claim.
 - Comparator's landrun (`--best-effort`, no network flags) adds no network restriction on this 5.15 kernel. Tested: TCP and DNS succeed under landrun alone.
 - Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

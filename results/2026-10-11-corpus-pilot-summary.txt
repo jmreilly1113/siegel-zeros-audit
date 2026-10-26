@@ -24,3 +24,7 @@
     178 configs: 356 runs -> about 55-100 h. 405 configs: 810 runs -> about 120-230 h.
   Run (ii) (enable_nanoda true) also runs the Lean kernel, so dropping run (i) would halve this, at the cost of not testing the shipped config byte for byte.
 - Disk: Windows C: has 60 GB free now, and WSL uses 39 GB. The 178-config scope needs about 108 GB more, the full corpus about 390 GB, so neither fits without more space on C: or moving the WSL disk.
+
+Update 2026-10-26 (appended; earlier text unchanged), network block:
+Each comparator run executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

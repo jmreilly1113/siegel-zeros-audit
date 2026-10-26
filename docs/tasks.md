@@ -56,3 +56,9 @@ Work top to bottom. Mark each task done with the date and the results file it pr
 - [x] 8.5 (2026-10-20; DOI 10.5281/zenodo.23499651, release reviewer-packet-v2-preliminary, branch packet-v2-preliminary) Hexagon deposit by 2026-10-23, preliminary if no expert reply by then. Deposited as the preliminary version; no specialist review received.
 - [ ] 8.6 arXiv only with an endorser, after checking every reference by hand.
 - [x] 8.7 (2026-10-09; results/2026-10-09-route-declaration-overlap.txt, -rerouted-closure-export.txt, results/2026-10-09-closure-names/; src/route_overlap.py) Declaration overlap for issue #40. Follow-up comment drafted in docs/issue40-followup.md.
+
+## Update 2026-10-26 (appended; earlier text unchanged): network block
+
+Each comparator run executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

@@ -19,3 +19,13 @@ results/2026-10-26-nanoda-version-matrix/extended-replay-227/corpus-227.tsv (col
 - The nanoda version matrix of 2026-10-26 ran under the 20 GB VM, with each nanoda run capped at 16G (RAM plus swap) in its own v1 memory cgroup. See wsl-comparator/140_matrix_run.sh.
   - systemd 255 does not enforce MemoryMax in this cgroup-hybrid WSL. That was tested 2026-10-26: a 600 MB allocation under MemoryMax=200M ran to the end.
   - So the cap is set on the unit's v1 cgroup directly.
+
+## Update 2026-10-26: network restriction of the sandbox
+
+Each comparator run executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+
+The corpus, extended-replay and version-matrix builds used a pre-fetched clone of openai/math at fd4aeeb (the SiegelZeros runs of 2026-10-08/09 used one at adc7f12), and 11 export sizes from the version matrix match an independent run (nealmcb's results/nanoda-ab-let.jsonl) to the byte.
+
+- The first SiegelZeros comparator run (2026-10-08 12:15, wsl-comparator/08_comparator.sh) used the comparator README's wrapper, RestrictAddressFamilies=~AF_UNIX, which denies only Unix-domain sockets.
+- Comparator's landrun (`--best-effort`, no network flags) adds no network restriction on this 5.15 kernel. Tested: TCP and DNS succeed under landrun alone.
+- Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

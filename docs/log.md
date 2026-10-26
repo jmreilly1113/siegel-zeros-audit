@@ -1617,3 +1617,34 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - KaplanskyDirectFiniteness is not in #55. It first appears publicly in nealmcb's nanoda-stack-size-2026-10-25.txt, linked from #61, as a pass with the let fix at 64 MiB. No issue reports its 3a24072 crash.
   - PlanarPacking is not a nanoda failure. Lean's own shipped run also timed out (runs/PlanarPacking-shipped.log), and no issue names it.
   - The same sentence was in the paper-planning summary given to Joe on 2026-10-26. That summary's "UniversalTensorSquares still running" was corrected at 11:17.
+
+### 2026-10-26 Update (appended; earlier entries unchanged): network block, applies to the 2026-10-08 entries (lines 218-251, 339, 744) and every 'network-blocked' run below
+
+- Each comparator run from the nanoda run onward (2026-10-08 14:00, wsl-comparator/29_comparator_nanoda.sh) executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction. The first SiegelZeros comparator run (2026-10-08 12:15, wsl-comparator/08_comparator.sh) did not use this filter: it used the comparator README's wrapper, RestrictAddressFamilies=~AF_UNIX, which denies only Unix-domain sockets, and its control in wsl-comparator/28_netblock_probe.log shows TCP to 1.1.1.1:443 and HTTPS to github.com open under it.
+- Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).
+
+### 2026-10-26 15:50–16:40 network-block check and claims inventory (Joe's decisions 1-6)
+
+- COMPUTED (results/2026-10-26-network-check/, README.md):
+  - Inside a `systemd-run --user` unit with `RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET`, as checker (NoNewPrivs 1, Seccomp 2), these all failed: TCP and UDP over IPv4 and IPv6, DNS (getaddrinfo, getent, curl), AF_UNIX, AF_NETLINK and AF_PACKET.
+  - AF_VSOCK was allowed, and a connect to the Windows host (CID 2, port 50000) succeeded. AF_ALG was allowed.
+  - WSL interop (.exe) fails inside the unit, because its launcher needs AF_UNIX.
+  - Comparator's landrun alone (`--best-effort`, no network flags) allows TCP and DNS on this 5.15 kernel.
+  - No vsock-to-internet path was attempted (Joe, decision 2).
+- COMPUTED (t24_none.out, t24_diagnose_none.out): the proposed tightening `RestrictAddressFamilies=none` cannot be used through systemd-run 255.
+  - Every unit with it failed to start ("Failed to set unit properties: Invalid argument"), user and system units alike. The man page documents "none".
+  - Forms systemd-run accepts: `~`, the empty string, `AF_UNIX`, `~AF_VSOCK`.
+  - No command ran under it, so the lake build, lean4export and nanoda tests could not run.
+  - Per Joe's rule ("If any tool breaks, stop and report; don't fall back silently"): no methods change made, nothing ran under a substitute property, and step 5 has not started.
+  - 75n_sbx.sh, 140n_matrix_run.sh and 143n_matrix_export.sh were written (75/140/143 with only that property changed) but are unused.
+- COMPUTED (results/2026-10-26-network-check/inventory.md): which sandbox each set of runs used.
+  - The first SiegelZeros comparator run (2026-10-08 12:15, 08_comparator.sh) used the comparator README's wrapper `~AF_UNIX`, under which 28_netblock_probe.log's control shows TCP and HTTPS open.
+  - From 29_comparator_nanoda.sh onward, every comparator run used the 67/75/107 string.
+  - Scripts 30, 32, 34, 36, 39 and 49 ran Lean or nanoda outside any unit; no network claim was found for them.
+- Inventory: 24 repo documents carry a network-block claim. Each now has an appended "Update 2026-10-26" with Joe's paragraph.
+  - The seven covering the 2026-10-08 first run use the "from the nanoda run onward" form, plus the 08 sentence.
+  - The two matrix documents use the direct-nanoda form.
+  - docs/paper/methods-notes.md has the paragraph and the fd4aeeb / 11-export-sizes sentence.
+  - Not changed, listed for Joe: the Zenodo descriptions (v2 23499651, v3 23523697, corpus 23505836; v1 23269528 has none), the packet zips (v1 12, v2 13, v3 34, corpus 9 hits), the JSON/YAML metadata (.zenodo.json, CITATION.cff, docs/zenodo-v3-metadata.json, corpus metadata.json, two manifest "landlock" notes) and grwtsk/openai-math #40 comment 6087525965.
+  - The #40 comment is accurate as worded: it names the property and the families tested, and does not claim "all".
+- Note: the brief's "openai/math #40" is grwtsk/openai-math #40; openai/math has no issue 40 (HTTP 404).

@@ -1,0 +1,26 @@
+﻿== kernel 5.15.167.4-microsoft-standard-WSL2; systemd 255 (255.4-1ubuntu8.18); date 2026-10-26 16:00:34
+== (A1) probes in a user unit as checker, property RestrictAddressFamilies=none (75n_sbx.sh style)
+Failed to start transient service unit: Failed to set unit properties: Invalid argument
+SANDBOX EXIT CODE: 1
+== (A2) probes in a system unit with setpriv to checker, property RestrictAddressFamilies=none (140n_matrix_run.sh style)
+Failed to start transient service unit: Failed to set unit properties: Invalid argument
+== (A3) interop (t23) in a user unit with RestrictAddressFamilies=none
+Failed to start transient service unit: Failed to set unit properties: Invalid argument
+SANDBOX EXIT CODE: 1
+== (B1) small lake build: fresh project /tmp/t24/proj (toolchain from the clone), via 75n_sbx.sh
+Failed to start transient service unit: Failed to set unit properties: Invalid argument
+SANDBOX EXIT CODE: 1
+== (B2) lake build in the clone (no-op expected): OAI.Analysis.Laughlin.Main, via 75n_sbx.sh
+Failed to start transient service unit: Failed to set unit properties: Invalid argument
+SANDBOX EXIT CODE: 1
+== (B3) lean4export: Laughlin export again under 75n_sbx.sh; must equal 842b632a... (2026-10-26 14:37, under 75_sbx.sh)
+Failed to start transient service unit: Failed to set unit properties: Invalid argument
+SANDBOX EXIT CODE: 1
+stat: cannot statx '/tmp/t24/Laughlin.export': No such file or directory
+sha256sum: /tmp/t24/Laughlin.export: No such file or directory
+t24 export bytes  sha256 
+== (B4) nanoda B3 on the KaplanskyDirectFiniteness export via 140n_matrix_run.sh
+OUTCOME: other (exit ?): ; exit ?; wall 0 s; max RSS ? kB
+export: /home/checker/corpus/xr/exp/KaplanskyDirectFiniteness.export bytes 655379215 sha256 56075f3f399ae826cc8cbb1708579e8b09f77f11e6d96b5914e4860244c52694
+limits: timeout 600 s (TERM, KILL after 60 s); unit's v1 memory cgroup limit = memsw limit = 16G; network blocked
+== t24 done 2026-10-26 16:00:36

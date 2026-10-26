@@ -92,3 +92,9 @@ Copied from `docs/v2-release-notes.md`. These correct the five mismatches in `re
   The device's tests, `tests/test_effectivity_banks_device.py`, belong to the same unreviewed work but do not carry the word.
 
   Files that only mention the label: `docs/log.md`, `docs/zenodo-v3-metadata.json`, `results/2026-10-20-paper-prep-3/note-v2-diff-summary.txt`, and this file.
+
+## Update 2026-10-26 (appended; earlier text unchanged): network block
+
+Each comparator run from the nanoda run onward (2026-10-08 14:00, wsl-comparator/29_comparator_nanoda.sh) executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction. The first SiegelZeros comparator run (2026-10-08 12:15, wsl-comparator/08_comparator.sh) did not use this filter: it used the comparator README's wrapper, RestrictAddressFamilies=~AF_UNIX, which denies only Unix-domain sockets, and its control in wsl-comparator/28_netblock_probe.log shows TCP to 1.1.1.1:443 and HTTPS to github.com open under it.
+
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

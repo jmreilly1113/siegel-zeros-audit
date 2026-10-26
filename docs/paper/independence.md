@@ -53,3 +53,9 @@ COMPUTED. The pipeline is `compareIt` (Main.lean:304–317):
 - It is independence of the type checker only.
 - A fault in the elaborator's output, in lean4export's writer, or in Comparator's statement matching or axiom check would reach both kernels identically.
 - The nanoda side additionally avoids Comparator's (lean4export's) parser.
+
+## Update 2026-10-26 (appended; earlier text unchanged): network block
+
+Each comparator run executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

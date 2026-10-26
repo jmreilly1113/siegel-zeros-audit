@@ -1,0 +1,16 @@
+﻿4:  envPass : Array String
+5:  envOverride : Array (String × Option String) := #[]
+40:    args := #["git"],
+48:    args := #["--print-prefix"],
+55:  let args := #["--best-effort", "--ro", "/", "--rw", "/dev", "-ldd", "-add-exec"]
+56:  let args := spawnArgs.envPass.foldl (init := args) (fun acc env => acc ++ #["--env", env])
+57:  let args := spawnArgs.readablePaths.foldl (init := args) (fun acc path => acc ++ #["--ro", path.toString])
+58:  let args := spawnArgs.writablePaths.foldl (init := args) (fun acc path => acc ++ #["--rwx", path.toString])
+59:  let args := spawnArgs.executablePaths.foldl (init := args) (fun acc path => acc ++ #["--rox", path.toString])
+60:  args ++ #["--", spawnArgs.cmd] ++ spawnArgs.args
+63:  let args := buildLandrunArgs spawnArgs
+67:    env := spawnArgs.envOverride
+cat: /sys/kernel/security/lsm: No such file or directory
+
+ls: cannot access '/sys/kernel/security/': No such file or directory
+5.15.167.4-microsoft-standard-WSL2

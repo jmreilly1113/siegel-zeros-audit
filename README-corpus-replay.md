@@ -61,3 +61,9 @@ Agreement of two kernels reduces but does not remove kernel-bug risk: the Lean v
 - Code, scripts and Lean files original to the project: Apache License 2.0 (`LICENSE`).
 - Prose documentation and outputs in `results/`: CC BY 4.0 (`LICENSE-docs`).
 - The Zenodo record is licensed CC BY 4.0.
+
+## Update 2026-10-26 (appended; earlier text unchanged): network block
+
+Each comparator run executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

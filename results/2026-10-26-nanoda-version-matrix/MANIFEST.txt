@@ -41,3 +41,7 @@ Scripts (sha256)
   wsl-comparator/143_matrix_export.sh a31dc4436974347e5b34fb692fe2a68d5032ea83f080e1394fa45fec763d24fe  export regeneration
   wsl-comparator/144_matrix_chain.sh  09ca2b2d2cbf3b60ce57a9c319ceeeee371a48852ef20051cf17e2b8a13c0127  stages 2 and 3
   scripts/nanoda_matrix.py            (see SUMMARY.md)
+
+Update 2026-10-26 (appended; earlier text unchanged), network block:
+Each nanoda run here executed directly (not through comparator) as the unprivileged user checker (setpriv, no_new_privs) in a systemd-run system unit, and each export was made in a systemd-run user unit; both used the seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

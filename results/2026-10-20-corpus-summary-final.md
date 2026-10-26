@@ -112,3 +112,9 @@ Details: `results/2026-10-20-nanoda-postfix-f67473b/SUMMARY.txt`.
   - On them: 3a24072 with a 1 GiB stack passes, as on 2026-10-20. nanoda master 37cb87b (16 MiB) overflows. 37cb87b with nealmcb's let fix and Nat.succ guard at 64 MiB passes.
   - Laughlin on 3a24072 with a 1 GiB stack grows to the 16G memory cap; f67473b, 37cb87b and the patched build pass it. This fits the "A larger stack does not help" reading above for the #55 configs.
   - The official table is unchanged.
+
+## Update 2026-10-26 (appended; earlier text unchanged): network block
+
+Each comparator run executed as the unprivileged user checker in a systemd-run unit whose seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

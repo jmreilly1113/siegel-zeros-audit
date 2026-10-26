@@ -1,0 +1,14 @@
+﻿== binfmt WSLInterop: cat: /proc/sys/fs/binfmt_misc/WSLInterop: No such file or directory
+/etc/wsl.conf: no [interop] section
+== inside the unit, as checker (same properties as 67_corpus_run.sh)
+Running as unit: run-u8.service; invocation ID: 44851ef9a292495da9336e4184dcfdb5
+-r-xr-xr-x 2 root root 818512 Jul 14 18:42 /mnt/c/Windows/System32/curl.exe
+<3>WSL (8919 - ) ERROR: UtilConnectUnix:505: socket failed 97
+<3>WSL (8919 - ) ERROR: UtilConnectUnix:505: socket failed 97
+cmd.exe exit 0
+<3>WSL (8922 - ) ERROR: UtilConnectUnix:505: socket failed 97
+<3>WSL (8922 - ) ERROR: UtilConnectUnix:505: socket failed 97
+ (exit 0)
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 25ms

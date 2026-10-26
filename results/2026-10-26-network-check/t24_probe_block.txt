@@ -1,0 +1,24 @@
+cat > /tmp/t22_probe.py <<'PY'
+import socket, errno
+def t(name, f):
+    try: r = f(); print(f"PROBE {name}: ALLOWED {r}")
+    except Exception as e: print(f"PROBE {name}: blocked/failed {type(e).__name__}: {e}")
+def tcp():
+    s = socket.create_connection(("1.1.1.1", 443), timeout=5); s.close(); return "connected 1.1.1.1:443"
+def tcp6():
+    s = socket.socket(socket.AF_INET6, socket.SOCK_STREAM); s.settimeout(5); s.connect(("2606:4700:4700::1111", 443)); s.close(); return "connected"
+t("tcp connect 1.1.1.1:443", tcp)
+t("tcp6 connect", tcp6)
+t("dns getaddrinfo github.com", lambda: socket.getaddrinfo("github.com", 443)[0][4])
+t("udp socket", lambda: socket.socket(socket.AF_INET, socket.SOCK_DGRAM) and "created")
+t("unix socket", lambda: socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) and "created")
+t("netlink socket", lambda: socket.socket(socket.AF_NETLINK, socket.SOCK_RAW, 0) and "created")
+t("packet socket", lambda: socket.socket(socket.AF_PACKET, socket.SOCK_RAW) and "created")
+VS = getattr(socket, "AF_VSOCK", 40)
+t("vsock socket create", lambda: socket.socket(VS, socket.SOCK_STREAM) and "created")
+def vsock_host():
+    s = socket.socket(VS, socket.SOCK_STREAM); s.settimeout(3); s.connect((2, 50000)); return "connected to host CID 2 port 50000"
+t("vsock connect host CID 2", vsock_host)
+for fam, name in ((31, "AF_BLUETOOTH"), (38, "AF_ALG"), (30, "AF_TIPC"), (21, "AF_RDS"), (29, "AF_CAN"), (44, "AF_XDP")):
+    t(f"{name} socket create", lambda fam=fam: socket.socket(fam, socket.SOCK_SEQPACKET if fam == 30 else socket.SOCK_RAW if fam in (29, 44) else socket.SOCK_STREAM if fam in (31,) else socket.SOCK_SEQPACKET) and "created")
+PY

@@ -152,3 +152,9 @@ f67473b reduced the depth. nanoda_lib PR #58 deepened it again ("remove vestigia
 - **Not run:** B2 and B3 on the six skipped RoundTables configs, LogspaceEquality and RandomizedMeanPayoff (your instruction). Their exports are not on disk.
 - **Not built:** ContinuumCoulombHardness (optional step 5, pending your go-ahead).
 - **Not isolated:** we did not run the let fix without the guard, or the guard without the let fix.
+
+## Update 2026-10-26 (appended; earlier text unchanged): network block
+
+Each nanoda run here executed directly (not through comparator) as the unprivileged user checker (setpriv, no_new_privs) in a systemd-run system unit, and each export was made in a systemd-run user unit; both used the seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
+
+Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).

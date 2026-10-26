@@ -1,0 +1,35 @@
+﻿== kernel 5.15.167.4-microsoft-standard-WSL2; systemd systemd 255 (255.4-1ubuntu8.18)
+== (A) inside the unit, as checker: exact property string from 67_corpus_run.sh line 23
+Running as unit: run-u7.service; invocation ID: 191d7dd6e1e94d969df954fb5970f85a
+1000
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	2
+PROBE tcp connect 1.1.1.1:443: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE tcp6 connect: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE dns getaddrinfo github.com: blocked/failed gaierror: [Errno -3] Temporary failure in name resolution
+PROBE udp socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE unix socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE netlink socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE packet socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE vsock socket create: ALLOWED created
+PROBE vsock connect host CID 2: ALLOWED connected to host CID 2 port 50000
+PROBE AF_BLUETOOTH socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_ALG socket create: ALLOWED created
+PROBE AF_TIPC socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_RDS socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_CAN socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_XDP socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+curl: (6) Could not resolve host: github.com
+curl https://github.com http 000
+getent hosts github.com: no result (exit 2)
+/usr/bin/bash: socket: Address family not supported by protocol
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 143ms
+== (B) control: same checks as checker, outside any unit
+PROBE tcp connect 1.1.1.1:443: ALLOWED connected 1.1.1.1:443
+PROBE dns getaddrinfo github.com: ALLOWED ('140.82.112.3', 443)
+PROBE vsock socket create: ALLOWED created
+PROBE vsock connect host CID 2: ALLOWED connected to host CID 2 port 50000
+curl https://github.com http 200

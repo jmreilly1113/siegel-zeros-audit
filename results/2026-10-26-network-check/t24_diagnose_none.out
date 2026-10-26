@@ -1,0 +1,53 @@
+﻿       RestrictAddressFamilies=
+	   Restricts the set of socket address families
+	   accessible to the processes of this unit. Takes
+	   "none", or a space-separated list of address family
+	   names to allow-list, such as AF_UNIX, AF_INET or
+	   AF_INET6. When "none" is specified, then all address
+	   families will be denied. When prefixed with "~" the
+	   listed address families will be applied as deny list,
+	   otherwise as allow list. Note that this restricts
+	   access to the socket(2) system call only. Sockets
+	   passed into the process by other means (for example,
+	   by using socket activation with socket units, see
+	   systemd.socket(5)) are unaffected. Also, sockets
+	   created with socketpair() (which creates connected
+	   AF_UNIX sockets only) are unaffected. Note that this
+	   option has no effect on 32-bit x86, s390, s390x,
+	   mips, mips-le, ppc, ppc-le, ppc64, ppc64-le and is
+	   ignored (but works correctly on other ABIs, including
+	   x86-64). Note that on systems supporting multiple
+	   ABIs (such as x86/x86-64) it is recommended to turn
+	   off alternative ABIs for services, so that they
+	   cannot be used to circumvent the restrictions of this
+	   option. Specifically, it is recommended to combine
+	   this option with SystemCallArchitectures=native or
+	   similar. By default, no restrictions apply, all
+	   address families are accessible to processes. If
+	   assigned the empty string, any previous address
+	   family restriction changes are undone. This setting
+	   does not affect commands prefixed with "+".
+
+	   Use this option to limit exposure of processes to
+	   remote access, in particular via exotic and sensitive
+	   network protocols, such as AF_PACKET. Note that in
+	   most cases, the local AF_UNIX address family should
+	   be included in the configured allow list as it is
+	   frequently used for local communication, including
+	   for syslog(2) logging.
+
+	   Added in version 211.
+
+== journal
+Oct 26 16:00:34 DESKTOP-PKP0QDP sudo[9129]:     root : TTY=pts/2 ; PWD=/mnt/c/Users/Work/dev/siegel/wsl-comparator ; USER=checker ; COMMAND=/usr/bin/env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus bash -lc '#012export PATH="$HOME/.elan/bin:/usr/local/bin:$PATH"; cd /home/checker/math/lean#012systemd-run --property="RestrictAddressFamilies=none" --user --wait --pipe --collect -E PATH="$PATH" -E LEAN_NUM_THREADS=1 --working-directory "$(pwd)" -- timeout --signal=TERM --kill-after=60 120 bash -c \'id -u; grep -E "^(Seccomp|NoNewPrivs)" /proc/self/status; python3 -I /tmp/t24/probe.py; timeout 10 curl -sS -m 8 -o /dev/null -w "curl https://github.com http %{http_code}\\n" https://github.com 2>&1 | head -2; getent hosts github.com || echo "getent hosts github.com: no result"; (exec 3<>/dev/tcp/1.1.1.1/443) 2>&1 | head -1\'#012echo "SANDBOX EXIT CODE: $?"'
+Oct 26 16:00:34 DESKTOP-PKP0QDP sudo[9145]:     root : TTY=pts/2 ; PWD=/mnt/c/Users/Work/dev/siegel/wsl-comparator ; USER=checker ; COMMAND=/usr/bin/env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus bash -lc '#012export PATH="$HOME/.elan/bin:/usr/local/bin:$PATH"; cd /home/checker/math/lean#012systemd-run --property="RestrictAddressFamilies=none" --user --wait --pipe --collect -E PATH="$PATH" -E LEAN_NUM_THREADS=1 --working-directory "$(pwd)" -- timeout --signal=TERM --kill-after=60 60 bash -c \'timeout 20 /mnt/c/Windows/System32/cmd.exe /c ver 2>&1 | tr -d "\\r" | head -3; echo "cmd.exe pipeline done"; timeout 20 /mnt/c/Windows/System32/curl.exe -s -o NUL -w "windows curl https://github.com http %{http_code}" https://github.com 2>&1 | tr -d "\\r"; echo\'#012echo "SANDBOX EXIT CODE: $?"'
+Oct 26 16:00:34 DESKTOP-PKP0QDP sudo[9162]:     root : TTY=pts/2 ; PWD=/mnt/c/Users/Work/dev/siegel/wsl-comparator ; USER=checker ; COMMAND=/usr/bin/env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus bash -lc '#012export PATH="$HOME/.elan/bin:/usr/local/bin:$PATH"; cd /home/checker/math/lean#012systemd-run --property="RestrictAddressFamilies=none" --user --wait --pipe --collect -E PATH="$PATH" -E LEAN_NUM_THREADS=4 --working-directory "$(pwd)" -- timeout --signal=TERM --kill-after=60 600 bash -c \'cd /tmp/t24/proj && lake build 2>&1 | tail -4; ls -l .lake/build/lib/lean/T24.olean 2>&1 | cut -c1-80\'#012echo "SANDBOX EXIT CODE: $?"'
+Oct 26 16:00:34 DESKTOP-PKP0QDP sudo[9176]:     root : TTY=pts/2 ; PWD=/mnt/c/Users/Work/dev/siegel/wsl-comparator ; USER=checker ; COMMAND=/usr/bin/env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus bash -lc '#012export PATH="$HOME/.elan/bin:/usr/local/bin:$PATH"; cd /home/checker/math/lean#012systemd-run --property="RestrictAddressFamilies=none" --user --wait --pipe --collect -E PATH="$PATH" -E LEAN_NUM_THREADS=4 --working-directory "$(pwd)" -- timeout --signal=TERM --kill-after=60 1800 bash -c \'lake build OAI.Analysis.Laughlin.Main 2>&1 | tail -2\'#012echo "SANDBOX EXIT CODE: $?"'
+Oct 26 16:00:34 DESKTOP-PKP0QDP sudo[9197]:     root : TTY=pts/2 ; PWD=/mnt/c/Users/Work/dev/siegel/wsl-comparator ; USER=checker ; COMMAND=/usr/bin/env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus bash -lc '#012export PATH="$HOME/.elan/bin:/usr/local/bin:$PATH"; cd /home/checker/math/lean#012systemd-run --property="RestrictAddressFamilies=none" --user --wait --pipe --collect -E PATH="$PATH" -E LEAN_NUM_THREADS=8 --working-directory "$(pwd)" -- timeout --signal=TERM --kill-after=60 3600 bash -c \'LEAN_ABORT_ON_PANIC=1 lake env lean4export OAI.Analysis.Laughlin.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.Laughlin.mainTarget_proved propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /tmp/t24/Laughlin.export\'#012echo "SANDBOX EXIT CODE:
+== try forms (system unit, command true)
+[none]       Failed to start transient service unit: Failed to set unit properties: Invalid argument
+ rc=0
+[~]           rc=0
+[]            rc=0
+[AF_UNIX]     rc=0
+[~AF_VSOCK]   rc=0

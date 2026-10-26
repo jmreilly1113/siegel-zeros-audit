@@ -1530,3 +1530,10 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - COMPUTED: lanes at 06:17: run SATComputability (nanoda run from 06:08:51), build CriticalPercolation (10 threads), slow lane empty, 128b JacobsthalImproved (TotientCompanionZero and TotientAsymptotic side-built). Load average 17.8.
 - INFERRED: at 1,500–2,400 modules/h the pass ends about 08:30–10:00. The retry round (PerceptronFreeEnergy, BoltzmannNonuniqueness, UniversalTensorSquares) follows, and the first two likely finish before noon. UniversalTensorSquares probably needs a 7200 s timeout plus a 28800 s rerun, so it runs into the evening.
 - Action: none.
+
+### 2026-10-26 07:17 hourly check (extended replay)
+
+- COMPUTED: 203 result files (3 in the last hour, all ACCEPT_BOTH: SATComputability 06:22, CriticalPercolation 06:45, OrdinaryElliott 07:03). 10 configs pending; union unbuilt 3,810 (5,725 at 06:17, so about 1,900 built this hour). 2,298 of those belong to the 7 pass configs (PiExponent 449, DukePrimeDegree 878, BenjaminiSchramm 971; ArtinParabolicIntersections and the Totient/Jacobsthal configs are built) and 1,512 to the retry-round three. No HALT/STOP/DONE/GUARD_STOPPED; preempt/ empty; stops.tsv 13 rows; no guard events; keeper 1, 119c 1, 114f 3, 69c 1.
+- COMPUTED: lanes at 07:17: run ArtinParabolicIntersections (nanoda run from 07:16:59; export in progress), build TotientCompanionZero (side-built, so a no-op), slow lane empty, 128b PiExponent.
+- INFERRED: the pass ends about 09:00–10:00. The retry round (PerceptronFreeEnergy, BoltzmannNonuniqueness, UniversalTensorSquares) starts then; the first two likely finish before noon, and UniversalTensorSquares runs into the evening.
+- Action: none.

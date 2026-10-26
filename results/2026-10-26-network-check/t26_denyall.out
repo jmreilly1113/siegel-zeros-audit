@@ -1,0 +1,95 @@
+﻿property: RestrictAddressFamilies=~AF_UNIX AF_INET AF_AX25 AF_IPX AF_APPLETALK AF_NETROM AF_BRIDGE AF_ATMPVC AF_X25 AF_INET6 AF_ROSE AF_DECnet AF_NETBEUI AF_SECURITY AF_KEY AF_NETLINK AF_PACKET AF_ASH AF_ECONET AF_ATMSVC AF_RDS AF_SNA AF_IRDA AF_PPPOX AF_WANPIPE AF_LLC AF_IB AF_MPLS AF_CAN AF_TIPC AF_BLUETOOTH AF_IUCV AF_RXRPC AF_ISDN AF_PHONET AF_IEEE802154 AF_CAIF AF_ALG AF_NFC AF_VSOCK AF_KCM AF_QIPCRTR AF_SMC AF_XDP AF_MCTP
+== kernel 5.15.167.4-microsoft-standard-WSL2; systemd 255 (255.4-1ubuntu8.18); date 2026-10-26 16:43:36
+== (A1) probes in a user unit as checker, property: full deny list (75d_sbx.sh style)
+Running as unit: run-u17.service; invocation ID: 9b679c14b3534907a0e811204dd94f3a
+1000
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	2
+PROBE tcp connect 1.1.1.1:443: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE tcp6 connect: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE dns getaddrinfo github.com: blocked/failed gaierror: [Errno -3] Temporary failure in name resolution
+PROBE udp socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE unix socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE netlink socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE packet socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE vsock socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE vsock connect host CID 2: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_BLUETOOTH socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_ALG socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_TIPC socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_RDS socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_CAN socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_XDP socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+curl: (6) Could not resolve host: github.com
+curl https://github.com http 000
+getent hosts github.com: no result
+bash: socket: Address family not supported by protocol
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 88ms
+SANDBOX EXIT CODE: 0
+== (A2) probes in a system unit with setpriv to checker, property: full deny list (140d_matrix_run.sh style)
+Running as unit: run-u99.service; invocation ID: 7e83a6df4aea4ba58bca9a50f03d716d
+1000
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	2
+PROBE tcp connect 1.1.1.1:443: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE tcp6 connect: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE dns getaddrinfo github.com: blocked/failed gaierror: [Errno -3] Temporary failure in name resolution
+PROBE udp socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE unix socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE netlink socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE packet socket: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE vsock socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE vsock connect host CID 2: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_BLUETOOTH socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_ALG socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_TIPC socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_RDS socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_CAN socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+PROBE AF_XDP socket create: blocked/failed OSError: [Errno 97] Address family not supported by protocol
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 40ms
+== (A3) interop (t23) in a user unit with the full deny list
+Running as unit: run-u18.service; invocation ID: e165e5820c604597a1a2839b9bd7ae45
+<3>WSL (10280 - ) ERROR: UtilConnectUnix:505: socket failed 97
+<3>WSL (10280 - ) ERROR: UtilBindVsockAnyPort:287: socket failed 97
+cmd.exe pipeline done
+<3>WSL (10283 - ) ERROR: UtilConnectUnix:505: socket failed 97
+<3>WSL (10283 - ) ERROR: UtilBindVsockAnyPort:287: socket failed 97
+
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 20ms
+SANDBOX EXIT CODE: 0
+== (B1) small lake build: fresh project /tmp/t26/proj (toolchain from the clone), via 75d_sbx.sh
+Running as unit: run-u19.service; invocation ID: 4f0fb07d93ca4a40a489cd7197fb6bdc
+info: toolchain not updated; already up-to-date
+ℹ [2/3] Built T24 (3.4s)
+info: T24.lean:3:0: 't24t' does not depend on any axioms
+Build completed successfully (3 jobs).
+-rw-rw-r-- 1 checker checker 7656 Oct 26 16:43 .lake/build/lib/lean/T24.olean
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4.050s
+SANDBOX EXIT CODE: 0
+== (B2) lake build in the clone (no-op expected): OAI.Analysis.Laughlin.Main, via 75d_sbx.sh
+Running as unit: run-u20.service; invocation ID: 99b399062a324428bacadfe718ae8f0f
+Build completed successfully (10181 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 13.931s
+SANDBOX EXIT CODE: 0
+== (B3) lean4export: Laughlin export again under 75d_sbx.sh; must equal 842b632a... (2026-10-26 14:37, under 75_sbx.sh)
+Service runtime: 5min 256ms
+SANDBOX EXIT CODE: 0
+t26 export bytes 433770627 sha256 842b632adee83a91133fc581c5084e1992418c93c43a74191691709915928523
+== (B4) nanoda B3 on the MinUncut export via 140d_matrix_run.sh
+OUTCOME: pass; exit 0; wall 44 s; max RSS 997124 kB
+export: /home/checker/corpus/xr/exp/MinUncut.export bytes 806007988 sha256 8c530169af6e337d0588d4ba73f63cf116688eef10c58b2ba2d5aedabb9dff00
+limits: timeout 600 s (TERM, KILL after 60 s); unit's v1 memory cgroup limit = memsw limit = 16G; network blocked
+memcg /sys/fs/cgroup/memory/system.slice/run-u100.service limit 17179869184 memsw 17179869184
+== t26 done 2026-10-26 16:50:02

@@ -50,3 +50,37 @@ Each script was run as root in WSL (`bash <script> > /tmp/<name>.out 2>&1`); the
 - No unit started and no command ran, so nothing executed under a weaker setting.
 - Forms that systemd-run accepts: `~`, the empty string, `AF_UNIX`, `~AF_VSOCK`.
 - No tool test (lake build, lean4export, nanoda) could run under "none".
+
+## Update 2026-10-26 16:40: full deny list (Joe's option A)
+
+**Family list (COMPUTED).** The source is this kernel's include/linux/socket.h:
+- microsoft/WSL2-Linux-Kernel tag linux-msft-wsl-5.15.167.4, commit 6ac7abbd97a07d5b0bc4bbdb0f3b364f8eb2a22b, fetched read-only through the GitHub API.
+- Copy: kernel-5.15.167.4-include-linux-socket.h, sha256 15c2039a7d95cb45e91f8c9fa69571ea65cba5fc4e2156b103369ad3d2f57dc6; it is GPL-2.0 WITH Linux-syscall-note.
+- AF_MAX is 46. These are the 45 defined families, without the aliases AF_LOCAL = 1 and AF_ROUTE = AF_NETLINK, and without AF_UNSPEC = 0:
+
+1 AF_UNIX, 2 AF_INET, 3 AF_AX25, 4 AF_IPX, 5 AF_APPLETALK, 6 AF_NETROM, 7 AF_BRIDGE, 8 AF_ATMPVC, 9 AF_X25, 10 AF_INET6, 11 AF_ROSE, 12 AF_DECnet, 13 AF_NETBEUI, 14 AF_SECURITY, 15 AF_KEY, 16 AF_NETLINK, 17 AF_PACKET, 18 AF_ASH, 19 AF_ECONET, 20 AF_ATMSVC, 21 AF_RDS, 22 AF_SNA, 23 AF_IRDA, 24 AF_PPPOX, 25 AF_WANPIPE, 26 AF_LLC, 27 AF_IB, 28 AF_MPLS, 29 AF_CAN, 30 AF_TIPC, 31 AF_BLUETOOTH, 32 AF_IUCV, 33 AF_RXRPC, 34 AF_ISDN, 35 AF_PHONET, 36 AF_IEEE802154, 37 AF_CAIF, 38 AF_ALG, 39 AF_NFC, 40 AF_VSOCK, 41 AF_KCM, 42 AF_QIPCRTR, 43 AF_SMC, 44 AF_XDP, 45 AF_MCTP
+
+Ubuntu's glibc header agrees on PF_MAX 46 and PF_MCTP 45. systemd-run accepted each name, one at a time and as a single list.
+
+**Old and new properties:**
+- Old: `RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET`
+- New: `RestrictAddressFamilies=~` followed by all 45 names above, in that order. It is used by wsl-comparator/75d_sbx.sh, 140d_matrix_run.sh, 142d_matrix_batch.sh and 143d_matrix_export.sh. Each is identical to its 75/140/142/143 original except for this string, or for calling the d variant. 143d also takes LEAN_NUM_THREADS and the export directory from the environment.
+- NoNewPrivs 1 and Seccomp 2 hold under the new property, in user and system units alike.
+
+**t25_allfamilies** (t25_allfamilies.sh → t25_allfamilies.out, t25_inside_user_unit.out, t25_inside_system_unit.out, t25_control.out):
+- The probe calls socket(f, type, 0) for f = 1..46 and type in SOCK_STREAM, SOCK_DGRAM, SOCK_RAW.
+- Inside a user unit (75d) and a system unit (140d style, setpriv to checker), all 138 calls failed with errno 97 (EAFNOSUPPORT). None succeeded, and none failed differently. PASS.
+- Control (checker, outside any unit): at least one socket() succeeds for families 1 (UNIX), 2 (INET), 10 (INET6), 16 (NETLINK), 24 (PPPOX) and 40 (VSOCK).
+- Old vs new (t25_old_vs_new.out):
+  - Under the old property, families 24 (AF_PPPOX, all three types) and 40 (AF_VSOCK, STREAM) succeed. So does 38 (AF_ALG) with SOCK_SEQPACKET.
+  - Under the new property all three fail with 97, and they succeed in the control.
+  - So the old filter also left AF_PPPOX and AF_ALG creatable.
+
+**t26_denyall** (t26_denyall.sh → t26_denyall.out, t26_MinUncut-B3.log): t22 and t23 rerun under the new property, plus the tool tests:
+- **t22 probes**, in both unit types: TCP and UDP over IPv4 and IPv6, DNS, AF_UNIX, NETLINK, PACKET, VSOCK create and connect to the host, ALG, BLUETOOTH, TIPC, RDS, CAN and XDP all fail with errno 97, or with name resolution failure for DNS.
+- **t23 interop:** fails, at both the Unix and vsock steps.
+- **Small lake build:** a fresh one-file project builds ("Build completed successfully (3 jobs)", T24.olean written).
+- **Lake build in the clone:** OAI.Analysis.Laughlin.Main is a no-op ("Build completed successfully (10181 jobs)").
+- **lean4export:** Laughlin, 433,770,627 bytes, sha256 842b632a…8523. That is identical to the 14:37 export made under the old property.
+- **nanoda:** B3 on MinUncut through 140d passes (exit 0, 44 s, 997,124 kB).
+- PASS.

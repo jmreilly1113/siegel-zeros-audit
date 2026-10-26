@@ -1648,3 +1648,24 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Not changed, listed for Joe: the Zenodo descriptions (v2 23499651, v3 23523697, corpus 23505836; v1 23269528 has none), the packet zips (v1 12, v2 13, v3 34, corpus 9 hits), the JSON/YAML metadata (.zenodo.json, CITATION.cff, docs/zenodo-v3-metadata.json, corpus metadata.json, two manifest "landlock" notes) and grwtsk/openai-math #40 comment 6087525965.
   - The #40 comment is accurate as worded: it names the property and the families tested, and does not claim "all".
 - Note: the brief's "openai/math #40" is grwtsk/openai-math #40; openai/math has no issue 40 (HTTP 404).
+
+### 2026-10-26 16:40 METHODS CHANGE: sandbox deny list extended to every address family (Joe's option A)
+
+- Old property: `RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET`. It was used by every run up to 2026-10-26 16:40, except 08_comparator.sh, which used `~AF_UNIX` only.
+- New property: `RestrictAddressFamilies=~` followed by all 45 address families defined by kernel 5.15.167.4.
+  - The list comes from include/linux/socket.h at microsoft/WSL2-Linux-Kernel tag linux-msft-wsl-5.15.167.4 (commit 6ac7abbd; copy and sha256 in results/2026-10-26-network-check/).
+  - The families: 1 AF_UNIX, 2 AF_INET, 3 AF_AX25, 4 AF_IPX, 5 AF_APPLETALK, 6 AF_NETROM, 7 AF_BRIDGE, 8 AF_ATMPVC, 9 AF_X25, 10 AF_INET6, 11 AF_ROSE, 12 AF_DECnet, 13 AF_NETBEUI, 14 AF_SECURITY, 15 AF_KEY, 16 AF_NETLINK, 17 AF_PACKET, 18 AF_ASH, 19 AF_ECONET, 20 AF_ATMSVC, 21 AF_RDS, 22 AF_SNA, 23 AF_IRDA, 24 AF_PPPOX, 25 AF_WANPIPE, 26 AF_LLC, 27 AF_IB, 28 AF_MPLS, 29 AF_CAN, 30 AF_TIPC, 31 AF_BLUETOOTH, 32 AF_IUCV, 33 AF_RXRPC, 34 AF_ISDN, 35 AF_PHONET, 36 AF_IEEE802154, 37 AF_CAIF, 38 AF_ALG, 39 AF_NFC, 40 AF_VSOCK, 41 AF_KCM, 42 AF_QIPCRTR, 43 AF_SMC, 44 AF_XDP, 45 AF_MCTP. AF_MAX is 46.
+  - `RestrictAddressFamilies=none`, the first choice, is rejected by systemd-run 255 (entry above).
+- New scripts: 75d_sbx.sh, 140d_matrix_run.sh, 142d_matrix_batch.sh and 143d_matrix_export.sh, identical to 75/140/142/143 except for this string (or calling the d variant). 146_step5_chain.sh is the step-5 driver.
+  - The old scripts are unchanged, so the record of what earlier runs used is intact.
+  - 75n/140n/143n (the "none" attempt) were never used.
+- COMPUTED (t25_allfamilies): socket(f, STREAM/DGRAM/RAW, 0) for f = 1..46 inside a user unit (75d) and inside a system unit (140d style). All 138 calls failed with errno 97, so it passes.
+  - Control outside any unit: families 1, 2, 10, 16, 24 and 40 creatable.
+  - The old filter also allowed AF_PPPOX (24) and AF_ALG (38, SOCK_SEQPACKET), besides AF_VSOCK (40) (t25_old_vs_new.out).
+- COMPUTED (t26_denyall), all pass:
+  - The t22 probes, including vsock create and connect, and AF_ALG, are all errno 97. DNS fails.
+  - The t23 interop fails.
+  - A fresh lake build compiles. The clone build is a no-op.
+  - lean4export reproduces Laughlin byte for byte (842b632a…).
+  - nanoda B3 passes MinUncut in 44 s.
+- From now on, builds, exports and nanoda runs use the d scripts. Results: results/2026-10-26-network-check/README.md.

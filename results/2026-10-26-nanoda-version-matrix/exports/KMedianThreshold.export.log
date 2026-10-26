@@ -1,0 +1,32 @@
+== 143 export KMedianThreshold  2026-10-26 16:52:19  (UNOFFICIAL matrix)
+shipped config: /home/checker/corpus/xr/configs/KMedianThreshold-nanoda.json sha256 43d3cbce85cf07072caeafe793bc1c6aa28d5b4b606d277ce05978458879774e
+clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []
+lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1
+== (1) build: lake build OAI.Combinatorics.KMedian.Threshold (LEAN_NUM_THREADS 4)
+Build completed successfully (9688 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 21min 2.016s
+SANDBOX EXIT CODE: 0
+BUILD_SECONDS: 1351
+disk used: 70G
+== (2) export: LEAN_ABORT_ON_PANIC=1 lake env lean4export OAI.Combinatorics.KMedian.Threshold -- Quot Quot.mk Quot.lift Quot.ind OAI.MetricKMedian.threshold propext Classical.choice Quot.sound Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/xr/exp-d/KMedianThreshold.export
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 7.350s
+SANDBOX EXIT CODE: 0
+EXPORT_SECONDS: 72
+export: /home/checker/corpus/xr/exp-d/KMedianThreshold.export bytes 620096646 sha256 4bec532ccf5b8bd53718ec9bba1936401ca7ad94c006b5b70527765ac1627bc9
+{
+ "export_file_path": "/home/checker/corpus/xr/exp-d/KMedianThreshold.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Classical.choice",
+  "Quot.sound"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}

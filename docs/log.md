@@ -1669,3 +1669,15 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - lean4export reproduces Laughlin byte for byte (842b632a…).
   - nanoda B3 passes MinUncut in 44 s.
 - From now on, builds, exports and nanoda runs use the d scripts. Results: results/2026-10-26-network-check/README.md.
+
+### 2026-10-26 16:52–19:35 step 5 (UNOFFICIAL), full deny list
+
+- 146_step5_chain.sh, one config at a time, under 69_corpus_guard.sh. Exports via 143d (4 threads, /home/checker/corpus/xr/exp-d); runs via 142d/140d (16G cap).
+- COMPUTED: KMedianThreshold. Export 620,096,646 bytes, sha256 4bec532c…, equal to the extended replay's logged value and to nealmcb's size. B3 pass (26 s, 1.07 GB). B2 pass (25 s, 1.06 GB). B1 OOM at 16G (206 s).
+- COMPUTED: Catalan. Export 832,532,249 bytes, sha256 6cfe74f4…, equal to the logged value and nealmcb's size. B3 pass (551 s, 4.61 GB). B2 pass (545 s, 5.01 GB). B1 OOM at 16G (201 s).
+- COMPUTED: ContinuumCoulombHardness. The build was stopped by the guard: "19:32:36 LIMIT: disk 84G, MemAvailable 1448MB", after 3,868 s at 4 threads. No export was made and nothing was run. The chain stopped, per Joe ("stop at the first build OOM and report").
+  - The guard exited after the stop, as designed, leaving GUARD_STOPPED. It was restarted at 19:33:40, and the GUARD_STOPPED marker was left in place.
+  - One `wsl` invocation at 19:33 returned "Wsl/Service/CreateInstance/E_UNEXPECTED". The next succeeded on the same VM (uptime 6:32).
+- Outputs: matrix-v2.tsv; extended-replay-227/corpus-227-v2.tsv and summary-227-v2.txt. KMedianThreshold and Catalan are "run here, unofficial tool set B3"; their official outcome stays NOT_CHECKED_HERE.
+- Appended updates: SUMMARY.md and docs/paper/limitations.md.
+- Generators changed: scripts/nanoda_matrix.py takes an output name and the step-5 rows; scripts/extended_final_table.py takes --unofficial and --suffix.

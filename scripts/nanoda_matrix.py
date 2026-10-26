@@ -1,6 +1,6 @@
 """nanoda version matrix (2026-10-26, UNOFFICIAL): matrix.tsv from our run logs plus cells STATED by Neal McBurnett's public results.
 
-Usage: python -I scripts/nanoda_matrix.py <repo root> <matrix dir>
+Usage: python -I scripts/nanoda_matrix.py <repo root> <matrix dir> [<output name>, default matrix.tsv]
 COMPUTED cells come from our logs only:
   3a24072 @16 MiB (official): the 189 from results/2026-10-20-paper-prep-3/corpus-189.tsv (+ its log path); the 227 from
       results/2026-10-21-extended-replay/runs/<C>.result.json (nanoda_run, comparator with enable_nanoda=true)
@@ -15,7 +15,7 @@ import csv, json, os, re, sys
 root, M = sys.argv[1], sys.argv[2]
 R = os.path.join(root, 'results')
 rel = lambda p: os.path.relpath(p, root).replace(os.sep, '/')
-out = os.path.join(M, 'matrix.tsv')
+out = os.path.join(M, sys.argv[3] if len(sys.argv) > 3 else 'matrix.tsv')
 if os.path.exists(out): sys.exit(f'refusing to overwrite {out}')
 NT = 'https://github.com/nealmcb/openai-math-lean-tooling/blob/1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4/results/'
 I55, I55c = 'https://github.com/ammkrn/nanoda_lib/issues/55', 'https://github.com/ammkrn/nanoda_lib/issues/55#issuecomment-6208777323'
@@ -26,7 +26,7 @@ SS, TS, AB = NT + 'nanoda-stack-size-2026-10-25.txt', NT + 'nanoda-repro/three-s
 C189 = ['OptimalMaxCut', 'UniqueGamesTheorem', 'VertexCover', 'KaplanskyFinitelyPresented', 'GroupRingDeterminant', 'Laughlin',
         'BinPackingGap', 'IndependentSets', 'PerfectCompleteness']
 C227 = ['KaplanskyDirectFiniteness', 'LaughlinPlanar', 'LaughlinFock', 'SquareDifference', 'DirectedFeedback', 'MinUncut']
-EXTRA = [('ContinuumCoulombHardness', '227'), ('LogspaceEquality', '189'), ('RandomizedMeanPayoff', '189')]
+EXTRA = [('KMedianThreshold', '227'), ('Catalan', '227'), ('ContinuumCoulombHardness', '227'), ('LogspaceEquality', '189'), ('RandomizedMeanPayoff', '189')]
 ROWS = [(c, '189') for c in C189] + [(c, '227') for c in C227] + EXTRA
 COLS = ['3a24072@16MiB (official)', '3a24072@1GiB (B1)', 'f67473b@16MiB', '37cb87b@16MiB (B2)', '37cb87b+patch@64MiB (B3)']
 
@@ -47,6 +47,10 @@ ST = {
     ('SquareDifference', 1): f'STATED: "nanoda exits with an error" (1 GiB-stack build) [{I55}]',
     ('ContinuumCoulombHardness', 1): f'STATED: "nanoda exits with an error" (1 GiB-stack build) [{I55}]',
     ('ContinuumCoulombHardness', 2): f'STATED: accepted, 130 s, ~24 GiB [{I61}]',
+    ('Catalan', 1): f'STATED: panic "index 2147483648 exceeds 31-bit capacity" after 2,014 s, 259 GiB (1 GiB stack) [{I55}]',
+    ('KMedianThreshold', 1): f'STATED: "nanoda exits with an error" (1 GiB-stack build) [{I55}]',
+    ('Catalan', 2): f'STATED: among the 14 of 15 that pass on f67473b [{I55c}]',
+    ('KMedianThreshold', 2): f'STATED: among the 14 of 15 that pass on f67473b [{I55c}]',
     ('ContinuumCoulombHardness', 3): f'STATED: overflows on master; let fix alone overflows at 64 MiB (34 s, 4 GB) and 256 MiB (48 s, 13 GB) [{I61}; {SS}]',
     ('ContinuumCoulombHardness', 4): f'STATED: pass 50.0 s, 1.8 GB (let fix + Nat.succ guard, 64 MiB, 4 threads) [{SS}]',
     ('LogspaceEquality', 2): f'STATED: accepted 19 s, 0.8 GB (16 MiB, 4 threads) [{TS}]',
@@ -93,7 +97,8 @@ for c, s in ROWS:
                 w = re.search(r'DURATION_SECONDS: (\d+)', lg).group(1)
                 cell[2] = f"COMPUTED: {fd['result']} (direct, exit {fd['exit']}, {w} s, peak {mj['peak_hwm_kb']} kB) [results/2026-10-21-extended-replay/runs/{c}-f67473b-direct.log]"
         else:
-            cell[0] = 'not run here (deferred, Joe 2026-10-25)'
+            cell[0] = {'KMedianThreshold': 'not run here: deferred (memory; 3a24072 run stopped at 19.84 GB and growing)',
+                       'Catalan': 'not run here: deferred (memory; 3a24072 run stopped at 19.6 GB and rising)'}.get(c, 'not run here (deferred, Joe 2026-10-25)')
     for i, b in ((1, 'B1'), (3, 'B2'), (4, 'B3')):
         o = ours(c, b)
         if o: cell[i] = (cell[i] + ' | ' if cell[i] else '') + o

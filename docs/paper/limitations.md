@@ -21,3 +21,11 @@ Sources:
   - This does not apply to MUBSix, CycleCliqueRamsey or UniversalTensorSquares. Those stopped before nanoda ran, on comparator or build memory.
 - **An OOM under the 16G cap is a resource outcome, not a failure of the proof.** In the matrix, 3a24072 with a 1 GiB stack grows to the cap on the class 1 and class 3 configs. We did not measure how far each would grow; nealmcb reports 127–285 GiB on the same group (#55).
 - **The two-version picture is unofficial.** Across 3a24072, f67473b, 37cb87b and 37cb87b plus the patch, every config in the matrix has been accepted by some nanoda build. The official tables use one pinned tool set (3a24072, 16 MiB). The other builds are reported separately and labeled UNOFFICIAL.
+
+## Update 2026-10-26 evening (appended): Catalan and KMedianThreshold measured
+
+COMPUTED (results/2026-10-26-nanoda-version-matrix/SUMMARY.md, step 5; exports byte-identical to the extended replay's, run under the full address-family deny list):
+- nanoda 37cb87b, stock and with nealmcb's patch, checks KMedianThreshold in 25–26 s at about 1.1 GB and Catalan in 545–551 s at 4.6–5.0 GB.
+- 3a24072 with a 1 GiB stack grows to the 16G cap on both.
+- The inference above (their memory deferrals reflect the 3a24072 bug) is now measured for nanoda. Their official outcome stays "not checked": the pinned tool set did not finish, and Lean's kernel was not run on them here.
+- ContinuumCoulombHardness could not be built here: the guard stopped its build at 19:32 on 2026-10-26 when MemAvailable fell below 1,500 MB.

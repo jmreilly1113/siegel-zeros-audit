@@ -1,6 +1,8 @@
 """Extended replay, final table for the 227 unreferenced configs (2026-10-26), from the raw records (read-only on results/).
 
-Usage: python -I scripts/extended_final_table.py <repo root> <out dir>
+Usage: python -I scripts/extended_final_table.py <repo root> <out dir> [--unofficial=<matrix dir> --suffix=<s>]
+  --unofficial: deferred configs with a B3 (37cb87b + patch, 64 MiB) run in <matrix dir>/runs/<C>.B3.log get status
+  'run here, unofficial tool set B3' and the measured outcome, wall time and peak RSS; their official outcome stays NOT_CHECKED_HERE.
 Reads, under results/2026-10-21-extended-replay/:
   phase0-configs-227.tsv   the 227 configs, group, shipped nanoda setting
   run.log                  every "<config>: outcome <X>; ..." line; the LAST one per config is the final outcome
@@ -16,9 +18,11 @@ Writes corpus-227.tsv and summary-227.txt into <out dir>; refuses to overwrite.
 import collections, csv, json, os, re, sys
 
 root, out = sys.argv[1], sys.argv[2]
+OPT = dict(a[2:].split('=', 1) for a in sys.argv[3:] if a.startswith('--') and '=' in a)
+UNOFF, SFX = OPT.get('unofficial'), OPT.get('suffix', '')
 D = os.path.join(root, 'results', '2026-10-21-extended-replay')
 rel = lambda p: os.path.relpath(p, root).replace(os.sep, '/')
-outs = [os.path.join(out, f) for f in ('corpus-227.tsv', 'summary-227.txt')]
+outs = [os.path.join(out, f) for f in (f'corpus-227{SFX}.tsv', f'summary-227{SFX}.txt')]
 for p in outs:
     if os.path.exists(p): sys.exit(f'refusing to overwrite {p}')
 os.makedirs(out, exist_ok=True)
@@ -87,7 +91,7 @@ def audit(c):
 
 cols = ['config', 'group', 'shipped_nanoda', 'status', 'final_outcome', 'final_outcome_time', 'earlier_outcomes', 'nanoda_3a24072_run',
         'rerun_28800s', 'shipped_run', 'f67473b_direct', 'axioms_query', 'axioms_used', 'audit', 'wsl_memory_at_outcome',
-        'export_bytes', 'export_sha256', 'deferral_reason', 'evidence']
+        'export_bytes', 'export_sha256', 'deferral_reason', 'evidence'] + (['unofficial_B3', 'official_note'] if UNOFF else [])
 rows, problems = [], []
 for r in plan:
     c = r['config']; row = dict.fromkeys(cols, '')
@@ -96,6 +100,15 @@ for r in plan:
     if c in deferred:
         assert not os.path.isfile(rj), c
         row.update(status='DEFERRED', final_outcome='NOT_CHECKED_HERE', deferral_reason=DEFER[c][0], evidence=DEFER[c][1])
+        b3 = os.path.join(UNOFF, 'runs', f'{c}.B3.log') if UNOFF else None
+        if b3 and os.path.isfile(b3):
+            o = [l[9:].strip() for l in open(b3, encoding='utf-8') if l.startswith('OUTCOME:')][-1]
+            row['unofficial_B3'] = f'{o} [{rel(b3)}]'
+            if o.startswith('pass'):
+                row['status'] = 'run here, unofficial tool set B3'
+                row['official_note'] = ('official outcome stays NOT_CHECKED_HERE: the official tool set is nanoda 3a24072 (16 MiB) through comparator, '
+                    'and that run did not finish (deferral reason). The B3 run is a different nanoda build (37cb87b + nealmcb let/succ patch, 64 MiB), '
+                    "run directly on the export (not through comparator); Lean's kernel was not run on this config here.")
         rows.append(row); continue
     d = json.load(open(rj, encoding='utf-8'))
     L = outc.get(c)
@@ -130,7 +143,7 @@ P(f'Command: python -I scripts/extended_final_table.py . {rel(out)}')
 P('Official pins: openai/math fd4aeeb, Lean 4.34.1, comparator d03acab, lean4export 076e8e5, nanoda_lib 3a24072 (16 MiB stack).')
 P('The f67473b_direct column is UNOFFICIAL (post-fix nanoda on the retained export, outside comparator).')
 P('')
-P(f"configs 227: results {len(res)}, deferred {len(rows) - len(res)}")
+P(f"configs 227: results {len(res)}, deferred {len(rows) - len(res)}" + (f" (of which run here on the UNOFFICIAL tool set B3: {sum(1 for x in rows if x['status'] == 'run here, unofficial tool set B3')})" if UNOFF else ''))
 P('final outcome (last run.log outcome line; equals result.json for every config): ' + str(dict(collections.Counter(x['final_outcome'] for x in rows))))
 P('by group, results / deferred: ' + ', '.join(f"{g} {sum(1 for x in res if x['group'] == g)}/{sum(1 for x in rows if x['group'] == g and x['status'] == 'DEFERRED')}" for g in 'PCUSN'))
 P('')
@@ -151,6 +164,12 @@ P('')
 P('Deferred (no result here):')
 for x in rows:
     if x['status'] == 'DEFERRED': P(f"  {x['config']} ({x['group']}): {x['deferral_reason']} [{x['evidence']}]")
+if UNOFF:
+    P('')
+    P('Deferred configs run here on the UNOFFICIAL tool set B3 (official outcome unchanged: NOT_CHECKED_HERE):')
+    for x in rows:
+        if x.get('unofficial_B3'): P(f"  {x['config']}: status '{x['status']}'; B3 {x['unofficial_B3']}")
+    P('  ' + 'Note: ' + next((x['official_note'] for x in rows if x.get('official_note')), ''))
 P('')
 P('#print axioms (runs/<C>-axioms.log, one Lean query per config on the solution theorem(s), in the checker sandbox):')
 P(f"  query logs: {sum(1 for x in res if x['axioms_query'].startswith('ok'))} with exit 0 of {len(res)} results; "

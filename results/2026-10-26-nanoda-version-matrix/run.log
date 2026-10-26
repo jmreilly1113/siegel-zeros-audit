@@ -70,3 +70,28 @@
 2026-10-26 15:25:25 GroupRingDeterminant B3: OUTCOME: pass; exit 0; wall 47 s; max RSS 1311128 kB
 2026-10-26 15:25:25 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-GroupRingDeterminant.tsv
 2026-10-26 15:25:25 144 done: stages 2 and 3
+2026-10-26 16:52:19 146 start: step 5 (KMedianThreshold, Catalan, ContinuumCoulombHardness; B3 B2 B1; full deny list)
+2026-10-26 16:52:19 146: KMedianThreshold: export (143d, 4 threads) start
+2026-10-26 17:16:05 146: KMedianThreshold: export done: /home/checker/corpus/xr/exp-d/KMedianThreshold.export bytes 620096646 sha256 4bec532ccf5b8bd53718ec9bba1936401ca7ad94c006b5b70527765ac1627bc9; nealmcb bytes 620096646
+2026-10-26 17:16:05 146: KMedianThreshold: sha256 equals the extended replay's logged value
+2026-10-26 17:16:05 142 start: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-KMedianThreshold.tsv; binaries B3 B2 B1
+2026-10-26 17:16:05 KMedianThreshold B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 17:16:32 KMedianThreshold B3: OUTCOME: pass; exit 0; wall 26 s; max RSS 1068896 kB
+2026-10-26 17:16:32 KMedianThreshold B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 17:16:58 KMedianThreshold B2: OUTCOME: pass; exit 0; wall 25 s; max RSS 1064784 kB
+2026-10-26 17:16:58 KMedianThreshold B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 17:20:25 KMedianThreshold B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 206 s; max RSS 16746160 kB
+2026-10-26 17:20:25 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-KMedianThreshold.tsv
+2026-10-26 17:20:25 146: Catalan: export (143d, 4 threads) start
+2026-10-26 18:06:25 146: Catalan: export done: /home/checker/corpus/xr/exp-d/Catalan.export bytes 832532249 sha256 6cfe74f401c34124c2bf8f47c76739e8fbbdde25226d6c3193a3af47e913f1ba; nealmcb bytes 832532249
+2026-10-26 18:06:25 146: Catalan: sha256 equals the extended replay's logged value
+2026-10-26 18:06:25 142 start: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-Catalan.tsv; binaries B3 B2 B1
+2026-10-26 18:06:25 Catalan B3: start (/opt/nanoda-37cb87b-patch64/nanoda_bin)
+2026-10-26 18:15:37 Catalan B3: OUTCOME: pass; exit 0; wall 551 s; max RSS 4606472 kB
+2026-10-26 18:15:37 Catalan B2: start (/opt/nanoda-37cb87b/nanoda_bin)
+2026-10-26 18:24:44 Catalan B2: OUTCOME: pass; exit 0; wall 545 s; max RSS 5009336 kB
+2026-10-26 18:24:44 Catalan B1: start (/opt/nanoda-1gib-diag/nanoda_bin)
+2026-10-26 18:28:07 Catalan B1: OUTCOME: oom (resource: memory cap 16G reached; not a verdict on the proof); exit signal 9; wall 201 s; max RSS 16746032 kB
+2026-10-26 18:28:07 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-Catalan.tsv
+2026-10-26 18:28:07 146: ContinuumCoulombHardness: export (143d, 4 threads) start
+2026-10-26 19:32:37 146: ContinuumCoulombHardness: build/export failed: ContinuumCoulombHardness: build failed or stopped (see /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/exports/ContinuumCoulombHardness.export.log); guard: 2026-10-26 19:32:36 LIMIT: disk 84G, MemAvailable 1448MB; stopping checker build processes; chain stops (Joe: stop at the first build OOM and report)

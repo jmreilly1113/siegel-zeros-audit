@@ -158,3 +158,31 @@ f67473b reduced the depth. nanoda_lib PR #58 deepened it again ("remove vestigia
 Each nanoda run here executed directly (not through comparator) as the unprivileged user checker (setpriv, no_new_privs) in a systemd-run system unit, and each export was made in a systemd-run user unit; both used the seccomp filter (RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET) denied creating IPv4, IPv6, Unix-domain, netlink and packet sockets. A test on 2026-10-26 confirmed that TCP and UDP over IPv4 and IPv6, and DNS lookups, failed inside such a unit. AF_VSOCK sockets, which reach the Windows host, were not denied, and a test connection to the host succeeded. We did not test whether vsock offers a route to the internet. The earlier wording 'all network sockets blocked' overstated the restriction.
 
 Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).
+
+## Update 2026-10-26 evening (appended): step 5, run under the full address-family deny list
+
+**Setup.**
+- From 16:52 every build, export and nanoda run used the d scripts: 146_step5_chain.sh, with 143d for exports (4 threads, into /home/checker/corpus/xr/exp-d) and 142d/140d for runs.
+- Their seccomp deny list names all 45 address families of kernel 5.15.167.4 (results/2026-10-26-network-check/README.md; t25/t26 pass).
+- Order: KMedianThreshold, Catalan, ContinuumCoulombHardness. Each export was checked against our logged sha256 where one exists and against nealmcb's byte count, then run on B3, B2 and B1.
+- matrix-v2.tsv (`python -I scripts/nanoda_matrix.py . results/2026-10-26-nanoda-version-matrix matrix-v2.tsv`) adds these rows. matrix.tsv is unchanged.
+
+**COMPUTED:**
+
+| config | export (bytes, sha256) | checks | B3: 37cb87b + patch, 64 MiB | B2: 37cb87b, 16 MiB | B1: 3a24072, 1 GiB |
+|---|---|---|---|---|---|
+| KMedianThreshold | 620,096,646, 4bec532c… | equals the extended replay's logged sha256 (runs/KMedianThreshold-nanoda.mem.json) and nealmcb's size | pass, 26 s, 1.07 GB | pass, 25 s, 1.06 GB | OOM at the 16G cap, 206 s |
+| Catalan | 832,532,249, 6cfe74f4… | equals the extended replay's logged sha256 (runs/Catalan-nanoda.mem.json) and nealmcb's size | pass, 551 s, 4.61 GB | pass, 545 s, 5.01 GB | OOM at the 16G cap, 201 s |
+| ContinuumCoulombHardness | none | build stopped by the guard: "2026-10-26 19:32:36 LIMIT: disk 84G, MemAvailable 1448MB", after 3,868 s at 4 threads (exports/ContinuumCoulombHardness.export.log) | not run | not run | not run |
+
+- **The chain stopped at the first build OOM, as instructed.** The guard's MemAvailable floor (1,500 MB) was reached during ContinuumCoulombHardness's build, with four lean processes at 3.8–7.4 GB each at 19:23. No olean for its solution module was written. The clone is clean.
+- **INFERRED, now measured for these two:** both kernels-as-built that include the post-3a24072 reduction changes check KMedianThreshold and Catalan quickly and in a few GB.
+  - On 3a24072 (official, 16 MiB, through comparator) the extended replay stopped them at 19.84 GB and 19.6 GB, still growing. B1 (3a24072 with a 1 GiB stack) grows to the 16G cap.
+  - So their "not checked (memory)" status reflects nanoda 3a24072's class 1 behaviour (#55), not the size of the proofs.
+  - They are class 1 by this behaviour; no backtrace was taken.
+- **In the 227 table** (extended-replay-227/corpus-227-v2.tsv and summary-227-v2.txt, from `python -I scripts/extended_final_table.py . results/2026-10-26-nanoda-version-matrix/extended-replay-227 --unofficial=results/2026-10-26-nanoda-version-matrix --suffix=-v2`):
+  - KMedianThreshold and Catalan move from "deferred (memory)" to "run here, unofficial tool set B3", with the measured peaks above.
+  - Their official outcome stays NOT_CHECKED_HERE. The official tool set is nanoda 3a24072 at 16 MiB through comparator, and that run did not finish.
+  - The B3 run is a different nanoda build, run directly on the export. Lean's kernel was not run on these configs here.
+  - Their Lean-kernel acceptance is STATED only, by nealmcb's comparator sweep at identical pins.
+  - The v1 files are unchanged.

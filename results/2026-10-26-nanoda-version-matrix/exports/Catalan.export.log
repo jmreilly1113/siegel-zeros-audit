@@ -1,0 +1,32 @@
+== 143 export Catalan  2026-10-26 17:20:25  (UNOFFICIAL matrix)
+shipped config: /home/checker/corpus/xr/configs/Catalan-nanoda.json sha256 da1e1526c29d6f42d45f65a532ec580a60ba3a752df5296f080560b5eaf5670b
+clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []
+lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1
+== (1) build: lake build OAI.NumberTheory.Catalan.Main (LEAN_NUM_THREADS 4)
+Build completed successfully (4344 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 41min 35.435s
+SANDBOX EXIT CODE: 0
+BUILD_SECONDS: 2683
+disk used: 73G
+== (2) export: LEAN_ABORT_ON_PANIC=1 lake env lean4export OAI.NumberTheory.Catalan.Main -- Quot Quot.mk Quot.lift Quot.ind OAI.InternalCatalan.catalan_irrational propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam > /home/checker/corpus/xr/exp-d/Catalan.export
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 8.793s
+SANDBOX EXIT CODE: 0
+EXPORT_SECONDS: 74
+export: /home/checker/corpus/xr/exp-d/Catalan.export bytes 832532249 sha256 6cfe74f401c34124c2bf8f47c76739e8fbbdde25226d6c3193a3af47e913f1ba
+{
+ "export_file_path": "/home/checker/corpus/xr/exp-d/Catalan.export",
+ "nat_extension": true,
+ "num_threads": 4,
+ "permitted_axioms": [
+  "propext",
+  "Quot.sound",
+  "Classical.choice"
+ ],
+ "string_extension": true,
+ "unpermitted_axiom_hard_error": true,
+ "use_stdin": false
+}

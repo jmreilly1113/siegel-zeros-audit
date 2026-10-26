@@ -1,0 +1,57 @@
+Extended replay, final table of the 227 unreferenced configs (COMPUTED by scripts/extended_final_table.py from the raw records)
+Command: python -I scripts/extended_final_table.py . results/2026-10-26-nanoda-version-matrix/extended-replay-227
+Official pins: openai/math fd4aeeb, Lean 4.34.1, comparator d03acab, lean4export 076e8e5, nanoda_lib 3a24072 (16 MiB stack).
+The f67473b_direct column is UNOFFICIAL (post-fix nanoda on the retained export, outside comparator).
+
+configs 227: results 212, deferred 15 (of which run here on the UNOFFICIAL tool set B3: 2)
+final outcome (last run.log outcome line; equals result.json for every config): {'ACCEPT_BOTH': 205, 'LEAN_ACCEPT_NANODA_CRASH': 6, 'NOT_CHECKED_HERE': 15, 'TIMEOUT': 1}
+by group, results / deferred: P 2/1, C 20/1, U 110/8, S 7/0, N 73/3
+
+Configs with more than one outcome line (the last is final):
+  AtomicGaussian: earlier BUILD_FAIL 2026-10-24 14:01:00; final ACCEPT_BOTH 2026-10-25 09:47:16
+  BallPacking: earlier STOP_A 2026-10-25 12:48:31; final ACCEPT_BOTH 2026-10-25 13:45:29
+  LipschitzHilbert: earlier BUILD_FAIL 2026-10-22 17:04:21; final ACCEPT_BOTH 2026-10-22 23:24:48
+
+Not ACCEPT_BOTH:
+  KaplanskyDirectFiniteness (C): LEAN_ACCEPT_NANODA_CRASH; 3a24072 run NANODA_CRASH (exit 1, 637 s); 28800 s rerun -; shipped ACCEPT_LEAN; f67473b pass (exit 0)
+  DirectedFeedback (U): LEAN_ACCEPT_NANODA_CRASH; 3a24072 run NANODA_CRASH (exit 1, 830 s); 28800 s rerun -; shipped ACCEPT_LEAN; f67473b pass (exit 0)
+  LaughlinFock (S): LEAN_ACCEPT_NANODA_CRASH; 3a24072 run NANODA_CRASH (exit 1, 7020 s); 28800 s rerun -; shipped ACCEPT_LEAN; f67473b pass (exit 0)
+  LaughlinPlanar (C): LEAN_ACCEPT_NANODA_CRASH; 3a24072 run NANODA_CRASH (exit 1, 5597 s); 28800 s rerun -; shipped ACCEPT_LEAN; f67473b pass (exit 0)
+  MinUncut (U): LEAN_ACCEPT_NANODA_CRASH; 3a24072 run NANODA_CRASH (exit 1, 816 s); 28800 s rerun -; shipped ACCEPT_LEAN; f67473b pass (exit 0)
+  PlanarPacking (U): TIMEOUT; 3a24072 run TIMEOUT (exit 124, 7037 s); 28800 s rerun TIMEOUT (exit 124, 29213 s); shipped TIMEOUT; f67473b -
+  SquareDifference (U): LEAN_ACCEPT_NANODA_CRASH; 3a24072 run NANODA_CRASH (exit 1, 502 s); 28800 s rerun -; shipped ACCEPT_LEAN; f67473b fail: thread 'thread_2' (858533) has overflowed its stack (exit 255)
+ACCEPT_BOTH only after the 28800 s rerun: AtomicGaussian, GeneralMahler, SKRatio, TriangularEnergy, TriangularGaussian
+
+WSL memory when each outcome was recorded: {'16GB-default': 3, '24GB': 32, '20GB': 177}
+  outcomes under the ~16 GB default (before 2026-10-21 13:56:21): ElementaryPositivity, KaplanskyDirectFiniteness, ShortEgyptianFractions
+  outcomes under 24 GB (2026-10-21 13:56:21 to 2026-10-22 08:10:32): OstmannPrimes, AffineBernstein, BalancedBoxRouting, BernoulliNonflatInSeven, BogomolovPopInjectivity, Brenier, CoulombCounterexample, CoulombRadii, CrouzeixHilbert, DepthFive, DiskMaximal, FiniteCongruenceGraph, FiniteEntropySeparation, FiniteFactor, FormulaHitting, HardSphere, HilbertCrouzeix, HotSpots, HyperinvariantSubspaces, IndividualStrongInfiniteness, InterpolatedFactors, IrrationalRotation, KadisonRingrose, KadisonSimilarity, KaplanskyStableFiniteness, KoebeCircleDomains, LogKodairaFiberNegative, PermanentCubic, ProductBrown, SmoothInitialForm, StrongKadisonKastler, UniformCommutator
+
+Deferred (no result here):
+  ContinuumCoulombHardness (U): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  CycleCliqueRamsey (U): memory: second guard stop on its lone build 2026-10-25 13:30:20 (lean processes ~5.5 GB each); not checked [results/2026-10-21-extended-replay/stops.tsv; results/2026-10-21-extended-replay/GUARD_STOPPED-14.txt]
+  DefocusingNLS (P): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  FalconerAllDimensions (C): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  InvariantIsing (U): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  JointDickman (U): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  MUBSix (N): memory: four runs stopped ~22 min in, before nanoda started (comparator high-water ~18.6-19.0 GB); Joe 2026-10-23 option 6 (not checked) [results/2026-10-21-extended-replay/memory-limit-configs-20261023.txt]
+  OrdinaryTwoPointCorrelations (U): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  OstmannComplete (N): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  PattersonFirstMoment (N): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  PolycyclicRecognition (U): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  SurfaceImmersion (U): large config not run here (Joe 2026-10-25 ~20:40); STATED accepted by Neal McBurnett's comparator run at identical pins [results/2026-10-25-extended-replay-vs-mcburnett/comparison.txt]
+  UniversalTensorSquares (U): memory: second guard stop on its lone build 2026-10-26 10:20:33 (4 threads; first stop 10:15:28 at 10 threads); 388 modules unbuilt; not checked [results/2026-10-21-extended-replay/stops.tsv]
+
+Deferred configs run here on the UNOFFICIAL tool set B3 (official outcome unchanged: NOT_CHECKED_HERE):
+  Catalan: status 'run here, unofficial tool set B3'; B3 pass; exit 0; wall 551 s; max RSS 4606472 kB [results/2026-10-26-nanoda-version-matrix/runs/Catalan.B3.log]
+  KMedianThreshold: status 'run here, unofficial tool set B3'; B3 pass; exit 0; wall 26 s; max RSS 1068896 kB [results/2026-10-26-nanoda-version-matrix/runs/KMedianThreshold.B3.log]
+  Note: official outcome stays NOT_CHECKED_HERE: the official tool set is nanoda 3a24072 (16 MiB) through comparator, and that run did not finish (deferral reason). The B3 run is a different nanoda build (37cb87b + nealmcb let/succ patch, 64 MiB), run directly on the export (not through comparator); Lean's kernel was not run on this config here.
+
+#print axioms (runs/<C>-axioms.log, one Lean query per config on the solution theorem(s), in the checker sandbox):
+  query logs: 212 with exit 0 of 212 results; declarations queried: 297
+  axiom sets: {'Classical.choice, Quot.sound, propext': 212}
+  configs using any axiom outside propext, Classical.choice, Quot.sound: []
+  (Phase 4.3, phase0-configs-227-summary.txt: no config permits axioms beyond these three.)
+Audit queries (placeholder configs, phase4-challenge-placeholders.tsv):
+  ElementaryPositivity: challenge: axioms [Classical.choice, Quot.sound, propext, sorryAx]; target in statement closure false; in statement+proof closure false | solution: axioms [Classical.choice, Quot.sound, propext]; target in statement closure false; in statement+proof closure false
+  DefocusingNLS: not run (large config not run here (Joe 2026-10-2...)
+  NavierStokesVelocity: challenge: axioms [Classical.choice, Quot.sound, propext, sorryAx]; target in statement closure false; in statement+proof closure false | solution: axioms [Classical.choice, Quot.sound, propext]; target in statement closure false; in statement+proof closure true

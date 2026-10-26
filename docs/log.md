@@ -1537,3 +1537,15 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - COMPUTED: lanes at 07:17: run ArtinParabolicIntersections (nanoda run from 07:16:59; export in progress), build TotientCompanionZero (side-built, so a no-op), slow lane empty, 128b PiExponent.
 - INFERRED: the pass ends about 09:00–10:00. The retry round (PerceptronFreeEnergy, BoltzmannNonuniqueness, UniversalTensorSquares) starts then; the first two likely finish before noon, and UniversalTensorSquares runs into the evening.
 - Action: none.
+
+### 2026-10-26 08:17 hourly check (extended replay)
+
+- COMPUTED: 207 result files (4 in the last hour, all ACCEPT_BOTH: TotientCompanionZero 07:23, ArtinParabolicIntersections 07:23, TotientAsymptotic 07:34, JacobsthalImproved 08:12; the last three after a slow-lane handoff). 6 configs pending; union unbuilt 2,618 (3,810 at 07:17, so about 1,190 built this hour). Pass: DukePrimeDegree 645, BenjaminiSchramm 461 (128b side build), PiExponent 0. Retry round: PerceptronFreeEnergy 412, BoltzmannNonuniqueness 526, UniversalTensorSquares 574. No HALT/STOP/DONE/GUARD_STOPPED; preempt/ empty; stops.tsv 13 rows; no guard events; keeper 1, 119c 1, 114f 5, 69c 1. WSL used 77G.
+- COMPUTED: lanes at 08:17: run PiExponent (nanoda run from 07:38:26; no handoff because DukePrimeDegree is not built yet), build DukePrimeDegree (10 threads, from 07:38:26), slow lane empty, 128b BenjaminiSchramm.
+- INFERRED: the pass ends about 10:00–10:30. In 114f's next attempt, the retry round would build PerceptronFreeEnergy and BoltzmannNonuniqueness from scratch (about 940 modules, about 1 h) before their runs, which puts them right at noon.
+- Action (Claude): wsl-comparator/135_retry_side_builds.sh (record copy of scratchpad w135.sh), launched detached at 08:19:42 (PID 1730947).
+  - It waits until 128b finishes BenjaminiSchramm, then starts the existing 129b side builder on PerceptronFreeEnergy, then hands over to 132_chain_side_builds.sh for BoltzmannNonuniqueness.
+  - Starting after 128b avoids the 2026-10-25 14:21–15:18 case, where 129b beside 128b starved both.
+  - 132 refuses the second target if WSL used is at or above 80G.
+  - Stub test t18_w135.sh passed 7 of 7 cases (dry run, wait while 128b is busy, 129b args, 132 chain args, logging, result-exists exit, HALT exit). The live dry run showed "128b done with BenjaminiSchramm: no; bad: no".
+- INFERRED: if both side builds finish before the pass ends, the retry round is mostly two nanoda runs, and both can have results before noon. UniversalTensorSquares is not side-built (heavy modules, about 11 GB per lean process at 04:17); it runs in the retry round and past noon.

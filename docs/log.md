@@ -1497,3 +1497,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - COMPUTED: PerceptronFreeEnergy and BoltzmannNonuniqueness are left for 114f's next attempt (after the pass). The boundary prunes at 02:38 and 03:16 removed 818 + 862 modules outside the kept closures, so their unbuilt counts are back to 412 and 526. Union unbuilt over the pending configs rose from 8,249 to 8,684 this hour. PerceptronFreeEnergy's export is kept in xr/exp; BoltzmannNonuniqueness has none. 125b can't take either one, since it requires a finished 7200 s timeout.
 - INFERRED: the SKRatio rerun restart cost about 37 min; it now ends by about 10:58 at worst. The two preempted configs add about 1 h of rebuild and run after the pass. The pass estimate stays about 10:00–12:00, so with the retry tail the finish is about 11:00–13:00; UniversalTensorSquares remains the main noon risk.
 - Action: none. The guard and requeue paths behaved correctly; a new side-run path for preempted configs would need an untested script change for about 1 h of gain.
+
+### 2026-10-26 04:17 hourly check (extended replay)
+
+- COMPUTED: 197 result files (1 in the last hour: SKHighTemperature ACCEPT_BOTH 03:32). 16 configs pending; union unbuilt 8,169 (8,684 at 03:17). No HALT/STOP/DONE/GUARD_STOPPED; stops.tsv 13 rows; keeper 1, 119c 1, 114f 4, 69c 1, 125b 1 (SKRatio 28800 s rerun since 02:58), w125 1.
+- COMPUTED: the main lane has had no run since 03:32. 114f is blocked in the UniversalTensorSquares prebuild:
+  - 69c paused it at 03:39 and 03:58 (beside SKRatio) and preempted it at 03:54 and 04:13 ("frozen > 900 s with no main-lane run").
+  - It is now on retry 2 at 2 threads (from 04:13:37), with 389 modules unbuilt. One of its lean processes had 11.5 GB RSS at 04:17.
+  - 128b side prebuilds of VelocityHemisphere and SATComputability each stopped at A < 6000 MB; it is now on CriticalPercolation. SKBarriers' side prebuild finished at 03:34.
+- INFERRED: a paused build that holds about 11 GB keeps A low, so it can't reach RESUME and gets preempted after 900 s. Under 114f's build_one (preempted 4 times means it is left for the next attempt, and the main lane goes on), two more such cycles (about 40 min) would release the main lane. If it fits at 2 threads instead, it blocks the lane until it finishes.
+- Action: none yet. Forcing the exit by hand would mean faking 69c's preempt marker twice, an untested path; killing the build any other way would let finish_one classify a failed build. A follow-up check is armed for about 05:02.
+- INFERRED: UniversalTensorSquares can't finish by noon in any case (build, then a likely 7200 s timeout, then up to 28800 s). With the main lane back about 05:00 and about 1,200 modules/h, the rest of the pass ends about 11:30–12:30, with the retry round (PerceptronFreeEnergy, BoltzmannNonuniqueness, UniversalTensorSquares) after that.

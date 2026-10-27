@@ -1827,3 +1827,24 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - "same reachability convention" is not restored, because v7:L019 states no convention.
 - Ledger: results/2026-10-26-claims-ledger/ledger-v8.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v8.py .`), 197 rows.
 - Outline item 7 (Bastounis-Circelli-Hansen) is skipped at Joe's word: he did that reading.
+
+## 2026-10-27: ledger v9 (the two SiegelZeros theorems; exists_absolute_real_zero_gap closure and proof; OAI's main-result entry); marks sheet; draft section 3 tables
+
+- COMPUTED (v9:L198), source text: the challenge's two theorems differ only in how the zero hypotheses are taken (curried versus one conjunction) and in their namespace blocks.
+- INFERRED (v9:L199): the two theorems are not the same Lean type but are logically equivalent by uncurrying. No Lean proof of the equivalence was run.
+- COMPUTED (v9:L200): read-only query lean-checks/ClosureModules.lean (`bash wsl-comparator/75d_sbx.sh 1800 4 "lake env lean /tmp/cm/ClosureModules.lean"`, no build; results/2026-10-27-closure-modules/).
+  - exists_absolute_real_zero_gap has 107760 constants in its closure.
+  - None is from OAI.NumberTheory.DirichletL or has a 7/8 name.
+  - dirichletRealZeroBound_proof, dirichlet_real_zero_bound and actual_biquadratic_rectangle_span are not members.
+  - uniform_exclusion_of_local_isolated_bezout and uniform_exclusion_of_actual_cutoff are members.
+  - The only OAI prefix is OAI.NumberTheory.SiegelZeros.
+  - The log header lost the clone HEAD (git under root: dubious ownership); clone-head.txt records it as checker (fd4aeeb, clean).
+- COMPUTED (v9:L201): proof trace, Theorem.lean:11-19 -> BezoutBoundary.lean:13-19 -> GeometricBoundary.lean:18-48.
+- STATED (v9:L202): formalization.yaml main_results names exists_absolute_real_zero_gap for SiegelZeros.json. No OAI file names the paper's Theorem 1.
+- v9:L203 replaces v8:L151 (now SUPERSEDED). It adds HeckeSeries.lean:373-374 (LFunction_hasSum, a sum over Z x Z) and Hecke.lean:29-30 (differentiableAt_LFunction). The six-generator identification is not formalized in Lean.
+- results/2026-10-27-readings/reasoning-marks.tsv: 47 rows (v9:L203, v8:L152-L197) with empty mark and note columns, for Joe.
+- Outline: section 3 rebudgeted to 2.5 pages and section 6 to 1.25, so the body total is 15.25. Section 4 now has a bullet on the two theorems and OAI's main-result entry.
+- Draft section 3: one compact table of reasoning points per challenge (v8:L152-L181).
+  - check.py now treats \footnotesize and \scriptsize as layout lines, and defaults to ledger-v9.tsv. Result: 0 findings apart from 1 NOTE.
+  - Section 3 is about 3 pages, section 6 about 1.25.
+- Ledger: results/2026-10-26-claims-ledger/ledger-v9.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v9.py .`), 203 rows.

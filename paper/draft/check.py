@@ -1,6 +1,6 @@
 """Check the draft sections against the claims ledger (2026-10-27). Reads files only; changes nothing.
 
-Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v8.tsv; ids agree across v2-v8)
+Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v9.tsv; ids agree across v2-v9)
 
 For each of sec3-sec6 and the appendix file:
  1. Quotes. A line "%% QUOTE <path> <a>-<b> [sha=<vN:Lxxx>]" must precede a Verbatim or paperquote block. The block must
@@ -21,7 +21,7 @@ Prints every finding; exit 1 if there is any.
 import csv, hashlib, os, re, sys
 
 root = sys.argv[1]
-ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v8.tsv'
+ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v9.tsv'
 D = os.path.join(root, 'paper', 'draft')
 FILES = ['sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex', 'appendix-78-listings.tex']
 rows = {r['id']: r for r in csv.DictReader(open(os.path.join(root, ledger), encoding='utf-8'), delimiter='\t')}
@@ -44,7 +44,7 @@ def split_comment(line):
     return (line, '') if not m else (line[:m.start()], line[m.start() + 1:])
 
 
-STRUCT = re.compile(r'^\s*\\(section|subsection|begin|end|label|small|toprule|midrule|bottomrule|centering|footnote\{?\s*$)')
+STRUCT = re.compile(r'^\s*\\(section|subsection|begin|end|label|small|footnotesize|scriptsize|toprule|midrule|bottomrule|centering|footnote\{?\s*$)')
 NAMED = re.compile(r'\b(Theorem|Lemma|Lemmas|Corollary|Section|Table|Listing|Remark)s?(~|\s)(\\ref\{[^}]*\}|\d+(\s+and\s+\d+)?)')
 LATEX = re.compile(r'\\(texttt|emph|textbackslash|ldots|operatorname|footnote|multicolumn|scriptsize|ref|label|caption|cite)\b|\\[a-zA-Z]+\*?')
 

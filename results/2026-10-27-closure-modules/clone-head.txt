@@ -1,0 +1,4 @@
+# HEAD of the clone used for exists-gap-closure-modules.log, read as checker on 2026-10-27 09:49:34 (the log header lost it: git refused, run as root, dubious ownership)
+HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+tracked changes 0
+Main.olean mtime 2026-10-26 21:43:22.776317887 -0400

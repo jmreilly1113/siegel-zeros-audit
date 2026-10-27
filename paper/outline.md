@@ -97,7 +97,7 @@ Missing claims: none. Section 2 makes no claim about how the lemmas combine.
 
 Citations: Comparator, nanoda_lib, lean4export, Lean 4, Mathlib, the paper (v6:L143), the 7/8 paper (by title, date 30 September 2026, author OpenAI, path and sha256; v6:L144).
 
-## 3. Statement faithfulness (1.5 pages)
+## 3. Statement faithfulness (2.5 pages; rebudgeted 2026-10-27 from 1.5, for the per-challenge reasoning tables)
 
 Purpose: show whether the four family-003 challenge statements match the paper's statements, and say which parts rest on reading and which on Lean.
 
@@ -143,6 +143,11 @@ Claims:
 - Control scan:
   - v4:L019 = 116314 constants in closure (adc7f12);
   - v4:L094 = 116314 (fd4aeeb, identical block).
+- The two checked theorems and OAI's main result (added 2026-10-27):
+  - The challenge has Comparator check two theorems (v8:L147). They are not the same Lean proposition: one takes the zero hypotheses curried, the other as a conjunction (v9:L198). They are logically equivalent [INFERRED v9:L199].
+  - OAI's lean/formalization.yaml names exists_absolute_real_zero_gap as the main result for the SiegelZeros config; neither it nor lean/docs/003.md names the paper's Theorem 1 [STATED v9:L202].
+  - exists_absolute_real_zero_gap is proved through uniform_exclusion_of_local_isolated_bezout and uniform_exclusion_of_actual_cutoff (v9:L201). Its closure (107760 constants) has no 7/8-development constant, no dirichletRealZeroBound_proof and no actual_biquadratic_rectangle_span (v9:L200; v8:L148, v8:L149).
+  - So the reroute substitutes Lemma 3 into dirichletRealZeroBound_proof only. The sentence "does not use the multiplicity estimate" names the three lemmas and applies to that theorem.
 - CategoryTheory and AlgebraicGeometry names removed by the reroute:
   - v4:L020 = 9936 (6901 + 3035), referenced-names convention (names reachable from the root through types and values, as #find_deps);
   - v4:L021 = 10107 (7048 + 3059), full-dump convention (every declaration in the lean4export dumps).
@@ -214,7 +219,7 @@ Citations:
 - nanoda_lib;
 - Fischler, Compos. Math. 141 (2005): write "cited by the paper as [Fischler, Theorem 1.1 and Lemma 1.3]" (tex:155). Do not characterize the results; the numbering was not checked against a copy.
 
-## 6. The reroute (2 pages)
+## 6. The reroute (1.25 pages; rebudgeted 2026-10-27 from 2)
 
 Purpose: show that substituting the Lean proof of Corollary 4 into OAI's chain gives a proof accepted by Comparator with both kernels, and that the multiplicity estimate drops out.
 
@@ -455,15 +460,15 @@ Missing claims: none.
 | 0 | 0.5 |
 | 1 | 1.5 |
 | 2 | 1.5 |
-| 3 | 1.5 |
+| 3 | 2.5 |
 | 4 | 1.5 |
 | 5 | 3.0 |
-| 6 | 2.0 |
+| 6 | 1.25 |
 | 7 | 1.5 |
 | 8 | 1.25 |
 | 9 | 0.5 |
 | 10 | 0.25 |
-| total body | 15.0 |
+| total body | 15.25 (over the 15-page target by 0.25 after the rebudget) |
 | references | about 1 (outside the body estimate) |
 
 Section 8 grows with Table 4. If it runs over, move Table 4 to appendix I.

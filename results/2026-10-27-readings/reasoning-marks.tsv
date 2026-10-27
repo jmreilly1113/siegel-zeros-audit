@@ -1,0 +1,48 @@
+id	claim	mark	note
+v9:L203	HeckeSevenEighths: the challenge's L-function is the paper's L_F(s, eta). For Re s > 1 the challenge defines it, by a Lean lemma, as (1/6) times the sum over nonzero alpha in O of chi(alpha) N(alpha)^(-s). The ring O = Z[omega] is a principal ideal domain whose six units act freely on its nonzero elements, so each nonzero ideal has exactly six generators. chi is trivial on units and the norm is unit-invariant, so each ideal contributes six equal terms, and the sum equals the sum over nonzero ideals a of eta(a) (Na)^(-s), with eta(alpha O) = chi(alpha); the rearrangement is valid by absolute convergence. The challenge's L-function is holomorphic off {0, 1}, so by the identity theorem the two functions agree on 7/8 < Re s <= 1.		replaces v8:L151 (same claim; Lean sources added)
+v8:L152	Reading point, SiegelZeros: quantifier order: the constant c precedes q, chi and beta, so c is absolute.		
+v8:L153	Reading point, SiegelZeros: hypotheses: primitive, nonprincipal, real, q >= 3, beta in (0,1); none added, none missing.		
+v8:L154	Reading point, SiegelZeros: conclusion: c <= (1 - beta) log q, non-strict as in (1.1).		
+v8:L155	Reading point, SiegelZeros: Mathlib meaning: IsPrimitive is conductor = level, and conductor is the least level through which chi factors.		
+v8:L156	Reading point, SiegelZeros: Mathlib meaning: (chi a).im = 0 for all a means real-valued; values are 0 or roots of unity, so 0 or +-1.		
+v8:L157	Reading point, SiegelZeros: Mathlib meaning: DirichletCharacter.LFunction is ZMod.LFunction, the continuation; it equals the Dirichlet series for Re s > 1 and is entire for chi != 1.		
+v8:L158	Reading point, SiegelZeros: edge cases: q = 4 (odd) and q = 8 (one even, one odd) are covered.		
+v8:L159	Reading point, SiegelZeros: edge cases: no hypothesis mentions parity, so both parities are included.		
+v8:L160	Reading point, SiegelZeros: edge cases: nothing excludes non-prime or even conductors.		
+v8:L161	Reading point, QuasiRiemannHypothesis: quantifier order: 7/8 is a fixed literal.		
+v8:L162	Reading point, QuasiRiemannHypothesis: hypotheses: only Re s > 7/8; no pole hypothesis.		
+v8:L163	Reading point, QuasiRiemannHypothesis: conclusion: != 0 on the open half-plane Re s > 7/8; the paper excludes the boundary.		
+v8:L164	Reading point, QuasiRiemannHypothesis: Mathlib meaning: riemannZeta is hurwitzZetaEven 0, the continuation, with a junk value at 1.		
+v8:L165	Reading point, QuasiRiemannHypothesis: edge case s = 1: Mathlib's riemannZeta 1 is a nonzero junk value, so the statement asserts a true fact about it and nothing about the pole, which the paper allows.		
+v8:L166	Reading point, DirichletSevenEighths: quantifier order: fixed 7/8, uniform over every q >= 1, chi and s.		
+v8:L167	Reading point, DirichletSevenEighths: hypotheses: any modulus q >= 1 and any character, imprimitive ones and q = 1 included, as in the paper's definition.		
+v8:L168	Reading point, DirichletSevenEighths: hypotheses: hpole excludes s = 1 only for the principal character mod q.		
+v8:L169	Reading point, DirichletSevenEighths: conclusion: != 0, strict half-plane.		
+v8:L170	Reading point, DirichletSevenEighths: Mathlib meaning: LFunction is the continuation; for q = 1 it is riemannZeta; for chi != 1 it is entire, so its value at s = 1 is genuine.		
+v8:L171	Reading point, DirichletSevenEighths: edge cases: imprimitive nonprincipal characters gain zeros only on Re s = 0; the principal pole at 1 is excluded by hpole.		
+v8:L172	Reading point, HeckeSevenEighths: quantifier order: fixed 7/8, every Character.		
+v8:L173	Reading point, HeckeSevenEighths: hypotheses: Character (nonzero modulus, MulChar on O/m trivial on units, zero on non-units) is exactly a ray class character mod m extended by zero, since O is a PID with 6 units.		
+v8:L174	Reading point, HeckeSevenEighths: hypotheses: imprimitive characters are included on both sides.		
+v8:L175	Reading point, HeckeSevenEighths: hypotheses: the auxiliary period does not matter (HeckeHolo.period_indep).		
+v8:L176	Reading point, HeckeSevenEighths: hypotheses: hpole excludes s = 1 for the principal character only.		
+v8:L177	Reading point, HeckeSevenEighths: conclusion: != 0, strict half-plane.		
+v8:L178	Reading point, HeckeSevenEighths: definitions: the lattice series for Re s > 1, holomorphy off {0, 1} and the norm formula fix the function in 7/8 < Re s <= 1 by the identity theorem.		
+v8:L179	Reading point, HeckeSevenEighths: identification: each nonzero ideal has exactly 6 generators; chi and the norm are unit-invariant; so (1/6) times the sum over alpha equals the sum over ideals (absolute convergence).		
+v8:L180	Reading point, HeckeSevenEighths: the Dedekind factorization is not needed for this match (checked numerically only).		
+v8:L181	Reading point, HeckeSevenEighths: edge case s = 0 (outside the half-plane): a Gamma(0) = 0 junk value, no effect on the statement.		
+v8:L182	Reading point, Lemma3.interpolation: A: any surjective C-linear map C^4 -> C^3.		
+v8:L183	Reading point, Lemma3.interpolation: kernel: ker A = C c.		
+v8:L184	Reading point, Lemma3.interpolation: Q-independence: LinearIndependent Q c, c a family of four complex numbers.		
+v8:L185	Reading point, Lemma3.interpolation: N, t: N >= 1, integers t_j >= 3(N - 1).		
+v8:L186	Reading point, Lemma3.interpolation: budget (3.1): exact and strict.		
+v8:L187	Reading point, Lemma3.interpolation: P_t: separate degrees deg_{z_j} B <= t_j.		
+v8:L188	Reading point, Lemma3.interpolation: domain: Fin 4 -> Fin N is E_N.		
+v8:L189	Reading point, Lemma3.interpolation: conclusion: evaluation at A(n) is surjective onto C^{E_N}.		
+v8:L190	Reading point, Lemma3.rectangle: hypotheses on A: the same as Lemma 3.		
+v8:L191	Reading point, Lemma3.rectangle: H, N: naturals with 1 <= H <= N.		
+v8:L192	Reading point, Lemma3.rectangle: bound alpha_0: 32 H^(2/3) N^(4/3), real exponents.		
+v8:L193	Reading point, Lemma3.rectangle: bounds alpha_1, alpha_2: 32 H^(-1/3) N^(4/3).		
+v8:L194	Reading point, Lemma3.rectangle: alpha: in N^3, compared as reals with T_j.		
+v8:L195	Reading point, Lemma3.rectangle: rows: (An)_0^a0 (An)_1^a1 (An)_2^a2; Lean indexes from 0, the paper from 1.		
+v8:L196	Reading point, Lemma3.rectangle: conclusion: the rows span all functions on E_N.		
+v8:L197	"Reading point, Lemma3.rectangle: the remark ""the constant 32 is independent of A and H"" is the literal 32 in Lean."		

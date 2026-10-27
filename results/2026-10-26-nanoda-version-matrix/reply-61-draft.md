@@ -27,7 +27,7 @@ SquareDifference on f67473b at 16 MiB: `thread 'thread_2' has overflowed its sta
 | KMedianThreshold | exit 0, 25 s, 1.06 GB | exit 0, 26 s, 1.07 GB | grows to the 16G cap in 206 s |
 | Catalan | exit 0, 545 s, 5.0 GB | exit 0, 551 s, 4.6 GB | grows to the 16G cap in 201 s |
 
-<!-- ContinuumCoulombHardness: retry at 2 threads pending; fill in or drop -->
+We could not run ContinuumCoulombHardness: its build ran out of memory on this 20 GB machine at 4 and at 2 threads.
 
 **3. Our export sizes equal yours** (`results/nanoda-ab-let.jsonl`) to the byte for all of these configs, including Catalan (832,532,249) and KMedianThreshold (620,096,646), and for MatchingFPRAS (485,099,446) and ContingencyTables (492,768,597).
 

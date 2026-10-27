@@ -1,0 +1,77 @@
+# Paper files at openai/math adc7f12 and fd4aeeb (COMPUTED, read-only git show; 2026-10-27)
+# Command (WSL, as checker): python3 -I results/2026-10-27-paper-hashes/paper_hashes.py /home/checker/math /mnt/c/Users/Work/dev/siegel /mnt/c/Users/Work/dev/siegel/results/2026-10-27-paper-hashes/paper-hashes.txt ; Python 3.12.3
+## Uniform exclusion of Landau-Siegel zeros: preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/
+preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf: adc7f12 fab9f6e84ece2a37d834b2c031d8eb14e81413d9f6270791e7b5468b295214ef (404812 bytes); fd4aeeb fab9f6e84ece2a37d834b2c031d8eb14e81413d9f6270791e7b5468b295214ef (404812 bytes); identical True
+preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/build/paper.tex: adc7f12 b011ba9c1f55ee2164292492c55e0c6d75c458eb30d4808808f9953823b8ded4 (31166 bytes); fd4aeeb b011ba9c1f55ee2164292492c55e0c6d75c458eb30d4808808f9953823b8ded4 (31166 bytes); identical True
+preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/README.md: adc7f12 52acef9c7db3c63e6e1ee623cb8fd1c92e098aa8785e5ad2a434ede0088fc7fd (551 bytes); fd4aeeb 52acef9c7db3c63e6e1ee623cb8fd1c92e098aa8785e5ad2a434ede0088fc7fd (551 bytes); identical True
+  build/paper.tex:34: \title{Uniform exclusion of Landau--Siegel zeros}
+  build/paper.tex:35: \author{OpenAI}
+  build/paper.tex:36: \date{October 1, 2026}
+  version-like text outside comments: 1 lines
+    build/paper.tex:733: H.~Davenport, \emph{Multiplicative number theory}, 2nd ed., revised by
+## The Quasi-Riemann Hypothesis (September 30): preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/
+preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf: adc7f12 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 (1588969 bytes); fd4aeeb 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 (1588969 bytes); identical True
+preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex: adc7f12 42a5ee0febca59fd1def55cfd6c6808c322ef4237d7726303ea52f711deac6a3 (766316 bytes); fd4aeeb 42a5ee0febca59fd1def55cfd6c6808c322ef4237d7726303ea52f711deac6a3 (766316 bytes); identical True
+preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/README.md: adc7f12 5a9c5ef1322c1e0051f58bee69ce422984eb523ba85d56529eae18f05771bd32 (590 bytes); fd4aeeb 5a9c5ef1322c1e0051f58bee69ce422984eb523ba85d56529eae18f05771bd32 (590 bytes); identical True
+  build/paper.tex:29: \title{The Quasi-Riemann Hypothesis\\[0.5em]
+  build/paper.tex:31: \author{OpenAI}
+  build/paper.tex:32: \date{30 September 2026}
+  version-like text outside comments: 56 lines
+    build/paper.tex:118: Riemann hypothesis or its generalized versions, which place nontrivial
+    build/paper.tex:483: Fourier inversion therefore gives $F_\eta(2+it)=A_\eta(2+it)$ for every real
+    build/paper.tex:1128: Logarithmic Fourier inversion separates any fixed norm monomial.  More
+    build/paper.tex:1179: The following joint version will also be useful.  For measurable functions
+    build/paper.tex:1221: one can choose $2m\le J+d+2$.  Fourier inversion gives the monomial formula.
+    build/paper.tex:1472: finite Fourier inversion and Gaussian Poisson summation give
+    build/paper.tex:1734: This equality follows by absolute convergence and Mellin inversion.
+    build/paper.tex:1999: \begin{equation}\label{eq:reflection-cubic-sextic-conversion}
+    build/paper.tex:2012: \emph{Finite Fourier inversion with the zero extensions.}
+    build/paper.tex:2032: Fourier inversion on $\mathcal O/(L)$ and on each $\mathcal O/(p)$
+    build/paper.tex:2063: \eqref{eq:reflection-cubic-sextic-conversion} on the retained domain now
+    build/paper.tex:2306: \eqref{eq:reflection-cubic-sextic-conversion}.  Using
+    build/paper.tex:2537: dependence inside one joint smooth profile until after Fourier inversion;
+    build/paper.tex:2584: Assume that simultaneous logarithmic Fourier inversion expresses the vector
+    build/paper.tex:2835: Indeed, absolute convergence permits termwise Mellin inversion on that line.
+    build/paper.tex:3088: its support.  These blocks can be removed before Fourier inversion with
+    build/paper.tex:3191: After the row-sector conversion, take $\mathcal F$ in
+    build/paper.tex:3452: the fixed factor $\sum_\theta|a_\theta|$. The row-sector conversion used
+    build/paper.tex:3468: $q_m/(q_{b_*}q_sX)=(q_m/Q)/(q_s/Y)$, Mellin inversion gives the
+    build/paper.tex:3532: $\widetilde\phi(y)=\overline{\phi(-y)}$, Fourier inversion and the product
+    build/paper.tex:3805: Set $x=t+1-z$ after Mellin inversion of the two weights.  For a
+    build/paper.tex:4423: Mellin inversion on a line \(c+\sigma>1\) gives
+    build/paper.tex:4629: argument times that exponential.  Logarithmic Fourier inversion
+    build/paper.tex:4853: For $bc\ne1$, finite Fourier inversion for the primitive raw character is
+    build/paper.tex:4930: Mellin inversion for $\mathscr W$ on $\Re w=\delta$.  Apart from a
+    build/paper.tex:4940: $\ll N^{-1/2+\delta}|\lambda_b|$.  Detecting $(b,c)=1$ by M\"obius inversion
+    build/paper.tex:4970: Let $\mathfrak s_S=\prod_{\mathfrak p\in S}\mathfrak p$.  M\"obius inversion
+    build/paper.tex:5021: Indeed, for the squarefree row $a$, finite Fourier inversion gives on
+    build/paper.tex:5771: Uniform annular profiles separated by logarithmic Fourier inversion
+    build/paper.tex:7233: extension used with M\"obius inversion, fix $D,E,j$ and define
+    build/paper.tex:8127: $q_{p_{J^c}}=Z^{\ell'}\prod_{i\notin J}\varrho_i$, Mellin inversion
+    build/paper.tex:8177: Fourier inversion uses one coefficient density common to every row and
+    build/paper.tex:9082: version of Equation~\eqref{eq:unselected-local-product}.  Ideal counting
+    build/paper.tex:9432: remaining depth, and each child profile satisfies its own version of the
+    build/paper.tex:9839: M\"obius inversion of the cube factor in
+    build/paper.tex:9841: \begin{equation}\label{eq:marked-completion-inversion}
+    build/paper.tex:9968: Equation~\eqref{eq:marked-completion-inversion}.  If its cube ideal is
+    build/paper.tex:10077: individual dyad cutoffs and fresh column cutoffs outside the inversion,
+    build/paper.tex:10142: is kept outside Fourier inversion until the relevant weighted Cauchy
+    build/paper.tex:10388: This inversion is made after the cross phases have been replaced by
+    build/paper.tex:10404: Keep \(\mathcal B_1\) outside every Fourier inversion.  Define
+    build/paper.tex:10458: dyad cutoff outside inversion.  Let \(\Omega_{1,\alpha}\) be larger
+    build/paper.tex:10500: The one additional \(\mu(t')\) from the mutual-gcd inversion is outer.
+    build/paper.tex:10537: inversion gives the exact identity
+    build/paper.tex:10746: inversion; they are not also appended to the final child tests.
+    build/paper.tex:11128: and \(\omega_f\) outside inversion, and \(\omega_{n,a}\) in the two
+    build/paper.tex:11940: cutoffs and \(\omega_f\) remain outside inversion, and
+    build/paper.tex:12070: are outer.  Fourier inversion restores the full profile; its larger
+    build/paper.tex:12703: so \(|\varepsilon_k|=1\).  Mellin inversion and a contour shift show that
+    build/paper.tex:12842: To estimate a prime annulus of scale \(P\), apply Mellin inversion to
+    build/paper.tex:13854: \text{conversion to normalized residual products}&a_0-b_2
+    build/paper.tex:14628: unmasked version of Equation~\eqref{old-eq:2.18d}.
+    build/paper.tex:15033: deleted product has the same bound.  Mellin inversion of the
+    build/paper.tex:15339: version decrease with \(m\): their derivatives are respectively
+    build/paper.tex:16539: version 2.0, \href{https://www.math.auckland.ac.nz/~sgal018/crypto-book/ch2.pdf}{Chapter 2}.
+    build/paper.tex:16625: \emph{Class Field Theory}, course notes, version 4.03, 6 August 2020.
+local copy refs/siegel-paper.tex: sha256 b011ba9c1f55ee2164292492c55e0c6d75c458eb30d4808808f9953823b8ded4; LF-normalised b011ba9c1f55ee2164292492c55e0c6d75c458eb30d4808808f9953823b8ded4; equals fd4aeeb preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/build/paper.tex: True
+local copy refs/siegel-paper.pdf: sha256 fab9f6e84ece2a37d834b2c031d8eb14e81413d9f6270791e7b5468b295214ef; LF-normalised 8ea908623631a98b4444a5e6e50c602bcb80555cfe1e3da05817249d50afa90b; equals fd4aeeb preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf: True

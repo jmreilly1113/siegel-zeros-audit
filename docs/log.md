@@ -1781,3 +1781,18 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - nanoda only: a separate process reading the export file.
   - INFERRED in its note: step 6 replays the export-derived environment.
 - results/2026-10-26-claims-ledger/ledger-v5.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v5.py .`): 142 rows. paper/outline.md and paper/claim-map.tsv updated. Not pushed.
+
+## 2026-10-27: paper hashes (ledger v6); statement readings by Claude Code (pending Joe's OK)
+
+- COMPUTED (v6:L143, v6:L144; results/2026-10-27-paper-hashes/paper-hashes.txt; `python3 -I results/2026-10-27-paper-hashes/paper_hashes.py /home/checker/math ...`, WSL, Python 3.12.3, read-only git show):
+  - The Siegel paper and the 7/8 paper are byte-identical at adc7f12 and fd4aeeb (paper.pdf, build/paper.tex, README.md).
+  - Siegel: pdf fab9f6e8…, tex b011ba9c…, \date{October 1, 2026}. 7/8: pdf 8fe93046…, tex 42a5ee0f…, \date{30 September 2026}. Author OpenAI for both. Neither has a version label.
+  - refs/siegel-paper.{tex,pdf} equal the fd4aeeb files.
+  - This closes the UNCONFIRMED version-label entry.
+- Ledger: results/2026-10-26-claims-ledger/ledger-v6.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v6.py .`), 144 rows.
+- Readings 1-7, done by Claude Code at Joe's request (results/2026-10-27-readings/readings-claude-code.md). INFERRED readings of text.
+  - Proposed results: SiegelZeros MATCH; QuasiRiemannHypothesis MATCH; DirichletSevenEighths MATCH; HeckeSevenEighths MATCH (the 6-generator identification was re-read and accepted); Lemma3.interpolation MATCH; Lemma3.rectangle MATCH.
+  - Bastounis–Circelli–Hansen: cite, with a framing that names the Navier–Stokes result.
+  - Fischler: not checked; use "cited by the paper as [Fischler, Theorem 1.1 and Lemma 1.3]".
+  - Network: one read-only fetch from arxiv.org (abstract page and PDF of arXiv:2610.08144v1, PDF sha256 3282e2c4…). Not committed.
+  - No "Read by J. Reilly" line has been written, and read_by is unchanged. This waits for Joe's OK.

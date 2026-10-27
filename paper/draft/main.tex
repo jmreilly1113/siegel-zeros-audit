@@ -1,4 +1,4 @@
-% Draft of the paper (2026-10-27): abstract and sections 1-8 and 10; section 9 is a placeholder heading. Claims come from results/2026-10-26-claims-ledger/ledger-v7.tsv; structure from paper/outline.md.
+% The paper (2026-10-27): abstract, sections 1-10 and two appendices. Claims come from results/2026-10-26-claims-ledger/ (each line names its ledger version); title and author block: v17:L276; structure from paper/outline.md.
 % Class: the LIPIcs class (lipics-v2021) is not installed locally (kpsewhich finds no lipics-v2021.cls in WSL TeX Live 2023),
 % so this draft uses article with an A4 text block of roughly LIPIcs size. Swap the class when lipics-v2021.cls is available.
 % Engine: pdflatex. lualatex is present but luaotfload is not installed, so fontspec cannot load fonts; the Unicode in the
@@ -64,7 +64,21 @@
 \DeclareMathOperator{\conv}{conv}
 % A quotation of paper text. #1: the paper's own equation number for any numbered display inside (empty if none).
 \newenvironment{paperquote}[1]{\begin{quote}\small\renewcommand{\theequation}{#1}}{\end{quote}}
+% Layout (2026-10-27): long paths, Lean names and sha256 values have few break points and ran past the page edge.
+% \sloppy lets TeX loosen a line instead; \_ allows a break after each underscore; \hash{...} allows a break after each
+% character of a hash (and so no hyphen inside one); \allowbreak marks a break point after a / in a long path.
+\sloppy
+\setlength{\emergencystretch}{3em}
+\makeatletter
+\DeclareRobustCommand{\_}{\ifmmode\nfss@text{\textunderscore}\else\textunderscore\allowbreak\fi}
+\DeclareRobustCommand{\hash}[1]{\hash@#1\@nil}
+\def\hash@#1{\ifx#1\@nil\else#1\allowbreak\expandafter\hash@\fi}
+\makeatother
+\title{Formalizing the interpolation lemma of the openai/math Landau--Siegel paper and substituting it into a Comparator-accepted proof}
+\author{Joseph M. Reilly \\ Northeastern University}
+\date{}
 \begin{document}
+\maketitle
 \input{abstract}
 \input{sec1-intro}
 \input{sec2-background}

@@ -6,7 +6,7 @@ We proved the paper's Lemma 3 and Corollary 4 in Lean, following the paper's arg
 \subsection{Statements}
 
 Lemma3.interpolation, the paper's Lemma 3, is stated at lean-checks/Lemma3.lean:816-825, and that file imports Mathlib only. % v7:L022
-The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean equals lean-checks/Lemma3.lean through ``end Lemma3'' and has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283. % v7:L024
+The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean equals lean-checks/Lemma3.lean through ``end Lemma3'' and has sha256 \hash{1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283}. % v7:L024
 It is the file installed for the accepted rerouted Comparator run. % v7:L024
 Listing~\ref{lst:interpolation} quotes the statement from the comparator copy, and Listing~\ref{lst:pt} quotes the definition of Pt. % v7:L024 v7:L023
 The paper states its Lemma 3 at refs/siegel-paper.tex:252-267. % v7:L108
@@ -31,7 +31,7 @@ $\cP_t$ to $\C^{E_N}$ is surjective.
 By reading the Lean statement against the paper's text, Lemma3.interpolation matches the paper's Lemma 3, tex 252-267, clause by clause (Read by J. Reilly, 2026-10-27: MATCH). % v7:L145
 
 \begin{listing}[tbp]
-\caption{Lemma 3, lean-checks/comparator-copy/PaperLemma3/Lemma3.lean:817-826 (sha256 1ce196f5\ldots).}\label{lst:interpolation} % v7:L024
+\caption{Lemma 3, lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Lemma3.lean:817-826 (sha256 1ce196f5\ldots).}\label{lst:interpolation} % v7:L024
 %% QUOTE lean-checks/comparator-copy/PaperLemma3/Lemma3.lean 817-826 sha=v7:L024
 \begin{Verbatim}
 theorem interpolation
@@ -56,7 +56,7 @@ def Pt (t : Fin 3 → ℤ) : Set (MvPolynomial (Fin 3) ℂ) :=
 \end{Verbatim}
 \end{listing}
 
-Lemma3.rectangle, the paper's Corollary 4, is stated in the comparator copy Bridge.lean, installed for the accepted rerouted run (sha256 af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250). % v7:L025
+Lemma3.rectangle, the paper's Corollary 4, is stated in the comparator copy Bridge.lean, installed for the accepted rerouted run (sha256 \hash{af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250}). % v7:L025
 Listing~\ref{lst:rectangle} quotes it. % v7:L025
 The paper states its Corollary 4 at refs/siegel-paper.tex:410-420. % v7:L109
 Its lines 411-419 read: % v7:L109
@@ -77,7 +77,7 @@ By reading the Lean statement against the paper's text, Lemma3.rectangle matches
 The copies of interpolation, rectangle, bridge\_main, bridge\_descent and via\_lemma3 in the comparator copy and in lean-checks/Lemma3Bridged.lean are identical. % v7:L029
 
 \begin{listing}[tbp]
-\caption{Corollary 4, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:96-109 (sha256 af401514\ldots).}\label{lst:rectangle} % v7:L025
+\caption{Corollary 4, lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Bridge.lean:96-109 (sha256 af401514\ldots).}\label{lst:rectangle} % v7:L025
 %% QUOTE lean-checks/comparator-copy/PaperLemma3/Bridge.lean 96-109 sha=v7:L025
 \begin{Verbatim}
 /-- **Corollary 4** (`cor:rectangle`, tex lines 410–420). -/
@@ -105,7 +105,7 @@ Opening the proof, exists\_annihilator and p5\_PtSub give the weights of eq:mome
 Six helpers are used across several steps and are not placed in one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5\_eval\_aeval 614-620. % v7:L136
 
 \begin{table}[tbp]
-\caption{The Lean proof of Lemma 3 in lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, by the paper's proof steps. Line ranges run from docstring to last line.}\label{tab:lemma3-structure} % v7:L136
+\caption{The Lean proof of Lemma 3 in lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Lemma3.lean, by the paper's proof steps. Line ranges run from docstring to last line.}\label{tab:lemma3-structure} % v7:L136
 \small
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}X l@{}}
 \toprule
@@ -134,7 +134,7 @@ Listing~\ref{lst:mulapply} quotes its source line, Mathlib/Algebra/Algebra/Equiv
 The bridge reuses two OAI setup lemmas: source\_same\_witness\_hyperplane (InvariantJetLinearMap.lean:447-455) and biquadraticCoefficients\_linearIndependent (InvariantJetLinearMap.lean:380-397, with its \_map form at 424-430). % v7:L042 v7:L043
 
 \begin{listing}[tbp]
-\caption{The bridge theorem, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:288-290.}\label{lst:via} % v7:L028 v7:L036
+\caption{The bridge theorem, lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Bridge.lean:288-290.}\label{lst:via} % v7:L028 v7:L036
 %% QUOTE lean-checks/comparator-copy/PaperLemma3/Bridge.lean 288-290 sha=v7:L025
 \begin{Verbatim}
 /-- OAI's Corollary 4, proved via the paper's Lemma 3 instead of the multiplicity estimate. -/
@@ -144,7 +144,7 @@ theorem actual_biquadratic_rectangle_span_via_lemma3 :
 \end{listing}
 
 \begin{listing}[tbp]
-\caption{AlgEquiv.mul\_apply, Mathlib d13f23b Mathlib/Algebra/Algebra/Equiv.lean:663, as copied in results/2026-10-26-claims-ledger/mathlib-algequiv-mul\_apply.txt.}\label{lst:mulapply} % v7:L041
+\caption{AlgEquiv.mul\_apply, Mathlib d13f23b Mathlib/\allowbreak Algebra/\allowbreak Algebra/\allowbreak Equiv.lean:663, as copied in results/2026-10-26-claims-ledger/mathlib-algequiv-mul\_apply.txt.}\label{lst:mulapply} % v7:L041
 %% QUOTE-CONTAINED results/2026-10-26-claims-ledger/mathlib-algequiv-mul_apply.txt 5-5 sha=v7:L041
 \begin{Verbatim}
 theorem mul_apply (e₁ e₂ : A₁ ≃ₐ[R] A₁) (x : A₁) : (e₁ * e₂) x = e₁ (e₂ x) :=

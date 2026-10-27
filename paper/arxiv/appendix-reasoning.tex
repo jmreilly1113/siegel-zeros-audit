@@ -1,0 +1,57 @@
+\section{Reasoning points for the three 7/8 challenges}\label{app:reasoning}
+
+Tables~\ref{tab:points-QuasiRiemannHypothesis}--\ref{tab:points-HeckeSevenEighths} list the reasoning points behind the QuasiRiemannHypothesis, DirichletSevenEighths and HeckeSevenEighths readings, one ledger row per point; each is INFERRED and marked Read by J. Reilly, 2026-10-27: agree.
+
+\begin{table}[!htbp]
+\caption{Reasoning points behind the QuasiRiemannHypothesis reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-QuasiRiemannHypothesis}
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
+\toprule
+point & finding \\
+\midrule
+quantifier order: 7/8 is a fixed literal & MATCH \\
+hypotheses: only Re s > 7/8; no pole hypothesis & MATCH \\
+conclusion: != 0 on the open half-plane Re s > 7/8; the paper excludes the boundary & MATCH \\
+Mathlib meaning: riemannZeta is hurwitzZetaEven 0, the continuation, with a junk value at 1 & MATCH \\
+edge case s = 1: Mathlib's riemannZeta 1 is a nonzero junk value, so the statement asserts a true fact about it and nothing about the pole, which the paper allows & MATCH \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{Reasoning points behind the DirichletSevenEighths reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-DirichletSevenEighths}
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
+\toprule
+point & finding \\
+\midrule
+quantifier order: fixed 7/8, uniform over every q >= 1, chi and s & MATCH \\
+hypotheses: any modulus q >= 1 and any character, imprimitive ones and q = 1 included, as in the paper's definition & MATCH \\
+hypotheses: hpole excludes s = 1 only for the principal character mod q & MATCH \\
+conclusion: != 0, strict half-plane & MATCH \\
+Mathlib meaning: LFunction is the continuation; for q = 1 it is riemannZeta; for chi != 1 it is entire, so its value at s = 1 is genuine & MATCH \\
+edge cases: imprimitive nonprincipal characters gain zeros only on Re s = 0; the principal pole at 1 is excluded by hpole & MATCH \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{Reasoning points behind the HeckeSevenEighths reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-HeckeSevenEighths}
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
+\toprule
+point & finding \\
+\midrule
+quantifier order: fixed 7/8, every Character & MATCH \\
+hypotheses: Character (nonzero modulus, MulChar on O/m trivial on units, zero on non-units) is exactly a ray class character mod m extended by zero, since O is a PID with 6 units & MATCH \\
+hypotheses: imprimitive characters are included on both sides & MATCH \\
+hypotheses: the auxiliary period does not matter (HeckeHolo.period\_indep) & MATCH \\
+hypotheses: hpole excludes s = 1 for the principal character only & MATCH \\
+conclusion: != 0, strict half-plane & MATCH \\
+definitions: the lattice series for Re s > 1, holomorphy off \{0, 1\} and the norm formula fix the function in 7/8 < Re s <= 1 by the identity theorem & MATCH \\
+identification: each nonzero ideal has exactly 6 generators; chi and the norm are unit-invariant; so (1/6) times the sum over alpha equals the sum over ideals (absolute convergence) & MATCH \\
+the Dedekind factorization is not needed for this match (checked numerically only) & consistent \\
+edge case s = 0 (outside the half-plane): a Gamma(0) = 0 junk value, no effect on the statement & MATCH \\
+\bottomrule
+\end{tabularx}
+\end{table}

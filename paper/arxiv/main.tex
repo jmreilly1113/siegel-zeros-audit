@@ -1,0 +1,86 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,textwidth=14cm,textheight=22.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,array}
+\usepackage{fvextra}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{newunicodechar}
+\usepackage[hidelinks]{hyperref}
+\floatstyle{plaintop}
+\newfloat{listing}{tbp}{lol}
+\floatname{listing}{Listing}
+\fvset{fontsize=\small,breaklines=true,frame=lines}
+\newunicodechar{¬}{\ensuremath{\neg}}
+\newunicodechar{¹}{\textsuperscript{1}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{φ}{\ensuremath{\varphi}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{⁻}{\textsuperscript{-}}
+\newunicodechar{₁}{\textsubscript{1}}
+\newunicodechar{₂}{\textsubscript{2}}
+\newunicodechar{ₐ}{\textsubscript{a}}
+\newunicodechar{ₗ}{\textsubscript{l}}
+\newunicodechar{ℂ}{\ensuremath{\mathbb{C}}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∏}{\ensuremath{\prod}}
+\newunicodechar{∑}{\ensuremath{\sum}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{≃}{\ensuremath{\simeq}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{⊤}{\ensuremath{\top}}
+\newunicodechar{𝓞}{\ensuremath{\mathcal{O}}}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb Z_{\ge0}}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cK}{\mathcal K}
+\DeclareMathOperator{\conv}{conv}
+\newenvironment{paperquote}[1]{\begin{quote}\small\renewcommand{\theequation}{#1}}{\end{quote}}
+\sloppy
+\setlength{\emergencystretch}{3em}
+\makeatletter
+\DeclareRobustCommand{\_}{\ifmmode\nfss@text{\textunderscore}\else\textunderscore\allowbreak\fi}
+\DeclareRobustCommand{\hash}[1]{\hash@#1\@nil}
+\def\hash@#1{\ifx#1\@nil\else#1\allowbreak\expandafter\hash@\fi}
+\makeatother
+\title{Formalizing the interpolation lemma of the openai/math Landau--Siegel paper and substituting it into a Comparator-accepted proof}
+\author{Joseph M. Reilly \\ Northeastern University}
+\date{}
+\begin{document}
+\maketitle
+\input{abstract}
+\input{sec1-intro}
+\input{sec2-background}
+\input{sec3-faithfulness}
+\input{sec4-gap}
+\input{sec5-lemma3}
+\input{sec6-reroute}
+\input{sec7-corpus}
+\input{sec8-threats}
+\input{sec9-artifacts}
+\input{sec10-ai}
+\bibliographystyle{plainurl}
+\bibliography{refs}
+\appendix
+\input{appendix-78-listings}
+\input{appendix-reasoning}
+\end{document}

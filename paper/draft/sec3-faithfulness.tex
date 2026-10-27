@@ -8,7 +8,7 @@ Table~\ref{tab:faithfulness} gives each challenge file's sha256 at openai/math f
 
 \subsection{The SiegelZeros challenge}
 
-The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. % v7:L007
+The SiegelZeros challenge file has sha256 \hash{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}, and it is unchanged between adc7f12 and fd4aeeb. % v7:L007
 Listing~\ref{lst:siegel-challenge} quotes its two theorems. % v7:L007
 By reading the Lean statement against the paper's text, the challenge statement matches the paper's Theorem 1, with the hypotheses primitive, nonprincipal, real, q >= 3 and beta in (0,1). % v7:L008
 The type of each solution theorem equals the type of the challenge theorem. % v7:L008
@@ -55,13 +55,13 @@ NonVacuity.quadChar\_LFunction\_eq\_LSeries proves that the L-function of the qu
 NonVacuity.quadChar\_LFunction\_one\_ne\_zero proves $L(1, \chi_p) \ne 0$ for the quadratic character mod an odd prime $p$. % v7:L013
 NonVacuity.specialization proves that the challenge theorem specialises to an explicit statement about the quadratic characters. % v7:L014
 Each of the four depends on the axioms [propext, Classical.choice, Quot.sound]. % v7:L011 v7:L012 v7:L013 v7:L014
-\footnote{The lemmas are in lean-checks/NonVacuity.lean, LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. % v7:L015
+\footnote{The lemmas are in lean-checks/NonVacuity.lean, LF sha256 \hash{b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9}. % v7:L015
 They were compiled as checker via sudo -u checker, with no systemd-run unit and no address-family filter. % v7:L138
 }
 
 \subsection{The three 7/8 challenges}
 
-The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' \cite{openai-qrh-2026} (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 v8:L150
+The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' \cite{openai-qrh-2026} (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 \hash{8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7} at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 v8:L150
 Lines 107-110 of its build/paper.tex read: % v7:L144
 %% QUOTE external/openai-math/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex 107-110 sha=v7:L144
 \begin{paperquote}{}
@@ -106,7 +106,7 @@ Table~\ref{tab:points-SiegelZeros} lists the reasoning points behind the SiegelZ
 Each point is INFERRED, by reading the Lean statement against the paper's text, and each is marked Read by J. Reilly, 2026-10-27: agree. % v10:L205 v10:L234
 
 \begin{table}[!htbp]
-\caption{Reasoning points behind the SiegelZeros reading (v7:L008). INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-SiegelZeros} % v10:L205 v10:L206 v10:L207 v10:L208 v10:L209 v10:L210 v10:L211 v10:L212 v10:L213
+\caption{Reasoning points behind the SiegelZeros reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-SiegelZeros} % v10:L205 v10:L206 v10:L207 v10:L208 v10:L209 v10:L210 v10:L211 v10:L212 v10:L213
 \scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
 \toprule

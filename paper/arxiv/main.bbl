@@ -1,0 +1,202 @@
+\begin{thebibliography}{10}
+
+\bibitem{nanoda-lib}
+ammkrn.
+\newblock nanoda\_lib.
+\newblock GitHub repository ammkrn/nanoda\_lib, commit
+  3a2407216ee84a75f9e1aead6803d0578be06ae7 (2026-09-22), 2026.
+\newblock Author given as the GitHub account name.
+\newblock URL:
+  \url{https://github.com/ammkrn/nanoda_lib/tree/3a2407216ee84a75f9e1aead6803d0578be06ae7}.
+
+\bibitem{arxiv-2610-15483}
+William~D. Banks.
+\newblock On the {OpenAI} proof that {Landau--Siegel} zeros do not exist.
+\newblock arXiv:2610.15483 v1, 11 October 2026, October 2026.
+\newblock URL: \url{https://arxiv.org/abs/2610.15483}, \href
+  {https://doi.org/10.48550/arXiv.2610.15483}
+  {\path{doi:10.48550/arXiv.2610.15483}}.
+
+\bibitem{bastounis2026}
+Alexander Bastounis, Fabian Circelli, and Anders~C. Hansen.
+\newblock {Navier-Stokes} lost in translation: Why {Lean} verification of {AI}
+  autoformalisation does not guarantee correct natural language proofs.
+\newblock arXiv:2610.08144 v1 [math.AP], 6 October 2026, October 2026.
+\newblock URL: \url{https://arxiv.org/abs/2610.08144}.
+
+\bibitem{fischler2005}
+S.~Fischler.
+\newblock Interpolation on algebraic groups.
+\newblock {\em Compositio Mathematica}, 141(4):907--925, 2005.
+\newblock \href {https://doi.org/10.1112/S0010437X05001351}
+  {\path{doi:10.1112/S0010437X05001351}}.
+
+\bibitem{grwtsk-29}
+grwtsk.
+\newblock {[AUDIT.26]} reproduce manuscript {PDFs} and bind paper statements to
+  exact {Lean} declarations.
+\newblock grwtsk/openai-math issue \#29, opened 2026-10-09; comment 6296359378
+  (2026-10-20), 2026.
+\newblock Author given as the GitHub account name.
+\newblock URL:
+  \url{https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378}.
+
+\bibitem{grwtsk-40}
+grwtsk.
+\newblock {[AUDIT.35]} independently audit the uniform {Landau--Siegel}
+  real-zero gap.
+\newblock grwtsk/openai-math issue \#40, opened 2026-10-09; comments 6087525965
+  (2026-10-09) and 6431288875 (2026-10-27 UTC), 2026.
+\newblock Author given as the GitHub account name.
+\newblock URL: \url{https://github.com/grwtsk/openai-math/issues/40}.
+
+\bibitem{comparator}
+{Lean FRO}.
+\newblock Comparator.
+\newblock GitHub repository leanprover/comparator, tag v4.34.0, commit
+  d03acab154d269c06e60e4de7e4cc85deebff94b (2026-09-14), 2026.
+\newblock URL:
+  \url{https://github.com/leanprover/comparator/tree/d03acab154d269c06e60e4de7e4cc85deebff94b}.
+
+\bibitem{lean4}
+{leanprover}.
+\newblock Lean 4.
+\newblock GitHub repository leanprover/lean4, version v4.34.1, commit
+  5045d0056413266e57c625dcd7c365b10e377c52 (2026-09-24), 2026.
+\newblock Author given as the owning GitHub organization.
+\newblock URL:
+  \url{https://github.com/leanprover/lean4/tree/5045d0056413266e57c625dcd7c365b10e377c52}.
+
+\bibitem{lean4export}
+{leanprover}.
+\newblock lean4export.
+\newblock GitHub repository leanprover/lean4export, tag v4.34.0, commit
+  076e8e57707e813375e8f9da8bf989799ace9680 (2026-09-14), 2026.
+\newblock Author given as the owning GitHub organization.
+\newblock URL:
+  \url{https://github.com/leanprover/lean4export/tree/076e8e57707e813375e8f9da8bf989799ace9680}.
+
+\bibitem{mathlib}
+{leanprover-community}.
+\newblock Mathlib.
+\newblock GitHub repository leanprover-community/mathlib4, commit
+  d13f23b723b8a846827a245b89c10fc7d3f11612 (2026-09-24), 2026.
+\newblock Author given as the owning GitHub organization.
+\newblock URL:
+  \url{https://github.com/leanprover-community/mathlib4/tree/d13f23b723b8a846827a245b89c10fc7d3f11612}.
+
+\bibitem{nanoda-issue-62}
+Neal McBurnett.
+\newblock {OAI.SquareDifference.source\_ordered\_contraction} overflows the
+  stack on the current master.
+\newblock nanoda\_lib issue \#62, opened 2026-10-23, 2026.
+\newblock URL: \url{https://github.com/ammkrn/nanoda_lib/issues/62}.
+
+\bibitem{mcburnett-tooling}
+Neal McBurnett.
+\newblock openai-math-lean-tooling.
+\newblock GitHub repository nealmcb/openai-math-lean-tooling, commit
+  1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4 (2026-10-25), 2026.
+\newblock URL:
+  \url{https://github.com/nealmcb/openai-math-lean-tooling/tree/1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4}.
+
+\bibitem{nanoda-issue-55}
+Neal McBurnett.
+\newblock Stack overflow, then ``index exceeds 31-bit capacity'' panic, in
+  \texttt{whnf} / \texttt{try\_reduce\_nat} on a small set of declarations that
+  {Lean}'s kernel checks in seconds.
+\newblock nanoda\_lib issue \#55, opened 2026-10-15; comment 6293743601
+  (2026-10-20), 2026.
+\newblock URL: \url{https://github.com/ammkrn/nanoda_lib/issues/55}.
+
+\bibitem{nanoda-issue-61}
+Neal McBurnett.
+\newblock Three openai/math configurations need a deeper stack on the current
+  master than on the earlier one.
+\newblock nanoda\_lib issue \#61, opened 2026-10-23; comment 6402528075
+  (2026-10-25), 2026.
+\newblock URL: \url{https://github.com/ammkrn/nanoda_lib/issues/61}.
+
+\bibitem{openai-math-adc7f12}
+{OpenAI}.
+\newblock openai/math.
+\newblock GitHub repository, commit adc7f1241b42e322a6451854ab7e4b4c146bf78a
+  (2026-10-06), 2026.
+\newblock URL:
+  \url{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+
+\bibitem{openai-math-fd4aeeb}
+{OpenAI}.
+\newblock openai/math.
+\newblock GitHub repository, commit fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+  (2026-10-08 UTC), 2026.
+\newblock URL:
+  \url{https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb}.
+
+\bibitem{openai-qrh-2026}
+{OpenAI}.
+\newblock The quasi-riemann hypothesis: A zero-free half-plane
+  $\operatorname{Re} s>7/8$.
+\newblock Manuscript dated 30 September 2026, openai/math,
+  \nolinkurl{preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf},
+  sha256 8fe93046\ldots, identical at commits adc7f12 and fd4aeeb, September
+  2026.
+\newblock URL:
+  \url{https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf}.
+
+\bibitem{openai-siegel-2026}
+{OpenAI}.
+\newblock Uniform exclusion of {Landau--Siegel} zeros.
+\newblock Manuscript dated October 1, 2026, openai/math,
+  \nolinkurl{preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf},
+  sha256 fab9f6e8\ldots, identical at commits adc7f12 and fd4aeeb, October
+  2026.
+\newblock URL:
+  \url{https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf}.
+
+\bibitem{zenodo-23505836}
+Joseph~M. Reilly.
+\newblock Comparator and nanoda replay of the openai/math {Lean} corpus at
+  fd4aeeb, with statement checks for family 003.
+\newblock Zenodo, version corpus-replay-2026-10-20, 2026-10-20, 2026.
+\newblock \href {https://doi.org/10.5281/zenodo.23505836}
+  {\path{doi:10.5281/zenodo.23505836}}.
+
+\bibitem{zenodo-23269528}
+Joseph~M. Reilly.
+\newblock Verification package for openai/math family 003, uniform exclusion of
+  {Landau--Siegel} zeros: comparator + nanoda replay, {Lean} formalization of
+  the paper's {Lemma} 3, rerouted proof, exact small-{N} checks.
+\newblock Zenodo, version reviewer-packet-v1, 2026-10-09, 2026.
+\newblock \href {https://doi.org/10.5281/zenodo.23269528}
+  {\path{doi:10.5281/zenodo.23269528}}.
+
+\bibitem{zenodo-23499651}
+Joseph~M. Reilly.
+\newblock Verification package for openai/math family 003, uniform exclusion of
+  {Landau--Siegel} zeros: comparator + nanoda replay, {Lean} formalization of
+  the paper's {Lemma} 3, rerouted proof, exact small-{N} checks (preliminary).
+\newblock Zenodo, version reviewer-packet-v2-preliminary, 2026-10-20, 2026.
+\newblock \href {https://doi.org/10.5281/zenodo.23499651}
+  {\path{doi:10.5281/zenodo.23499651}}.
+
+\bibitem{zenodo-23523697}
+Joseph~M. Reilly.
+\newblock Verification package for openai/math family 003, uniform exclusion of
+  {Landau--Siegel} zeros: machine-checked complement to existing human
+  write-ups (comparator + nanoda, {Lean} {Lemma} 3, explicit constant).
+\newblock Zenodo, version reviewer-packet-v3, 2026-10-21, 2026.
+\newblock \href {https://doi.org/10.5281/zenodo.23523697}
+  {\path{doi:10.5281/zenodo.23523697}}.
+
+\bibitem{zenodo-23269527}
+Joseph~M. Reilly.
+\newblock Verification package for openai/math family 003, uniform exclusion of
+  {Landau--Siegel} zeros: machine-checked complement to existing human
+  write-ups (comparator + nanoda, {Lean} {Lemma} 3, explicit constant).
+\newblock Zenodo concept DOI (all versions); resolves to the latest version,
+  reviewer-packet-v3, 2026.
+\newblock \href {https://doi.org/10.5281/zenodo.23269527}
+  {\path{doi:10.5281/zenodo.23269527}}.
+
+\end{thebibliography}

@@ -1,0 +1,52 @@
+\section{The reroute}\label{sec:reroute}
+
+The reroute replaces OAI's Corollary 4 in the second route, dirichletRealZeroBound\_proof, with the Lean proof of Section~\ref{sec:lemma3}.
+It changes one tracked file of openai/math by +2/-1 lines, an import and the term at line 138, and adds the two modules PaperLemma3/Lemma3.lean and PaperLemma3/Bridge.lean.
+The installed files have sha256 1ce196f5\ldots{} and af401514\ldots{}, and the patch is 1 file +2/-1.
+The patch applies cleanly at fd4aeeb, and the patched file is byte-identical at adc7f12 and fd4aeeb.
+
+\subsection{The runs at fd4aeeb}
+
+The primary record is a pair of Comparator runs at openai/math fd4aeeb, in results/2026-10-27-reroute-fd4aeeb/: a control on the unmodified code and the reroute.
+Both ran the official Comparator with nanoda 3a24072 enabled, under the 45-family deny list and a 16G v1 cgroup cap.
+Both runs are accepted by Comparator with both kernels, with exit 0.
+Table~\ref{tab:reroute} gives the verdicts, the dependency scans of dirichletRealZeroBound\_proof, and the time and memory of each run.
+The rerouted closure of dirichletRealZeroBound\_proof matches only via\_lemma3 and interpolation, and none of the three OAI lemmas.
+Both scan blocks are identical to the 2026-10-09 blocks at adc7f12 (counts, matches, axioms).
+The reroute leaves exists\_absolute\_real\_zero\_gap unchanged: its closure has 107760 constants in both clones, with none of the three OAI lemmas.
+The guard made no stops during the two runs.
+
+\begin{table}[tbp]
+\caption{The SiegelZeros control and reroute at openai/math fd4aeeb (results/2026-10-27-reroute-fd4aeeb/). Prebuild: lake build of the solution and challenge modules, 4 threads. Comparator run: nanoda 3a24072 enabled, 16G v1 cgroup cap, 45-family deny list.}\label{tab:reroute}
+\small
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+run & verdict & scan & prebuild & Comparator run \\
+\midrule
+control & ACCEPT\_BOTH; exit 0 & 116314 constants in closure & 11min 19.935s; 9243 jobs & 842 s; max RSS 7707508 kB; cgroup max\_usage 7412195328 B; oom\_kill 0 \\
+reroute & ACCEPT\_BOTH; exit 0 & 92658 constants in closure & 1min 39.395s; 9245 jobs & 659 s; max RSS 7662352 kB; cgroup max\_usage 6280855552 B; oom\_kill 0 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The clone}
+
+The runs used a local clone of fd4aeeb; package directory reused read-only from the original clone; OAI closure built from scratch.
+The clone /home/checker/math-r2 is a local git clone of /home/checker/math, at fd4aeeb with 0 tracked changes, and its lake-manifest.json, lean-toolchain and lakefile.lean equal the original's.
+Its lean/.lake/packages is bind-mounted read-only from the original clone, a write as checker was refused, and the mount was removed at the end.
+The clone was created at 2026-10-26 22:17:36, its lean/.lake/build directory was created at 22:19:37, after the control prebuild started (22:19:09), and the oldest OAI .olean dates from 22:19:53.
+The reroute prebuild ran in the same clone, after the control, with the two PaperLemma3 modules and the +2/-1 patch.
+\footnote{By the order of the runs and lake's incremental build, the reroute prebuild is shorter because lake reused the control's build outputs and rebuilt only the two new modules, the patched module and the modules that depend on it (INFERRED).
+The prebuild log lists only modules that printed warnings, so the set of rebuilt modules is not recorded.
+}
+
+\subsection{Corroboration at adc7f12}
+
+The same substitution was first run at adc7f12 on 2026-10-09.
+There the rerouted clone differs from openai/math in 1 tracked file, +2/-1, plus the two untracked PaperLemma3 modules.
+The challenge file is unchanged, with sha256 \hash{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}.
+The rerouted Comparator run built 9244 jobs and was accepted by Comparator with both kernels, with exit 0.
+Its dependency scan of dirichletRealZeroBound\_proof finds 92658 constants in the closure, matching only via\_lemma3 and interpolation, against 116314 in the control.
+After line 138 is replaced, the closure no longer contains actual\_biquadratic\_rectangle\_span.
+
+The rerouted chain still imports the patched PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport.

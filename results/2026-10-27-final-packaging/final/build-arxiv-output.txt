@@ -1,0 +1,23 @@
+abstract.tex
+appendix-78-listings.tex
+appendix-reasoning.tex
+main.bbl
+main.tex
+sec1-intro.tex
+sec10-ai.tex
+sec2-background.tex
+sec3-faithfulness.tex
+sec4-gap.tex
+sec5-lemma3.tex
+sec6-reroute.tex
+sec7-corpus.tex
+sec8-threats.tex
+sec9-artifacts.tex
+pass 1 exit 0
+pass 2 exit 0
+pass 3 exit 0
+Pages:           20
+overfull hboxes: 0
+PDF text identical to the draft build
+cbe48c337330717486c97b04071288a6f2fdfeebc9313ba0b82b46492bbcff97  main.pdf
+ce27f1b715ad1d1adbc79ea30d05702b93e2ef18baa6a4bbf6750fed027bd45f  /mnt/c/Users/Work/dev/siegel/results/2026-10-27-final-packaging/final/draft-main.pdf

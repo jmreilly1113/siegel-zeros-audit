@@ -1,0 +1,25 @@
+# Final round (2026-10-27): after the title block (v17:L276) and the layout edits. Commands, run from the repository root.
+# Note: the header lines of residue-scan.txt and number-match.txt print the command without its "final" argument (a script
+# string not updated before the run; fixed in the scripts afterwards). The commands that produced them are the ones below.
+
+python -I results/2026-10-27-final-packaging/layout_edits.py .                  -> ../layout-edits-output.txt (31 lines, refs.bib 2)
+python -I results/2026-10-26-claims-ledger/build_ledger_v17.py .               -> ledger-v17.tsv (276 rows, new L276)
+python -I paper/draft/check.py .                                               -> only NOTE sec5-lemma3.tex:63 (default ledger v17)
+wsl: bash results/2026-10-27-final-packaging/final_build.sh                    -> build-output.txt, draft-main.{pdf,log,bbl,utf8.txt}
+python -I results/2026-10-27-final-packaging/residue_scan.py . final           -> residue-scan.txt
+python -I results/2026-10-27-final-packaging/number_match.py . final           -> number-match.txt
+python -I results/2026-10-27-final-packaging/make_arxiv.py . final             -> make-arxiv-output.txt (paper/arxiv/)
+wsl: bash results/2026-10-27-final-packaging/final/build_arxiv_final.sh        -> build-arxiv-output.txt, arxiv-main.{pdf,log,utf8.txt}
+python -I results/2026-10-27-final-packaging/arxiv_grep.py . final             -> arxiv-grep.txt
+python -I results/2026-10-27-final-packaging/contact_check.py .                -> contact-check.txt
+
+# Results (COMPUTED)
+draft build: 20 pages, 0 overfull hboxes, 0 words past the right page edge, sha256 ce27f1b715ad1d1adbc79ea30d05702b93e2ef18baa6a4bbf6750fed027bd45f
+arXiv build from paper/arxiv/ alone: 20 pages, 0 overfull hboxes, PDF text identical to the draft build
+residue scan: 3 hits, all in the two header comments (sec3-faithfulness.tex:2, refs.bib:3) that describe a format; none in the PDF text or log
+number match: 2 MISMATCH, by hand: p16 "1021" is 2026-10-21 (sec8-threats.tex:37) broken at a hyphen and joined by pdftotext;
+  p16 "83" is the last two characters of 1ce196f5...af465283 (sec9-artifacts.tex:15, v14:L024), wrapped to the next line by \hash.
+  The 13 BIB-MISMATCH on page 19 are the appendix Listing 11 tokens, as in ../number-match-2-notes.txt.
+arXiv grep: ledger id 0; Claude 5 (sec10-ai.tex); ledger 6 (sec10 "ledger builders", "one ledger row per point" x2, "as in the ledger",
+  two results/2026-10-26-claims-ledger/ paths); unescaped % 1 (Lean type_of% inside Verbatim)
+contact check: description 0 hits; other fields: the creator name, and two digit runs matching the phone pattern (a commit hash, arXiv:2610.15483)

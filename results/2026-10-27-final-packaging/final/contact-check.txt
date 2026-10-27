@@ -1,0 +1,6 @@
+# Contact-detail check of docs/zenodo-paper-v1-metadata.json (2026-10-27). Command: python -I results/2026-10-27-final-packaging/contact_check.py .
+# description hits: 0; other-field hits: 4
+other fields	phone	'0280760783'
+other fields	phone	'2610.15483'
+other fields	name	'Reilly'
+other fields	name	'Joseph'

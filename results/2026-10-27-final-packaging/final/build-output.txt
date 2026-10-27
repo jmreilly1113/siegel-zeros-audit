@@ -1,0 +1,7 @@
+pass1 exit 0
+bibtex exit 0
+main exit 0
+Pages:           20
+overfull hboxes: 0
+words past the right page edge: 0
+ce27f1b715ad1d1adbc79ea30d05702b93e2ef18baa6a4bbf6750fed027bd45f  main.pdf

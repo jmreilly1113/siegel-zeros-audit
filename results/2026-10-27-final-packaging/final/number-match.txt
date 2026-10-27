@@ -1,0 +1,1059 @@
+# Number matching (step 3), second run, 2026-10-27. Command: python -I results/2026-10-27-final-packaging/number_match.py .
+# ledger results/2026-10-26-claims-ledger/ledger-v17.tsv (276 rows); PDF text draft-main.utf8.txt (21 form-feed pages); refs.bib 23 entries
+# body tokens by class (one per class, token, page): {'CITED': 681, 'CITE-LABEL': 9, 'QUOTE': 35, 'BROKEN': 72, 'LAYOUT': 19, 'DEHYPH': 10, 'MISMATCH': 2}
+# bibliography tokens: {'BIB-OK': 206, 'BIB-DEHYPH': 5, 'LAYOUT': 1, 'BIB-LABEL': 1, 'BIB-MISMATCH': 13}
+# class	page	token	where (source line [cited rows]) or note	PDF line
+MISMATCH	16	1021		Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+MISMATCH	16	83		83.
+BROKEN	1	exists_absolute_	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	that OpenAI proves them by two routes. OpenAI’s catalogued main result, exists_absolute_
+BROKEN	1	real_zero_gap	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	real_zero_gap, gets its spanning step from a local Bézout statement, through a zero test with
+BROKEN	3	d03acab154d269c06e60	part of a source word at sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d269c06e60
+BROKEN	3	e4de7e4cc85deebff94b	part of a source word at sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ace9680 for
+BROKEN	3	bedaac0248a641910f79a380d9702d82c6bfbbfd3760a	part of a source word at sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a
+BROKEN	3	69d27c72c5d8fb136ce	part of a source word at sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. Its config has Comparator check two theorems, OAI.
+BROKEN	3	OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_	part of a source word at sec2-background.tex:20 [v16:L147]	69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. Its config has Comparator check two theorems, OAI.
+BROKEN	3	zero_gap	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	zero_gap and OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof. Section 3 quotes both statements, and Secti
+BROKEN	3	bedaac0248a641910f79a380d9702d82c6bfbbfd3760	part of a source word at sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760
+BROKEN	3	a69d27c72c5d8fb136ce	part of a source word at sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	a69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. Listing 1 quotes
+BROKEN	4	b9fae4da5517a97da50d3fdb5356329f03f00b7	part of a source word at sec3-faithfulness.tex:58 [v16:L015]; sec9-artifacts.tex:18 [v16:L015]	1 The lemmas are in lean-checks/NonVacuity.lean, LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7
+BROKEN	4	ab935a448a999b2c59b24d9f9	part of a source word at sec3-faithfulness.tex:58 [v16:L015]; sec9-artifacts.tex:18 [v16:L015]	ab935a448a999b2c59b24d9f9. They were compiled as checker via sudo -u checker, with no systemd-run unit
+BROKEN	5	exists_absolute_real_zero_	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	Comparator checks two theorems for the SiegelZeros challenge: exists_absolute_real_zero_
+BROKEN	5	exists_absolute_	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	in a Mathlib-only file, proves the two statements equivalent, with the axioms [propext, Classical.choice, Quot.sound]. O
+BROKEN	6	real_zero_gap	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	real_zero_gap as the main result for the SiegelZeros config; neither it nor lean/docs/003.md
+BROKEN	6	uniform_exclusion_of_	part of a source word at sec4-gap.tex:13 [v16:L201 v16:L255]	applies. uniform_exclusion_of_local_isolated_bezout applies uniform_exclusion_of_
+BROKEN	6	W28.actualCutoffSpanning_of_	part of a source word at sec4-gap.tex:13 [v16:L201 v16:L255]	actual_cutoff and obtains its spanning hypothesis from W28.actualCutoffSpanning_of_
+BROKEN	6	actual_cutoff	part of a source word at sec4-gap.tex:13 [v16:L201 v16:L255]; sec4-gap.tex:14 [v16:L201]	actual_cutoff and obtains its spanning hypothesis from W28.actualCutoffSpanning_of_
+BROKEN	6	actual_rectangularAssertion_	part of a source word at sec4-gap.tex:39 [v16:L253]	rowSpan_top_of_field_map and applying actual_complex_cutoff_spanning. That theorem combines cutoff_span_of_rectangularAs
+BROKEN	6	of_localBezout	part of a source word at sec4-gap.tex:13 [v16:L201 v16:L255]	of_localBezout. RectangularAssertion (Listing 4) is a zero test with Corollary 4’s bounds,
+BROKEN	6	biquadratic_rectangle_span	part of a source word at sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	biquadratic_rectangle_span, but it proves a zero test with the same constants as Corollary
+BROKEN	6	09b8bd7fa82365e69caebfad466d039d85	part of a source word at sec4-gap.tex:83 [v16:L016]	is identical at adc7f12 and fd4aeeb, with LF sha256 09b8bd7fa82365e69caebfad466d039d85
+BROKEN	6	084595376766a731945fa5c11a2bdc	part of a source word at sec4-gap.tex:83 [v16:L016]	084595376766a731945fa5c11a2bdc. Listing 5 quotes the statement.
+BROKEN	7	OAI/NumberTheory/SiegelZeros/	part of a source word at sec4-gap.tex:17 [v16:L201]	Listing 3: The main route’s spanning statement, OAI/NumberTheory/SiegelZeros/
+BROKEN	7	Structure/ArithmeticCutoffTransport.lean:356-366	part of a source word at sec4-gap.tex:44 [v16:L252]	Structure/ArithmeticCutoffTransport.lean:356-366 (openai/math fd4aeeb).
+BROKEN	7	OAI/NumberTheory/SiegelZeros/Determinants/	part of a source word at sec4-gap.tex:62 [v16:L253]	Listing 4: The zero test on the main route, OAI/NumberTheory/SiegelZeros/Determinants/
+BROKEN	7	RectangleDeterminant.lean:31-37	part of a source word at sec4-gap.tex:62 [v16:L253]	RectangleDeterminant.lean:31-37 (openai/math fd4aeeb).
+BROKEN	7	OAI/NumberTheory/SiegelZeros/Structure/	part of a source word at sec4-gap.tex:44 [v16:L252]	OAI/NumberTheory/SiegelZeros/Structure/
+BROKEN	7	InvariantJetLinearMap.lean:471-484	part of a source word at sec4-gap.tex:82 [v16:L016]; sec4-gap.tex:87 [v16:L016]	InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f. . . , identical at adc7f12 and
+BROKEN	8	Geometry.source_rectangle_span_of_polynomial_	part of a source word at sec4-gap.tex:107 [v16:L099]	Inside its proof, line 493 applies Geometry.source_rectangle_span_of_polynomial_
+BROKEN	8	zero_test	part of a source word at sec4-gap.tex:107 [v16:L099]	zero_test and line 496 applies Geometry.uniform_rectangular_multiplicity; a text search of
+BROKEN	8	uniform_rectangular_	part of a source word at sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:108 [v16:L019 v16:L099]	in its closure, among them actual_biquadratic_rectangle_span, uniform_rectangular_
+BROKEN	8	false_of_eventual_exists_	part of a source word at sec4-gap.tex:14 [v16:L201]; sec4-gap.tex:112 [v16:L256]	at fd4aeeb. exists_good_mass_for_actual_zeros_normalized, false_of_eventual_exists_
+BROKEN	8	pivot_master	part of a source word at sec4-gap.tex:14 [v16:L201]; sec4-gap.tex:112 [v16:L256]	pivot_master and exists_actual_character_pivot_master are in the closure of exists_
+BROKEN	8	absolute_real_zero_gap	part of a source word at abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	absolute_real_zero_gap and in neither the control nor the rerouted closure of dirichletRealZeroBound_proof.
+BROKEN	8	top_of_field_map	part of a source word at sec4-gap.tex:38 [v16:L252]; sec4-gap.tex:126 [v16:L254]	top_of_field_map and boxEnumeration reindexing, would plausibly give ActualCutoffSpanning without the local Bezout state
+BROKEN	9	rowSpan_top_of_field_	part of a source word at sec4-gap.tex:38 [v16:L252]; sec4-gap.tex:126 [v16:L254]	main route: L = rootField a sqrtTwo, reached from C by rowSpan_top_of_field_
+BROKEN	9	af401514808dde5bb913ce8e87cc5280b704a2	part of a source word at sec5-lemma3.tex:59 [v16:L025]; sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	installed for the accepted rerouted run (sha256 af401514808dde5bb913ce8e87cc5280b704a2
+BROKEN	9	34ea324897d1a1ced1f218f250	part of a source word at sec5-lemma3.tex:59 [v16:L025]; sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	34ea324897d1a1ced1f218f250). Listing 8 quotes it. The paper states its Corollary 4 at
+BROKEN	11	lean-checks/comparator-copy/PaperLemma3/	part of a source word at sec5-lemma3.tex:9 [v16:L024]; sec5-lemma3.tex:108 [v16:L136]	Table 4: The Lean proof of Lemma 3 in lean-checks/comparator-copy/PaperLemma3/
+BROKEN	11	Lemma3.lean	part of a source word at sec5-lemma3.tex:8 [v16:L022]	Lemma3.lean, by the paper’s proof steps. Line ranges run from docstring to last line.
+BROKEN	11	dot_self_nonneg	part of a source word at sec5-lemma3.tex:116 [v16:L136]	dot_self_nonneg 47-49, quarter_mem_face 150-208
+BROKEN	11	Bridge.lean:288-290	part of a source word at sec5-lemma3.tex:137 [v16:L028 v16:L036]	Bridge.lean:288-290.
+BROKEN	11	p2_dot_	part of a source word at sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+BROKEN	11	self_nonneg	part of a source word at sec5-lemma3.tex:116 [v16:L136]	self_nonneg 220-222
+BROKEN	11	p3_g_	part of a source word at sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+BROKEN	11	eval_linP	part of a source word at sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+BROKEN	11	Equiv.lean:663	part of a source word at sec5-lemma3.tex:133 [v16:L041]; sec5-lemma3.tex:147 [v16:L041]	Equiv.lean:663,
+BROKEN	11	apply.txt	part of a source word at sec5-lemma3.tex:147 [v16:L041]	apply.txt.
+BROKEN	11	Mathlib/Algebra/Algebra/	part of a source word at sec5-lemma3.tex:133 [v16:L041]; sec5-lemma3.tex:147 [v16:L041]	AlgEquiv.mul_apply, Mathlib d13f23b Mathlib/Algebra/Algebra/
+BROKEN	11	results/2026-10-26-claims-ledger/mathlib-algequiv-mul_	part of a source word at sec5-lemma3.tex:147 [v16:L041]	as copied in results/2026-10-26-claims-ledger/mathlib-algequiv-mul_
+BROKEN	12	src/lemma3_	part of a source word at sec5-lemma3.tex:165 [v16:L046]	An exact execution of the proof of Lemma 3 in Python Fraction arithmetic (src/lemma3_
+BROKEN	12	construct.py	part of a source word at sec5-lemma3.tex:165 [v16:L046]	construct.py) ran 540 instances at N = 2, 3, with 28 checks each, and all pass. This covers
+BROKEN	13	bedaac0248a641910f79a380d9702d82	part of a source word at sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	modules. The challenge file is unchanged, with sha256 bedaac0248a641910f79a380d9702d82
+BROKEN	13	c6bfbbfd3760a69d27c72c5d8fb136ce	part of a source word at sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	c6bfbbfd3760a69d27c72c5d8fb136ce. The rerouted Comparator run built 9244 jobs and was
+BROKEN	14	LEAN_ACCEPT_	part of a source word at sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	205, LEAN_ACCEPT_
+BROKEN	14	NANODA_CRASH	part of a source word at sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	NANODA_CRASH 6,
+BROKEN	14	CHECKED_HERE	part of a source word at sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	CHECKED_HERE 15
+BROKEN	16	ecdbf400b24f9241cd03cf383bdcd97ed7	part of a source word at sec9-artifacts.tex:14 [v16:L022]	and imports Mathlib only; its LF sha256 is ecdbf400b24f9241cd03cf383bdcd97ed7
+BROKEN	16	1e4812578e66d7159a846447f7b1a7	part of a source word at sec9-artifacts.tex:14 [v16:L022]	1e4812578e66d7159a846447f7b1a7.
+BROKEN	16	1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af4652	part of a source word at sec5-lemma3.tex:9 [v16:L024]; sec9-artifacts.tex:15 [v16:L024]	run, has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af4652
+BROKEN	16	6ce38ac1ef33c8b46028205bb043718565b67917	part of a source word at sec9-artifacts.tex:17 [v16:L029]	808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250. The canonical file leanchecks/Lemma3Bridged.lean has LF sha256
+BROKEN	16	808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250	part of a source word at sec5-lemma3.tex:59 [v16:L025]; sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250. The canonical file leanchecks/Lemma3Bridged.lean has LF sha256
+BROKEN	16	5b63cc6fbf8089136554cdb4	part of a source word at sec9-artifacts.tex:17 [v16:L029]	5b63cc6fbf8089136554cdb4, and its declarations are identical to those of the comparator
+BROKEN	16	b9fae4da5	part of a source word at sec3-faithfulness.tex:58 [v16:L015]; sec9-artifacts.tex:18 [v16:L015]	copy. lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 b9fae4da5
+BROKEN	16	517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9	part of a source word at sec3-faithfulness.tex:58 [v16:L015]; sec9-artifacts.tex:18 [v16:L015]	517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. lean-checks/README.md
+BROKEN	16	758b44f74a208791c4c59b898d1ba104122a	part of a source word at sec9-artifacts.tex:19 [v16:L139]	gives the role of each Lean file; it is committed at 758b44f74a208791c4c59b898d1ba104122a
+BROKEN	16	c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8b	part of a source word at sec9-artifacts.tex:19 [v16:L139]	e7d0, with LF sha256 c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8b
+BROKEN	16	d03acab154d2	part of a source word at sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	d03acab and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d2
+BROKEN	16	076e8e57707e813375e8f9da8bf989799ac	part of a source word at sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	69c06e60e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ac
+BROKEN	16	69c06e60e4de7e4cc85deebff94b	part of a source word at sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	69c06e60e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ac
+BROKEN	16	9680	part of a source word at sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	e9680 for lean4export. The official nanoda is 3a24072; f67473b, 37cb87b and 37cb87b with
+DEHYPH	3	598604	source word at sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+DEHYPH	6	OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:1819	source word at sec4-gap.tex:17 [v16:L201]	Listing 2: The main route: OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:1819 and Intersection/BezoutBoundary.le
+DEHYPH	8	lean-checks/Lemma3.lean:816825	source word at sec5-lemma3.tex:8 [v16:L022]	Lemma3.interpolation, the paper’s Lemma 3, is stated at lean-checks/Lemma3.lean:816825, and that file imports Mathlib on
+DEHYPH	8	lean-checks/comparatorcopy/PaperLemma3/Lemma3.lean	source word at sec5-lemma3.tex:9 [v16:L024]; sec5-lemma3.tex:108 [v16:L136]	Lemma3.interpolation, the paper’s Lemma 3, is stated at lean-checks/Lemma3.lean:816825, and that file imports Mathlib on
+DEHYPH	12	results/202610-27-reroute-fd4aeeb/	source word at sec6-reroute.tex:11 [v16:L093 v16:L095]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	The primary record is a pair of Comparator runs at openai/math fd4aeeb, in results/202610-27-reroute-fd4aeeb/: a control
+DEHYPH	13	results/2026-10-27reroute-fd4aeeb/	source word at sec6-reroute.tex:11 [v16:L093 v16:L095]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	Table 5: The SiegelZeros control and reroute at openai/math fd4aeeb (results/2026-10-27reroute-fd4aeeb/). Prebuild: lake
+DEHYPH	16	lean-checks/comparatorcopy/PaperLemma3/Lemma3.lean	source word at sec5-lemma3.tex:9 [v16:L024]; sec5-lemma3.tex:108 [v16:L136]	The comparator copy lean-checks/comparatorcopy/PaperLemma3/Lemma3.lean, the file installed for the accepted rerouted Com
+DEHYPH	16	leanchecks/Lemma3Bridged.lean	source word at sec5-lemma3.tex:77 [v16:L029]; sec9-artifacts.tex:17 [v16:L029]	808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250. The canonical file leanchecks/Lemma3Bridged.lean has LF sha256
+DEHYPH	17	results/2026-10-26-claims-ledger/axioms-comparator-copy-2026-1026.txt	source word at sec9-artifacts.tex:28 [v16:L032]	comparator copy are in results/2026-10-26-claims-ledger/axioms-comparator-copy-2026-1026.txt. The outcome comparison wit
+DEHYPH	17	results/2026-10-27-nealcomparison/	source word at sec9-artifacts.tex:29 [v16:L141]	comparator copy are in results/2026-10-26-claims-ledger/axioms-comparator-copy-2026-1026.txt. The outcome comparison wit
+LAYOUT	2	2.1		2.1
+LAYOUT	3	2.2		2.2
+LAYOUT	3	2.3		2.3
+LAYOUT	4	3.2		3.2
+LAYOUT	5	3.3		3.3
+LAYOUT	6	4.1		4.1
+LAYOUT	6	4.2		4.2
+LAYOUT	8	4.3		4.3
+LAYOUT	8	5.1		5.1
+LAYOUT	10	5.2		5.2
+LAYOUT	10	5.3		5.3
+LAYOUT	12	5.4		5.4
+LAYOUT	12	6.1		6.1
+LAYOUT	12	6.2		6.2
+LAYOUT	12	12		12
+LAYOUT	13	6.3		6.3
+LAYOUT	13	7.1		7.1
+LAYOUT	14	7.2		7.2
+LAYOUT	14	7.3		7.3
+CITE-LABEL	1	18		The manuscript “Uniform exclusion of Landau–Siegel zeros” (OpenAI, October 1, 2026) [18]
+CITE-LABEL	2	22		in the reviewer-packet-v3 archive [22] and to [2], and make no claim about it here.
+CITE-LABEL	3	18		The paper [18] states its Theorem 1 at refs/siegel-paper.tex:66-73, Lemma 2 at 181-194,
+CITE-LABEL	4	17		The other three challenges encode the main theorem of the 7/8 paper, “The QuasiRiemann Hypothesis” [17] (\date{30 Septem
+CITE-LABEL	13	12		Neal McBurnett’s repository [12] states that Comparator, as shipped, accepts all 416 configs
+CITE-LABEL	14	12		1ca7ff2 [12].
+CITE-LABEL	16	21		[21]. Zenodo record 10.5281/zenodo.23523697 holds the reviewer packet v3 zip, from the tag
+CITE-LABEL	16	22		reviewer-packet-v3 [22]. Zenodo record 10.5281/zenodo.23505836 holds the corpus replay
+CITE-LABEL	16	23		10.5281/zenodo.23269527 [23].
+QUOTE	1	7		satisfies (1 - beta) log q >= c. Comparator’s README [7] states that for each listed theorem
+QUOTE	2	7		Comparator’s README at commit d03acab [7] states three guarantees for each listed theorem of a solution: that it proves 
+QUOTE	3	7		and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d269c06e60
+QUOTE	4	Real.log		c ≤ (1 - β) * Real.log (q : R) := by
+QUOTE	4	WeightedTorusJets.dirichletRealZeroBound_proof		theorem WeightedTorusJets.dirichletRealZeroBound_proof :
+QUOTE	6	SiegelZerosAwei.W50.uniform_exclusion_of_local_isolated_bezout		exact SiegelZerosAwei.W50.uniform_exclusion_of_local_isolated_bezout
+QUOTE	6	W22.localIsolatedBezout_of_actual_regular_selection		(W22.localIsolatedBezout_of_actual_regular_selection C)
+QUOTE	7	SiegelZeros.W10.rootField		let L := SiegelZeros.W10.rootField a W60.sqrtTwo
+QUOTE	7	W60.sqrtTwo		let L := SiegelZeros.W10.rootField a W60.sqrtTwo
+QUOTE	7	W37.integralRootA		let u := W37.integralRootA a W60.sqrtTwo d ha W60.sqrtTwo_sq
+QUOTE	7	W60.sqrtTwo_sq		let u := W37.integralRootA a W60.sqrtTwo d ha W60.sqrtTwo_sq
+QUOTE	7	W37.integralRootB		let v := W37.integralRootB a W60.sqrtTwo d ha W60.sqrtTwo_sq
+QUOTE	7	W29.rowSpan		W29.rowSpan (K := L)
+QUOTE	7	Awei.W39.theta		(W60.weightedRow f (fun j => Awei.W39.theta u v (n j))
+QUOTE	7	W60.weightedRow		(W60.weightedRow f (fun j => Awei.W39.theta u v (n j))
+QUOTE	7	MvPolynomial.eval		MvPolynomial.eval (fun _ => (1 : K)) (mixedInvariant v a p) = 0) → p = 0
+QUOTE	7	Module.Basis		(a b : K) (v : Module.Basis (Fin 4) Q K)
+QUOTE	7	Function.Injective		N) (hninj : Function.Injective n) (hn : ∀ j i, n j i < N) :
+QUOTE	7	Submodule.span		Submodule.span K
+QUOTE	7	7		7
+QUOTE	9	Function.Surjective		(A : (Fin 4 → C) →l [C] (Fin 3 → C)) (hA : Function.Surjective A)
+QUOTE	9	LinearMap.ker		(c : Fin 4 → C) (hker : LinearMap.ker A = Submodule.span C {c})
+QUOTE	9	Submodule.span		(c : Fin 4 → C) (hker : LinearMap.ker A = Submodule.span C {c})
+QUOTE	9	7		Then the evaluation map B 7→ (B(An))n∈EN from Pt to CEN is surjective.
+QUOTE	9	B.degreeOf		{B | ∀ j, (B.degreeOf j : Z) ≤ t j}
+QUOTE	10	cor:rectangle		/-- **Corollary 4** (`cor:rectangle`, tex lines 410–420). -/
+QUOTE	10	Function.Surjective		(A : (Fin 4 → C) →l [C] (Fin 3 → C)) (hA : Function.Surjective A)
+QUOTE	10	LinearMap.ker		(c : Fin 4 → C) (hker : LinearMap.ker A = Submodule.span C {c})
+QUOTE	10	Submodule.span		(c : Fin 4 → C) (hker : LinearMap.ker A = Submodule.span C {c})
+QUOTE	11	OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span		type_of% @OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span :=
+QUOTE	11	mul_apply		theorem mul_apply (e1 e2 : A1 ≃a [R] A1 ) (x : A1 ) : (e1 * e2 ) x = e1 (e2 x) :=
+QUOTE	13	7		7
+QUOTE	14	7		2026-10-26 nanoda matrix. 7
+QUOTE	16	7		e7d0, with LF sha256 c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8b
+QUOTE	17	7		wsl-comparator/ and src/, the ledger builders and check.py, and the drafts of Sections 2–7:
+CITED	1	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	Formalizing the interpolation lemma of the openai/math
+CITED	1	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	of Landau–Siegel zeros” (OpenAI, October 1, 2026). Its Comparator challenge has
+CITED	1	2026	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	of Landau–Siegel zeros” (OpenAI, October 1, 2026). Its Comparator challenge has
+CITED	1	exists_absolute_real_zero_gap	abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	main result, exists_absolute_real_zero_gap, gets its spanning step from a local Bézout argument and does not use OpenAI’
+CITED	1	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	dirichletRealZeroBound_proof, proves Corollary 4 by a multiplicity estimate. We formalized the paper’s proofs of Lemma 3
+CITED	1	2/-1	abstract.tex:10 [v16:L097 v16:L147]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	Classical.choice and Quot.sound. A +2/-1 substitution puts the paper’s Corollary 4
+CITED	1	Classical.choice	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	Classical.choice and Quot.sound. A +2/-1 substitution puts the paper’s Corollary 4
+CITED	1	Quot.sound	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	Classical.choice and Quot.sound. A +2/-1 substitution puts the paper’s Corollary 4
+CITED	1	45	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec5-lemma3.tex:156 [v16:L032]	at openai/math fd4aeeb under a deny list of all 45 socket address families, and that
+CITED	1	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	at openai/math fd4aeeb under a deny list of all 45 socket address families, and that
+CITED	1	402	abstract.tex:12 [v16:L141]; sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]	the corpus agrees with an independent replay on all 402 configurations where both have
+CITED	1	15	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	formalizations and Comparator challenges; we use it at commits adc7f12 and fd4aeeb [15, 16].
+CITED	1	16	sec6-reroute.tex:12 [v16:L093 v16:L095 v16:L116 v16:L117]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	formalizations and Comparator challenges; we use it at commits adc7f12 and fd4aeeb [15, 16].
+CITED	1	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	formalizations and Comparator challenges; we use it at commits adc7f12 and fd4aeeb [15, 16].
+CITED	1	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	states as its Theorem 1 that there is an absolute constant c > 0 such that every real zero
+CITED	1	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	beta in (0,1) of every primitive nonprincipal real Dirichlet L-function of conductor q >= 3
+CITED	1	3a24072	sec1-intro.tex:7 [v16:L104 v16:L105 v16:L088]; sec2-background.tex:11 [v16:L105]	the solution export to an external kernel; we used nanoda [1], at the official build 3a24072,
+CITED	2	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	dirichletRealZeroBound_proof, proves Corollary 4 as actual_biquadratic_rectangle_span
+CITED	2	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	dirichletRealZeroBound_proof, proves Corollary 4 as actual_biquadratic_rectangle_span
+CITED	2	uniform_rectangular_multiplicity	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:108 [v16:L019 v16:L099]	by a multiplicity estimate, uniform_rectangular_multiplicity. So neither route goes through
+CITED	2	003	sec1-intro.tex:21 [v16:L001 v16:L002 v16:L004 v16:L006 v16:L008 v16:L011 v16:L014]; sec3-faithfulness.tex:5 [v16:L001 v16:L002 v16:L004 v16:L006 v16:L008]	• Statement faithfulness of the four family-003 challenges, by reading the Lean statements against the papers’ texts, wi
+CITED	2	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	is not vacuous (Section 3, with the reasoning behind each reading in Tables 2–9).
+CITED	2	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	• A replay of the openai/math corpus as context, compared with an independent replay
+CITED	2	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	• The separate copy of this code in namespace OAI.Erdos970, loaded by 3 configurations,
+CITED	2	OAI.Erdos970	sec1-intro.tex:33 [v16:L089 v16:L090]; sec4-gap.tex:114 [v16:L089 v16:L090]	• The separate copy of this code in namespace OAI.Erdos970, loaded by 3 configurations,
+CITED	2	docs/effectivity/note-v2.pdf	sec1-intro.tex:34 [v16:L259 v16:L274]	• For an explicit value of the constant we point to the note docs/effectivity/note-v2.pdf
+CITED	2	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	in the reviewer-packet-v3 archive [22] and to [2], and make no claim about it here.
+CITED	2	Lemma3.rectangle	sec1-intro.tex:37 [v16:L254 v16:L253]; sec4-gap.tex:125 [v16:L254]	from Lemma3.rectangle to ActualCutoffSpanning; we leave this open.
+CITED	2	d03acab	sec2-background.tex:6 [v16:L102 v16:L103 v16:L104]; sec2-background.tex:13 [v16:L087]	Comparator’s README at commit d03acab [7] states three guarantees for each listed theorem of a solution: that it proves 
+CITED	2	permitted_axioms	sec2-background.tex:6 [v16:L102 v16:L103 v16:L104]	uses no more axioms than listed in permitted_axioms, and that it is accepted by the Lean
+CITED	2	external_kernels	sec2-background.tex:7 [v16:L104]; sec2-background.tex:10 [v16:L137]	kernel. The same README states that external kernels registered in external_kernels are
+CITED	2	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	given a file containing the solution export. According to Comparator’s and lean4export’s
+CITED	3	config.json	sec2-background.tex:9 [v16:L142]	config.json. Comparator’s README states the guarantees under six assumptions, among
+CITED	3	external_kernels	sec2-background.tex:7 [v16:L104]; sec2-background.tex:10 [v16:L137]	them that “The Lean kernel is correct (with ‘external_kernels‘ this can be reduced to "At
+CITED	3	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	commit 3a24072 [1] states that nanoda_bin takes one argument, a JSON configuration file,
+CITED	3	3a24072	sec1-intro.tex:7 [v16:L104 v16:L105 v16:L088]; sec2-background.tex:11 [v16:L105]	commit 3a24072 [1] states that nanoda_bin takes one argument, a JSON configuration file,
+CITED	3	nanoda_bin	sec2-background.tex:11 [v16:L105]	commit 3a24072 [1] states that nanoda_bin takes one argument, a JSON configuration file,
+CITED	3	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	and reads an export file created by lean4export.
+CITED	3	4.34.1	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab
+CITED	3	5045d005	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab
+CITED	3	d03acab	sec2-background.tex:6 [v16:L102 v16:L103 v16:L104]; sec2-background.tex:13 [v16:L087]	All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab
+CITED	3	d13f23b	sec2-background.tex:13 [v16:L087]; sec5-lemma3.tex:132 [v16:L041]	All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab
+CITED	3	v4.34.0	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab
+CITED	3	076e8e5	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d269c06e60
+CITED	3	10	sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d269c06e60
+CITED	3	8	sec3-faithfulness.tex:121 [v16:L211]; sec7-corpus.tex:49 [v16:L062]	and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d269c06e60
+CITED	3	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d269c06e60
+CITED	3	076e8e57707e813375e8f9da8bf989799ace9680	sec2-background.tex:14 [v16:L092]; sec9-artifacts.tex:23 [v16:L092]	e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ace9680 for
+CITED	3	37cb87b	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	lean4export. The official nanoda is 3a24072; f67473b, 37cb87b and 37cb87b with nealmcb’s
+CITED	3	f67473b	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	lean4export. The official nanoda is 3a24072; f67473b, 37cb87b and 37cb87b with nealmcb’s
+CITED	3	64	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	patch at 64 MiB are unofficial builds, reported separately.
+CITED	3	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a
+CITED	3	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. Its config has Comparator check two theorems, OAI.
+CITED	3	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. Its config has Comparator check two theorems, OAI.
+CITED	3	OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof	sec2-background.tex:20 [v16:L147]	zero_gap and OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof. Section 3 quotes both statements, and Secti
+CITED	3	181	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]	The paper [18] states its Theorem 1 at refs/siegel-paper.tex:66-73, Lemma 2 at 181-194,
+CITED	3	194	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]	The paper [18] states its Theorem 1 at refs/siegel-paper.tex:66-73, Lemma 2 at 181-194,
+CITED	3	refs/siegel-paper.tex:66-73	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec3-faithfulness.tex:40 [v16:L106]	The paper [18] states its Theorem 1 at refs/siegel-paper.tex:66-73, Lemma 2 at 181-194,
+CITED	3	252	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:31 [v16:L145]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+CITED	3	267	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:31 [v16:L145]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+CITED	3	410	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:76 [v16:L146]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+CITED	3	420	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:76 [v16:L146]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+CITED	3	517	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+CITED	3	524	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]	Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598604. The paper numbers all of these wit
+CITED	3	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	Lemma 6 is Remark 5. Lemma 2 gives a prime-sum bound for X >= 3 and a lower bound for
+CITED	3	3.1	sec2-background.tex:28 [v16:L108]	evaluation at A n for n in E_N is surjective from P_t under the budget (3.1). The paper
+CITED	3	E_N	sec2-background.tex:28 [v16:L108]; sec2-background.tex:30 [v16:L109]	evaluation at A n for n in E_N is surjective from P_t under the budget (3.1). The paper
+CITED	3	P_t	sec2-background.tex:28 [v16:L108]	evaluation at A n for n in E_N is surjective from P_t under the budget (3.1). The paper
+CITED	3	refs/siegel-paper.tex:155	sec2-background.tex:29 [v16:L273]	cites Fischler [4] as [Fischler, Theorem 1.1 and Lemma 1.3] at refs/siegel-paper.tex:155.
+CITED	3	S_1	sec2-background.tex:31 [v16:L110 v16:L111]	j <= T_j span C^(E_N). Lemma 6 bounds the exponent sums S_1 and S_2, and Lemma
+CITED	3	S_2	sec2-background.tex:31 [v16:L110 v16:L111]	j <= T_j span C^(E_N). Lemma 6 bounds the exponent sums S_1 and S_2, and Lemma
+CITED	3	T_j	sec2-background.tex:30 [v16:L109]	j <= T_j span C^(E_N). Lemma 6 bounds the exponent sums S_1 and S_2, and Lemma
+CITED	3	E_p	sec2-background.tex:31 [v16:L110 v16:L111]	7 states the divisibility of Delta by p^(E_p) for every admissible prime p.
+CITED	3	003	sec1-intro.tex:21 [v16:L001 v16:L002 v16:L004 v16:L006 v16:L008 v16:L011 v16:L014]; sec3-faithfulness.tex:5 [v16:L001 v16:L002 v16:L004 v16:L006 v16:L008]	We read four Comparator challenge statements of family 003 against the paper statements
+CITED	3	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	each is INFERRED. Table 1 gives each challenge file’s sha256 at openai/math fd4aeeb, the
+CITED	3	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	q >= 3 and beta in (0,1). The type of each solution theorem equals the type of the challenge
+CITED	3	67	sec3-faithfulness.tex:41 [v16:L106]	The paper states its Theorem 1 at refs/siegel-paper.tex:66-73. Its text, lines 67-72, reads:
+CITED	3	72	sec3-faithfulness.tex:41 [v16:L106]	The paper states its Theorem 1 at refs/siegel-paper.tex:66-73. Its text, lines 67-72, reads:
+CITED	4	lean/ComparatorChallenges/SiegelZeros.lean:8-14	sec3-faithfulness.tex:17 [v16:L007]	Listing 1: The SiegelZeros challenge, lean/ComparatorChallenges/SiegelZeros.lean:8-14 and
+CITED	4	19	sec3-faithfulness.tex:17 [v16:L007]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	25	sec3-faithfulness.tex:17 [v16:L007]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	bedaac02	sec3-faithfulness.tex:17 [v16:L007]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	19-25 (openai/math fd4aeeb; file sha256 bedaac02. . . , unchanged since adc7f12).
+CITED	4	exists_absolute_real_zero_gap	abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	theorem exists_absolute_real_zero_gap :
+CITED	4	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	∃ c : R, 0 < c ∧
+CITED	4	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	∀ (q : N) [NeZero q], 3 ≤ q →
+CITED	4	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	χ.IsPrimitive → χ ̸= 1 → (∀ a : ZMod q, (χ a).im = 0) →
+CITED	4	DirichletCharacter.LFunction	sec3-faithfulness.tex:120 [v16:L210]	(0 < β ∧ β < 1 ∧ DirichletCharacter.LFunction χ (β : C) = 0) →
+CITED	4	1.1	sec3-faithfulness.tex:117 [v16:L207]	(1.1)
+CITED	4	NonVacuity.hypotheses_satisfiable	sec3-faithfulness.tex:53 [v16:L011]	the statement specialises to. NonVacuity.hypotheses_satisfiable proves that for every odd
+CITED	4	NonVacuity.quadChar_LFunction_eq_LSeries	sec3-faithfulness.tex:54 [v16:L012]	primitive, nonprincipal, real). NonVacuity.quadChar_LFunction_eq_LSeries proves that
+CITED	4	NonVacuity.quadChar_LFunction_one_ne_zero	sec3-faithfulness.tex:55 [v16:L013]	the L-function of the quadratic character equals its Dirichlet series for Re s > 1. NonVacuity.quadChar_LFunction_one_ne
+CITED	4	NonVacuity.specialization	sec3-faithfulness.tex:56 [v16:L014]	mod an odd prime p. NonVacuity.specialization proves that the challenge theorem specialises
+CITED	4	Classical.choice	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	axioms [propext, Classical.choice, Quot.sound]. 1
+CITED	4	Quot.sound	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	axioms [propext, Classical.choice, Quot.sound]. 1
+CITED	4	7/8	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec3-faithfulness.tex:105 [v16:L205 v16:L234 v16:L144]	The three 7/8 challenges
+CITED	4	2026	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	The other three challenges encode the main theorem of the 7/8 paper, “The QuasiRiemann Hypothesis” [17] (\date{30 Septem
+CITED	4	30	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec5-lemma3.tex:105 [v16:L136]	The other three challenges encode the main theorem of the 7/8 paper, “The QuasiRiemann Hypothesis” [17] (\date{30 Septem
+CITED	4	paper.pdf	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]	The other three challenges encode the main theorem of the 7/8 paper, “The QuasiRiemann Hypothesis” [17] (\date{30 Septem
+CITED	4	8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]	has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both
+CITED	4	107	sec3-faithfulness.tex:65 [v16:L144]	adc7f12 and fd4aeeb. Lines 107-110 of its build/paper.tex read:
+CITED	4	110	sec3-faithfulness.tex:65 [v16:L144]	adc7f12 and fd4aeeb. Lines 107-110 of its build/paper.tex read:
+CITED	4	build/paper.tex	sec3-faithfulness.tex:65 [v16:L144]	adc7f12 and fd4aeeb. Lines 107-110 of its build/paper.tex read:
+CITED	4	lean-checks/NonVacuity.lean	sec3-faithfulness.tex:58 [v16:L015]; sec9-artifacts.tex:18 [v16:L015]	1 The lemmas are in lean-checks/NonVacuity.lean, LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7
+CITED	4	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	4
+CITED	5	003	sec1-intro.tex:21 [v16:L001 v16:L002 v16:L004 v16:L006 v16:L008 v16:L011 v16:L014]; sec3-faithfulness.tex:5 [v16:L001 v16:L002 v16:L004 v16:L006 v16:L008]	Table 1: The four family-003 challenge statements. File sha256 at openai/math fd4aeeb;
+CITED	5	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	Table 1: The four family-003 challenge statements. File sha256 at openai/math fd4aeeb;
+CITED	5	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	Table 1: The four family-003 challenge statements. File sha256 at openai/math fd4aeeb;
+CITED	5	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	Table 1: The four family-003 challenge statements. File sha256 at openai/math fd4aeeb;
+CITED	5	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	MATCH (except s = 1, covered by
+CITED	5	2026-10-27	sec3-faithfulness.tex:91 [v16:L002]; sec3-faithfulness.tex:93 [v16:L004]	2026-10-27: MATCH
+CITED	5	065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5	sec3-faithfulness.tex:92 [v16:L001]	065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5
+CITED	5	8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54	sec3-faithfulness.tex:94 [v16:L003]	8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54
+CITED	5	cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2	sec3-faithfulness.tex:96 [v16:L005]	cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2
+CITED	5	bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:11 [v16:L007]	bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce
+CITED	5	34	sec3-faithfulness.tex:79 [v16:L009]; sec7-corpus.tex:43 [v16:L135]	build. All 34 #print axioms outputs of that build are exactly [propext, Classical.choice,
+CITED	5	Classical.choice	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	build. All 34 #print axioms outputs of that build are exactly [propext, Classical.choice,
+CITED	5	Quot.sound	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	Quot.sound]. That build ran as checker via sudo -u checker, with no systemd-run unit and
+CITED	5	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	no address-family filter. 2
+CITED	5	7/8	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec3-faithfulness.tex:105 [v16:L205 v16:L234 v16:L144]	Tables 7–9 in Appendix B list those for the three 7/8 challenges. Each point is INFERRED,
+CITED	5	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	Tables 7–9 in Appendix B list those for the three 7/8 challenges. Each point is INFERRED,
+CITED	5	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	hypotheses: primitive, nonprincipal, real, q >= 3, beta in (0,1); none added, none missing
+CITED	5	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	hypotheses: primitive, nonprincipal, real, q >= 3, beta in (0,1); none added, none missing
+CITED	5	1.1	sec3-faithfulness.tex:117 [v16:L207]	conclusion: c <= (1 - beta) log q, non-strict as in (1.1)
+CITED	5	DirichletCharacter.LFunction	sec3-faithfulness.tex:120 [v16:L210]	Mathlib meaning: DirichletCharacter.LFunction is ZMod.LFunction, the continuation; it equals the
+CITED	5	ZMod.LFunction	sec3-faithfulness.tex:120 [v16:L210]	Mathlib meaning: DirichletCharacter.LFunction is ZMod.LFunction, the continuation; it equals the
+CITED	5	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	edge cases: q = 4 (odd) and q = 8 (one even, one odd) are covered
+CITED	5	8	sec3-faithfulness.tex:121 [v16:L211]; sec7-corpus.tex:49 [v16:L062]	edge cases: q = 4 (odd) and q = 8 (one even, one odd) are covered
+CITED	5	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	gap and dirichletRealZeroBound_proof. Their statements are not the same Lean proposition: the first takes 0 < beta, beta
+CITED	5	ChallengeEquivalence.statements_equivalent	sec4-gap.tex:6 [v16:L251]	implications, the second as one conjunction. ChallengeEquivalence.statements_equivalent,
+CITED	5	lean/formalization.yaml	sec4-gap.tex:7 [v16:L202]	in a Mathlib-only file, proves the two statements equivalent, with the axioms [propext, Classical.choice, Quot.sound]. O
+CITED	5	2026-10-20T16:56:00Z	sec3-faithfulness.tex:81 [v16:L010]	2 The four statement audits were also posted publicly on [5], at 2026-10-20T16:56:00Z.
+CITED	5	5	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	2 The four statement audits were also posted publicly on [5], at 2026-10-20T16:56:00Z.
+CITED	6	Intersection/BezoutBoundary.lean:13-19	sec4-gap.tex:17 [v16:L201]	Listing 2: The main route: OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:1819 and Intersection/BezoutBoundary.le
+CITED	6	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	Listing 2: The main route: OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:1819 and Intersection/BezoutBoundary.le
+CITED	6	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	Listing 2: The main route: OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:1819 and Intersection/BezoutBoundary.le
+CITED	6	uniform_exclusion_of_local_isolated_bezout	sec4-gap.tex:13 [v16:L201 v16:L255]	theorem uniform_exclusion_of_local_isolated_bezout
+CITED	6	W22.LocalIsolatedBezoutStatement	sec4-gap.tex:38 [v16:L252]	(hBezout : W22.LocalIsolatedBezoutStatement C) :
+CITED	6	uniform_exclusion_of_actual_cutoff	sec4-gap.tex:13 [v16:L201 v16:L255]; sec4-gap.tex:14 [v16:L201]	apply uniform_exclusion_of_actual_cutoff
+CITED	6	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	intro H N hH hHN _hN d a hd hd1 hd2 ha
+CITED	6	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	intro H N hH hHN _hN d a hd hd1 hd2 ha
+CITED	6	W28.actualCutoffSpanning_of_localBezout	sec4-gap.tex:13 [v16:L201 v16:L255]	exact W28.actualCutoffSpanning_of_localBezout hBezout H N (by omega) hHN
+CITED	6	lean/docs/003.md	sec4-gap.tex:7 [v16:L202]	real_zero_gap as the main result for the SiegelZeros config; neither it nor lean/docs/003.md
+CITED	6	exists_absolute_real_zero_gap	abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	Listing 2 quotes the proof of exists_absolute_real_zero_gap and the theorem it
+CITED	6	86713344	sec4-gap.tex:14 [v16:L201]	W63.exists_good_mass_for_actual_zeros_normalized, fixes H := 86713344, takes a contrary sequence of genuine zeros, and c
+CITED	6	W63.exists_good_mass_for_actual_zeros_normalized	sec4-gap.tex:14 [v16:L201]	W63.exists_good_mass_for_actual_zeros_normalized, fixes H := 86713344, takes a contrary sequence of genuine zeros, and c
+CITED	6	false_of_eventual_exists_pivot_master	sec4-gap.tex:14 [v16:L201]; sec4-gap.tex:112 [v16:L256]	W63.exists_good_mass_for_actual_zeros_normalized, fixes H := 86713344, takes a contrary sequence of genuine zeros, and c
+CITED	6	exists_actual_character_pivot_master	sec4-gap.tex:14 [v16:L201]; sec4-gap.tex:112 [v16:L256]	and exists_actual_character_pivot_master.
+CITED	6	W50.ActualCutoffSpanning	sec4-gap.tex:35 [v16:L252]	The spanning hypothesis is W50.ActualCutoffSpanning (Listing 3). It states that, over L
+CITED	6	W62.cutoff	sec4-gap.tex:36 [v16:L252]	to the weighted cutoff W62.cutoff H (sourceCutoff H N). The cutoff is the set of indices
+CITED	6	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	with a.coords 0 + H a.coords 1 + H a.coords 2 at most sourceCutoff H N, the floor of 96
+CITED	6	96	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:137 [v16:L254]	with a.coords 0 + H a.coords 1 + H a.coords 2 at most sourceCutoff H N, the floor of 96
+CITED	6	a.coords	sec4-gap.tex:37 [v16:L252]	with a.coords 0 + H a.coords 1 + H a.coords 2 at most sourceCutoff H N, the floor of 96
+CITED	6	2/3	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:40 [v16:L253]	H^(2/3) N^(4/3). actualCutoffSpanning_of_localBezout proves it for 0 < H <= N and
+CITED	6	4/3	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:40 [v16:L253]	H^(2/3) N^(4/3). actualCutoffSpanning_of_localBezout proves it for 0 < H <= N and
+CITED	6	actualCutoffSpanning_of_localBezout	sec4-gap.tex:38 [v16:L252]	H^(2/3) N^(4/3). actualCutoffSpanning_of_localBezout proves it for 0 < H <= N and
+CITED	6	actual_complex_cutoff_spanning	sec4-gap.tex:38 [v16:L252]	rowSpan_top_of_field_map and applying actual_complex_cutoff_spanning. That theorem combines cutoff_span_of_rectangularAs
+CITED	6	cutoff_span_of_rectangularAssertion	sec4-gap.tex:39 [v16:L253]	rowSpan_top_of_field_map and applying actual_complex_cutoff_spanning. That theorem combines cutoff_span_of_rectangularAs
+CITED	6	rowSpan_top_of_field_map	sec4-gap.tex:38 [v16:L252]; sec4-gap.tex:126 [v16:L254]	rowSpan_top_of_field_map and applying actual_complex_cutoff_spanning. That theorem combines cutoff_span_of_rectangularAs
+CITED	6	1/3	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	32 H^(2/3) N^(4/3) and 32 H^(-1/3) N^(4/3). So the main route does not use actual_
+CITED	6	32	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	32 H^(2/3) N^(4/3) and 32 H^(-1/3) N^(4/3). So the main route does not use actual_
+CITED	6	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	4, from the local Bezout statement.
+CITED	6	107760	sec4-gap.tex:75 [v16:L200]; sec6-reroute.tex:17 [v16:L148 v16:L149]	At fd4aeeb the closure of exists_absolute_real_zero_gap has 107760 constants. It contains no constant from the 7/8 devel
+CITED	6	7/8	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec3-faithfulness.tex:105 [v16:L205 v16:L234 v16:L144]	At fd4aeeb the closure of exists_absolute_real_zero_gap has 107760 constants. It contains no constant from the 7/8 devel
+CITED	6	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	At fd4aeeb the closure of exists_absolute_real_zero_gap has 107760 constants. It contains no constant from the 7/8 devel
+CITED	6	3024	sec4-gap.tex:77 [v16:L257]	actual_biquadratic_rectangle_span. It contains 9434 CategoryTheory and 3024 AlgebraicGeometry names.
+CITED	6	9434	sec4-gap.tex:77 [v16:L257]	actual_biquadratic_rectangle_span. It contains 9434 CategoryTheory and 3024 AlgebraicGeometry names.
+CITED	6	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	actual_biquadratic_rectangle_span. It contains 9434 CategoryTheory and 3024 AlgebraicGeometry names.
+CITED	6	WeightedTorusJets.dirichlet_real_zero_bound	sec4-gap.tex:81 [v16:L201]	dirichletRealZeroBound_proof is exact WeightedTorusJets.dirichlet_real_zero_bound,
+CITED	6	source_real_zero_uniform_master_bound	sec4-gap.tex:81 [v16:L201]	proved from source_real_zero_uniform_master_bound. This route reaches the paper’s Corollary 4 as the theorem actual_biqu
+CITED	6	OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471-484	sec4-gap.tex:82 [v16:L016]; sec4-gap.tex:87 [v16:L016]	OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471-484. The file
+CITED	6	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	is identical at adc7f12 and fd4aeeb, with LF sha256 09b8bd7fa82365e69caebfad466d039d85
+CITED	6	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	is identical at adc7f12 and fd4aeeb, with LF sha256 09b8bd7fa82365e69caebfad466d039d85
+CITED	6	6	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; appendix-reasoning.tex:48 [v16:L226]	6
+CITED	7	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	Structure/ArithmeticCutoffTransport.lean:356-366 (openai/math fd4aeeb).
+CITED	7	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	Structure/ArithmeticCutoffTransport.lean:356-366 (openai/math fd4aeeb).
+CITED	7	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	def ActualCutoffSpanning (H N : N) (d : Z) (a : C) (ha : a ^ 2 = (d : C)) : Prop
+CITED	7	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	let n : Fin (N ^ 4) → Fin 4 → Z := fun j i => (boxExponents N j i : Z)
+CITED	7	W62.cutoff	sec4-gap.tex:36 [v16:L252]	(W62.cutoff H (sourceCutoff H N)) = ⊤
+CITED	7	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	def RectangularAssertion (v : Fin 3 → Fin 4 → K) (H N : N) : Prop :=
+CITED	7	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	(a 0 : R) ≤ 32 * (H : R) ^ (2 / 3 : R) * (N : R) ^ (4 / 3 : R) →
+CITED	7	32	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	(a 0 : R) ≤ 32 * (H : R) ^ (2 / 3 : R) * (N : R) ^ (4 / 3 : R) →
+CITED	7	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	(a 1 : R) ≤ 32 * (H : R) ^ (-(1 / 3 : R)) * (N : R) ^ (4 / 3 : R) →
+CITED	7	5	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	5:
+CITED	7	09b8bd7f	sec4-gap.tex:87 [v16:L016]	InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f. . . , identical at adc7f12 and
+CITED	7	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f. . . , identical at adc7f12 and
+CITED	7	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f. . . , identical at adc7f12 and
+CITED	7	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	theorem actual_biquadratic_rectangle_span
+CITED	8	493	sec4-gap.tex:107 [v16:L099]	Inside its proof, line 493 applies Geometry.source_rectangle_span_of_polynomial_
+CITED	8	496	sec4-gap.tex:107 [v16:L099]	zero_test and line 496 applies Geometry.uniform_rectangular_multiplicity; a text search of
+CITED	8	Geometry.uniform_rectangular_multiplicity	sec4-gap.tex:107 [v16:L099]	zero_test and line 496 applies Geometry.uniform_rectangular_multiplicity; a text search of
+CITED	8	485	sec4-gap.tex:107 [v16:L099]	lines 485-511 finds no other line naming either lemma. So on this route OAI proves Corollary 4 by a multiplicity estimat
+CITED	8	511	sec4-gap.tex:107 [v16:L099]	lines 485-511 finds no other line naming either lemma. So on this route OAI proves Corollary 4 by a multiplicity estimat
+CITED	8	uniform_rectangular_multiplicity	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:108 [v16:L019 v16:L099]	lines 485-511 finds no other line naming either lemma. So on this route OAI proves Corollary 4 by a multiplicity estimat
+CITED	8	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	argument for Lemma 3. Within the SiegelZeros tree, actual_biquadratic_rectangle_span is
+CITED	8	CharacterGlobalGreedyDeterminantMasterBounds.lean:138	sec4-gap.tex:109 [v16:L017]	used only at CharacterGlobalGreedyDeterminantMasterBounds.lean:138, by a text search
+CITED	8	138	sec4-gap.tex:110 [v16:L018]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	of all OAI .lean sources. After line 138 is replaced, the closure of dirichletRealZeroBound_
+CITED	8	116314	sec4-gap.tex:111 [v16:L019 v16:L094]; sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	that closure. The control scan of dirichletRealZeroBound_proof finds 116314 constants
+CITED	8	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	that closure. The control scan of dirichletRealZeroBound_proof finds 116314 constants
+CITED	8	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	multiplicity and source_rectangle_span_of_polynomial_zero_test, at adc7f12 and again
+CITED	8	source_rectangle_span_of_polynomial_zero_test	sec4-gap.tex:111 [v16:L019 v16:L094]; sec8-threats.tex:25 [v16:L148 v16:L096]	multiplicity and source_rectangle_span_of_polynomial_zero_test, at adc7f12 and again
+CITED	8	exists_good_mass_for_actual_zeros_normalized	sec4-gap.tex:112 [v16:L256]	at fd4aeeb. exists_good_mass_for_actual_zeros_normalized, false_of_eventual_exists_
+CITED	8	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	at fd4aeeb. exists_good_mass_for_actual_zeros_normalized, false_of_eventual_exists_
+CITED	8	exists_actual_character_pivot_master	sec4-gap.tex:14 [v16:L201]; sec4-gap.tex:112 [v16:L256]	pivot_master and exists_actual_character_pivot_master are in the closure of exists_
+CITED	8	OAI.Erdos970	sec1-intro.tex:33 [v16:L089 v16:L090]; sec4-gap.tex:114 [v16:L089 v16:L090]	OAI.Erdos970), with its own multiplicity estimate. The reroute concerns the SiegelZeros
+CITED	8	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	module under OAI.NumberTheory.Jacobsthal.Siegel in its solution import closure (3 of 416
+CITED	8	416	sec4-gap.tex:116 [v16:L090]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	module under OAI.NumberTheory.Jacobsthal.Siegel in its solution import closure (3 of 416
+CITED	8	OAI.NumberTheory.Jacobsthal.Siegel	sec4-gap.tex:116 [v16:L090]	module under OAI.NumberTheory.Jacobsthal.Siegel in its solution import closure (3 of 416
+CITED	8	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	Rerouting removes 9936 (6901 + 3035) names in the CategoryTheory and AlgebraicGeometry namespaces from route 2, the clos
+CITED	8	3035	sec4-gap.tex:118 [v16:L020 v16:L019]; sec4-gap.tex:119 [v16:L257 v16:L020]	Rerouting removes 9936 (6901 + 3035) names in the CategoryTheory and AlgebraicGeometry namespaces from route 2, the clos
+CITED	8	6901	sec4-gap.tex:118 [v16:L020 v16:L019]; sec4-gap.tex:119 [v16:L257 v16:L020]	Rerouting removes 9936 (6901 + 3035) names in the CategoryTheory and AlgebraicGeometry namespaces from route 2, the clos
+CITED	8	9936	sec4-gap.tex:118 [v16:L020 v16:L019]	Rerouting removes 9936 (6901 + 3035) names in the CategoryTheory and AlgebraicGeometry namespaces from route 2, the clos
+CITED	8	#find_deps	sec4-gap.tex:118 [v16:L020 v16:L019]	the names reachable from the root through types and values, as #find_deps does. Counted
+CITED	8	9454	sec4-gap.tex:119 [v16:L257 v16:L020]	by first name component in the closures, dirichletRealZeroBound_proof has 9454 and 3035
+CITED	8	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	such names in the control and 2553 and 0 in the reroute; the difference, 6901 and 3035,
+CITED	8	2553	sec4-gap.tex:119 [v16:L257 v16:L020]	such names in the control and 2553 and 0 in the reroute; the difference, 6901 and 3035,
+CITED	8	Lemma3.rectangle	sec1-intro.tex:37 [v16:L254 v16:L253]; sec4-gap.tex:125 [v16:L254]	Table 3 compares the main route’s spanning statement with Lemma3.rectangle and with
+CITED	8	5	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	5
+CITED	8	Lemma3.interpolation	sec5-lemma3.tex:8 [v16:L022]; sec5-lemma3.tex:31 [v16:L145]	Lemma3.interpolation, the paper’s Lemma 3, is stated at lean-checks/Lemma3.lean:816825, and that file imports Mathlib on
+CITED	8	lean-checks/Lemma3.lean	sec5-lemma3.tex:9 [v16:L024]; sec9-artifacts.tex:14 [v16:L022]	Lemma3.interpolation, the paper’s Lemma 3, is stated at lean-checks/Lemma3.lean:816825, and that file imports Mathlib on
+CITED	8	1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283	sec5-lemma3.tex:9 [v16:L024]; sec9-artifacts.tex:15 [v16:L024]	and has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283. It
+CITED	8	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	and has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283. It
+CITED	8	253	sec5-lemma3.tex:13 [v16:L108]	Lemma 3 at refs/siegel-paper.tex:252-267. Its lines 253-266 read:
+CITED	8	266	sec5-lemma3.tex:13 [v16:L108]	Lemma 3 at refs/siegel-paper.tex:252-267. Its lines 253-266 read:
+CITED	8	refs/siegel-paper.tex:252-267	sec5-lemma3.tex:12 [v16:L108]	Lemma 3 at refs/siegel-paper.tex:252-267. Its lines 253-266 read:
+CITED	8	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	3 Counted over the full lean4export dumps, every declaration in the dump including unreferenced recursors
+CITED	8	10107	sec4-gap.tex:120 [v16:L021]	and constructors, the removal is 10107 (7048 + 3059).
+CITED	8	3059	sec4-gap.tex:120 [v16:L021]	and constructors, the removal is 10107 (7048 + 3059).
+CITED	8	7048	sec4-gap.tex:120 [v16:L021]	and constructors, the removal is 10107 (7048 + 3059).
+CITED	8	8	sec3-faithfulness.tex:121 [v16:L211]; sec7-corpus.tex:49 [v16:L062]	8
+CITED	9	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	all three use products of the three conjugate linear forms of n with exponents a 0, a
+CITED	9	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	1, a 2; after mapping to C the main route’s rows are those of A = the directions
+CITED	9	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	1, a 2; after mapping to C the main route’s rows are those of A = the directions
+CITED	9	32	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	Lemma3.rectangle and actual_biquadratic_rectangle_span: the rectangle a 0 <= 32
+CITED	9	Lemma3.rectangle	sec1-intro.tex:37 [v16:L254 v16:L253]; sec4-gap.tex:125 [v16:L254]	Lemma3.rectangle and actual_biquadratic_rectangle_span: the rectangle a 0 <= 32
+CITED	9	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	Lemma3.rectangle and actual_biquadratic_rectangle_span: the rectangle a 0 <= 32
+CITED	9	1/3	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	H^(2/3) N^(4/3), a 1, a 2 <= 32 H^(-1/3) N^(4/3); the main route: the weighted
+CITED	9	2/3	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:40 [v16:L253]	H^(2/3) N^(4/3), a 1, a 2 <= 32 H^(-1/3) N^(4/3); the main route: the weighted
+CITED	9	4/3	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:40 [v16:L253]	H^(2/3) N^(4/3), a 1, a 2 <= 32 H^(-1/3) N^(4/3); the main route: the weighted
+CITED	9	96	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:137 [v16:L254]	cutoff a 0 + H a 1 + H a 2 <= floor(96 H^(2/3) N^(4/3)), which contains that
+CITED	9	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	RectangularAssertion), field (C versus L), indexing (Index H, Fin (N^4))
+CITED	9	lean-checks/comparator-copy/PaperLemma3/Lemma3.lean:817-826	sec5-lemma3.tex:34 [v16:L024]	Listing 6: Lemma 3, lean-checks/comparator-copy/PaperLemma3/Lemma3.lean:817-826
+CITED	9	1ce196f5	sec5-lemma3.tex:34 [v16:L024]; sec6-reroute.tex:6 [v16:L097]	(sha256 1ce196f5. . . ).
+CITED	9	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	(sha256 1ce196f5. . . ).
+CITED	9	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	(A : (Fin 4 → C) →l [C] (Fin 3 → C)) (hA : Function.Surjective A)
+CITED	9	3.1	sec2-background.tex:28 [v16:L108]	(3.1)
+CITED	9	Lemma3.interpolation	sec5-lemma3.tex:8 [v16:L022]; sec5-lemma3.tex:31 [v16:L145]	By reading the Lean statement against the paper’s text, Lemma3.interpolation matches the
+CITED	9	2026-10-27	sec3-faithfulness.tex:91 [v16:L002]; sec3-faithfulness.tex:93 [v16:L004]	paper’s Lemma 3, tex 252-267, clause by clause (Read by J. Reilly, 2026-10-27: MATCH).
+CITED	9	252	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:31 [v16:L145]	paper’s Lemma 3, tex 252-267, clause by clause (Read by J. Reilly, 2026-10-27: MATCH).
+CITED	9	267	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:31 [v16:L145]	paper’s Lemma 3, tex 252-267, clause by clause (Read by J. Reilly, 2026-10-27: MATCH).
+CITED	9	Bridge.lean	sec5-lemma3.tex:59 [v16:L025]; sec5-lemma3.tex:127 [v16:L028 v16:L036]	Lemma3.rectangle, the paper’s Corollary 4, is stated in the comparator copy Bridge.lean,
+CITED	9	411	sec5-lemma3.tex:62 [v16:L109]	refs/siegel-paper.tex:410-420. Its lines 411-419 read:
+CITED	9	419	sec5-lemma3.tex:62 [v16:L109]	refs/siegel-paper.tex:410-420. Its lines 411-419 read:
+CITED	9	refs/siegel-paper.tex:410-420	sec5-lemma3.tex:61 [v16:L109]	refs/siegel-paper.tex:410-420. Its lines 411-419 read:
+CITED	9	lean-checks/Lemma3.lean:42-43	sec5-lemma3.tex:51 [v16:L023]	Listing 7: The box Pt, lean-checks/Lemma3.lean:42-43.
+CITED	9	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	9
+CITED	10	lean-checks/comparator-copy/PaperLemma3/Bridge.lean:96-109	sec5-lemma3.tex:80 [v16:L025]	Listing 8: Corollary 4, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:96-109
+CITED	10	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	(sha256 af401514. . . ).
+CITED	10	af401514	sec5-lemma3.tex:80 [v16:L025]; sec6-reroute.tex:6 [v16:L097]	(sha256 af401514. . . ).
+CITED	10	410	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:76 [v16:L146]	/-- **Corollary 4** (`cor:rectangle`, tex lines 410–420). -/
+CITED	10	420	sec2-background.tex:25 [v16:L106 v16:L107 v16:L108 v16:L109 v16:L110 v16:L111]; sec5-lemma3.tex:76 [v16:L146]	/-- **Corollary 4** (`cor:rectangle`, tex lines 410–420). -/
+CITED	10	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	(A : (Fin 4 → C) →l [C] (Fin 3 → C)) (hA : Function.Surjective A)
+CITED	10	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	(A : (Fin 4 → C) →l [C] (Fin 3 → C)) (hA : Function.Surjective A)
+CITED	10	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	(H N : N) (hH : 1 ≤ H) (hHN : H ≤ N) :
+CITED	10	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	A (fun i => ((n i : N) : C)) 0 ^ α 0 * A (fun i => ((n i : N) : C)) 1 ^
+CITED	10	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	A (fun i => ((n i : N) : C)) 2 ^ α 2) ''
+CITED	10	32	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	(α 0 : R) ≤ 32 * (H : R) ^ (2 / 3 : R) * (N : R) ^ (4 / 3 : R) ∧
+CITED	10	4/3	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:40 [v16:L253]	U = N 4/3 ,
+CITED	10	2/3	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:40 [v16:L253]	T1 = 32H 2/3 U,
+CITED	10	1/3	sec4-gap.tex:40 [v16:L253]; sec4-gap.tex:137 [v16:L254]	T2 = T3 = 32H −1/3 U.
+CITED	10	Lemma3.rectangle	sec1-intro.tex:37 [v16:L254 v16:L253]; sec4-gap.tex:125 [v16:L254]	By reading the Lean statement against the paper’s text, Lemma3.rectangle matches the
+CITED	10	2026-10-27	sec3-faithfulness.tex:91 [v16:L002]; sec3-faithfulness.tex:93 [v16:L004]	paper’s Corollary 4, tex 410-420 (Read by J. Reilly, 2026-10-27: MATCH). The copies of
+CITED	10	bridge_descent	sec5-lemma3.tex:77 [v16:L029]; sec5-lemma3.tex:131 [v16:L040 v16:L026]	interpolation, rectangle, bridge_main, bridge_descent and via_lemma3 in the comparator
+CITED	10	bridge_main	sec5-lemma3.tex:77 [v16:L029]; sec5-lemma3.tex:130 [v16:L039 v16:L027]	interpolation, rectangle, bridge_main, bridge_descent and via_lemma3 in the comparator
+CITED	10	via_lemma3	sec5-lemma3.tex:77 [v16:L029]; sec5-lemma3.tex:157 [v16:L030]	interpolation, rectangle, bridge_main, bridge_descent and via_lemma3 in the comparator
+CITED	10	lean-checks/Lemma3Bridged.lean	sec5-lemma3.tex:77 [v16:L029]; sec9-artifacts.tex:17 [v16:L029]	copy and in lean-checks/Lemma3Bridged.lean are identical.
+CITED	10	268	sec5-lemma3.tex:102 [v16:L136]	comparator copy, grouped under the paper’s proof steps (tex 268-408). The main proof
+CITED	10	408	sec5-lemma3.tex:102 [v16:L136]	comparator copy, grouped under the paper’s proof steps (tex 268-408). The main proof
+CITED	10	816	sec5-lemma3.tex:103 [v16:L136]; sec9-artifacts.tex:14 [v16:L022]	Lemma3.interpolation (816-985) calls each group in order at its “– Step” comments. Opening
+CITED	10	985	sec5-lemma3.tex:103 [v16:L136]; sec5-lemma3.tex:120 [v16:L136]	Lemma3.interpolation (816-985) calls each group in order at its “– Step” comments. Opening
+CITED	10	Lemma3.interpolation	sec5-lemma3.tex:8 [v16:L022]; sec5-lemma3.tex:31 [v16:L145]	Lemma3.interpolation (816-985) calls each group in order at its “– Step” comments. Opening
+CITED	10	eq:moments	sec5-lemma3.tex:104 [v16:L136]; sec5-lemma3.tex:114 [v16:L136]	the proof, exists_annihilator and p5_PtSub give the weights of eq:moments, which is not
+CITED	10	exists_annihilator	sec5-lemma3.tex:104 [v16:L136]; sec5-lemma3.tex:114 [v16:L136]	the proof, exists_annihilator and p5_PtSub give the weights of eq:moments, which is not
+CITED	10	p5_PtSub	sec5-lemma3.tex:104 [v16:L136]; sec5-lemma3.tex:114 [v16:L136]	the proof, exists_annihilator and p5_PtSub give the weights of eq:moments, which is not
+CITED	10	29	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	30	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	33	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	35	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	36	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	38	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	39	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	41	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	43	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	614	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	620	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	p5_eval_aeval	sec5-lemma3.tex:105 [v16:L136]	one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5_eval_aeval 614-620.
+CITED	10	Bridge.lean	sec5-lemma3.tex:59 [v16:L025]; sec5-lemma3.tex:127 [v16:L028 v16:L036]	Lemma3.actual_biquadratic_rectangle_span_via_lemma3 is stated in Bridge.lean, and
+CITED	10	Lemma3.actual_biquadratic_rectangle_span_via_lemma3	sec5-lemma3.tex:127 [v16:L028 v16:L036]; sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	Lemma3.actual_biquadratic_rectangle_span_via_lemma3 is stated in Bridge.lean, and
+CITED	10	Bridge.lean:214	sec5-lemma3.tex:128 [v16:L037]	by type_of% it has exactly the type of OAI’s theorem (Listing 9). The embedding K -> C is chosen as IsAlgClosed.lift, no
+CITED	10	IsAlgClosed.lift	sec5-lemma3.tex:128 [v16:L037]	by type_of% it has exactly the type of OAI’s theorem (Listing 9). The embedding K -> C is chosen as IsAlgClosed.lift, no
+CITED	10	type_of	sec5-lemma3.tex:127 [v16:L028 v16:L036]	by type_of% it has exactly the type of OAI’s theorem (Listing 9). The embedding K -> C is chosen as IsAlgClosed.lift, no
+CITED	10	InvariantJetLinearMap.lean:321-322	sec5-lemma3.tex:129 [v16:L038]	b)-1 ] at InvariantJetLinearMap.lean:321-322. ker A = span {c} is proved inline in
+CITED	10	Bridge.lean:196-211	sec5-lemma3.tex:130 [v16:L039 v16:L027]	bridge_main (Bridge.lean:231-254), which is stated at Bridge.lean:196-211. bridge_descent
+CITED	10	Bridge.lean:231-254	sec5-lemma3.tex:130 [v16:L039 v16:L027]	bridge_main (Bridge.lean:231-254), which is stated at Bridge.lean:196-211. bridge_descent
+CITED	10	AlgEquiv.mul_apply	sec5-lemma3.tex:132 [v16:L041]; sec5-lemma3.tex:147 [v16:L041]	(Bridge.lean:147-155) does both the descent from C to K and the restriction to an injective family. In Mathlib d13f23b, 
+CITED	10	Bridge.lean:147-155	sec5-lemma3.tex:131 [v16:L040 v16:L026]	(Bridge.lean:147-155) does both the descent from C to K and the restriction to an injective family. In Mathlib d13f23b, 
+CITED	10	d13f23b	sec2-background.tex:13 [v16:L087]; sec5-lemma3.tex:132 [v16:L041]	(Bridge.lean:147-155) does both the descent from C to K and the restriction to an injective family. In Mathlib d13f23b, 
+CITED	10	Mathlib/Algebra/Algebra/Equiv.lean:663	sec5-lemma3.tex:133 [v16:L041]; sec5-lemma3.tex:147 [v16:L041]	line, Mathlib/Algebra/Algebra/Equiv.lean:663. The bridge reuses two OAI setup lemmas:
+CITED	10	InvariantJetLinearMap.lean:380-397	sec5-lemma3.tex:134 [v16:L042 v16:L043]	source_same_witness_hyperplane (InvariantJetLinearMap.lean:447-455) and biquadraticCoefficients_linearIndependent (Invar
+CITED	10	InvariantJetLinearMap.lean:447-455	sec5-lemma3.tex:134 [v16:L042 v16:L043]	source_same_witness_hyperplane (InvariantJetLinearMap.lean:447-455) and biquadraticCoefficients_linearIndependent (Invar
+CITED	10	biquadraticCoefficients_linearIndependent	sec5-lemma3.tex:134 [v16:L042 v16:L043]	source_same_witness_hyperplane (InvariantJetLinearMap.lean:447-455) and biquadraticCoefficients_linearIndependent (Invar
+CITED	10	source_same_witness_hyperplane	sec5-lemma3.tex:134 [v16:L042 v16:L043]	source_same_witness_hyperplane (InvariantJetLinearMap.lean:447-455) and biquadraticCoefficients_linearIndependent (Invar
+CITED	10	424	sec5-lemma3.tex:134 [v16:L042 v16:L043]	at 424-430).
+CITED	10	430	sec5-lemma3.tex:134 [v16:L042 v16:L043]	at 424-430).
+CITED	10	10	sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	10
+CITED	11	eq:moments	sec5-lemma3.tex:104 [v16:L136]; sec5-lemma3.tex:114 [v16:L136]	opening, eq:moments
+CITED	11	eq:zeros	sec5-lemma3.tex:115 [v16:L136]	of R (eq:zeros)
+CITED	11	591	sec5-lemma3.tex:114 [v16:L136]	exists_annihilator 624-661, p5_PtSub 591-612
+CITED	11	612	sec5-lemma3.tex:114 [v16:L136]	exists_annihilator 624-661, p5_PtSub 591-612
+CITED	11	624	sec5-lemma3.tex:114 [v16:L136]	exists_annihilator 624-661, p5_PtSub 591-612
+CITED	11	661	sec5-lemma3.tex:114 [v16:L136]	exists_annihilator 624-661, p5_PtSub 591-612
+CITED	11	exists_annihilator	sec5-lemma3.tex:104 [v16:L136]; sec5-lemma3.tex:114 [v16:L136]	exists_annihilator 624-661, p5_PtSub 591-612
+CITED	11	p5_PtSub	sec5-lemma3.tex:104 [v16:L136]; sec5-lemma3.tex:114 [v16:L136]	exists_annihilator 624-661, p5_PtSub 591-612
+CITED	11	829	sec5-lemma3.tex:114 [v16:L136]	829-845
+CITED	11	845	sec5-lemma3.tex:114 [v16:L136]	829-845
+CITED	11	663	sec5-lemma3.tex:115 [v16:L136]	four_hull_subset_cube 663-681, exists_vanishing 683-738
+CITED	11	681	sec5-lemma3.tex:115 [v16:L136]	four_hull_subset_cube 663-681, exists_vanishing 683-738
+CITED	11	683	sec5-lemma3.tex:115 [v16:L136]	four_hull_subset_cube 663-681, exists_vanishing 683-738
+CITED	11	738	sec5-lemma3.tex:115 [v16:L136]	four_hull_subset_cube 663-681, exists_vanishing 683-738
+CITED	11	exists_vanishing	sec5-lemma3.tex:115 [v16:L136]	four_hull_subset_cube 663-681, exists_vanishing 683-738
+CITED	11	four_hull_subset_cube	sec5-lemma3.tex:115 [v16:L136]	four_hull_subset_cube 663-681, exists_vanishing 683-738
+CITED	11	846	sec5-lemma3.tex:115 [v16:L136]	846-885
+CITED	11	885	sec5-lemma3.tex:115 [v16:L136]	846-885
+CITED	11	740	sec5-lemma3.tex:116 [v16:L136]	exists_lattice_nonvanishing 740-770, exists_nearest
+CITED	11	770	sec5-lemma3.tex:116 [v16:L136]	exists_lattice_nonvanishing 740-770, exists_nearest
+CITED	11	exists_lattice_nonvanishing	sec5-lemma3.tex:116 [v16:L136]	exists_lattice_nonvanishing 740-770, exists_nearest
+CITED	11	exists_nearest	sec5-lemma3.tex:116 [v16:L136]	exists_lattice_nonvanishing 740-770, exists_nearest
+CITED	11	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	148	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	51	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	55	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	57	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	85	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	87	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	p1_coord_le_sqd	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	p1_var_ineq	sec5-lemma3.tex:116 [v16:L136]	87-148, p1_var_ineq 57-85, p1_coord_le_sqd 51-55, p1_
+CITED	11	150	sec5-lemma3.tex:116 [v16:L136]	dot_self_nonneg 47-49, quarter_mem_face 150-208
+CITED	11	208	sec5-lemma3.tex:116 [v16:L136]	dot_self_nonneg 47-49, quarter_mem_face 150-208
+CITED	11	47	sec5-lemma3.tex:116 [v16:L136]	dot_self_nonneg 47-49, quarter_mem_face 150-208
+CITED	11	49	sec5-lemma3.tex:116 [v16:L136]	dot_self_nonneg 47-49, quarter_mem_face 150-208
+CITED	11	quarter_mem_face	sec5-lemma3.tex:116 [v16:L136]	dot_self_nonneg 47-49, quarter_mem_face 150-208
+CITED	11	224	sec5-lemma3.tex:117 [v16:L136]	exists_heavy_vertex 224-299
+CITED	11	299	sec5-lemma3.tex:117 [v16:L136]	exists_heavy_vertex 224-299
+CITED	11	exists_heavy_vertex	sec5-lemma3.tex:117 [v16:L136]	exists_heavy_vertex 224-299
+CITED	11	886	sec5-lemma3.tex:116 [v16:L136]	886-909
+CITED	11	909	sec5-lemma3.tex:116 [v16:L136]	886-909
+CITED	11	eq:vertex	sec5-lemma3.tex:117 [v16:L136]	(eq:vertex)
+CITED	11	eq:distance	sec5-lemma3.tex:118 [v16:L136]	(eq:distance,
+CITED	11	eq:offface	sec5-lemma3.tex:118 [v16:L136]	eq:offface)
+CITED	11	910	sec5-lemma3.tex:117 [v16:L136]	910-916
+CITED	11	916	sec5-lemma3.tex:117 [v16:L136]	910-916
+CITED	11	213	sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+CITED	11	218	sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+CITED	11	301	sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+CITED	11	340	sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+CITED	11	closer_point	sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+CITED	11	p2_dot_expand	sec5-lemma3.tex:118 [v16:L136]	closer_point 301-340, p2_dot_expand 213-218, p2_dot_
+CITED	11	220	sec5-lemma3.tex:118 [v16:L136]	self_nonneg 220-222
+CITED	11	222	sec5-lemma3.tex:118 [v16:L136]	self_nonneg 220-222
+CITED	11	917	sec5-lemma3.tex:118 [v16:L136]	917-939
+CITED	11	939	sec5-lemma3.tex:118 [v16:L136]	917-939
+CITED	11	342	sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+CITED	11	352	sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+CITED	11	371	sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+CITED	11	432	sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+CITED	11	exists_int_hyperplane	sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+CITED	11	p3_g	sec5-lemma3.tex:119 [v16:L136]	exists_int_hyperplane 371-432, p3_g 342-352, p3_g_
+CITED	11	354	sec5-lemma3.tex:119 [v16:L136]	apply 354-354, p3_clear 356-369, int_comb_ne_zero
+CITED	11	356	sec5-lemma3.tex:119 [v16:L136]	apply 354-354, p3_clear 356-369, int_comb_ne_zero
+CITED	11	369	sec5-lemma3.tex:119 [v16:L136]; sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	apply 354-354, p3_clear 356-369, int_comb_ne_zero
+CITED	11	int_comb_ne_zero	sec5-lemma3.tex:119 [v16:L136]	apply 354-354, p3_clear 356-369, int_comb_ne_zero
+CITED	11	p3_clear	sec5-lemma3.tex:119 [v16:L136]	apply 354-354, p3_clear 356-369, int_comb_ne_zero
+CITED	11	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	434	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	443	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	445	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	448	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	471	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	586	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	exists_lagrange	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	p4_linP	sec5-lemma3.tex:119 [v16:L136]	434-443, exists_lagrange 471-586, p4_linP 445-448, p4_
+CITED	11	450	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	455	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	457	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	461	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	463	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	465	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	p4_deg_linP	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	p4_rL	sec5-lemma3.tex:119 [v16:L136]	eval_linP 450-455, p4_deg_linP 457-461, p4_rL 463-465,
+CITED	11	467	sec5-lemma3.tex:119 [v16:L136]	p4_rL_apply 467-469
+CITED	11	469	sec5-lemma3.tex:119 [v16:L136]	p4_rL_apply 467-469
+CITED	11	p4_rL_apply	sec5-lemma3.tex:119 [v16:L136]	p4_rL_apply 467-469
+CITED	11	772	sec5-lemma3.tex:120 [v16:L136]	exists_translate 772-812
+CITED	11	812	sec5-lemma3.tex:120 [v16:L136]	exists_translate 772-812
+CITED	11	exists_translate	sec5-lemma3.tex:120 [v16:L136]	exists_translate 772-812
+CITED	11	940	sec5-lemma3.tex:119 [v16:L136]	940-947
+CITED	11	947	sec5-lemma3.tex:119 [v16:L136]	940-947
+CITED	11	948	sec5-lemma3.tex:120 [v16:L136]	948-985
+CITED	11	985	sec5-lemma3.tex:103 [v16:L136]; sec5-lemma3.tex:120 [v16:L136]	948-985
+CITED	11	actual_biquadratic_rectangle_span_via_lemma3	sec8-threats.tex:25 [v16:L148 v16:L096]	theorem actual_biquadratic_rectangle_span_via_lemma3 :
+CITED	11	type_of	sec5-lemma3.tex:127 [v16:L028 v16:L036]	type_of% @OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span :=
+CITED	11	AlgEquiv.mul_apply	sec5-lemma3.tex:132 [v16:L041]; sec5-lemma3.tex:147 [v16:L041]	AlgEquiv.mul_apply, Mathlib d13f23b Mathlib/Algebra/Algebra/
+CITED	11	d13f23b	sec2-background.tex:13 [v16:L087]; sec5-lemma3.tex:132 [v16:L041]	AlgEquiv.mul_apply, Mathlib d13f23b Mathlib/Algebra/Algebra/
+CITED	11	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	theorem mul_apply (e1 e2 : A1 ≃a [R] A1 ) (x : A1 ) : (e1 * e2 ) x = e1 (e2 x) :=
+CITED	11	11	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]; sec7-corpus.tex:22 [v16:L060 v16:L061]	11
+CITED	12	PaperLemma3/Lemma3.lean	sec5-lemma3.tex:156 [v16:L032]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	All nine declarations compiled from the comparator copy itself (PaperLemma3/Lemma3.lean
+CITED	12	Bridge.lean	sec5-lemma3.tex:59 [v16:L025]; sec5-lemma3.tex:127 [v16:L028 v16:L036]	and Bridge.lean) depend on the axioms [propext, Classical.choice, Quot.sound], at fd4aeeb
+CITED	12	Classical.choice	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	and Bridge.lean) depend on the axioms [propext, Classical.choice, Quot.sound], at fd4aeeb
+CITED	12	Quot.sound	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	and Bridge.lean) depend on the axioms [propext, Classical.choice, Quot.sound], at fd4aeeb
+CITED	12	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	and Bridge.lean) depend on the axioms [propext, Classical.choice, Quot.sound], at fd4aeeb
+CITED	12	45	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec5-lemma3.tex:156 [v16:L032]	under the 45-family deny list. The same axioms were recorded for interpolation, rectangle
+CITED	12	2026-10-08	sec5-lemma3.tex:157 [v16:L030]	and via_lemma3 in Lemma3Bridged.lean at adc7f12 on 2026-10-08. 4 A standalone check of
+CITED	12	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	and via_lemma3 in Lemma3Bridged.lean at adc7f12 on 2026-10-08. 4 A standalone check of
+CITED	12	Lemma3Bridged.lean	sec5-lemma3.tex:157 [v16:L030]; sec5-lemma3.tex:158 [v16:L031]	and via_lemma3 in Lemma3Bridged.lean at adc7f12 on 2026-10-08. 4 A standalone check of
+CITED	12	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	and via_lemma3 in Lemma3Bridged.lean at adc7f12 on 2026-10-08. 4 A standalone check of
+CITED	12	via_lemma3	sec5-lemma3.tex:77 [v16:L029]; sec5-lemma3.tex:157 [v16:L030]	and via_lemma3 in Lemma3Bridged.lean at adc7f12 on 2026-10-08. 4 A standalone check of
+CITED	12	3a24072	sec1-intro.tex:7 [v16:L104 v16:L105 v16:L088]; sec2-background.tex:11 [v16:L105]	the export of via_lemma3 by nanoda 3a24072 accepted it, with 61810 declarations checked.
+CITED	12	61810	sec5-lemma3.tex:160 [v16:L033]	the export of via_lemma3 by nanoda 3a24072 accepted it, with 61810 declarations checked.
+CITED	12	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	The same export with Classical.choice not permitted was rejected (exit 1). The export with
+CITED	12	101	sec5-lemma3.tex:162 [v16:L035]; sec8-threats.tex:13 [v16:L034 v16:L035]	rectangle’s proof replaced by interpolation’s proof was rejected (exit 101). These nanoda
+CITED	12	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	construct.py) ran 540 instances at N = 2, 3, with 28 checks each, and all pass. This covers
+CITED	12	28	sec5-lemma3.tex:165 [v16:L046]	construct.py) ran 540 instances at N = 2, 3, with 28 checks each, and all pass. This covers
+CITED	12	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	construct.py) ran 540 instances at N = 2, 3, with 28 checks each, and all pass. This covers
+CITED	12	540	sec5-lemma3.tex:165 [v16:L046]	construct.py) ran 540 instances at N = 2, 3, with 28 checks each, and all pass. This covers
+CITED	12	5	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	the proof steps at N = 2, 3 only, not the lemma in general. 5
+CITED	12	6	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; appendix-reasoning.tex:48 [v16:L226]	6
+CITED	12	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	proof, with the Lean proof of Section 5. It changes one tracked file of openai/math
+CITED	12	138	sec4-gap.tex:110 [v16:L018]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	by +2/-1 lines, an import and the term at line 138, and adds the two modules PaperLemma3/Lemma3.lean and PaperLemma3/Bri
+CITED	12	2/-1	abstract.tex:10 [v16:L097 v16:L147]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	by +2/-1 lines, an import and the term at line 138, and adds the two modules PaperLemma3/Lemma3.lean and PaperLemma3/Bri
+CITED	12	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	by +2/-1 lines, an import and the term at line 138, and adds the two modules PaperLemma3/Lemma3.lean and PaperLemma3/Bri
+CITED	12	PaperLemma3/Bridge.lean	sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	by +2/-1 lines, an import and the term at line 138, and adds the two modules PaperLemma3/Lemma3.lean and PaperLemma3/Bri
+CITED	12	1ce196f5	sec5-lemma3.tex:34 [v16:L024]; sec6-reroute.tex:6 [v16:L097]	1ce196f5. . . and af401514. . . , and the patch is 1 file +2/-1. The patch applies cleanly
+CITED	12	af401514	sec5-lemma3.tex:80 [v16:L025]; sec6-reroute.tex:6 [v16:L097]	1ce196f5. . . and af401514. . . , and the patch is 1 file +2/-1. The patch applies cleanly
+CITED	12	16	sec6-reroute.tex:12 [v16:L093 v16:L095 v16:L116 v16:L117]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	official Comparator with nanoda 3a24072 enabled, under the 45-family deny list and a 16G
+CITED	12	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	v1 cgroup cap. Both runs are accepted by Comparator with both kernels, with exit 0.
+CITED	12	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	Table 5 gives the verdicts, the dependency scans of dirichletRealZeroBound_proof, and
+CITED	12	2026-10-09	sec6-reroute.tex:16 [v16:L094 v16:L096]; sec6-reroute.tex:46 [v16:L047 v16:L049]	blocks are identical to the 2026-10-09 blocks at adc7f12 (counts, matches, axioms). The
+CITED	12	107760	sec4-gap.tex:75 [v16:L200]; sec6-reroute.tex:17 [v16:L148 v16:L149]	reroute leaves exists_absolute_real_zero_gap unchanged: its closure has 107760 constants
+CITED	12	exists_absolute_real_zero_gap	abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	reroute leaves exists_absolute_real_zero_gap unchanged: its closure has 107760 constants
+CITED	12	/home/checker/math-r2	sec6-reroute.tex:36 [v16:L119]	clone; OAI closure built from scratch. The clone /home/checker/math-r2 is a local git
+CITED	12	/home/checker/math	sec6-reroute.tex:36 [v16:L119]	clone of /home/checker/math, at fd4aeeb with 0 tracked changes, and its lake-manifest.json,
+CITED	12	lake-manifest.json	sec6-reroute.tex:36 [v16:L119]	clone of /home/checker/math, at fd4aeeb with 0 tracked changes, and its lake-manifest.json,
+CITED	12	lakefile.lean	sec6-reroute.tex:36 [v16:L119]	lean-toolchain and lakefile.lean equal the original’s. Its lean/.lake/packages is bind-mounted
+CITED	12	lean/.lake/packages	sec6-reroute.tex:37 [v16:L119]	lean-toolchain and lakefile.lean equal the original’s. Its lean/.lake/packages is bind-mounted
+CITED	12	2026-10-26	sec5-lemma3.tex:158 [v16:L031]; sec6-reroute.tex:38 [v16:L120]	at the end. The clone was created at 2026-10-26 22:17:36, its lean/.lake/build directory was
+CITED	12	22:17:36	sec6-reroute.tex:38 [v16:L120]	at the end. The clone was created at 2026-10-26 22:17:36, its lean/.lake/build directory was
+CITED	12	lean/.lake/build	sec6-reroute.tex:38 [v16:L120]	at the end. The clone was created at 2026-10-26 22:17:36, its lean/.lake/build directory was
+CITED	12	22:19:09	sec6-reroute.tex:38 [v16:L120]	created at 22:19:37, after the control prebuild started (22:19:09), and the oldest OAI .olean
+CITED	12	22:19:37	sec6-reroute.tex:38 [v16:L120]	created at 22:19:37, after the control prebuild started (22:19:09), and the oldest OAI .olean
+CITED	12	21:43	sec5-lemma3.tex:158 [v16:L031]	4 A fresh run on 2026-10-26 at 21:43, of Lemma3Bridged.lean at fd4aeeb under the 45-family deny list,
+CITED	12	Lemma3_Cor4.lean	sec5-lemma3.tex:167 [v16:L044 v16:L045]	5 Two working drafts in lean-checks/ are not cited: Lemma3_Cor4.lean proves interpolation by sorry (line
+CITED	12	20	sec5-lemma3.tex:167 [v16:L044 v16:L045]; sec8-threats.tex:37 [v16:L078 v16:L079]	31), so its rectangle depends on sorryAx, and Lemma3_Bridge.lean proves rectangle by sorry (line 20). The
+CITED	12	31	sec5-lemma3.tex:167 [v16:L044 v16:L045]	31), so its rectangle depends on sorryAx, and Lemma3_Bridge.lean proves rectangle by sorry (line 20). The
+CITED	12	Lemma3_Bridge.lean	sec5-lemma3.tex:167 [v16:L044 v16:L045]	31), so its rectangle depends on sorryAx, and Lemma3_Bridge.lean proves rectangle by sorry (line 20). The
+CITED	13	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	Table 5: The SiegelZeros control and reroute at openai/math fd4aeeb (results/2026-10-27reroute-fd4aeeb/). Prebuild: lake
+CITED	13	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	Table 5: The SiegelZeros control and reroute at openai/math fd4aeeb (results/2026-10-27reroute-fd4aeeb/). Prebuild: lake
+CITED	13	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	Table 5: The SiegelZeros control and reroute at openai/math fd4aeeb (results/2026-10-27reroute-fd4aeeb/). Prebuild: lake
+CITED	13	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	Comparator run: nanoda 3a24072 enabled, 16G v1 cgroup cap, 45-family deny list.
+CITED	13	16	sec6-reroute.tex:12 [v16:L093 v16:L095 v16:L116 v16:L117]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	Comparator run: nanoda 3a24072 enabled, 16G v1 cgroup cap, 45-family deny list.
+CITED	13	3a24072	sec1-intro.tex:7 [v16:L104 v16:L105 v16:L088]; sec2-background.tex:11 [v16:L105]	Comparator run: nanoda 3a24072 enabled, 16G v1 cgroup cap, 45-family deny list.
+CITED	13	45	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec5-lemma3.tex:156 [v16:L032]	Comparator run: nanoda 3a24072 enabled, 16G v1 cgroup cap, 45-family deny list.
+CITED	13	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	BOTH; exit 0
+CITED	13	11	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]; sec7-corpus.tex:22 [v16:L060 v16:L061]	11min 19.935s;
+CITED	13	19.935s	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	11min 19.935s;
+CITED	13	9243	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	9243 jobs
+CITED	13	116314	sec4-gap.tex:111 [v16:L019 v16:L094]; sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	116314
+CITED	13	92658	sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]; sec6-reroute.tex:50 [v16:L051 v16:L019]	92658 constants
+CITED	13	7707508	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	842 s; max RSS 7707508 kB;
+CITED	13	842	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	842 s; max RSS 7707508 kB;
+CITED	13	7412195328	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]	cgroup max_usage 7412195328
+CITED	13	max_usage	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]; sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	cgroup max_usage 7412195328
+CITED	13	oom_kill	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]; sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	B; oom_kill 0
+CITED	13	659	sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	659 s; max RSS 7662352 kB;
+CITED	13	7662352	sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	659 s; max RSS 7662352 kB;
+CITED	13	6280855552	sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	cgroup max_usage 6280855552
+CITED	13	39.395s	sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	1min 39.395s;
+CITED	13	9245	sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	9245 jobs
+CITED	13	22:19:53	sec6-reroute.tex:38 [v16:L120]	dates from 22:19:53. The reroute prebuild ran in the same clone, after the control, with the
+CITED	13	2/-1	abstract.tex:10 [v16:L097 v16:L147]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	two PaperLemma3 modules and the +2/-1 patch. 6
+CITED	13	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	two PaperLemma3 modules and the +2/-1 patch. 6
+CITED	13	6	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; appendix-reasoning.tex:48 [v16:L226]	two PaperLemma3 modules and the +2/-1 patch. 6
+CITED	13	adc7f12	sec1-intro.tex:4 [v16:L007 v16:L001]; sec2-background.tex:19 [v16:L007]	Corroboration at adc7f12
+CITED	13	2026-10-09	sec6-reroute.tex:16 [v16:L094 v16:L096]; sec6-reroute.tex:46 [v16:L047 v16:L049]	The same substitution was first run at adc7f12 on 2026-10-09. There the rerouted clone
+CITED	13	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	modules. The challenge file is unchanged, with sha256 bedaac0248a641910f79a380d9702d82
+CITED	13	9244	sec6-reroute.tex:49 [v16:L049]	c6bfbbfd3760a69d27c72c5d8fb136ce. The rerouted Comparator run built 9244 jobs and was
+CITED	13	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	accepted by Comparator with both kernels, with exit 0. Its dependency scan of dirichletRealZeroBound_proof finds 92658 c
+CITED	13	via_lemma3	sec5-lemma3.tex:77 [v16:L029]; sec5-lemma3.tex:157 [v16:L030]	accepted by Comparator with both kernels, with exit 0. Its dependency scan of dirichletRealZeroBound_proof finds 92658 c
+CITED	13	138	sec4-gap.tex:110 [v16:L018]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	interpolation, against 116314 in the control. After line 138 is replaced, the closure no longer
+CITED	13	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	contains actual_biquadratic_rectangle_span.
+CITED	13	PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport	sec6-reroute.tex:53 [v16:L052]; sec8-threats.tex:28 [v16:L052]	PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport.
+CITED	13	189	sec7-corpus.tex:4 [v16:L053 v16:L056 v16:L088]; sec7-corpus.tex:5 [v16:L053]	We replayed the Comparator configs of openai/math, the 189 referenced by formalization.yaml and the 227 unreferenced one
+CITED	13	227	sec7-corpus.tex:4 [v16:L053 v16:L056 v16:L088]; sec7-corpus.tex:7 [v16:L056]	We replayed the Comparator configs of openai/math, the 189 referenced by formalization.yaml and the 227 unreferenced one
+CITED	13	formalization.yaml	sec7-corpus.tex:4 [v16:L053 v16:L056 v16:L088]; sec7-corpus.tex:5 [v16:L053]	We replayed the Comparator configs of openai/math, the 189 referenced by formalization.yaml and the 227 unreferenced one
+CITED	13	187	sec7-corpus.tex:5 [v16:L053]; sec7-corpus.tex:6 [v16:L054]	189 configs referenced by formalization.yaml, 187 were replayed at fd4aeeb and 2 (SiegelZeros, QuasiRiemannHypothesis) i
+CITED	13	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	189 configs referenced by formalization.yaml, 187 were replayed at fd4aeeb and 2 (SiegelZeros, QuasiRiemannHypothesis) i
+CITED	13	178	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	178 of the 187, and 9 are ACCEPT_LEAN_ONLY because nanoda 3a24072 crashes. The
+CITED	13	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	178 of the 187, and 9 are ACCEPT_LEAN_ONLY because nanoda 3a24072 crashes. The
+CITED	13	ACCEPT_LEAN_ONLY	sec7-corpus.tex:6 [v16:L054]	178 of the 187, and 9 are ACCEPT_LEAN_ONLY because nanoda 3a24072 crashes. The
+CITED	13	15	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	extended replay of the 227 unreferenced configs gives 212 results, with 15 not checked here.
+CITED	13	212	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	extended replay of the 227 unreferenced configs gives 212 results, with 15 not checked here.
+CITED	13	416	sec4-gap.tex:116 [v16:L090]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	Neal McBurnett’s repository [12] states that Comparator, as shipped, accepts all 416 configs
+CITED	13	402	abstract.tex:12 [v16:L141]; sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]	at fd4aeeb. Against all our recorded results, 416 configs were compared, 402 agree, 0 disagree,
+CITED	13	14	sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]; sec7-corpus.tex:22 [v16:L060 v16:L061]	and 14 have no verdict here; none lacks a verdict there. So every config with a verdict on both
+CITED	13	146	sec7-corpus.tex:22 [v16:L060 v16:L061]; sec7-corpus.tex:33 [v16:L060 v16:L061]	import closure are byte-identical at fd4aeeb. Export sizes equal his for 146 extended-replay
+CITED	13	13	sec7-corpus.tex:22 [v16:L060 v16:L061]; sec7-corpus.tex:43 [v16:L135]	13
+CITED	14	3a24072	sec1-intro.tex:7 [v16:L104 v16:L105 v16:L088]; sec2-background.tex:11 [v16:L105]	Table 6: Corpus outcomes. Official: Comparator with nanoda 3a24072. Unofficial: other
+CITED	14	1ca7ff2	sec7-corpus.tex:11 [v16:L053 v16:L056 v16:L065]; sec7-corpus.tex:40 [v16:L132]	1ca7ff2 [12].
+CITED	14	189	sec7-corpus.tex:4 [v16:L053 v16:L056 v16:L088]; sec7-corpus.tex:5 [v16:L053]	189 referenced
+CITED	14	178	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	187 + 2; 178 / 9 (both kernels
+CITED	14	187	sec7-corpus.tex:5 [v16:L053]; sec7-corpus.tex:6 [v16:L054]	187 + 2; 178 / 9 (both kernels
+CITED	14	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	187 + 2; 178 / 9 (both kernels
+CITED	14	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	187 + 2; 178 / 9 (both kernels
+CITED	14	15	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	212 / 15; ACCEPT_BOTH
+CITED	14	212	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	212 / 15; ACCEPT_BOTH
+CITED	14	ACCEPT_BOTH	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]; sec6-reroute.tex:28 [v16:L095 v16:L096 v16:L114 v16:L117]	212 / 15; ACCEPT_BOTH
+CITED	14	205	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	205, LEAN_ACCEPT_
+CITED	14	6	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; appendix-reasoning.tex:48 [v16:L226]	NANODA_CRASH 6,
+CITED	14	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	TIMEOUT 1, NOT_
+CITED	14	NOT_CHECKED_HERE	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	NOT_CHECKED_HERE;
+CITED	14	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	here: 369 s; exit 0
+CITED	14	369	sec5-lemma3.tex:119 [v16:L136]; sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	here: 369 s; exit 0
+CITED	14	2234	sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	(KMedianThreshold), 2234 s;
+CITED	14	416	sec4-gap.tex:116 [v16:L090]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	outcome comparison: 416
+CITED	14	402	abstract.tex:12 [v16:L141]; sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]	compared; 402 agree; 0
+CITED	14	14	sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]; sec7-corpus.tex:22 [v16:L060 v16:L061]	disagree; 14 no verdict here
+CITED	14	f67473b	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	f67473b
+CITED	14	227	sec7-corpus.tex:4 [v16:L053 v16:L056 v16:L088]; sec7-corpus.tex:7 [v16:L056]	227 unreferenced
+CITED	14	10	sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	10
+CITED	14	416/416	sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]	416/416
+CITED	14	401/416	sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]	shipped); 401/416
+CITED	14	13	sec7-corpus.tex:22 [v16:L060 v16:L061]; sec7-corpus.tex:43 [v16:L135]	1 GiB stack) [13]
+CITED	14	146	sec7-corpus.tex:22 [v16:L060 v16:L061]; sec7-corpus.tex:33 [v16:L060 v16:L061]	146 (0 differ, 14 not
+CITED	14	11	sec6-reroute.tex:27 [v16:L093 v16:L094 v16:L113 v16:L116]; sec7-corpus.tex:22 [v16:L060 v16:L061]	comparable); 11 (13 incl. 2
+CITED	14	2026-10-26	sec5-lemma3.tex:158 [v16:L031]; sec6-reroute.tex:38 [v16:L120]	2026-10-26 nanoda matrix. 7
+CITED	14	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	ContinuumCoulombHardness could not be built here: the guard stopped the build at 4 and
+CITED	14	8	sec3-faithfulness.tex:121 [v16:L211]; sec7-corpus.tex:49 [v16:L062]	at 2 threads, and it is permanently deferred. 8
+CITED	14	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	three classes (INFERRED). Class 1 is the RoundTables group (8), the Laughlin group (3),
+CITED	14	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	3 is SquareDifference [11]. nealmcb states that on nanoda master ten openai/math configs
+CITED	14	454.4	sec7-corpus.tex:41 [v16:L133]	923.63 s. His kernel-pair sweep records lean_rc 1 (454.4 s) and nanoda_rc 1 (99.3 s) on his export. His
+CITED	14	923.63	sec7-corpus.tex:40 [v16:L132]	923.63 s. His kernel-pair sweep records lean_rc 1 (454.4 s) and nanoda_rc 1 (99.3 s) on his export. His
+CITED	14	99.3	sec7-corpus.tex:41 [v16:L133]	923.63 s. His kernel-pair sweep records lean_rc 1 (454.4 s) and nanoda_rc 1 (99.3 s) on his export. His
+CITED	14	lean_rc	sec7-corpus.tex:41 [v16:L133]	923.63 s. His kernel-pair sweep records lean_rc 1 (454.4 s) and nanoda_rc 1 (99.3 s) on his export. His
+CITED	14	nanoda_rc	sec7-corpus.tex:41 [v16:L133]	923.63 s. His kernel-pair sweep records lean_rc 1 (454.4 s) and nanoda_rc 1 (99.3 s) on his export. His
+CITED	14	114.3	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	130.1	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	134	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	24.23	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	24.26	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	28.6	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	28.8	sec7-corpus.tex:42 [v16:L134]	nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and
+CITED	14	32.8	sec7-corpus.tex:42 [v16:L134]	998e0a8: 134 / 32.8 s. With the let fix and the Nat.succ guard at STACK_SIZE 64 MiB, nanoda 37cb87b
+CITED	14	37cb87b	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	998e0a8: 134 / 32.8 s. With the let fix and the Nat.succ guard at STACK_SIZE 64 MiB, nanoda 37cb87b
+CITED	14	64	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	998e0a8: 134 / 32.8 s. With the let fix and the Nat.succ guard at STACK_SIZE 64 MiB, nanoda 37cb87b
+CITED	14	998e0a8	sec7-corpus.tex:42 [v16:L134]	998e0a8: 134 / 32.8 s. With the let fix and the Nat.succ guard at STACK_SIZE 64 MiB, nanoda 37cb87b
+CITED	14	Nat.succ	sec7-corpus.tex:43 [v16:L135]; sec7-corpus.tex:52 [v16:L067]	998e0a8: 134 / 32.8 s. With the let fix and the Nat.succ guard at STACK_SIZE 64 MiB, nanoda 37cb87b
+CITED	14	STACK_SIZE	sec7-corpus.tex:43 [v16:L135]; sec7-corpus.tex:52 [v16:L067]	998e0a8: 134 / 32.8 s. With the let fix and the Nat.succ guard at STACK_SIZE 64 MiB, nanoda 37cb87b
+CITED	14	1.8GB	sec7-corpus.tex:43 [v16:L135]	passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s,
+CITED	14	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s,
+CITED	14	34	sec3-faithfulness.tex:79 [v16:L009]; sec7-corpus.tex:43 [v16:L135]	passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s,
+CITED	14	48	sec7-corpus.tex:43 [v16:L135]	passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s,
+CITED	14	50.0	sec7-corpus.tex:43 [v16:L135]	passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s,
+CITED	15	64	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	fail, and that with the let fix, the Nat.succ guard and STACK_SIZE 64 MiB all ten check
+CITED	15	Nat.succ	sec7-corpus.tex:43 [v16:L135]; sec7-corpus.tex:52 [v16:L067]	fail, and that with the let fix, the Nat.succ guard and STACK_SIZE 64 MiB all ten check
+CITED	15	STACK_SIZE	sec7-corpus.tex:43 [v16:L135]; sec7-corpus.tex:52 [v16:L067]	fail, and that with the let fix, the Nat.succ guard and STACK_SIZE 64 MiB all ten check
+CITED	15	14	sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]; sec7-corpus.tex:22 [v16:L060 v16:L061]	[14]. 9
+CITED	15	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	[14]. 9
+CITED	15	8	sec3-faithfulness.tex:121 [v16:L211]; sec7-corpus.tex:49 [v16:L062]	8
+CITED	15	external_kernels	sec2-background.tex:7 [v16:L104]; sec2-background.tex:10 [v16:L137]	among them that “The Lean kernel is correct (with ‘external_kernels‘ this can be reduced
+CITED	15	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	and lean4export’s READMEs, both kernel checks depend on the same Lake build and the
+CITED	15	402	abstract.tex:12 [v16:L141]; sec7-corpus.tex:21 [v16:L141 v16:L065 v16:L066]	What agreement does not test. Our replay agrees with an independent replay on all 402
+CITED	15	Classical.choice	abstract.tex:9 [v16:L145 v16:L146 v16:L032]; sec3-faithfulness.tex:57 [v16:L011 v16:L012 v16:L013 v16:L014]	controls. The standalone nanoda check rejects the Lemma 3 export with Classical.choice not
+CITED	15	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	permitted (exit 1), and rejects it with rectangle’s proof replaced by interpolation’s proof (exit
+CITED	15	101	sec5-lemma3.tex:162 [v16:L035]; sec8-threats.tex:13 [v16:L034 v16:L035]	101). Comparator rejects the SiegelZeros solution with Classical.choice not permitted (Illegal
+CITED	15	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	for Re s > 1 and holomorphy off 0, 1) and partly on reading; the six-generator identification
+CITED	15	actual_biquadratic_rectangle_span	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:41 [v16:L253]	Scope of the reroute. The reroute changes one of the two checked theorems, dirichletRealZeroBound_proof. “Only use” of a
+CITED	15	dirichletRealZeroBound_proof	abstract.tex:7 [v16:L019 v16:L099]; abstract.tex:10 [v16:L097 v16:L147]	Scope of the reroute. The reroute changes one of the two checked theorems, dirichletRealZeroBound_proof. “Only use” of a
+CITED	15	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	the SiegelZeros tree. The separate copy in namespace OAI.Erdos970 is measured at import level only, for 3 of 416 configu
+CITED	15	416	sec4-gap.tex:116 [v16:L090]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	the SiegelZeros tree. The separate copy in namespace OAI.Erdos970 is measured at import level only, for 3 of 416 configu
+CITED	15	OAI.Erdos970	sec1-intro.tex:33 [v16:L089 v16:L090]; sec4-gap.tex:114 [v16:L089 v16:L090]	the SiegelZeros tree. The separate copy in namespace OAI.Erdos970 is measured at import level only, for 3 of 416 configu
+CITED	15	actual_biquadratic_rectangle_span_via_lemma3	sec8-threats.tex:25 [v16:L148 v16:L096]	(uniform_rectangular_multiplicity, source_rectangle_span_of_polynomial_zero_test, actual_biquadratic_rectangle_span, act
+CITED	15	source_rectangle_span_of_polynomial_zero_test	sec4-gap.tex:111 [v16:L019 v16:L094]; sec8-threats.tex:25 [v16:L148 v16:L096]	(uniform_rectangular_multiplicity, source_rectangle_span_of_polynomial_zero_test, actual_biquadratic_rectangle_span, act
+CITED	15	uniform_rectangular_multiplicity	sec1-intro.tex:16 [v16:L019 v16:L099]; sec4-gap.tex:108 [v16:L019 v16:L099]	(uniform_rectangular_multiplicity, source_rectangle_span_of_polynomial_zero_test, actual_biquadratic_rectangle_span, act
+CITED	15	PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport	sec6-reroute.tex:53 [v16:L052]; sec8-threats.tex:28 [v16:L052]	Dependencies. The rerouted chain still imports OpenAI’s patched PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport, whose
+CITED	15	45	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec5-lemma3.tex:156 [v16:L032]	Sandbox. The primary results ran under a deny list naming all 45 address families of
+CITED	15	138	sec4-gap.tex:110 [v16:L018]; sec6-reroute.tex:5 [v16:L047 v16:L097 v16:L024 v16:L025]	kernel 5.15.167.4, under which all 138 socket() calls of an all-families probe fail. Earlier runs
+CITED	15	5.15.167.4	sec8-threats.tex:31 [v16:L076 v16:L077]	kernel 5.15.167.4, under which all 138 socket() calls of an all-families probe fail. Earlier runs
+CITED	15	5	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	used a 5-family filter, which denied IP, Unix-domain, netlink and packet sockets but left
+CITED	15	AF_VSOCK	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	AF_VSOCK open, with a connection to the Windows host succeeding, and also left AF_
+CITED	15	6	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; appendix-reasoning.tex:48 [v16:L226]	PPPOX and AF_ALG creatable [6]. Three runs had no network filter: the NonVacuity
+CITED	15	AF_ALG	sec8-threats.tex:32 [v16:L070 v16:L071 v16:L072 v16:L073]	PPPOX and AF_ALG creatable [6]. Three runs had no network filter: the NonVacuity
+CITED	15	nanoda-let-fvar-and-succ-guard-37cb87b.patch	sec7-corpus.tex:53 [v16:L068]	9 The patch used for the unofficial build B3 is nealmcb’s nanoda-let-fvar-and-succ-guard-37cb87b.patch,
+CITED	15	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	sha256 edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30. His 416-config sweep ran on
+CITED	15	edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30	sec7-corpus.tex:53 [v16:L068]	sha256 edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30. His 416-config sweep ran on
+CITED	15	8199c74	sec7-corpus.tex:54 [v16:L069]	nanoda master 8199c74.
+CITED	15	15	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	15
+CITED	16	08:10	sec8-threats.tex:37 [v16:L078 v16:L079]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	13:56:21	sec8-threats.tex:37 [v16:L078 v16:L079]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	15	sec7-corpus.tex:7 [v16:L056]; sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	20	sec5-lemma3.tex:167 [v16:L044 v16:L045]; sec8-threats.tex:37 [v16:L078 v16:L079]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	2026	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	2026-10-22	sec8-threats.tex:37 [v16:L078 v16:L079]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	24	sec8-threats.tex:37 [v16:L078 v16:L079]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	965	sec8-threats.tex:37 [v16:L078 v16:L079]	Platform. The WSL memory changed from the 15,965 MB default to 24 GB at 2026-1021 13:56:21 and to 20 GB at 2026-10-22 08
+CITED	16	200	sec8-threats.tex:38 [v16:L098 v16:L080]	is not enforced in this WSL; a 600 MB allocation under MemoryMax=200M runs to the
+CITED	16	600	sec8-threats.tex:38 [v16:L098 v16:L080]	is not enforced in this WSL; a 600 MB allocation under MemoryMax=200M runs to the
+CITED	16	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	end, so each capped run set its own v1 memory cgroup instead. For the fd4aeeb runs the
+CITED	16	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	end, so each capped run set its own v1 memory cgroup instead. For the fd4aeeb runs the
+CITED	16	lean-checks/MainRerouted.lean	sec8-threats.tex:42 [v16:L091]	Superseded method. lean-checks/MainRerouted.lean defines a metaprogram, elab
+CITED	16	37cb87b	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	Tool versions. The official nanoda pin is 3a24072; the results from f67473b, 37cb87b and
+CITED	16	3a24072	sec1-intro.tex:7 [v16:L104 v16:L105 v16:L088]; sec2-background.tex:11 [v16:L105]	Tool versions. The official nanoda pin is 3a24072; the results from f67473b, 37cb87b and
+CITED	16	f67473b	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	Tool versions. The official nanoda pin is 3a24072; the results from f67473b, 37cb87b and
+CITED	16	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	9
+CITED	16	10.5281/zenodo.23269528	sec9-artifacts.tex:7 [v16:L081]	Archived packets. Zenodo record 10.5281/zenodo.23269528 holds the reviewer packet v1
+CITED	16	10.5281/zenodo.23499651	sec9-artifacts.tex:8 [v16:L082]	zip, from the GitHub tag reviewer-packet-v1 [20]. Zenodo record 10.5281/zenodo.23499651
+CITED	16	2	sec4-gap.tex:37 [v16:L252]; sec4-gap.tex:38 [v16:L252]	holds the reviewer packet v2 preliminary zip, from the tag reviewer-packet-v2-preliminary
+CITED	16	10.5281/zenodo.23523697	sec9-artifacts.tex:9 [v16:L083]	[21]. Zenodo record 10.5281/zenodo.23523697 holds the reviewer packet v3 zip, from the tag
+CITED	16	3	sec1-intro.tex:5 [v16:L106 v16:L143]; sec1-intro.tex:33 [v16:L089 v16:L090]	[21]. Zenodo record 10.5281/zenodo.23523697 holds the reviewer packet v3 zip, from the tag
+CITED	16	10.5281/zenodo.23505836	sec9-artifacts.tex:10 [v16:L084]	reviewer-packet-v3 [22]. Zenodo record 10.5281/zenodo.23505836 holds the corpus replay
+CITED	16	19	sec3-faithfulness.tex:17 [v16:L007]	zip, from repository commit 60552ee [19]. The concept DOI of the reviewer packets is
+CITED	16	60552ee	sec9-artifacts.tex:10 [v16:L084]	zip, from repository commit 60552ee [19]. The concept DOI of the reviewer packets is
+CITED	16	10.5281/zenodo.23269527	sec9-artifacts.tex:11 [v16:L085]	10.5281/zenodo.23269527 [23].
+CITED	16	816	sec5-lemma3.tex:103 [v16:L136]; sec9-artifacts.tex:14 [v16:L022]	Lean files. lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825
+CITED	16	825	sec9-artifacts.tex:14 [v16:L022]	Lean files. lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825
+CITED	16	Lemma3.interpolation	sec5-lemma3.tex:8 [v16:L022]; sec5-lemma3.tex:31 [v16:L145]	Lean files. lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825
+CITED	16	lean-checks/Lemma3.lean	sec5-lemma3.tex:9 [v16:L024]; sec9-artifacts.tex:14 [v16:L022]	Lean files. lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825
+CITED	16	256	sec2-background.tex:19 [v16:L007]; sec3-faithfulness.tex:7 [v16:L001 v16:L002 v16:L003 v16:L004 v16:L005 v16:L006 v16:L007 v16:L008]	and imports Mathlib only; its LF sha256 is ecdbf400b24f9241cd03cf383bdcd97ed7
+CITED	16	lean-checks/comparator-copy/PaperLemma3/Bridge.lean	sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	The comparator copy lean-checks/comparator-copy/PaperLemma3/Bridge.lean
+CITED	16	Lemma3.rectangle	sec1-intro.tex:37 [v16:L254 v16:L253]; sec4-gap.tex:125 [v16:L254]	Lemma3.rectangle,
+CITED	16	Lemma3.bridge_descent	sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	Lemma3.bridge_descent,
+CITED	16	Lemma3.bridge_main	sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	Lemma3.bridge_main
+CITED	16	Lemma3.actual_biquadratic_rectangle_span_via_lemma3	sec5-lemma3.tex:127 [v16:L028 v16:L036]; sec9-artifacts.tex:16 [v16:L025 v16:L026 v16:L027 v16:L028]	Lemma3.actual_biquadratic_rectangle_span_via_lemma3, with LF sha256 af401514
+CITED	16	af401514	sec5-lemma3.tex:80 [v16:L025]; sec6-reroute.tex:6 [v16:L097]	Lemma3.actual_biquadratic_rectangle_span_via_lemma3, with LF sha256 af401514
+CITED	16	lean-checks/NonVacuity.lean	sec3-faithfulness.tex:58 [v16:L015]; sec9-artifacts.tex:18 [v16:L015]	copy. lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 b9fae4da5
+CITED	16	lean-checks/README.md	sec9-artifacts.tex:19 [v16:L139]	517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. lean-checks/README.md
+CITED	16	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	e7d0, with LF sha256 c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8b
+CITED	16	4.34.1	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	Tool pins. All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0
+CITED	16	5045d005	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	Tool pins. All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0
+CITED	16	d13f23b	sec2-background.tex:13 [v16:L087]; sec5-lemma3.tex:132 [v16:L041]	Tool pins. All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0
+CITED	16	v4.34.0	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	Tool pins. All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0
+CITED	16	076e8e5	sec2-background.tex:13 [v16:L087]; sec9-artifacts.tex:22 [v16:L087]	d03acab and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d2
+CITED	16	10	sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	d03acab and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d2
+CITED	16	4	sec2-background.tex:8 [v16:L142]; sec2-background.tex:11 [v16:L105]	d03acab and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d2
+CITED	16	8	sec3-faithfulness.tex:121 [v16:L211]; sec7-corpus.tex:49 [v16:L062]	d03acab and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d2
+CITED	16	d03acab	sec2-background.tex:6 [v16:L102 v16:L103 v16:L104]; sec2-background.tex:13 [v16:L087]	d03acab and lean4export v4.34.0 076e8e5 [8, 10, 7, 9]. The full commits are d03acab154d2
+CITED	16	64	sec2-background.tex:15 [v16:L088]; sec7-corpus.tex:43 [v16:L135]	nealmcb’s patch at 64 MiB are unofficial [1].
+CITED	16	results/2026-10-27-reroute-fd4aeeb/	sec6-reroute.tex:11 [v16:L093 v16:L095]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	their dependency scans, are in results/2026-10-27-reroute-fd4aeeb/. The axioms of the
+CITED	16	16	sec6-reroute.tex:12 [v16:L093 v16:L095 v16:L116 v16:L117]; sec6-reroute.tex:21 [v16:L093 v16:L095 v16:L113 v16:L114 v16:L116 v16:L117]	16
+CITED	17	exists_absolute_real_zero_gap	abstract.tex:6 [v16:L202 v16:L201 v16:L200 v16:L148 v16:L149]; sec1-intro.tex:15 [v16:L202 v16:L252 v16:L253 v16:L200]	are in results/2026-10-27-two-routes/. The closure of exists_absolute_real_zero_gap with
+CITED	17	results/2026-10-27-two-routes/	sec9-artifacts.tex:30 [v16:L251 v16:L257]	are in results/2026-10-27-two-routes/. The closure of exists_absolute_real_zero_gap with
+CITED	17	results/2026-10-27-closure-modules/	sec9-artifacts.tex:31 [v16:L200]	its defining modules is in results/2026-10-27-closure-modules/.
+CITED	17	10	sec7-corpus.tex:19 [v16:L057 v16:L121 v16:L122 v16:L058 v16:L067]	10
+CITED	17	check.py	sec10-ai.tex:4 [v16:L129 v16:L261]	wsl-comparator/ and src/, the ledger builders and check.py, and the drafts of Sections 2–7:
+CITED	17	results/2026-10-27-readings/	sec10-ai.tex:5 [v16:L262]	trailer. Claude Code also wrote the reading notes in results/2026-10-27-readings/, which
+CITED	17	docs/log.md	sec10-ai.tex:9 [v16:L002 v16:L145 v16:L146 v16:L204 v16:L250 v16:L270]	docs/log.md. The author wrote the content of the abstract, the introduction, Section 8 and
+CITED	19	7/8	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec3-faithfulness.tex:105 [v16:L205 v16:L234 v16:L144]	The three 7/8 challenge statements
+CITED	19	fd4aeeb	abstract.tex:11 [v16:L095 v16:L076 v16:L096]; sec1-intro.tex:4 [v16:L007 v16:L001]	and HeckeSevenEighths challenges at openai/math fd4aeeb.
+CITED	19	openai/math	abstract.tex:3 [v16:L143]; abstract.tex:11 [v16:L095 v16:L076 v16:L096]	and HeckeSevenEighths challenges at openai/math fd4aeeb.
+CITED	19	19	sec3-faithfulness.tex:17 [v16:L007]	19
+CITED	20	7/8	sec3-faithfulness.tex:64 [v16:L144 v16:L002 v16:L004 v16:L006 v16:L150]; sec3-faithfulness.tex:105 [v16:L205 v16:L234 v16:L144]	Reasoning points for the three 7/8 challenges
+CITED	20	9	sec7-corpus.tex:6 [v16:L054]; sec7-corpus.tex:17 [v16:L053 v16:L054 v16:L055 v16:L065]	Tables 7–9 list the reasoning points behind the QuasiRiemannHypothesis, DirichletSevenEighths and HeckeSevenEighths read
+CITED	20	2026-10-27	sec3-faithfulness.tex:91 [v16:L002]; sec3-faithfulness.tex:93 [v16:L004]	and marked Read by J. Reilly, 2026-10-27: agree.
+CITED	20	0	sec1-intro.tex:5 [v16:L106 v16:L143]; sec3-faithfulness.tex:13 [v16:L008]	conclusion: != 0 on the open half-plane Re s > 7/8; the paper excludes the boundary
+CITED	20	1	abstract.tex:3 [v16:L143]; sec1-intro.tex:5 [v16:L106 v16:L143]	Mathlib meaning: riemannZeta is hurwitzZetaEven 0, the continuation, with a junk value at 1
+CITED	20	O/m	appendix-reasoning.tex:48 [v16:L226]	hypotheses: Character (nonzero modulus, MulChar on O/m trivial on units, zero on non-units) is
+CITED	20	6	sec7-corpus.tex:18 [v16:L056 v16:L057 v16:L065]; appendix-reasoning.tex:48 [v16:L226]	exactly a ray class character mod m extended by zero, since O is a PID with 6 units
+CITED	20	HeckeHolo.period_indep	appendix-reasoning.tex:50 [v16:L228]	hypotheses: the auxiliary period does not matter (HeckeHolo.period_indep)
+CITED	20	1/6	appendix-reasoning.tex:54 [v16:L232]	(1/6) times the sum over alpha equals the sum over ideals (absolute convergence)
+CITED	20	20	sec5-lemma3.tex:167 [v16:L044 v16:L045]; sec8-threats.tex:37 [v16:L078 v16:L079]	20
+BIB-MISMATCH	19	lean/ComparatorChallenges/QuasiRiemannHypothesis.lean:5-6		lean/ComparatorChallenges/QuasiRiemannHypothesis.lean:5-6
+BIB-MISMATCH	19	065f8c9a		065f8c9a. . . ),
+BIB-MISMATCH	19	8fb13ad9		DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9. . . ) and HeckeSevenEighths.lean:237-239
+BIB-MISMATCH	19	DirichletSevenEighths.lean:8-11		DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9. . . ) and HeckeSevenEighths.lean:237-239
+BIB-MISMATCH	19	HeckeSevenEighths.lean:237-239		DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9. . . ) and HeckeSevenEighths.lean:237-239
+BIB-MISMATCH	19	cb5e404f		(sha256 cb5e404f. . . ).
+BIB-MISMATCH	19	riemannZeta_ne_zero_of_seven_eighths_lt_re		theorem riemannZeta_ne_zero_of_seven_eighths_lt_re
+BIB-MISMATCH	19	s.re		{s : C} (hs : (7 / 8 : R) < s.re) : riemannZeta s ̸= 0 := by
+BIB-MISMATCH	19	LFunction_ne_zero_of_seven_eighths_lt_re		theorem LFunction_ne_zero_of_seven_eighths_lt_re
+BIB-MISMATCH	19	s.re		(hs : (7 / 8 : R) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
+BIB-MISMATCH	19	_root_.DirichletCharacter.LFunction		_root_.DirichletCharacter.LFunction χ s ̸= 0 := by
+BIB-MISMATCH	19	LFunction_ne_zero_of_seven_eighths_lt_re		theorem LFunction_ne_zero_of_seven_eighths_lt_re
+BIB-MISMATCH	19	s.re		(χ : Character) {s : C} (hs : (7 / 8 : R) < s.re)
+BIB-DEHYPH	17	1009		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-DEHYPH	18	0914		commit d03acab154d269c06e60e4de7e4cc85deebff94b (2026-0914),
+BIB-DEHYPH	18	leanprovercommunity/mathlib4		leanprovercommunity/mathlib4,
+BIB-DEHYPH	18	nealmcb/openaimath-lean-tooling		[12] Neal McBurnett. openai-math-lean-tooling. GitHub repository nealmcb/openaimath-lean-tooling, commit 1ca7ff2a0280760
+BIB-DEHYPH	19	1020		fd4aeeb, with statement checks for family 003. Zenodo, version corpus-replay-2026-1020, 2026-10-20, 2026. doi:10.5281/ze
+LAYOUT	17	17		17
+BIB-LABEL	18	17		[17] OpenAI.
+BIB-OK	17	1		[1] ammkrn.
+BIB-OK	17	nanoda_lib		nanoda_lib.
+BIB-OK	17	ammkrn/nanoda_lib		GitHub repository ammkrn/nanoda_lib, commit
+BIB-OK	17	2026		3a2407216ee84a75f9e1aead6803d0578be06ae7 (2026-09-22), 2026. Author given as
+BIB-OK	17	2026-09-22		3a2407216ee84a75f9e1aead6803d0578be06ae7 (2026-09-22), 2026. Author given as
+BIB-OK	17	3a2407216ee84a75f9e1aead6803d0578be06ae7		3a2407216ee84a75f9e1aead6803d0578be06ae7 (2026-09-22), 2026. Author given as
+BIB-OK	17	https://github.com/ammkrn/nanoda_lib/tree/		the GitHub account name. URL: https://github.com/ammkrn/nanoda_lib/tree/
+BIB-OK	17	3a2407216ee84a75f9e1aead6803d0578be06ae7		3a2407216ee84a75f9e1aead6803d0578be06ae7.
+BIB-OK	17	2		[2] William D. Banks. On the OpenAI proof that Landau–Siegel zeros do not exist.
+BIB-OK	17	1		arXiv:2610.15483 v1, 11 October 2026, October 2026. URL: https://arxiv.org/abs/
+BIB-OK	17	11		arXiv:2610.15483 v1, 11 October 2026, October 2026. URL: https://arxiv.org/abs/
+BIB-OK	17	2026		arXiv:2610.15483 v1, 11 October 2026, October 2026. URL: https://arxiv.org/abs/
+BIB-OK	17	arXiv:2610.15483		arXiv:2610.15483 v1, 11 October 2026, October 2026. URL: https://arxiv.org/abs/
+BIB-OK	17	https://arxiv.org/abs/		arXiv:2610.15483 v1, 11 October 2026, October 2026. URL: https://arxiv.org/abs/
+BIB-OK	17	2610.15483		2610.15483, doi:10.48550/arXiv.2610.15483.
+BIB-OK	17	doi:10.48550/arXiv.2610.15483		2610.15483, doi:10.48550/arXiv.2610.15483.
+BIB-OK	17	3		[3] Alexander Bastounis, Fabian Circelli, and Anders C. Hansen. Navier-Stokes lost in
+BIB-OK	17	1		natural language proofs. arXiv:2610.08144 v1 [math.AP], 6 October 2026, October
+BIB-OK	17	2026		natural language proofs. arXiv:2610.08144 v1 [math.AP], 6 October 2026, October
+BIB-OK	17	6		natural language proofs. arXiv:2610.08144 v1 [math.AP], 6 October 2026, October
+BIB-OK	17	arXiv:2610.08144		natural language proofs. arXiv:2610.08144 v1 [math.AP], 6 October 2026, October
+BIB-OK	17	math.AP		natural language proofs. arXiv:2610.08144 v1 [math.AP], 6 October 2026, October
+BIB-OK	17	2026		2026. URL: https://arxiv.org/abs/2610.08144.
+BIB-OK	17	https://arxiv.org/abs/2610.08144		2026. URL: https://arxiv.org/abs/2610.08144.
+BIB-OK	17	141		[4] S. Fischler. Interpolation on algebraic groups. Compositio Mathematica, 141(4):907–
+BIB-OK	17	4		[4] S. Fischler. Interpolation on algebraic groups. Compositio Mathematica, 141(4):907–
+BIB-OK	17	907		[4] S. Fischler. Interpolation on algebraic groups. Compositio Mathematica, 141(4):907–
+BIB-OK	17	2005		925, 2005. doi:10.1112/S0010437X05001351.
+BIB-OK	17	925		925, 2005. doi:10.1112/S0010437X05001351.
+BIB-OK	17	doi:10.1112/S0010437X05001351		925, 2005. doi:10.1112/S0010437X05001351.
+BIB-OK	17	2026-10-09		[5] grwtsk. [AUDIT.26] reproduce manuscript PDFs and bind paper statements to exact Lean declarations. grwtsk/openai-mat
+BIB-OK	17	29		[5] grwtsk. [AUDIT.26] reproduce manuscript PDFs and bind paper statements to exact Lean declarations. grwtsk/openai-mat
+BIB-OK	17	5		[5] grwtsk. [AUDIT.26] reproduce manuscript PDFs and bind paper statements to exact Lean declarations. grwtsk/openai-mat
+BIB-OK	17	AUDIT.26		[5] grwtsk. [AUDIT.26] reproduce manuscript PDFs and bind paper statements to exact Lean declarations. grwtsk/openai-mat
+BIB-OK	17	grwtsk/openai-math		[5] grwtsk. [AUDIT.26] reproduce manuscript PDFs and bind paper statements to exact Lean declarations. grwtsk/openai-mat
+BIB-OK	17	2026		6296359378 (2026-10-20), 2026. Author given as the GitHub account name. URL:
+BIB-OK	17	2026-10-20		6296359378 (2026-10-20), 2026. Author given as the GitHub account name. URL:
+BIB-OK	17	6296359378		6296359378 (2026-10-20), 2026. Author given as the GitHub account name. URL:
+BIB-OK	17	https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378		https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378.
+BIB-OK	17	6		[6] grwtsk. [AUDIT.35] independently audit the uniform Landau–Siegel real-zero gap.
+BIB-OK	17	AUDIT.35		[6] grwtsk. [AUDIT.35] independently audit the uniform Landau–Siegel real-zero gap.
+BIB-OK	17	2026		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	2026-10-09		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	2026-10-27		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	40		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	6087525965		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	6431288875		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	grwtsk/openai-math		grwtsk/openai-math issue #40, opened 2026-10-09; comments 6087525965 (2026-1009) and 6431288875 (2026-10-27 UTC), 2026. 
+BIB-OK	17	https://github.com/grwtsk/openai-math/issues/40		name. URL: https://github.com/grwtsk/openai-math/issues/40.
+BIB-OK	18	7		[7] Lean FRO.
+BIB-OK	18	leanprover/comparator		GitHub repository leanprover/comparator,
+BIB-OK	18	v4.34.0		tag v4.34.0,
+BIB-OK	18	2026		commit d03acab154d269c06e60e4de7e4cc85deebff94b (2026-0914),
+BIB-OK	18	d03acab154d269c06e60e4de7e4cc85deebff94b		commit d03acab154d269c06e60e4de7e4cc85deebff94b (2026-0914),
+BIB-OK	18	2026		2026.
+BIB-OK	18	https://github.com/leanprover/comparator/tree/		https://github.com/leanprover/comparator/tree/
+BIB-OK	18	d03acab154d269c06e60e4de7e4cc85deebff94b		d03acab154d269c06e60e4de7e4cc85deebff94b.
+BIB-OK	18	4		[8] leanprover. Lean 4. GitHub repository leanprover/lean4, version v4.34.1, commit
+BIB-OK	18	8		[8] leanprover. Lean 4. GitHub repository leanprover/lean4, version v4.34.1, commit
+BIB-OK	18	leanprover/lean4		[8] leanprover. Lean 4. GitHub repository leanprover/lean4, version v4.34.1, commit
+BIB-OK	18	v4.34.1		[8] leanprover. Lean 4. GitHub repository leanprover/lean4, version v4.34.1, commit
+BIB-OK	18	2026		5045d0056413266e57c625dcd7c365b10e377c52 (2026-09-24), 2026. Author given as the
+BIB-OK	18	2026-09-24		5045d0056413266e57c625dcd7c365b10e377c52 (2026-09-24), 2026. Author given as the
+BIB-OK	18	5045d0056413266e57c625dcd7c365b10e377c52		5045d0056413266e57c625dcd7c365b10e377c52 (2026-09-24), 2026. Author given as the
+BIB-OK	18	https://github.com/leanprover/lean4/tree/		owning GitHub organization. URL: https://github.com/leanprover/lean4/tree/
+BIB-OK	18	5045d0056413266e57c625dcd7c365b10e377c52		5045d0056413266e57c625dcd7c365b10e377c52.
+BIB-OK	18	076e8e57707e813375e8f9da8bf989799ace9680		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	2026		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	2026-09-14		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	4		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	9		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	leanprover/lean4export		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	v4.34.0		[9] leanprover. lean4export. GitHub repository leanprover/lean4export, tag v4.34.0, commit 076e8e57707e813375e8f9da8bf98
+BIB-OK	18	https://github.com/leanprover/		URL: https://github.com/leanprover/
+BIB-OK	18	lean4export/tree/076e8e57707e813375e8f9da8bf989799ace9680		lean4export/tree/076e8e57707e813375e8f9da8bf989799ace9680.
+BIB-OK	18	10		[10] leanprover-community.
+BIB-OK	18	d13f23b723b8a846827a245b89c10fc7d3f11612		d13f23b723b8a846827a245b89c10fc7d3f11612
+BIB-OK	18	2026		(2026-09-24), 2026.
+BIB-OK	18	2026-09-24		(2026-09-24), 2026.
+BIB-OK	18	https://github.com/leanprover-community/mathlib4/tree/		URL: https://github.com/leanprover-community/mathlib4/tree/
+BIB-OK	18	d13f23b723b8a846827a245b89c10fc7d3f11612		d13f23b723b8a846827a245b89c10fc7d3f11612.
+BIB-OK	18	11		[11] Neal McBurnett. OAI.SquareDifference.source_ordered_contraction overflows the
+BIB-OK	18	OAI.SquareDifference.source_ordered_contraction		[11] Neal McBurnett. OAI.SquareDifference.source_ordered_contraction overflows the
+BIB-OK	18	2026		stack on the current master. nanoda_lib issue #62, opened 2026-10-23, 2026. URL:
+BIB-OK	18	2026-10-23		stack on the current master. nanoda_lib issue #62, opened 2026-10-23, 2026. URL:
+BIB-OK	18	62		stack on the current master. nanoda_lib issue #62, opened 2026-10-23, 2026. URL:
+BIB-OK	18	nanoda_lib		stack on the current master. nanoda_lib issue #62, opened 2026-10-23, 2026. URL:
+BIB-OK	18	https://github.com/ammkrn/nanoda_lib/issues/62		https://github.com/ammkrn/nanoda_lib/issues/62.
+BIB-OK	18	12		[12] Neal McBurnett. openai-math-lean-tooling. GitHub repository nealmcb/openaimath-lean-tooling, commit 1ca7ff2a0280760
+BIB-OK	18	1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4		[12] Neal McBurnett. openai-math-lean-tooling. GitHub repository nealmcb/openaimath-lean-tooling, commit 1ca7ff2a0280760
+BIB-OK	18	2026-10-25		[12] Neal McBurnett. openai-math-lean-tooling. GitHub repository nealmcb/openaimath-lean-tooling, commit 1ca7ff2a0280760
+BIB-OK	18	2026		2026.
+BIB-OK	18	https://github.com/nealmcb/openai-math-lean-tooling/tree/		URL: https://github.com/nealmcb/openai-math-lean-tooling/tree/
+BIB-OK	18	1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4		1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4.
+BIB-OK	18	13		[13] Neal McBurnett. Stack overflow, then “index exceeds 31-bit capacity” panic, in whnf
+BIB-OK	18	31		[13] Neal McBurnett. Stack overflow, then “index exceeds 31-bit capacity” panic, in whnf
+BIB-OK	18	try_reduce_nat		/ try_reduce_nat on a small set of declarations that Lean’s kernel checks in seconds.
+BIB-OK	18	2026		nanoda_lib issue #55, opened 2026-10-15; comment 6293743601 (2026-10-20), 2026.
+BIB-OK	18	2026-10-15		nanoda_lib issue #55, opened 2026-10-15; comment 6293743601 (2026-10-20), 2026.
+BIB-OK	18	2026-10-20		nanoda_lib issue #55, opened 2026-10-15; comment 6293743601 (2026-10-20), 2026.
+BIB-OK	18	55		nanoda_lib issue #55, opened 2026-10-15; comment 6293743601 (2026-10-20), 2026.
+BIB-OK	18	6293743601		nanoda_lib issue #55, opened 2026-10-15; comment 6293743601 (2026-10-20), 2026.
+BIB-OK	18	nanoda_lib		nanoda_lib issue #55, opened 2026-10-15; comment 6293743601 (2026-10-20), 2026.
+BIB-OK	18	https://github.com/ammkrn/nanoda_lib/issues/55		URL: https://github.com/ammkrn/nanoda_lib/issues/55.
+BIB-OK	18	14		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	2026		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	2026-10-23		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	2026-10-25		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	61		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	6402528075		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	https://github.com/ammkrn/nanoda_		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	nanoda_lib		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	openai/math		[14] Neal McBurnett. Three openai/math configurations need a deeper stack on the current master than on the earlier one.
+BIB-OK	18	lib/issues/61		lib/issues/61.
+BIB-OK	18	15		[15] OpenAI.
+BIB-OK	18	openai/math		openai/math.
+BIB-OK	18	2026		adc7f1241b42e322a6451854ab7e4b4c146bf78a (2026-10-06), 2026.
+BIB-OK	18	2026-10-06		adc7f1241b42e322a6451854ab7e4b4c146bf78a (2026-10-06), 2026.
+BIB-OK	18	adc7f1241b42e322a6451854ab7e4b4c146bf78a		adc7f1241b42e322a6451854ab7e4b4c146bf78a (2026-10-06), 2026.
+BIB-OK	18	//github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a		//github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a.
+BIB-OK	18	16		[16] OpenAI.
+BIB-OK	18	openai/math		openai/math.
+BIB-OK	18	2026		fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb (2026-10-08 UTC), 2026. URL: https:
+BIB-OK	18	2026-10-08		fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb (2026-10-08 UTC), 2026. URL: https:
+BIB-OK	18	fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb		fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb (2026-10-08 UTC), 2026. URL: https:
+BIB-OK	18	//github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb		//github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb.
+BIB-OK	18	7/8		7/8.
+BIB-OK	18	2026		Manuscript dated 30 September 2026, openai/math, preprints/
+BIB-OK	18	30		Manuscript dated 30 September 2026, openai/math, preprints/
+BIB-OK	18	openai/math		Manuscript dated 30 September 2026, openai/math, preprints/
+BIB-OK	18	The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf		The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf,
+BIB-OK	18	256		sha256
+BIB-OK	18	2026		8fe93046. . . , identical at commits adc7f12 and fd4aeeb, September 2026. URL: https:
+BIB-OK	18	8fe93046		8fe93046. . . , identical at commits adc7f12 and fd4aeeb, September 2026. URL: https:
+BIB-OK	18	adc7f12		8fe93046. . . , identical at commits adc7f12 and fd4aeeb, September 2026. URL: https:
+BIB-OK	18	fd4aeeb		8fe93046. . . , identical at commits adc7f12 and fd4aeeb, September 2026. URL: https:
+BIB-OK	18	//github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/		//github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/
+BIB-OK	18	preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf		preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf.
+BIB-OK	18	18		[18] OpenAI.
+BIB-OK	18	1		1,
+BIB-OK	18	2026		2026,
+BIB-OK	18	18		18
+BIB-OK	18	openai/math		openai/math,
+BIB-OK	19	11		11:
+BIB-OK	19	7/8		7/8
+BIB-OK	19	openai/math		openai/math
+BIB-OK	19	fd4aeeb		fd4aeeb:
+BIB-OK	19	256		(sha256
+BIB-OK	19	256		DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9. . . ) and HeckeSevenEighths.lean:237-239
+BIB-OK	19	256		(sha256 cb5e404f. . . ).
+BIB-OK	19	0		{s : C} (hs : (7 / 8 : R) < s.re) : riemannZeta s ̸= 0 := by
+BIB-OK	19	7		{s : C} (hs : (7 / 8 : R) < s.re) : riemannZeta s ̸= 0 := by
+BIB-OK	19	8		{s : C} (hs : (7 / 8 : R) < s.re) : riemannZeta s ̸= 0 := by
+BIB-OK	19	1		(hs : (7 / 8 : R) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
+BIB-OK	19	7		(hs : (7 / 8 : R) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
+BIB-OK	19	8		(hs : (7 / 8 : R) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
+BIB-OK	19	0		_root_.DirichletCharacter.LFunction χ s ̸= 0 := by
+BIB-OK	19	7		(χ : Character) {s : C} (hs : (7 / 8 : R) < s.re)
+BIB-OK	19	8		(χ : Character) {s : C} (hs : (7 / 8 : R) < s.re)
+BIB-OK	19	0		(hpole : ¬ (χ.residue = 1 ∧ s = 1)) : LFunction χ s ̸= 0 := by sorry
+BIB-OK	19	1		(hpole : ¬ (χ.residue = 1 ∧ s = 1)) : LFunction χ s ̸= 0 := by sorry
+BIB-OK	19	1		Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/
+BIB-OK	19	2026		Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/
+BIB-OK	19	paper.pdf		paper.pdf,
+BIB-OK	19	256		sha256
+BIB-OK	19	fab9f6e8		fab9f6e8. . . ,
+BIB-OK	19	adc7f12		adc7f12
+BIB-OK	19	fd4aeeb		fd4aeeb,
+BIB-OK	19	2026		2026.
+BIB-OK	19	https://github.com/openai/		https://github.com/openai/
+BIB-OK	19	math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/		math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/
+BIB-OK	19	Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf		Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf.
+BIB-OK	19	19		[19] Joseph M. Reilly. Comparator and nanoda replay of the openai/math Lean corpus at
+BIB-OK	19	openai/math		[19] Joseph M. Reilly. Comparator and nanoda replay of the openai/math Lean corpus at
+BIB-OK	19	003		fd4aeeb, with statement checks for family 003. Zenodo, version corpus-replay-2026-1020, 2026-10-20, 2026. doi:10.5281/ze
+BIB-OK	19	2026		fd4aeeb, with statement checks for family 003. Zenodo, version corpus-replay-2026-1020, 2026-10-20, 2026. doi:10.5281/ze
+BIB-OK	19	2026-10-20		fd4aeeb, with statement checks for family 003. Zenodo, version corpus-replay-2026-1020, 2026-10-20, 2026. doi:10.5281/ze
+BIB-OK	19	doi:10.5281/zenodo.23505836		fd4aeeb, with statement checks for family 003. Zenodo, version corpus-replay-2026-1020, 2026-10-20, 2026. doi:10.5281/ze
+BIB-OK	19	fd4aeeb		fd4aeeb, with statement checks for family 003. Zenodo, version corpus-replay-2026-1020, 2026-10-20, 2026. doi:10.5281/ze
+BIB-OK	19	003		[20] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion
+BIB-OK	19	20		[20] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion
+BIB-OK	19	openai/math		[20] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion
+BIB-OK	19	1		Lemma 3, rerouted proof, exact small-N checks. Zenodo, version reviewer-packet-v1,
+BIB-OK	19	2026		2026-10-09, 2026. doi:10.5281/zenodo.23269528.
+BIB-OK	19	2026-10-09		2026-10-09, 2026. doi:10.5281/zenodo.23269528.
+BIB-OK	19	doi:10.5281/zenodo.23269528		2026-10-09, 2026. doi:10.5281/zenodo.23269528.
+BIB-OK	19	003		[21] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion
+BIB-OK	19	21		[21] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion
+BIB-OK	19	openai/math		[21] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion
+BIB-OK	19	2		Lemma 3, rerouted proof, exact small-N checks (preliminary). Zenodo, version reviewerpacket-v2-preliminary, 2026-10-20, 
+BIB-OK	19	2026		Lemma 3, rerouted proof, exact small-N checks (preliminary). Zenodo, version reviewerpacket-v2-preliminary, 2026-10-20, 
+BIB-OK	19	2026-10-20		Lemma 3, rerouted proof, exact small-N checks (preliminary). Zenodo, version reviewerpacket-v2-preliminary, 2026-10-20, 
+BIB-OK	19	doi:10.5281/zenodo.23499651		Lemma 3, rerouted proof, exact small-N checks (preliminary). Zenodo, version reviewerpacket-v2-preliminary, 2026-10-20, 
+BIB-OK	19	003		[22] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion of Landau–Siegel zeros: machin
+BIB-OK	19	22		[22] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion of Landau–Siegel zeros: machin
+BIB-OK	19	openai/math		[22] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion of Landau–Siegel zeros: machin
+BIB-OK	19	2026		(comparator + nanoda, Lean Lemma 3, explicit constant). Zenodo, version reviewerpacket-v3, 2026-10-21, 2026. doi:10.5281
+BIB-OK	19	2026-10-21		(comparator + nanoda, Lean Lemma 3, explicit constant). Zenodo, version reviewerpacket-v3, 2026-10-21, 2026. doi:10.5281
+BIB-OK	19	3		(comparator + nanoda, Lean Lemma 3, explicit constant). Zenodo, version reviewerpacket-v3, 2026-10-21, 2026. doi:10.5281
+BIB-OK	19	doi:10.5281/zenodo.23523697		(comparator + nanoda, Lean Lemma 3, explicit constant). Zenodo, version reviewerpacket-v3, 2026-10-21, 2026. doi:10.5281
+BIB-OK	19	003		[23] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion of Landau–Siegel zeros: machin
+BIB-OK	19	23		[23] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion of Landau–Siegel zeros: machin
+BIB-OK	19	openai/math		[23] Joseph M. Reilly. Verification package for openai/math family 003, uniform exclusion of Landau–Siegel zeros: machin
+BIB-OK	19	2026		DOI (all versions); resolves to the latest version, reviewer-packet-v3, 2026. doi:
+BIB-OK	19	3		DOI (all versions); resolves to the latest version, reviewer-packet-v3, 2026. doi:
+BIB-OK	19	10.5281/zenodo.23269527		10.5281/zenodo.23269527.

@@ -1,0 +1,12 @@
+\begin{abstract}
+OpenAI's openai/math release includes a Lean formalization of ``Uniform exclusion of Landau--Siegel zeros'' (OpenAI, October 1, 2026).
+Its Comparator challenge has two checked theorems, whose statements we prove equivalent in Lean.
+OpenAI proves them by two routes, neither through the paper's proof of Lemma 3.
+The catalogued main result, exists\_absolute\_real\_zero\_gap, gets its spanning step from a local B\'ezout argument and does not use OpenAI's Corollary 4 theorem.
+The second theorem, dirichletRealZeroBound\_proof, proves Corollary 4 by a multiplicity estimate.
+We formalized the paper's proofs of Lemma 3 and Corollary 4 in Lean.
+By reading, the Lean statements match the paper's, and the declarations use only the axioms propext, Classical.choice and Quot.sound.
+A +2/-1 substitution puts the paper's Corollary 4 into dirichletRealZeroBound\_proof.
+Comparator accepts the result with both kernels at openai/math fd4aeeb under a deny list of all 45 socket address families, and that theorem's closure no longer contains the three named OpenAI lemmas.
+Our replay of the corpus agrees with an independent replay on all 402 configurations where both have a verdict.
+\end{abstract}

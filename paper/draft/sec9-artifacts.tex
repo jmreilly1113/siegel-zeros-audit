@@ -1,7 +1,7 @@
-% Section 9 (2026-10-27), drafted by Claude Code from outline section 9. Every factual sentence ends with a comment naming its ledger rows (ledger-v14.tsv).
+% Section 9 (2026-10-27), drafted by Claude Code from outline section 9. Every factual sentence ends with a comment naming its ledger rows (ledger-v16.tsv).
 \section{Artifacts}\label{sec:artifacts}
 
-The repository is archived at the tag of the paper's final version. % TAG-PENDING
+The repository state of this final version is tagged paper-v1. % v16:L275
 
 \paragraph{Archived packets.}
 Zenodo record 10.5281/zenodo.23269528 holds the reviewer packet v1 zip, from the GitHub tag reviewer-packet-v1 \cite{zenodo-23269528}. % v14:L081
@@ -11,16 +11,16 @@ Zenodo record 10.5281/zenodo.23505836 holds the corpus replay zip, from reposito
 The concept DOI of the reviewer packets is 10.5281/zenodo.23269527 \cite{zenodo-23269527}. % v14:L085
 
 \paragraph{Lean files.}
-lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825 and imports Mathlib only; its LF sha256 is ecdbf400b24f9241cd03cf383bdcd97ed71e4812578e66d7159a846447f7b1a7. % v14:L022
-The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, the file installed for the accepted rerouted Comparator run, has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283. % v14:L024
-The comparator copy lean-checks/comparator-copy/PaperLemma3/Bridge.lean states Lemma3.rectangle, Lemma3.bridge\_descent, Lemma3.bridge\_main and Lemma3.actual\_biquadratic\_rectangle\_span\_via\_lemma3, with LF sha256 af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250. % v14:L025 v14:L026 v14:L027 v14:L028
-The canonical file lean-checks/Lemma3Bridged.lean has LF sha256 6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4, and its declarations are identical to those of the comparator copy. % v14:L029
-lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. % v14:L015
-lean-checks/README.md gives the role of each Lean file; it is committed at 758b44f74a208791c4c59b898d1ba104122ae7d0, with LF sha256 c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8bf9. % v14:L139
+lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825 and imports Mathlib only; its LF sha256 is \hash{ecdbf400b24f9241cd03cf383bdcd97ed71e4812578e66d7159a846447f7b1a7}. % v14:L022
+The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, the file installed for the accepted rerouted Comparator run, has sha256 \hash{1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283}. % v14:L024
+The comparator copy lean-checks/comparator-copy/PaperLemma3/Bridge.lean states Lemma3.rectangle, Lemma3.bridge\_descent, Lemma3.bridge\_main and Lemma3.actual\_biquadratic\_rectangle\_span\_via\_lemma3, with LF sha256 \hash{af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250}. % v14:L025 v14:L026 v14:L027 v14:L028
+The canonical file lean-checks/Lemma3Bridged.lean has LF sha256 \hash{6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4}, and its declarations are identical to those of the comparator copy. % v14:L029
+lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 \hash{b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9}. % v14:L015
+lean-checks/README.md gives the role of each Lean file; it is committed at \hash{758b44f74a208791c4c59b898d1ba104122ae7d0}, with LF sha256 \hash{c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8bf9}. % v14:L139
 
 \paragraph{Tool pins.}
 All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab and lean4export v4.34.0 076e8e5 \cite{lean4,mathlib,comparator,lean4export}. % v14:L087
-The full commits are d03acab154d269c06e60e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ace9680 for lean4export. % v14:L092
+The full commits are \hash{d03acab154d269c06e60e4de7e4cc85deebff94b} for Comparator and \hash{076e8e57707e813375e8f9da8bf989799ace9680} for lean4export. % v14:L092
 The official nanoda is 3a24072; f67473b, 37cb87b and 37cb87b with nealmcb's patch at 64 MiB are unofficial \cite{nanoda-lib}. % v14:L088
 
 \paragraph{Results folders of the primary runs.}

@@ -1,0 +1,8 @@
+# Residue scan (step 2), 2026-10-27. Command: python -I results/2026-10-27-final-packaging/residue_scan.py .
+# hits: 6
+<...> token	paper/draft/sec3-faithfulness.tex:2	% Quotes: a line "%% QUOTE <path> <a>-<b> [sha=<ledger row>]" precedes each quoted block; check.py compares the block with those source line
+<...> token	paper/draft/sec3-faithfulness.tex:2	% Quotes: a line "%% QUOTE <path> <a>-<b> [sha=<ledger row>]" precedes each quoted block; check.py compares the block with those source line
+<...> token	paper/draft/sec3-faithfulness.tex:2	% Quotes: a line "%% QUOTE <path> <a>-<b> [sha=<ledger row>]" precedes each quoted block; check.py compares the block with those source line
+<...> token	paper/draft/sec3-faithfulness.tex:2	% Quotes: a line "%% QUOTE <path> <a>-<b> [sha=<ledger row>]" precedes each quoted block; check.py compares the block with those source line
+UNCONFIRMED	paper/draft/refs.bib:3	% entry's note as "UNCONFIRMED: <field>"; check.py reports each one. "key" fields are bibtex sort keys only.
+<...> token	paper/draft/refs.bib:3	% entry's note as "UNCONFIRMED: <field>"; check.py reports each one. "key" fields are bibtex sort keys only.

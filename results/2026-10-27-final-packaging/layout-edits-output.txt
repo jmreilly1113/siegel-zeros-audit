@@ -1,0 +1,95 @@
+sec2-background.tex:14
+  - The full commits are d03acab154d269c06e60e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ace9680 for lean4export. 
+  + The full commits are \hash{d03acab154d269c06e60e4de7e4cc85deebff94b} for Comparator and \hash{076e8e57707e813375e8f9da8bf989799ace9680} for lean4export. 
+sec2-background.tex:19
+  - The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. 
+  + The SiegelZeros challenge file has sha256 \hash{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}, and it is unchanged between adc7f12 and fd4aeeb. 
+sec3-faithfulness.tex:11
+  - The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. 
+  + The SiegelZeros challenge file has sha256 \hash{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}, and it is unchanged between adc7f12 and fd4aeeb. 
+sec3-faithfulness.tex:58
+  - \footnote{The lemmas are in lean-checks/NonVacuity.lean, LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. 
+  + \footnote{The lemmas are in lean-checks/NonVacuity.lean, LF sha256 \hash{b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9}. 
+sec3-faithfulness.tex:64
+  - The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' \cite{openai-qrh-2026} (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose p
+  + The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' \cite{openai-qrh-2026} (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose p
+sec3-faithfulness.tex:109
+  - \caption{Reasoning points behind the SiegelZeros reading (v7:L008). INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-SiegelZeros} 
+  + \caption{Reasoning points behind the SiegelZeros reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-SiegelZeros} 
+sec4-gap.tex:17
+  - \caption{The main route: OAI/NumberTheory/SiegelZeros/Conclusions/Theorem.lean:18-19 and Intersection/BezoutBoundary.lean:13-19 (openai/math fd4aeeb).}\label{lst:main-route} 
+  + \caption{The main route: OAI/\allowbreak NumberTheory/\allowbreak SiegelZeros/\allowbreak Conclusions/\allowbreak Theorem.lean:18-19 and Intersection/BezoutBoundary.lean:13-19 (openai/math fd4aeeb).}\
+sec4-gap.tex:44
+  - \caption{The main route's spanning statement, OAI/NumberTheory/SiegelZeros/Structure/ArithmeticCutoffTransport.lean:356-366 (openai/math fd4aeeb).}\label{lst:cutoff-spanning} 
+  + \caption{The main route's spanning statement, OAI/\allowbreak NumberTheory/\allowbreak SiegelZeros/\allowbreak Structure/\allowbreak ArithmeticCutoffTransport.lean:356-366 (openai/math fd4aeeb).}\labe
+sec4-gap.tex:62
+  - \caption{The zero test on the main route, OAI/NumberTheory/SiegelZeros/Determinants/RectangleDeterminant.lean:31-37 (openai/math fd4aeeb).}\label{lst:rect-assertion} 
+  + \caption{The zero test on the main route, OAI/\allowbreak NumberTheory/\allowbreak SiegelZeros/\allowbreak Determinants/\allowbreak RectangleDeterminant.lean:31-37 (openai/math fd4aeeb).}\label{lst:re
+sec4-gap.tex:83
+  - The file is identical at adc7f12 and fd4aeeb, with LF sha256 09b8bd7fa82365e69caebfad466d039d85084595376766a731945fa5c11a2bdc. 
+  + The file is identical at adc7f12 and fd4aeeb, with LF sha256 \hash{09b8bd7fa82365e69caebfad466d039d85084595376766a731945fa5c11a2bdc}. 
+sec4-gap.tex:87
+  - \caption{OAI's Corollary 4, OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f\ldots, identical at adc7f12 and fd4aeeb).}\label{lst:oai-cor4} 
+  + \caption{OAI's Corollary 4, OAI/\allowbreak NumberTheory/\allowbreak SiegelZeros/\allowbreak Structure/\allowbreak InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f\ldots, identical at adc7f12 an
+sec5-lemma3.tex:9
+  - The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean equals lean-checks/Lemma3.lean through ``end Lemma3'' and has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af4
+  + The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean equals lean-checks/Lemma3.lean through ``end Lemma3'' and has sha256 \hash{1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca931
+sec5-lemma3.tex:34
+  - \caption{Lemma 3, lean-checks/comparator-copy/PaperLemma3/Lemma3.lean:817-826 (sha256 1ce196f5\ldots).}\label{lst:interpolation} 
+  + \caption{Lemma 3, lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Lemma3.lean:817-826 (sha256 1ce196f5\ldots).}\label{lst:interpolation} 
+sec5-lemma3.tex:59
+  - Lemma3.rectangle, the paper's Corollary 4, is stated in the comparator copy Bridge.lean, installed for the accepted rerouted run (sha256 af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f25
+  + Lemma3.rectangle, the paper's Corollary 4, is stated in the comparator copy Bridge.lean, installed for the accepted rerouted run (sha256 \hash{af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f
+sec5-lemma3.tex:80
+  - \caption{Corollary 4, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:96-109 (sha256 af401514\ldots).}\label{lst:rectangle} 
+  + \caption{Corollary 4, lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Bridge.lean:96-109 (sha256 af401514\ldots).}\label{lst:rectangle} 
+sec5-lemma3.tex:108
+  - \caption{The Lean proof of Lemma 3 in lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, by the paper's proof steps. Line ranges run from docstring to last line.}\label{tab:lemma3-structure} 
+  + \caption{The Lean proof of Lemma 3 in lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Lemma3.lean, by the paper's proof steps. Line ranges run from docstring to last line.}
+sec5-lemma3.tex:137
+  - \caption{The bridge theorem, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:288-290.}\label{lst:via} 
+  + \caption{The bridge theorem, lean-checks/\allowbreak comparator-copy/\allowbreak PaperLemma3/\allowbreak Bridge.lean:288-290.}\label{lst:via} 
+sec5-lemma3.tex:147
+  - \caption{AlgEquiv.mul\_apply, Mathlib d13f23b Mathlib/Algebra/Algebra/Equiv.lean:663, as copied in results/2026-10-26-claims-ledger/mathlib-algequiv-mul\_apply.txt.}\label{lst:mulapply} 
+  + \caption{AlgEquiv.mul\_apply, Mathlib d13f23b Mathlib/\allowbreak Algebra/\allowbreak Algebra/\allowbreak Equiv.lean:663, as copied in results/2026-10-26-claims-ledger/mathlib-algequiv-mul\_apply.txt.
+sec6-reroute.tex:48
+  - The challenge file is unchanged, with sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce. 
+  + The challenge file is unchanged, with sha256 \hash{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}. 
+sec7-corpus.tex:20
+  - ContinuumCoulombHardness & not completed on this machine (memory) & none & mixed; see footnote \\ 
+  + Continuum\-Coulomb\-Hardness & not completed on this machine (memory) & none & mixed; see footnote \\ 
+sec7-corpus.tex:53
+  - \footnote{The patch used for the unofficial build B3 is nealmcb's nanoda-let-fvar-and-succ-guard-37cb87b.patch, sha256 edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30. 
+  + \footnote{The patch used for the unofficial build B3 is nealmcb's nanoda-let-fvar-and-succ-guard-37cb87b.patch, sha256 \hash{edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30}. 
+sec9-artifacts.tex:14
+  - lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825 and imports Mathlib only; its LF sha256 is ecdbf400b24f9241cd03cf383bdcd97ed71e4812578e66d7159a846447f7b1a7. 
+  + lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825 and imports Mathlib only; its LF sha256 is \hash{ecdbf400b24f9241cd03cf383bdcd97ed71e4812578e66d7159a846447f7b1a7}. 
+sec9-artifacts.tex:15
+  - The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, the file installed for the accepted rerouted Comparator run, has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b
+  + The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, the file installed for the accepted rerouted Comparator run, has sha256 \hash{1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcc
+sec9-artifacts.tex:16
+  - The comparator copy lean-checks/comparator-copy/PaperLemma3/Bridge.lean states Lemma3.rectangle, Lemma3.bridge\_descent, Lemma3.bridge\_main and Lemma3.actual\_biquadratic\_rectangle\_span\_via\_lemma
+  + The comparator copy lean-checks/comparator-copy/PaperLemma3/Bridge.lean states Lemma3.rectangle, Lemma3.bridge\_descent, Lemma3.bridge\_main and Lemma3.actual\_biquadratic\_rectangle\_span\_via\_lemma
+sec9-artifacts.tex:17
+  - The canonical file lean-checks/Lemma3Bridged.lean has LF sha256 6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4, and its declarations are identical to those of the comparator copy. 
+  + The canonical file lean-checks/Lemma3Bridged.lean has LF sha256 \hash{6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4}, and its declarations are identical to those of the comparator c
+sec9-artifacts.tex:18
+  - lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. 
+  + lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 \hash{b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9}. 
+sec9-artifacts.tex:19
+  - lean-checks/README.md gives the role of each Lean file; it is committed at 758b44f74a208791c4c59b898d1ba104122ae7d0, with LF sha256 c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8bf9. 
+  + lean-checks/README.md gives the role of each Lean file; it is committed at \hash{758b44f74a208791c4c59b898d1ba104122ae7d0}, with LF sha256 \hash{c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480
+sec9-artifacts.tex:23
+  - The full commits are d03acab154d269c06e60e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ace9680 for lean4export. 
+  + The full commits are \hash{d03acab154d269c06e60e4de7e4cc85deebff94b} for Comparator and \hash{076e8e57707e813375e8f9da8bf989799ace9680} for lean4export. 
+appendix-reasoning.tex:8
+  - \caption{Reasoning points behind the QuasiRiemannHypothesis reading (v7:L002). INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-QuasiRiemannHypothesis} 
+  + \caption{Reasoning points behind the QuasiRiemannHypothesis reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-QuasiRiemannHypothesis} 
+appendix-reasoning.tex:24
+  - \caption{Reasoning points behind the DirichletSevenEighths reading (v7:L004). INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-DirichletSevenEighths} 
+  + \caption{Reasoning points behind the DirichletSevenEighths reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-DirichletSevenEighths} 
+appendix-reasoning.tex:41
+  - \caption{Reasoning points behind the HeckeSevenEighths reading (v7:L006). INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-HeckeSevenEighths} 
+  + \caption{Reasoning points behind the HeckeSevenEighths reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-HeckeSevenEighths} 
+refs.bib: 2 \texttt -> \nolinkurl
+changed lines: 31

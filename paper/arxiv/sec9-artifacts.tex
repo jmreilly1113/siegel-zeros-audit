@@ -1,0 +1,30 @@
+\section{Artifacts}\label{sec:artifacts}
+
+The repository state of this final version is tagged paper-v1.
+
+\paragraph{Archived packets.}
+Zenodo record 10.5281/zenodo.23269528 holds the reviewer packet v1 zip, from the GitHub tag reviewer-packet-v1 \cite{zenodo-23269528}.
+Zenodo record 10.5281/zenodo.23499651 holds the reviewer packet v2 preliminary zip, from the tag reviewer-packet-v2-preliminary \cite{zenodo-23499651}.
+Zenodo record 10.5281/zenodo.23523697 holds the reviewer packet v3 zip, from the tag reviewer-packet-v3 \cite{zenodo-23523697}.
+Zenodo record 10.5281/zenodo.23505836 holds the corpus replay zip, from repository commit 60552ee \cite{zenodo-23505836}.
+The concept DOI of the reviewer packets is 10.5281/zenodo.23269527 \cite{zenodo-23269527}.
+
+\paragraph{Lean files.}
+lean-checks/Lemma3.lean states Lemma3.interpolation at lines 816-825 and imports Mathlib only; its LF sha256 is \hash{ecdbf400b24f9241cd03cf383bdcd97ed71e4812578e66d7159a846447f7b1a7}.
+The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, the file installed for the accepted rerouted Comparator run, has sha256 \hash{1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283}.
+The comparator copy lean-checks/comparator-copy/PaperLemma3/Bridge.lean states Lemma3.rectangle, Lemma3.bridge\_descent, Lemma3.bridge\_main and Lemma3.actual\_biquadratic\_rectangle\_span\_via\_lemma3, with LF sha256 \hash{af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250}.
+The canonical file lean-checks/Lemma3Bridged.lean has LF sha256 \hash{6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4}, and its declarations are identical to those of the comparator copy.
+lean-checks/NonVacuity.lean, with the non-vacuity lemmas, has LF sha256 \hash{b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9}.
+lean-checks/README.md gives the role of each Lean file; it is committed at \hash{758b44f74a208791c4c59b898d1ba104122ae7d0}, with LF sha256 \hash{c954fe424f8450ebbbadef60ed1649f94cbd84c25223a30389e2480fc5cd8bf9}.
+
+\paragraph{Tool pins.}
+All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab and lean4export v4.34.0 076e8e5 \cite{lean4,mathlib,comparator,lean4export}.
+The full commits are \hash{d03acab154d269c06e60e4de7e4cc85deebff94b} for Comparator and \hash{076e8e57707e813375e8f9da8bf989799ace9680} for lean4export.
+The official nanoda is 3a24072; f67473b, 37cb87b and 37cb87b with nealmcb's patch at 64 MiB are unofficial \cite{nanoda-lib}.
+
+\paragraph{Results folders of the primary runs.}
+The fd4aeeb control and reroute runs, with their dependency scans, are in results/2026-10-27-reroute-fd4aeeb/.
+The axioms of the comparator copy are in results/2026-10-26-claims-ledger/axioms-comparator-copy-2026-10-26.txt.
+The outcome comparison with the independent replay is in results/2026-10-27-neal-comparison/.
+The equivalence of the two challenge statements and the route comparison are in results/2026-10-27-two-routes/.
+The closure of exists\_absolute\_real\_zero\_gap with its defining modules is in results/2026-10-27-closure-modules/.

@@ -1,0 +1,37 @@
+# Hand resolution of the number-match-2.txt leftovers (step 3), 2026-10-27.
+# Sources: number-match-2.txt (python -I results/2026-10-27-final-packaging/number_match.py .), offpage.sh output (below), grep of paper/draft/*.tex.
+
+## Result (COMPUTED)
+No token in the PDF text has a value that differs from its source line or from the ledger rows that line cites.
+Every token is CITED, QUOTE, NAMED, CITE-LABEL, LAYOUT, BIB-OK/BIB-LABEL/BIB-DEHYPH, or one of the cases below.
+
+## Body MISMATCH (6), by hand
+- p6 "484", p7 "366", p7 "37": line-start remainders of the ranges InvariantJetLinearMap.lean:471-484 (sec4-gap.tex:82, :87),
+  ArithmeticCutoffTransfer...:...-366 (sec4-gap.tex:44 caption) and RectangleDeterminant.lean:31-37 (sec4-gap.tex:62); the rest of
+  each path runs past the right page edge (see "Off-page text"), so pdftotext reads only the part on the page.
+- p8 "lean-checks/comparatorand": the line runs past the page edge after "lean-checks/comparator" (sec5-lemma3.tex:9, cited v16:L024);
+  "and" is the start of the next text pdftotext reads.
+- p14 "KMediNOT_CHECKED_HERE": table cell "KMedianThreshold" (sec7-corpus.tex:19) runs into the next column's "NOT_CHECKED_HERE";
+  the full word appears on p14 at text line 855 "(KMedianThreshold)".
+- p16 "1021": "2026-10-21" (sec8-threats.tex:37, cited v12:L078 v12:L079) broken at its second hyphen at a line end; pdftotext joined it
+  as "2026-1021". The token 2026-10-21 is in the cited rows (check.py).
+
+## BROKEN (17)
+Each is at a PDF line edge and is part of a word of a cited source line whose tokens check.py locates in the cited rows
+(rows listed in number-match-2.txt). 11 of them are clipped at the page edge (below); the others are split across lines.
+
+## BIB-MISMATCH (13), all on page 19
+All 13 are appendix tokens, not bibliography tokens: the Listing 11 float is placed above the appendix heading, so pdftotext reads it
+before "The three 7/8 challenge statements". Each occurs in paper/draft/appendix-78-listings.tex: the caption line 7 (a cited line)
+or the quoted Lean block that follows its %% QUOTE line.
+
+## Off-page text (COMPUTED; FINDING, not fixed)
+offpage.sh (pdftotext -bbox, words whose right edge passes the A4 page width 595.276 pt) finds 15 words on pages 3, 6, 7, 9, 13, 16
+that extend past the right edge of the page: long \texttt paths, Lean names and 64-character sha256 values that LaTeX cannot break.
+In the PDF a reader sees these values cut off at the page edge. The source values are complete and match the ledger (check.py).
+page 3: OAI.SiegelZeros.WeightedTorusJets... | b9fae4da...
+page 6: W63.exists_good_mass_for_actual_zeros_nor... | false_of_eventual_exists_pivot_ma... | .../Structure/Invarian... | 09b8bd7f...
+page 7: .../ArithmeticCutoffTran... | .../RectangleDeterminant.l...
+page 9: af401514...
+page 13: bedaac02...
+page 16: 1ce196f5... | 6ce38ac1... | b9fae4da... | 758b44f7... | d03acab1...

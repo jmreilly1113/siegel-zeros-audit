@@ -1,0 +1,14 @@
+# Step 4 grep of paper/arxiv/ (2026-10-27). Command: python -I results/2026-10-27-final-packaging/arxiv_grep.py . final
+# hits by pattern: {'ledger id': 0, 'Claude': 5, 'ledger': 6, 'unescaped %': 1}
+ledger	appendix-reasoning.tex:3	Tables~\ref{tab:points-QuasiRiemannHypothesis}--\ref{tab:points-HeckeSevenEighths} list the reasoning points behind the QuasiRiemannHypothesis, DirichletSevenEighths and 
+Claude	sec10-ai.tex:3	Claude Code, an AI coding agent, wrote the Lean files in lean-checks/, the run scripts in wsl-comparator/ and src/, the ledger builders and check.py, and the drafts of Se
+ledger	sec10-ai.tex:3	Claude Code, an AI coding agent, wrote the Lean files in lean-checks/, the run scripts in wsl-comparator/ and src/, the ledger builders and check.py, and the drafts of Se
+Claude	sec10-ai.tex:4	Claude Code also wrote the reading notes in results/2026-10-27-readings/, which record its readings before the author's.
+Claude	sec10-ai.tex:5	The repository log records four public posts whose drafts were written in the Claude Code sessions.
+Claude	sec10-ai.tex:6	The author states that Claude in chat did the planning and the prompts, gave the Lemma 3 and Corollary 4 statement comparison that preceded his reading, and helped draft 
+Claude	sec10-ai.tex:9	The author wrote the content of the abstract, the introduction, Section~\ref{sec:threats} and this section as point lists, and Claude Code drafted the text from them.
+ledger	sec3-faithfulness.tex:79	\caption{The four family-003 challenge statements. File sha256 at openai/math fd4aeeb; finding and reading record as in the ledger. Every finding is INFERRED, by reading 
+ledger	sec3-faithfulness.tex:99	Table~\ref{tab:points-SiegelZeros} lists the reasoning points behind the SiegelZeros reading, one ledger row per point; Tables~\ref{tab:points-QuasiRiemannHypothesis}--\r
+unescaped %	sec5-lemma3.tex:135	in Verbatim;     type_of% @OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span := by
+ledger	sec5-lemma3.tex:140	\caption{AlgEquiv.mul\_apply, Mathlib d13f23b Mathlib/\allowbreak Algebra/\allowbreak Algebra/\allowbreak Equiv.lean:663, as copied in results/2026-10-26-claims-ledger/ma
+ledger	sec9-artifacts.tex:27	The axioms of the comparator copy are in results/2026-10-26-claims-ledger/axioms-comparator-copy-2026-10-26.txt.

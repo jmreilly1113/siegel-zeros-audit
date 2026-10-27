@@ -1,0 +1,45 @@
+\section{Introduction}\label{sec:intro}
+
+OpenAI's openai/math repository publishes mathematical manuscripts together with Lean formalizations and Comparator challenges; we use it at commits adc7f12 and fd4aeeb \cite{openai-math-adc7f12,openai-math-fd4aeeb}.
+The manuscript ``Uniform exclusion of Landau--Siegel zeros'' (OpenAI, October 1, 2026) \cite{openai-siegel-2026} states as its Theorem 1 that there is an absolute constant c > 0 such that every real zero beta in (0,1) of every primitive nonprincipal real Dirichlet L-function of conductor q >= 3 satisfies (1 - beta) log q >= c.
+Comparator's README \cite{comparator} states that for each listed theorem it guarantees three things: the theorem proves the statement given in the challenge, uses no more axioms than permitted, and is accepted by the Lean kernel.
+Comparator can also pass the solution export to an external kernel; we used nanoda \cite{nanoda-lib}, at the official build 3a24072, as the second kernel.
+
+Acceptance shows that a Lean proof of the Lean statement exists, using only the permitted axioms.
+It does not show that the Lean proof follows the paper's argument: in the case studied here, both accepted OpenAI proofs obtain the paper's spanning step by other means (Section~\ref{sec:gap}).
+Bastounis, Circelli and Hansen \cite{bastounis2026} argue that a Lean check of an AI autoformalisation need not certify the natural-language proof, and show for OpenAI's Navier–Stokes formalisation that the Lean proof does not correspond to the natural-language proof.
+Their Section 1 states that they make no claims about the correctness of OpenAI's natural-language proof.
+
+We find that the challenge has two checked theorems, with equivalent statements, and that OpenAI proves them by two routes.
+OpenAI's catalogued main result, exists\_absolute\_real\_zero\_gap, gets its spanning step from a local B\'ezout statement, through a zero test with Corollary 4's bounds, and does not use OpenAI's Corollary 4 theorem.
+The second theorem, dirichletRealZeroBound\_proof, proves Corollary 4 as actual\_biquadratic\_rectangle\_span by a multiplicity estimate, uniform\_rectangular\_multiplicity.
+So neither route goes through the paper's proof of Lemma 3.
+
+Our contributions are these.
+\begin{itemize}
+\item Statement faithfulness of the four family-003 challenges, by reading the Lean statements against the papers' texts, with Lean lemmas showing the SiegelZeros challenge is not vacuous (Section~\ref{sec:faithfulness}, with the reasoning behind each reading in Tables~\ref{tab:points-SiegelZeros}--\ref{tab:points-HeckeSevenEighths}).
+\item Lean proofs of the paper's Lemma 3 and Corollary 4, with statements that match the paper's and only the standard axioms (Section~\ref{sec:lemma3}).
+\item A reroute of dirichletRealZeroBound\_proof through that Corollary 4, accepted by Comparator with both kernels (Section~\ref{sec:reroute}).
+\item A replay of the openai/math corpus as context, compared with an independent replay (Section~\ref{sec:corpus}).
+\end{itemize}
+
+We do not claim the following.
+\begin{itemize}
+\item Nothing about the paper's analytic arguments, nor about either OpenAI route beyond its spanning step.
+\item No specialist review of the mathematics: no specialist in analytic number theory or transcendence has reviewed it.
+\item Statement faithfulness rests on reading, by the author, with the reasoning recorded row by row.
+\item The reroute changes one of the two checked theorems; OpenAI's main result is untouched.
+\item The separate copy of this code in namespace OAI.Erdos970, loaded by 3 configurations, is outside our scope.
+\item For an explicit value of the constant we point to the note docs/effectivity/note-v2.pdf in the reviewer-packet-v3 archive \cite{zenodo-23523697} and to \cite{arxiv-2610-15483}, and make no claim about it here.
+\end{itemize}
+
+Rerouting OpenAI's main result through the paper's Lemma 3 would require a bridge from Lemma3.rectangle to ActualCutoffSpanning; we leave this open.
+
+The paper is organized as follows.
+Section~\ref{sec:background} describes Comparator, nanoda, the challenge and the paper's lemmas.
+Section~\ref{sec:faithfulness} reads the four challenge statements against the papers.
+Section~\ref{sec:gap} describes OpenAI's two formal routes.
+Section~\ref{sec:lemma3} gives the Lean proofs of Lemma 3 and Corollary 4.
+Section~\ref{sec:reroute} reports the reroute.
+Section~\ref{sec:corpus} places it in the corpus replay.
+Section~\ref{sec:threats} lists threats to validity, Section~\ref{sec:artifacts} the artifacts, and Section~\ref{sec:ai} the use of AI tools.

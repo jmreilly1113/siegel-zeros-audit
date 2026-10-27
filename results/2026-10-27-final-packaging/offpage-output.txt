@@ -1,0 +1,9 @@
+Pages:           20
+Page size:       595.276 x 841.89 pts (A4)
+page 3: 2 words past the right page edge (width 595.276): OAI.SiegelZeros.WeightedTorusJets | b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9
+page 6: 4 words past the right page edge (width 595.276): W63.exists_good_mass_for_actual_zeros_nor | false_of_eventual_exists_pivot_ma | OAI/NumberTheory/SiegelZeros/Structure/Invarian | 09b8bd7fa82365e69caebfad466d039d8508459537676
+page 7: 2 words past the right page edge (width 595.276): OAI/NumberTheory/SiegelZeros/Structure/ArithmeticCutoffTran | OAI/NumberTheory/SiegelZeros/Determinants/RectangleDeterminant.l
+page 9: 1 words past the right page edge (width 595.276): af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f
+page 13: 1 words past the right page edge (width 595.276): bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8f
+page 16: 5 words past the right page edge (width 595.276): 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecdd | 6ce38ac1ef33c8b46028205bb043718565b679175b63cc6 | b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9 | 758b44f74a208791c4c59b898d1ba104122 | d03acab154d269c06e60e4de7e4cc85deebff
+total words past the page edge: 15

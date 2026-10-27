@@ -1,0 +1,15 @@
+main.tex	84 -> 75 lines	sha256 7c9f334e45d053c075b22dac55e7b550f725fda386c0d51a7f5018b242762e8b
+abstract.tex	13 -> 12 lines	sha256 addc3b839f1f306305d87f896f23f066060ed2a36b5f2008347f89961cc2eb6b
+sec1-intro.tex	46 -> 45 lines	sha256 ebbec1717d9063adeb0feef2c04e29eee97005ba65f3bd51263ba1f95f3c326c
+sec2-background.tex	31 -> 30 lines	sha256 82ca42b282400c4d46c6ecd6ad1aa23c47ac0cec60de9be684f8579347b8fa92
+sec3-faithfulness.tex	127 -> 121 lines	sha256 6b1f689a3865371d4365f62cfbeec0f1b9a0b3241cbe47324b016750bfceb39b
+sec4-gap.tex	142 -> 136 lines	sha256 4e8f565493a5f5647787a23ff6d3ea75abd47cddb75b0cc0cd7f6bc60b0d6a1e
+sec5-lemma3.tex	169 -> 161 lines	sha256 968b52a5bfa1afb7e27f26eda4faead7ff7c7e3ed32f8e63bcf8ff57f2b906e1
+sec6-reroute.tex	53 -> 52 lines	sha256 773abd3eb4b68fa36bf403147392a46ba23964b28233079601b6c3b4f29fa4c9
+sec7-corpus.tex	55 -> 54 lines	sha256 55f7cad5ebffb417564383a279911e897142230ca5eb028e8da96252c2de9ef4
+sec8-threats.tex	45 -> 44 lines	sha256 47ffb2f4e899a98170bfa3c190ed134484305296a9a297f50fd26f83408ca4e9
+sec9-artifacts.tex	31 -> 30 lines	sha256 3f8c901ab0dcd1835d0b275134f286c3bbbf98fed5af9991c70d603197bd1945
+sec10-ai.tex	13 -> 12 lines	sha256 d99845a8c0b1444c97cc07c296dfc3fb223552c5297908da9c8b67f885e3443f
+appendix-78-listings.tex	26 -> 22 lines	sha256 0e87d53a7957db268bc70126c317e72bbc8a64bb54612bccdd1552b65c8ddbec
+appendix-reasoning.tex	59 -> 57 lines	sha256 b1cddb416c156b4c36633c06fe990c599756e5683d002c915a3f25cd074fdca0
+main.bbl	copied from draft-main.bbl	sha256 cab7dfd7e08816f39d5376774ae8d389c8d68653966cb122a7da795b09cd92cf

@@ -1,0 +1,22 @@
+\section{The three 7/8 challenge statements}\label{app:78-listings}
+
+Listing~\ref{lst:78-challenges} quotes the statements of the QuasiRiemannHypothesis, DirichletSevenEighths and HeckeSevenEighths challenges at openai/math fd4aeeb.
+
+\begin{listing}[tbp]
+\caption{The 7/8 challenges at openai/math fd4aeeb: lean/ComparatorChallenges/QuasiRiemannHypothesis.lean:5-6 (sha256 065f8c9a\ldots), DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9\ldots) and HeckeSevenEighths.lean:237-239 (sha256 cb5e404f\ldots).}\label{lst:78-challenges}
+\begin{Verbatim}
+theorem riemannZeta_ne_zero_of_seven_eighths_lt_re
+    {s : ℂ} (hs : (7 / 8 : ℝ) < s.re) : riemannZeta s ≠ 0 := by
+\end{Verbatim}
+\begin{Verbatim}
+theorem LFunction_ne_zero_of_seven_eighths_lt_re
+    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) {s : ℂ}
+    (hs : (7 / 8 : ℝ) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
+    _root_.DirichletCharacter.LFunction χ s ≠ 0 := by
+\end{Verbatim}
+\begin{Verbatim}
+theorem LFunction_ne_zero_of_seven_eighths_lt_re
+    (χ : Character) {s : ℂ} (hs : (7 / 8 : ℝ) < s.re)
+    (hpole : ¬ (χ.residue = 1 ∧ s = 1)) : LFunction χ s ≠ 0 := by sorry
+\end{Verbatim}
+\end{listing}

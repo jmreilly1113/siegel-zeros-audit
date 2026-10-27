@@ -1,0 +1,121 @@
+\section{Statement faithfulness}\label{sec:faithfulness}
+
+We read four Comparator challenge statements of family 003 against the paper statements they encode: SiegelZeros, QuasiRiemannHypothesis, DirichletSevenEighths and HeckeSevenEighths.
+Each finding rests on reading the Lean statement against the paper's text, so each is INFERRED.
+Table~\ref{tab:faithfulness} gives each challenge file's sha256 at openai/math fd4aeeb, the finding, and the record of the reading.
+
+\subsection{The SiegelZeros challenge}
+
+The SiegelZeros challenge file has sha256 \hash{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}, and it is unchanged between adc7f12 and fd4aeeb.
+Listing~\ref{lst:siegel-challenge} quotes its two theorems.
+By reading the Lean statement against the paper's text, the challenge statement matches the paper's Theorem 1, with the hypotheses primitive, nonprincipal, real, q >= 3 and beta in (0,1).
+The type of each solution theorem equals the type of the challenge theorem.
+
+\begin{listing}[tbp]
+\caption{The SiegelZeros challenge, lean/ComparatorChallenges/SiegelZeros.lean:8-14 and 19-25 (openai/math fd4aeeb; file sha256 bedaac02\ldots, unchanged since adc7f12).}\label{lst:siegel-challenge}
+\begin{Verbatim}
+theorem exists_absolute_real_zero_gap :
+    ∃ c : ℝ, 0 < c ∧
+      ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q,
+        χ.IsPrimitive → χ ≠ 1 → (∀ a : ZMod q, (χ a).im = 0) →
+        ∀ β : ℝ, 0 < β → β < 1 → χ.LFunction (β : ℂ) = 0 →
+          c ≤ (1 - β) * Real.log (q : ℝ) := by
+\end{Verbatim}
+\begin{Verbatim}
+theorem WeightedTorusJets.dirichletRealZeroBound_proof :
+    ∃ c : ℝ, 0 < c ∧ ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q,
+        χ.IsPrimitive → χ ≠ 1 → (∀ a : ZMod q, (χ a).im = 0) →
+        ∀ β : ℝ,
+          (0 < β ∧ β < 1 ∧ DirichletCharacter.LFunction χ (β : ℂ) = 0) →
+            c ≤ (1 - β) * Real.log (q : ℝ) := by
+\end{Verbatim}
+\end{listing}
+
+The paper states its Theorem 1 at refs/siegel-paper.tex:66-73.
+Its text, lines 67-72, reads:
+\begin{paperquote}{1.1}
+There is an absolute constant $c>0$ such that every real zero
+$\beta\in(0,1)$ of every primitive nonprincipal real Dirichlet
+$L$-function of conductor $q\ge3$ satisfies
+\begin{equation}\label{eq:main}
+ (1-\beta)\log q\ge c.
+\end{equation}
+\end{paperquote}
+
+Four Lean lemmas show that the hypotheses of the challenge can be met and what the statement specialises to.
+NonVacuity.hypotheses\_satisfiable proves that for every odd prime $p$ the quadratic character mod $p$ satisfies all hypotheses of the challenge ($q = p \ge 3$, primitive, nonprincipal, real).
+NonVacuity.quadChar\_LFunction\_eq\_LSeries proves that the L-function of the quadratic character equals its Dirichlet series for $\operatorname{Re} s > 1$.
+NonVacuity.quadChar\_LFunction\_one\_ne\_zero proves $L(1, \chi_p) \ne 0$ for the quadratic character mod an odd prime $p$.
+NonVacuity.specialization proves that the challenge theorem specialises to an explicit statement about the quadratic characters.
+Each of the four depends on the axioms [propext, Classical.choice, Quot.sound].
+\footnote{The lemmas are in lean-checks/NonVacuity.lean, LF sha256 \hash{b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9}.
+They were compiled as checker via sudo -u checker, with no systemd-run unit and no address-family filter.
+}
+
+\subsection{The three 7/8 challenges}
+
+The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' \cite{openai-qrh-2026} (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 \hash{8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7} at both adc7f12 and fd4aeeb.
+Lines 107-110 of its build/paper.tex read:
+\begin{paperquote}{}
+Every finite-order Hecke $L$-function over
+$F=\mathbb Q(\sqrt{-3})$ has no zero in $\Re s>7/8$.
+The same holds for every Dirichlet $L$-function, including $\zeta(s)$.
+A pole at $s=1$ for a principal character is allowed.
+\end{paperquote}
+
+Listing~\ref{lst:78-challenges} in Appendix~\ref{app:78-listings} quotes the three challenge statements.
+
+By reading each Lean statement against the paper's text, all three match the paper statement; the QuasiRiemannHypothesis finding carries the qualification ``except s = 1, covered by Mathlib's junk value''.
+The HeckeSevenEighths finding rests on a ruling about the L-function row and on one INFERRED identification.
+The Lean sub-claims of these readings (non-vacuity, series identities, holomorphy) come from a separate statement-check build.
+All 34 \texttt{\#print axioms} outputs of that build are exactly [propext, Classical.choice, Quot.sound].
+That build ran as checker via sudo -u checker, with no systemd-run unit and no address-family filter.
+\footnote{The four statement audits were also posted publicly on \cite{grwtsk-29}, at 2026-10-20T16:56:00Z.
+}
+
+\begin{table}[tbp]
+\caption{The four family-003 challenge statements. File sha256 at openai/math fd4aeeb; finding and reading record as in the ledger. Every finding is INFERRED, by reading the Lean statement against the paper's text.}\label{tab:faithfulness}
+\small
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.4cm}@{}}
+\toprule
+challenge & finding & reading \\
+\midrule
+QuasiRiemannHypothesis & MATCH (except s = 1, covered by Mathlib's junk value) & Read by J. Reilly, 2026-10-27: MATCH \\
+\multicolumn{3}{@{}l}{\scriptsize\texttt{065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5}} \\
+DirichletSevenEighths & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\
+\multicolumn{3}{@{}l}{\scriptsize\texttt{8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54}} \\
+HeckeSevenEighths & MATCH (each nonzero ideal of O has exactly six generators, on which chi and the norm are constant) & Read by J. Reilly, 2026-10-27: agree \\
+\multicolumn{3}{@{}l}{\scriptsize\texttt{cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2}} \\
+SiegelZeros & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\
+\multicolumn{3}{@{}l}{\scriptsize\texttt{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Reasoning behind the readings}
+
+Table~\ref{tab:points-SiegelZeros} lists the reasoning points behind the SiegelZeros reading, one ledger row per point; Tables~\ref{tab:points-QuasiRiemannHypothesis}--\ref{tab:points-HeckeSevenEighths} in Appendix~\ref{app:reasoning} list those for the three 7/8 challenges.
+Each point is INFERRED, by reading the Lean statement against the paper's text, and each is marked Read by J. Reilly, 2026-10-27: agree.
+
+\begin{table}[!htbp]
+\caption{Reasoning points behind the SiegelZeros reading. INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-SiegelZeros}
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
+\toprule
+point & finding \\
+\midrule
+quantifier order: the constant c precedes q, chi and beta, so c is absolute & MATCH \\
+hypotheses: primitive, nonprincipal, real, q >= 3, beta in (0,1); none added, none missing & MATCH \\
+conclusion: c <= (1 - beta) log q, non-strict as in (1.1) & MATCH \\
+Mathlib meaning: IsPrimitive is conductor = level, and conductor is the least level through which chi factors & MATCH \\
+Mathlib meaning: (chi a).im = 0 for all a means real-valued; values are 0 or roots of unity, so 0 or +-1 & MATCH \\
+Mathlib meaning: DirichletCharacter.LFunction is ZMod.LFunction, the continuation; it equals the Dirichlet series for Re s > 1 and is entire for chi != 1 & MATCH \\
+edge cases: q = 4 (odd) and q = 8 (one even, one odd) are covered & MATCH \\
+edge cases: no hypothesis mentions parity, so both parities are included & MATCH \\
+edge cases: nothing excludes non-prime or even conductors & MATCH \\
+\bottomrule
+\end{tabularx}
+\end{table}
+

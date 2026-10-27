@@ -1,0 +1,54 @@
+\section{Corpus context}\label{sec:corpus}
+
+We replayed the Comparator configs of openai/math, the 189 referenced by formalization.yaml and the 227 unreferenced ones, with the official tool set, nanoda 3a24072.
+Of the 189 configs referenced by formalization.yaml, 187 were replayed at fd4aeeb and 2 (SiegelZeros, QuasiRiemannHypothesis) in the pilot at adc7f12.
+At fd4aeeb, both kernels accept 178 of the 187, and 9 are ACCEPT\_LEAN\_ONLY because nanoda 3a24072 crashes.
+The extended replay of the 227 unreferenced configs gives 212 results, with 15 not checked here.
+Table~\ref{tab:corpus} gives the outcomes, with the official tool set and the unofficial nanoda builds in separate columns.
+
+\begin{table}[tbp]
+\caption{Corpus outcomes. Official: Comparator with nanoda 3a24072. Unofficial: other nanoda builds, reported separately. Independent replay: results STATED by nealmcb at 1ca7ff2 \cite{mcburnett-tooling}.}\label{tab:corpus}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.0cm}@{}}
+\toprule
+configs & official & unofficial & independent replay \\
+\midrule
+189 referenced & 187 + 2; 178 / 9 (both kernels / Lean only) & 9 of 9 pass with f67473b & see the 416 row \\
+227 unreferenced & 212 / 15; ACCEPT\_BOTH 205, LEAN\_ACCEPT\_NANODA\_CRASH 6, TIMEOUT 1, NOT\_CHECKED\_HERE 15 & see next rows & see the 416 row \\
+Catalan, KMedianThreshold & NOT\_CHECKED\_HERE; Lean-kernel Comparator runs here: 369 s; exit 0 (KMedianThreshold), 2234 s; exit 0 (Catalan) & both kernels (unofficial nanoda) & 10 \\
+Continuum\-Coulomb\-Hardness & not completed on this machine (memory) & none & mixed; see footnote \\
+all 416 & outcome comparison: 416 compared; 402 agree; 0 disagree; 14 no verdict here & & 416/416 (Comparator as shipped); 401/416 (nanoda 3a24072 at 1 GiB stack) \cite{nanoda-issue-55} \\
+export sizes & 146 (0 differ, 14 not comparable); 11 (13 incl. 2 from extended records) & & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Agreement with an independent replay}
+
+Neal McBurnett's repository \cite{mcburnett-tooling} states that Comparator, as shipped, accepts all 416 configs at fd4aeeb.
+Against all our recorded results, 416 configs were compared, 402 agree, 0 disagree, and 14 have no verdict here; none lacks a verdict there.
+So every config with a verdict on both sides agrees: 402 of 402.
+Our SiegelZeros record in this comparison is the fd4aeeb control run, and QuasiRiemannHypothesis is the adc7f12 pilot, whose config, challenge and solution import closure are byte-identical at fd4aeeb.
+Export sizes equal his for 146 extended-replay exports, with 0 differing and 14 not comparable, and to the byte for the 11 configs of the 2026-10-26 nanoda matrix.
+\footnote{The 14 configs with no verdict here are ContinuumCoulombHardness, CycleCliqueRamsey, DefocusingNLS, FalconerAllDimensions, InvariantIsing, JointDickman, MUBSix, OrdinaryTwoPointCorrelations, OstmannComplete, PattersonFirstMoment, PolycyclicRecognition, SurfaceImmersion, UniversalTensorSquares (NOT\_CHECKED\_HERE) and PlanarPacking (TIMEOUT).
+}
+
+\subsection{ContinuumCoulombHardness}
+
+ContinuumCoulombHardness could not be built here: the guard stopped the build at 4 and at 2 threads, and it is permanently deferred.
+\footnote{All four records are nealmcb's at 1ca7ff2 (STATED) \cite{mcburnett-tooling}. His Comparator as shipped accepts it, at 923.63 s.
+His kernel-pair sweep records lean\_rc 1 (454.4 s) and nanoda\_rc 1 (99.3 s) on his export.
+His nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and 998e0a8: 134 / 32.8 s.
+With the let fix and the Nat.succ guard at STACK\_SIZE 64 MiB, nanoda 37cb87b passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s, 13GB).
+}
+
+\subsection{nanoda failures}
+
+By interpreting the per-config outcomes across nanoda builds, the nanoda failures fall into three classes (INFERRED).
+Class 1 is the RoundTables group (8), the Laughlin group (3), KMedianThreshold and Catalan.
+Class 2 is KaplanskyFinitelyPresented, GroupRingDeterminant and KaplanskyDirectFiniteness (COMPUTED), with MatchingFPRAS, ContingencyTables, LogspaceEquality, RandomizedMeanPayoff and PeriodicGroup (STATED).
+Class 3 is SquareDifference \cite{nanoda-issue-62}.
+nealmcb states that on nanoda master ten openai/math configs fail, and that with the let fix, the Nat.succ guard and STACK\_SIZE 64 MiB all ten check \cite{nanoda-issue-61}.
+\footnote{The patch used for the unofficial build B3 is nealmcb's nanoda-let-fvar-and-succ-guard-37cb87b.patch, sha256 \hash{edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30}.
+His 416-config sweep ran on nanoda master 8199c74.
+}

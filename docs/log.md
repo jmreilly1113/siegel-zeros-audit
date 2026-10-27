@@ -1706,3 +1706,15 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Joe's text was: "your 1 GiB runs of the same configs grew to 127-175 GiB".
   - What it says instead: #55 gives 1 GiB figures only for DirectedFeedback (overflow at 24.6 GiB); LaughlinPlanar's and LaughlinFock's 175 and 127 GiB are not tied to a stack size there. So the draft cites those three separately, plus nealmcb's statement that all 15 of his failures also failed at 1 GiB.
 - FINAL.md: appended a dated correction. Class 1 evidence is now split into COMPUTED and STATED by config, with the cap noted as a lower bound, and the RoundTables B3 cell reads "not run here; pass on 8199c74 + patch (S)".
+
+### 2026-10-26 ~21:15 external posts (Joe: "post the #61 reply, edit the three Zenodo descriptions, and post the #40 follow-up")
+
+- Posted, as jmreilly1113: nanoda_lib #61, https://github.com/ammkrn/nanoda_lib/issues/61#issuecomment-6431284502.
+  - The body is results/2026-10-26-nanoda-version-matrix/reply-61-draft.md without its first (HTML comment) line.
+  - Verified: the posted body equals the draft, up to a trailing newline.
+- Posted, as jmreilly1113: grwtsk/openai-math #40, https://github.com/grwtsk/openai-math/issues/40#issuecomment-6431288875 (the one-line vsock follow-up in results/2026-10-26-network-check/zenodo-descriptions.md).
+- NOT DONE: the Zenodo description edits (23499651, 23523697, 23505836).
+  - scripts/zenodo_edit_description.py (dry run, read-only) got HTTP 403 "Permission denied" for GET /api/deposit/depositions/<id> on all three records.
+  - The same token also got 403 when listing its own depositions. INFERRED: it has expired, been revoked, or lost its deposit scopes.
+  - Nothing on Zenodo was changed.
+  - The script is ready. With a valid token (scopes deposit:write and deposit:actions), its dry run, then `--apply`, edits only the one sentence in each record and checks the public record afterwards.

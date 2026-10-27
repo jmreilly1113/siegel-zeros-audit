@@ -1,6 +1,7 @@
 """Claims ledger for the cs.LO paper (2026-10-26). Read-only on the repo; writes ledger.tsv next to this file.
 
-Usage: python -I results/2026-10-26-claims-ledger/build_ledger.py <repo root>
+Usage: python -I results/2026-10-26-claims-ledger/build_ledger.py <repo root> [<output name>]
+  v2 (2026-10-26/27): `... build_ledger.py . ledger-v2.tsv` folds in L032, L041, the step-1 read-only rows and the fd4aeeb reroute results (results/2026-10-27-reroute-fd4aeeb/).
 Every source of kind R/L is resolved and checked mechanically:
   R(path, substring, nth=1)          -> "path:LINE", the line of the nth occurrence of substring (exit 1 if absent)
   L(path, a, b, substring)           -> "path:a-b (LF sha256 ...)", substring must occur within lines a..b of a Lean source
@@ -147,7 +148,7 @@ row('5', 'Axioms of interpolation, rectangle and via_lemma3 (Lemma3Bridged.lean,
 row('5', 'Fresh run, 2026-10-26 21:43: the same three axioms lines for Lemma3Bridged.lean (LF 6ce38ac1...) at openai/math fd4aeeb under the 45-family deny list.', '[propext, Classical.choice, Quot.sound]', 'axioms',
     [R(LG + 'axioms-rectangle-2026-10-26.txt', "'Lemma3.rectangle' depends on axioms"), R(LG + 'axioms-rectangle-2026-10-26.txt', "'Lemma3.interpolation' depends on axioms"), R(LG + 'axioms-rectangle-2026-10-26.txt', "'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms")],
     'COMPUTED', F_, TC, SB45)
-row('5', 'Axioms of interpolation, rectangle and via_lemma3 compiled from the comparator copy (PaperLemma3/Bridge.lean itself), fd4aeeb, deny list.', '', 'axioms', 'pending: separate step after the ledger (axioms-comparator-copy-2026-10-26.txt)', 'COMPUTED', F_, TC, SB45, 'PENDING')
+row('5', 'Axioms of all nine declarations compiled from the comparator copy itself (PaperLemma3/Lemma3.lean + Bridge.lean, the files installed for the accepted run), fd4aeeb, deny list.', '[propext, Classical.choice, Quot.sound]', 'axioms', [R(LG + 'axioms-comparator-copy-2026-10-26.txt', "'Lemma3.interpolation' depends on axioms"), R(LG + 'axioms-comparator-copy-2026-10-26.txt', "'Lemma3.rectangle' depends on axioms"), R(LG + 'axioms-comparator-copy-2026-10-26.txt', "'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms")], 'COMPUTED', F_, TC, SB45, 'FOUND', 'lean -R/-o compile of PaperLemma3/Lemma3 to /tmp + Bridge.lean on stdin; no build in the clone')
 row('5', 'Standalone nanoda 3a24072 check of the export of via_lemma3: accepted.', '61810', 'declarations checked', R('results/2026-10-08-lean-lemma3-nanoda.txt', 'Checked 61810 declarations'), 'COMPUTED', A_, TCN, 'nanoda direct as checker (36_nanoda_lemma3.sh)')
 row('5', 'Negative control (a): the same export with Classical.choice not permitted is rejected.', 'rejected (exit 1)', 'verdict', [R('results/2026-10-08-lean-lemma3-nanoda.txt', 'unpermitted axiom "Classical.choice"'), R('results/2026-10-08-lean-lemma3-nanoda.txt', 'nanoda exit 1')], 'COMPUTED', A_, TCN, 'nanoda direct as checker')
 row('5', "Negative control (b): the export with rectangle's proof replaced by interpolation's proof is rejected.", 'rejected (exit 101)', 'verdict', [R('results/2026-10-08-lean-lemma3-nanoda.txt', 'assertion failed: self.def_eq(u, v)'), R('results/2026-10-08-lean-lemma3-nanoda.txt', 'nanoda exit 101')], 'COMPUTED', A_, TCN, 'nanoda direct as checker', 'FOUND', 'rejection is a kernel def_eq assertion on the tampered proof')
@@ -157,7 +158,7 @@ row('5', 'c = biquadraticCoefficients (phi a) (phi b) = (1, (phi a)^-1, -(phi b)
 row('5', 'Bridge: ker A = span {c} is proved inline in bridge_main.', 'hker', 'proof step', L(BR, 231, 254, 'LinearMap.ker A = Submodule.span ℂ {c}'), 'COMPUTED', NR, TC, NONE)
 row('5', 'Bridge: bridge_descent does both the descent from C to K and the restriction to an injective family.', 'bridge_descent', 'lemma', L(BR, 147, 155, 'theorem bridge_descent'), 'COMPUTED', NR, TC, NONE)
 row('5', '(sigma * tau) x = sigma (tau x) in Mathlib d13f23b (AlgEquiv.mul_apply), so the third row of A is phi(sigma(tau(1, a, b, ab))).', '(e₁ * e₂) x = e₁ (e₂ x)', '#check output',
-    'MISSING: the #check @AlgEquiv.mul_apply output (2026-10-26, Mathlib d13f23b, via stdin) was printed to the session only, not saved to results/', 'COMPUTED', F_, TC, SB45, 'MISSING')
+    [R(LG + 'mathlib-algequiv-mul_apply.txt', 'theorem mul_apply (e₁ e₂ : A₁ ≃ₐ[R] A₁)'), R(LG + 'mathlib-algequiv-mul_apply.txt', '@AlgEquiv.mul_apply : ∀')], 'COMPUTED', F_, TC, SB45, 'FOUND', 'Mathlib d13f23b Mathlib/Algebra/Algebra/Equiv.lean:663 (file sha256 f3d556ca...), and the #check output')
 row('5', "The bridge reuses OAI's source_same_witness_hyperplane (the basis D of ker biquadraticForm with rows phi(1,a,b,ab), phi(sigma ...), phi((sigma*tau) ...)).", 'source_same_witness_hyperplane', 'OAI lemma', L(IJ, 447, 455, 'theorem source_same_witness_hyperplane'), 'COMPUTED', A_, TC, NONE)
 row('5', "The bridge's c is linearly independent over Q by OAI's biquadraticCoefficients_linearIndependent (and its _map form).", 'biquadraticCoefficients_linearIndependent', 'OAI lemma', [L(IJ, 380, 397, 'theorem biquadraticCoefficients_linearIndependent'), L(IJ, 424, 430, 'theorem biquadraticCoefficients_linearIndependent_map')], 'COMPUTED', A_, TC, NONE)
 row('5', 'Lemma3_Cor4.lean is a working draft: its interpolation is proved by sorry (line 31), so its rectangle (identical text to the canonical one) depends on sorryAx; the canonical Bridge.lean does not import it.',
@@ -176,7 +177,8 @@ row('6', 'The challenge file is unchanged in the rerouted run.', 'bedaac0248a641
 row('6', 'Rerouted comparator run: 9244 jobs built; nanoda and Lean kernels accept; exit 0.', '9244 jobs; ACCEPT_BOTH; exit 0', 'verdict',
     [R('results/2026-10-09-lean-comparator-rerouted-nanoda.txt', '/9244]'), R('results/2026-10-09-lean-comparator-rerouted-nanoda.txt', 'nanoda kernel accepts the solution'), R('results/2026-10-09-lean-comparator-rerouted-nanoda.txt', 'Lean default kernel accepts the solution'), R('results/2026-10-09-lean-comparator-rerouted-nanoda.txt', 'COMPARATOR EXIT CODE: 0')],
     'COMPUTED', A_, TCN, SB5 + ' (48_comparator_rerouted_nanoda.sh); before the 45-family deny list', 'FOUND', 'run 2026-10-09 09:07-09:32')
-row('6', 'The reroute has not been run at openai/math fd4aeeb or under the 45-family deny list.', 'not run', 'run', 'MISSING: NEW RUN NEEDED (see gaps.md)', 'COMPUTED', F_, TCN, SB45, 'MISSING')
+STEP2_DONE = os.path.exists(os.path.join(root, 'results/2026-10-27-reroute-fd4aeeb/run.log')) and '150 done' in open(os.path.join(root, 'results/2026-10-27-reroute-fd4aeeb/run.log'), encoding='utf-8').read()
+if not STEP2_DONE: row('6', 'The reroute has not been run at openai/math fd4aeeb or under the 45-family deny list.', 'not run', 'run', 'MISSING: NEW RUN NEEDED (see gaps.md)', 'COMPUTED', F_, TCN, SB45, 'MISSING')
 row('6', 'The reroute patch applies cleanly at fd4aeeb; the patched file is byte-identical at adc7f12 and fd4aeeb.', 'applies (git apply --check exit 0)', 'check', [R(LG + 'patch-apply-check.txt', 'git apply --check exit 0'), R(LG + 'patch-apply-check.txt', 'target at fd4aeeb sha256')], 'COMPUTED', F_, 'git apply (no build)', 'read-only scratch repo')
 row('6', 'Rerouted dependency scan: dirichletRealZeroBound_proof closure, matches only via_lemma3 and interpolation; none of the three OAI lemmas.', '92658', 'constants in closure',
     [R('results/2026-10-09-lean-rerouted-comparator-deps.txt', 'dirichletRealZeroBound_proof: 92658 constants in closure; matches: [Lemma3.actual_biquadratic_rectangle_span_via_lemma3'), R('results/2026-10-09-lean-rerouted-comparator-deps.txt', ' Lemma3.interpolation]')], 'COMPUTED', A_, TC, SB5)
@@ -218,7 +220,7 @@ row('8', 'The first SiegelZeros comparator run (2026-10-08 12:15, 08_comparator.
 row('8', 'The first SiegelZeros comparator run under the 5-family filter is the nanoda run of 2026-10-08 (29_comparator_nanoda.sh, ended 14:18).', '2026-10-08 14:18', 'date', [R('results/2026-10-08-lean-comparator-nanoda-netblock.txt', 'Run ended 14:18:02 EDT 2026-10-08'), R('results/2026-10-08-lean-comparator-nanoda-netblock.txt', 'RestrictAddressFamilies=~AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET')], 'COMPUTED', A_, TCN, SB5)
 row('8', 'From 2026-10-26 16:40 the deny list names all 45 families of kernel 5.15.167.4 (RestrictAddressFamilies=none is rejected by systemd-run 255).', '45 families', 'property', [R(NC + 'README.md', 'Update 2026-10-26 16:40: full deny list'), R(NC + 't24_none.out', 'Failed to set unit properties: Invalid argument')], 'COMPUTED', NR, NR, SB45)
 row('8', 't25 all-families probe: inside the new unit all 138 socket() calls (families 1..46 x STREAM/DGRAM/RAW) fail with errno 97, in user and system units.', '138 / 138 errno 97', 'calls', [R(NC + 't25_allfamilies.out', '(a) families probed 46; not all-97: none'), R(NC + 't25_allfamilies.out', '(b) families probed 46; not all-97: none')], 'COMPUTED', NR, NR, SB45)
-row('8', 'No SiegelZeros comparator run exists under the 45-family deny list (only the rectangle/interpolation axioms re-check).', 'none', 'run', 'MISSING: covered by the NEW RUN NEEDED reroute item (gaps.md)', 'COMPUTED', F_, TCN, SB45, 'MISSING')
+if not STEP2_DONE: row('8', 'No SiegelZeros comparator run exists under the 45-family deny list (only the rectangle/interpolation axioms re-check).', 'none', 'run', 'MISSING: covered by the NEW RUN NEEDED reroute item (gaps.md)', 'COMPUTED', F_, TCN, SB45, 'MISSING')
 row('8', 'WSL memory changed from the ~16 GB default (15,965 MB) to 24 GB at 2026-10-21 13:56:21; three extended-replay results were recorded before it.', 'ElementaryPositivity, KaplanskyDirectFiniteness, ShortEgyptianFractions', 'configs',
     [R(XR + 'platform-change-wsl-24gb.txt', 'Configs completed before the change at 16 GB'), R(XR + 'run.log', 'stopped by hand for the WSL memory change'), R(X3, 'outcomes under the ~16 GB default')], 'COMPUTED', F_, NR, NR)
 row('8', 'WSL memory changed from 24 GB to 20 GB at 2026-10-22 08:10.', '20 GB', 'memory', R(XR + 'platform-change-wsl-24gb.txt', 'Second change, 2026-10-22 08:10'), 'COMPUTED', F_, NR, NR)
@@ -237,12 +239,43 @@ row('9', 'Toolchain pins: Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4
     [R('results/2026-10-11-corpus-provenance.txt', 'comparator: afa65e57'), R('results/2026-10-11-corpus-provenance.txt', 'lean4export: 8c5d64ba'), R('results/2026-10-08-lean-comparator-wsl.txt', 'commit 5045d0056413266e57c625dcd7c365b10e377c52')], 'COMPUTED', F_, TC, NR)
 row('9', 'nanoda pins: 3a24072 official; f67473b, 37cb87b and 37cb87b + nealmcb patch @ 64 MiB unofficial (binaries and hashes).', '3a24072 / f67473b / 37cb87b / 37cb87b+patch', 'pins', [R(MX + 'MANIFEST.txt', '  official  nanoda_lib 3a2407216ee84a75f9e1aead6803d0578be06ae7'), R(MX + 'MANIFEST.txt', '  B3        B2')], 'COMPUTED', NR, NR, NR)
 
+# ---------------- v2 additions (2026-10-26/27): step 1 read-only checks ----------------
+JS = WSLM + 'OAI\\NumberTheory\\Jacobsthal\\Siegel\\'
+row('4', "OAI's separate Jacobsthal/Siegel copy of actual_biquadratic_rectangle_span (namespace OAI.Erdos970.WeightedTorusJets) depends on its own copies Geometry.uniform_rectangular_multiplicity and Geometry.source_rectangle_span_of_polynomial_zero_test, not on the SiegelZeros ones.",
+    'Erdos970 copies', 'dependency', [L(JS + 'InvariantJetLinearMap.lean', 481, 520, 'apply Geometry.uniform_rectangular_multiplicity'), L(JS + 'InvariantJetLinearMap.lean', 481, 520, 'apply Geometry.source_rectangle_span_of_polynomial_zero_test'),
+     L(JS + 'TorusQuotientDimensionPosCotangentFinrankThree.lean', 207, 207, 'theorem uniform_rectangular_multiplicity'), L(JS + 'InvariantJetLinearMap.lean', 251, 251, 'theorem source_rectangle_span_of_polynomial_zero_test'),
+     L(JS + 'InvariantJetLinearMap.lean', 9, 9, 'namespace Erdos970')], 'COMPUTED', F_, NR, 'read-only source reading', 'FOUND', 'source-text reading at fd4aeeb; no declaration-closure scan was run for the Jacobsthal copy')
+row('7', 'Three Comparator configs at fd4aeeb have a module under OAI.NumberTheory.Jacobsthal.Siegel in their solution import closure: Jacobsthal, JacobsthalImproved, OstmannPrimes (all 105 modules of that subtree).',
+    '3 of 416', 'configs', R(LG + 'jacobsthal-import-scan.txt', 'configs scanned: 416; with a Jacobsthal.Siegel module in the solution import closure: 3'), 'COMPUTED', F_, 'module-level import scan (no build)', NR, 'FOUND',
+    'import closure, not declaration closure; outcomes: Jacobsthal ACCEPT_BOTH (189 table), JacobsthalImproved and OstmannPrimes ACCEPT_BOTH (227 table)')
+row('5', 'lean-checks/MainRerouted.lean is a metaprogram (superseded approach, not cited): it defines elab "#reroute", which copies the closure and adds each copy with addDecl.', '#reroute + addDecl', 'construction',
+    [L('lean-checks/MainRerouted.lean', 24, 24, 'elab "#reroute "'), L('lean-checks/MainRerouted.lean', 90, 90, 'addDecl decl'), L('lean-checks/MainRerouted.lean', 101, 101, '#reroute OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span')], 'COMPUTED', A_, TC, NONE)
+row('9', 'Full commit hashes of the local tool clones: Comparator d03acab154d269c06e60e4de7e4cc85deebff94b (v4.34.0), lean4export 076e8e57707e813375e8f9da8bf989799ace9680 (v4.34.0).', 'd03acab154d2... / 076e8e57707e...', 'commit',
+    [R(LG + 'tool-commits.txt', 'd03acab154d269c06e60e4de7e4cc85deebff94b'), R(LG + 'tool-commits.txt', '076e8e57707e813375e8f9da8bf989799ace9680')], 'COMPUTED', NR, NR, NR)
+
+# ---------------- v2 additions: step 2, the fd4aeeb control and reroute (results/2026-10-27-reroute-fd4aeeb/) ----------------
+RR = 'results/2026-10-27-reroute-fd4aeeb/'
+if STEP2_DONE:
+    for lab, cnt, m1 in (('control', '116314', 'OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span'), ('reroute', '92658', 'Lemma3.actual_biquadratic_rectangle_span_via_lemma3')):
+        row('6', f'fd4aeeb {lab}: official comparator (nanoda 3a24072 enabled) on SiegelZeros: both kernels accept, exit 0.', 'ACCEPT_BOTH; exit 0', 'verdict',
+            [R(RR + f'{lab}-comparator.log', 'nanoda kernel accepts the solution'), R(RR + f'{lab}-comparator.log', 'Lean default kernel accepts the solution'), R(RR + f'{lab}-comparator.log', 'COMPARATOR EXIT CODE: 0')],
+            'COMPUTED', F_, TCN, SB45 + ' + 16G v1 cgroup cap (67r)', 'FOUND', 'fresh local clone /home/checker/math-r2; packages bind-mounted read-only from the original clone')
+        row('6', f'fd4aeeb {lab}: dependency scan of dirichletRealZeroBound_proof, identical to the 2026-10-09 adc7f12 block (counts, matches, axioms).', cnt, 'constants in closure',
+            [R(RR + f'{lab}-deps.log', f'dirichletRealZeroBound_proof: {cnt} constants'), R(RR + f'{lab}-deps.log', m1), R(RR + 'run.log', f'{lab}: scan block identical to 10-09')], 'COMPUTED', F_, TC, SB45)
+    row('6', 'fd4aeeb reroute: installed comparator-copy files have sha256 1ce196f5... and af401514...; the patch is 1 file +2/-1.', '1 file, +2/-1', 'diff',
+        [R(RR + 'reroute-diff.txt', '1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283'), R(RR + 'reroute-diff.txt', 'af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250'), R(RR + 'run.log', 'numstat 1 file +2/-1')], 'COMPUTED', F_, NR, NR)
+if os.path.exists(os.path.join(root, RR, 'memorymax-test.out')):
+    row('8', 'MemoryMax non-enforcement test, rerun: MemoryMax=200M does not stop a 600 MB allocation (user and system units); the v1-cgroup cap does.', 'not enforced; v1 cap kills', 'behaviour',
+        [R(RR + 'memorymax-test.out', 'ALLOCATED 600MB, not killed'), R(RR + 'memorymax-test.out', '== (c) the workaround')], 'COMPUTED', NR, NR, 'systemd 255, cgroup hybrid', 'FOUND')
+if not STEP2_DONE:
+    row('6', 'fd4aeeb control and reroute comparator runs and scans.', '', '', 'pending: results/2026-10-27-reroute-fd4aeeb/', 'COMPUTED', F_, TCN, SB45, 'PENDING')
+
 # ---------------- write ----------------
 cols = ['id', 'paper_section', 'claim', 'value', 'unit', 'source', 'label', 'openai_math_commit', 'toolchain', 'sandbox', 'status', 'note']
 if problems:
     print('PROBLEMS (ledger not written):'); print('\n'.join(problems)); sys.exit(1)
 import csv
-p = os.path.join(OUT, 'ledger.tsv')
+p = os.path.join(OUT, sys.argv[2] if len(sys.argv) > 2 else 'ledger.tsv')
 if os.path.exists(p): sys.exit(f'refusing to overwrite {p}')
 with open(p, 'w', encoding='utf-8', newline='') as f:
     w = csv.writer(f, delimiter='\t', lineterminator='\n'); w.writerow(cols)

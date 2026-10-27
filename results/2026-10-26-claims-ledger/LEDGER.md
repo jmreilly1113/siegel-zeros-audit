@@ -61,3 +61,16 @@ Solid: the five DOIs, from record JSON fetched read-only on 2026-10-26 and copie
 
 - **L032 is now FOUND.** Its source is axioms-comparator-copy-2026-10-26.txt. All nine declarations of the comparator copy (Lemma3.interpolation, cor4_rpow_nat, cor4_cube, cor4_real, cor4_budget, rectangle, bridge_descent, bridge_main, actual_biquadratic_rectangle_span_via_lemma3) depend on exactly [propext, Classical.choice, Quot.sound]. Run at openai/math fd4aeeb under the 45-family deny list, from the byte-identical files installed for the accepted run.
 - **Counts after this update:** FOUND 87, MISSING 3, PENDING 0, out of 90 rows.
+
+## Update 2026-10-26 23:10 (appended): ledger-v2.tsv
+
+**Counts:** ledger-v2.tsv has 98 rows, all FOUND (COMPUTED 86, INFERRED 7, STATED 5). gaps.md (update of the same time) maps the v1 gaps to their v2 rows.
+
+**Section 6 now has the fd4aeeb runs.** They were made under the 45-family deny list with the official nanoda 3a24072:
+- the SiegelZeros control, ACCEPT_BOTH;
+- the reroute (+2/-1, comparator-copy files 1ce196f5…/af401514…), ACCEPT_BOTH;
+- both dependency scans, identical to the 2026-10-09 adc7f12 blocks (116,314 and 92,658 constants).
+
+**Section 4 now records the separate Jacobsthal/Siegel copy of OAI's Corollary 4.** It lives in namespace OAI.Erdos970 and uses its own uniform_rectangular_multiplicity. Its subtree is imported by the Jacobsthal, JacobsthalImproved and OstmannPrimes configs.
+
+**Section 5 now records MainRerouted.lean** as a superseded metaprogram (#reroute + addDecl), not cited.

@@ -1,0 +1,44 @@
+# Module-level import scan (read-only, no build): Comparator configs at openai/math fd4aeeb whose solution import closure contains a module under OAI.NumberTheory.Jacobsthal.Siegel. 2026-10-26 22:12.
+# Method: for each lean/ComparatorChallenges/*.json, BFS over 'import OAI.*' lines of the module headers (comments stripped), from solution_module (+ solution_imports). Mathlib and other packages cannot import OAI, so only OAI modules are followed.
+# Caveat: an import closure is not a declaration closure; a module being imported does not mean its declarations are used by the proof.
+## scan script
+# Module-level import scan (read-only, no build), openai/math fd4aeeb: which Comparator configs' solution closures import a module under OAI.NumberTheory.Jacobsthal.Siegel?
+import json, os, re, sys, glob, hashlib
+M = '/home/checker/math/lean'
+IMP = re.compile(r'^\s*(?:public\s+)?(?:meta\s+)?import\s+(?:all\s+)?([A-Za-z0-9_.«»]+)', re.M)
+def strip(t):  # drop block and line comments, keep the module header region
+    t = re.sub(r'/-.*?-/', '', t, flags=re.S); return re.sub(r'--[^\n]*', '', t)
+cache = {}
+def imports(mod):
+    if mod in cache: return cache[mod]
+    p = os.path.join(M, *mod.split('.')) + '.lean'
+    r = []
+    if os.path.isfile(p):
+        t = strip(open(p, encoding='utf-8', errors='replace').read())
+        hdr = t.split('\nnamespace', 1)[0].split('\nsection', 1)[0]
+        r = [m for m in IMP.findall(hdr) if m.startswith('OAI.')]
+    cache[mod] = r; return r
+cfgs = sorted(glob.glob(os.path.join(M, 'ComparatorChallenges', '*.json')))
+hits = []; missing = 0
+for c in cfgs:
+    d = json.load(open(c)); roots = [d['solution_module']] + d.get('solution_imports', [])
+    seen, st = set(), list(roots)
+    while st:
+        x = st.pop()
+        if x in seen: continue
+        seen.add(x); st += imports(x)
+    j = sorted(x for x in seen if x.startswith('OAI.NumberTheory.Jacobsthal.Siegel'))
+    if j: hits.append((os.path.basename(c)[:-5], d['solution_module'], len(j), j[:3]))
+print(f'configs scanned: {len(cfgs)}; with a Jacobsthal.Siegel module in the solution import closure: {len(hits)}')
+for h in hits: print('  ', h[0], '| solution', h[1], '|', h[2], 'Jacobsthal.Siegel modules, e.g.', h[3])
+print('modules parsed:', len(cache))
+## output
+# command: python3 -I /mnt/c/Users/Work/AppData/Local/Temp/claude/C--Users-Work-dev-siegel/594ab20c-2cc0-4c87-89de-90414bba6150/scratchpad/q83_scan.py   (sha256 8c93df010ee5a7030e36634f688c5d8be7ab0a80d3f9cada3929ba6247ce6e4e), 2026-10-26 22:12:54, clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []
+configs scanned: 416; with a Jacobsthal.Siegel module in the solution import closure: 3
+   Jacobsthal | solution OAI.NumberTheory.Jacobsthal.Main | 105 Jacobsthal.Siegel modules, e.g. ['OAI.NumberTheory.Jacobsthal.Siegel.AffineProjChartPolynomialEquiv', 'OAI.NumberTheory.Jacobsthal.Siegel.AffineZeroScheme', 'OAI.NumberTheory.Jacobsthal.Siegel.AlgebraMapMemSpanImage']
+   JacobsthalImproved | solution OAI.NumberTheory.Jacobsthal.Main | 105 Jacobsthal.Siegel modules, e.g. ['OAI.NumberTheory.Jacobsthal.Siegel.AffineProjChartPolynomialEquiv', 'OAI.NumberTheory.Jacobsthal.Siegel.AffineZeroScheme', 'OAI.NumberTheory.Jacobsthal.Siegel.AlgebraMapMemSpanImage']
+   OstmannPrimes | solution OAI.NumberTheory.Ostmann.Main | 105 Jacobsthal.Siegel modules, e.g. ['OAI.NumberTheory.Jacobsthal.Siegel.AffineProjChartPolynomialEquiv', 'OAI.NumberTheory.Jacobsthal.Siegel.AffineZeroScheme', 'OAI.NumberTheory.Jacobsthal.Siegel.AlgebraMapMemSpanImage']
+modules parsed: 107966
+== namespaces of the Jacobsthal copies
+6:namespace OAI 8:namespace Erdos970 12:namespace WeightedTorusJets.Geometry 129:end WeightedTorusJets.Geometry  <- TorusQuotientDimensionPosCotangentFinrankThree
+7:namespace OAI 9:namespace Erdos970 16:namespace WeightedTorusJets.Geometry 77:end WeightedTorusJets.Geometry  <- InvariantJetLinearMap

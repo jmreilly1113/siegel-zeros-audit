@@ -22,3 +22,10 @@ Bibliographic details come only from local copies (refs/, results/) or from pinn
 | grwtsk/openai-math #29 | https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378 (2026-10-20T16:56:00Z) | statement audits posted | Section 3 |
 | grwtsk/openai-math #40 | https://github.com/grwtsk/openai-math/issues/40; comments 6087525965 (2026-10-09), 6431288875 (2026-10-26 vsock follow-up) | replay and sandbox statements | Sections 6, 8 |
 | Zenodo records | concept 10.5281/zenodo.23269527; 23269528 (v1), 23499651 (v2-preliminary), 23523697 (v3); corpus 23505836 (zenodo/r*.json) | artifact availability | Section 9 |
+
+## Update 2026-10-26 22:21 (appended; the table above is unchanged)
+
+- **Comparator:** the full commit is d03acab154d269c06e60e4de7e4cc85deebff94b, tag v4.34.0. Source: `git rev-parse HEAD` in the local clone /root/tools/comparator (tool-commits.txt). This replaces the UNCONFIRMED in the Comparator row.
+- **lean4export:** the full commit is 076e8e57707e813375e8f9da8bf989799ace9680, tag v4.34.0. It is the same in /root/tools/lean4export and in comparator's lake package (tool-commits.txt). This replaces the UNCONFIRMED in the lean4export row.
+- **The changed file in each clone:** both clones show one locally changed file. results/2026-10-11-corpus-provenance.txt and nealmcb's MANIFEST.txt record that change as the lean-toolchain file edited to v4.34.1 before rebuilding. That reading is INFERRED; the diff was not re-inspected here.
+- **Binaries:** the installed binaries' sha256 equal the recorded ones (comparator afa65e57…, lean4export 8c5d64ba…).

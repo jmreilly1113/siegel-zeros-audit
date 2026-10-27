@@ -1,0 +1,11 @@
+# Mathlib source line of AlgEquiv.mul_apply and #check output, 2026-10-26 22:13:32
+# Mathlib package in /home/checker/math/lean/.lake/packages/mathlib: HEAD d13f23b723b8a846827a245b89c10fc7d3f11612; file Mathlib/Algebra/Algebra/Equiv.lean sha256 f3d556ca387586345e77b710684d75ca1b7d983c4dd25dc01cc0268226535a8b
+## source (namespace AlgEquiv opens at line 77)
+   662	@[simp]
+   663	theorem mul_apply (e₁ e₂ : A₁ ≃ₐ[R] A₁) (x : A₁) : (e₁ * e₂) x = e₁ (e₂ x) :=
+   664	  rfl
+## #check, command: bash wsl-comparator/75d_sbx.sh 600 1 "printf 'import Mathlib\n#check @AlgEquiv.mul_apply\n' | lake env lean --stdin" (45-family deny list), openai/math fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+@AlgEquiv.mul_apply : ∀ {R : Type u_1} {A₁ : Type u_2} [inst : CommSemiring R] [inst_1 : Semiring A₁]
+  [inst_2 : Algebra R A₁] (e₁ e₂ : A₁ ≃ₐ[R] A₁) (x : A₁), (e₁ * e₂) x = e₁ (e₂ x)
+Service runtime: 59.762s
+SANDBOX EXIT CODE: 0

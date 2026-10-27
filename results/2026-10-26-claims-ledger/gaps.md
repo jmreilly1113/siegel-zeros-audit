@@ -18,3 +18,27 @@
 ## Update 2026-10-26 22:01 (appended)
 
 - **L032 (PENDING) is closed** by axioms-comparator-copy-2026-10-26.txt: all nine declarations depend only on the standard axioms. The remaining gaps are L041, L050 and L079 (MISSING).
+
+## Update 2026-10-26 23:10 (appended): ledger-v2.tsv
+
+**ledger-v2.tsv** (`python -I results/2026-10-26-claims-ledger/build_ledger.py . ledger-v2.tsv`) has 98 rows: FOUND 98, MISSING 0, PENDING 0, DOC-ONLY 0, CONFLICT 0. By label: COMPUTED 86, INFERRED 7, STATED 5. ledger.tsv (v1, 90 rows) is unchanged. The ids are renumbered in v2.
+
+| v1 gap | how it was closed | v2 rows |
+|---|---|---|
+| L032 (PENDING) | axioms-comparator-copy-2026-10-26.txt | the same claim, FOUND |
+| L041 (MISSING) | mathlib-algequiv-mul_apply.txt: Mathlib d13f23b, Mathlib/Algebra/Algebra/Equiv.lean:663, plus the saved #check | the same claim, FOUND |
+| L050 (MISSING: reroute at fd4aeeb under the deny list) | results/2026-10-27-reroute-fd4aeeb/: comparator ACCEPT_BOTH, exit 0; scan identical to 10-09 | L095, L096, L097 |
+| L079 (MISSING: no SiegelZeros comparator run under the deny list) | the same folder: control comparator ACCEPT_BOTH, exit 0; scan identical | L093, L094 |
+
+**New rows from the step-1 read-only checks:**
+- L089: the Jacobsthal copy depends on its own Erdos970 lemmas.
+- L090: three configs import the Jacobsthal subtree.
+- L091: MainRerouted.lean is a metaprogram.
+- L092: full Comparator and lean4export commits.
+- L098: the MemoryMax test, rerun.
+
+**Still open (weak or qualified, not gaps):**
+- The statement-check docs still cite a v2 log path in results/2026-10-20-statement-checks/ that never existed. The log is now in this folder.
+- "Only use" holds for the SiegelZeros chain. L089 and L090 record the separate Jacobsthal copy, which is imported by three configs (an import closure, not a declaration closure; no declaration scan was run).
+- The 7 INFERRED rows are inferred by design.
+- ContinuumCoulombHardness is permanently deferred (results/2026-10-27-reroute-fd4aeeb/optional/README.md).

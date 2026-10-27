@@ -1,0 +1,9 @@
+Running as unit: run-u13.service; invocation ID: 010fd8205ccd43809deaea70bb73dd29
+⚠ [9235/9243] Built ComparatorChallenges.SiegelZeros (5.1s)
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+Build completed successfully (9243 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 11min 19.935s
+SANDBOX EXIT CODE: 0

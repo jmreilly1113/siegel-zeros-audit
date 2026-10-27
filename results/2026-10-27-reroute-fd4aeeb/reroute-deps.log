@@ -1,0 +1,14 @@
+Running as unit: run-u16.service; invocation ID: ccbe09cc4ee94e91809ec77b7a33f587
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof: 92658 constants in closure; matches: [Lemma3.actual_biquadratic_rectangle_span_via_lemma3,
+ Lemma3.interpolation]
+OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap: 107760 constants in closure; matches: []
+'OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 26.619s
+SANDBOX EXIT CODE: 0

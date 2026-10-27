@@ -1,0 +1,25 @@
+Running as unit: run-u15.service; invocation ID: 36d54baf0f124950b247333b7fd453b6
+⚠ [9235/9245] Replayed ComparatorChallenges.SiegelZeros
+warning: ComparatorChallenges/SiegelZeros.lean:8:8: declaration uses `sorry`
+warning: ComparatorChallenges/SiegelZeros.lean:19:8: declaration uses `sorry`
+⚠ [9236/9245] Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3 (12s)
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:633:13: This simp argument is unused:
+  coe_aeval_eq_eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:715:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean:799:22: This simp argument is unused:
+  degreeOf_X
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [degreeOf_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (9245 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 39.395s
+SANDBOX EXIT CODE: 0

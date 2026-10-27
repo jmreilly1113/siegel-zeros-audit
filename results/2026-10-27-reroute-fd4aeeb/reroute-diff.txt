@@ -1,0 +1,32 @@
+== git status --short
+ M lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+?? lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/
+== git diff --numstat
+2	1	lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+== git diff
+diff --git a/lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean b/lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+index b0f1a8588..e30667638 100644
+--- a/lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
++++ b/lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean
+@@ -4,6 +4,7 @@ import OAI.NumberTheory.SiegelZeros.Characters.CharacterGlobalGreedyDeterminantF
+ import OAI.NumberTheory.SiegelZeros.Determinants.NormalizedMasterBound
+ import OAI.NumberTheory.SiegelZeros.Selection.GlobalRectanglePivotBounds
+ import OAI.NumberTheory.SiegelZeros.Structure.InvariantJetLinearMap
++import OAI.NumberTheory.SiegelZeros.PaperLemma3.Bridge
+ 
+ namespace OAI
+ 
+@@ -135,7 +136,7 @@ theorem source_character_global_greedy_determinant_master_bounds :
+     apply n.injective
+     funext i
+     exact Fin.ext (congrFun h i)
+-  have hspan := actual_biquadratic_rectangle_span a' b' v hv σ τ
++  have hspan := Lemma3.actual_biquadratic_rectangle_span_via_lemma3 a' b' v hv σ τ
+     hσa hσb hτa hτb H N hH hHN (fun j i => (n j i : ℕ)) hninj
+     (fun j i => (n j i).isLt)
+   have hpivots := global_source_rectangle_pivot_bounds H N hH hHN hN R e he α hrange hspan
+== new files sha256
+af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250  lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Bridge.lean
+1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283  lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean
+== patched file sha256
+5763bbe69350b4e87f07b1d612fabc06e5e9cb09299863d481442ebae2a0a4ca  lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean

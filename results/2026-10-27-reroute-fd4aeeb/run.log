@@ -1,0 +1,34 @@
+2026-10-26 22:17:36 150 start (PRECHECK=1); disk 85G; guard 3480
+2026-10-26 22:18:14 1. clone /home/checker/math-r2 HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, tracked changes 0, origin /home/checker/math
+2026-10-26 22:18:14    lean/lake-manifest.json: original cf6105a25d9dca2f clone cf6105a25d9dca2f
+2026-10-26 22:18:14    lean/lean-toolchain: original d5edba4e4b8faad9 clone d5edba4e4b8faad9
+2026-10-26 22:18:14    lean/lakefile.lean: original 4cca977ebece444b clone 4cca977ebece444b
+2026-10-26 22:18:14    packages: /dev/sdc[/home/checker/math/lean/.lake/packages] /home/checker/math-r2/lean/.lake/packages ro,relatime,discard,errors=remount-ro,data=ordered
+2026-10-26 22:18:14    packages mount is read-only (write as checker refused)
+2026-10-26 22:18:14 PRECHECK done
+2026-10-26 22:18:14 bind mount removed
+2026-10-26 22:18:45 150 start (PRECHECK=0); disk 87G; guard 3480
+2026-10-26 22:18:45 0. MemoryMax test
+2026-10-26 22:19:06 0. done (memorymax-test.out)
+2026-10-26 22:19:06 1. clone /home/checker/math-r2 HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, tracked changes 0, origin /home/checker/math
+2026-10-26 22:19:06    lean/lake-manifest.json: original cf6105a25d9dca2f clone cf6105a25d9dca2f
+2026-10-26 22:19:06    lean/lean-toolchain: original d5edba4e4b8faad9 clone d5edba4e4b8faad9
+2026-10-26 22:19:09    lean/lakefile.lean: original 4cca977ebece444b clone 4cca977ebece444b
+2026-10-26 22:19:09    packages: /dev/sdc[/home/checker/math/lean/.lake/packages] /home/checker/math-r2/lean/.lake/packages ro,relatime,discard,errors=remount-ro,data=ordered
+2026-10-26 22:19:09    packages mount is read-only (write as checker refused)
+2026-10-26 22:19:09 control: prebuild start
+2026-10-26 22:31:33 control: prebuild done: Build completed successfully (9243 jobs).; disk 88G
+2026-10-26 22:31:33 control: comparator start (config /tmp/r2/SiegelZeros-nanoda.json, sha256 b5b92f7666f341d8; nanoda_bin 897971d7e99f1ac2)
+2026-10-26 22:45:36 control: comparator: nanoda kernel accepts the solution;Lean default kernel accepts the solution;Your solution is okay!;COMPARATOR EXIT CODE: 0;
+2026-10-26 22:45:36 control: dependency scan (ReroutedDeps.lean sha256 d646d9bd68c45598)
+2026-10-26 22:46:57 control: scan block identical to 10-09 (10 lines): 116314 constants in closure 107760 constants in closure 
+2026-10-26 22:46:57 reroute: installed 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283  lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean;af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250  lean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Bridge.lean;
+2026-10-26 22:46:59 reroute: patch applied; numstat 1 file +2/-1 (reroute-diff.txt); challenge file sha256 bedaac0248a64191
+2026-10-26 22:46:59 reroute: prebuild start
+2026-10-26 22:48:47 reroute: prebuild done: Build completed successfully (9245 jobs).; disk 88G
+2026-10-26 22:48:47 reroute: comparator start (config /tmp/r2/SiegelZeros-nanoda.json, sha256 b5b92f7666f341d8; nanoda_bin 897971d7e99f1ac2)
+2026-10-26 22:59:47 reroute: comparator: nanoda kernel accepts the solution;Lean default kernel accepts the solution;Your solution is okay!;COMPARATOR EXIT CODE: 0;
+2026-10-26 22:59:47 reroute: dependency scan (ReroutedDeps.lean sha256 d646d9bd68c45598)
+2026-10-26 23:00:18 reroute: scan block identical to 10-09 (9 lines): 92658 constants in closure 107760 constants in closure 
+2026-10-26 23:00:18 150 done; disk 88G
+2026-10-26 23:00:18 bind mount removed

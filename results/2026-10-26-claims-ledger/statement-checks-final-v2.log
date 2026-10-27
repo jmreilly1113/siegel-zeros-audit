@@ -1,0 +1,115 @@
+== build 2026-10-20 12:49:57 lake build 
+⚠ [8924/8936] Built StatementChecks.Challenges.QuasiRiemannHypothesis (5.0s)
+warning: StatementChecks/Challenges/QuasiRiemannHypothesis.lean:5:8: declaration uses `sorry`
+⚠ [8925/8936] Built StatementChecks.Challenges.DirichletSevenEighths (5.0s)
+warning: StatementChecks/Challenges/DirichletSevenEighths.lean:8:8: declaration uses `sorry`
+⚠ [8926/8936] Built StatementChecks.Challenges.HeckeSevenEighths (11s)
+warning: StatementChecks/Challenges/HeckeSevenEighths.lean:237:8: declaration uses `sorry`
+ℹ [8927/8936] Built StatementChecks.QRH (8.4s)
+info: StatementChecks/QRH.lean:30:0: 'StatementChecks.QRH.hyp_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/QRH.lean:31:0: 'StatementChecks.QRH.has_trivial_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/QRH.lean:32:0: 'StatementChecks.QRH.eq_dirichlet_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/QRH.lean:33:0: 'StatementChecks.QRH.junk_at_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/QRH.lean:34:0: 'StatementChecks.QRH.junk_at_one_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8928/8936] Built StatementChecks.Dirichlet (8.4s)
+info: StatementChecks/Dirichlet.lean:43:0: 'StatementChecks.Dirichlet.chi4_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Dirichlet.lean:44:0: 'StatementChecks.Dirichlet.hyps_nonprincipal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Dirichlet.lean:45:0: 'StatementChecks.Dirichlet.hyps_principal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Dirichlet.lean:46:0: 'StatementChecks.Dirichlet.eq_dirichlet_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Dirichlet.lean:47:0: 'StatementChecks.Dirichlet.modOne_has_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8936] Built StatementChecks.Hecke (5.7s)
+info: StatementChecks/Hecke.lean:67:0: 'StatementChecks.Hecke.hyps_trivialTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Hecke.lean:68:0: 'StatementChecks.Hecke.differentiableAt_LFunction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Hecke.lean:69:0: 'StatementChecks.Hecke.differentiableAt_LFunction_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/Hecke.lean:70:0: 'StatementChecks.Hecke.differentiableOn_halfPlane' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/8936] Built StatementChecks.Smoke (4.5s)
+info: StatementChecks/Smoke.lean:3:0: OAI.SevenEighths.HeckeFamily.LFunction (χ : OAI.SevenEighths.HeckeFamily.Character) (s : ℂ) : ℂ
+⚠ [8931/8936] Built StatementChecks.HeckeSeries (8.1s)
+warning: StatementChecks/HeckeSeries.lean:151:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: StatementChecks/HeckeSeries.lean:275:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: StatementChecks/HeckeSeries.lean:276:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: StatementChecks/HeckeSeries.lean:276:69: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: StatementChecks/HeckeSeries.lean:281:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: StatementChecks/HeckeSeries.lean:281:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: StatementChecks/HeckeSeries.lean:286:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: StatementChecks/HeckeSeries.lean:286:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: StatementChecks/HeckeSeries.lean:314:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: StatementChecks/HeckeSeries.lean:358:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: StatementChecks/HeckeSeries.lean:389:52: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: StatementChecks/HeckeSeries.lean:411:41: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: StatementChecks/HeckeSeries.lean:414:41: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+info: StatementChecks/HeckeSeries.lean:421:0: 'StatementChecks.HeckeSeries.hasSum_pair_f' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeSeries.lean:422:0: 'StatementChecks.HeckeSeries.pair_f₀' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeSeries.lean:423:0: 'StatementChecks.HeckeSeries.LFunction_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8932/8936] Built StatementChecks.HeckeHolo (5.1s)
+warning: StatementChecks/HeckeHolo.lean:126:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+info: StatementChecks/HeckeHolo.lean:219:0: 'StatementChecks.HeckeHolo.residue_eq_one_of_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:220:0: 'StatementChecks.HeckeHolo.f₀_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:221:0: 'StatementChecks.HeckeHolo.differentiableAt_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:222:0: 'StatementChecks.HeckeHolo.trivialTop_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:223:0: 'StatementChecks.HeckeHolo.coord_surj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:224:0: 'StatementChecks.HeckeHolo.sum_coefficients_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:225:0: 'StatementChecks.HeckeHolo.g₀_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:226:0: 'StatementChecks.HeckeHolo.differentiableAt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:227:0: 'StatementChecks.HeckeHolo.differentiable_of_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:228:0: 'StatementChecks.HeckeHolo.period_indep_of_one_lt_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeHolo.lean:229:0: 'StatementChecks.HeckeHolo.period_indep' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8933/8936] Built StatementChecks.HeckeNontrivial (30s)
+warning: StatementChecks/HeckeNontrivial.lean:88:12: This simp argument is unused:
+  coe_eta
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [omega, h1, h2'] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StatementChecks/HeckeNontrivial.lean:88:63: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: StatementChecks/HeckeNontrivial.lean:88:63: Unused tactic linter: `(simp [omega] at h1 h2'; rw [h1, h2']; decide)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+info: StatementChecks/HeckeNontrivial.lean:141:0: 'StatementChecks.HeckeNontrivial.chi7_nontrivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeNontrivial.lean:142:0: 'StatementChecks.HeckeNontrivial.hyps_chi7' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeNontrivial.lean:143:0: 'StatementChecks.HeckeNontrivial.chi7_entire' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeNontrivial.lean:144:0: 'StatementChecks.HeckeNontrivial.chi7_series' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8934/8936] Built StatementChecks.HeckeNorm (4.4s)
+warning: StatementChecks/HeckeNorm.lean:44:8: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: StatementChecks/HeckeNorm.lean:55:0: 'StatementChecks.HeckeNorm.norm_coordinateElement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: StatementChecks/HeckeNorm.lean:56:0: 'StatementChecks.HeckeNorm.absNorm_span_coordinateElement' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8935/8936] Built StatementChecks (3.4s)
+Build completed successfully (8936 jobs).
+LAKE EXIT CODE: 0
+SECONDS: 71; disk 31G

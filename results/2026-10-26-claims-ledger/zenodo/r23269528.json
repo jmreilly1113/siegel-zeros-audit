@@ -1,0 +1,22 @@
+{
+ "note": "Extract of https://zenodo.org/api/records/23269528 fetched read-only 2026-10-26 16:02; creators and description omitted from this copy (no personal names in ledger outputs)",
+ "fetched_json_sha256": "94e9a72b09312c5fe38c5759b6f3abcf724b6711e0408044f40f1a68d952f7fc",
+ "id": 23269528,
+ "doi": "10.5281/zenodo.23269528",
+ "conceptdoi": "10.5281/zenodo.23269527",
+ "version": "reviewer-packet-v1",
+ "publication_date": "2026-10-09",
+ "files": [
+  {
+   "key": "jmreilly1113/siegel-zeros-audit-reviewer-packet-v1.zip",
+   "size": 6712087,
+   "checksum": "md5:fe79787a8a835e1d79393d0a944f6440"
+  }
+ ],
+ "related_identifiers": [
+  {
+   "relation": "isSupplementTo",
+   "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/reviewer-packet-v1"
+  }
+ ]
+}

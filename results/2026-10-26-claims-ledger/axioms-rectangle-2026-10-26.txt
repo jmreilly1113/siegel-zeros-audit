@@ -1,0 +1,45 @@
+# Fresh #print axioms for Lemma3.rectangle (and the file's other #print lines), collected 2026-10-26 for the claims ledger
+# File: lean-checks/Lemma3Bridged.lean, LF sha256 6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4 (copied to /tmp/chk/Lemma3Bridged.lean in WSL; sha256 printed below)
+# openai/math: fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb (/home/checker/math, status clean); Lean 4.34.1 (leanprover/lean4:v4.34.1); Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612
+# Commands (root in WSL Ubuntu-24.04; the scratch driver q76.sh):
+#   bash wsl-comparator/75d_sbx.sh 7200 4 "lake build OAI.NumberTheory.SiegelZeros.Main"      (build started 21:34:53)
+#   bash wsl-comparator/75d_sbx.sh 3600 4 "lake env lean /tmp/chk/Lemma3Bridged.lean"          (started 21:43:23, ended 21:43:56)
+# Sandbox: systemd-run --user as checker (NoNewPrivs 1), property
+#   RestrictAddressFamilies=~AF_UNIX AF_INET AF_AX25 AF_IPX AF_APPLETALK AF_NETROM AF_BRIDGE AF_ATMPVC AF_X25 AF_INET6 AF_ROSE AF_DECnet AF_NETBEUI AF_SECURITY AF_KEY AF_NETLINK AF_PACKET AF_ASH AF_ECONET AF_ATMSVC AF_RDS AF_SNA AF_IRDA AF_PPPOX AF_WANPIPE AF_LLC AF_IB AF_MPLS AF_CAN AF_TIPC AF_BLUETOOTH AF_IUCV AF_RXRPC AF_ISDN AF_PHONET AF_IEEE802154 AF_CAIF AF_ALG AF_NFC AF_VSOCK AF_KCM AF_QIPCRTR AF_SMC AF_XDP AF_MCTP
+#   (the 45 address families of kernel 5.15.167.4; results/2026-10-26-network-check/README.md), timeout as above, under 69_corpus_guard.sh 95 1500 20
+# Output filter used by the driver: Lean warnings/hints removed (grep -v), nothing else.
+## output (verbatim)
+6ce38ac1ef33c8b46028205bb043718565b679175b63cc6fbf8089136554cdb4  /tmp/chk/Lemma3Bridged.lean
+== build OAI.NumberTheory.SiegelZeros.Main (21:34:53)
+Running as unit: run-u6.service; invocation ID: 0e127b84e99b4edeb1166bd3148ad352
+Build completed successfully (9242 jobs).
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 7min 47.416s
+SANDBOX EXIT CODE: 0
+== Lemma3Bridged.lean (21:43:23)
+Lemma3.actual_biquadratic_rectangle_span_via_lemma3: 61074 constants in closure; matches: []
+OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span: 91758 constants in closure; matches: [OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+Lemma3.rectangle : ∀ (A : (Fin 4 → ℂ) →ₗ[ℂ] Fin 3 → ℂ),
+  Function.Surjective ⇑A →
+    ∀ (c : Fin 4 → ℂ),
+      A.ker = ℂ ∙ c →
+        LinearIndependent ℚ c →
+          ∀ (H N : ℕ),
+            1 ≤ H →
+              H ≤ N →
+                Submodule.span ℂ
+                    ((fun α n =>
+                        A (fun i => ↑↑(n i)) 0 ^ α 0 * A (fun i => ↑↑(n i)) 1 ^ α 1 * A (fun i => ↑↑(n i)) 2 ^ α 2) ''
+                      {α |
+                        ↑(α 0) ≤ 32 * ↑H ^ (2 / 3) * ↑N ^ (4 / 3) ∧
+                          ↑(α 1) ≤ 32 * ↑H ^ (-(1 / 3)) * ↑N ^ (4 / 3) ∧
+                            ↑(α 2) ≤ 32 * ↑H ^ (-(1 / 3)) * ↑N ^ (4 / 3)}) =
+                  ⊤
+'Lemma3.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+Service runtime: 30.094s
+SANDBOX EXIT CODE: 0
+== done 21:43:56

@@ -1,0 +1,26 @@
+{
+ "note": "Extract of https://zenodo.org/api/records/23499651 fetched read-only 2026-10-26 16:02; creators and description omitted from this copy (no personal names in ledger outputs)",
+ "fetched_json_sha256": "d632793b8ef973df09b30eed59cebce579c53ad4b282009ba2c588177eab5a35",
+ "id": 23499651,
+ "doi": "10.5281/zenodo.23499651",
+ "conceptdoi": "10.5281/zenodo.23269527",
+ "version": "reviewer-packet-v2-preliminary",
+ "publication_date": "2026-10-20",
+ "files": [
+  {
+   "key": "jmreilly1113/siegel-zeros-audit-reviewer-packet-v2-preliminary.zip",
+   "size": 11707330,
+   "checksum": "md5:a450922b32064d396a4152bc21ce18c6"
+  }
+ ],
+ "related_identifiers": [
+  {
+   "relation": "isSupplementTo",
+   "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/reviewer-packet-v2-preliminary"
+  },
+  {
+   "relation": "references",
+   "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+  }
+ ]
+}

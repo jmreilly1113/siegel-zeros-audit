@@ -1,0 +1,30 @@
+{
+ "note": "Extract of https://zenodo.org/api/records/23505836 fetched read-only 2026-10-26 16:02; creators and description omitted from this copy (no personal names in ledger outputs)",
+ "fetched_json_sha256": "575e1e6ba18a2804882df5cc21f35c1dccc7c1c03abb5e7859642b1ee033cc77",
+ "id": 23505836,
+ "doi": "10.5281/zenodo.23505836",
+ "conceptdoi": "10.5281/zenodo.23505835",
+ "version": "corpus-replay-2026-10-20",
+ "publication_date": "2026-10-20",
+ "files": [
+  {
+   "key": "siegel-zeros-audit-corpus-replay.zip",
+   "size": 1055523,
+   "checksum": "md5:f39dcc4127b739d63b5d32a278b8238d"
+  }
+ ],
+ "related_identifiers": [
+  {
+   "relation": "isSupplementTo",
+   "identifier": "10.5281/zenodo.23269527"
+  },
+  {
+   "relation": "isSupplementTo",
+   "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/60552ee34358aa226d8d525ece9eda2033e38e46"
+  },
+  {
+   "relation": "references",
+   "identifier": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"
+  }
+ ]
+}

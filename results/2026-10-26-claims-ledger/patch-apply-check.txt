@@ -1,0 +1,9 @@
+# Read-only check: does the reroute patch (+2/-1, results/2026-10-09-rerouted-comparator-diff.txt) apply cleanly at openai/math fd4aeeb? 2026-10-26 21:49. No build, no change to /home/checker/math.
+# Method: the 'diff --git' block of results/2026-10-09-rerouted-comparator-diff.txt (21 lines) saved as /tmp/patchchk/reroute.patch; a scratch git repo /tmp/patchchk holding only
+#   lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean from `git show fd4aeeb:<path>`; then `git apply --check -v reroute.patch`.
+target at fd4aeeb sha256 20c5c653164f10c79f91c24401fa07a98e631d440a183f6335c3f35d2c24e05e
+target at adc7f12 sha256 20c5c653164f10c79f91c24401fa07a98e631d440a183f6335c3f35d2c24e05e   (identical file at both commits; patch index line: b0f1a8588..e30667638)
+patch lines: 21
+Checking patch lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean...
+git apply --check exit 0
+# The patch's new files (OAI/NumberTheory/SiegelZeros/PaperLemma3/{Lemma3,Bridge}.lean) are untracked additions, not part of the diff; they are lean-checks/comparator-copy/PaperLemma3/*.

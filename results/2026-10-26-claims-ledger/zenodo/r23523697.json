@@ -1,0 +1,42 @@
+{
+ "note": "Extract of https://zenodo.org/api/records/23523697 fetched read-only 2026-10-26 16:02; creators and description omitted from this copy (no personal names in ledger outputs)",
+ "fetched_json_sha256": "6500a5129b7cf9a7f467accff3106d2bc917e82eb8e696c70025cb60eae61f25",
+ "id": 23523697,
+ "doi": "10.5281/zenodo.23523697",
+ "conceptdoi": "10.5281/zenodo.23269527",
+ "version": "reviewer-packet-v3",
+ "publication_date": "2026-10-21",
+ "files": [
+  {
+   "key": "jmreilly1113/siegel-zeros-audit-reviewer-packet-v3.zip",
+   "size": 13841657,
+   "checksum": "md5:048a6d061b5ddfac7f39d6ba14b56569"
+  }
+ ],
+ "related_identifiers": [
+  {
+   "relation": "isSupplementedBy",
+   "identifier": "10.5281/zenodo.23505836"
+  },
+  {
+   "relation": "references",
+   "identifier": "arXiv:2610.15483"
+  },
+  {
+   "relation": "references",
+   "identifier": "arXiv:2610.21099"
+  },
+  {
+   "relation": "references",
+   "identifier": "https://hexagonmath.org/2610.00311v2"
+  },
+  {
+   "relation": "references",
+   "identifier": "arXiv:2602.03626"
+  },
+  {
+   "relation": "references",
+   "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+  }
+ ]
+}

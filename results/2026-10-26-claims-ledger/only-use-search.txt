@@ -1,0 +1,16 @@
+# Text search for actual_biquadratic_rectangle_span across all .lean sources of OAI at openai/math fd4aeeb (read-only), 2026-10-26 21:49:09
+# clone: /home/checker/math  HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb  status []
+# command: grep -rn --include='*.lean' -w 'actual_biquadratic_rectangle_span' /home/checker/math/lean/OAI
+# .lean files searched: 122458
+## output
+/home/checker/math/lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean:138:  have hspan := actual_biquadratic_rectangle_span a' b' v hv σ τ
+/home/checker/math/lean/OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471:theorem actual_biquadratic_rectangle_span
+/home/checker/math/lean/OAI/NumberTheory/Jacobsthal/Siegel/CharacterGlobalGreedyDeterminantMasterBounds.lean:140:  have hspan := actual_biquadratic_rectangle_span a' b' v hv σ τ
+/home/checker/math/lean/OAI/NumberTheory/Jacobsthal/Siegel/InvariantJetLinearMap.lean:481:theorem actual_biquadratic_rectangle_span
+## grep exit 0
+## also the qualified-name and substring forms (command: grep -rn --include='*.lean' 'actual_biquadratic_rectangle_span' /home/checker/math/lean)
+/home/checker/math/lean/OAI/NumberTheory/SiegelZeros/Characters/CharacterGlobalGreedyDeterminantMasterBounds.lean:138:  have hspan := actual_biquadratic_rectangle_span a' b' v hv σ τ
+/home/checker/math/lean/OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471:theorem actual_biquadratic_rectangle_span
+/home/checker/math/lean/OAI/NumberTheory/Jacobsthal/Siegel/CharacterGlobalGreedyDeterminantMasterBounds.lean:140:  have hspan := actual_biquadratic_rectangle_span a' b' v hv σ τ
+/home/checker/math/lean/OAI/NumberTheory/Jacobsthal/Siegel/InvariantJetLinearMap.lean:481:theorem actual_biquadratic_rectangle_span
+## grep exit 0

@@ -1,12 +1,12 @@
 ledger_id	outline_section	use	note
 v4:L001	3	table	Table 1 sha256
-v4:L002	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L002	1; 3; 8	table	Table 1 finding [INFERRED]; Read by J. Reilly, 2026-10-27: MATCH (ledger-v7.tsv read_by)
 v4:L003	3	table	Table 1 sha256
-v4:L004	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L004	1; 3; 8	table	Table 1 finding [INFERRED]; Read by J. Reilly, 2026-10-27: MATCH (ledger-v7.tsv read_by)
 v4:L005	3	table	Table 1 sha256
-v4:L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling; Read by J. Reilly, 2026-10-27: MATCH (ledger-v7.tsv read_by)
 v4:L007	2; 3	main	challenge sha256 beside the quoted statement
-v4:L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge; Read by J. Reilly, 2026-10-27: MATCH (ledger-v7.tsv read_by)
 v4:L009	3	main	34 statement-check axioms outputs; v2 log in the ledger folder
 v4:L010	3	footnote	public posting of the four statement audits (grwtsk/openai-math #29); Section 3 footnote
 v4:L011	3; 8	main	non-vacuity
@@ -98,8 +98,8 @@ v4:L096	0; 6	table	Table 2 reroute scan
 v4:L097	0; 6	main	patch and installed files
 v4:L098	8	main	MemoryMax test with saved output
 v4:L099	0; 4	main	the two invocation lines in OAI's proof of Corollary 4, quoted
-v4:L100	0; 5	main	statement match of Lemma 3 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-v4:L101	0; 5	main	statement match of Corollary 4 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L100	0; 5	unused	SUPERSEDED by v7:L145; cut (value was PENDING JOE READING)
+v4:L101	0; 5	unused	SUPERSEDED by v7:L146; cut (value was PENDING JOE READING)
 v4:L102	2	main	[STATED] Comparator check 1 (README at d03acab)
 v4:L103	2	main	[STATED] Comparator check 2
 v4:L104	2	main	[STATED] Comparator check 3 and the external-kernel export file
@@ -141,3 +141,7 @@ v4:L139	9	main	lean-checks/README.md commit and sha256
 v5:L140	0; 7	main	QuasiRiemannHypothesis closure byte-identical at adc7f12 and fd4aeeb
 v5:L141	0; 7	main	outcome comparison with nealmcb at 1ca7ff2, SiegelZeros at fd4aeeb
 v5:L142	8	main	[STATED] what both kernel checks depend on; shared vs Lean-kernel-only
+v6:L143	0; 2; 9	main	citation identity of the paper (title, date, author, path, sha256)
+v6:L144	2; 9	main	citation identity of the 7/8 paper
+v7:L145	0; 5	main	statement match of Lemma 3 [INFERRED], MATCH; Read by J. Reilly, 2026-10-27: MATCH
+v7:L146	0; 5	main	statement match of Corollary 4 [INFERRED], MATCH; Read by J. Reilly, 2026-10-27: MATCH

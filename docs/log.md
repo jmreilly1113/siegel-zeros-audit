@@ -1796,3 +1796,14 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - Fischler: not checked; use "cited by the paper as [Fischler, Theorem 1.1 and Lemma 1.3]".
   - Network: one read-only fetch from arxiv.org (abstract page and PDF of arXiv:2610.08144v1, PDF sha256 3282e2c4…). Not committed.
   - No "Read by J. Reilly" line has been written, and read_by is unchanged. This waits for Joe's OK.
+
+## 2026-10-27: statement readings signed off (Joe's OK: "put 'Read by J. Reilly: MATCH'")
+
+- SiegelZeros challenge vs Theorem 1 (tex 66-73): Read by J. Reilly, 2026-10-27: MATCH
+- QuasiRiemannHypothesis challenge vs the 7/8 paper's Theorem 1.1: Read by J. Reilly, 2026-10-27: MATCH
+- DirichletSevenEighths challenge vs the 7/8 paper's Theorem 1.1: Read by J. Reilly, 2026-10-27: MATCH
+- HeckeSevenEighths challenge vs the 7/8 paper's Theorem 1.1 (6-generator identification re-read and accepted): Read by J. Reilly, 2026-10-27: MATCH
+- Lemma3.interpolation vs tex 252-267: Read by J. Reilly, 2026-10-27: MATCH
+- Lemma3.rectangle vs tex 410-420: Read by J. Reilly, 2026-10-27: MATCH
+- The reading notes are in results/2026-10-27-readings/readings-claude-code.md.
+- Ledger: results/2026-10-26-claims-ledger/ledger-v7.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v7.py .`), 146 rows. read_by filled for v7:L002, L004, L006, L008; v6:L100 and L101 SUPERSEDED by v7:L145 and L146 (value MATCH). paper/outline.md and paper/claim-map.tsv: BLOCKED marks removed; version labels cited from v6:L143 and L144; Fischler fallback wording; Bastounis-Circelli-Hansen cited with the reading-7 sentence. Not pushed.

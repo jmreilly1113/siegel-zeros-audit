@@ -1,6 +1,6 @@
 # Paper outline (LIPIcs, about 15 pages): from the claims ledger, v4 (2026-10-27)
 
-Source of claims: results/2026-10-26-claims-ledger/ledger-v5.tsv (142 rows: the 139 v4 rows, of which v4:L131 is now SUPERSEDED, plus v5:L140-L142).
+Source of claims: results/2026-10-26-claims-ledger/ledger-v7.tsv (146 rows: v6 added v6:L143-L144; v7 adds v7:L145-L146, which supersede v4:L100-L101, and fills read_by for the four challenge readings).
 - Other inputs: citations-needed.md, gaps.md, LEDGER.md and id-stability.md (same folder); results/2026-10-27-reroute-fd4aeeb/SUMMARY.md; lean-checks/README.md (commit 758b44f).
 - The row-by-row mapping is in paper/claim-map.tsv.
 - Ids are append-only (id-stability.md). Every id here carries its version. v2:, v3:, v4: and v5: ids agree wherever the id exists; only v1:L050-L090 differ (erratum-ids.md). Rows added in v5 are cited as v5:, all others as v4:.
@@ -8,7 +8,7 @@ Source of claims: results/2026-10-26-claims-ledger/ledger-v5.tsv (142 rows: the 
 Conventions:
 - Every claim cites its ledger id. The value after "=" is copied from the ledger's value column. The exception is v4:L057, which is rendered as counts at Joe's request.
 - [INFERRED Lxxx] and [STATED Lxxx] stay visible in the prose. Rows without a tag are COMPUTED.
-- **BLOCKED** marks a claim that rests on a statement-match row whose read_by does not include Joe. Blocked rows: v4:L002, v4:L004, v4:L006, v4:L008, v4:L100, v4:L101. A blocked claim is not written as prose until Joe's reading is recorded.
+- No claim is BLOCKED any more. All six statement-match rows (v7:L002, v7:L004, v7:L006, v7:L008, v7:L145, v7:L146) have read_by "Read by J. Reilly, 2026-10-27: MATCH" (docs/log.md:1802-1807). The earlier rule was that a claim resting on a statement-match row whose read_by did not include Joe was not written as prose until Joe's reading is recorded.
 - A "Missing claims" item has no ledger row. It gets no value.
 - Vocabulary:
   - "accepted by Comparator with both kernels" (never "verified");
@@ -30,7 +30,7 @@ Abstract claims:
 2. The paper's Lemma 3 and Corollary 4 are proved in Lean, and the Lean statements match the paper's.
    - Lemma3.interpolation (v4:L022, v4:L024) and Lemma3.rectangle (v4:L025).
    - Axioms of all nine comparator-copy declarations (v4:L032) = [propext, Classical.choice, Quot.sound].
-   - **BLOCKED:** the statement match [INFERRED v4:L100] = PENDING JOE READING and [INFERRED v4:L101] = PENDING JOE READING. Until Joe's reading is recorded, the abstract can only say "proved in Lean".
+   - The statement match: [INFERRED v7:L145] = MATCH and [INFERRED v7:L146] = MATCH, both Read by J. Reilly, 2026-10-27: MATCH.
 3. A +2/-1 substitution gives a proof of the SiegelZeros challenge that is accepted by Comparator with both kernels at fd4aeeb under the 45-family deny list. The dependency scan shows it does not use the multiplicity estimate.
    - Diff (v4:L097) = 1 file, +2/-1.
    - Verdict (v4:L095) = ACCEPT_BOTH; exit 0.
@@ -46,7 +46,7 @@ Abstract claims:
 
 Missing claims: none.
 
-Citations: the paper (version label UNCONFIRMED); openai/math at both commits; Comparator; nanoda_lib; nealmcb/openai-math-lean-tooling at 1ca7ff2.
+Citations: the paper (by title, date October 1, 2026, author OpenAI, openai/math path and sha256; v6:L143); openai/math at both commits; Comparator; nanoda_lib; nealmcb/openai-math-lean-tooling at 1ca7ff2.
 
 ## 1. Introduction (1.5 pages)
 
@@ -54,12 +54,11 @@ Purpose: give the four results and the boundary of what is claimed.
 
 Claims:
 - The four abstract claims, with the same ids as Section 0. Each is restated in one sentence with a forward pointer.
-- Claim 2 stays BLOCKED as in Section 0.
 
 Not claimed (scope statements, no values):
 - Nothing about the paper's analytic sections (Lemma 2, v4:L107).
 - No specialist review of the mathematics.
-- Statement faithfulness is checked by reading [INFERRED v4:L002, v4:L004, v4:L006, v4:L008; all BLOCKED].
+- Statement faithfulness is checked by reading [INFERRED v7:L002, v7:L004, v7:L006, v7:L008; Read by J. Reilly, 2026-10-27: MATCH].
 - The reroute concerns the SiegelZeros chain only. Three further configurations load modules from a separate copy of this code (namespace OAI.Erdos970), with its own multiplicity estimate (v4:L089 = Erdos970 copies; v4:L090 = 3 of 416).
 - Nothing about the explicit constant beyond a pointer to arXiv:2610.15483.
 
@@ -88,7 +87,7 @@ Claims:
   - [STATED v4:L109] = Corollary 4, tex 410-420;
   - [STATED v4:L110] = Lemma 6, tex 517-524;
   - [STATED v4:L111] = Lemma 7, tex 598-604.
-- The paper's Theorem 1 beside the challenge: [INFERRED v4:L008] = MATCH. **BLOCKED.**
+- The paper's Theorem 1 beside the challenge: [INFERRED v7:L008] = MATCH; Read by J. Reilly, 2026-10-27: MATCH.
 - Tool pins:
   - v4:L087: Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab, lean4export v4.34.0 076e8e5;
   - v4:L092: full commits;
@@ -96,20 +95,20 @@ Claims:
 
 Missing claims: none. Section 2 makes no claim about how the lemmas combine.
 
-Citations: Comparator, nanoda_lib, lean4export, Lean 4, Mathlib, the paper (version label UNCONFIRMED).
+Citations: Comparator, nanoda_lib, lean4export, Lean 4, Mathlib, the paper (v6:L143), the 7/8 paper (by title, date 30 September 2026, author OpenAI, path and sha256; v6:L144).
 
 ## 3. Statement faithfulness (1.5 pages)
 
 Purpose: show whether the four family-003 challenge statements match the paper's statements, and say which parts rest on reading and which on Lean.
 
-Table 1 (one row per challenge). The whole findings column is **BLOCKED** until Joe's reading is recorded.
+Table 1 (one row per challenge).
 
-| challenge | file sha256 (fd4aeeb) | finding | read_by (ledger-v3) |
+| challenge | file sha256 (fd4aeeb) | finding | read_by (ledger-v7) |
 |---|---|---|---|
-| QuasiRiemannHypothesis | v4:L001 = 065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5 | [INFERRED v4:L002] = MATCH (except s = 1, covered by Mathlib's junk value) | Claude Code; Joe approved the finding (docs/log.md:619) |
-| DirichletSevenEighths | v4:L003 = 8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54 | [INFERRED v4:L004] = MATCH | Claude Code; Joe approved the finding (docs/log.md:619) |
-| HeckeSevenEighths | v4:L005 = cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2 | [INFERRED v4:L006] = MATCH (L-function row by Joe's ruling 2026-10-20; one identification INFERRED) | Claude Code; Joe ruled on the LFunction row only (docs/log.md:658) |
-| SiegelZeros | v4:L007 = bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce | [INFERRED v4:L008] = MATCH | Claude Code |
+| QuasiRiemannHypothesis | v4:L001 = 065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5 | [INFERRED v4:L002] = MATCH (except s = 1, covered by Mathlib's junk value) | Read by J. Reilly, 2026-10-27: MATCH |
+| DirichletSevenEighths | v4:L003 = 8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54 | [INFERRED v4:L004] = MATCH | Read by J. Reilly, 2026-10-27: MATCH |
+| HeckeSevenEighths | v4:L005 = cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2 | [INFERRED v4:L006] = MATCH (L-function row by Joe's ruling 2026-10-20; one identification INFERRED) | Read by J. Reilly, 2026-10-27: MATCH (the 6-generator identification re-read and accepted) |
+| SiegelZeros | v4:L007 = bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce | [INFERRED v4:L008] = MATCH | Read by J. Reilly, 2026-10-27: MATCH |
 
 Claims:
 - Lean sub-claims of the statement checks: v4:L009 = 34 declarations, all exactly [propext, Classical.choice, Quot.sound].
@@ -124,7 +123,7 @@ Claims:
   - The audits were posted on grwtsk/openai-math #29 (v4:L010 = 2026-10-20T16:56:00Z).
   - The Hecke ruling and the one INFERRED identification (v4:L006 value).
 
-Missing claims: none. The readings are INFERRED by design and BLOCKED on Joe.
+Missing claims: none. The readings are INFERRED by design.
 
 Citations: the paper; openai/math fd4aeeb; Mathlib; grwtsk/openai-math #29.
 
@@ -161,11 +160,11 @@ Statements (quoted from source, side by side with the paper):
 - Lemma 3:
   - Lean: lean-checks/comparator-copy/PaperLemma3/Lemma3.lean:817-825 (v4:L024 = 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283), equal to lean-checks/Lemma3.lean:816-825 (v4:L022).
   - Paper: [STATED v4:L108] tex 252-267.
-  - Match: [INFERRED v4:L100] = PENDING JOE READING. **BLOCKED.** read_by: Claude Code (docs/log.md:277).
+  - Match: [INFERRED v7:L145] = MATCH. Read by J. Reilly, 2026-10-27: MATCH.
 - Corollary 4:
   - Lean: lean-checks/comparator-copy/PaperLemma3/Bridge.lean:96-109 (v4:L025).
   - Paper: [STATED v4:L109] tex 410-420.
-  - Match: [INFERRED v4:L101] = PENDING JOE READING. **BLOCKED.** read_by: none recorded.
+  - Match: [INFERRED v7:L146] = MATCH. Read by J. Reilly, 2026-10-27: MATCH.
 - The box Pt is defined at Lemma3.lean:42 (v4:L023 = Pt).
 - Copies are identical (v4:L029 = identical).
 
@@ -213,7 +212,7 @@ Citations:
 - the paper;
 - Mathlib d13f23b;
 - nanoda_lib;
-- Fischler, Compos. Math. 141 (2005), cited by the paper at tex:155. Its internal theorem numbering is UNCONFIRMED; cite the paper's reference only, or confirm the numbering first.
+- Fischler, Compos. Math. 141 (2005): write "cited by the paper as [Fischler, Theorem 1.1 and Lemma 1.3]" (tex:155). Do not characterize the results; the numbering was not checked against a copy.
 
 ## 6. The reroute (2 pages)
 
@@ -297,7 +296,7 @@ Purpose: list what could make the results wrong or weaker than stated, with the 
 
 Claims:
 - Kernel trust: Comparator's guarantees are the three in v4:L102-L104 [STATED]. They hold under its stated assumptions [STATED v4:L137, README lines 28-39, quoted in full in the ledger]. One of them is "The Lean kernel is correct (with `external_kernels` this can be reduced to "At least one of the Lean kernel or the `external_kernels` is correct")".
-- Statement faithfulness rests on reading [INFERRED v4:L002, v4:L004, v4:L006, v4:L008, v4:L100, v4:L101; all BLOCKED]. The non-vacuity lemmas (v4:L011-L014) rule out a vacuous challenge; they do not establish faithfulness.
+- Statement faithfulness rests on reading [INFERRED v7:L002, v7:L004, v7:L006, v7:L008, v7:L145, v7:L146; all Read by J. Reilly, 2026-10-27: MATCH]. The non-vacuity lemmas (v4:L011-L014) rule out a vacuous challenge; they do not establish faithfulness.
 - The patched HadamardSupport dependency (v4:L052 = imported).
 - The paper's analytic sections are out of scope (scope statement).
 - Sandbox history:
@@ -415,8 +414,8 @@ Missing claims: none.
 | v4:L093, v4:L095 | 0, 1, 6 | "accepted by Comparator with both kernels", exit 0 |
 | v4:L097, v4:L047 | 0, 6 | 1 file, +2/-1 |
 | v4:L032 | 0, 5, 8 | nine declarations, standard axioms |
-| v4:L100, v4:L101 | 0, 1, 5, 8 | BLOCKED; PENDING JOE READING |
-| v4:L002, v4:L004, v4:L006, v4:L008 | 1, 2, 3, 8 | [INFERRED], BLOCKED |
+| v7:L145, v7:L146 | 0, 1, 5, 8 | [INFERRED] MATCH; Read by J. Reilly, 2026-10-27: MATCH |
+| v7:L002, v7:L004, v7:L006, v7:L008 | 1, 2, 3, 8 | [INFERRED]; Read by J. Reilly, 2026-10-27: MATCH |
 | v4:L016, v4:L017, v4:L018 | 0, 4, 6 | "only use" is within the SiegelZeros tree |
 | v4:L089, v4:L090 | 1, 4, 7 | import level only; 3 of 416; the exact scope sentence |
 | v4:L007, v4:L048 | 2, 3, 6 | the challenge sha256; quoted at fd4aeeb, identical at adc7f12 |
@@ -433,19 +432,19 @@ Missing claims: none.
 
 | section | works |
 |---|---|
-| 0 | paper (**version label UNCONFIRMED**), openai/math, Comparator, nanoda_lib, nealmcb repo at 1ca7ff2 |
-| 1 | paper (**version label UNCONFIRMED**), arXiv:2610.15483 (explicit-constant pointer only) |
+| 0 | paper (v6:L143), openai/math, Comparator, nanoda_lib, nealmcb repo at 1ca7ff2 |
+| 1 | paper (v6:L143), arXiv:2610.15483 (explicit-constant pointer only) |
 | 2 | Comparator README at d03acab, nanoda_lib README at 3a24072, lean4export, Lean 4, Mathlib, paper |
 | 3 | paper, openai/math fd4aeeb, Mathlib, grwtsk/openai-math #29 |
 | 4 | openai/math adc7f12 and fd4aeeb |
-| 5 | paper, Mathlib, nanoda_lib, Fischler 2005 (**internal theorem and lemma numbers UNCONFIRMED**) |
+| 5 | paper, Mathlib, nanoda_lib, Fischler 2005 (as "cited by the paper as [Fischler, Theorem 1.1 and Lemma 1.3]") |
 | 6 | openai/math adc7f12 and fd4aeeb, Comparator, nanoda_lib, Lean 4 |
 | 7 | nealmcb repo at 1ca7ff2 (v4:L132-L135 and v5:L141 read from that commit), nanoda_lib #55, #61, #62, openai/math fd4aeeb, Zenodo corpus record |
 | 8 | Comparator README at d03acab, lean4export README at 076e8e5, nanoda_lib README at 3a24072, grwtsk/openai-math #40 |
 | 9 | Zenodo records, the repository |
 | 10 | none |
 
-- Bastounis–Circelli–Hansen (arXiv:2610.08144): pending Joe's reading. No local copy; all details UNCONFIRMED; no ledger row uses it.
+- Bastounis–Circelli–Hansen (arXiv:2610.08144, v1, 6 Oct 2026): cite in Section 1 or 8 with this sentence (results/2026-10-27-readings/readings-claude-code.md, reading 7): "Bastounis, Circelli and Hansen [arXiv:2610.08144] argue that a Lean check of an AI autoformalisation need not certify the natural-language proof, and show for OpenAI's Navier–Stokes formalisation that the Lean proof does not correspond to the natural-language proof." Its example concerns a different openai/math paper (Navier–Stokes), not family 003.
 - Lu–Zaman–Zhao is not cited in Section 1.
 - arXiv:2610.15483 is cited only in the explicit-constant pointer.
 

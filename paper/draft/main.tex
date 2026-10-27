@@ -1,0 +1,72 @@
+% Draft of sections 3-6 (2026-10-27). Claims come from results/2026-10-26-claims-ledger/ledger-v7.tsv; structure from paper/outline.md.
+% Class: the LIPIcs class (lipics-v2021) is not installed locally (kpsewhich finds no lipics-v2021.cls in WSL TeX Live 2023),
+% so this draft uses article with an A4 text block of roughly LIPIcs size. Swap the class when lipics-v2021.cls is available.
+% Engine: pdflatex. lualatex is present but luaotfload is not installed, so fontspec cannot load fonts; the Unicode in the
+% quoted Lean source is mapped to LaTeX symbols with newunicodechar below, which leaves the quoted text byte-identical.
+% Build (WSL): pdflatex main.tex (twice)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,textwidth=14cm,textheight=22.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,array}
+\usepackage{fvextra}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{newunicodechar}
+\usepackage[hidelinks]{hyperref}
+\floatstyle{plaintop}
+\newfloat{listing}{tbp}{lol}
+\floatname{listing}{Listing}
+\fvset{fontsize=\small,breaklines=true,frame=lines}
+% Unicode in the quoted Lean source (each character that occurs in sec3-sec6).
+\newunicodechar{¬}{\ensuremath{\neg}}
+\newunicodechar{¹}{\textsuperscript{1}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{φ}{\ensuremath{\varphi}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{⁻}{\textsuperscript{-}}
+\newunicodechar{₁}{\textsubscript{1}}
+\newunicodechar{₂}{\textsubscript{2}}
+\newunicodechar{ₐ}{\textsubscript{a}}
+\newunicodechar{ₗ}{\textsubscript{l}}
+\newunicodechar{ℂ}{\ensuremath{\mathbb{C}}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∏}{\ensuremath{\prod}}
+\newunicodechar{∑}{\ensuremath{\sum}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{≃}{\ensuremath{\simeq}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{⊤}{\ensuremath{\top}}
+% Macros of the quoted paper, as defined in refs/siegel-paper.tex:22-32, so that quoted paper text compiles unchanged.
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb Z_{\ge0}}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cK}{\mathcal K}
+\DeclareMathOperator{\conv}{conv}
+% A quotation of paper text. #1: the paper's own equation number for any numbered display inside (empty if none).
+\newenvironment{paperquote}[1]{\begin{quote}\small\renewcommand{\theequation}{#1}}{\end{quote}}
+\setcounter{section}{2}
+\begin{document}
+\input{sec3-faithfulness}
+\input{sec4-gap}
+\input{sec5-lemma3}
+\input{sec6-reroute}
+\end{document}

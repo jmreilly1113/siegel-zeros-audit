@@ -1,0 +1,169 @@
+% Section 5. Every factual sentence ends with a comment naming its ledger rows (ledger-v7.tsv).
+\section{Lemma 3 and Corollary 4}\label{sec:lemma3}
+
+We proved the paper's Lemma 3 and Corollary 4 in Lean, following the paper's argument, and bridged Corollary 4 to OAI's statement of it. % v7:L032 v7:L136 v7:L028
+
+\subsection{Statements}
+
+Lemma3.interpolation, the paper's Lemma 3, is stated at lean-checks/Lemma3.lean:816-825, and that file imports Mathlib only. % v7:L022
+The comparator copy lean-checks/comparator-copy/PaperLemma3/Lemma3.lean equals lean-checks/Lemma3.lean through ``end Lemma3'' and has sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283. % v7:L024
+It is the file installed for the accepted rerouted Comparator run. % v7:L024
+Listing~\ref{lst:interpolation} quotes the statement from the comparator copy, and Listing~\ref{lst:pt} quotes the definition of Pt. % v7:L024 v7:L023
+The paper states its Lemma 3 at refs/siegel-paper.tex:252-267. % v7:L108
+Its lines 253-266 read: % v7:L108
+%% QUOTE refs/siegel-paper.tex 253-266 sha=v7:L143
+\begin{paperquote}{3.1}
+Let $A:\C^4\to\C^3$ be a surjective linear map, with $\ker A=\C c$, where the
+four coordinates of $c$ are linearly independent over $\Q$.
+Let $N\ge1$ and $t_1,t_2,t_3$ be integers satisfying
+\begin{equation}\label{eq:budget}
+ t_j\ge3(N-1)\quad(1\le j\le3),\qquad
+ \prod_{j=1}^3\bigl(t_j-3(N-1)+1\bigr)>(4N-3)^4.
+\end{equation}
+Set $E_N=\{0,\ldots,N-1\}^4$ and
+\[
+ \cP_t=\{B\in\C[z_1,z_2,z_3]:\deg_{z_j}B\le t_j
+                                      \text{ for }1\le j\le3\}.
+\]
+Then the evaluation map $B\mapsto(B(An))_{n\in E_N}$ from
+$\cP_t$ to $\C^{E_N}$ is surjective.
+\end{paperquote}
+By reading the Lean statement against the paper's text, Lemma3.interpolation matches the paper's Lemma 3, tex 252-267, clause by clause (Read by J. Reilly, 2026-10-27: MATCH). % v7:L145
+
+\begin{listing}[tbp]
+\caption{Lemma 3, lean-checks/comparator-copy/PaperLemma3/Lemma3.lean:817-826 (sha256 1ce196f5\ldots).}\label{lst:interpolation} % v7:L024
+%% QUOTE lean-checks/comparator-copy/PaperLemma3/Lemma3.lean 817-826 sha=v7:L024
+\begin{Verbatim}
+theorem interpolation
+    (A : (Fin 4 → ℂ) →ₗ[ℂ] (Fin 3 → ℂ)) (hA : Function.Surjective A)
+    (c : Fin 4 → ℂ) (hker : LinearMap.ker A = Submodule.span ℂ {c})
+    (hc : LinearIndependent ℚ c)
+    (N : ℕ) (hN : 1 ≤ N) (t : Fin 3 → ℤ)
+    (ht : ∀ j, 3 * ((N : ℤ) - 1) ≤ t j)
+    (hbudget : (4 * (N : ℤ) - 3) ^ 4 < ∏ j, (t j - 3 * ((N : ℤ) - 1) + 1)) :
+    Function.Surjective
+      (fun B : Pt t => fun n : Fin 4 → Fin N =>
+        eval (A (fun i => ((n i : ℕ) : ℂ))) (B : MvPolynomial (Fin 3) ℂ)) := by
+\end{Verbatim}
+\end{listing}
+
+\begin{listing}[tbp]
+\caption{The box Pt, lean-checks/Lemma3.lean:42-43.}\label{lst:pt} % v7:L023
+%% QUOTE lean-checks/Lemma3.lean 42-43 sha=v7:L023
+\begin{Verbatim}
+def Pt (t : Fin 3 → ℤ) : Set (MvPolynomial (Fin 3) ℂ) :=
+  {B | ∀ j, (B.degreeOf j : ℤ) ≤ t j}
+\end{Verbatim}
+\end{listing}
+
+Lemma3.rectangle, the paper's Corollary 4, is stated in the comparator copy Bridge.lean, installed for the accepted rerouted run (sha256 af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250). % v7:L025
+Listing~\ref{lst:rectangle} quotes it. % v7:L025
+The paper states its Corollary 4 at refs/siegel-paper.tex:410-420. % v7:L109
+Its lines 411-419 read: % v7:L109
+%% QUOTE refs/siegel-paper.tex 411-419 sha=v7:L143
+\begin{paperquote}{}
+\expandafter\def\csname paperref@lem:interpolation\endcsname{3}\renewcommand{\ref}[1]{\csname paperref@#1\endcsname}%
+Let $A$ satisfy the hypotheses of Lemma~\ref{lem:interpolation}.
+For integers $1\le H\le N$, set
+\[
+ U=N^{4/3},\qquad T_1=32H^{2/3}U,
+ \qquad T_2=T_3=32H^{-1/3}U.
+\]
+The rows $((An)_1^{\alpha_1}(An)_2^{\alpha_2}(An)_3^{\alpha_3})_{n\in E_N}$,
+with $\alpha\in\N^3$ and $\alpha_j\le T_j$, span $\C^{E_N}$.
+The constant $32$ is independent of $A$ and $H$.
+\end{paperquote}
+By reading the Lean statement against the paper's text, Lemma3.rectangle matches the paper's Corollary 4, tex 410-420 (Read by J. Reilly, 2026-10-27: MATCH). % v7:L146
+The copies of interpolation, rectangle, bridge\_main, bridge\_descent and via\_lemma3 in the comparator copy and in lean-checks/Lemma3Bridged.lean are identical. % v7:L029
+
+\begin{listing}[tbp]
+\caption{Corollary 4, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:96-109 (sha256 af401514\ldots).}\label{lst:rectangle} % v7:L025
+%% QUOTE lean-checks/comparator-copy/PaperLemma3/Bridge.lean 96-109 sha=v7:L025
+\begin{Verbatim}
+/-- **Corollary 4** (`cor:rectangle`, tex lines 410–420). -/
+theorem rectangle
+    (A : (Fin 4 → ℂ) →ₗ[ℂ] (Fin 3 → ℂ)) (hA : Function.Surjective A)
+    (c : Fin 4 → ℂ) (hker : LinearMap.ker A = Submodule.span ℂ {c})
+    (hc : LinearIndependent ℚ c)
+    (H N : ℕ) (hH : 1 ≤ H) (hHN : H ≤ N) :
+    Submodule.span ℂ
+      ((fun α : Fin 3 → ℕ => fun n : Fin 4 → Fin N =>
+          A (fun i => ((n i : ℕ) : ℂ)) 0 ^ α 0 * A (fun i => ((n i : ℕ) : ℂ)) 1 ^ α 1 *
+            A (fun i => ((n i : ℕ) : ℂ)) 2 ^ α 2) ''
+        {α : Fin 3 → ℕ |
+          (α 0 : ℝ) ≤ 32 * (H : ℝ) ^ (2 / 3 : ℝ) * (N : ℝ) ^ (4 / 3 : ℝ) ∧
+          (α 1 : ℝ) ≤ 32 * (H : ℝ) ^ (-(1 / 3 : ℝ)) * (N : ℝ) ^ (4 / 3 : ℝ) ∧
+          (α 2 : ℝ) ≤ 32 * (H : ℝ) ^ (-(1 / 3 : ℝ)) * (N : ℝ) ^ (4 / 3 : ℝ)}) = ⊤ := by
+\end{Verbatim}
+\end{listing}
+
+\subsection{Structure of the proof}
+
+Table~\ref{tab:lemma3-structure} lists the sub-lemmas of the Lean proof of Lemma 3 with their line ranges in the comparator copy, grouped under the paper's proof steps (tex 268-408). % v7:L136
+The main proof Lemma3.interpolation (816-985) calls each group in order at its ``-- Step'' comments. % v7:L136
+Opening the proof, exists\_annihilator and p5\_PtSub give the weights of eq:moments, which is not one of the six named steps. % v7:L136
+Six helpers are used across several steps and are not placed in one group: zR 29-30, zC 32-33, emb 35-36, sqd 38-39, Pt 41-43, p5\_eval\_aeval 614-620. % v7:L136
+
+\begin{table}[tbp]
+\caption{The Lean proof of Lemma 3 in lean-checks/comparator-copy/PaperLemma3/Lemma3.lean, by the paper's proof steps. Line ranges run from docstring to last line.}\label{tab:lemma3-structure} % v7:L136
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}X l@{}}
+\toprule
+step & sub-lemmas & main proof \\ % no-fact: table header
+\midrule
+opening, eq:moments (not one of the six steps) & exists\_annihilator 624-661, p5\_PtSub 591-612 & 829-845 \\ % v7:L136
+dimension count, zeros of R (eq:zeros) & four\_hull\_subset\_cube 663-681, exists\_vanishing 683-738 & 846-885 \\ % v7:L136
+supporting face and nearest point & exists\_lattice\_nonvanishing 740-770, exists\_nearest 87-148, p1\_var\_ineq 57-85, p1\_coord\_le\_sqd 51-55, p1\_dot\_self\_nonneg 47-49, quarter\_mem\_face 150-208 & 886-909 \\ % v7:L136
+vertex choice (eq:vertex) & exists\_heavy\_vertex 224-299 & 910-916 \\ % v7:L136
+off-face vanishing (eq:distance, eq:offface) & closer\_point 301-340, p2\_dot\_expand 213-218, p2\_dot\_self\_nonneg 220-222 & 917-939 \\ % v7:L136
+Lagrange polynomial Q & exists\_int\_hyperplane 371-432, p3\_g 342-352, p3\_g\_apply 354-354, p3\_clear 356-369, int\_comb\_ne\_zero 434-443, exists\_lagrange 471-586, p4\_linP 445-448, p4\_eval\_linP 450-455, p4\_deg\_linP 457-461, p4\_rL 463-465, p4\_rL\_apply 467-469 & 940-947 \\ % v7:L136
+final contradiction (B = Q R(z + A(m - u))) & exists\_translate 772-812 & 948-985 \\ % v7:L136
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The bridge to OAI's Corollary 4}
+
+Lemma3.actual\_biquadratic\_rectangle\_span\_via\_lemma3 is stated in Bridge.lean, and by type\_of\% it has exactly the type of OAI's theorem (Listing~\ref{lst:via}). % v7:L028 v7:L036
+The embedding K -> C is chosen as IsAlgClosed.lift, not taken as a hypothesis (Bridge.lean:214). % v7:L037
+The kernel vector is OAI's biquadraticCoefficients, defined as \texttt{![1, a⁻¹, -b⁻¹, -(a * b)⁻¹]} at InvariantJetLinearMap.lean:321-322. % v7:L038
+ker A = span \{c\} is proved inline in bridge\_main (Bridge.lean:231-254), which is stated at Bridge.lean:196-211. % v7:L039 v7:L027
+bridge\_descent (Bridge.lean:147-155) does both the descent from C to K and the restriction to an injective family. % v7:L040 v7:L026
+In Mathlib d13f23b, AlgEquiv.mul\_apply gives (e₁ * e₂) x = e₁ (e₂ x), so the third row of A is phi(sigma(tau(1, a, b, ab))). % v7:L041
+Listing~\ref{lst:mulapply} quotes its source line, Mathlib/Algebra/Algebra/Equiv.lean:663. % v7:L041
+The bridge reuses two OAI setup lemmas: source\_same\_witness\_hyperplane (InvariantJetLinearMap.lean:447-455) and biquadraticCoefficients\_linearIndependent (InvariantJetLinearMap.lean:380-397, with its \_map form at 424-430). % v7:L042 v7:L043
+
+\begin{listing}[tbp]
+\caption{The bridge theorem, lean-checks/comparator-copy/PaperLemma3/Bridge.lean:288-290.}\label{lst:via} % v7:L028 v7:L036
+%% QUOTE lean-checks/comparator-copy/PaperLemma3/Bridge.lean 288-290 sha=v7:L025
+\begin{Verbatim}
+/-- OAI's Corollary 4, proved via the paper's Lemma 3 instead of the multiplicity estimate. -/
+theorem actual_biquadratic_rectangle_span_via_lemma3 :
+    type_of% @OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span := by
+\end{Verbatim}
+\end{listing}
+
+\begin{listing}[tbp]
+\caption{AlgEquiv.mul\_apply, Mathlib d13f23b Mathlib/Algebra/Algebra/Equiv.lean:663, as copied in results/2026-10-26-claims-ledger/mathlib-algequiv-mul\_apply.txt.}\label{lst:mulapply} % v7:L041
+%% QUOTE-CONTAINED results/2026-10-26-claims-ledger/mathlib-algequiv-mul_apply.txt 5-5 sha=v7:L041
+\begin{Verbatim}
+theorem mul_apply (e₁ e₂ : A₁ ≃ₐ[R] A₁) (x : A₁) : (e₁ * e₂) x = e₁ (e₂ x) :=
+\end{Verbatim}
+\end{listing}
+
+\subsection{Checks}
+
+All nine declarations compiled from the comparator copy itself (PaperLemma3/Lemma3.lean and Bridge.lean) depend on the axioms [propext, Classical.choice, Quot.sound], at fd4aeeb under the 45-family deny list. % v7:L032
+The same axioms were recorded for interpolation, rectangle and via\_lemma3 in Lemma3Bridged.lean at adc7f12 on 2026-10-08. % v7:L030
+\footnote{A fresh run on 2026-10-26 at 21:43, of Lemma3Bridged.lean at fd4aeeb under the 45-family deny list, gave the same three axioms lines. % v7:L031
+}
+A standalone check of the export of via\_lemma3 by nanoda 3a24072 accepted it, with 61810 declarations checked. % v7:L033
+The same export with Classical.choice not permitted was rejected (exit 1). % v7:L034
+The export with rectangle's proof replaced by interpolation's proof was rejected (exit 101). % v7:L035
+These nanoda runs ran as checker via sudo -u checker, with no systemd-run unit and no address-family filter. % v7:L124
+
+An exact execution of the proof of Lemma 3 in Python Fraction arithmetic (src/lemma3\_construct.py) ran 540 instances at N = 2, 3, with 28 checks each, and all pass. % v7:L046
+This covers the proof steps at N = 2, 3 only, not the lemma in general. % v7:L046
+\footnote{Two working drafts in lean-checks/ are not cited: Lemma3\_Cor4.lean proves interpolation by sorry (line 31), so its rectangle depends on sorryAx, and Lemma3\_Bridge.lean proves rectangle by sorry (line 20). % v7:L044 v7:L045
+The canonical Bridge.lean imports neither. % v7:L044 v7:L045
+}

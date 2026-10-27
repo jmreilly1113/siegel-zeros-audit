@@ -1,0 +1,123 @@
+% Section 3. Every factual sentence ends with a comment naming its ledger rows (results/2026-10-26-claims-ledger/ledger-v7.tsv).
+% Quotes: a line "%% QUOTE <path> <a>-<b> [sha=<ledger row>]" precedes each quoted block; check.py compares the block with those source lines.
+\section{Statement faithfulness}\label{sec:faithfulness}
+
+We read four Comparator challenge statements of family 003 against the paper statements they encode: SiegelZeros, QuasiRiemannHypothesis, DirichletSevenEighths and HeckeSevenEighths. % v7:L001 v7:L002 v7:L004 v7:L006 v7:L008
+Each finding rests on reading the Lean statement against the paper's text, so each is INFERRED. % v7:L002 v7:L004 v7:L006 v7:L008
+Table~\ref{tab:faithfulness} gives each challenge file's sha256 at openai/math fd4aeeb, the finding, and the record of the reading. % v7:L001 v7:L002 v7:L003 v7:L004 v7:L005 v7:L006 v7:L007 v7:L008
+
+\subsection{The SiegelZeros challenge}
+
+The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. % v7:L007
+Listing~\ref{lst:siegel-challenge} quotes its two theorems. % v7:L007
+By reading the Lean statement against the paper's text, the challenge statement matches the paper's Theorem 1, with the hypotheses primitive, nonprincipal, real, q >= 3 and beta in (0,1). % v7:L008
+The type of each solution theorem equals the type of the challenge theorem. % v7:L008
+
+\begin{listing}[tbp]
+\caption{The SiegelZeros challenge, lean/ComparatorChallenges/SiegelZeros.lean:8-14 and 19-25 (openai/math fd4aeeb; file sha256 bedaac02\ldots, unchanged since adc7f12).}\label{lst:siegel-challenge} % v7:L007
+%% QUOTE external/openai-math/lean/ComparatorChallenges/SiegelZeros.lean 8-14 sha=v7:L007
+\begin{Verbatim}
+theorem exists_absolute_real_zero_gap :
+    ∃ c : ℝ, 0 < c ∧
+      ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q,
+        χ.IsPrimitive → χ ≠ 1 → (∀ a : ZMod q, (χ a).im = 0) →
+        ∀ β : ℝ, 0 < β → β < 1 → χ.LFunction (β : ℂ) = 0 →
+          c ≤ (1 - β) * Real.log (q : ℝ) := by
+\end{Verbatim}
+%% QUOTE external/openai-math/lean/ComparatorChallenges/SiegelZeros.lean 19-25 sha=v7:L007
+\begin{Verbatim}
+theorem WeightedTorusJets.dirichletRealZeroBound_proof :
+    ∃ c : ℝ, 0 < c ∧ ∀ (q : ℕ) [NeZero q], 3 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q,
+        χ.IsPrimitive → χ ≠ 1 → (∀ a : ZMod q, (χ a).im = 0) →
+        ∀ β : ℝ,
+          (0 < β ∧ β < 1 ∧ DirichletCharacter.LFunction χ (β : ℂ) = 0) →
+            c ≤ (1 - β) * Real.log (q : ℝ) := by
+\end{Verbatim}
+\end{listing}
+
+The paper states its Theorem 1 at refs/siegel-paper.tex:66-73. % v7:L106
+Its text, lines 67-72, reads: % v7:L106
+%% QUOTE refs/siegel-paper.tex 67-72 sha=v7:L143
+\begin{paperquote}{1.1}
+There is an absolute constant $c>0$ such that every real zero
+$\beta\in(0,1)$ of every primitive nonprincipal real Dirichlet
+$L$-function of conductor $q\ge3$ satisfies
+\begin{equation}\label{eq:main}
+ (1-\beta)\log q\ge c.
+\end{equation}
+\end{paperquote}
+
+Four Lean lemmas show that the hypotheses of the challenge can be met and what the statement specialises to. % v7:L011 v7:L012 v7:L013 v7:L014
+NonVacuity.hypotheses\_satisfiable proves that for every odd prime $p$ the quadratic character mod $p$ satisfies all hypotheses of the challenge ($q = p \ge 3$, primitive, nonprincipal, real). % v7:L011
+NonVacuity.quadChar\_LFunction\_eq\_LSeries proves that the L-function of the quadratic character equals its Dirichlet series for $\operatorname{Re} s > 1$. % v7:L012
+NonVacuity.quadChar\_LFunction\_one\_ne\_zero proves $L(1, \chi_p) \ne 0$ for the quadratic character mod an odd prime $p$. % v7:L013
+NonVacuity.specialization proves that the challenge theorem specialises to an explicit statement about the quadratic characters. % v7:L014
+Each of the four depends on the axioms [propext, Classical.choice, Quot.sound]. % v7:L011 v7:L012 v7:L013 v7:L014
+\footnote{The lemmas are in lean-checks/NonVacuity.lean, LF sha256 b9fae4da5517a97da50d3fdb5356329f03f00b7ab935a448a999b2c59b24d9f9. % v7:L015
+They were compiled as checker via sudo -u checker, with no systemd-run unit and no address-family filter. % v7:L138
+}
+
+\subsection{The three 7/8 challenges}
+
+The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 MISSING-ROW: no ledger row links these three challenges to the 7/8 paper's main theorem (lean/docs/003.md, Comparator links table)
+Lines 107-110 of its build/paper.tex read: % v7:L144
+%% QUOTE external/openai-math/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex 107-110 sha=v7:L144
+\begin{paperquote}{}
+Every finite-order Hecke $L$-function over
+$F=\mathbb Q(\sqrt{-3})$ has no zero in $\Re s>7/8$.
+The same holds for every Dirichlet $L$-function, including $\zeta(s)$.
+A pole at $s=1$ for a principal character is allowed.
+\end{paperquote}
+
+Listing~\ref{lst:78-challenges} quotes the three challenge statements. % v7:L001 v7:L003 v7:L005
+
+\begin{listing}[tbp]
+\caption{The 7/8 challenges at openai/math fd4aeeb: lean/ComparatorChallenges/QuasiRiemannHypothesis.lean:5-6 (sha256 065f8c9a\ldots), DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9\ldots) and HeckeSevenEighths.lean:237-239 (sha256 cb5e404f\ldots).}\label{lst:78-challenges} % v7:L001 v7:L003 v7:L005 v7:L144
+%% QUOTE external/openai-math/lean/ComparatorChallenges/QuasiRiemannHypothesis.lean 5-6 sha=v7:L001
+\begin{Verbatim}
+theorem riemannZeta_ne_zero_of_seven_eighths_lt_re
+    {s : ℂ} (hs : (7 / 8 : ℝ) < s.re) : riemannZeta s ≠ 0 := by
+\end{Verbatim}
+%% QUOTE external/openai-math/lean/ComparatorChallenges/DirichletSevenEighths.lean 8-11 sha=v7:L003
+\begin{Verbatim}
+theorem LFunction_ne_zero_of_seven_eighths_lt_re
+    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) {s : ℂ}
+    (hs : (7 / 8 : ℝ) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
+    _root_.DirichletCharacter.LFunction χ s ≠ 0 := by
+\end{Verbatim}
+%% QUOTE external/openai-math/lean/ComparatorChallenges/HeckeSevenEighths.lean 237-239 sha=v7:L005
+\begin{Verbatim}
+theorem LFunction_ne_zero_of_seven_eighths_lt_re
+    (χ : Character) {s : ℂ} (hs : (7 / 8 : ℝ) < s.re)
+    (hpole : ¬ (χ.residue = 1 ∧ s = 1)) : LFunction χ s ≠ 0 := by sorry
+\end{Verbatim}
+\end{listing}
+
+By reading each Lean statement against the paper's text, all three match the paper statement; the QuasiRiemannHypothesis finding carries the qualification ``except s = 1, covered by Mathlib's junk value''. % v7:L002 v7:L004 v7:L006
+The HeckeSevenEighths finding rests on a ruling about the L-function row and on one INFERRED identification. % v7:L006
+The Lean sub-claims of these readings (non-vacuity, series identities, holomorphy) come from a separate statement-check build. % v7:L002 v7:L009
+All 34 \texttt{\#print axioms} outputs of that build are exactly [propext, Classical.choice, Quot.sound]. % v7:L009
+That build ran as checker via sudo -u checker, with no systemd-run unit and no address-family filter. % v7:L123
+\footnote{The four statement audits were also posted publicly on grwtsk/openai-math \#29, at 2026-10-20T16:56:00Z. % v7:L010
+}
+
+\begin{table}[tbp]
+\caption{The four family-003 challenge statements. File sha256 at openai/math fd4aeeb; finding and reading record as in the ledger. Every finding is INFERRED, by reading the Lean statement against the paper's text.}\label{tab:faithfulness} % v7:L001 v7:L002 v7:L003 v7:L004 v7:L005 v7:L006 v7:L007 v7:L008
+\small
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.4cm}@{}}
+\toprule
+challenge & finding & reading \\ % no-fact: table header
+\midrule
+QuasiRiemannHypothesis & MATCH (except s = 1, covered by Mathlib's junk value) & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L002
+\multicolumn{3}{@{}l}{\scriptsize\texttt{065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5}} \\ % v7:L001
+DirichletSevenEighths & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L004
+\multicolumn{3}{@{}l}{\scriptsize\texttt{8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54}} \\ % v7:L003
+HeckeSevenEighths & MATCH (L-function row by Joe's ruling 2026-10-20; one identification INFERRED) & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L006
+\multicolumn{3}{@{}l}{\scriptsize\texttt{cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2}} \\ % v7:L005
+SiegelZeros & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L008
+\multicolumn{3}{@{}l}{\scriptsize\texttt{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}} \\ % v7:L007
+\bottomrule
+\end{tabularx}
+\end{table}

@@ -1,0 +1,65 @@
+% Section 4. Every factual sentence ends with a comment naming its ledger rows (ledger-v7.tsv).
+\section{The gap}\label{sec:gap}
+
+In openai/math, the paper's Corollary 4 is the theorem actual\_biquadratic\_rectangle\_span, stated at OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471-484. % v7:L016
+The file is identical at adc7f12 and fd4aeeb, with LF sha256 09b8bd7fa82365e69caebfad466d039d85084595376766a731945fa5c11a2bdc. % v7:L016
+Listing~\ref{lst:oai-cor4} quotes the statement. % v7:L016
+
+\begin{listing}[tbp]
+\caption{OAI's Corollary 4, OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean:471-484 (LF sha256 09b8bd7f\ldots, identical at adc7f12 and fd4aeeb).}\label{lst:oai-cor4} % v7:L016
+%% QUOTE lean-build/OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean 471-484 sha=v7:L016
+\begin{Verbatim}
+theorem actual_biquadratic_rectangle_span
+    {K κ : Type*} [Field K] [NumberField K] [Fintype κ]
+    (a b : K) (v : Module.Basis (Fin 4) ℚ K)
+    (hv : ∀ i, v i = ![1, a, b, a * b] i) (σ τ : K ≃ₐ[ℚ] K)
+    (hσa : σ a = -a) (hσb : σ b = b) (hτa : τ a = a) (hτb : τ b = -b)
+    (H N : ℕ) (hH : 0 < H) (hHN : H ≤ N)
+    (n : κ → Fin 4 → ℕ) (hninj : Function.Injective n) (hn : ∀ j i, n j i < N) :
+    let θ := fun j => ∑ i : Fin 4, (n j i : K) * ![1, a, b, a * b] i
+    Submodule.span K
+      ((fun α : Fin 3 → ℕ => fun j => θ j ^ α 0 * σ (θ j) ^ α 1 *
+        (σ * τ) (θ j) ^ α 2) '' {α : Fin 3 → ℕ |
+          (α 0 : ℝ) ≤ 32 * (H : ℝ) ^ (2 / 3 : ℝ) * (N : ℝ) ^ (4 / 3 : ℝ) ∧
+          (α 1 : ℝ) ≤ 32 * (H : ℝ) ^ (-(1 / 3 : ℝ)) * (N : ℝ) ^ (4 / 3 : ℝ) ∧
+          (α 2 : ℝ) ≤ 32 * (H : ℝ) ^ (-(1 / 3 : ℝ)) * (N : ℝ) ^ (4 / 3 : ℝ)}) = ⊤ := by
+\end{Verbatim}
+\end{listing}
+
+\subsection{How OAI proves it}
+
+Inside the proof (lines 485-511), line 493 applies Geometry.source\_rectangle\_span\_of\_polynomial\_zero\_test and line 496 applies Geometry.uniform\_rectangular\_multiplicity. % v7:L099
+A text search of lines 485-511 finds no other line naming either lemma. % v7:L099
+Listing~\ref{lst:oai-invocations} quotes the two places. % v7:L099
+So OAI's formal proof of Corollary 4 goes through a multiplicity estimate, uniform\_rectangular\_multiplicity, and not through the paper's argument for Lemma 3. % v7:L019 v7:L099
+
+\begin{listing}[tbp]
+\caption{The two invocations, InvariantJetLinearMap.lean:493-494 and 496-497 (openai/math fd4aeeb).}\label{lst:oai-invocations} % v7:L099
+%% QUOTE lean-build/OAI/NumberTheory/SiegelZeros/Structure/InvariantJetLinearMap.lean 493-497 sha=v7:L016
+\begin{Verbatim}
+  apply Geometry.source_rectangle_span_of_polynomial_zero_test φ.toRingHom
+    ![1, a, b, a * b] σ.toRingHom τ.toRingHom H N n hninj hn
+  intro F hF hvan
+  apply Geometry.uniform_rectangular_multiplicity (Nat.succ_le_iff.mpr hH) hHN
+    (biquadraticCoefficients (φ a) (φ b)) hc D' F hF
+\end{Verbatim}
+\end{listing}
+
+\subsection{Where the SiegelZeros chain uses it}
+
+Within the SiegelZeros tree, actual\_biquadratic\_rectangle\_span is used only at CharacterGlobalGreedyDeterminantMasterBounds.lean:138, by a text search of all OAI .lean sources. % v7:L017
+A dependency scan gives the same answer: after line 138 is replaced, the closure of dirichletRealZeroBound\_proof no longer contains actual\_biquadratic\_rectangle\_span, so line 138 was its only use in that closure. % v7:L018
+The control scan of OAI's unmodified dirichletRealZeroBound\_proof finds 116314 constants in its closure, among them actual\_biquadratic\_rectangle\_span, uniform\_rectangular\_multiplicity and source\_rectangle\_span\_of\_polynomial\_zero\_test. % v7:L019
+The scan was run at adc7f12 and again at fd4aeeb, where its block is identical. % v7:L019 v7:L094
+
+Three further configurations load modules from a separate copy of this code (namespace OAI.Erdos970), with its own multiplicity estimate. % v7:L089 v7:L090
+The reroute concerns the SiegelZeros chain only. % v7:L089 v7:L090
+The three are Jacobsthal, JacobsthalImproved and OstmannPrimes, each with a module under OAI.NumberTheory.Jacobsthal.Siegel in its solution import closure (3 of 416 configs). % v7:L090
+This is an import closure, not a declaration closure. % v7:L090
+By reading the source text at fd4aeeb, the copy's actual\_biquadratic\_rectangle\_span depends on its own Geometry.uniform\_rectangular\_multiplicity and Geometry.source\_rectangle\_span\_of\_polynomial\_zero\_test; no declaration-closure scan was run for the Jacobsthal copy. % v7:L089
+
+\subsection{What the route brings in}
+
+Rerouting removes 9936 (6901 + 3035) names in the CategoryTheory and AlgebraicGeometry namespaces from route 2, the closure of dirichletRealZeroBound\_proof, counting the names reachable from the root through types and values, as \#find\_deps does. % v7:L020 v7:L019
+\footnote{Counted over the full lean4export dumps, every declaration in the dump including unreferenced recursors and constructors, the removal is 10107 (7048 + 3059). % v7:L021
+}

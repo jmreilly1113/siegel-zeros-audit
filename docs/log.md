@@ -1854,3 +1854,25 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - Read by J. Reilly, 2026-10-27: reasoning rows v9:L203 and v8:L152–L197, all agree.
 - results/2026-10-27-readings/reasoning-marks.tsv: mark "agree" and note "Read by J. Reilly, 2026-10-27" on all 47 rows.
 - results/2026-10-26-claims-ledger/ledger-v10.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v10.py .`): v10:L204-L250 repeat those 47 rows with read_by set. The old rows are unchanged, status included, at Joe's instruction.
+
+## 2026-10-27: ledger v11 (two formal routes); draft sections 2, 4 (rewritten) and 7
+
+- COMPUTED (v11:L251): lean-checks/ChallengeEquivalence.lean (Mathlib only; both challenge statements copied verbatim as Props) proves them equivalent. #print axioms gives [propext, Classical.choice, Quot.sound]; LEAN EXIT CODE 0 (results/2026-10-27-two-routes/equivalence.log).
+  - It supersedes v9:L199, which is left unchanged, as in v10.
+- COMPUTED (v11:L252, L253), source reading: the main route's spanning hypothesis is W50.ActualCutoffSpanning (ArithmeticCutoffTransport.lean:356-366), a weighted-cutoff row span over rootField a sqrtTwo.
+  - It is obtained from W22.LocalIsolatedBezoutStatement through actual_complex_cutoff_spanning and the zero test RectangularAssertion (RectangleDeterminant.lean:31-37). That zero test has Corollary 4's bounds, 32 H^(2/3) N^(4/3) and 32 H^(-1/3) N^(4/3).
+- INFERRED (v11:L254, read_by empty): Lemma3.rectangle plus the rectangle-in-cutoff inclusion plus OAI's rowSpan_top_of_field_map would plausibly give ActualCutoffSpanning without Bezout. No proof was written.
+- COMPUTED (v11:L255-L257), lean-checks/RouteCompare.lean, read-only, no build:
+  - exists_absolute_real_zero_gap contains actualCutoffSpanning_of_localBezout and the RectangularAssertion chain.
+  - The three main-route steps (exists_good_mass_for_actual_zeros_normalized, false_of_eventual_exists_pivot_master, exists_actual_character_pivot_master) are not in dirichletRealZeroBound_proof's closure.
+  - CategoryTheory/AlgebraicGeometry: main route 9434/3024; second route 9454/3035 in the control, 2553/0 in the reroute. The difference, 6901/3035, reproduces v7:L020.
+  - The rerouted-clone run needed its package directory bind-mounted read-only again. The first attempt (routes-reroute.log) failed when lake tried to clone Mathlib, which the sandbox's network block stopped; routes-reroute-2.log is the good run, and the mount was removed afterwards.
+- lipics-v2021: not installed. CTAN has no LIPIcs package (ctan.org/pkg/lipics and /pkg/lipics-v2021 return 404), so neither CTAN nor tlmgr can supply it. The class is distributed by Dagstuhl, outside the sources Joe authorised. The draft stays on article.
+- Outline: section 0 claims 1, 3 and 4 revised (two routes; substitution in dirichletRealZeroBound_proof; 402 of 402). Section 4 renamed "Two formal routes".
+- paper/draft:
+  - sec4 rewritten;
+  - sec2-background.tex and sec7-corpus.tex added;
+  - sec3 keeps the SiegelZeros reasoning table, and the other three are in appendix-reasoning.tex. All reasoning rows now cite the signed v10 rows; Table 1's Hecke cell uses v10:L204;
+  - sec6 names dirichletRealZeroBound_proof.
+  - check.py: 0 findings apart from 1 NOTE. pdflatex: 14 pages, 35 overfull lines.
+- Ledger: results/2026-10-26-claims-ledger/ledger-v11.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v11.py .`), 257 rows.

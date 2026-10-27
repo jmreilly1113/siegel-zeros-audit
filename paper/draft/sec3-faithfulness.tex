@@ -92,7 +92,7 @@ QuasiRiemannHypothesis & MATCH (except s = 1, covered by Mathlib's junk value) &
 \multicolumn{3}{@{}l}{\scriptsize\texttt{065f8c9a01d28db78c8b1bfc5083b535082a2d2aac2230d563f98b8caa812cc5}} \\ % v7:L001
 DirichletSevenEighths & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L004
 \multicolumn{3}{@{}l}{\scriptsize\texttt{8fb13ad977bca104591fcbc6ef01a58496e7385053c9b1445f95749afc0eff54}} \\ % v7:L003
-HeckeSevenEighths & MATCH (L-function row by Joe's ruling 2026-10-20; one identification INFERRED) & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L006
+HeckeSevenEighths & MATCH (each nonzero ideal of O has exactly six generators, on which chi and the norm are constant) & Read by J. Reilly, 2026-10-27: agree \\ % v10:L204 v7:L006
 \multicolumn{3}{@{}l}{\scriptsize\texttt{cb5e404fa65a502c0a9006b9ad45c28914feb79e4b7b1ffcf05e4af82ed0cfc2}} \\ % v7:L005
 SiegelZeros & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L008
 \multicolumn{3}{@{}l}{\scriptsize\texttt{bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce}} \\ % v7:L007
@@ -102,79 +102,26 @@ SiegelZeros & MATCH & Read by J. Reilly, 2026-10-27: MATCH \\ % v7:L008
 
 \subsection{Reasoning behind the readings}
 
-Tables~\ref{tab:points-SiegelZeros}--\ref{tab:points-HeckeSevenEighths} list the reasoning points behind each challenge reading, one ledger row per point. % v8:L152 v8:L181
-Each point is INFERRED, by reading the Lean statement against the paper's text, and none is yet marked by a second reader. % v8:L152 v8:L181
+Table~\ref{tab:points-SiegelZeros} lists the reasoning points behind the SiegelZeros reading, one ledger row per point; Tables~\ref{tab:points-QuasiRiemannHypothesis}--\ref{tab:points-HeckeSevenEighths} in Appendix~\ref{app:reasoning} list those for the three 7/8 challenges. % v10:L205 v10:L234 v11:L144
+Each point is INFERRED, by reading the Lean statement against the paper's text, and each is marked Read by J. Reilly, 2026-10-27: agree. % v10:L205 v10:L234
 
 \begin{table}[!htbp]
-\caption{Reasoning points behind the SiegelZeros reading (v7:L008). INFERRED; not yet marked by a second reader.}\label{tab:points-SiegelZeros} % v8:L152 v8:L153 v8:L154 v8:L155 v8:L156 v8:L157 v8:L158 v8:L159 v8:L160
+\caption{Reasoning points behind the SiegelZeros reading (v7:L008). INFERRED; Read by J. Reilly, 2026-10-27: agree.}\label{tab:points-SiegelZeros} % v10:L205 v10:L206 v10:L207 v10:L208 v10:L209 v10:L210 v10:L211 v10:L212 v10:L213
 \scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
 \toprule
 point & finding \\ % no-fact: table header
 \midrule
-quantifier order: the constant c precedes q, chi and beta, so c is absolute & MATCH \\ % v8:L152
-hypotheses: primitive, nonprincipal, real, q >= 3, beta in (0,1); none added, none missing & MATCH \\ % v8:L153
-conclusion: c <= (1 - beta) log q, non-strict as in (1.1) & MATCH \\ % v8:L154
-Mathlib meaning: IsPrimitive is conductor = level, and conductor is the least level through which chi factors & MATCH \\ % v8:L155
-Mathlib meaning: (chi a).im = 0 for all a means real-valued; values are 0 or roots of unity, so 0 or +-1 & MATCH \\ % v8:L156
-Mathlib meaning: DirichletCharacter.LFunction is ZMod.LFunction, the continuation; it equals the Dirichlet series for Re s > 1 and is entire for chi != 1 & MATCH \\ % v8:L157
-edge cases: q = 4 (odd) and q = 8 (one even, one odd) are covered & MATCH \\ % v8:L158
-edge cases: no hypothesis mentions parity, so both parities are included & MATCH \\ % v8:L159
-edge cases: nothing excludes non-prime or even conductors & MATCH \\ % v8:L160
+quantifier order: the constant c precedes q, chi and beta, so c is absolute & MATCH \\ % v10:L205
+hypotheses: primitive, nonprincipal, real, q >= 3, beta in (0,1); none added, none missing & MATCH \\ % v10:L206
+conclusion: c <= (1 - beta) log q, non-strict as in (1.1) & MATCH \\ % v10:L207
+Mathlib meaning: IsPrimitive is conductor = level, and conductor is the least level through which chi factors & MATCH \\ % v10:L208
+Mathlib meaning: (chi a).im = 0 for all a means real-valued; values are 0 or roots of unity, so 0 or +-1 & MATCH \\ % v10:L209
+Mathlib meaning: DirichletCharacter.LFunction is ZMod.LFunction, the continuation; it equals the Dirichlet series for Re s > 1 and is entire for chi != 1 & MATCH \\ % v10:L210
+edge cases: q = 4 (odd) and q = 8 (one even, one odd) are covered & MATCH \\ % v10:L211
+edge cases: no hypothesis mentions parity, so both parities are included & MATCH \\ % v10:L212
+edge cases: nothing excludes non-prime or even conductors & MATCH \\ % v10:L213
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\begin{table}[!htbp]
-\caption{Reasoning points behind the QuasiRiemannHypothesis reading (v7:L002). INFERRED; not yet marked by a second reader.}\label{tab:points-QuasiRiemannHypothesis} % v8:L161 v8:L162 v8:L163 v8:L164 v8:L165
-\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
-\toprule
-point & finding \\ % no-fact: table header
-\midrule
-quantifier order: 7/8 is a fixed literal & MATCH \\ % v8:L161
-hypotheses: only Re s > 7/8; no pole hypothesis & MATCH \\ % v8:L162
-conclusion: != 0 on the open half-plane Re s > 7/8; the paper excludes the boundary & MATCH \\ % v8:L163
-Mathlib meaning: riemannZeta is hurwitzZetaEven 0, the continuation, with a junk value at 1 & MATCH \\ % v8:L164
-edge case s = 1: Mathlib's riemannZeta 1 is a nonzero junk value, so the statement asserts a true fact about it and nothing about the pole, which the paper allows & MATCH \\ % v8:L165
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[!htbp]
-\caption{Reasoning points behind the DirichletSevenEighths reading (v7:L004). INFERRED; not yet marked by a second reader.}\label{tab:points-DirichletSevenEighths} % v8:L166 v8:L167 v8:L168 v8:L169 v8:L170 v8:L171
-\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
-\toprule
-point & finding \\ % no-fact: table header
-\midrule
-quantifier order: fixed 7/8, uniform over every q >= 1, chi and s & MATCH \\ % v8:L166
-hypotheses: any modulus q >= 1 and any character, imprimitive ones and q = 1 included, as in the paper's definition & MATCH \\ % v8:L167
-hypotheses: hpole excludes s = 1 only for the principal character mod q & MATCH \\ % v8:L168
-conclusion: != 0, strict half-plane & MATCH \\ % v8:L169
-Mathlib meaning: LFunction is the continuation; for q = 1 it is riemannZeta; for chi != 1 it is entire, so its value at s = 1 is genuine & MATCH \\ % v8:L170
-edge cases: imprimitive nonprincipal characters gain zeros only on Re s = 0; the principal pole at 1 is excluded by hpole & MATCH \\ % v8:L171
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[!htbp]
-\caption{Reasoning points behind the HeckeSevenEighths reading (v7:L006). INFERRED; not yet marked by a second reader.}\label{tab:points-HeckeSevenEighths} % v8:L172 v8:L173 v8:L174 v8:L175 v8:L176 v8:L177 v8:L178 v8:L179 v8:L180 v8:L181
-\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{0.95}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xl@{}}
-\toprule
-point & finding \\ % no-fact: table header
-\midrule
-quantifier order: fixed 7/8, every Character & MATCH \\ % v8:L172
-hypotheses: Character (nonzero modulus, MulChar on O/m trivial on units, zero on non-units) is exactly a ray class character mod m extended by zero, since O is a PID with 6 units & MATCH \\ % v8:L173
-hypotheses: imprimitive characters are included on both sides & MATCH \\ % v8:L174
-hypotheses: the auxiliary period does not matter (HeckeHolo.period\_indep) & MATCH \\ % v8:L175
-hypotheses: hpole excludes s = 1 for the principal character only & MATCH \\ % v8:L176
-conclusion: != 0, strict half-plane & MATCH \\ % v8:L177
-definitions: the lattice series for Re s > 1, holomorphy off \{0, 1\} and the norm formula fix the function in 7/8 < Re s <= 1 by the identity theorem & MATCH \\ % v8:L178
-identification: each nonzero ideal has exactly 6 generators; chi and the norm are unit-invariant; so (1/6) times the sum over alpha equals the sum over ideals (absolute convergence) & MATCH \\ % v8:L179
-the Dedekind factorization is not needed for this match (checked numerically only) & consistent \\ % v8:L180
-edge case s = 0 (outside the half-plane): a Gamma(0) = 0 junk value, no effect on the statement & MATCH \\ % v8:L181
-\bottomrule
-\end{tabularx}
-\end{table}

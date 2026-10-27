@@ -1,0 +1,30 @@
+% Section 2 (2026-10-27). Every factual sentence ends with a comment naming its ledger rows (ledger-v11.tsv).
+\section{Background}\label{sec:background}
+
+\subsection{Comparator and nanoda}
+
+Comparator's README at commit d03acab states three guarantees for each listed theorem of a solution: that it proves the same statement as provided in the challenge, that it uses no more axioms than listed in permitted\_axioms, and that it is accepted by the Lean kernel. % v11:L102 v11:L103 v11:L104
+The same README states that external kernels registered in external\_kernels are given a file containing the solution export. % v11:L104
+According to Comparator's and lean4export's READMEs at the pinned commits, both kernel checks depend on the Lake build of the solution in a landrun sandbox, on the lean4export export of the solution, and on Comparator's own statement and axiom checks. % v11:L142
+By the same READMEs, only the Lean kernel's check replays the solution environment inside the Comparator process, and only nanoda's check runs as a separate process given a file containing the solution export and a nanoda-style config.json. % v11:L142
+Comparator's README states the guarantees under six assumptions, among them that ``The Lean kernel is correct (with `external\_kernels` this can be reduced to "At least one of the Lean kernel or the `external\_kernels` is correct")''. % v11:L137
+nanoda's README at commit 3a24072 states that nanoda\_bin takes one argument, a JSON configuration file, and reads an export file created by lean4export. % v11:L105
+
+All runs used Lean 4.34.1 (5045d005), Mathlib d13f23b, Comparator v4.34.0 d03acab and lean4export v4.34.0 076e8e5. % v11:L087
+The full commits are d03acab154d269c06e60e4de7e4cc85deebff94b for Comparator and 076e8e57707e813375e8f9da8bf989799ace9680 for lean4export. % v11:L092
+The official nanoda is 3a24072; f67473b, 37cb87b and 37cb87b with nealmcb's patch at 64 MiB are unofficial builds, reported separately. % v11:L088
+
+\subsection{The challenge}
+
+The SiegelZeros challenge file has sha256 bedaac0248a641910f79a380d9702d82c6bfbbfd3760a69d27c72c5d8fb136ce, and it is unchanged between adc7f12 and fd4aeeb. % v11:L007
+Its config has Comparator check two theorems, OAI.SiegelZeros.WeightedTorusJets.exists\_absolute\_real\_zero\_gap and OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound\_proof. % v11:L147
+Section~\ref{sec:faithfulness} quotes both statements, and Section~\ref{sec:gap} gives the Lean proof that they are equivalent. % v11:L147 v11:L251
+
+\subsection{The paper's lemmas}
+
+The paper states its Theorem 1 at refs/siegel-paper.tex:66-73, Lemma 2 at 181-194, Lemma 3 at 252-267, Corollary 4 at 410-420, Lemma 6 at 517-524 and Lemma 7 at 598-604. % v11:L106 v11:L107 v11:L108 v11:L109 v11:L110 v11:L111
+The paper numbers all of these with one counter, so the result between Corollary 4 and Lemma 6 is Remark 5. % v11:L106 v11:L110
+Lemma 2 gives a prime-sum bound for X >= 3 and a lower bound for the mass of primes with chi(p) = -1. % v11:L107
+Lemma 3 states that, for a surjective linear map A from C\textasciicircum4 to C\textasciicircum3 whose kernel is spanned by a vector with Q-linearly independent coordinates, evaluation at A n for n in E\_N is surjective from P\_t under the budget (3.1). % v11:L108
+Corollary 4 states that, under the hypotheses of Lemma 3, the monomial rows with alpha\_j <= T\_j span C\textasciicircum(E\_N). % v11:L109
+Lemma 6 bounds the exponent sums S\_1 and S\_2, and Lemma 7 states the divisibility of Delta by p\textasciicircum(E\_p) for every admissible prime p. % v11:L110 v11:L111

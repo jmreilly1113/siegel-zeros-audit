@@ -1,0 +1,15 @@
+# RouteCompare, rerouted clone (2026-10-27; read-only query, no build)
+# clone /home/checker/math-r2 HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, tracked changes 2
+# query RouteCompare.lean sha256 490ef822cbd42b9c5ad966f6c3eb00cb50ff3f6e3133be2153989b846d4f44f4
+# command: XR_L=/home/checker/math-r2/lean bash wsl-comparator/75r_sbx.sh 1800 4 'lake env lean /tmp/tr/RouteCompare.lean' (45-family deny list, as checker)
+Running as unit: run-u20.service; invocation ID: 6df290d8b1cb41c4b7b05ba6c9924185
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+info: stderr:
+Cloning into '/home/checker/math-r2/lean/.lake/packages/mathlib'...
+fatal: unable to access 'https://github.com/leanprover-community/mathlib4.git/': Could not resolve host: github.com
+error: external command 'git' exited with code 128
+LEAN EXIT CODE: 1
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 537ms
+SANDBOX EXIT CODE: 0

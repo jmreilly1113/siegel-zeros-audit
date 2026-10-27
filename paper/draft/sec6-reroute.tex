@@ -1,7 +1,7 @@
 % Section 6. Every factual sentence ends with a comment naming its ledger rows (ledger-v7.tsv).
 \section{The reroute}\label{sec:reroute}
 
-The reroute replaces OAI's Corollary 4 in the SiegelZeros chain with the Lean proof of Section~\ref{sec:lemma3}. % v7:L047 v7:L097 v7:L028
+The reroute replaces OAI's Corollary 4 in the second route, dirichletRealZeroBound\_proof, with the Lean proof of Section~\ref{sec:lemma3}. % v11:L147 v7:L047 v7:L097 v7:L028
 It changes one tracked file of openai/math by +2/-1 lines, an import and the term at line 138, and adds the two modules PaperLemma3/Lemma3.lean and PaperLemma3/Bridge.lean. % v7:L047 v7:L097 v7:L024 v7:L025
 The installed files have sha256 1ce196f5\ldots{} and af401514\ldots{}, and the patch is 1 file +2/-1. % v7:L097
 The patch applies cleanly at fd4aeeb, and the patched file is byte-identical at adc7f12 and fd4aeeb. % v7:L050
@@ -14,6 +14,7 @@ Both runs are accepted by Comparator with both kernels, with exit 0. % v7:L093 v
 Table~\ref{tab:reroute} gives the verdicts, the dependency scans of dirichletRealZeroBound\_proof, and the time and memory of each run. % v7:L093 v7:L094 v7:L095 v7:L096 v7:L113 v7:L114 v7:L116 v7:L117
 The rerouted closure of dirichletRealZeroBound\_proof matches only via\_lemma3 and interpolation, and none of the three OAI lemmas. % v7:L051 v7:L096
 Both scan blocks are identical to the 2026-10-09 blocks at adc7f12 (counts, matches, axioms). % v7:L094 v7:L096
+The reroute leaves exists\_absolute\_real\_zero\_gap unchanged: its closure has 107760 constants in both clones, with none of the three OAI lemmas. % v11:L148 v11:L149
 The guard made no stops during the two runs. % v7:L118
 
 \begin{table}[tbp]

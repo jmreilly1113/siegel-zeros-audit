@@ -1,0 +1,55 @@
+% Section 7 (2026-10-27). Every factual sentence ends with a comment naming its ledger rows (ledger-v11.tsv).
+\section{Corpus context}\label{sec:corpus}
+
+We replayed the Comparator configs of openai/math, the 189 referenced by formalization.yaml and the 227 unreferenced ones, with the official tool set, nanoda 3a24072. % v11:L053 v11:L056 v11:L088
+Of the 189 configs referenced by formalization.yaml, 187 were replayed at fd4aeeb and 2 (SiegelZeros, QuasiRiemannHypothesis) in the pilot at adc7f12. % v11:L053
+At fd4aeeb, both kernels accept 178 of the 187, and 9 are ACCEPT\_LEAN\_ONLY because nanoda 3a24072 crashes. % v11:L054
+The extended replay of the 227 unreferenced configs gives 212 results, with 15 not checked here. % v11:L056
+Table~\ref{tab:corpus} gives the outcomes, with the official tool set and the unofficial nanoda builds in separate columns. % v11:L054 v11:L057
+
+\begin{table}[tbp]
+\caption{Corpus outcomes. Official: Comparator with nanoda 3a24072. Unofficial: other nanoda builds, reported separately. Independent replay: results STATED by nealmcb at 1ca7ff2.}\label{tab:corpus} % v11:L053 v11:L056 v11:L065
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.0cm}@{}}
+\toprule
+configs & official & unofficial & independent replay \\ % no-fact: table header
+\midrule
+189 referenced & 187 + 2; 178 / 9 (both kernels / Lean only) & 9 of 9 pass with f67473b & see the 416 row \\ % v11:L053 v11:L054 v11:L055 v11:L065
+227 unreferenced & 212 / 15; ACCEPT\_BOTH 205, LEAN\_ACCEPT\_NANODA\_CRASH 6, TIMEOUT 1, NOT\_CHECKED\_HERE 15 & see next rows & see the 416 row \\ % v11:L056 v11:L057 v11:L065
+Catalan, KMedianThreshold & NOT\_CHECKED\_HERE; Lean-kernel Comparator runs here: 369 s; exit 0 (KMedianThreshold), 2234 s; exit 0 (Catalan) & both kernels (unofficial nanoda) & 10 \\ % v11:L057 v11:L121 v11:L122 v11:L058 v11:L067
+ContinuumCoulombHardness & not completed on this machine (memory) & none & mixed; see footnote \\ % v11:L059 v11:L132 v11:L133 v11:L134 v11:L135
+all 416 & outcome comparison: 416 compared; 402 agree; 0 disagree; 14 no verdict here & & 416/416 (Comparator as shipped); 401/416 (nanoda 3a24072 at 1 GiB stack) \\ % v11:L141 v11:L065 v11:L066
+export sizes & 146 (0 differ, 14 not comparable); 11 (13 incl. 2 from extended records) & & \\ % v11:L060 v11:L061
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Agreement with an independent replay}
+
+Neal McBurnett's repository nealmcb/openai-math-lean-tooling at commit 1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4 states that Comparator, as shipped, accepts all 416 configs at fd4aeeb. % v11:L065 v11:L141
+Against all our recorded results, 416 configs were compared, 402 agree, 0 disagree, and 14 have no verdict here; none lacks a verdict there. % v11:L141
+So every config with a verdict on both sides agrees: 402 of 402. % v11:L141
+Our SiegelZeros record in this comparison is the fd4aeeb control run, and QuasiRiemannHypothesis is the adc7f12 pilot, whose config, challenge and solution import closure are byte-identical at fd4aeeb. % v11:L141 v11:L140
+Export sizes equal his for 146 extended-replay exports, with 0 differing and 14 not comparable, and to the byte for the 11 configs of the 2026-10-26 nanoda matrix. % v11:L060 v11:L061
+\footnote{The 14 configs with no verdict here are ContinuumCoulombHardness, CycleCliqueRamsey, DefocusingNLS, FalconerAllDimensions, InvariantIsing, JointDickman, MUBSix, OrdinaryTwoPointCorrelations, OstmannComplete, PattersonFirstMoment, PolycyclicRecognition, SurfaceImmersion, UniversalTensorSquares (NOT\_CHECKED\_HERE) and PlanarPacking (TIMEOUT). % v11:L141
+}
+
+\subsection{ContinuumCoulombHardness}
+
+ContinuumCoulombHardness could not be built here: the guard stopped the build at 4 and at 2 threads, and it is permanently deferred. % v11:L059
+\footnote{All four records are nealmcb's at 1ca7ff2 (STATED). His Comparator as shipped accepts it, at 923.63 s. % v11:L132
+His kernel-pair sweep records lean\_rc 1 (454.4 s) and nanoda\_rc 1 (99.3 s) on his export. % v11:L133
+His nanoda retests give f67473b: 0 / 130.1 s / 24.23 GiB; 0 / 114.3 s / 24.26 GiB; 134 / 28.6 s; 134 / 28.8 s; and 998e0a8: 134 / 32.8 s. % v11:L134
+With the let fix and the Nat.succ guard at STACK\_SIZE 64 MiB, nanoda 37cb87b passes it at 50.0 s and 1.8GB; with the let fix alone it overflows at 64 MiB (34 s, 4GB) and 256 MiB (48 s, 13GB). % v11:L135
+}
+
+\subsection{nanoda failures}
+
+By interpreting the per-config outcomes across nanoda builds, the nanoda failures fall into three classes (INFERRED). % v11:L062 v11:L063 v11:L064
+Class 1 is the RoundTables group (8), the Laughlin group (3), KMedianThreshold and Catalan. % v11:L062
+Class 2 is KaplanskyFinitelyPresented, GroupRingDeterminant and KaplanskyDirectFiniteness (COMPUTED), with MatchingFPRAS, ContingencyTables, LogspaceEquality, RandomizedMeanPayoff and PeriodicGroup (STATED). % v11:L063
+Class 3 is SquareDifference. % v11:L064
+nealmcb states that on nanoda master ten openai/math configs fail, and that with the let fix, the Nat.succ guard and STACK\_SIZE 64 MiB all ten check. % v11:L067
+\footnote{The patch used for the unofficial build B3 is nealmcb's nanoda-let-fvar-and-succ-guard-37cb87b.patch, sha256 edd9824f5fd93c86d3f52acea1373a915ccfddf23db33c5e919f03f7c642bc30. % v11:L068
+His 416-config sweep ran on nanoda master 8199c74. % v11:L069
+}

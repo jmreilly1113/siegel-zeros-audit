@@ -1,0 +1,11 @@
+# ChallengeEquivalence: the two SiegelZeros challenge statements are equivalent (2026-10-27; read-only query, no build)
+# clone /home/checker/math HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, tracked changes 0
+# query ChallengeEquivalence.lean sha256 1bba98c0142638bcc7dbbec16c70cb4bccb94230e6e53e21b9a71f918f3bc096
+# command: XR_L=/home/checker/math/lean bash wsl-comparator/75r_sbx.sh 1800 4 'lake env lean /tmp/tr/ChallengeEquivalence.lean' (45-family deny list, as checker)
+Running as unit: run-u18.service; invocation ID: 1233cdcf96494b62871ee4b7b2b5fe35
+'ChallengeEquivalence.statements_equivalent' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN EXIT CODE: 0
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 1min 6.912s
+SANDBOX EXIT CODE: 0

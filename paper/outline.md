@@ -23,26 +23,27 @@ Conventions:
 
 Purpose: state the four results in the abstract, each backed by ledger rows.
 
-Abstract claims:
-1. OAI's formal proof of Corollary 4 goes through a multiplicity estimate (uniform_rectangular_multiplicity), not the paper's argument for Lemma 3.
-   - The control scan of dirichletRealZeroBound_proof finds actual_biquadratic_rectangle_span, uniform_rectangular_multiplicity and source_rectangle_span_of_polynomial_zero_test in its closure (v4:L019 = 116314 constants in closure).
-   - Inside OAI's proof of actual_biquadratic_rectangle_span, line 493 applies Geometry.source_rectangle_span_of_polynomial_zero_test and line 496 applies Geometry.uniform_rectangular_multiplicity (v4:L099). Value = 493-494: "apply Geometry.source_rectangle_span_of_polynomial_zero_test φ.toRingHom / ![1, a, b, a * b] σ.toRingHom τ.toRingHom H N n hninj hn"; 496-497: "apply Geometry.uniform_rectangular_multiplicity (Nat.succ_le_iff.mpr hH) hHN / (biquadraticCoefficients (φ a) (φ b)) hc D' F hF".
+Abstract claims (revised 2026-10-27; abstract text is Joe's):
+1. The SiegelZeros challenge has two checked theorems with equivalent statements, proved by two OAI routes, neither through the paper's proof of Lemma 3.
+   - Two checked theorems (v11:L147). The statements are not the same Lean proposition (v11:L198), but they are proved equivalent in Lean (v11:L251 = [propext, Classical.choice, Quot.sound]).
+   - OAI's formalization.yaml names exists_absolute_real_zero_gap as the main result [STATED v11:L202].
+   - The main route gets its spanning hypothesis from a local Bezout argument (v11:L201, v11:L252, v11:L255) and does not use actual_biquadratic_rectangle_span (v11:L200).
+     - Wording check: on the way it proves RectangularAssertion, a zero test with Corollary 4's exact bounds, 32 H^(2/3) N^(4/3) and 32 H^(-1/3) N^(4/3) (v11:L253).
+     - So "without Corollary 4" is true of OAI's Corollary 4 theorem, not of a Corollary-4-shaped statement. The abstract should say "without OAI's Corollary 4 theorem" or name the zero test.
+   - The second route proves Corollary 4 by a multiplicity estimate: the control scan (v11:L019 = 116314 constants in closure) and the two invocation lines (v11:L099).
 2. The paper's Lemma 3 and Corollary 4 are proved in Lean, and the Lean statements match the paper's.
    - Lemma3.interpolation (v4:L022, v4:L024) and Lemma3.rectangle (v4:L025).
    - Axioms of all nine comparator-copy declarations (v4:L032) = [propext, Classical.choice, Quot.sound].
    - The statement match: [INFERRED v7:L145] = MATCH and [INFERRED v7:L146] = MATCH, both Read by J. Reilly, 2026-10-27: MATCH.
-3. A +2/-1 substitution gives a proof of the SiegelZeros challenge that is accepted by Comparator with both kernels at fd4aeeb under the 45-family deny list. The dependency scan shows it does not use the multiplicity estimate.
-   - Diff (v4:L097) = 1 file, +2/-1.
-   - Verdict (v4:L095) = ACCEPT_BOTH; exit 0.
-   - Scan (v4:L096) = 92658 constants in closure; matches only via_lemma3 and interpolation (v4:L051).
-   - Deny list (v4:L076) = 45 families.
-4. The corpus replay agrees with an independent replay on a second platform.
-   - Outcomes (v5:L141) = 416 compared; 402 agree; 0 disagree; 14 no verdict here (ContinuumCoulombHardness, CycleCliqueRamsey, DefocusingNLS, FalconerAllDimensions, InvariantIsing, JointDickman, MUBSix, OrdinaryTwoPointCorrelations, OstmannComplete, PattersonFirstMoment, PolycyclicRecognition, SurfaceImmersion, UniversalTensorSquares: NOT_CHECKED_HERE; PlanarPacking: TIMEOUT); 0 no verdict there; 0 no verdict on either side.
-   - His side of v5:L141 is STATED: results/cmp-all/all.jsonl at 1ca7ff2.
-   - Our SiegelZeros record is the fd4aeeb control run (v4:L093). QuasiRiemannHypothesis is the adc7f12 pilot; its config, challenge and solution import closure are byte-identical at fd4aeeb (v5:L140 = 2925 of 2925 local modules identical; config, toolchain, manifest, lakefiles, 24 patches identical; 252 external imports, same set; 0 of 738 changed modules in the closure).
-   - Export sizes equal for v4:L060 = 146 exports and v4:L061 = 11 (13 incl. 2 from extended records).
-   - [STATED v4:L065] nealmcb's comparator run accepts 416/416.
-   - v4:L112 is SUPERSEDED by v4:L131, and v4:L131 by v5:L141 (same counts; SiegelZeros now at fd4aeeb).
+3. The +2/-1 substitution is in dirichletRealZeroBound_proof. The result is accepted by Comparator with both kernels at fd4aeeb under the 45-family deny list, and that theorem's closure no longer contains the three named OAI lemmas.
+   - Diff (v11:L097) = 1 file, +2/-1.
+   - Verdict (v11:L095) = ACCEPT_BOTH; exit 0.
+   - Scan (v11:L096) = 92658 constants in closure; matches only via_lemma3 and interpolation (v11:L051).
+   - exists_absolute_real_zero_gap is untouched: 107760 constants in both clones, with none of the three lemmas (v11:L148, v11:L149).
+   - Deny list (v11:L076) = 45 families.
+4. Every config with a verdict on both sides agrees with an independent replay on a second platform: 402 of 402.
+   - Outcomes (v11:L141): 416 compared; 402 agree; 0 disagree; 14 no verdict here; 0 no verdict there. His side is STATED (cmp-all/all.jsonl at 1ca7ff2).
+   - Export sizes equal for v11:L060 = 146 and v11:L061 = 11 (13 incl. 2 from extended records).
 
 Missing claims: none.
 
@@ -127,9 +128,9 @@ Missing claims: none. The readings are INFERRED by design.
 
 Citations: the paper; openai/math fd4aeeb; Mathlib; grwtsk/openai-math #29.
 
-## 4. The gap (1.5 pages)
+## 4. Two formal routes (1.5 pages)
 
-Purpose: locate where OAI's proof reaches Corollary 4 and what that route brings in.
+Purpose: the two checked theorems, OAI's two routes to them, where each gets its spanning statement, and how those statements compare with Corollary 4 (draft: paper/draft/sec4-gap.tex, rewritten 2026-10-27 from v11:L147, L198, L200-L202, L251-L257).
 
 Claims:
 - Location of Corollary 4: actual_biquadratic_rectangle_span at InvariantJetLinearMap.lean:471-484, identical at adc7f12 and fd4aeeb (v4:L016 = 09b8bd7fa82365e69caebfad466d039d85084595376766a731945fa5c11a2bdc).

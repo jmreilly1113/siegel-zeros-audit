@@ -1,0 +1,21 @@
+# RouteCompare, unmodified clone (control) (2026-10-27; read-only query, no build)
+# clone /home/checker/math HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, tracked changes 0
+# query RouteCompare.lean sha256 490ef822cbd42b9c5ad966f6c3eb00cb50ff3f6e3133be2153989b846d4f44f4
+# command: XR_L=/home/checker/math/lean bash wsl-comparator/75r_sbx.sh 1800 4 'lake env lean /tmp/tr/RouteCompare.lean' (45-family deny list, as checker)
+Running as unit: run-u19.service; invocation ID: a38c50f61f404419ab75b98224329e01
+OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap: 107760 constants in closure; CategoryTheory 9434; AlgebraicGeometry 3024; matches: [OAI.SiegelZeros.WeightedTorusJets.W28.actualCutoffSpanning_of_localBezout,
+ OAI.SiegelZeros.WeightedTorusJets.W28.actual_complex_cutoff_spanning,
+ OAI.SiegelZeros.WeightedTorusJets.W28.actual_cutoff_spanning_of_localBezout,
+ OAI.SiegelZeros.WeightedTorusJets.W28.actual_rectangularAssertion_of_localBezout,
+ OAI.SiegelZeros.WeightedTorusJets.W28.cutoff_span_of_rectangularAssertion,
+ OAI.SiegelZeros.SiegelZerosAwei.W50.exists_actual_character_pivot_master,
+ OAI.SiegelZeros.SiegelZerosAwei.W50.false_of_eventual_exists_pivot_master,
+ OAI.SiegelZeros.WeightedTorusJets.W63.exists_good_mass_for_actual_zeros_normalized]
+OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof: 116314 constants in closure; CategoryTheory 9454; AlgebraicGeometry 3035; matches: [OAI.SiegelZeros.WeightedTorusJets.actual_biquadratic_rectangle_span,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.uniform_rectangular_multiplicity,
+ OAI.SiegelZeros.WeightedTorusJets.Geometry.source_rectangle_span_of_polynomial_zero_test]
+LEAN EXIT CODE: 0
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 36.097s
+SANDBOX EXIT CODE: 0

@@ -1905,3 +1905,9 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - pdflatex: 17 pages, 38 overfull lines.
 - Section 10 holds JOE comments where the record differs from his points, or where only he can write the sentence.
 - Ids corrected from the prompt: the equivalence lemma is v11:L251; "v4:L131" is superseded, so v5:L141 is cited (same counts); git-trailer and posts are v3:L129 and v3:L130; Comparator's checks are v3:L102-L104; clone setup is v3:L119-L120; kernel dependencies are v5:L142; the Hecke row is v10:L204, the signed copy of v9:L203.
+
+## 2026-10-27: seventh reading signed off; author's statement on references (Joe: "add signoff for seven readings ... do say i checked every source")
+
+- Read by J. Reilly, 2026-10-27: arXiv:2610.08144, cite with the framing sentence of v12:L258.
+- Author's statement (J. Reilly, 2026-10-27): the author checked every reference against its source.
+- Section 10 filled (Joe, 2026-10-27): seventh reading signed off (v13:L270); author's reference check (v13:L271, his statement); authorship sentence as v13:L272 (content by the author as point lists, text drafted by Claude Code); responsibility sentence added; JOE comments removed. results/2026-10-26-claims-ledger/ledger-v13.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v13.py .`), 272 rows.

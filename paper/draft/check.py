@@ -1,6 +1,6 @@
 """Check the draft sections against the claims ledger (2026-10-27). Reads files only; changes nothing.
 
-Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v12.tsv; ids agree across v2-v12)
+Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v13.tsv; ids agree across v2-v13)
 
 For each of sec2-sec7 and the appendix files:
  1. Quotes. A line "%% QUOTE <path> <a>-<b> [sha=<vN:Lxxx>]" must precede a Verbatim or paperquote block. The block must
@@ -22,7 +22,7 @@ Prints every finding; exit 1 if there is any.
 import csv, hashlib, os, re, sys
 
 root = sys.argv[1]
-ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v12.tsv'
+ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v13.tsv'
 D = os.path.join(root, 'paper', 'draft')
 FILES = ['abstract.tex', 'sec1-intro.tex', 'sec2-background.tex', 'sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex', 'sec7-corpus.tex', 'sec8-threats.tex', 'sec9-artifacts.tex', 'sec10-ai.tex', 'appendix-78-listings.tex', 'appendix-reasoning.tex']
 rows = {r['id']: r for r in csv.DictReader(open(os.path.join(root, ledger), encoding='utf-8'), delimiter='\t')}

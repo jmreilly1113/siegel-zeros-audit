@@ -1848,3 +1848,9 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - check.py now treats \footnotesize and \scriptsize as layout lines, and defaults to ledger-v9.tsv. Result: 0 findings apart from 1 NOTE.
   - Section 3 is about 3 pages, section 6 about 1.25.
 - Ledger: results/2026-10-26-claims-ledger/ledger-v9.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v9.py .`), 203 rows.
+
+## 2026-10-27: reasoning rows signed off
+
+- Read by J. Reilly, 2026-10-27: reasoning rows v9:L203 and v8:L152–L197, all agree.
+- results/2026-10-27-readings/reasoning-marks.tsv: mark "agree" and note "Read by J. Reilly, 2026-10-27" on all 47 rows.
+- results/2026-10-26-claims-ledger/ledger-v10.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v10.py .`): v10:L204-L250 repeat those 47 rows with read_by set. The old rows are unchanged, status included, at Joe's instruction.

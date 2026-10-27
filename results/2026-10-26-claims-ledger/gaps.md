@@ -42,3 +42,7 @@
 - "Only use" holds for the SiegelZeros chain. L089 and L090 record the separate Jacobsthal copy, which is imported by three configs (an import closure, not a declaration closure; no declaration scan was run).
 - The 7 INFERRED rows are inferred by design.
 - ContinuumCoulombHardness is permanently deferred (results/2026-10-27-reroute-fd4aeeb/optional/README.md).
+
+## Update 2026-10-27 (appended)
+
+- Closed: the statement-check v2 log path. docs/statement-check-summary.md:41, docs/statement-check-HeckeSevenEighths.md:51 and docs/log.md:664 now cite statement-checks-final-v2.log in this folder. The source-hash file they cited (lean-sources-v2.sha256) also existed only at WSL `/`; it is copied here as statement-checks-sources-v2.sha256 (sha256 81387dab92af9a35…, equal to the WSL original), and the docs cite that copy.

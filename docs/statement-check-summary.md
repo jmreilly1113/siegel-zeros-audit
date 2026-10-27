@@ -38,7 +38,7 @@ The Lean lemmas reduce what this reading must establish: the definitions are pro
 
 ## Category check
 
-- COMPUTED (Lean): 34 `#print axioms` outputs, all exactly [propext, Classical.choice, Quot.sound]. Log: results/2026-10-20-statement-checks/lean-build-final-v2.log; sources: lean-sources-v2.sha256.
+- COMPUTED (Lean): 34 `#print axioms` outputs, all exactly [propext, Classical.choice, Quot.sound]. Log: results/2026-10-26-claims-ledger/statement-checks-final-v2.log (copy of WSL /lean-build-final-v2.log, sha256 2f3d3814…; path corrected 2026-10-27); sources: results/2026-10-26-claims-ledger/statement-checks-sources-v2.sha256 (copy of WSL /lean-sources-v2.sha256, sha256 81387dab…).
 - COMPUTED (numerical, not proved): results/2026-10-20-statement-checks/hecke-numeric-v2.txt. v1 is superseded; see hecke-numeric-NOTE.txt.
 - STATED: the paper, 003.md and the Mathlib sources, cited by line in each report.
 - INFERRED: marked in each report. The main ones: Q(ζ₃) = Q(√−3); `Character` = finite-order Hecke characters; the lattice sum = the ideal sum (6 generators per ideal); the identity theorem giving the continuation.

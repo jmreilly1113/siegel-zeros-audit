@@ -48,7 +48,7 @@ The Hecke L-function over Q(√−3) (COMPUTED from the code):
 
 ### Lean (COMPUTED). Files in statement-checks/StatementChecks/
 
-Final clean build: results/2026-10-20-statement-checks/lean-build-final-v2.log, 34 `#print axioms` outputs, all exactly [propext, Classical.choice, Quot.sound]; no lemma uses the challenge's `sorry`. Sources: lean-sources-v2.sha256. The first final build (lean-build-final.log, 32 outputs) predates HeckeNorm.lean.
+Final clean build: results/2026-10-26-claims-ledger/statement-checks-final-v2.log (copy of WSL /lean-build-final-v2.log, sha256 2f3d3814…; path corrected 2026-10-27), 34 `#print axioms` outputs, all exactly [propext, Classical.choice, Quot.sound]; no lemma uses the challenge's `sorry`. Sources: results/2026-10-26-claims-ledger/statement-checks-sources-v2.sha256 (copy of WSL /lean-sources-v2.sha256, sha256 81387dab…). The first final build (lean-build-final.log, 32 outputs) predates HeckeNorm.lean.
 
 | Lemma (file) | Content |
 |---|---|

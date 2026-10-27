@@ -661,7 +661,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - `absNorm_span_coordinateElement`: Ideal.absNorm (span {x + yω}) = |x² − xy + y²|, the paper's N𝔞 = |O/𝔞|.
   - So (b1) is now COMPUTED. Only (b2), 6 generators per ideal, remains INFERRED.
   - Re-setup copied the packages again. Windows free RAM fell to 1,719 MB after the copy, so I waited until it was back above 8 GB (11.5 GB) before building.
-  - Final clean build: results/2026-10-20-statement-checks/lean-build-final-v2.log, 34 axiom outputs, all standard. Sources: lean-sources-v2.sha256.
+  - Final clean build: results/2026-10-26-claims-ledger/statement-checks-final-v2.log (copy of WSL /lean-build-final-v2.log, sha256 2f3d3814…; path corrected 2026-10-27), 34 axiom outputs, all standard. Sources: results/2026-10-26-claims-ledger/statement-checks-sources-v2.sha256 (copy of WSL /lean-sources-v2.sha256, sha256 81387dab…).
   - Pruned again (prune-v2.txt: 12 .olean files, packages removed; WSL 31G -> 23G). statement-checks/prune.sh added.
 - 2026-10-20: committed and pushed the statement checks as 1a11952 (remote = local). Draft comment for grwtsk/openai-math#29 ("[AUDIT.26] ... bind paper statements to exact Lean declarations", open; its example is the September 30 QRH manuscript; #10 is related) saved as docs/drafts/2026-10-20-issue29-statement-check.md. Not posted; waiting for Joe's approval.
 - 2026-10-20: posted the #29 comment (Joe approved, with his three added lines): https://github.com/grwtsk/openai-math/issues/29#issuecomment-6296359378

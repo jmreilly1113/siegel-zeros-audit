@@ -1737,3 +1737,27 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - COMPUTED: the OAI closure in the reroute clone was built from scratch. The clone was created at 22:17:36, and lean/.lake/build at 22:19:37, after the control prebuild started at 22:19:09 (v3-evidence/clone-r2-provenance.txt, L120).
 - Readings blocked on Joe (read_by has no Joe): L002, L004, L006, L008, L100 (Lemma 3 vs tex 252-267), L101 (Corollary 4 vs tex 410-420; no reading recorded at all).
 - paper/outline.md and paper/claim-map.tsv updated to v3. Not pushed.
+
+## 2026-10-27: ledger v4; versioned ids; outcome comparison with nealmcb at 1ca7ff2
+
+- Ids:
+  - gaps.md and LEDGER.md now prefix every id with its ledger version (v1:/v2:). The prefixes were added in place, with a dated note appended; nothing else changed.
+  - results/2026-10-27-reroute-fd4aeeb/SUMMARY.md is unchanged. Its line 38 is mapped in results/2026-10-26-claims-ledger/erratum-ids.md.
+  - From now on, every id outside a ledger TSV names its version.
+- Network: one read-only `git clone` of https://github.com/nealmcb/openai-math-lean-tooling, checked out at 1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4. Nothing was sent. The checkout is in the session scratchpad and is not committed.
+  - Extracts and file hashes: results/2026-10-27-neal-comparison/neal-1ca7ff2-extracts.txt.
+- COMPUTED, outcome comparison (`python -I results/2026-10-27-neal-comparison/compare_outcomes.py . <checkout>`; Python 3.14.6; summary.txt, outcomes.tsv):
+  - 416 compared; 402 agree; 0 disagree.
+  - 14 have no verdict here: 13 NOT_CHECKED_HERE, plus PlanarPacking (TIMEOUT).
+  - 0 have no verdict there.
+  - His side is STATED (cmp-all/all.jsonl, all 416 accepted). This is v4:L131; it supersedes v4:L112.
+- nealmcb's ContinuumCoulombHardness records are all present at 1ca7ff2. They are re-tied as v4:L132-L135 and supersede v4:L125-L128. The ~24 GiB figure is his nanoda-retest.jsonl:9 (rss_gib 24.23).
+- results/2026-10-26-claims-ledger/ledger-v4.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v4.py .`): 139 rows.
+  - The v3 rows are unchanged except 5 statuses, now SUPERSEDED.
+  - New: v4:L131-L139 (COMPUTED 4, STATED 5). They cover:
+    - the Lemma 3 proof structure (v4:L136);
+    - Comparator's assumptions, quoted (v4:L137);
+    - the NonVacuity run's sandbox (v4:L138);
+    - lean-checks/README.md (v4:L139).
+- COMPUTED (v4:L138): the 2026-10-08 NonVacuity run also had no address-family filter (sudo -u checker, no systemd-run). That makes three such runs, with v4:L123 and v4:L124.
+- paper/outline.md and paper/claim-map.tsv updated to v4, with every id prefixed v4:. Not pushed.

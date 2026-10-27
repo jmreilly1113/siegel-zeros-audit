@@ -49,17 +49,17 @@ Solid: the five DOIs, from record JSON fetched read-only on 2026-10-26 and copie
 
 ## INFERRED rows and what each rests on
 
-- L002 (QuasiRiemannHypothesis: the Lean challenge statement matches the paper statement (finding ...): rests on: reading of Lean statement against paper text (argument in docs/statement-check-QuasiRiemannHypothesis.md); Lean sub-claims (non-vacuity, series identities, holomorphy) are COMPUTED in statement-checks-final-v2.log
-- L004 (DirichletSevenEighths: the Lean challenge statement matches the paper statement (finding o...): rests on: reading of Lean statement against paper text (argument in docs/statement-check-DirichletSevenEighths.md); Lean sub-claims (non-vacuity, series identities, holomorphy) are COMPUTED in statement-checks-final-v2.log
-- L006 (HeckeSevenEighths: the Lean challenge statement matches the paper statement (finding of th...): rests on: reading of Lean statement against paper text (argument in docs/statement-check-HeckeSevenEighths.md); Lean sub-claims (non-vacuity, series identities, holomorphy) are COMPUTED in statement-checks-final-v2.log
-- L008 (SiegelZeros: the challenge statement matches Theorem 1 of the paper (hypotheses primitive,...): rests on: reading of Lean statement against paper text (docs/paper-map.md); type equality challenge vs solution is COMPUTED in results/2026-10-08-lean-type-compare.txt
-- L063 (nanoda failure class 1: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
-- L064 (nanoda failure class 2: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
-- L065 (nanoda failure class 3: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
+- v1:L002 (QuasiRiemannHypothesis: the Lean challenge statement matches the paper statement (finding ...): rests on: reading of Lean statement against paper text (argument in docs/statement-check-QuasiRiemannHypothesis.md); Lean sub-claims (non-vacuity, series identities, holomorphy) are COMPUTED in statement-checks-final-v2.log
+- v1:L004 (DirichletSevenEighths: the Lean challenge statement matches the paper statement (finding o...): rests on: reading of Lean statement against paper text (argument in docs/statement-check-DirichletSevenEighths.md); Lean sub-claims (non-vacuity, series identities, holomorphy) are COMPUTED in statement-checks-final-v2.log
+- v1:L006 (HeckeSevenEighths: the Lean challenge statement matches the paper statement (finding of th...): rests on: reading of Lean statement against paper text (argument in docs/statement-check-HeckeSevenEighths.md); Lean sub-claims (non-vacuity, series identities, holomorphy) are COMPUTED in statement-checks-final-v2.log
+- v1:L008 (SiegelZeros: the challenge statement matches Theorem 1 of the paper (hypotheses primitive,...): rests on: reading of Lean statement against paper text (docs/paper-map.md); type equality challenge vs solution is COMPUTED in results/2026-10-08-lean-type-compare.txt
+- v1:L063 (nanoda failure class 1: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
+- v1:L064 (nanoda failure class 2: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
+- v1:L065 (nanoda failure class 3: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
 
 ## Update 2026-10-26 22:01 (appended; ledger.tsv unchanged)
 
-- **L032 is now FOUND.** Its source is axioms-comparator-copy-2026-10-26.txt. All nine declarations of the comparator copy (Lemma3.interpolation, cor4_rpow_nat, cor4_cube, cor4_real, cor4_budget, rectangle, bridge_descent, bridge_main, actual_biquadratic_rectangle_span_via_lemma3) depend on exactly [propext, Classical.choice, Quot.sound]. Run at openai/math fd4aeeb under the 45-family deny list, from the byte-identical files installed for the accepted run.
+- **v1:L032 is now FOUND.** Its source is axioms-comparator-copy-2026-10-26.txt. All nine declarations of the comparator copy (Lemma3.interpolation, cor4_rpow_nat, cor4_cube, cor4_real, cor4_budget, rectangle, bridge_descent, bridge_main, actual_biquadratic_rectangle_span_via_lemma3) depend on exactly [propext, Classical.choice, Quot.sound]. Run at openai/math fd4aeeb under the 45-family deny list, from the byte-identical files installed for the accepted run.
 - **Counts after this update:** FOUND 87, MISSING 3, PENDING 0, out of 90 rows.
 
 ## Update 2026-10-26 23:10 (appended): ledger-v2.tsv
@@ -74,3 +74,7 @@ Solid: the five DOIs, from record JSON fetched read-only on 2026-10-26 and copie
 **Section 4 now records the separate Jacobsthal/Siegel copy of OAI's Corollary 4.** It lives in namespace OAI.Erdos970 and uses its own uniform_rectangular_multiplicity. Its subtree is imported by the Jacobsthal, JacobsthalImproved and OstmannPrimes configs.
 
 **Section 5 now records MainRerouted.lean** as a superseded metaprogram (#reroute + addDecl), not cited.
+
+## Update 2026-10-27 (ids versioned)
+
+Every ledger id in this file now carries its ledger version (v1: or v2:). The ids were renumbered between ledger.tsv and ledger-v2.tsv (id-stability.md); the prefixes were added in place on 2026-10-27, and nothing else in the earlier text changed. Ledger v3 and v4 keep the v2 ids (append-only). The erratum for results/2026-10-27-reroute-fd4aeeb/SUMMARY.md:38 is erratum-ids.md.

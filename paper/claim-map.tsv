@@ -1,131 +1,140 @@
 ledger_id	outline_section	use	note
-L001	3	table	Table 1 sha256
-L002	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-L003	3	table	Table 1 sha256
-L004	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-L005	3	table	Table 1 sha256
-L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-L007	2; 3	main	challenge sha256 beside the quoted statement
-L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-L009	3	main	34 statement-check axioms outputs; v2 log in the ledger folder
-L010	3	footnote	public posting of the four statement audits (grwtsk/openai-math #29); Section 3 footnote
-L011	3; 8	main	non-vacuity
-L012	3	main	non-vacuity
-L013	3	main	non-vacuity
-L014	3	main	non-vacuity
-L015	3; 9	footnote	NonVacuity.lean sha256
-L016	0; 4	main	location of OAI Corollary 4
-L017	4	main	only use, SiegelZeros tree
-L018	4; 6	main	scan-based only use
-L019	0; 4; 6	main	control scan 116314 (adc7f12); corroboration in 6
-L020	4	main	recommended count (referenced-names convention)
-L021	4	footnote	full-dump convention count
-L022	5; 9	main	Lemma 3 in lean-checks/Lemma3.lean
-L023	5	footnote	Pt definition
-L024	0; 5; 9	main	comparator-copy Lemma 3 statement source and sha256
-L025	0; 5	main	Corollary 4 statement source
-L026	5	main	bridge_descent
-L027	5	main	bridge_main
-L028	5	main	via_lemma3
-L029	5; 9	main	copies identical
-L030	5	main	axioms corroboration (2026-10-08)
-L031	5	footnote	axioms rerun at fd4aeeb (Lemma3Bridged.lean)
-L032	0; 5; 8	main	primary axioms record (comparator copy)
-L033	5	main	standalone nanoda 61810
-L034	5	main	negative control a
-L035	5	main	negative control b
-L036	5	main	type_of%
-L037	5	main	IsAlgClosed.lift
-L038	5	main	kernel vector c
-L039	5	main	hker
-L040	5	main	descent
-L041	5	main	quote Mathlib source line Equiv.lean:663, not the #check output
-L042	5	main	reused OAI lemma
-L043	5	main	reused OAI lemma
-L044	5	footnote	working draft, not cited
-L045	5	footnote	working draft, not cited
-L046	5	main	small-N; N = 2, 3 only
-L047	6	main	adc7f12 corroboration
-L048	6	main	challenge unchanged
-L049	6	main	adc7f12 comparator run
-L050	6	footnote	patch applies at fd4aeeb
-L051	0; 6	main	adc7f12 rerouted scan 92658
-L052	6; 8	main	HadamardSupport dependency
-L053	7	table	Table 3, 189 row
-L054	7	table	Table 3, 189 row
-L055	7	table	Table 3, unofficial column
-L056	7	table	Table 3, 227 row
-L057	7	table	Table 3, 227 row
-L058	7	table	Table 3, Catalan/KMedianThreshold row
-L059	7	table	cell text "not completed on this machine (memory)"; ledger value DEFERRED (permanent)
-L060	0; 7	table	export sizes
-L061	0; 7	table	export sizes
-L062	7	main	failure class 1 [INFERRED]
-L063	7	main	failure class 2 [INFERRED]
-L064	7	main	failure class 3 [INFERRED]
-L065	0; 7	table	[STATED] independent replay
-L066	7	table	[STATED]
-L067	7	table	[STATED]
-L068	7	footnote	[STATED] patch; sha256 computed here
-L069	7	footnote	[STATED] sweep commit
-L070	8	main	sandbox history
-L071	8	main	sandbox history
-L072	8	main	vsock
-L073	8	footnote	other open families
-L074	8	main	first run ~AF_UNIX only
-L075	8	main	first run under 5-family filter
-L076	0; 8	main	45-family deny list
-L077	8	main	t25 probe
-L078	8	main	WSL memory change
-L079	8	main	WSL memory change
-L080	8	footnote	cap and guard design; cite L098 for the test itself
-L081	9	main	Zenodo
-L082	9	main	Zenodo
-L083	9	main	Zenodo
-L084	7; 9	main	Zenodo corpus record
-L085	9	main	concept DOI
-L086		unused	cut: re-add at tag (stale HEAD; a new row is added when the tag is made; the id L086 stays)
-L087	2; 9	main	toolchain pins
-L088	2; 9	main	nanoda pins
-L089	1; 4	main	Jacobsthal copy, source reading only
-L090	1; 4; 7	main	import level only; 3 of 416
-L091	8	main	named as not evidence; never cite results/2026-10-08-lean-main-rerouted.txt
-L092	2; 9	main	full tool commits
-L093	0; 1; 6	table	Table 2 control verdict; note says "fresh local clone": use Joe's clone wording instead
-L094	4; 6	table	Table 2 control scan
-L095	0; 1; 6	table	Table 2 reroute verdict; same clone-wording caveat
-L096	0; 6	table	Table 2 reroute scan
-L097	0; 6	main	patch and installed files
-L098	8	main	MemoryMax test with saved output
-L099	0; 4	main	the two invocation lines in OAI's proof of Corollary 4, quoted
-L100	0; 5	main	statement match of Lemma 3 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-L101	0; 5	main	statement match of Corollary 4 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
-L102	2	main	[STATED] Comparator check 1 (README at d03acab)
-L103	2	main	[STATED] Comparator check 2
-L104	2	main	[STATED] Comparator check 3 and the external-kernel export file
-L105	2	main	[STATED] nanoda input format (README at 3a24072)
-L106	2	main	[STATED] paper Theorem 1, tex 66-73
-L107	2	main	[STATED] paper Lemma 2, tex 181-194
-L108	2; 5	main	[STATED] paper Lemma 3, tex 252-267; Section 5 side-by-side
-L109	2; 5	main	[STATED] paper Corollary 4, tex 410-420; Section 5 side-by-side
-L110	2	main	[STATED] paper Lemma 6, tex 517-524
-L111	2	main	[STATED] paper Lemma 7, tex 598-604
-L112	0; 7	main	outcome-level agreement with nealmcb, 160 compared
-L113	6	table	Table 2 control prebuild
-L114	6	table	Table 2 reroute prebuild
-L115	6	footnote	[INFERRED] why the reroute prebuild is shorter
-L116	6	table	Table 2 control comparator wall time and memory
-L117	6	table	Table 2 reroute comparator wall time and memory
-L118	6	footnote	no guard stops
-L119	6; 9	main	clone setup
-L120	6; 9	main	OAI closure built from scratch (COMPUTED from birth times)
-L121	7	table	Table 3 KMedianThreshold Lean-kernel Comparator run
-L122	7	table	Table 3 Catalan Lean-kernel Comparator run
-L123	8	table	per-run sandbox table: 2026-10-20 statement checks
-L124	8	table	per-run sandbox table: 2026-10-08 standalone nanoda
-L125	7	table	[STATED] ContinuumCoulombHardness, nealmcb comparator
-L126	7	footnote	[STATED] ContinuumCoulombHardness, nealmcb kernel-pair sweep exit 1
-L127	7	footnote	[STATED] ContinuumCoulombHardness, f67473b retests
-L128	7	table	[STATED] ContinuumCoulombHardness, 37cb87b + patch at 64 MiB
-L129	10	main	files with Claude co-authored commits
-L130	10	main	posts drafted in the session, per docs/log.md
+v4:L001	3	table	Table 1 sha256
+v4:L002	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L003	3	table	Table 1 sha256
+v4:L004	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L005	3	table	Table 1 sha256
+v4:L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L007	2; 3	main	challenge sha256 beside the quoted statement
+v4:L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L009	3	main	34 statement-check axioms outputs; v2 log in the ledger folder
+v4:L010	3	footnote	public posting of the four statement audits (grwtsk/openai-math #29); Section 3 footnote
+v4:L011	3; 8	main	non-vacuity
+v4:L012	3	main	non-vacuity
+v4:L013	3	main	non-vacuity
+v4:L014	3	main	non-vacuity
+v4:L015	3; 9	footnote	NonVacuity.lean sha256
+v4:L016	0; 4	main	location of OAI Corollary 4
+v4:L017	4	main	only use, SiegelZeros tree
+v4:L018	4; 6	main	scan-based only use
+v4:L019	0; 4; 6	main	control scan 116314 (adc7f12); corroboration in 6
+v4:L020	4	main	recommended count (referenced-names convention)
+v4:L021	4	footnote	full-dump convention count
+v4:L022	5; 9	main	Lemma 3 in lean-checks/Lemma3.lean
+v4:L023	5	footnote	Pt definition
+v4:L024	0; 5; 9	main	comparator-copy Lemma 3 statement source and sha256
+v4:L025	0; 5	main	Corollary 4 statement source
+v4:L026	5	main	bridge_descent
+v4:L027	5	main	bridge_main
+v4:L028	5	main	via_lemma3
+v4:L029	5; 9	main	copies identical
+v4:L030	5	main	axioms corroboration (2026-10-08)
+v4:L031	5	footnote	axioms rerun at fd4aeeb (Lemma3Bridged.lean)
+v4:L032	0; 5; 8	main	primary axioms record (comparator copy)
+v4:L033	5	main	standalone nanoda 61810
+v4:L034	5	main	negative control a
+v4:L035	5	main	negative control b
+v4:L036	5	main	type_of%
+v4:L037	5	main	IsAlgClosed.lift
+v4:L038	5	main	kernel vector c
+v4:L039	5	main	hker
+v4:L040	5	main	descent
+v4:L041	5	main	quote Mathlib source line Equiv.lean:663, not the #check output
+v4:L042	5	main	reused OAI lemma
+v4:L043	5	main	reused OAI lemma
+v4:L044	5	footnote	working draft, not cited
+v4:L045	5	footnote	working draft, not cited
+v4:L046	5	main	small-N; N = 2, 3 only
+v4:L047	6	main	adc7f12 corroboration
+v4:L048	6	main	challenge unchanged
+v4:L049	6	main	adc7f12 comparator run
+v4:L050	6	footnote	patch applies at fd4aeeb
+v4:L051	0; 6	main	adc7f12 rerouted scan 92658
+v4:L052	6; 8	main	HadamardSupport dependency
+v4:L053	7	table	Table 3, 189 row
+v4:L054	7	table	Table 3, 189 row
+v4:L055	7	table	Table 3, unofficial column
+v4:L056	7	table	Table 3, 227 row
+v4:L057	7	table	Table 3, 227 row
+v4:L058	7	table	Table 3, Catalan/KMedianThreshold row
+v4:L059	7	table	cell text "not completed on this machine (memory)"; ledger value DEFERRED (permanent)
+v4:L060	0; 7	table	export sizes
+v4:L061	0; 7	table	export sizes
+v4:L062	7	main	failure class 1 [INFERRED]
+v4:L063	7	main	failure class 2 [INFERRED]
+v4:L064	7	main	failure class 3 [INFERRED]
+v4:L065	0; 7	table	[STATED] independent replay
+v4:L066	7	table	[STATED]
+v4:L067	7	table	[STATED]
+v4:L068	7	footnote	[STATED] patch; sha256 computed here
+v4:L069	7	footnote	[STATED] sweep commit
+v4:L070	8	main	sandbox history
+v4:L071	8	main	sandbox history
+v4:L072	8	main	vsock
+v4:L073	8	footnote	other open families
+v4:L074	8	main	first run ~AF_UNIX only
+v4:L075	8	main	first run under 5-family filter
+v4:L076	0; 8	main	45-family deny list
+v4:L077	8	main	t25 probe
+v4:L078	8	main	WSL memory change
+v4:L079	8	main	WSL memory change
+v4:L080	8	footnote	cap and guard design; cite v4:L098 for the test itself
+v4:L081	9	main	Zenodo
+v4:L082	9	main	Zenodo
+v4:L083	9	main	Zenodo
+v4:L084	7; 9	main	Zenodo corpus record
+v4:L085	9	main	concept DOI
+v4:L086		unused	cut: re-add at tag (stale HEAD; a new row is added when the tag is made; the id v4:L086 stays)
+v4:L087	2; 9	main	toolchain pins
+v4:L088	2; 9	main	nanoda pins
+v4:L089	1; 4	main	Jacobsthal copy, source reading only
+v4:L090	1; 4; 7	main	import level only; 3 of 416
+v4:L091	8	main	named as not evidence; never cite results/2026-10-08-lean-main-rerouted.txt
+v4:L092	2; 9	main	full tool commits
+v4:L093	0; 1; 6	table	Table 2 control verdict; note says "fresh local clone": use Joe's clone wording instead
+v4:L094	4; 6	table	Table 2 control scan
+v4:L095	0; 1; 6	table	Table 2 reroute verdict; same clone-wording caveat
+v4:L096	0; 6	table	Table 2 reroute scan
+v4:L097	0; 6	main	patch and installed files
+v4:L098	8	main	MemoryMax test with saved output
+v4:L099	0; 4	main	the two invocation lines in OAI's proof of Corollary 4, quoted
+v4:L100	0; 5	main	statement match of Lemma 3 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L101	0; 5	main	statement match of Corollary 4 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+v4:L102	2	main	[STATED] Comparator check 1 (README at d03acab)
+v4:L103	2	main	[STATED] Comparator check 2
+v4:L104	2	main	[STATED] Comparator check 3 and the external-kernel export file
+v4:L105	2	main	[STATED] nanoda input format (README at 3a24072)
+v4:L106	2	main	[STATED] paper Theorem 1, tex 66-73
+v4:L107	2	main	[STATED] paper Lemma 2, tex 181-194
+v4:L108	2; 5	main	[STATED] paper Lemma 3, tex 252-267; Section 5 side-by-side
+v4:L109	2; 5	main	[STATED] paper Corollary 4, tex 410-420; Section 5 side-by-side
+v4:L110	2	main	[STATED] paper Lemma 6, tex 517-524
+v4:L111	2	main	[STATED] paper Lemma 7, tex 598-604
+v4:L112	0; 7	unused	SUPERSEDED by v4:L131; cut (re-tied or replaced)
+v4:L113	6	table	Table 2 control prebuild
+v4:L114	6	table	Table 2 reroute prebuild
+v4:L115	6	footnote	[INFERRED] why the reroute prebuild is shorter
+v4:L116	6	table	Table 2 control comparator wall time and memory
+v4:L117	6	table	Table 2 reroute comparator wall time and memory
+v4:L118	6	footnote	no guard stops
+v4:L119	6; 9	main	clone setup
+v4:L120	6; 9	main	OAI closure built from scratch (COMPUTED from birth times)
+v4:L121	7	table	Table 3 KMedianThreshold Lean-kernel Comparator run
+v4:L122	7	table	Table 3 Catalan Lean-kernel Comparator run
+v4:L123	8	table	per-run sandbox table: 2026-10-20 statement checks
+v4:L124	8	table	per-run sandbox table: 2026-10-08 standalone nanoda
+v4:L125	7	unused	SUPERSEDED by v4:L132; cut (re-tied or replaced)
+v4:L126	7	unused	SUPERSEDED by v4:L133; cut (re-tied or replaced)
+v4:L127	7	unused	SUPERSEDED by v4:L134; cut (re-tied or replaced)
+v4:L128	7	unused	SUPERSEDED by v4:L135; cut (re-tied or replaced)
+v4:L129	10	main	files with Claude co-authored commits
+v4:L130	10	main	posts drafted in the session, per docs/log.md
+v4:L131	0; 7	main	outcome comparison with nealmcb at 1ca7ff2, all 416
+v4:L132	7	footnote	[STATED] ContinuumCoulombHardness, nealmcb Comparator accepts, at 1ca7ff2
+v4:L133	7	footnote	[STATED] ContinuumCoulombHardness, kernel-pair sweep exit 1, at 1ca7ff2
+v4:L134	7	footnote	[STATED] ContinuumCoulombHardness, nanoda retests, at 1ca7ff2
+v4:L135	7	footnote	[STATED] ContinuumCoulombHardness, 37cb87b + patch at 64 MiB, at 1ca7ff2
+v4:L136	5	main	structure of the Lean proof of Lemma 3
+v4:L137	8	main	[STATED] Comparator assumptions, README 28-39
+v4:L138	8	table	per-run sandbox table: 2026-10-08 NonVacuity
+v4:L139	9	main	lean-checks/README.md commit and sha256

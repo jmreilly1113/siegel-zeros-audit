@@ -2,10 +2,10 @@
 
 | id | claim | status | cheapest way to close |
 |---|---|---|---|
-| L032 | Axioms of interpolation, rectangle and via_lemma3 compiled from the comparator copy (PaperLemma3/Bridge.lean itself), fd4aeeb, deny list. | PENDING | Run the prepared q77 driver (compile PaperLemma3/Lemma3 to an olean under /tmp, feed Bridge.lean plus #print axioms on stdin; no build). Scheduled as the separate step after the ledger. |
-| L041 | (sigma * tau) x = sigma (tau x) in Mathlib d13f23b (AlgEquiv.mul_apply), so the third row of A is phi(sigma(tau(1, a, b, ab))). | MISSING | Re-run `printf "import Mathlib\n#check @AlgEquiv.mul_apply\n" | lake env lean --stdin` under 75d (about 10 s), saving the output here. Or cite the Mathlib source line of AlgEquiv.mul_apply at d13f23b (read-only). |
-| L050 | The reroute has not been run at openai/math fd4aeeb or under the 45-family deny list. | MISSING | NEW RUN NEEDED: the reroute at fd4aeeb under the 45-family deny list, with a 67d-style comparator run on a scratch copy of the clone plus the PaperLemma3 modules and the +2/-1 patch. The patch applies cleanly (patch-apply-check.txt). About 25 min plus the SiegelZeros build. Not run. |
-| L079 | No SiegelZeros comparator run exists under the 45-family deny list (only the rectangle/interpolation axioms re-check). | MISSING | Closed by the same NEW RUN as the reroute item. Alternatively, run the unmodified SiegelZeros comparator under 67d at fd4aeeb (about 15 min). |
+| v1:L032 | Axioms of interpolation, rectangle and via_lemma3 compiled from the comparator copy (PaperLemma3/Bridge.lean itself), fd4aeeb, deny list. | PENDING | Run the prepared q77 driver (compile PaperLemma3/Lemma3 to an olean under /tmp, feed Bridge.lean plus #print axioms on stdin; no build). Scheduled as the separate step after the ledger. |
+| v1:L041 | (sigma * tau) x = sigma (tau x) in Mathlib d13f23b (AlgEquiv.mul_apply), so the third row of A is phi(sigma(tau(1, a, b, ab))). | MISSING | Re-run `printf "import Mathlib\n#check @AlgEquiv.mul_apply\n" | lake env lean --stdin` under 75d (about 10 s), saving the output here. Or cite the Mathlib source line of AlgEquiv.mul_apply at d13f23b (read-only). |
+| v1:L050 | The reroute has not been run at openai/math fd4aeeb or under the 45-family deny list. | MISSING | NEW RUN NEEDED: the reroute at fd4aeeb under the 45-family deny list, with a 67d-style comparator run on a scratch copy of the clone plus the PaperLemma3 modules and the +2/-1 patch. The patch applies cleanly (patch-apply-check.txt). About 25 min plus the SiegelZeros build. Not run. |
+| v1:L079 | No SiegelZeros comparator run exists under the 45-family deny list (only the rectangle/interpolation axioms re-check). | MISSING | Closed by the same NEW RUN as the reroute item. Alternatively, run the unmodified SiegelZeros comparator under 67d at fd4aeeb (about 15 min). |
 
 ## Weak or qualified rows (status FOUND, but worth knowing)
 
@@ -17,7 +17,7 @@
 
 ## Update 2026-10-26 22:01 (appended)
 
-- **L032 (PENDING) is closed** by axioms-comparator-copy-2026-10-26.txt: all nine declarations depend only on the standard axioms. The remaining gaps are L041, L050 and L079 (MISSING).
+- **v1:L032 (PENDING) is closed** by axioms-comparator-copy-2026-10-26.txt: all nine declarations depend only on the standard axioms. The remaining gaps are v1:L041, v1:L050 and v1:L079 (MISSING).
 
 ## Update 2026-10-26 23:10 (appended): ledger-v2.tsv
 
@@ -25,24 +25,28 @@
 
 | v1 gap | how it was closed | v2 rows |
 |---|---|---|
-| L032 (PENDING) | axioms-comparator-copy-2026-10-26.txt | the same claim, FOUND |
-| L041 (MISSING) | mathlib-algequiv-mul_apply.txt: Mathlib d13f23b, Mathlib/Algebra/Algebra/Equiv.lean:663, plus the saved #check | the same claim, FOUND |
-| L050 (MISSING: reroute at fd4aeeb under the deny list) | results/2026-10-27-reroute-fd4aeeb/: comparator ACCEPT_BOTH, exit 0; scan identical to 10-09 | L095, L096, L097 |
-| L079 (MISSING: no SiegelZeros comparator run under the deny list) | the same folder: control comparator ACCEPT_BOTH, exit 0; scan identical | L093, L094 |
+| v1:L032 (PENDING) | axioms-comparator-copy-2026-10-26.txt | the same claim, FOUND |
+| v1:L041 (MISSING) | mathlib-algequiv-mul_apply.txt: Mathlib d13f23b, Mathlib/Algebra/Algebra/Equiv.lean:663, plus the saved #check | the same claim, FOUND |
+| v1:L050 (MISSING: reroute at fd4aeeb under the deny list) | results/2026-10-27-reroute-fd4aeeb/: comparator ACCEPT_BOTH, exit 0; scan identical to 10-09 | v2:L095, v2:L096, v2:L097 |
+| v1:L079 (MISSING: no SiegelZeros comparator run under the deny list) | the same folder: control comparator ACCEPT_BOTH, exit 0; scan identical | v2:L093, v2:L094 |
 
 **New rows from the step-1 read-only checks:**
-- L089: the Jacobsthal copy depends on its own Erdos970 lemmas.
-- L090: three configs import the Jacobsthal subtree.
-- L091: MainRerouted.lean is a metaprogram.
-- L092: full Comparator and lean4export commits.
-- L098: the MemoryMax test, rerun.
+- v2:L089: the Jacobsthal copy depends on its own Erdos970 lemmas.
+- v2:L090: three configs import the Jacobsthal subtree.
+- v2:L091: MainRerouted.lean is a metaprogram.
+- v2:L092: full Comparator and lean4export commits.
+- v2:L098: the MemoryMax test, rerun.
 
 **Still open (weak or qualified, not gaps):**
 - The statement-check docs still cite a v2 log path in results/2026-10-20-statement-checks/ that never existed. The log is now in this folder.
-- "Only use" holds for the SiegelZeros chain. L089 and L090 record the separate Jacobsthal copy, which is imported by three configs (an import closure, not a declaration closure; no declaration scan was run).
+- "Only use" holds for the SiegelZeros chain. v2:L089 and v2:L090 record the separate Jacobsthal copy, which is imported by three configs (an import closure, not a declaration closure; no declaration scan was run).
 - The 7 INFERRED rows are inferred by design.
 - ContinuumCoulombHardness is permanently deferred (results/2026-10-27-reroute-fd4aeeb/optional/README.md).
 
 ## Update 2026-10-27 (appended)
 
 - Closed: the statement-check v2 log path. docs/statement-check-summary.md:41, docs/statement-check-HeckeSevenEighths.md:51 and docs/log.md:664 now cite statement-checks-final-v2.log in this folder. The source-hash file they cited (lean-sources-v2.sha256) also existed only at WSL `/`; it is copied here as statement-checks-sources-v2.sha256 (sha256 81387dab92af9a35…, equal to the WSL original), and the docs cite that copy.
+
+## Update 2026-10-27 (ids versioned)
+
+Every ledger id in this file now carries its ledger version (v1: or v2:). The ids were renumbered between ledger.tsv and ledger-v2.tsv (id-stability.md); the prefixes were added in place on 2026-10-27, and nothing else in the earlier text changed. Ledger v3 and v4 keep the v2 ids (append-only). The erratum for results/2026-10-27-reroute-fd4aeeb/SUMMARY.md:38 is erratum-ids.md.

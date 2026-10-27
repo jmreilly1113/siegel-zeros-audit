@@ -1,0 +1,64 @@
+== run KMedianThreshold-shipped  2026-10-26 19:54:19  (67d: full deny list, 16G cap)
+config: /home/checker/math/lean/ComparatorChallenges/KMedianThreshold.json
+{
+  "challenge_module": "ComparatorChallenges.KMedianThreshold",
+  "solution_module": "OAI.Combinatorics.KMedian.Threshold",
+  "theorem_names": [
+    "OAI.MetricKMedian.threshold"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": false
+}
+== diff shipped /home/checker/math/lean/ComparatorChallenges/KMedianThreshold.json vs this config
+(diff exit 0)
+== clone: HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb; status: 
+disk used before: 84G
+Running as unit: run-u15.service
+memcg /sys/fs/cgroup/memory/system.slice/run-u15.service limit 17179869184 memsw 17179869184
+INNER uid 1000
+Building ComparatorChallenges.KMedianThreshold
+⚠ [8924/8924] Built ComparatorChallenges.KMedianThreshold (58s)
+warning: ComparatorChallenges/KMedianThreshold.lean:102:8: declaration uses `sorry`
+Build completed successfully (8924 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.MetricKMedian.threshold, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from ComparatorChallenges.KMedianThreshold
+Building OAI.Combinatorics.KMedian.Threshold
+Build completed successfully (9688 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, OAI.MetricKMedian.threshold, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from OAI.Combinatorics.KMedian.Threshold
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+	Command being timed: "timeout --signal=TERM --kill-after=60 7200 bash -c echo "INNER uid $(id -u)"; lake env comparator /home/checker/math/lean/ComparatorChallenges/KMedianThreshold.json"
+	User time (seconds): 294.36
+	System time (seconds): 29.62
+	Percent of CPU this job got: 87%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 6:09.14
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7225560
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 112016
+	Minor (reclaiming a frame) page faults: 807690
+	Voluntary context switches: 650417
+	Involuntary context switches: 701
+	Swaps: 0
+	File system inputs: 16254560
+	File system outputs: 12064
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+cgroup: max_usage_in_bytes 10044485632 memsw.max_usage_in_bytes 10044485632 failcnt 0 oom_kill 0
+COMPARATOR EXIT CODE: 0
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5min 37.019s
+DURATION_SECONDS: 369
+disk used after: 84G

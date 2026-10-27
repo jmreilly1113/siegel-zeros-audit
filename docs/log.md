@@ -1681,3 +1681,20 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - Outputs: matrix-v2.tsv; extended-replay-227/corpus-227-v2.tsv and summary-227-v2.txt. KMedianThreshold and Catalan are "run here, unofficial tool set B3"; their official outcome stays NOT_CHECKED_HERE.
 - Appended updates: SUMMARY.md and docs/paper/limitations.md.
 - Generators changed: scripts/nanoda_matrix.py takes an output name and the step-5 rows; scripts/extended_final_table.py takes --unofficial and --suffix.
+
+### 2026-10-26 19:45–20:45 Lean kernel on Catalan and KMedianThreshold; ContinuumCoulombHardness retry; FINAL.md
+
+- New runner wsl-comparator/67d_corpus_run_capped.sh: 67's comparator command and logging in a system unit with the 45-family deny list, a 16G v1 cgroup cap, and setpriv to checker.
+  - Stub-tested (scratchpad t27): uid 1000, Lean 4.34.1 via lake env, landrun works, TCP errno 97, OOM kill under 200M, timeout 124, peaks recorded.
+  - The test's single FAIL was its own artifact: "NET OPEN" appears in the command line that time -v echoes.
+- Driver: wsl-comparator/147_lean_and_cch.sh.
+- COMPUTED: shipped-config comparator runs (Lean kernel).
+  - KMedianThreshold: ACCEPT_LEAN, 369 s, max RSS 7,225,560 kB.
+  - Catalan: ACCEPT_LEAN, 2,234 s, max RSS 6,740,376 kB.
+  - Logs: results/2026-10-26-nanoda-version-matrix/runs/<C>.lean-shipped.log.
+- COMPUTED: ContinuumCoulombHardness retry at LEAN_NUM_THREADS=2 stopped by the guard ("20:40:30 LIMIT: disk 84G, MemAvailable 309MB") after 164 s. It is permanently deferred, with no further retry. The guard was restarted, and the markers were kept as GUARD_STOPPED-20261026-1932 and -2040.
+- Outputs:
+  - matrix-v3.tsv, corpus-227-v3.tsv and summary-227-v3.txt. They supersede v2, which is not overwritten, per CLAUDE.md.
+  - FINAL.md (one-page summary).
+  - Appended updates: SUMMARY.md, docs/paper/limitations.md.
+  - reply-61-draft.md updated with the step-5 nanoda results (not posted).

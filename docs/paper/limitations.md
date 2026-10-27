@@ -29,3 +29,8 @@ COMPUTED (results/2026-10-26-nanoda-version-matrix/SUMMARY.md, step 5; exports b
 - 3a24072 with a 1 GiB stack grows to the 16G cap on both.
 - The inference above (their memory deferrals reflect the 3a24072 bug) is now measured for nanoda. Their official outcome stays "not checked": the pinned tool set did not finish, and Lean's kernel was not run on them here.
 - ContinuumCoulombHardness could not be built here: the guard stopped its build at 19:32 on 2026-10-26 when MemAvailable fell below 1,500 MB.
+
+## Update 2026-10-26 night (appended)
+
+- COMPUTED: Lean's kernel accepted KMedianThreshold (369 s) and Catalan (2,234 s) here, through the shipped-config comparator run under the full deny list and a 16G cap. Both kernels have now accepted these two on this platform; nanoda's run used the unofficial tool set B3. Their official outcome stays "not checked".
+- COMPUTED: ContinuumCoulombHardness could not be built here. The guard stopped its build at 4 threads and again at 2 threads, at MemAvailable 1,448 MB and 309 MB. It is permanently deferred, and its results are STATED only (nealmcb).

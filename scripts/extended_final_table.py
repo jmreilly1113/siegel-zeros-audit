@@ -91,7 +91,7 @@ def audit(c):
 
 cols = ['config', 'group', 'shipped_nanoda', 'status', 'final_outcome', 'final_outcome_time', 'earlier_outcomes', 'nanoda_3a24072_run',
         'rerun_28800s', 'shipped_run', 'f67473b_direct', 'axioms_query', 'axioms_used', 'audit', 'wsl_memory_at_outcome',
-        'export_bytes', 'export_sha256', 'deferral_reason', 'evidence'] + (['unofficial_B3', 'official_note'] if UNOFF else [])
+        'export_bytes', 'export_sha256', 'deferral_reason', 'evidence'] + (['unofficial_B3', 'lean_kernel_here', 'official_note'] if UNOFF else [])
 rows, problems = [], []
 for r in plan:
     c = r['config']; row = dict.fromkeys(cols, '')
@@ -100,15 +100,30 @@ for r in plan:
     if c in deferred:
         assert not os.path.isfile(rj), c
         row.update(status='DEFERRED', final_outcome='NOT_CHECKED_HERE', deferral_reason=DEFER[c][0], evidence=DEFER[c][1])
+        if UNOFF and os.path.isfile(os.path.join(UNOFF, 'run.log')):
+            stop = [l.strip() for l in open(os.path.join(UNOFF, 'run.log'), encoding='utf-8') if f'147: {c}: retry build/export failed' in l]
+            if stop:
+                row['status'] = 'DEFERRED (permanent)'
+                row['deferral_reason'] += ('; retry 2026-10-26 at LEAN_NUM_THREADS=2 stopped by the guard: ' + stop[-1][:19] +
+                    '; not retried (Joe). Its build also stopped at 4 threads (2026-10-26 19:32:36, MemAvailable 1448MB)')
+                row['evidence'] += f"; {rel(os.path.join(UNOFF, 'run.log'))}"
         b3 = os.path.join(UNOFF, 'runs', f'{c}.B3.log') if UNOFF else None
         if b3 and os.path.isfile(b3):
             o = [l[9:].strip() for l in open(b3, encoding='utf-8') if l.startswith('OUTCOME:')][-1]
             row['unofficial_B3'] = f'{o} [{rel(b3)}]'
+            lk = os.path.join(UNOFF, 'runs', f'{c}.lean-shipped.log')
+            lean_ok = False
+            if os.path.isfile(lk):
+                t = open(lk, encoding='utf-8').read()
+                lean_ok = 'Lean default kernel accepts the solution' in t and 'Your solution is okay!' in t and 'COMPARATOR EXIT CODE: 0' in t
+                w = re.search(r'DURATION_SECONDS: (\d+)', t); m = re.search(r'Maximum resident set size \(kbytes\): (\d+)', t)
+                row['lean_kernel_here'] = (('ACCEPT_LEAN' if lean_ok else 'not accepted / not finished') + f" (shipped-config comparator run, full deny list, 16G cap; "
+                    f"{w.group(1) if w else '?'} s, max RSS {m.group(1) if m else '?'} kB) [{rel(lk)}]")
             if o.startswith('pass'):
-                row['status'] = 'run here, unofficial tool set B3'
+                row['status'] = 'both kernels accepted here; nanoda from unofficial tool set B3' if lean_ok else 'run here, unofficial tool set B3'
                 row['official_note'] = ('official outcome stays NOT_CHECKED_HERE: the official tool set is nanoda 3a24072 (16 MiB) through comparator, '
                     'and that run did not finish (deferral reason). The B3 run is a different nanoda build (37cb87b + nealmcb let/succ patch, 64 MiB), '
-                    "run directly on the export (not through comparator); Lean's kernel was not run on this config here.")
+                    "run directly on the export (not through comparator)." + (" Lean's kernel accepted it here in the shipped-config comparator run (lean_kernel_here)." if lean_ok else " Lean's kernel was not run on this config here."))
         rows.append(row); continue
     d = json.load(open(rj, encoding='utf-8'))
     L = outc.get(c)
@@ -143,9 +158,9 @@ P(f'Command: python -I scripts/extended_final_table.py . {rel(out)}')
 P('Official pins: openai/math fd4aeeb, Lean 4.34.1, comparator d03acab, lean4export 076e8e5, nanoda_lib 3a24072 (16 MiB stack).')
 P('The f67473b_direct column is UNOFFICIAL (post-fix nanoda on the retained export, outside comparator).')
 P('')
-P(f"configs 227: results {len(res)}, deferred {len(rows) - len(res)}" + (f" (of which run here on the UNOFFICIAL tool set B3: {sum(1 for x in rows if x['status'] == 'run here, unofficial tool set B3')})" if UNOFF else ''))
+P(f"configs 227: results {len(res)}, deferred {len(rows) - len(res)}" + (f" (of which run here with nanoda from the UNOFFICIAL tool set B3: {sum(1 for x in rows if 'unofficial tool set B3' in x['status'])})" if UNOFF else ''))
 P('final outcome (last run.log outcome line; equals result.json for every config): ' + str(dict(collections.Counter(x['final_outcome'] for x in rows))))
-P('by group, results / deferred: ' + ', '.join(f"{g} {sum(1 for x in res if x['group'] == g)}/{sum(1 for x in rows if x['group'] == g and x['status'] == 'DEFERRED')}" for g in 'PCUSN'))
+P('by group, results / deferred: ' + ', '.join(f"{g} {sum(1 for x in res if x['group'] == g)}/{sum(1 for x in rows if x['group'] == g and x['status'] != 'RESULT')}" for g in 'PCUSN'))
 P('')
 P('Configs with more than one outcome line (the last is final):')
 for x in rows:
@@ -163,12 +178,12 @@ P('  outcomes under 24 GB (2026-10-21 13:56:21 to 2026-10-22 08:10:32): ' + ', '
 P('')
 P('Deferred (no result here):')
 for x in rows:
-    if x['status'] == 'DEFERRED': P(f"  {x['config']} ({x['group']}): {x['deferral_reason']} [{x['evidence']}]")
+    if x['status'].startswith('DEFERRED'): P(f"  {x['config']} ({x['group']}): {x['deferral_reason']} [{x['evidence']}]")
 if UNOFF:
     P('')
     P('Deferred configs run here on the UNOFFICIAL tool set B3 (official outcome unchanged: NOT_CHECKED_HERE):')
     for x in rows:
-        if x.get('unofficial_B3'): P(f"  {x['config']}: status '{x['status']}'; B3 {x['unofficial_B3']}")
+        if x.get('unofficial_B3'): P(f"  {x['config']}: status '{x['status']}'; B3 {x['unofficial_B3']}" + (f"; Lean kernel {x['lean_kernel_here']}" if x.get('lean_kernel_here') else ''))
     P('  ' + 'Note: ' + next((x['official_note'] for x in rows if x.get('official_note')), ''))
 P('')
 P('#print axioms (runs/<C>-axioms.log, one Lean query per config on the solution theorem(s), in the checker sandbox):')

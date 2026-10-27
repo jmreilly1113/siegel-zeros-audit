@@ -95,3 +95,11 @@
 2026-10-26 18:28:07 142 done: plan /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/plan-Catalan.tsv
 2026-10-26 18:28:07 146: ContinuumCoulombHardness: export (143d, 4 threads) start
 2026-10-26 19:32:37 146: ContinuumCoulombHardness: build/export failed: ContinuumCoulombHardness: build failed or stopped (see /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/exports/ContinuumCoulombHardness.export.log); guard: 2026-10-26 19:32:36 LIMIT: disk 84G, MemAvailable 1448MB; stopping checker build processes; chain stops (Joe: stop at the first build OOM and report)
+2026-10-26 19:54:18 147: earlier GUARD_STOPPED (19:32, ContinuumCoulombHardness build) kept as GUARD_STOPPED-20261026-1932
+2026-10-26 19:54:18 147 start: Lean kernel on KMedianThreshold, Catalan; then one ContinuumCoulombHardness retry at 2 threads
+2026-10-26 19:54:19 147: KMedianThreshold: shipped-config comparator run (Lean kernel) via 67d start
+2026-10-26 20:00:28 147: KMedianThreshold: Lean kernel (shipped config): ACCEPT_LEAN; wall 369 s; max RSS 7225560 kB; cgroup max_usage 10044485632 B
+2026-10-26 20:00:28 147: Catalan: shipped-config comparator run (Lean kernel) via 67d start
+2026-10-26 20:37:44 147: Catalan: Lean kernel (shipped config): ACCEPT_LEAN; wall 2234 s; max RSS 6740376 kB; cgroup max_usage 4331089920 B
+2026-10-26 20:37:44 147: ContinuumCoulombHardness: retry export (143d, LEAN_NUM_THREADS 2) start
+2026-10-26 20:40:30 147: ContinuumCoulombHardness: retry build/export failed: ContinuumCoulombHardness: build failed or stopped (see /mnt/c/Users/Work/dev/siegel/results/2026-10-26-nanoda-version-matrix/exports/ContinuumCoulombHardness.export.log); guard: 2026-10-26 20:40:30 LIMIT: disk 84G, MemAvailable 309MB; stopping checker build processes; permanently deferred (Joe: no further retry)

@@ -20,9 +20,18 @@ KaplanskyDirectFiniteness follows the same pattern as KaplanskyFinitelyPresented
 
 SquareDifference on f67473b at 16 MiB: `thread 'thread_2' has overflowed its stack` after 98 s at 4.16 GB.
 
-**2. Our export sizes equal yours** (`results/nanoda-ab-let.jsonl`) for all of these configs to the byte, and for MatchingFPRAS (485,099,446) and ContingencyTables (492,768,597).
+**2. Catalan and KMedianThreshold, from #55, also check on 37cb87b,** stock and patched (exports regenerated here; sha256 equal to our earlier exports):
 
-**3. 3a24072 with STACK_SIZE 1 GiB on the six extended configs:**
+| config | 37cb87b, 16 MiB | 37cb87b + patch, 64 MiB | 3a24072, STACK_SIZE 1 GiB |
+|---|---|---|---|
+| KMedianThreshold | exit 0, 25 s, 1.06 GB | exit 0, 26 s, 1.07 GB | grows to the 16G cap in 206 s |
+| Catalan | exit 0, 545 s, 5.0 GB | exit 0, 551 s, 4.6 GB | grows to the 16G cap in 201 s |
+
+<!-- ContinuumCoulombHardness: retry at 2 threads pending; fill in or drop -->
+
+**3. Our export sizes equal yours** (`results/nanoda-ab-let.jsonl`) to the byte for all of these configs, including Catalan (832,532,249) and KMedianThreshold (620,096,646), and for MatchingFPRAS (485,099,446) and ContingencyTables (492,768,597).
+
+**4. 3a24072 with STACK_SIZE 1 GiB on the six extended configs:**
 - KaplanskyDirectFiniteness passes.
 - DirectedFeedback, MinUncut, LaughlinPlanar, LaughlinFock and SquareDifference each grow to the 16G cap in 106–453 s and are OOM-killed. That fits "a larger stack does not help" in #55.
 

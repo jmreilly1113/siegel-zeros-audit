@@ -186,3 +186,30 @@ Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).
   - The B3 run is a different nanoda build, run directly on the export. Lean's kernel was not run on these configs here.
   - Their Lean-kernel acceptance is STATED only, by nealmcb's comparator sweep at identical pins.
   - The v1 files are unchanged.
+
+## Update 2026-10-26 night (appended): Lean's kernel on Catalan and KMedianThreshold; ContinuumCoulombHardness retry
+
+**Method.** wsl-comparator/147_lean_and_cch.sh ran the shipped-config comparator (enable_nanoda false), the comparator's own Lean-only check:
+- It does its own build and its own export (with comparator's target list), then the Lean replay, then the statement and axiom checks.
+- It ran through the new runner wsl-comparator/67d_corpus_run_capped.sh. That is 67_corpus_run.sh's command and logging, run in a system unit with the 45-family deny list and a 16G cgroup cap (RAM plus swap), dropping to checker with setpriv. It was stub-tested first: uid, the Lean toolchain, landrun, the network block, the OOM kill and the timeout.
+- Timeout 7,200 s, as for the extended replay's shipped runs.
+- Comparator cannot replay an outside export, so this run checks its own export, which was not hashed here. INFERRED: it is identical to ours, because lean4export output was reproducible under both properties (t26, Laughlin byte for byte) and comparator's target list is the one 143d uses.
+
+**COMPUTED:**
+
+| config | Lean kernel (shipped-config comparator) | wall | largest process RSS | unit cgroup peak |
+|---|---|---|---|---|
+| KMedianThreshold | "Lean default kernel accepts the solution", "Your solution is okay!", exit 0 (runs/KMedianThreshold.lean-shipped.log) | 369 s | 7,225,560 kB | 10.04 GB |
+| Catalan | the same three lines (runs/Catalan.lean-shipped.log) | 2,234 s | 6,740,376 kB | 4.33 GB |
+
+- For Catalan the cgroup peak is below the largest RSS. This is because mapped .olean pages already in the page cache were charged to the earlier build unit. So the 16G cap bounds what this unit was charged, not every page it touched.
+- STATED, for comparison: nealmcb's Catalan comparator check took 2,246 s at 6–7 GiB on a laptop (#55).
+- **Result: both kernels accepted KMedianThreshold and Catalan here.** Lean's kernel ran through comparator under the new sandbox; nanoda was B3 (and B2), run directly on our exports. Their official outcome (nanoda 3a24072 through comparator) stays NOT_CHECKED_HERE.
+- **ContinuumCoulombHardness, one retry at LEAN_NUM_THREADS=2:** the guard stopped the build after 164 s ("2026-10-26 20:40:30 LIMIT: disk 84G, MemAvailable 309MB").
+  - The 4-thread attempt had stopped at 19:32:36 (MemAvailable 1448MB) after 3,868 s.
+  - INFERRED: a module in its closure needs more memory than this 20 GB VM leaves.
+  - It is now permanently deferred here, with no further retry. Its Lean-kernel and nanoda results are STATED only, from nealmcb (#61; nanoda-stack-size-2026-10-25.txt).
+- The guard was restarted after each stop. The markers are kept as /home/checker/corpus/GUARD_STOPPED-20261026-1932 and -2040.
+- **New tables:** matrix-v3.tsv (adds a "status here" column) and extended-replay-227/corpus-227-v3.tsv and summary-227-v3.txt.
+  - Catalan and KMedianThreshold read "both kernels accepted here; nanoda from unofficial tool set B3". ContinuumCoulombHardness reads "DEFERRED (permanent)".
+  - The v2 files are unchanged. Per CLAUDE.md, results files are not overwritten, so v3 supersedes v2.

@@ -107,7 +107,21 @@ for c, s in ROWS:
             cell[i] = (cell[i] + ' | ' if cell[i] else '') + v
         elif cc == c and i == 1:  # keep Neal's 1 GiB statement next to our B1 run
             cell[i] = cell[i] + ' | ' + v
-    rows.append([c, s] + cell)
+    note = ''
+    lk = os.path.join(M, 'runs', f'{c}.lean-shipped.log')
+    if os.path.isfile(lk):
+        t = open(lk, encoding='utf-8').read()
+        ok = 'Lean default kernel accepts the solution' in t and 'Your solution is okay!' in t and 'COMPARATOR EXIT CODE: 0' in t
+        w = re.search(r'DURATION_SECONDS: (\d+)', t); m = re.search(r'Maximum resident set size \(kbytes\): (\d+)', t)
+        b3ok = (ours(c, 'B3') or '').startswith('COMPUTED: pass')
+        note = (('both kernels accepted here; nanoda from unofficial tool set B3. ' if ok and b3ok else '') +
+                f"COMPUTED: Lean kernel {'ACCEPT_LEAN' if ok else 'not accepted / not finished'} (shipped-config comparator run, full deny list, 16G cap; "
+                f"{w.group(1) if w else '?'} s, max RSS {m.group(1) if m else '?'} kB) [{rel(lk)}]. Official outcome (3a24072) stays NOT_CHECKED_HERE.")
+    rl = os.path.join(M, 'run.log')
+    if os.path.isfile(rl) and any(f'147: {c}: retry build/export failed' in l for l in open(rl, encoding='utf-8')):
+        note = (f'COMPUTED: build stopped by the guard at 4 threads (2026-10-26 19:32) and at 2 threads (retry; run.log); permanently deferred here. '
+                f'Lean kernel and nanoda results for it are STATED only (nealmcb) [{rel(rl)}]')
+    rows.append([c, s] + cell + [note])
 with open(out, 'w', encoding='utf-8', newline='') as f:
-    w = csv.writer(f, delimiter='\t', lineterminator='\n'); w.writerow(['config', 'set'] + COLS); w.writerows(rows)
+    w = csv.writer(f, delimiter='\t', lineterminator='\n'); w.writerow(['config', 'set'] + COLS + ['status here']); w.writerows(rows)
 print(open(out, encoding='utf-8').read())

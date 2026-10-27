@@ -1,9 +1,9 @@
-== 143 export ContinuumCoulombHardness  2026-10-26 18:28:07  (UNOFFICIAL matrix)
+== 143 export ContinuumCoulombHardness  2026-10-26 20:37:44  (UNOFFICIAL matrix)
 shipped config: /home/checker/math/lean/ComparatorChallenges/ContinuumCoulombHardness.json sha256 4474513026235160eb611d1907fcec23a32938f7a6fc1d5ed18469cd6584384f
 clone HEAD fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []
 lean4export /usr/local/bin/lean4export sha256 8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1
-== (1) build: lake build OAI.MathematicalPhysics.ContinuumCoulomb.Reduction.Hardness (LEAN_NUM_THREADS 4)
-Running as unit: run-u26.service; invocation ID: f75a815b7d2a45abbb90520cb45de803
-BUILD_SECONDS: 3868
+== (1) build: lake build OAI.MathematicalPhysics.ContinuumCoulomb.Reduction.Hardness (LEAN_NUM_THREADS 2)
+Running as unit: run-u0.service; invocation ID: 4b770eea9c4d43ea91d81dbbf29e5fef
+BUILD_SECONDS: 164
 disk used: 84G
 BUILD FAILED or stopped

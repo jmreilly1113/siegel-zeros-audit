@@ -1,0 +1,14 @@
+# Outcome-level comparison with nealmcb/openai-math-lean-tooling, v2 (2026-10-27; COMPUTED here, his side STATED). SiegelZeros from the fd4aeeb control (v4:L093)
+# Command: python -I results/2026-10-27-neal-comparison/compare_outcomes_v2.py . <checkout>; checkout = read-only git clone of https://github.com/nealmcb/openai-math-lean-tooling at 1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4 (git status --porcelain: clean)
+# his results/cmp-all/all.jsonl sha256 6753e7dea0c16d8f1d5b938f345db2b5aad6fd811538f48bbdd82b84cbec5edc (416 configs)
+# verdict compared: Comparator (Lean kernel) accepts the config. ours: 189 (187 fd4aeeb + SiegelZeros fd4aeeb control + QuasiRiemannHypothesis adc7f12 pilot, closure identical) + 227 (final_outcome, with the optional Lean-kernel runs)
+configs: ours 416, his 416, union 416, in both 416
+by class: {'agree': 402, 'no verdict here': 14}
+by our set and class: {('189', 'agree'): 189, ('227', 'agree'): 213, ('227', 'no verdict here'): 14}
+his outcomes: {'accepted': 416}; his configs with nanoda flag true: ['ArtinParabolicIntersections', 'TraceIdealTransportSupport']
+disagree: []
+no verdict here: [('ContinuumCoulombHardness', 'NOT_CHECKED_HERE', 'accepted'), ('CycleCliqueRamsey', 'NOT_CHECKED_HERE', 'accepted'), ('DefocusingNLS', 'NOT_CHECKED_HERE', 'accepted'), ('FalconerAllDimensions', 'NOT_CHECKED_HERE', 'accepted'), ('InvariantIsing', 'NOT_CHECKED_HERE', 'accepted'), ('JointDickman', 'NOT_CHECKED_HERE', 'accepted'), ('MUBSix', 'NOT_CHECKED_HERE', 'accepted'), ('OrdinaryTwoPointCorrelations', 'NOT_CHECKED_HERE', 'accepted'), ('OstmannComplete', 'NOT_CHECKED_HERE', 'accepted'), ('PattersonFirstMoment', 'NOT_CHECKED_HERE', 'accepted'), ('PlanarPacking', 'TIMEOUT', 'accepted'), ('PolycyclicRecognition', 'NOT_CHECKED_HERE', 'accepted'), ('SurfaceImmersion', 'NOT_CHECKED_HERE', 'accepted'), ('UniversalTensorSquares', 'NOT_CHECKED_HERE', 'accepted')]
+no verdict there: []
+no verdict either side: []
+accepted here only through the optional Lean-kernel runs: ['Catalan', 'KMedianThreshold']
+ours not at fd4aeeb: [('QuasiRiemannHypothesis', 'adc7f12 (pilot; closure byte-identical at fd4aeeb)')]

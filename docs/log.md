@@ -1761,3 +1761,23 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
     - lean-checks/README.md (v4:L139).
 - COMPUTED (v4:L138): the 2026-10-08 NonVacuity run also had no address-family filter (sudo -u checker, no systemd-run). That makes three such runs, with v4:L123 and v4:L124.
 - paper/outline.md and paper/claim-map.tsv updated to v4, with every id prefixed v4:. Not pushed.
+
+## 2026-10-27: ledger v5 (QuasiRiemannHypothesis closure; comparison with SiegelZeros at fd4aeeb; kernel dependencies)
+
+- COMPUTED (v5:L140): QuasiRiemannHypothesis is byte-identical at adc7f12 and fd4aeeb. This covers:
+  - its config and challenge file;
+  - all 2925 local modules of the solution import closure;
+  - lake-manifest.json, lean-toolchain, the lakefiles and the 24 lean/patches files.
+
+  Commands (WSL, as checker, Python 3.12.3, read-only `git show` on /home/checker/math, no build):
+  - `python3 -I results/2026-10-27-qrh-closure/qrh_closure.py /home/checker/math results/2026-10-27-qrh-closure`;
+  - second method, `python3 -I results/2026-10-27-qrh-closure/second_check.py results/2026-10-27-qrh-closure`: none of the 738 changed modules is imported anywhere in the closure.
+- COMPUTED (v5:L141, supersedes v4:L131): the comparison re-run with SiegelZeros from the fd4aeeb control (v4:L093), with `python -I results/2026-10-27-neal-comparison/compare_outcomes_v2.py . <checkout at 1ca7ff2>`.
+  - Result: 416 compared; 402 agree; 0 disagree; 14 no verdict here; 0 no verdict there.
+  - Only QuasiRiemannHypothesis is not at fd4aeeb, and its closure is identical.
+- STATED (v5:L142): what the two kernel checks depend on, from the Comparator README (d03acab), the lean4export README (076e8e5, copied to results/2026-10-26-claims-ledger/v5-evidence/) and the nanoda_lib README (3a24072).
+  - Shared: build, export, statement and axiom checks.
+  - Lean kernel only: the in-process replay.
+  - nanoda only: a separate process reading the export file.
+  - INFERRED in its note: step 6 replays the export-derived environment.
+- results/2026-10-26-claims-ledger/ledger-v5.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v5.py .`): 142 rows. paper/outline.md and paper/claim-map.tsv updated. Not pushed.

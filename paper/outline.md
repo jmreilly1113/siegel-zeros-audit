@@ -1,9 +1,9 @@
 # Paper outline (LIPIcs, about 15 pages): from the claims ledger, v4 (2026-10-27)
 
-Source of claims: results/2026-10-26-claims-ledger/ledger-v4.tsv (139 rows: the 130 v3 rows, of which 5 are now SUPERSEDED, plus v4:L131-L139).
+Source of claims: results/2026-10-26-claims-ledger/ledger-v5.tsv (142 rows: the 139 v4 rows, of which v4:L131 is now SUPERSEDED, plus v5:L140-L142).
 - Other inputs: citations-needed.md, gaps.md, LEDGER.md and id-stability.md (same folder); results/2026-10-27-reroute-fd4aeeb/SUMMARY.md; lean-checks/README.md (commit 758b44f).
 - The row-by-row mapping is in paper/claim-map.tsv.
-- Ids are append-only (id-stability.md). Every id here carries its version. v4: ids equal the v2 and v3 ids wherever those exist; only v1 differs, for v4:L050-L090 (erratum-ids.md).
+- Ids are append-only (id-stability.md). Every id here carries its version. v2:, v3:, v4: and v5: ids agree wherever the id exists; only v1:L050-L090 differ (erratum-ids.md). Rows added in v5 are cited as v5:, all others as v4:.
 
 Conventions:
 - Every claim cites its ledger id. The value after "=" is copied from the ledger's value column. The exception is v4:L057, which is rendered as counts at Joe's request.
@@ -37,11 +37,12 @@ Abstract claims:
    - Scan (v4:L096) = 92658 constants in closure; matches only via_lemma3 and interpolation (v4:L051).
    - Deny list (v4:L076) = 45 families.
 4. The corpus replay agrees with an independent replay on a second platform.
-   - Outcomes (v4:L131) = 416 compared; 402 agree; 0 disagree; 14 no verdict here (ContinuumCoulombHardness, CycleCliqueRamsey, DefocusingNLS, FalconerAllDimensions, InvariantIsing, JointDickman, MUBSix, OrdinaryTwoPointCorrelations, OstmannComplete, PattersonFirstMoment, PolycyclicRecognition, SurfaceImmersion, UniversalTensorSquares: NOT_CHECKED_HERE; PlanarPacking: TIMEOUT); 0 no verdict there; 0 no verdict on either side.
-   - His side of v4:L131 is STATED: results/cmp-all/all.jsonl at 1ca7ff2.
+   - Outcomes (v5:L141) = 416 compared; 402 agree; 0 disagree; 14 no verdict here (ContinuumCoulombHardness, CycleCliqueRamsey, DefocusingNLS, FalconerAllDimensions, InvariantIsing, JointDickman, MUBSix, OrdinaryTwoPointCorrelations, OstmannComplete, PattersonFirstMoment, PolycyclicRecognition, SurfaceImmersion, UniversalTensorSquares: NOT_CHECKED_HERE; PlanarPacking: TIMEOUT); 0 no verdict there; 0 no verdict on either side.
+   - His side of v5:L141 is STATED: results/cmp-all/all.jsonl at 1ca7ff2.
+   - Our SiegelZeros record is the fd4aeeb control run (v4:L093). QuasiRiemannHypothesis is the adc7f12 pilot; its config, challenge and solution import closure are byte-identical at fd4aeeb (v5:L140 = 2925 of 2925 local modules identical; config, toolchain, manifest, lakefiles, 24 patches identical; 252 external imports, same set; 0 of 738 changed modules in the closure).
    - Export sizes equal for v4:L060 = 146 exports and v4:L061 = 11 (13 incl. 2 from extended records).
    - [STATED v4:L065] nealmcb's comparator run accepts 416/416.
-   - v4:L112 is SUPERSEDED by v4:L131.
+   - v4:L112 is SUPERSEDED by v4:L131, and v4:L131 by v5:L141 (same counts; SiegelZeros now at fd4aeeb).
 
 Missing claims: none.
 
@@ -262,7 +263,7 @@ Table 3 (the one table):
 | 227 unreferenced configs | v4:L056 = 212 / 15. v4:L057, as counts: ACCEPT_BOTH 205, LEAN_ACCEPT_NANODA_CRASH 6, TIMEOUT 1, NOT_CHECKED_HERE 15 | see next row | see the all-416 row |
 | Catalan, KMedianThreshold | official: NOT_CHECKED_HERE (v4:L057). Lean-kernel Comparator runs here: v4:L121 = 369 s; exit 0 (KMedianThreshold), v4:L122 = 2234 s; exit 0 (Catalan) | v4:L058 = both kernels (unofficial nanoda) | [STATED v4:L067] = 10 |
 | ContinuumCoulombHardness | not completed on this machine (memory) | none | mixed; see footnote |
-| all 416 (nealmcb) | outcome comparison, COMPUTED here: v4:L131 = 416 compared; 402 agree; 0 disagree; 14 no verdict here | | [STATED v4:L065] = 416/416 (Comparator as shipped); [STATED v4:L066] = 401/416 (nanoda 3a24072 at 1 GiB stack) |
+| all 416 (nealmcb) | outcome comparison, COMPUTED here: v5:L141 = 416 compared; 402 agree; 0 disagree; 14 no verdict here | | [STATED v4:L065] = 416/416 (Comparator as shipped); [STATED v4:L066] = 401/416 (nanoda 3a24072 at 1 GiB stack) |
 | export sizes | v4:L060 = 146 (0 differ, 14 not comparable); v4:L061 = 11 (13 incl. 2 from extended records) | | |
 
 Claims:
@@ -338,8 +339,13 @@ Per-run sandbox (Table 4). Each cell is the ledger's sandbox column for the cite
   - the 2026-10-20 statement-check build (v4:L123).
 - The primary SiegelZeros results (v4:L032, v4:L093-L097) ran under the 45-family list.
 
-Missing claims:
-- The components both kernels depend on (the exporter, and the Lean front end for the Lean kernel). No ledger row.
+- What both kernel checks depend on [STATED v5:L142, Comparator README 77-83 and 175-194, lean4export README 1, 23, 27, 29, nanoda README 13]:
+  - Shared: the Lake build of Solution in a landrun sandbox (Comparator steps 1 and 3); the lean4export export of Solution (steps 2 and 3), which holds the module and its transitive dependencies, without unsafe declarations or Expr.mdata by default; and Comparator's own statement and axiom checks (steps 4 and 5).
+  - Lean kernel only: the replay of the Solution environment into the Lean kernel inside the Comparator process (step 6).
+  - nanoda only: a separate process, given a file containing the solution export and a nanoda-style config.json.
+  - [INFERRED, v5:L142 note] The environment replayed in step 6 is the one read from the export, given the README's policy of not loading .olean files. The READMEs do not say whether both kernels read the same export file.
+
+Missing claims: none.
 
 Citations: Comparator; grwtsk/openai-math #40 (comment 6431288875); nanoda_lib.
 
@@ -415,7 +421,7 @@ Missing claims: none.
 | v4:L089, v4:L090 | 1, 4, 7 | import level only; 3 of 416; the exact scope sentence |
 | v4:L007, v4:L048 | 2, 3, 6 | the challenge sha256; quoted at fd4aeeb, identical at adc7f12 |
 | v4:L108, v4:L109 | 2, 5 | tex line ranges 252-267 and 410-420 |
-| v4:L131 | 0, 7 | 416 compared; 402 agree; 14 no verdict here |
+| v5:L141, v5:L140 | 0, 7 | 416 compared; 402 agree; 14 no verdict here; QuasiRiemannHypothesis closure identical |
 | v4:L065, v4:L066 | 0, 7 | [STATED], 416/416 and 401/416 |
 | v4:L119, v4:L120 | 6, 9 | the clone wording |
 | v4:L052 | 6, 8 | "imported" |
@@ -434,8 +440,8 @@ Missing claims: none.
 | 4 | openai/math adc7f12 and fd4aeeb |
 | 5 | paper, Mathlib, nanoda_lib, Fischler 2005 (**internal theorem and lemma numbers UNCONFIRMED**) |
 | 6 | openai/math adc7f12 and fd4aeeb, Comparator, nanoda_lib, Lean 4 |
-| 7 | nealmcb repo at 1ca7ff2 (v4:L131-L135 read from that commit), nanoda_lib #55, #61, #62, openai/math fd4aeeb, Zenodo corpus record |
-| 8 | Comparator, grwtsk/openai-math #40, nanoda_lib |
+| 7 | nealmcb repo at 1ca7ff2 (v4:L132-L135 and v5:L141 read from that commit), nanoda_lib #55, #61, #62, openai/math fd4aeeb, Zenodo corpus record |
+| 8 | Comparator README at d03acab, lean4export README at 076e8e5, nanoda_lib README at 3a24072, grwtsk/openai-math #40 |
 | 9 | Zenodo records, the repository |
 | 10 | none |
 

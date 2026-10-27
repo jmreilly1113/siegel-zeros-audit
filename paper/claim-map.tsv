@@ -129,7 +129,7 @@ v4:L127	7	unused	SUPERSEDED by v4:L134; cut (re-tied or replaced)
 v4:L128	7	unused	SUPERSEDED by v4:L135; cut (re-tied or replaced)
 v4:L129	10	main	files with Claude co-authored commits
 v4:L130	10	main	posts drafted in the session, per docs/log.md
-v4:L131	0; 7	main	outcome comparison with nealmcb at 1ca7ff2, all 416
+v4:L131	0; 7	unused	SUPERSEDED by v5:L141; cut (same counts, SiegelZeros now at fd4aeeb)
 v4:L132	7	footnote	[STATED] ContinuumCoulombHardness, nealmcb Comparator accepts, at 1ca7ff2
 v4:L133	7	footnote	[STATED] ContinuumCoulombHardness, kernel-pair sweep exit 1, at 1ca7ff2
 v4:L134	7	footnote	[STATED] ContinuumCoulombHardness, nanoda retests, at 1ca7ff2
@@ -138,3 +138,6 @@ v4:L136	5	main	structure of the Lean proof of Lemma 3
 v4:L137	8	main	[STATED] Comparator assumptions, README 28-39
 v4:L138	8	table	per-run sandbox table: 2026-10-08 NonVacuity
 v4:L139	9	main	lean-checks/README.md commit and sha256
+v5:L140	0; 7	main	QuasiRiemannHypothesis closure byte-identical at adc7f12 and fd4aeeb
+v5:L141	0; 7	main	outcome comparison with nealmcb at 1ca7ff2, SiegelZeros at fd4aeeb
+v5:L142	8	main	[STATED] what both kernel checks depend on; shared vs Lean-kernel-only

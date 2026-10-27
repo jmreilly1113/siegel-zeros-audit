@@ -1,4 +1,4 @@
-% Draft of sections 2-7 (2026-10-27; sections 2 and 7 added, section 4 rewritten). Claims come from results/2026-10-26-claims-ledger/ledger-v7.tsv; structure from paper/outline.md.
+% Draft of the paper (2026-10-27): abstract and sections 1-8 and 10; section 9 is a placeholder heading. Claims come from results/2026-10-26-claims-ledger/ledger-v7.tsv; structure from paper/outline.md.
 % Class: the LIPIcs class (lipics-v2021) is not installed locally (kpsewhich finds no lipics-v2021.cls in WSL TeX Live 2023),
 % so this draft uses article with an A4 text block of roughly LIPIcs size. Swap the class when lipics-v2021.cls is available.
 % Engine: pdflatex. lualatex is present but luaotfload is not installed, so fontspec cannot load fonts; the Unicode in the
@@ -64,14 +64,18 @@
 \DeclareMathOperator{\conv}{conv}
 % A quotation of paper text. #1: the paper's own equation number for any numbered display inside (empty if none).
 \newenvironment{paperquote}[1]{\begin{quote}\small\renewcommand{\theequation}{#1}}{\end{quote}}
-\setcounter{section}{1}
 \begin{document}
+\input{abstract}
+\input{sec1-intro}
 \input{sec2-background}
 \input{sec3-faithfulness}
 \input{sec4-gap}
 \input{sec5-lemma3}
 \input{sec6-reroute}
 \input{sec7-corpus}
+\input{sec8-threats}
+\input{sec9-artifacts}
+\input{sec10-ai}
 \appendix
 \input{appendix-78-listings}
 \input{appendix-reasoning}

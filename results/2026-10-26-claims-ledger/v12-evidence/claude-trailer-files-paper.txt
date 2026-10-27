@@ -1,0 +1,24 @@
+# Files under paper/ and the ledger builders, touched by a commit whose message contains Co-Authored-By: Claude (HEAD 1e76b511bf644c31858eb50b5534c8616934d4cb, 2026-10-27)
+# tracked: 22; touched by a trailer commit: 22
+trailer	paper/claim-map.tsv
+trailer	paper/draft/appendix-78-listings.tex
+trailer	paper/draft/appendix-reasoning.tex
+trailer	paper/draft/check.py
+trailer	paper/draft/main.tex
+trailer	paper/draft/sec2-background.tex
+trailer	paper/draft/sec3-faithfulness.tex
+trailer	paper/draft/sec4-gap.tex
+trailer	paper/draft/sec5-lemma3.tex
+trailer	paper/draft/sec6-reroute.tex
+trailer	paper/draft/sec7-corpus.tex
+trailer	paper/outline.md
+trailer	results/2026-10-26-claims-ledger/build_ledger.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v10.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v11.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v3.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v4.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v5.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v6.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v7.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v8.py
+trailer	results/2026-10-26-claims-ledger/build_ledger_v9.py

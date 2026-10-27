@@ -1876,3 +1876,32 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - sec6 names dirichletRealZeroBound_proof.
   - check.py: 0 findings apart from 1 NOTE. pdflatex: 14 pages, 35 overfull lines.
 - Ledger: results/2026-10-26-claims-ledger/ledger-v11.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v11.py .`), 257 rows.
+
+## 2026-10-27: the author's reasoning and statements for sections 8 and 10 (J. Reilly, from his prompt of 2026-10-27; recorded verbatim so ledger rows can cite them)
+
+- Author's reasoning (section 8):
+  - "two kernels reduce the risk of a kernel bug but not of an exporter or build bug."
+  - "every outcome on both sides was acceptance, so the comparison doesn't test rejection."
+  - "The non-vacuity lemmas rule out a vacuous challenge but don't establish faithfulness."
+  - "None of those three is a run where a filter affects the result." (the NonVacuity, standalone nanoda and statement-check runs with no network filter)
+- Author's statements (section 10):
+  - "Claude in chat did the planning and the prompts, gave the Lemma 3 and Corollary 4 statement comparison that preceded your reading, and helped draft public posts."
+- Author's reading of arXiv:2610.08144: "i did that reading" (Joe, 2026-10-27). No sign-off line with a finding was given.
+- Author's statement (section 10; J. Reilly, 2026-10-27): "No specialist in analytic number theory or transcendence has reviewed the" mathematics (his sentence ends there in the prompt; completed as "the mathematics" for the draft).
+
+## 2026-10-27: draft abstract, sections 1, 8, 10 (Claude Code, from Joe's point lists); ledger v12
+
+- results/2026-10-26-claims-ledger/ledger-v12.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v12.py .`): 269 rows; new v12:L258-L269.
+  - arXiv:2610.08144 framing (STATED, from a read-only copy of its abstract; read_by empty).
+  - The effectivity note in the reviewer-packet-v3 archive.
+  - Comparator negative controls (pilot).
+  - Claude trailer files under paper/ and the ledger builders.
+  - The reading notes' authorship.
+  - Four rows for the author's own reasoning (INFERRED, read_by J. Reilly).
+  - The author's statements on Claude in chat and on specialist review (STATED, source: the author).
+  - The citation identity of arXiv:2610.15483.
+- paper/draft: abstract.tex (171 words), sec1-intro.tex, sec8-threats.tex, sec10-ai.tex and a section 9 placeholder heading.
+  - check.py now accepts any "% no-fact: <reason>" line without digits, and treats \paragraph headings as layout. Result: 0 findings apart from 1 NOTE.
+  - pdflatex: 17 pages, 38 overfull lines.
+- Section 10 holds JOE comments where the record differs from his points, or where only he can write the sentence.
+- Ids corrected from the prompt: the equivalence lemma is v11:L251; "v4:L131" is superseded, so v5:L141 is cited (same counts); git-trailer and posts are v3:L129 and v3:L130; Comparator's checks are v3:L102-L104; clone setup is v3:L119-L120; kernel dependencies are v5:L142; the Hecke row is v10:L204, the signed copy of v9:L203.

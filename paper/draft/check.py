@@ -1,6 +1,6 @@
 """Check the draft sections against the claims ledger (2026-10-27). Reads files only; changes nothing.
 
-Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v11.tsv; ids agree across v2-v11)
+Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v12.tsv; ids agree across v2-v12)
 
 For each of sec2-sec7 and the appendix files:
  1. Quotes. A line "%% QUOTE <path> <a>-<b> [sha=<vN:Lxxx>]" must precede a Verbatim or paperquote block. The block must
@@ -15,19 +15,21 @@ For each of sec2-sec7 and the appendix files:
     Phrases naming paper results or draft parts ("Theorem 1", "Lemma 3", "Section~\\ref", ...) are not values.
     Quote locators are not ledger values: "path:a-b", and a or b next to "a-b", pass only if the same file has a
     "%% QUOTE" with exactly that range (whose text step 1 checks). "openai/math" (the repository name) passes.
-    A table header line must carry the comment "% no-fact: table header" and may contain no digits.
+    A line with no fact (a table header, a list lead-in, the organization paragraph) carries "% no-fact: <reason>" and may contain
+    no digits outside named references; such lines are counted in the report.
 Prints every finding; exit 1 if there is any.
 """
 import csv, hashlib, os, re, sys
 
 root = sys.argv[1]
-ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v11.tsv'
+ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v12.tsv'
 D = os.path.join(root, 'paper', 'draft')
-FILES = ['sec2-background.tex', 'sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex', 'sec7-corpus.tex', 'appendix-78-listings.tex', 'appendix-reasoning.tex']
+FILES = ['abstract.tex', 'sec1-intro.tex', 'sec2-background.tex', 'sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex', 'sec7-corpus.tex', 'sec8-threats.tex', 'sec9-artifacts.tex', 'sec10-ai.tex', 'appendix-78-listings.tex', 'appendix-reasoning.tex']
 rows = {r['id']: r for r in csv.DictReader(open(os.path.join(root, ledger), encoding='utf-8'), delimiter='\t')}
 FIELDS = ['claim', 'value', 'unit', 'source', 'label', 'openai_math_commit', 'toolchain', 'sandbox', 'note', 'read_by', 'read_note']
 text_of = {i: ' '.join(r.get(k, '') for k in FIELDS) for i, r in rows.items()}
 find = []
+nofact = []
 
 
 def rep(kind, f, n, msg): find.append(f'{kind}\t{f}:{n}\t{msg}')
@@ -44,7 +46,7 @@ def split_comment(line):
     return (line, '') if not m else (line[:m.start()], line[m.start() + 1:])
 
 
-STRUCT = re.compile(r'^\s*\\(section|subsection|begin|end|label|small|footnotesize|scriptsize|toprule|midrule|bottomrule|centering|footnote\{?\s*$)')
+STRUCT = re.compile(r'^\s*\\(section|subsection|begin|end|label|paragraph\{[^}]*\}$|small|footnotesize|scriptsize|toprule|midrule|bottomrule|centering|footnote\{?\s*$)')
 NAMED = re.compile(r'\b(Theorem|Lemma|Lemmas|Corollary|Section|Table|Listing|Remark)s?(~|\s)(\\ref\{[^}]*\}|\d+(\s+and\s+\d+)?)')
 LATEX = re.compile(r'\\(texttt|emph|textbackslash|ldots|operatorname|footnote|multicolumn|scriptsize|ref|label|caption|cite)\b|\\[a-zA-Z]+\*?')
 
@@ -129,9 +131,9 @@ for f in FILES:
             i += 1; continue
         ids = re.findall(r'v\d+:(L\d{3})', com)
         if 'MISSING-ROW' in com: rep('MISSING-ROW', f, n, com.split('MISSING-ROW', 1)[1].strip(' :'))
-        if com.strip() == 'no-fact: table header':
-            if re.search(r'\d', text): rep('NO-FACT-WITH-DIGITS', f, n, t[:100])
-            i += 1; continue
+        if com.strip().startswith('no-fact:'):
+            if re.search(r'\d', NAMED.sub(' ', text)): rep('NO-FACT-WITH-DIGITS', f, n, t[:100])
+            nofact.append(com.strip()); i += 1; continue
         if not ids:
             rep('UNCITED', f, n, t[:100]); i += 1; continue
         for r in ids:
@@ -145,5 +147,7 @@ print(f'# check.py: {len(FILES)} files against {ledger} ({len(rows)} rows)')
 kinds = {}
 for x in find: kinds[x.split('\t')[0]] = kinds.get(x.split('\t')[0], 0) + 1
 print('# findings by kind:', kinds if kinds else 'none')
+import collections as _c
+print('# no-fact lines:', dict(_c.Counter(nofact)))
 for x in find: print(x)
 sys.exit(1 if any(not x.startswith('NOTE') for x in find) else 0)

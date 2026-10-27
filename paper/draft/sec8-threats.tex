@@ -1,0 +1,45 @@
+% Section 8 (2026-10-27), drafted by Claude Code from the author's nine points. Every factual sentence ends with a comment naming its ledger rows (ledger-v12.tsv).
+\section{Threats to validity}\label{sec:threats}
+
+\paragraph{Kernel trust.}
+Comparator's README states its guarantees under six assumptions, among them that ``The Lean kernel is correct (with `external\_kernels` this can be reduced to "At least one of the Lean kernel or the `external\_kernels` is correct")''. % v12:L137
+By Comparator's and lean4export's READMEs, both kernel checks depend on the same Lake build and the same lean4export export, while only the Lean kernel's check runs inside the Comparator process. % v12:L142
+Two kernels therefore reduce the risk of a kernel bug but not of an exporter or build bug. % v12:L263
+
+\paragraph{What agreement does not test.}
+Our replay agrees with an independent replay on all 402 configurations where both have a verdict. % v12:L141
+Every outcome on both sides of that comparison was acceptance, so the comparison does not test rejection. % v12:L264
+Rejection is tested by negative controls. % v12:L034 v12:L035 v12:L260
+The standalone nanoda check rejects the Lemma 3 export with Classical.choice not permitted (exit 1), and rejects it with rectangle's proof replaced by interpolation's proof (exit 101). % v12:L034 v12:L035
+Comparator rejects the SiegelZeros solution with Classical.choice not permitted (Illegal axiom detected, exit 1) and with the challenge statement altered (statement mismatch, exit 1). % v12:L260
+
+\paragraph{Statement faithfulness is by reading.}
+The six statement matches rest on reading, signed off by the author, and the reasoning behind them is recorded point by point, also signed off. % v12:L002 v12:L008 v12:L145 v12:L146 v12:L204 v12:L250
+The non-vacuity lemmas rule out a vacuous challenge but do not establish faithfulness. % v12:L265
+The HeckeSevenEighths match rests partly on Lean lemmas (the lattice series for Re s > 1 and holomorphy off {0, 1}) and partly on reading; the six-generator identification itself is not formalized in Lean. % v12:L203
+
+\paragraph{Scope of the reroute.}
+The reroute changes one of the two checked theorems, dirichletRealZeroBound\_proof. % v12:L147 v12:L148 v12:L149
+``Only use'' of actual\_biquadratic\_rectangle\_span holds within the SiegelZeros tree. % v12:L017
+The separate copy in namespace OAI.Erdos970 is measured at import level only, for 3 of 416 configurations. % v12:L089 v12:L090
+The dependency scan matches five names (uniform\_rectangular\_multiplicity, source\_rectangle\_span\_of\_polynomial\_zero\_test, actual\_biquadratic\_rectangle\_span, actual\_biquadratic\_rectangle\_span\_via\_lemma3, interpolation), so ``no longer contains'' applies to those names only. % v12:L148 v12:L096
+
+\paragraph{Dependencies.}
+The rerouted chain still imports OpenAI's patched PrimeNumberTheoremAnd.SiegelZeros.HadamardSupport, whose correctness is outside this work. % v12:L052
+
+\paragraph{Sandbox.}
+The primary results ran under a deny list naming all 45 address families of kernel 5.15.167.4, under which all 138 socket() calls of an all-families probe fail. % v12:L076 v12:L077
+Earlier runs used a 5-family filter, which denied IP, Unix-domain, netlink and packet sockets but left AF\_VSOCK open, with a connection to the Windows host succeeding, and also left AF\_PPPOX and AF\_ALG creatable. % v12:L070 v12:L071 v12:L072 v12:L073
+Three runs had no network filter: the NonVacuity lemmas, the standalone nanoda run and the statement-check build. % v12:L138 v12:L124 v12:L123
+None of those three is a run where a filter affects the result. % v12:L266
+
+\paragraph{Platform.}
+The WSL memory changed from the 15,965 MB default to 24 GB at 2026-10-21 13:56:21 and to 20 GB at 2026-10-22 08:10, during the extended replay. % v12:L078 v12:L079
+MemoryMax is not enforced in this WSL; a 600 MB allocation under MemoryMax=200M runs to the end, so each capped run set its own v1 memory cgroup instead. % v12:L098 v12:L080
+For the fd4aeeb runs the package directory was bind-mounted read-only from the original clone, and the OAI closure was built from scratch. % v12:L119 v12:L120
+
+\paragraph{Superseded method.}
+lean-checks/MainRerouted.lean defines a metaprogram, elab "\#reroute", which adds copies of the closure with addDecl; it is not evidence for any claim here, and its results file is not cited. % v12:L091
+
+\paragraph{Tool versions.}
+The official nanoda pin is 3a24072; the results from f67473b, 37cb87b and 37cb87b with nealmcb's patch are unofficial and are reported separately. % v12:L088

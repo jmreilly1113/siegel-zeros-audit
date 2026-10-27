@@ -1,0 +1,99 @@
+ledger_id	outline_section	use	note
+L001	3	table	Table 1 sha256
+L002	1; 3; 8	table	Table 1 finding [INFERRED]
+L003	3	table	Table 1 sha256
+L004	1; 3; 8	table	Table 1 finding [INFERRED]
+L005	3	table	Table 1 sha256
+L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling
+L007	2; 3	main	challenge sha256 beside the quoted statement
+L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge
+L009	3	main	34 statement-check axioms outputs; v2 log in the ledger folder
+L010		unused	public posting of the audits; not a result. Place as a footnote in Section 3 (grwtsk #29) or cut
+L011	3; 8	main	non-vacuity
+L012	3	main	non-vacuity
+L013	3	main	non-vacuity
+L014	3	main	non-vacuity
+L015	3; 9	footnote	NonVacuity.lean sha256
+L016	0; 4	main	location of OAI Corollary 4
+L017	4	main	only use, SiegelZeros tree
+L018	4; 6	main	scan-based only use
+L019	0; 4; 6	main	control scan 116314 (adc7f12); corroboration in 6
+L020	4	main	recommended count (referenced-names convention)
+L021	4	footnote	full-dump convention count
+L022	5; 9	main	Lemma 3 in lean-checks/Lemma3.lean
+L023	5	footnote	Pt definition
+L024	0; 5; 9	main	comparator-copy Lemma 3 statement source and sha256
+L025	0; 5	main	Corollary 4 statement source
+L026	5	main	bridge_descent
+L027	5	main	bridge_main
+L028	5	main	via_lemma3
+L029	5; 9	main	copies identical
+L030	5	main	axioms corroboration (2026-10-08)
+L031	5	footnote	axioms rerun at fd4aeeb (Lemma3Bridged.lean)
+L032	0; 5; 8	main	primary axioms record (comparator copy)
+L033	5	main	standalone nanoda 61810
+L034	5	main	negative control a
+L035	5	main	negative control b
+L036	5	main	type_of%
+L037	5	main	IsAlgClosed.lift
+L038	5	main	kernel vector c
+L039	5	main	hker
+L040	5	main	descent
+L041	5	main	quote Mathlib source line Equiv.lean:663, not the #check output
+L042	5	main	reused OAI lemma
+L043	5	main	reused OAI lemma
+L044	5	footnote	working draft, not cited
+L045	5	footnote	working draft, not cited
+L046	5	main	small-N; N = 2, 3 only
+L047	6	main	adc7f12 corroboration
+L048	6	main	challenge unchanged
+L049	6	main	adc7f12 comparator run
+L050	6	footnote	patch applies at fd4aeeb
+L051	0; 6	main	adc7f12 rerouted scan 92658
+L052	6; 8	main	HadamardSupport dependency
+L053	7	table	Table 3, 189 row
+L054	7	table	Table 3, 189 row
+L055	7	table	Table 3, unofficial column
+L056	7	table	Table 3, 227 row
+L057	7	table	Table 3, 227 row
+L058	7	table	Table 3, Catalan/KMedianThreshold row
+L059	7	table	cell text "not completed on this machine (memory)"; ledger value DEFERRED (permanent)
+L060	0; 7	table	export sizes
+L061	0; 7	table	export sizes
+L062	7	main	failure class 1 [INFERRED]
+L063	7	main	failure class 2 [INFERRED]
+L064	7	main	failure class 3 [INFERRED]
+L065	0; 7	table	[STATED] independent replay
+L066	7	table	[STATED]
+L067	7	table	[STATED]
+L068	7	footnote	[STATED] patch; sha256 computed here
+L069	7	footnote	[STATED] sweep commit
+L070	8	main	sandbox history
+L071	8	main	sandbox history
+L072	8	main	vsock
+L073	8	footnote	other open families
+L074	8	main	first run ~AF_UNIX only
+L075	8	main	first run under 5-family filter
+L076	0; 8	main	45-family deny list
+L077	8	main	t25 probe
+L078	8	main	WSL memory change
+L079	8	main	WSL memory change
+L080	8	footnote	cap and guard design; cite L098 for the test itself
+L081	9	main	Zenodo
+L082	9	main	Zenodo
+L083	9	main	Zenodo
+L084	7; 9	main	Zenodo corpus record
+L085	9	main	concept DOI
+L086		unused	stale HEAD (3 ahead of bb6f197); cut and replace with a new row at tag time. Tag list can be placed in Section 9 if the new row repeats it
+L087	2; 9	main	toolchain pins
+L088	2; 9	main	nanoda pins
+L089	1; 4	main	Jacobsthal copy, source reading only
+L090	1; 4; 7	main	import level only; 3 of 416
+L091	8	main	named as not evidence; never cite results/2026-10-08-lean-main-rerouted.txt
+L092	2; 9	main	full tool commits
+L093	0; 1; 6	table	Table 2 control verdict; note says "fresh local clone": use Joe's clone wording instead
+L094	4; 6	table	Table 2 control scan
+L095	0; 1; 6	table	Table 2 reroute verdict; same clone-wording caveat
+L096	0; 6	table	Table 2 reroute scan
+L097	0; 6	main	patch and installed files
+L098	8	main	MemoryMax test with saved output

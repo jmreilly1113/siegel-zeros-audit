@@ -1911,3 +1911,7 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - Read by J. Reilly, 2026-10-27: arXiv:2610.08144, cite with the framing sentence of v12:L258.
 - Author's statement (J. Reilly, 2026-10-27): the author checked every reference against its source.
 - Section 10 filled (Joe, 2026-10-27): seventh reading signed off (v13:L270); author's reference check (v13:L271, his statement); authorship sentence as v13:L272 (content by the author as point lists, text drafted by Claude Code); responsibility sentence added; JOE comments removed. results/2026-10-26-claims-ledger/ledger-v13.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v13.py .`), 272 rows.
+
+## 2026-10-27: bibliography checked
+
+- Checked by J. Reilly, 2026-10-27: all 23 entries of paper/draft/refs.bib against their sources (paper/draft/refs-checklist.md, last column). Claude Code had checked them read-only first (paper/draft/refs-sources/).

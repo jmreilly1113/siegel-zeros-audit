@@ -1,14 +1,14 @@
 ledger_id	outline_section	use	note
 L001	3	table	Table 1 sha256
-L002	1; 3; 8	table	Table 1 finding [INFERRED]
+L002	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
 L003	3	table	Table 1 sha256
-L004	1; 3; 8	table	Table 1 finding [INFERRED]
+L004	1; 3; 8	table	Table 1 finding [INFERRED]; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
 L005	3	table	Table 1 sha256
-L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling
+L006	1; 3; 8	table	Table 1 finding [INFERRED]; footnote on the ruling; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
 L007	2; 3	main	challenge sha256 beside the quoted statement
-L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge
+L008	1; 2; 3; 8	table	Table 1 finding [INFERRED]; paper Theorem 1 vs challenge; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
 L009	3	main	34 statement-check axioms outputs; v2 log in the ledger folder
-L010		unused	public posting of the audits; not a result. Place as a footnote in Section 3 (grwtsk #29) or cut
+L010	3	footnote	public posting of the four statement audits (grwtsk/openai-math #29); Section 3 footnote
 L011	3; 8	main	non-vacuity
 L012	3	main	non-vacuity
 L013	3	main	non-vacuity
@@ -84,7 +84,7 @@ L082	9	main	Zenodo
 L083	9	main	Zenodo
 L084	7; 9	main	Zenodo corpus record
 L085	9	main	concept DOI
-L086		unused	stale HEAD (3 ahead of bb6f197); cut and replace with a new row at tag time. Tag list can be placed in Section 9 if the new row repeats it
+L086		unused	cut: re-add at tag (stale HEAD; a new row is added when the tag is made; the id L086 stays)
 L087	2; 9	main	toolchain pins
 L088	2; 9	main	nanoda pins
 L089	1; 4	main	Jacobsthal copy, source reading only
@@ -97,3 +97,35 @@ L095	0; 1; 6	table	Table 2 reroute verdict; same clone-wording caveat
 L096	0; 6	table	Table 2 reroute scan
 L097	0; 6	main	patch and installed files
 L098	8	main	MemoryMax test with saved output
+L099	0; 4	main	the two invocation lines in OAI's proof of Corollary 4, quoted
+L100	0; 5	main	statement match of Lemma 3 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+L101	0; 5	main	statement match of Corollary 4 [INFERRED], value PENDING JOE READING; BLOCKED until read_by includes Joe (ledger-v3.tsv read_by)
+L102	2	main	[STATED] Comparator check 1 (README at d03acab)
+L103	2	main	[STATED] Comparator check 2
+L104	2	main	[STATED] Comparator check 3 and the external-kernel export file
+L105	2	main	[STATED] nanoda input format (README at 3a24072)
+L106	2	main	[STATED] paper Theorem 1, tex 66-73
+L107	2	main	[STATED] paper Lemma 2, tex 181-194
+L108	2; 5	main	[STATED] paper Lemma 3, tex 252-267; Section 5 side-by-side
+L109	2; 5	main	[STATED] paper Corollary 4, tex 410-420; Section 5 side-by-side
+L110	2	main	[STATED] paper Lemma 6, tex 517-524
+L111	2	main	[STATED] paper Lemma 7, tex 598-604
+L112	0; 7	main	outcome-level agreement with nealmcb, 160 compared
+L113	6	table	Table 2 control prebuild
+L114	6	table	Table 2 reroute prebuild
+L115	6	footnote	[INFERRED] why the reroute prebuild is shorter
+L116	6	table	Table 2 control comparator wall time and memory
+L117	6	table	Table 2 reroute comparator wall time and memory
+L118	6	footnote	no guard stops
+L119	6; 9	main	clone setup
+L120	6; 9	main	OAI closure built from scratch (COMPUTED from birth times)
+L121	7	table	Table 3 KMedianThreshold Lean-kernel Comparator run
+L122	7	table	Table 3 Catalan Lean-kernel Comparator run
+L123	8	table	per-run sandbox table: 2026-10-20 statement checks
+L124	8	table	per-run sandbox table: 2026-10-08 standalone nanoda
+L125	7	table	[STATED] ContinuumCoulombHardness, nealmcb comparator
+L126	7	footnote	[STATED] ContinuumCoulombHardness, nealmcb kernel-pair sweep exit 1
+L127	7	footnote	[STATED] ContinuumCoulombHardness, f67473b retests
+L128	7	table	[STATED] ContinuumCoulombHardness, 37cb87b + patch at 64 MiB
+L129	10	main	files with Claude co-authored commits
+L130	10	main	posts drafted in the session, per docs/log.md

@@ -1718,3 +1718,22 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - The same token also got 403 when listing its own depositions. INFERRED: it has expired, been revoked, or lost its deposit scopes.
   - Nothing on Zenodo was changed.
   - The script is ready. With a valid token (scopes deposit:write and deposit:actions), its dry run, then `--apply`, edits only the one sentence in each record and checks the public record afterwards.
+
+## 2026-10-27: claims ledger v3 (ids append-only), paper outline v3
+
+- Python 3.14.6. No Lean or comparator runs.
+  - Read-only queries in WSL: copies of the Comparator README (d03acab) and nanoda_lib README (3a24072); a guard.log extract; the reflog and birth times of /home/checker/math-r2.
+  - Output: results/2026-10-26-claims-ledger/v3-evidence/.
+- COMPUTED (id stability, results/2026-10-26-claims-ledger/id-stability.md, id-map-v1-v2.tsv):
+  - v2 renumbered v1's L050-L090, so 41 ids mean different things in v1 and v2.
+  - Ambiguous citers: gaps.md:7-8 and 34-35, 42; LEDGER.md:56-58; results/2026-10-27-reroute-fd4aeeb/SUMMARY.md:38. They are listed there, not edited.
+  - Ids are append-only from v3 on.
+  - L079 (v2) is the 20 GB change of 2026-10-22 08:10, and L078 (v2) is the 24 GB change of 2026-10-21 13:56:21. Both are confirmed by platform-change-wsl-24gb.txt and run.log; there was no disagreement.
+- results/2026-10-26-claims-ledger/ledger-v3.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v3.py .`): 130 rows, all FOUND.
+  - The v2 rows are unchanged.
+  - L099-L130 are new: COMPUTED 15, INFERRED 3, STATED 14.
+  - New columns: read_by and read_note.
+  - ledger.tsv and ledger-v2.tsv are unchanged.
+- COMPUTED: the OAI closure in the reroute clone was built from scratch. The clone was created at 22:17:36, and lean/.lake/build at 22:19:37, after the control prebuild started at 22:19:09 (v3-evidence/clone-r2-provenance.txt, L120).
+- Readings blocked on Joe (read_by has no Joe): L002, L004, L006, L008, L100 (Lemma 3 vs tex 252-267), L101 (Corollary 4 vs tex 410-420; no reading recorded at all).
+- paper/outline.md and paper/claim-map.tsv updated to v3. Not pushed.

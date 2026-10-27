@@ -1,0 +1,101 @@
+v1_id	v2_id	same_id	note
+L001	L001	yes	
+L002	L002	yes	
+L003	L003	yes	
+L004	L004	yes	
+L005	L005	yes	
+L006	L006	yes	
+L007	L007	yes	
+L008	L008	yes	
+L009	L009	yes	
+L010	L010	yes	
+L011	L011	yes	
+L012	L012	yes	
+L013	L013	yes	
+L014	L014	yes	
+L015	L015	yes	
+L016	L016	yes	
+L017	L017	yes	
+L018	L018	yes	
+L019	L019	yes	
+L020	L020	yes	
+L021	L021	yes	
+L022	L022	yes	
+L023	L023	yes	
+L024	L024	yes	
+L025	L025	yes	
+L026	L026	yes	
+L027	L027	yes	
+L028	L028	yes	
+L029	L029	yes	
+L030	L030	yes	
+L031	L031	yes	
+L032	L032	yes	same meaning; claim reworded and value filled when PENDING was closed (axioms-comparator-copy-2026-10-26.txt)
+L033	L033	yes	
+L034	L034	yes	
+L035	L035	yes	
+L036	L036	yes	
+L037	L037	yes	
+L038	L038	yes	
+L039	L039	yes	
+L040	L040	yes	
+L041	L041	yes	
+L042	L042	yes	
+L043	L043	yes	
+L044	L044	yes	
+L045	L045	yes	
+L046	L046	yes	
+L047	L047	yes	
+L048	L048	yes	
+L049	L049	yes	
+L050	none	no	v1 MISSING gap (reroute not run at fd4aeeb under the deny list); closed in v2 by L095, L096, L097
+L051	L050	no	
+L052	L051	no	
+L053	L052	no	
+L054	L053	no	
+L055	L054	no	
+L056	L055	no	
+L057	L056	no	
+L058	L057	no	
+L059	L058	no	
+L060	L059	no	
+L061	L060	no	
+L062	L061	no	
+L063	L062	no	
+L064	L063	no	
+L065	L064	no	
+L066	L065	no	
+L067	L066	no	
+L068	L067	no	
+L069	L068	no	
+L070	L069	no	
+L071	L070	no	
+L072	L071	no	
+L073	L072	no	
+L074	L073	no	
+L075	L074	no	
+L076	L075	no	
+L077	L076	no	
+L078	L077	no	
+L079	none	no	v1 MISSING gap (no SiegelZeros comparator run under the deny list); closed in v2 by L093, L094
+L080	L078	no	
+L081	L079	no	
+L082	L080	no	
+L083	L081	no	
+L084	L082	no	
+L085	L083	no	
+L086	L084	no	
+L087	L085	no	
+L088	L086	no	
+L089	L087	no	
+L090	L088	no	
+none	L089	n/a	new in v2
+none	L090	n/a	new in v2
+none	L091	n/a	new in v2
+none	L092	n/a	new in v2
+none	L093	n/a	new in v2
+none	L094	n/a	new in v2
+none	L095	n/a	new in v2
+none	L096	n/a	new in v2
+none	L097	n/a	new in v2
+none	L098	n/a	new in v2

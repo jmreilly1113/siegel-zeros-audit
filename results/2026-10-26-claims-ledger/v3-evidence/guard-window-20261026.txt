@@ -1,0 +1,11 @@
+# Extract of /home/checker/corpus/guard.log (read-only), 2026-10-27 08:22:25: the window of the fd4aeeb control and reroute runs (run.log 2026-10-26 22:17:36 to 23:00:18)
+# Command: awk '$1=="2026-10-26" && $2>="22:17:00" && $2<="23:01:00"' /home/checker/corpus/guard.log
+# guard.log sha256 at extraction: f14cf831e65ad8f900e553f76f6e7f8421f4697a86786441090d7405e6993045
+2026-10-26 22:18:13 drop_caches; disk 87G MemAvailable 19052MB
+2026-10-26 22:29:11 drop_caches; disk 88G MemAvailable 16752MB
+2026-10-26 22:40:05 drop_caches; disk 88G MemAvailable 15322MB
+2026-10-26 22:51:03 drop_caches; disk 88G MemAvailable 16086MB
+# lines in window: 4; LIMIT lines in window: 0; 'stopped' lines in window: 0
+# nearest LIMIT lines before and after the window:
+2026-10-26 20:40:30 LIMIT: disk 84G, MemAvailable 309MB; stopping checker build processes
+# (end)

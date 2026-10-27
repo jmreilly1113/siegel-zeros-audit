@@ -1,0 +1,15 @@
+# Read-only provenance of the reroute clone /home/checker/math-r2, 2026-10-27 08:25:32
+## .git/logs/HEAD (first lines; epoch seconds converted below)
+0000000000000000000000000000000000000000 fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb checker <checker@DESKTOP-PKP0QDP.> 1793067456 -0400	clone: from /home/checker/math
+fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb checker <checker@DESKTOP-PKP0QDP.> 1793067493 -0400	checkout: moving from main to fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+  1793067456 = 2026-10-26 22:17:36 -0400
+  1793067493 = 2026-10-26 22:18:13 -0400
+## birth times (stat %w) and mtimes
+2026-10-26 22:17:36.382890994 -0400 | 2026-10-26 22:18:12.879841273 -0400 | /home/checker/math-r2
+2026-10-26 22:18:14.371236843 -0400 | 2026-10-26 22:19:37.362536346 -0400 | /home/checker/math-r2/lean/.lake
+2026-10-26 22:19:37.362536346 -0400 | 2026-10-26 22:19:37.362536346 -0400 | /home/checker/math-r2/lean/.lake/build
+2026-10-26 22:18:14.371236843 -0400 | 2026-10-26 22:18:14.371236843 -0400 | /home/checker/math-r2/lean/.lake/packages
+## first entries of lean/.lake/build/lib (oldest .olean birth time)
+2026-10-26+22:19:53.6438575820 /home/checker/math-r2/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Differentials/LogDerivative.olean
+2026-10-26+22:19:53.6530311500 /home/checker/math-r2/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Characters/PrimePowerTail.olean
+count of OAI .olean files: 308

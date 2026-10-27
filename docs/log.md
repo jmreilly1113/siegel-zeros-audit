@@ -1698,3 +1698,11 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
   - FINAL.md (one-page summary).
   - Appended updates: SUMMARY.md, docs/paper/limitations.md.
   - reply-61-draft.md updated with the step-5 nanoda results (not posted).
+
+### 2026-10-26 ~21:00 reply-61 draft edits and FINAL.md correction (before push)
+
+- COMPUTED: in the 3a24072 comparator nanoda log of each of the six extended crash configs, line 35 is a stack-overflow line: "thread 'thread_N' (pid) has overflowed its stack", then "fatal runtime error: stack overflow, aborting". Values: DirectedFeedback thread_2, MinUncut thread_0, LaughlinPlanar thread_1, LaughlinFock thread_3, KaplanskyDirectFiniteness thread_3, SquareDifference thread_2.
+- reply-61-draft.md was edited as Joe asked, with one wording change:
+  - Joe's text was: "your 1 GiB runs of the same configs grew to 127-175 GiB".
+  - What it says instead: #55 gives 1 GiB figures only for DirectedFeedback (overflow at 24.6 GiB); LaughlinPlanar's and LaughlinFock's 175 and 127 GiB are not tied to a stack size there. So the draft cites those three separately, plus nealmcb's statement that all 15 of his failures also failed at 1 GiB.
+- FINAL.md: appended a dated correction. Class 1 evidence is now split into COMPUTED and STATED by config, with the cap noted as a lower bound, and the RoundTables B3 cell reads "not run here; pass on 8199c74 + patch (S)".

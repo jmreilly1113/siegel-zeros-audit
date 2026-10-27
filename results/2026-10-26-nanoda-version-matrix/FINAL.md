@@ -75,3 +75,13 @@
   - The cause of ContinuumCoulombHardness's build failure.
   - That comparator's own exports for KMedianThreshold and Catalan equal ours.
   - Whether vsock offered any route to the internet was not tested, by decision.
+
+## Correction 2026-10-26 (appended; text above unchanged, per CLAUDE.md for results files)
+
+- **Class 1 evidence, stated precisely.** Above it reads "Evidence (C): they fail on B1 by growing to the cap, and pass on f67473b, B2 and B3." The basis differs by config:
+  - COMPUTED for the Laughlin group (Laughlin, LaughlinPlanar, LaughlinFock), DirectedFeedback, MinUncut, KMedianThreshold and Catalan.
+  - STATED (#55) for the six RoundTables configs from the 189: OptimalMaxCut, UniqueGamesTheorem, VertexCover, BinPackingGap, IndependentSets and PerfectCompleteness. They were not run on B1 here. Their f67473b pass is COMPUTED (2026-10-20, through comparator); B2 and B3 were not run on them.
+  - "Growing to the cap" is a lower bound set by the 16G limit (RAM plus swap). We did not measure how far each run would have grown. nealmcb reports 24.6–285 GiB for configs of this group (#55).
+- **Matrix, RoundTables row (the six configs from the 189), B3 cell:** read "not run here; pass on 8199c74 + patch (S)", in place of "not run". The stated pass is on 8199c74 with the let fix and Nat.succ guard at 16 MiB (nealmcb, results/nanoda-ab-let.jsonl), not on 37cb87b.
+- Logged in docs/log.md, 2026-10-26.
+- Checked before this correction (COMPUTED): the 3a24072 comparator log of each of the six extended crash configs has a stack-overflow line. Each runs/<C>-nanoda.log, line 35, reads "thread 'thread_N' (pid) has overflowed its stack", followed by "fatal runtime error: stack overflow, aborting". The configs are DirectedFeedback, MinUncut, LaughlinPlanar, LaughlinFock, KaplanskyDirectFiniteness and SquareDifference.

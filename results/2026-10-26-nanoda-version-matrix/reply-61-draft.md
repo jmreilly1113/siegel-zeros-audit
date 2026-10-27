@@ -2,7 +2,7 @@
 
 Results from a second platform (x86_64 WSL2, Ubuntu 24.04), openai/math fd4aeeb, Lean 4.34.1, lean4export 076e8e5. Every run is `nanoda_bin config.json` directly on the export, with the config comparator writes (`num_threads` 4, `nat_extension` and `string_extension` true), a 16G memory cap and a 30 min timeout.
 
-**1. 37cb87b + your `nanoda-let-fvar-and-succ-guard-37cb87b.patch` (sha256 edd9824f…), STACK_SIZE 64 MiB, accepts all 9 of our nanoda crash configs.**
+**1. 37cb87b + your `nanoda-let-fvar-and-succ-guard-37cb87b.patch` (sha256 edd9824f…), STACK_SIZE 64 MiB, accepts all 9 of our crash configs for which we have exports.** The six RoundTables configs among our 189 (OptimalMaxCut, UniqueGamesTheorem, VertexCover, BinPackingGap, IndependentSets, PerfectCompleteness) were not rerun here; their exports were made inside comparator and not kept.
 
 | config | 3a24072, 16 MiB (via comparator) | 37cb87b, 16 MiB | 37cb87b + patch, 64 MiB |
 |---|---|---|---|
@@ -16,7 +16,9 @@ Results from a second platform (x86_64 WSL2, Ubuntu 24.04), openai/math fd4aeeb,
 | DirectedFeedback | overflow | exit 0, 48 s | exit 0, 48 s, 1.0 GB |
 | MinUncut | overflow | exit 0, 54 s | exit 0, 51 s, 1.0 GB |
 
-KaplanskyDirectFiniteness follows the same pattern as KaplanskyFinitelyPresented and GroupRingDeterminant. It overflows 3a24072 at 16 MiB and passes f67473b at 16 MiB (37 s, 1.27 GB). It overflows 37cb87b at 16 MiB, and passes 3a24072 with a 1 GiB stack (43 s).
+KaplanskyDirectFiniteness follows the same pattern as KaplanskyFinitelyPresented and GroupRingDeterminant. It overflows 3a24072 at 16 MiB and passes f67473b at 16 MiB (37 s, 1.27 GB). It overflows 37cb87b at 16 MiB.
+
+KaplanskyDirectFiniteness isn't in #55; it appears in your stack-size results file but hasn't been reported in an issue.
 
 SquareDifference on f67473b at 16 MiB: `thread 'thread_2' has overflowed its stack` after 98 s at 4.16 GB.
 
@@ -32,7 +34,7 @@ We could not run ContinuumCoulombHardness: on this 20 GB machine its build was s
 **3. Our export sizes equal yours** (`results/nanoda-ab-let.jsonl`) to the byte for all of these configs, including Catalan (832,532,249) and KMedianThreshold (620,096,646), and for MatchingFPRAS (485,099,446) and ContingencyTables (492,768,597).
 
 **4. 3a24072 with STACK_SIZE 1 GiB on the six extended configs:**
-- KaplanskyDirectFiniteness passes.
-- DirectedFeedback, MinUncut, LaughlinPlanar, LaughlinFock and SquareDifference each grow to the 16G cap in 106–453 s and are OOM-killed. That fits "a larger stack does not help" in #55.
+- KaplanskyDirectFiniteness passes (43 s).
+- DirectedFeedback, MinUncut, LaughlinPlanar, LaughlinFock and SquareDifference each grow to the 16G cap in 106–453 s and are OOM-killed. Consistent with #55, where larger stacks didn't help. The cap bounds these runs. In #55, DirectedFeedback overflowed a 1 GiB stack at 24.6 GiB, LaughlinPlanar and LaughlinFock reached 175 and 127 GiB, and you noted that all 15 of your failures also failed at 1 GiB.
 
 Binaries, hashes and logs: <LOGS>

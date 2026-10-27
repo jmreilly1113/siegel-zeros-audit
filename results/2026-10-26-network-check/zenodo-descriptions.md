@@ -2,7 +2,7 @@
 
 The old sentences were read from https://zenodo.org/api/records/<id> on 2026-10-26 (description field, HTML stripped). The replacement wording follows the repo edit of the same day: "IP and Unix-domain sockets blocked by a seccomp filter; see the 2026-10-26 network note."
 
-The "network note" would be results/2026-10-26-network-check/README.md at a pushed commit. Replace `https://github.com/jmreilly1113/siegel-zeros-audit/blob/bb6f197b69d77cf505decba848b21e7f5a12c48d/results/2026-10-26-network-check/README.md` with that link.
+The "network note" is results/2026-10-26-network-check/README.md at the pushed commit bb6f197; the links below point there.
 
 ## 10.5281/zenodo.23499651 (reviewer-packet-v2-preliminary)
 

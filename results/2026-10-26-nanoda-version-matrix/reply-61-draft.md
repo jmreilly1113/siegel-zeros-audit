@@ -1,4 +1,4 @@
-<!-- DRAFT, not posted. For nanoda_lib #61. Joe to review; replace https://github.com/jmreilly1113/siegel-zeros-audit/tree/bb6f197b69d77cf505decba848b21e7f5a12c48d/results/2026-10-26-nanoda-version-matrix with a link to results/2026-10-26-nanoda-version-matrix at a pushed commit. -->
+<!-- DRAFT, not posted. For nanoda_lib #61. Links point at the pushed commit bb6f197. -->
 
 Results from a second platform (x86_64 WSL2, Ubuntu 24.04), openai/math fd4aeeb, Lean 4.34.1, lean4export 076e8e5. Every run is `nanoda_bin config.json` directly on the export, with the config comparator writes (`num_threads` 4, `nat_extension` and `string_extension` true), a 16G memory cap and a 30 min timeout.
 

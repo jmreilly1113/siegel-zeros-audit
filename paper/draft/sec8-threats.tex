@@ -29,7 +29,7 @@ The rerouted chain still imports OpenAI's patched PrimeNumberTheoremAnd.SiegelZe
 
 \paragraph{Sandbox.}
 The primary results ran under a deny list naming all 45 address families of kernel 5.15.167.4, under which all 138 socket() calls of an all-families probe fail. % v12:L076 v12:L077
-Earlier runs used a 5-family filter, which denied IP, Unix-domain, netlink and packet sockets but left AF\_VSOCK open, with a connection to the Windows host succeeding, and also left AF\_PPPOX and AF\_ALG creatable. % v12:L070 v12:L071 v12:L072 v12:L073
+Earlier runs used a 5-family filter, which denied IP, Unix-domain, netlink and packet sockets but left AF\_VSOCK open, with a connection to the Windows host succeeding, and also left AF\_PPPOX and AF\_ALG creatable \cite{grwtsk-40}. % v12:L070 v12:L071 v12:L072 v12:L073
 Three runs had no network filter: the NonVacuity lemmas, the standalone nanoda run and the statement-check build. % v12:L138 v12:L124 v12:L123
 None of those three is a run where a filter affects the result. % v12:L266
 

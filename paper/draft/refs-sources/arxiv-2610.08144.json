@@ -1,0 +1,9 @@
+{
+ "request": "GET https://arxiv.org/abs/2610.08144v1",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "title": "Title:Navier-Stokes lost in translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs",
+  "authors": "Authors:Alexander Bastounis, Fabian Circelli, Anders C. Hansen",
+  "submitted": "6 Oct 2026"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "request": "gh api repos/openai/math/contents/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf?ref=fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "path": "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf",
+  "sha": "8132b77eeb270a70b25df8d6609f008e83e65d91",
+  "size": 1588969,
+  "html_url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf"
+ }
+}

@@ -61,7 +61,7 @@ They were compiled as checker via sudo -u checker, with no systemd-run unit and 
 
 \subsection{The three 7/8 challenges}
 
-The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 v8:L150
+The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' \cite{openai-qrh-2026} (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 v8:L150
 Lines 107-110 of its build/paper.tex read: % v7:L144
 %% QUOTE external/openai-math/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex 107-110 sha=v7:L144
 \begin{paperquote}{}
@@ -78,7 +78,7 @@ The HeckeSevenEighths finding rests on a ruling about the L-function row and on 
 The Lean sub-claims of these readings (non-vacuity, series identities, holomorphy) come from a separate statement-check build. % v7:L002 v7:L009
 All 34 \texttt{\#print axioms} outputs of that build are exactly [propext, Classical.choice, Quot.sound]. % v7:L009
 That build ran as checker via sudo -u checker, with no systemd-run unit and no address-family filter. % v7:L123
-\footnote{The four statement audits were also posted publicly on grwtsk/openai-math \#29, at 2026-10-20T16:56:00Z. % v7:L010
+\footnote{The four statement audits were also posted publicly on \cite{grwtsk-29}, at 2026-10-20T16:56:00Z. % v7:L010
 }
 
 \begin{table}[tbp]

@@ -1,0 +1,11 @@
+{
+ "request": "gh api repos/grwtsk/openai-math/issues/29",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "title": "[AUDIT.26] Reproduce manuscript PDFs and bind paper statements to exact Lean declarations",
+  "user": "grwtsk",
+  "created_at": "2026-10-09T08:28:02Z",
+  "html_url": "https://github.com/grwtsk/openai-math/issues/29",
+  "error": null
+ }
+}

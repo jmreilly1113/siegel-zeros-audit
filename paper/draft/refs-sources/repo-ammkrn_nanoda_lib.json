@@ -1,0 +1,13 @@
+{
+ "request": "gh api repos/ammkrn/nanoda_lib; gh api repos/ammkrn/nanoda_lib/commits/3a2407216ee84a75f9e1aead6803d0578be06ae7",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "full_name": "ammkrn/nanoda_lib",
+  "owner": "ammkrn",
+  "owner_type": "User",
+  "description": "Library implementing type inference/checking functionality based on the Lean theorem prover",
+  "commit": "3a2407216ee84a75f9e1aead6803d0578be06ae7",
+  "commit_date": "2026-09-22T17:32:52Z",
+  "error": null
+ }
+}

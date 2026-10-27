@@ -1,0 +1,13 @@
+{
+ "request": "gh api repos/leanprover-community/mathlib4; gh api repos/leanprover-community/mathlib4/commits/d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "full_name": "leanprover-community/mathlib4",
+  "owner": "leanprover-community",
+  "owner_type": "Organization",
+  "description": "The math library of Lean 4",
+  "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "commit_date": "2026-09-24T20:34:32Z",
+  "error": null
+ }
+}

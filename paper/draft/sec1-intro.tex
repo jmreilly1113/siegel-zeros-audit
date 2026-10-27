@@ -1,14 +1,14 @@
 % Section 1 (2026-10-27), drafted by Claude Code from the author's paragraph plan. Every factual sentence ends with a comment naming its ledger rows (ledger-v12.tsv).
 \section{Introduction}\label{sec:intro}
 
-OpenAI's openai/math repository publishes mathematical manuscripts together with Lean formalizations and Comparator challenges; we use it at commits adc7f12 and fd4aeeb. % v12:L007 v12:L001
-The manuscript ``Uniform exclusion of Landau--Siegel zeros'' (OpenAI, October 1, 2026) states as its Theorem 1 that there is an absolute constant c > 0 such that every real zero beta in (0,1) of every primitive nonprincipal real Dirichlet L-function of conductor q >= 3 satisfies (1 - beta) log q >= c. % v12:L106 v12:L143
-Comparator's README states that for each listed theorem it guarantees three things: the theorem proves the statement given in the challenge, uses no more axioms than permitted, and is accepted by the Lean kernel. % v12:L102 v12:L103 v12:L104
-Comparator can also pass the solution export to an external kernel; we used nanoda, at the official build 3a24072, as the second kernel. % v12:L104 v12:L105 v12:L088
+OpenAI's openai/math repository publishes mathematical manuscripts together with Lean formalizations and Comparator challenges; we use it at commits adc7f12 and fd4aeeb \cite{openai-math-adc7f12,openai-math-fd4aeeb}. % v12:L007 v12:L001
+The manuscript ``Uniform exclusion of Landau--Siegel zeros'' (OpenAI, October 1, 2026) \cite{openai-siegel-2026} states as its Theorem 1 that there is an absolute constant c > 0 such that every real zero beta in (0,1) of every primitive nonprincipal real Dirichlet L-function of conductor q >= 3 satisfies (1 - beta) log q >= c. % v12:L106 v12:L143
+Comparator's README \cite{comparator} states that for each listed theorem it guarantees three things: the theorem proves the statement given in the challenge, uses no more axioms than permitted, and is accepted by the Lean kernel. % v12:L102 v12:L103 v12:L104
+Comparator can also pass the solution export to an external kernel; we used nanoda \cite{nanoda-lib}, at the official build 3a24072, as the second kernel. % v12:L104 v12:L105 v12:L088
 
 Acceptance shows that a Lean proof of the Lean statement exists, using only the permitted axioms. % v12:L102 v12:L103 v12:L104
 It does not show that the Lean proof follows the paper's argument: in the case studied here, both accepted OpenAI proofs obtain the paper's spanning step by other means (Section~\ref{sec:gap}). % v12:L099 v12:L252 v12:L253
-Bastounis, Circelli and Hansen [arXiv:2610.08144] argue that a Lean check of an AI autoformalisation need not certify the natural-language proof, and show for OpenAI's Navier–Stokes formalisation that the Lean proof does not correspond to the natural-language proof. % v12:L258
+Bastounis, Circelli and Hansen \cite{bastounis2026} argue that a Lean check of an AI autoformalisation need not certify the natural-language proof, and show for OpenAI's Navier–Stokes formalisation that the Lean proof does not correspond to the natural-language proof. % v12:L258
 Their Section 1 states that they make no claims about the correctness of OpenAI's natural-language proof. % v12:L258
 
 We find that the challenge has two checked theorems, with equivalent statements, and that OpenAI proves them by two routes. % v12:L147 v12:L251 v12:L201
@@ -31,7 +31,7 @@ We do not claim the following. % no-fact: list lead-in
 \item Statement faithfulness rests on reading, by the author, with the reasoning recorded row by row. % v12:L204 v12:L250
 \item The reroute changes one of the two checked theorems; OpenAI's main result is untouched. % v12:L147 v12:L148 v12:L149 v12:L202
 \item The separate copy of this code in namespace OAI.Erdos970, loaded by 3 configurations, is outside our scope. % v12:L089 v12:L090
-\item For an explicit value of the constant we point to the note docs/effectivity/note-v2.pdf in the reviewer-packet-v3 archive (10.5281/zenodo.23523697) and to arXiv:2610.15483, and make no claim about it here. % v12:L259 v12:L268
+\item For an explicit value of the constant we point to the note docs/effectivity/note-v2.pdf in the reviewer-packet-v3 archive \cite{zenodo-23523697} and to \cite{arxiv-2610-15483}, and make no claim about it here. % v12:L259 v12:L268
 \end{itemize}
 
 Rerouting OpenAI's main result through the paper's Lemma 3 would require a bridge from Lemma3.rectangle to ActualCutoffSpanning; we leave this open. % v12:L254 v12:L253

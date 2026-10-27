@@ -1,0 +1,11 @@
+{
+ "request": "gh api repos/ammkrn/nanoda_lib/issues/62",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "title": "OAI.SquareDifference.source_ordered_contraction overflows the stack on the current master",
+  "user": "nealmcb",
+  "created_at": "2026-10-23T03:01:10Z",
+  "html_url": "https://github.com/ammkrn/nanoda_lib/issues/62",
+  "error": null
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "request": "gh api repos/leanprover/comparator; gh api repos/leanprover/comparator/commits/d03acab154d269c06e60e4de7e4cc85deebff94b",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "full_name": "leanprover/comparator",
+  "owner": "leanprover",
+  "owner_type": "Organization",
+  "description": null,
+  "commit": "d03acab154d269c06e60e4de7e4cc85deebff94b",
+  "commit_date": "2026-09-14T14:24:00Z",
+  "error": null
+ }
+}

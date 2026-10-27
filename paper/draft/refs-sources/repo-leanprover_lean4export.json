@@ -1,0 +1,13 @@
+{
+ "request": "gh api repos/leanprover/lean4export; gh api repos/leanprover/lean4export/commits/076e8e57707e813375e8f9da8bf989799ace9680",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "full_name": "leanprover/lean4export",
+  "owner": "leanprover",
+  "owner_type": "Organization",
+  "description": "Plain-text declaration export for Lean 4",
+  "commit": "076e8e57707e813375e8f9da8bf989799ace9680",
+  "commit_date": "2026-09-14T14:12:51Z",
+  "error": null
+ }
+}

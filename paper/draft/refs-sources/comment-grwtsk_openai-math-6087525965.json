@@ -1,0 +1,11 @@
+{
+ "request": "gh api repos/grwtsk/openai-math/issues/comments/6087525965",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "user": "jmreilly1113",
+  "created_at": "2026-10-09T19:10:40Z",
+  "issue_url": "https://api.github.com/repos/grwtsk/openai-math/issues/40",
+  "html_url": "https://github.com/grwtsk/openai-math/issues/40#issuecomment-6087525965",
+  "error": null
+ }
+}

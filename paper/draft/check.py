@@ -1,6 +1,6 @@
 """Check the draft sections against the claims ledger (2026-10-27). Reads files only; changes nothing.
 
-Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v13.tsv; ids agree across v2-v13)
+Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v14.tsv; ids agree across v2-v14)
 
 For each of sec2-sec7 and the appendix files:
  1. Quotes. A line "%% QUOTE <path> <a>-<b> [sha=<vN:Lxxx>]" must precede a Verbatim or paperquote block. The block must
@@ -22,7 +22,7 @@ Prints every finding; exit 1 if there is any.
 import csv, hashlib, os, re, sys
 
 root = sys.argv[1]
-ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v13.tsv'
+ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v14.tsv'
 D = os.path.join(root, 'paper', 'draft')
 FILES = ['abstract.tex', 'sec1-intro.tex', 'sec2-background.tex', 'sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex', 'sec7-corpus.tex', 'sec8-threats.tex', 'sec9-artifacts.tex', 'sec10-ai.tex', 'appendix-78-listings.tex', 'appendix-reasoning.tex']
 rows = {r['id']: r for r in csv.DictReader(open(os.path.join(root, ledger), encoding='utf-8'), delimiter='\t')}
@@ -47,7 +47,7 @@ def split_comment(line):
 
 
 STRUCT = re.compile(r'^\s*\\(section|subsection|begin|end|label|paragraph\{[^}]*\}$|small|footnotesize|scriptsize|toprule|midrule|bottomrule|centering|footnote\{?\s*$)')
-NAMED = re.compile(r'\b(Theorem|Lemma|Lemmas|Corollary|Section|Table|Listing|Remark)s?(~|\s)(\\ref\{[^}]*\}|\d+(\s+and\s+\d+)?)')
+NAMED = re.compile(r'\b(Theorem|Lemma|Lemmas|Corollary|Section|Table|Listing|Remark)s?(~|\s)(\\ref\{[^}]*\}|\d+(?:\.\d+)?(\s+and\s+\d+(?:\.\d+)?)?)')
 LATEX = re.compile(r'\\(texttt|emph|textbackslash|ldots|operatorname|footnote|multicolumn|scriptsize|ref|label|caption|cite)\b|\\[a-zA-Z]+\*?')
 
 
@@ -134,6 +134,8 @@ for f in FILES:
         if com.strip().startswith('no-fact:'):
             if re.search(r'\d', NAMED.sub(' ', text)): rep('NO-FACT-WITH-DIGITS', f, n, t[:100])
             nofact.append(com.strip()); i += 1; continue
+        if 'TAG-PENDING' in com:
+            rep('TAG-PENDING', f, n, 'repository tag not yet set: ' + t[:80]); i += 1; continue
         if not ids:
             rep('UNCITED', f, n, t[:100]); i += 1; continue
         for r in ids:
@@ -143,7 +145,26 @@ for f in FILES:
             if not found(tok, ids, text, quotes): rep('VALUE-NOT-IN-CITED-ROWS', f, n, f'{tok!r} (cited: {" ".join(ids)})')
         i += 1
 
-print(f'# check.py: {len(FILES)} files against {ledger} ({len(rows)} rows)')
+# 4. Bibliography: every \cite key is in refs.bib, every refs.bib entry is cited, and each "UNCONFIRMED: <fields>" note is a finding.
+bib = open(os.path.join(D, 'refs.bib'), encoding='utf-8').read()
+entries = {}
+for m in re.finditer(r'^@\w+\{([^,\s]+),(.*?)^\}', bib, re.S | re.M):
+    entries[m.group(1)] = m.group(2)
+cited = {}
+for f in FILES:
+    for n, line in enumerate(open(os.path.join(D, f), encoding='utf-8').read().split('\n'), 1):
+        text, _ = split_comment(line)
+        for m in re.finditer(r'\\cite(?:\[[^\]]*\])?\{([^}]*)\}', text):
+            for k in m.group(1).split(','):
+                cited.setdefault(k.strip(), []).append(f'{f}:{n}')
+for k, where in sorted(cited.items()):
+    if k not in entries: rep('CITE-NOT-IN-BIB', where[0].split(':')[0], where[0].split(':')[1], k)
+for k in entries:
+    if k not in cited: rep('BIB-UNCITED', 'refs.bib', 0, k)
+    m = re.search(r'UNCONFIRMED:\s*([^}]*)', entries[k])
+    if m: rep('BIB-UNCONFIRMED', 'refs.bib', 0, f'{k}: {m.group(1).strip()}')
+
+print(f'# check.py: {len(FILES)} files against {ledger} ({len(rows)} rows); refs.bib {len(entries)} entries, {len(cited)} keys cited')
 kinds = {}
 for x in find: kinds[x.split('\t')[0]] = kinds.get(x.split('\t')[0], 0) + 1
 print('# findings by kind:', kinds if kinds else 'none')

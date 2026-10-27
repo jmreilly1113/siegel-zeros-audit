@@ -1,0 +1,10 @@
+{
+ "request": "gh api repos/openai/math/contents/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf?ref=fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+ "fetched": "2026-10-27T10:41:57-0400",
+ "data": {
+  "path": "preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf",
+  "sha": "e31b1a244f251439b01d930c906f4e0c91dfc3a8",
+  "size": 404812,
+  "html_url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf"
+ }
+}

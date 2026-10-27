@@ -1915,3 +1915,11 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 ## 2026-10-27: bibliography checked
 
 - Checked by J. Reilly, 2026-10-27: all 23 entries of paper/draft/refs.bib against their sources (paper/draft/refs-checklist.md, last column). Claude Code had checked them read-only first (paper/draft/refs-sources/).
+
+## 2026-10-27: bibliography decisions (Joe)
+
+- nanoda_lib author: "Use the real name if the project itself states it, in Cargo.toml's authors field or the README ... If the project gives only the account name, use that." The pinned clone's Cargo.toml has no authors field, and its README names no author, so the account name ammkrn stays.
+- arXiv:2610.15483: "A bibliography entry for an arXiv paper normally carries the author as arXiv lists them ... The rule you set was about acknowledgments and contact." refs.bib now carries the author as the abstract page lists them (paper/draft/refs-sources/arxiv-2610.15483.json); the text cites it by \cite only.
+- #61: the comment text is saved as paper/draft/refs-sources/comment-body-6402528075.json.
+- plainurl.bst: read-only CTAN fetch (urlbst 0.9.1, sha256 3fed7ca6...), kept as paper/draft/plainurl.bst (paper/draft/tex-deps.md).
+- lipics-v2021.cls is not on CTAN (package API: no lipics, lipics-v2021 or dagstuhl; the file search finds no file). It was not fetched from elsewhere; the draft stays in the article class.

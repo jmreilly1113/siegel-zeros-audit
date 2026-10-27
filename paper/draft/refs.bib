@@ -60,7 +60,8 @@
 }
 
 % Local: clone /root/tools/nanoda_lib. Fetched: refs-sources/repo-ammkrn_nanoda_lib.json (owner ammkrn, a user account; commit date 2026-09-22) and user-ammkrn.json.
-% The account's profile name (in user-ammkrn.json) is not used here, pending Joe's decision under the project rule that keeps outreach contacts' names out of output files.
+% Joe's decision (2026-10-27): use the real name only if the project states it. Cargo.toml has no authors field and the README names no author
+% (pinned clone, Cargo.toml sha256 0a17b333...), so the account name is used.
 @misc{nanoda-lib,
   author       = {ammkrn},
   title        = {nanoda\_lib},
@@ -130,16 +131,16 @@
   url          = {https://doi.org/10.1112/S0010437X05001351}
 }
 
-% Local: refs/banks-2610.15483.md:3-5. Fetched: refs-sources/arxiv-2610.15483.json (title, submitted 11 Oct 2026). Author omitted by the project rule (cited by arXiv number only).
+% Local: refs/banks-2610.15483.md:3-5. Fetched: refs-sources/arxiv-2610.15483.json (title, author as arXiv lists it, submitted 11 Oct 2026).
+% Joe's decision (2026-10-27): the entry carries the author as arXiv lists them; the no-name rule is about acknowledgments and contact, not citations.
 @misc{arxiv-2610-15483,
-  key          = {arXiv:2610.15483},
+  author       = {William D. Banks},
   title        = {On the {OpenAI} proof that {Landau--Siegel} zeros do not exist},
   year         = {2026},
   month        = oct,
   howpublished = {arXiv:2610.15483 v1, 11 October 2026},
   doi          = {10.48550/arXiv.2610.15483},
-  url          = {https://arxiv.org/abs/2610.15483},
-  note         = {Cited by arXiv number only}
+  url          = {https://arxiv.org/abs/2610.15483}
 }
 
 % Local: v12-evidence/arxiv-2610.08144-abstract.txt. Fetched: refs-sources/arxiv-2610.08144.json (title, authors, submitted 6 Oct 2026).

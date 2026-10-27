@@ -56,3 +56,8 @@ Solid: the five DOIs, from record JSON fetched read-only on 2026-10-26 and copie
 - L063 (nanoda failure class 1: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
 - L064 (nanoda failure class 2: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
 - L065 (nanoda failure class 3: members and evidence (matrix-v3.tsv cells, COMPUTED or STATED per ...): rests on: per-config outcomes across nanoda builds (COMPUTED or STATED cells); class membership is an interpretation of those outcomes, measured by backtrace only for RoundTables (STATED, #55)
+
+## Update 2026-10-26 22:01 (appended; ledger.tsv unchanged)
+
+- **L032 is now FOUND.** Its source is axioms-comparator-copy-2026-10-26.txt. All nine declarations of the comparator copy (Lemma3.interpolation, cor4_rpow_nat, cor4_cube, cor4_real, cor4_budget, rectangle, bridge_descent, bridge_main, actual_biquadratic_rectangle_span_via_lemma3) depend on exactly [propext, Classical.choice, Quot.sound]. Run at openai/math fd4aeeb under the 45-family deny list, from the byte-identical files installed for the accepted run.
+- **Counts after this update:** FOUND 87, MISSING 3, PENDING 0, out of 90 rows.

@@ -14,3 +14,7 @@
 - **Only use:** holds within the SiegelZeros tree. OAI also contains a separate copy under OAI/NumberTheory/Jacobsthal/Siegel/ with its own use at :140, so the paper should say "in the SiegelZeros chain".
 - **Faithfulness findings (4 rows) and failure classes (3 rows):** INFERRED by design (reading and interpretation); see LEDGER.md.
 - **Fresh rectangle re-check:** this used Lemma3Bridged.lean (canonical, identical text), not the comparator-copy files the paper cites. The PENDING row closes that.
+
+## Update 2026-10-26 22:01 (appended)
+
+- **L032 (PENDING) is closed** by axioms-comparator-copy-2026-10-26.txt: all nine declarations depend only on the standard axioms. The remaining gaps are L041, L050 and L079 (MISSING).

@@ -1,0 +1,50 @@
+# #print axioms on the declarations of the comparator copy itself (lean-checks/comparator-copy/PaperLemma3/), 2026-10-26 22:00, for the claims ledger (row L032)
+# Inputs: PaperLemma3/Lemma3.lean sha256 1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283 and PaperLemma3/Bridge.lean sha256 af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250
+#   (both byte-identical to the files installed for the accepted rerouted comparator run, results/2026-10-09-rerouted-comparator-diff.txt), copied to /tmp/pl3 in WSL.
+# openai/math fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb (/home/checker/math, status clean; InvariantJetLinearMap.lean sha256 printed below); Lean 4.34.1; Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612
+# Method (no lake build, nothing written to the clone):
+#   1. lean -R /tmp/pl3/src -o /tmp/pl3/olean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.olean <src>/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean   (module OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3)
+#   2. /tmp/pl3/olean mirrors the clone's .lake/build/lib/lean/OAI by symlinks (Lean resolves the OAI prefix to one root), with the real PaperLemma3/ directory
+#   3. (Bridge.lean + nine '#print axioms' lines) | LEAN_PATH=/tmp/pl3/olean:$LEAN_PATH lean --stdin
+#   all inside: bash wsl-comparator/75d_sbx.sh 3600 4 "lake env bash /tmp/pl3/run.sh" (driver scratchpad q77.sh + q77_inner.sh, reproduced below)
+# Sandbox: systemd-run --user as checker (NoNewPrivs 1), property RestrictAddressFamilies=~AF_UNIX AF_INET AF_AX25 AF_IPX AF_APPLETALK AF_NETROM AF_BRIDGE AF_ATMPVC AF_X25 AF_INET6 AF_ROSE AF_DECnet AF_NETBEUI AF_SECURITY AF_KEY AF_NETLINK AF_PACKET AF_ASH AF_ECONET AF_ATMSVC AF_RDS AF_SNA AF_IRDA AF_PPPOX AF_WANPIPE AF_LLC AF_IB AF_MPLS AF_CAN AF_TIPC AF_BLUETOOTH AF_IUCV AF_RXRPC AF_ISDN AF_PHONET AF_IEEE802154 AF_CAIF AF_ALG AF_NFC AF_VSOCK AF_KCM AF_QIPCRTR AF_SMC AF_XDP AF_MCTP
+# Two earlier attempts of this step failed before producing any axioms output (lean run outside lake env: Mathlib not found; then the OAI prefix resolving only to /tmp/pl3/olean). Fixed as in 2 and 3.
+## driver (q77_inner.sh)
+# runs as checker inside 75d (lake env active). Compile PaperLemma3/Lemma3 to an olean under /tmp/pl3, then Bridge.lean via stdin.
+set -e
+P=/tmp/pl3; M=OAI/NumberTheory/SiegelZeros/PaperLemma3
+lean --version
+lean -R $P/src -o $P/olean/$M/Lemma3.olean -i $P/olean/$M/Lemma3.ilean $P/src/$M/Lemma3.lean 2>&1 | grep -v -E "warning|Hint|linter|simp \[|^  [A-Za-z_]+$|^$" || true
+ls -la $P/olean/$M/Lemma3.olean
+# mirror the clone build so the OAI prefix resolves: symlinks for every sibling down OAI/NumberTheory/SiegelZeros, real PaperLemma3/
+B=/home/checker/math/lean/.lake/build/lib/lean
+for d in OAI OAI/NumberTheory OAI/NumberTheory/SiegelZeros; do for e in $B/$d/*; do n=$(basename $e); case "$d/$n" in OAI/NumberTheory|OAI/NumberTheory/SiegelZeros) ;; *) [ -e $P/olean/$d/$n ] || ln -s $e $P/olean/$d/$n;; esac; done; done
+ls -la $P/olean/$M/ | head -3; ls -la $P/olean/OAI/NumberTheory/SiegelZeros/Structure | head -2
+{ cat $P/Bridge.lean; printf '\n%s\n' \
+  "#print axioms Lemma3.interpolation" "#print axioms Lemma3.cor4_rpow_nat" "#print axioms Lemma3.cor4_cube" "#print axioms Lemma3.cor4_real" \
+  "#print axioms Lemma3.cor4_budget" "#print axioms Lemma3.rectangle" "#print axioms Lemma3.bridge_descent" "#print axioms Lemma3.bridge_main" \
+  "#print axioms Lemma3.actual_biquadratic_rectangle_span_via_lemma3"; } | LEAN_PATH=$P/olean:$LEAN_PATH lean --stdin
+## output (verbatim)
+== inputs
+1ce196f54fa98689bbea6bd74f2abdb110f5cbcca2eecddcca9316b8af465283  /tmp/pl3/src/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.lean
+af401514808dde5bb913ce8e87cc5280b704a234ea324897d1a1ced1f218f250  /tmp/pl3/Bridge.lean
+== clone fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb status []; InvariantJetLinearMap.lean sha256 09b8bd7fa82365e69caebfad466d039d85084595376766a731945fa5c11a2bdc
+== run (2026-10-26 22:00:24)
+Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+-rw-rw-r-- 1 checker checker 2687672 Oct 26 22:00 /tmp/pl3/olean/OAI/NumberTheory/SiegelZeros/PaperLemma3/Lemma3.olean
+total 2736
+drwxr-xr-x 2 checker checker    4096 Oct 26 22:00 .
+drwxr-xr-x 3 checker checker    4096 Oct 26 22:00 ..
+lrwxrwxrwx 1 checker checker 83 Oct 26 22:00 /tmp/pl3/olean/OAI/NumberTheory/SiegelZeros/Structure -> /home/checker/math/lean/.lake/build/lib/lean/OAI/NumberTheory/SiegelZeros/Structure
+'Lemma3.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.cor4_rpow_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.cor4_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.cor4_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.cor4_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.bridge_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.bridge_main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Lemma3.actual_biquadratic_rectangle_span_via_lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+Service runtime: 32.454s
+SANDBOX EXIT CODE: 0
+== done 22:00:59

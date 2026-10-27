@@ -1807,3 +1807,23 @@ Joe asked (morning of 2026-10-08) to carry out, in order: (1) build the Lean pro
 - Lemma3.rectangle vs tex 410-420: Read by J. Reilly, 2026-10-27: MATCH
 - The reading notes are in results/2026-10-27-readings/readings-claude-code.md.
 - Ledger: results/2026-10-26-claims-ledger/ledger-v7.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v7.py .`), 146 rows. read_by filled for v7:L002, L004, L006, L008; v6:L100 and L101 SUPERSEDED by v7:L145 and L146 (value MATCH). paper/outline.md and paper/claim-map.tsv: BLOCKED marks removed; version labels cited from v6:L143 and L144; Fischler fallback wording; Bastounis-Circelli-Hansen cited with the reading-7 sentence. Not pushed.
+
+## 2026-10-27: ledger v8 (checked declarations; 003.md link; Hecke identification wording; reasoning points); draft appendix
+
+- COMPUTED, from the existing scan logs (results/2026-10-27-reroute-fd4aeeb/{control,reroute}-deps.log; no new run):
+  - The SiegelZeros challenge has Comparator check two theorems, exists_absolute_real_zero_gap and WeightedTorusJets.dirichletRealZeroBound_proof. They are the challenge file's two theorems (lines 8, 19) and the config's theorem_names (v8:L147).
+  - dirichletRealZeroBound_proof: control 116314 constants, matching the three OAI lemmas; reroute 92658, matching only via_lemma3 and interpolation (v7:L094, v7:L096).
+  - exists_absolute_real_zero_gap: 107760 constants and no match, in both the control and the reroute (v8:L148, v8:L149).
+  - No rerouted closure contains the three OAI lemmas, so there is no STOP.
+  - The scan matches by last name component, for those five names only.
+- STATED (v8:L150): lean/docs/003.md lines 3, 5, 10 and 22-24 link the three 7/8 challenges to the 7/8 paper.
+- INFERRED (v8:L151, read_by empty): the HeckeSevenEighths identification in paper wording, for Table 1 in place of "Joe's ruling".
+- INFERRED (v8:L152-L197, read_by empty): one row per reasoning point of the six readings, for Joe to mark.
+- results/2026-10-27-readings/erratum-2026-10-27.md: the DirichletSevenEighths range is 8-11, not 17-20. The notes file is unchanged.
+- paper/draft:
+  - the three 7/8 listings moved to appendix-78-listings.tex;
+  - sec3 cites v8:L150 in place of the MISSING-ROW marker;
+  - check.py checks the appendix too and defaults to ledger-v8.tsv. Result: 0 findings apart from 1 NOTE.
+  - "same reachability convention" is not restored, because v7:L019 states no convention.
+- Ledger: results/2026-10-26-claims-ledger/ledger-v8.tsv (`python -I results/2026-10-26-claims-ledger/build_ledger_v8.py .`), 197 rows.
+- Outline item 7 (Bastounis-Circelli-Hansen) is skipped at Joe's word: he did that reading.

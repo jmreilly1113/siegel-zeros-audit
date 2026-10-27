@@ -61,7 +61,7 @@ They were compiled as checker via sudo -u checker, with no systemd-run unit and 
 
 \subsection{The three 7/8 challenges}
 
-The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 MISSING-ROW: no ledger row links these three challenges to the 7/8 paper's main theorem (lean/docs/003.md, Comparator links table)
+The other three challenges encode the main theorem of the 7/8 paper, ``The Quasi-Riemann Hypothesis'' (\texttt{\textbackslash date\{30 September 2026\}}, author OpenAI), whose paper.pdf has sha256 8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7 at both adc7f12 and fd4aeeb. % v7:L144 v7:L002 v7:L004 v7:L006 v8:L150
 Lines 107-110 of its build/paper.tex read: % v7:L144
 %% QUOTE external/openai-math/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex 107-110 sha=v7:L144
 \begin{paperquote}{}
@@ -71,29 +71,7 @@ The same holds for every Dirichlet $L$-function, including $\zeta(s)$.
 A pole at $s=1$ for a principal character is allowed.
 \end{paperquote}
 
-Listing~\ref{lst:78-challenges} quotes the three challenge statements. % v7:L001 v7:L003 v7:L005
-
-\begin{listing}[tbp]
-\caption{The 7/8 challenges at openai/math fd4aeeb: lean/ComparatorChallenges/QuasiRiemannHypothesis.lean:5-6 (sha256 065f8c9a\ldots), DirichletSevenEighths.lean:8-11 (sha256 8fb13ad9\ldots) and HeckeSevenEighths.lean:237-239 (sha256 cb5e404f\ldots).}\label{lst:78-challenges} % v7:L001 v7:L003 v7:L005 v7:L144
-%% QUOTE external/openai-math/lean/ComparatorChallenges/QuasiRiemannHypothesis.lean 5-6 sha=v7:L001
-\begin{Verbatim}
-theorem riemannZeta_ne_zero_of_seven_eighths_lt_re
-    {s : ℂ} (hs : (7 / 8 : ℝ) < s.re) : riemannZeta s ≠ 0 := by
-\end{Verbatim}
-%% QUOTE external/openai-math/lean/ComparatorChallenges/DirichletSevenEighths.lean 8-11 sha=v7:L003
-\begin{Verbatim}
-theorem LFunction_ne_zero_of_seven_eighths_lt_re
-    {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) {s : ℂ}
-    (hs : (7 / 8 : ℝ) < s.re) (hpole : ¬ (χ = 1 ∧ s = 1)) :
-    _root_.DirichletCharacter.LFunction χ s ≠ 0 := by
-\end{Verbatim}
-%% QUOTE external/openai-math/lean/ComparatorChallenges/HeckeSevenEighths.lean 237-239 sha=v7:L005
-\begin{Verbatim}
-theorem LFunction_ne_zero_of_seven_eighths_lt_re
-    (χ : Character) {s : ℂ} (hs : (7 / 8 : ℝ) < s.re)
-    (hpole : ¬ (χ.residue = 1 ∧ s = 1)) : LFunction χ s ≠ 0 := by sorry
-\end{Verbatim}
-\end{listing}
+Listing~\ref{lst:78-challenges} in Appendix~\ref{app:78-listings} quotes the three challenge statements. % v7:L001 v7:L003 v7:L005
 
 By reading each Lean statement against the paper's text, all three match the paper statement; the QuasiRiemannHypothesis finding carries the qualification ``except s = 1, covered by Mathlib's junk value''. % v7:L002 v7:L004 v7:L006
 The HeckeSevenEighths finding rests on a ruling about the L-function row and on one INFERRED identification. % v7:L006

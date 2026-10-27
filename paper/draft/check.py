@@ -1,8 +1,8 @@
 """Check the draft sections against the claims ledger (2026-10-27). Reads files only; changes nothing.
 
-Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v7.tsv)
+Usage: python -I paper/draft/check.py <repo root> [ledger file]   (default: results/2026-10-26-claims-ledger/ledger-v8.tsv; ids agree across v2-v8)
 
-For each of sec3-sec6:
+For each of sec3-sec6 and the appendix file:
  1. Quotes. A line "%% QUOTE <path> <a>-<b> [sha=<vN:Lxxx>]" must precede a Verbatim or paperquote block. The block must
     equal lines a..b of <path> (CRLF normalised to LF). "%% QUOTE-CONTAINED" requires each block line to occur inside lines a..b.
     With sha=..., the file's LF (or raw) sha256 must occur in that ledger row, or the path must occur in the row's source.
@@ -21,9 +21,9 @@ Prints every finding; exit 1 if there is any.
 import csv, hashlib, os, re, sys
 
 root = sys.argv[1]
-ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v7.tsv'
+ledger = sys.argv[2] if len(sys.argv) > 2 else 'results/2026-10-26-claims-ledger/ledger-v8.tsv'
 D = os.path.join(root, 'paper', 'draft')
-FILES = ['sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex']
+FILES = ['sec3-faithfulness.tex', 'sec4-gap.tex', 'sec5-lemma3.tex', 'sec6-reroute.tex', 'appendix-78-listings.tex']
 rows = {r['id']: r for r in csv.DictReader(open(os.path.join(root, ledger), encoding='utf-8'), delimiter='\t')}
 FIELDS = ['claim', 'value', 'unit', 'source', 'label', 'openai_math_commit', 'toolchain', 'sandbox', 'note', 'read_by', 'read_note']
 text_of = {i: ' '.join(r.get(k, '') for k in FIELDS) for i, r in rows.items()}

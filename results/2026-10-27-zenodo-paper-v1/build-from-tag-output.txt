@@ -1,0 +1,11 @@
+pass1 0
+bibtex 0
+pass3 0
+Pages:           20
+overfull hboxes: 0
+PDF text identical to final/draft-main.pdf
+747af8a61f447e9a1cc53be0b5e542f058910b78d8544ba4c096408d7c0d983c  siegel-zeros-audit-paper-v1.pdf
+9d5ca91fa4e208255cb4685fdecf1a8856567bf10a211545d9ac5cfceb21d89c  siegel-zeros-audit-paper-v1.zip
+total 18500
+-rwxrwxrwx 1 root root   552408 Oct 27 11:20 siegel-zeros-audit-paper-v1.pdf
+-rwxrwxrwx 1 root root 18387991 Oct 27 11:20 siegel-zeros-audit-paper-v1.zip

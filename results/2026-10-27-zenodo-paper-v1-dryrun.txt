@@ -1,0 +1,5 @@
+local siegel-zeros-audit-paper-v1.pdf: 552408 bytes, md5 73332e897d4f13a4d7699294e38d8fbe, sha256 747af8a61f447e9a1cc53be0b5e542f058910b78d8544ba4c096408d7c0d983c
+local siegel-zeros-audit-paper-v1.zip: 18387991 bytes, md5 687515abf85b9f57bf0e79ffaf3f006b, sha256 9d5ca91fa4e208255cb4685fdecf1a8856567bf10a211545d9ac5cfceb21d89c
+23523697: state done, submitted True, version reviewer-packet-v3, conceptdoi 10.5281/zenodo.23269527, files ['jmreilly1113/siegel-zeros-audit-reviewer-packet-v3.zip']
+23523697 metadata keys: ['access_right', 'creators', 'custom', 'description', 'doi', 'imprint_publisher', 'keywords', 'license', 'prereserve_doi', 'publication_date', 'related_identifiers', 'title', 'upload_type', 'version']
+dry run only (no --apply)

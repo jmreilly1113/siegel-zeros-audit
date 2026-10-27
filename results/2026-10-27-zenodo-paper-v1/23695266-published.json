@@ -1,0 +1,105 @@
+{
+ "doi": "10.5281/zenodo.23695266",
+ "conceptdoi": "10.5281/zenodo.23269527",
+ "id": 23695266,
+ "links": "https://zenodo.org/records/23695266",
+ "metadata": {
+  "title": "Formalizing the interpolation lemma of the openai/math Landau–Siegel paper and substituting it into a Comparator-accepted proof",
+  "doi": "10.5281/zenodo.23695266",
+  "publication_date": "2026-10-27",
+  "description": "<p>OpenAI's openai/math release includes a Lean formalization of \"Uniform exclusion of Landau–Siegel zeros\" (OpenAI, October 1, 2026). Its Comparator challenge has two checked theorems, whose statements we prove equivalent in Lean. OpenAI proves them by two routes, neither through the paper's proof of Lemma 3. The catalogued main result, exists_absolute_real_zero_gap, gets its spanning step from a local Bézout argument and does not use OpenAI's Corollary 4 theorem. The second theorem, dirichletRealZeroBound_proof, proves Corollary 4 by a multiplicity estimate. We formalized the paper's proofs of Lemma 3 and Corollary 4 in Lean. By reading, the Lean statements match the paper's, and the declarations use only the axioms propext, Classical.choice and Quot.sound. A +2/-1 substitution puts the paper's Corollary 4 into dirichletRealZeroBound_proof. Comparator accepts the result with both kernels at openai/math fd4aeeb under a deny list of all 45 socket address families, and that theorem's closure no longer contains the three named OpenAI lemmas. Our replay of the corpus agrees with an independent replay on all 402 configurations where both have a verdict.</p><p>Files: the paper (PDF) and the repository state at tag paper-v1 (zip), including the Lean files, run scripts, results folders and the claims ledger. Not refereed.</p>",
+  "access_right": "open",
+  "creators": [
+   {
+    "name": "Reilly, Joseph M.",
+    "affiliation": null
+   }
+  ],
+  "keywords": [
+   "Landau–Siegel zeros",
+   "Dirichlet L-functions",
+   "Lean 4",
+   "formal verification",
+   "Comparator",
+   "nanoda",
+   "openai/math"
+  ],
+  "related_identifiers": [
+   {
+    "identifier": "10.5281/zenodo.23505836",
+    "relation": "isSupplementedBy",
+    "resource_type": "software",
+    "scheme": "doi"
+   },
+   {
+    "identifier": "https://github.com/jmreilly1113/siegel-zeros-audit/tree/paper-v1",
+    "relation": "isSupplementTo",
+    "scheme": "url"
+   },
+   {
+    "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+    "relation": "references",
+    "scheme": "url"
+   },
+   {
+    "identifier": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "relation": "references",
+    "scheme": "url"
+   },
+   {
+    "identifier": "https://github.com/leanprover/comparator/tree/d03acab154d269c06e60e4de7e4cc85deebff94b",
+    "relation": "references",
+    "scheme": "url"
+   },
+   {
+    "identifier": "https://github.com/ammkrn/nanoda_lib/tree/3a2407216ee84a75f9e1aead6803d0578be06ae7",
+    "relation": "references",
+    "scheme": "url"
+   },
+   {
+    "identifier": "https://github.com/nealmcb/openai-math-lean-tooling/tree/1ca7ff2a0280760783ee2b198c0d6f2a1cfeaba4",
+    "relation": "references",
+    "scheme": "url"
+   },
+   {
+    "identifier": "arXiv:2610.15483",
+    "relation": "references",
+    "resource_type": "publication-preprint",
+    "scheme": "arxiv"
+   }
+  ],
+  "version": "paper-v1",
+  "resource_type": {
+   "title": "Preprint",
+   "type": "publication",
+   "subtype": "preprint"
+  },
+  "license": {
+   "id": "cc-by-4.0"
+  },
+  "relations": {
+   "version": [
+    {
+     "index": 3,
+     "is_last": true,
+     "parent": {
+      "pid_type": "recid",
+      "pid_value": "23269527"
+     }
+    }
+   ]
+  }
+ },
+ "files": [
+  [
+   "siegel-zeros-audit-paper-v1.pdf",
+   "md5:73332e897d4f13a4d7699294e38d8fbe",
+   552408
+  ],
+  [
+   "siegel-zeros-audit-paper-v1.zip",
+   "md5:687515abf85b9f57bf0e79ffaf3f006b",
+   18387991
+  ]
+ ]
+}

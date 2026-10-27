@@ -29,3 +29,28 @@ The corpus, extended-replay and version-matrix builds used a pre-fetched clone o
 - The SiegelZeros comparator result cited in the paper is the 2026-10-08 14:00 run, wsl-comparator/29_comparator_nanoda.sh: results/2026-10-08-lean-comparator-nanoda-netblock.txt, where both kernels accept. That was the first run under the deny list above. The earlier 12:15 run (08_comparator.sh) used the comparator README's wrapper, RestrictAddressFamilies=~AF_UNIX, which denies only Unix-domain sockets, so it is not cited for that claim.
 - Comparator's landrun (`--best-effort`, no network flags) adds no network restriction on this 5.15 kernel. Tested: TCP and DNS succeed under landrun alone.
 - Test and inventory: results/2026-10-26-network-check/ (README.md, inventory.md).
+
+## Update 2026-10-27 (appended; Joe's drafting decisions): the fd4aeeb reroute clone
+
+Source: results/2026-10-27-reroute-fd4aeeb/SUMMARY.md, run.log, control-prebuild.log, reroute-prebuild.log (`bash wsl-comparator/150_reroute_fd4aeeb.sh results/2026-10-27-reroute-fd4aeeb`).
+
+- **Artifacts wording (use this, not "fresh clone"):** "local clone of fd4aeeb; package directory reused read-only from the original clone; OAI closure built from scratch."
+  - COMPUTED: lean/.lake/packages (Mathlib and the other pinned packages, prebuilt) was bind-mounted read-only from /home/checker/math, and a write test as checker was refused. The packages were not rebuilt.
+  - INFERRED (from how the kernels receive declarations, docs/paper/independence.md (a)): this does not weaken the kernel check. Both kernels re-typecheck every declaration in the export, Mathlib's included, whatever produced the .olean files. What it limits is the independence of the build, so "fresh clone" alone would overstate it.
+- **Prebuild times: put both in the table.** Wall times are the sandbox units' "Service runtime" lines.
+
+  | run | prebuild | jobs | comparator |
+  |---|---|---|---|
+  | control | 11 min 20 s (11min 19.935s) | 9,243 | 842 s |
+  | reroute | 1 min 39 s (1min 39.395s) | 9,245 | 659 s |
+
+  - The reroute ran in the same clone, after the control. It added the two PaperLemma3 modules and patched one file.
+  - INFERRED: lake reused the control's build outputs and rebuilt only the new modules, the patched module and what depends on it, so the short time is expected, not an anomaly. reroute-prebuild.log lists only modules that printed warnings (e.g. "Built OAI.NumberTheory.SiegelZeros.PaperLemma3.Lemma3 (12s)"), so the full list of rebuilt modules is not recorded.
+- **Scope sentence (at the import level, which is what was measured):** "Three further configurations load modules from a separate copy of this code (namespace OAI.Erdos970), with its own multiplicity estimate. The reroute concerns the SiegelZeros chain only."
+  - COMPUTED: results/2026-10-26-claims-ledger/jacobsthal-import-scan.txt (Jacobsthal, JacobsthalImproved, OstmannPrimes; import closure, not declaration closure); the copy's own uniform_rectangular_multiplicity is cited in ledger-v2.tsv.
+  - Not run: a declaration-level scan of whether those three proofs use the copy's Corollary 4. Skip it unless a reader asks.
+- **Never cite results/2026-10-08-lean-main-rerouted.txt in the paper.** It belongs to the superseded `#reroute` metaprogram (lean-checks/README.md). Older write-ups still cite it: docs/writeup.md:108, 110, 114 and docs/lean-paper-map.md:20, 41. If the paper draws on those passages, take the claims from the comparator route instead:
+  - results/2026-10-09-lean-comparator-rerouted-nanoda.txt;
+  - results/2026-10-27-reroute-fd4aeeb/;
+  - results/2026-10-08-lean-main-closure-cor4-usage.txt, for "exists_absolute_real_zero_gap does not use Corollary 4". This is also shown by "matches []" in the 2026-10-27 scans.
+- **Release:** push the repo now. Hold the tag and the Zenodo deposit until the paper's final version, so the archived state is the one the paper cites.

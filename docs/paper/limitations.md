@@ -34,3 +34,13 @@ COMPUTED (results/2026-10-26-nanoda-version-matrix/SUMMARY.md, step 5; exports b
 
 - COMPUTED: Lean's kernel accepted KMedianThreshold (369 s) and Catalan (2,234 s) here, through the shipped-config comparator run under the full deny list and a 16G cap. Both kernels have now accepted these two on this platform; nanoda's run used the unofficial tool set B3. Their official outcome stays "not checked".
 - COMPUTED: ContinuumCoulombHardness could not be built here. The guard stopped its build at 4 threads and again at 2 threads, at MemAvailable 1,448 MB and 309 MB. It is permanently deferred, and its results are STATED only (nealmcb).
+
+## Update 2026-10-27 (appended; Joe's drafting decisions)
+
+- **ContinuumCoulombHardness is settled.** In the paper's corpus table, report it as "not completed on this machine (memory)". Cite Neal McBurnett's results, which are STATED here (pins in results/2026-10-27-reroute-fd4aeeb/optional/README.md, section B):
+  - f67473b accepts it, at 130 s and about 24 GiB (nanoda_lib #61);
+  - 37cb87b with his patch at 64 MiB accepts it, at 50.0 s and 1.8 GB (openai-math-lean-tooling 1ca7ff2, results/nanoda-stack-size-2026-10-25.txt);
+  - his comparator run accepts it (results/cmp-all/STATUS.md, same commit).
+  - COMPUTED here: two guard stops of its build, at 4 threads (2026-10-26 19:32:36, MemAvailable 1,448 MB) and at 2 threads (20:40:30, 309 MB). These justify the permanent deferral.
+  - The results file corpus-227-v3.tsv keeps its own label, "DEFERRED (permanent)". The paper's table uses the wording above.
+- **The reroute covers the SiegelZeros chain only.** Three accepted configs, Jacobsthal, JacobsthalImproved and OstmannPrimes, import a separate copy of the code (OAI.Erdos970) with its own multiplicity estimate, which the reroute does not touch. Use the import-level sentence in methods-notes.md (Update 2026-10-27).
